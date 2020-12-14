@@ -32,19 +32,20 @@ export const serializeAws_restJson1CreateTokenCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/token";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientId !== undefined && { clientId: input.clientId }),
-    ...(input.clientSecret !== undefined && { clientSecret: input.clientSecret }),
-    ...(input.code !== undefined && { code: input.code }),
-    ...(input.deviceCode !== undefined && { deviceCode: input.deviceCode }),
-    ...(input.grantType !== undefined && { grantType: input.grantType }),
-    ...(input.redirectUri !== undefined && { redirectUri: input.redirectUri }),
-    ...(input.refreshToken !== undefined && { refreshToken: input.refreshToken }),
-    ...(input.scope !== undefined && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
+    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
+    ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
+    ...(input.code !== undefined && input.code !== null && { code: input.code }),
+    ...(input.deviceCode !== undefined && input.deviceCode !== null && { deviceCode: input.deviceCode }),
+    ...(input.grantType !== undefined && input.grantType !== null && { grantType: input.grantType }),
+    ...(input.redirectUri !== undefined && input.redirectUri !== null && { redirectUri: input.redirectUri }),
+    ...(input.refreshToken !== undefined && input.refreshToken !== null && { refreshToken: input.refreshToken }),
+    ...(input.scope !== undefined &&
+      input.scope !== null && { scope: serializeAws_restJson1Scopes(input.scope, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -63,14 +64,15 @@ export const serializeAws_restJson1RegisterClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/client/register";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientName !== undefined && { clientName: input.clientName }),
-    ...(input.clientType !== undefined && { clientType: input.clientType }),
-    ...(input.scopes !== undefined && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
+    ...(input.clientName !== undefined && input.clientName !== null && { clientName: input.clientName }),
+    ...(input.clientType !== undefined && input.clientType !== null && { clientType: input.clientType }),
+    ...(input.scopes !== undefined &&
+      input.scopes !== null && { scopes: serializeAws_restJson1Scopes(input.scopes, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -89,14 +91,14 @@ export const serializeAws_restJson1StartDeviceAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/device_authorization";
   let body: any;
   body = JSON.stringify({
-    ...(input.clientId !== undefined && { clientId: input.clientId }),
-    ...(input.clientSecret !== undefined && { clientSecret: input.clientSecret }),
-    ...(input.startUrl !== undefined && { startUrl: input.startUrl }),
+    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
+    ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
+    ...(input.startUrl !== undefined && input.startUrl !== null && { startUrl: input.startUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -720,7 +722,14 @@ const deserializeAws_restJson1UnsupportedGrantTypeExceptionResponse = async (
 };
 
 const serializeAws_restJson1Scopes = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -743,6 +752,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

@@ -209,7 +209,7 @@ export const serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.AttachManagedPolicyToPermissionSet",
   };
   let body: any;
@@ -222,7 +222,7 @@ export const serializeAws_json1_1CreateAccountAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.CreateAccountAssignment",
   };
   let body: any;
@@ -235,7 +235,7 @@ export const serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurati
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
@@ -248,7 +248,7 @@ export const serializeAws_json1_1CreatePermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.CreatePermissionSet",
   };
   let body: any;
@@ -261,7 +261,7 @@ export const serializeAws_json1_1DeleteAccountAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DeleteAccountAssignment",
   };
   let body: any;
@@ -274,7 +274,7 @@ export const serializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DeleteInlinePolicyFromPermissionSet",
   };
   let body: any;
@@ -287,7 +287,7 @@ export const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurati
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
@@ -300,7 +300,7 @@ export const serializeAws_json1_1DeletePermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DeletePermissionSet",
   };
   let body: any;
@@ -313,7 +313,7 @@ export const serializeAws_json1_1DescribeAccountAssignmentCreationStatusCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DescribeAccountAssignmentCreationStatus",
   };
   let body: any;
@@ -326,7 +326,7 @@ export const serializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DescribeAccountAssignmentDeletionStatus",
   };
   let body: any;
@@ -339,7 +339,7 @@ export const serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigura
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
@@ -352,7 +352,7 @@ export const serializeAws_json1_1DescribePermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DescribePermissionSet",
   };
   let body: any;
@@ -365,7 +365,7 @@ export const serializeAws_json1_1DescribePermissionSetProvisioningStatusCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DescribePermissionSetProvisioningStatus",
   };
   let body: any;
@@ -378,7 +378,7 @@ export const serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.DetachManagedPolicyFromPermissionSet",
   };
   let body: any;
@@ -391,7 +391,7 @@ export const serializeAws_json1_1GetInlinePolicyForPermissionSetCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.GetInlinePolicyForPermissionSet",
   };
   let body: any;
@@ -404,7 +404,7 @@ export const serializeAws_json1_1ListAccountAssignmentCreationStatusCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListAccountAssignmentCreationStatus",
   };
   let body: any;
@@ -417,7 +417,7 @@ export const serializeAws_json1_1ListAccountAssignmentDeletionStatusCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListAccountAssignmentDeletionStatus",
   };
   let body: any;
@@ -430,7 +430,7 @@ export const serializeAws_json1_1ListAccountAssignmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListAccountAssignments",
   };
   let body: any;
@@ -443,7 +443,7 @@ export const serializeAws_json1_1ListAccountsForProvisionedPermissionSetCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListAccountsForProvisionedPermissionSet",
   };
   let body: any;
@@ -456,7 +456,7 @@ export const serializeAws_json1_1ListInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListInstances",
   };
   let body: any;
@@ -469,7 +469,7 @@ export const serializeAws_json1_1ListManagedPoliciesInPermissionSetCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListManagedPoliciesInPermissionSet",
   };
   let body: any;
@@ -482,7 +482,7 @@ export const serializeAws_json1_1ListPermissionSetProvisioningStatusCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListPermissionSetProvisioningStatus",
   };
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_json1_1ListPermissionSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListPermissionSets",
   };
   let body: any;
@@ -508,7 +508,7 @@ export const serializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand =
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListPermissionSetsProvisionedToAccount",
   };
   let body: any;
@@ -521,7 +521,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ListTagsForResource",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1ProvisionPermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.ProvisionPermissionSet",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1PutInlinePolicyToPermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.PutInlinePolicyToPermissionSet",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.TagResource",
   };
   let body: any;
@@ -573,7 +573,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.UntagResource",
   };
   let body: any;
@@ -586,7 +586,7 @@ export const serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurati
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
@@ -599,7 +599,7 @@ export const serializeAws_json1_1UpdatePermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "SWBExternalService.UpdatePermissionSet",
   };
   let body: any;
@@ -634,8 +634,7 @@ const deserializeAws_json1_1AttachManagedPolicyToPermissionSetCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -737,8 +736,7 @@ const deserializeAws_json1_1CreateAccountAssignmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -840,8 +838,7 @@ const deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCom
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -935,8 +932,7 @@ const deserializeAws_json1_1CreatePermissionSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1038,8 +1034,7 @@ const deserializeAws_json1_1DeleteAccountAssignmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1133,8 +1128,7 @@ const deserializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1228,8 +1222,7 @@ const deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCom
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1323,8 +1316,7 @@ const deserializeAws_json1_1DeletePermissionSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1418,8 +1410,7 @@ const deserializeAws_json1_1DescribeAccountAssignmentCreationStatusCommandError 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1505,8 +1496,7 @@ const deserializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommandError 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1592,8 +1582,7 @@ const deserializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationC
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1679,8 +1668,7 @@ const deserializeAws_json1_1DescribePermissionSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1766,8 +1754,7 @@ const deserializeAws_json1_1DescribePermissionSetProvisioningStatusCommandError 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1853,8 +1840,7 @@ const deserializeAws_json1_1DetachManagedPolicyFromPermissionSetCommandError = a
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -1948,8 +1934,7 @@ const deserializeAws_json1_1GetInlinePolicyForPermissionSetCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2035,8 +2020,7 @@ const deserializeAws_json1_1ListAccountAssignmentCreationStatusCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2122,8 +2106,7 @@ const deserializeAws_json1_1ListAccountAssignmentDeletionStatusCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2209,8 +2192,7 @@ const deserializeAws_json1_1ListAccountAssignmentsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2296,8 +2278,7 @@ const deserializeAws_json1_1ListAccountsForProvisionedPermissionSetCommandError 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2383,8 +2364,7 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2462,8 +2442,7 @@ const deserializeAws_json1_1ListManagedPoliciesInPermissionSetCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2549,8 +2528,7 @@ const deserializeAws_json1_1ListPermissionSetProvisioningStatusCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2636,8 +2614,7 @@ const deserializeAws_json1_1ListPermissionSetsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2723,8 +2700,7 @@ const deserializeAws_json1_1ListPermissionSetsProvisionedToAccountCommandError =
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2810,8 +2786,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2897,8 +2872,7 @@ const deserializeAws_json1_1ProvisionPermissionSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -2992,8 +2966,7 @@ const deserializeAws_json1_1PutInlinePolicyToPermissionSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -3095,8 +3068,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -3198,8 +3170,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -3293,8 +3264,7 @@ const deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCom
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -3388,8 +3358,7 @@ const deserializeAws_json1_1UpdatePermissionSetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
@@ -3563,8 +3532,9 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1AccessControlAttribute = (input: AccessControlAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: serializeAws_json1_1AccessControlAttributeValue(input.Value, context) }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined &&
+      input.Value !== null && { Value: serializeAws_json1_1AccessControlAttributeValue(input.Value, context) }),
   };
 };
 
@@ -3572,7 +3542,14 @@ const serializeAws_json1_1AccessControlAttributeList = (
   input: AccessControlAttribute[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1AccessControlAttribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AccessControlAttribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1AccessControlAttributeValue = (
@@ -3580,14 +3557,22 @@ const serializeAws_json1_1AccessControlAttributeValue = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Source !== undefined && {
-      Source: serializeAws_json1_1AccessControlAttributeValueSourceList(input.Source, context),
-    }),
+    ...(input.Source !== undefined &&
+      input.Source !== null && {
+        Source: serializeAws_json1_1AccessControlAttributeValueSourceList(input.Source, context),
+      }),
   };
 };
 
 const serializeAws_json1_1AccessControlAttributeValueSourceList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest = (
@@ -3595,9 +3580,11 @@ const serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ManagedPolicyArn !== undefined && { ManagedPolicyArn: input.ManagedPolicyArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.ManagedPolicyArn !== undefined &&
+      input.ManagedPolicyArn !== null && { ManagedPolicyArn: input.ManagedPolicyArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3606,12 +3593,13 @@ const serializeAws_json1_1CreateAccountAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PrincipalId !== undefined && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalType !== undefined && { PrincipalType: input.PrincipalType }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
-    ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.PrincipalId !== undefined && input.PrincipalId !== null && { PrincipalId: input.PrincipalId }),
+    ...(input.PrincipalType !== undefined && input.PrincipalType !== null && { PrincipalType: input.PrincipalType }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.TargetType !== undefined && input.TargetType !== null && { TargetType: input.TargetType }),
   };
 };
 
@@ -3620,13 +3608,14 @@ const serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationReque
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceAccessControlAttributeConfiguration !== undefined && {
-      InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
-        input.InstanceAccessControlAttributeConfiguration,
-        context
-      ),
-    }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceAccessControlAttributeConfiguration !== undefined &&
+      input.InstanceAccessControlAttributeConfiguration !== null && {
+        InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
+          input.InstanceAccessControlAttributeConfiguration,
+          context
+        ),
+      }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3635,12 +3624,13 @@ const serializeAws_json1_1CreatePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RelayState !== undefined && { RelayState: input.RelayState }),
-    ...(input.SessionDuration !== undefined && { SessionDuration: input.SessionDuration }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RelayState !== undefined && input.RelayState !== null && { RelayState: input.RelayState }),
+    ...(input.SessionDuration !== undefined &&
+      input.SessionDuration !== null && { SessionDuration: input.SessionDuration }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -3649,12 +3639,13 @@ const serializeAws_json1_1DeleteAccountAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.PrincipalId !== undefined && { PrincipalId: input.PrincipalId }),
-    ...(input.PrincipalType !== undefined && { PrincipalType: input.PrincipalType }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
-    ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.PrincipalId !== undefined && input.PrincipalId !== null && { PrincipalId: input.PrincipalId }),
+    ...(input.PrincipalType !== undefined && input.PrincipalType !== null && { PrincipalType: input.PrincipalType }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.TargetType !== undefined && input.TargetType !== null && { TargetType: input.TargetType }),
   };
 };
 
@@ -3663,8 +3654,9 @@ const serializeAws_json1_1DeleteInlinePolicyFromPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3673,7 +3665,7 @@ const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationReque
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3682,8 +3674,9 @@ const serializeAws_json1_1DeletePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3692,10 +3685,11 @@ const serializeAws_json1_1DescribeAccountAssignmentCreationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountAssignmentCreationRequestId !== undefined && {
-      AccountAssignmentCreationRequestId: input.AccountAssignmentCreationRequestId,
-    }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.AccountAssignmentCreationRequestId !== undefined &&
+      input.AccountAssignmentCreationRequestId !== null && {
+        AccountAssignmentCreationRequestId: input.AccountAssignmentCreationRequestId,
+      }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3704,10 +3698,11 @@ const serializeAws_json1_1DescribeAccountAssignmentDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountAssignmentDeletionRequestId !== undefined && {
-      AccountAssignmentDeletionRequestId: input.AccountAssignmentDeletionRequestId,
-    }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.AccountAssignmentDeletionRequestId !== undefined &&
+      input.AccountAssignmentDeletionRequestId !== null && {
+        AccountAssignmentDeletionRequestId: input.AccountAssignmentDeletionRequestId,
+      }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3716,7 +3711,7 @@ const serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationReq
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3725,10 +3720,11 @@ const serializeAws_json1_1DescribePermissionSetProvisioningStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ProvisionPermissionSetRequestId !== undefined && {
-      ProvisionPermissionSetRequestId: input.ProvisionPermissionSetRequestId,
-    }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.ProvisionPermissionSetRequestId !== undefined &&
+      input.ProvisionPermissionSetRequestId !== null && {
+        ProvisionPermissionSetRequestId: input.ProvisionPermissionSetRequestId,
+      }),
   };
 };
 
@@ -3737,8 +3733,9 @@ const serializeAws_json1_1DescribePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3747,9 +3744,11 @@ const serializeAws_json1_1DetachManagedPolicyFromPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ManagedPolicyArn !== undefined && { ManagedPolicyArn: input.ManagedPolicyArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.ManagedPolicyArn !== undefined &&
+      input.ManagedPolicyArn !== null && { ManagedPolicyArn: input.ManagedPolicyArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3758,8 +3757,9 @@ const serializeAws_json1_1GetInlinePolicyForPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3768,9 +3768,10 @@ const serializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccessControlAttributes !== undefined && {
-      AccessControlAttributes: serializeAws_json1_1AccessControlAttributeList(input.AccessControlAttributes, context),
-    }),
+    ...(input.AccessControlAttributes !== undefined &&
+      input.AccessControlAttributes !== null && {
+        AccessControlAttributes: serializeAws_json1_1AccessControlAttributeList(input.AccessControlAttributes, context),
+      }),
   };
 };
 
@@ -3779,10 +3780,11 @@ const serializeAws_json1_1ListAccountAssignmentCreationStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3791,10 +3793,11 @@ const serializeAws_json1_1ListAccountAssignmentDeletionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3803,11 +3806,12 @@ const serializeAws_json1_1ListAccountAssignmentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3816,18 +3820,20 @@ const serializeAws_json1_1ListAccountsForProvisionedPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.ProvisioningStatus !== undefined && { ProvisioningStatus: input.ProvisioningStatus }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.ProvisioningStatus !== undefined &&
+      input.ProvisioningStatus !== null && { ProvisioningStatus: input.ProvisioningStatus }),
   };
 };
 
 const serializeAws_json1_1ListInstancesRequest = (input: ListInstancesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3836,10 +3842,11 @@ const serializeAws_json1_1ListManagedPoliciesInPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
@@ -3848,10 +3855,11 @@ const serializeAws_json1_1ListPermissionSetProvisioningStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1OperationStatusFilter(input.Filter, context) }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3860,11 +3868,12 @@ const serializeAws_json1_1ListPermissionSetsProvisionedToAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProvisioningStatus !== undefined && { ProvisioningStatus: input.ProvisioningStatus }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ProvisioningStatus !== undefined &&
+      input.ProvisioningStatus !== null && { ProvisioningStatus: input.ProvisioningStatus }),
   };
 };
 
@@ -3873,9 +3882,9 @@ const serializeAws_json1_1ListPermissionSetsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3884,15 +3893,15 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1OperationStatusFilter = (input: OperationStatusFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
@@ -3901,10 +3910,11 @@ const serializeAws_json1_1ProvisionPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.TargetId !== undefined && { TargetId: input.TargetId }),
-    ...(input.TargetType !== undefined && { TargetType: input.TargetType }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.TargetId !== undefined && input.TargetId !== null && { TargetId: input.TargetId }),
+    ...(input.TargetType !== undefined && input.TargetType !== null && { TargetType: input.TargetType }),
   };
 };
 
@@ -3913,40 +3923,56 @@ const serializeAws_json1_1PutInlinePolicyToPermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InlinePolicy !== undefined && { InlinePolicy: input.InlinePolicy }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.InlinePolicy !== undefined && input.InlinePolicy !== null && { InlinePolicy: input.InlinePolicy }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -3955,13 +3981,14 @@ const serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationReque
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InstanceAccessControlAttributeConfiguration !== undefined && {
-      InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
-        input.InstanceAccessControlAttributeConfiguration,
-        context
-      ),
-    }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
+    ...(input.InstanceAccessControlAttributeConfiguration !== undefined &&
+      input.InstanceAccessControlAttributeConfiguration !== null && {
+        InstanceAccessControlAttributeConfiguration: serializeAws_json1_1InstanceAccessControlAttributeConfiguration(
+          input.InstanceAccessControlAttributeConfiguration,
+          context
+        ),
+      }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
   };
 };
 
@@ -3970,11 +3997,13 @@ const serializeAws_json1_1UpdatePermissionSetRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.InstanceArn !== undefined && { InstanceArn: input.InstanceArn }),
-    ...(input.PermissionSetArn !== undefined && { PermissionSetArn: input.PermissionSetArn }),
-    ...(input.RelayState !== undefined && { RelayState: input.RelayState }),
-    ...(input.SessionDuration !== undefined && { SessionDuration: input.SessionDuration }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.InstanceArn !== undefined && input.InstanceArn !== null && { InstanceArn: input.InstanceArn }),
+    ...(input.PermissionSetArn !== undefined &&
+      input.PermissionSetArn !== null && { PermissionSetArn: input.PermissionSetArn }),
+    ...(input.RelayState !== undefined && input.RelayState !== null && { RelayState: input.RelayState }),
+    ...(input.SessionDuration !== undefined &&
+      input.SessionDuration !== null && { SessionDuration: input.SessionDuration }),
   };
 };
 
@@ -3992,7 +4021,14 @@ const deserializeAws_json1_1AccessControlAttributeList = (
   output: any,
   context: __SerdeContext
 ): AccessControlAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AccessControlAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AccessControlAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AccessControlAttributeValue = (
@@ -4011,7 +4047,14 @@ const deserializeAws_json1_1AccessControlAttributeValueSourceList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -4032,7 +4075,14 @@ const deserializeAws_json1_1AccountAssignment = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AccountAssignmentList = (output: any, context: __SerdeContext): AccountAssignment[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AccountAssignment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AccountAssignment(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AccountAssignmentOperationStatus = (
@@ -4062,9 +4112,14 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusList = (
   output: any,
   context: __SerdeContext
 ): AccountAssignmentOperationStatusMetadata[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1AccountAssignmentOperationStatusMetadata(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AccountAssignmentOperationStatusMetadata(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AccountAssignmentOperationStatusMetadata = (
@@ -4082,7 +4137,14 @@ const deserializeAws_json1_1AccountAssignmentOperationStatusMetadata = (
 };
 
 const deserializeAws_json1_1AccountList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AttachedManagedPolicy = (output: any, context: __SerdeContext): AttachedManagedPolicy => {
@@ -4096,7 +4158,14 @@ const deserializeAws_json1_1AttachedManagedPolicyList = (
   output: any,
   context: __SerdeContext
 ): AttachedManagedPolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AttachedManagedPolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AttachedManagedPolicy(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AttachManagedPolicyToPermissionSetResponse = (
@@ -4271,7 +4340,14 @@ const deserializeAws_json1_1InstanceAccessControlAttributeConfiguration = (
 };
 
 const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext): InstanceMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1InstanceMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InstanceMetadata(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InstanceMetadata = (output: any, context: __SerdeContext): InstanceMetadata => {
@@ -4435,7 +4511,14 @@ const deserializeAws_json1_1PermissionSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1PermissionSetList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1PermissionSetProvisioningStatus = (
@@ -4461,9 +4544,14 @@ const deserializeAws_json1_1PermissionSetProvisioningStatusList = (
   output: any,
   context: __SerdeContext
 ): PermissionSetProvisioningStatusMetadata[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1PermissionSetProvisioningStatusMetadata(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PermissionSetProvisioningStatusMetadata(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PermissionSetProvisioningStatusMetadata = (
@@ -4525,7 +4613,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -4612,3 +4707,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

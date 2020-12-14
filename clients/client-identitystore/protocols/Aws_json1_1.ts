@@ -35,7 +35,7 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIdentityStore.DescribeGroup",
   };
   let body: any;
@@ -48,7 +48,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIdentityStore.DescribeUser",
   };
   let body: any;
@@ -61,7 +61,7 @@ export const serializeAws_json1_1ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIdentityStore.ListGroups",
   };
   let body: any;
@@ -74,7 +74,7 @@ export const serializeAws_json1_1ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIdentityStore.ListUsers",
   };
   let body: any;
@@ -109,8 +109,7 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
@@ -196,8 +195,7 @@ const deserializeAws_json1_1DescribeUserCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
@@ -283,8 +281,7 @@ const deserializeAws_json1_1ListGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
@@ -370,8 +367,7 @@ const deserializeAws_json1_1ListUsersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.identitystore#AccessDeniedException":
@@ -507,44 +503,58 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 
 const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.IdentityStoreId !== undefined && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.IdentityStoreId !== undefined &&
+      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
   };
 };
 
 const serializeAws_json1_1DescribeUserRequest = (input: DescribeUserRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IdentityStoreId !== undefined && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.IdentityStoreId !== undefined &&
+      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.AttributePath !== undefined && { AttributePath: input.AttributePath }),
-    ...(input.AttributeValue !== undefined && { AttributeValue: input.AttributeValue }),
+    ...(input.AttributePath !== undefined && input.AttributePath !== null && { AttributePath: input.AttributePath }),
+    ...(input.AttributeValue !== undefined &&
+      input.AttributeValue !== null && { AttributeValue: input.AttributeValue }),
   };
 };
 
 const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Filter(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.IdentityStoreId !== undefined && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.IdentityStoreId !== undefined &&
+      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.IdentityStoreId !== undefined && { IdentityStoreId: input.IdentityStoreId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.IdentityStoreId !== undefined &&
+      input.IdentityStoreId !== null && { IdentityStoreId: input.IdentityStoreId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -577,7 +587,14 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
 };
 
 const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Group[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Group(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Group(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InternalServerException = (
@@ -637,7 +654,14 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
 };
 
 const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1User(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1User(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
@@ -697,3 +721,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

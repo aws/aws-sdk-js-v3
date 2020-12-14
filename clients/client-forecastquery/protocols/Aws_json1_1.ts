@@ -25,7 +25,7 @@ export const serializeAws_json1_1QueryForecastCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecastRuntime.QueryForecast",
   };
   let body: any;
@@ -60,8 +60,7 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecastquery#InvalidInputException":
@@ -196,22 +195,25 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1Filters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1QueryForecastRequest = (input: QueryForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartDate !== undefined && { StartDate: input.StartDate }),
+    ...(input.EndDate !== undefined && input.EndDate !== null && { EndDate: input.EndDate }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StartDate !== undefined && input.StartDate !== null && { StartDate: input.StartDate }),
   };
 };
 
@@ -253,13 +255,15 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext): { [key: string]: DataPoint[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: DataPoint[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: DataPoint[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1TimeSeries(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1QueryForecastResponse = (output: any, context: __SerdeContext): QueryForecastResponse => {
@@ -287,7 +291,14 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 };
 
 const deserializeAws_json1_1TimeSeries = (output: any, context: __SerdeContext): DataPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataPoint(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -340,3 +351,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

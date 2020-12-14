@@ -94,7 +94,7 @@ export const serializeAws_json1_1BatchGrantPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.BatchGrantPermissions",
   };
   let body: any;
@@ -107,7 +107,7 @@ export const serializeAws_json1_1BatchRevokePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.BatchRevokePermissions",
   };
   let body: any;
@@ -120,7 +120,7 @@ export const serializeAws_json1_1DeregisterResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.DeregisterResource",
   };
   let body: any;
@@ -133,7 +133,7 @@ export const serializeAws_json1_1DescribeResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.DescribeResource",
   };
   let body: any;
@@ -146,7 +146,7 @@ export const serializeAws_json1_1GetDataLakeSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.GetDataLakeSettings",
   };
   let body: any;
@@ -159,7 +159,7 @@ export const serializeAws_json1_1GetEffectivePermissionsForPathCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.GetEffectivePermissionsForPath",
   };
   let body: any;
@@ -172,7 +172,7 @@ export const serializeAws_json1_1GrantPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.GrantPermissions",
   };
   let body: any;
@@ -185,7 +185,7 @@ export const serializeAws_json1_1ListPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.ListPermissions",
   };
   let body: any;
@@ -198,7 +198,7 @@ export const serializeAws_json1_1ListResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.ListResources",
   };
   let body: any;
@@ -211,7 +211,7 @@ export const serializeAws_json1_1PutDataLakeSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.PutDataLakeSettings",
   };
   let body: any;
@@ -224,7 +224,7 @@ export const serializeAws_json1_1RegisterResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.RegisterResource",
   };
   let body: any;
@@ -237,7 +237,7 @@ export const serializeAws_json1_1RevokePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.RevokePermissions",
   };
   let body: any;
@@ -250,7 +250,7 @@ export const serializeAws_json1_1UpdateResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSLakeFormation.UpdateResource",
   };
   let body: any;
@@ -285,8 +285,7 @@ const deserializeAws_json1_1BatchGrantPermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
@@ -348,8 +347,7 @@ const deserializeAws_json1_1BatchRevokePermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
@@ -411,8 +409,7 @@ const deserializeAws_json1_1DeregisterResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
@@ -490,8 +487,7 @@ const deserializeAws_json1_1DescribeResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
@@ -569,8 +565,7 @@ const deserializeAws_json1_1GetDataLakeSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
@@ -640,8 +635,7 @@ const deserializeAws_json1_1GetEffectivePermissionsForPathCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
@@ -719,8 +713,7 @@ const deserializeAws_json1_1GrantPermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
@@ -790,8 +783,7 @@ const deserializeAws_json1_1ListPermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
@@ -861,8 +853,7 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
@@ -932,8 +923,7 @@ const deserializeAws_json1_1PutDataLakeSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
@@ -995,8 +985,7 @@ const deserializeAws_json1_1RegisterResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.lakeformation#AlreadyExistsException":
@@ -1074,8 +1063,7 @@ const deserializeAws_json1_1RevokePermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
@@ -1145,8 +1133,7 @@ const deserializeAws_json1_1UpdateResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
@@ -1292,10 +1279,11 @@ const serializeAws_json1_1BatchGrantPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.Entries !== undefined && {
-      Entries: serializeAws_json1_1BatchPermissionsRequestEntryList(input.Entries, context),
-    }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Entries !== undefined &&
+      input.Entries !== null && {
+        Entries: serializeAws_json1_1BatchPermissionsRequestEntryList(input.Entries, context),
+      }),
   };
 };
 
@@ -1304,17 +1292,17 @@ const serializeAws_json1_1BatchPermissionsRequestEntry = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_json1_1PermissionList(input.Permissions, context),
-    }),
-    ...(input.PermissionsWithGrantOption !== undefined && {
-      PermissionsWithGrantOption: serializeAws_json1_1PermissionList(input.PermissionsWithGrantOption, context),
-    }),
-    ...(input.Principal !== undefined && {
-      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && { Permissions: serializeAws_json1_1PermissionList(input.Permissions, context) }),
+    ...(input.PermissionsWithGrantOption !== undefined &&
+      input.PermissionsWithGrantOption !== null && {
+        PermissionsWithGrantOption: serializeAws_json1_1PermissionList(input.PermissionsWithGrantOption, context),
+      }),
+    ...(input.Principal !== undefined &&
+      input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
   };
 };
 
@@ -1322,7 +1310,14 @@ const serializeAws_json1_1BatchPermissionsRequestEntryList = (
   input: BatchPermissionsRequestEntry[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1BatchPermissionsRequestEntry(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1BatchPermissionsRequestEntry(entry, context);
+    });
 };
 
 const serializeAws_json1_1BatchRevokePermissionsRequest = (
@@ -1330,10 +1325,11 @@ const serializeAws_json1_1BatchRevokePermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.Entries !== undefined && {
-      Entries: serializeAws_json1_1BatchPermissionsRequestEntryList(input.Entries, context),
-    }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Entries !== undefined &&
+      input.Entries !== null && {
+        Entries: serializeAws_json1_1BatchPermissionsRequestEntryList(input.Entries, context),
+      }),
   };
 };
 
@@ -1342,63 +1338,81 @@ const serializeAws_json1_1CatalogResource = (input: CatalogResource, context: __
 };
 
 const serializeAws_json1_1ColumnNames = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ColumnWildcard = (input: ColumnWildcard, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludedColumnNames !== undefined && {
-      ExcludedColumnNames: serializeAws_json1_1ColumnNames(input.ExcludedColumnNames, context),
-    }),
+    ...(input.ExcludedColumnNames !== undefined &&
+      input.ExcludedColumnNames !== null && {
+        ExcludedColumnNames: serializeAws_json1_1ColumnNames(input.ExcludedColumnNames, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DatabaseResource = (input: DatabaseResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1DataLakePrincipal = (input: DataLakePrincipal, context: __SerdeContext): any => {
   return {
-    ...(input.DataLakePrincipalIdentifier !== undefined && {
-      DataLakePrincipalIdentifier: input.DataLakePrincipalIdentifier,
-    }),
+    ...(input.DataLakePrincipalIdentifier !== undefined &&
+      input.DataLakePrincipalIdentifier !== null && { DataLakePrincipalIdentifier: input.DataLakePrincipalIdentifier }),
   };
 };
 
 const serializeAws_json1_1DataLakePrincipalList = (input: DataLakePrincipal[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1DataLakePrincipal(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DataLakePrincipal(entry, context);
+    });
 };
 
 const serializeAws_json1_1DataLakeSettings = (input: DataLakeSettings, context: __SerdeContext): any => {
   return {
-    ...(input.CreateDatabaseDefaultPermissions !== undefined && {
-      CreateDatabaseDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
-        input.CreateDatabaseDefaultPermissions,
-        context
-      ),
-    }),
-    ...(input.CreateTableDefaultPermissions !== undefined && {
-      CreateTableDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
-        input.CreateTableDefaultPermissions,
-        context
-      ),
-    }),
-    ...(input.DataLakeAdmins !== undefined && {
-      DataLakeAdmins: serializeAws_json1_1DataLakePrincipalList(input.DataLakeAdmins, context),
-    }),
-    ...(input.TrustedResourceOwners !== undefined && {
-      TrustedResourceOwners: serializeAws_json1_1TrustedResourceOwners(input.TrustedResourceOwners, context),
-    }),
+    ...(input.CreateDatabaseDefaultPermissions !== undefined &&
+      input.CreateDatabaseDefaultPermissions !== null && {
+        CreateDatabaseDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
+          input.CreateDatabaseDefaultPermissions,
+          context
+        ),
+      }),
+    ...(input.CreateTableDefaultPermissions !== undefined &&
+      input.CreateTableDefaultPermissions !== null && {
+        CreateTableDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
+          input.CreateTableDefaultPermissions,
+          context
+        ),
+      }),
+    ...(input.DataLakeAdmins !== undefined &&
+      input.DataLakeAdmins !== null && {
+        DataLakeAdmins: serializeAws_json1_1DataLakePrincipalList(input.DataLakeAdmins, context),
+      }),
+    ...(input.TrustedResourceOwners !== undefined &&
+      input.TrustedResourceOwners !== null && {
+        TrustedResourceOwners: serializeAws_json1_1TrustedResourceOwners(input.TrustedResourceOwners, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DataLocationResource = (input: DataLocationResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -1407,28 +1421,37 @@ const serializeAws_json1_1DeregisterResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1DescribeResourceRequest = (input: DescribeResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
   return {
-    ...(input.ComparisonOperator !== undefined && { ComparisonOperator: input.ComparisonOperator }),
-    ...(input.Field !== undefined && { Field: input.Field }),
-    ...(input.StringValueList !== undefined && {
-      StringValueList: serializeAws_json1_1StringValueList(input.StringValueList, context),
-    }),
+    ...(input.ComparisonOperator !== undefined &&
+      input.ComparisonOperator !== null && { ComparisonOperator: input.ComparisonOperator }),
+    ...(input.Field !== undefined && input.Field !== null && { Field: input.Field }),
+    ...(input.StringValueList !== undefined &&
+      input.StringValueList !== null && {
+        StringValueList: serializeAws_json1_1StringValueList(input.StringValueList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1FilterConditionList = (input: FilterCondition[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1FilterCondition(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FilterCondition(entry, context);
+    });
 };
 
 const serializeAws_json1_1GetDataLakeSettingsRequest = (
@@ -1436,7 +1459,7 @@ const serializeAws_json1_1GetDataLakeSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
   };
 };
 
@@ -1445,69 +1468,82 @@ const serializeAws_json1_1GetEffectivePermissionsForPathRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1GrantPermissionsRequest = (input: GrantPermissionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_json1_1PermissionList(input.Permissions, context),
-    }),
-    ...(input.PermissionsWithGrantOption !== undefined && {
-      PermissionsWithGrantOption: serializeAws_json1_1PermissionList(input.PermissionsWithGrantOption, context),
-    }),
-    ...(input.Principal !== undefined && {
-      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && { Permissions: serializeAws_json1_1PermissionList(input.Permissions, context) }),
+    ...(input.PermissionsWithGrantOption !== undefined &&
+      input.PermissionsWithGrantOption !== null && {
+        PermissionsWithGrantOption: serializeAws_json1_1PermissionList(input.PermissionsWithGrantOption, context),
+      }),
+    ...(input.Principal !== undefined &&
+      input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
   };
 };
 
 const serializeAws_json1_1ListPermissionsRequest = (input: ListPermissionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Principal !== undefined && {
-      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Principal !== undefined &&
+      input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
   };
 };
 
 const serializeAws_json1_1ListResourcesRequest = (input: ListResourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.FilterConditionList !== undefined && {
-      FilterConditionList: serializeAws_json1_1FilterConditionList(input.FilterConditionList, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.FilterConditionList !== undefined &&
+      input.FilterConditionList !== null && {
+        FilterConditionList: serializeAws_json1_1FilterConditionList(input.FilterConditionList, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1PermissionList = (input: (Permission | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PrincipalPermissions = (input: PrincipalPermissions, context: __SerdeContext): any => {
   return {
-    ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_json1_1PermissionList(input.Permissions, context),
-    }),
-    ...(input.Principal !== undefined && {
-      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
-    }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && { Permissions: serializeAws_json1_1PermissionList(input.Permissions, context) }),
+    ...(input.Principal !== undefined &&
+      input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
   };
 };
 
 const serializeAws_json1_1PrincipalPermissionsList = (input: PrincipalPermissions[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1PrincipalPermissions(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PrincipalPermissions(entry, context);
+    });
 };
 
 const serializeAws_json1_1PutDataLakeSettingsRequest = (
@@ -1515,32 +1551,39 @@ const serializeAws_json1_1PutDataLakeSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.DataLakeSettings !== undefined && {
-      DataLakeSettings: serializeAws_json1_1DataLakeSettings(input.DataLakeSettings, context),
-    }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.DataLakeSettings !== undefined &&
+      input.DataLakeSettings !== null && {
+        DataLakeSettings: serializeAws_json1_1DataLakeSettings(input.DataLakeSettings, context),
+      }),
   };
 };
 
 const serializeAws_json1_1RegisterResourceRequest = (input: RegisterResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.UseServiceLinkedRole !== undefined && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.UseServiceLinkedRole !== undefined &&
+      input.UseServiceLinkedRole !== null && { UseServiceLinkedRole: input.UseServiceLinkedRole }),
   };
 };
 
 const serializeAws_json1_1Resource = (input: Resource, context: __SerdeContext): any => {
   return {
-    ...(input.Catalog !== undefined && { Catalog: serializeAws_json1_1CatalogResource(input.Catalog, context) }),
-    ...(input.DataLocation !== undefined && {
-      DataLocation: serializeAws_json1_1DataLocationResource(input.DataLocation, context),
-    }),
-    ...(input.Database !== undefined && { Database: serializeAws_json1_1DatabaseResource(input.Database, context) }),
-    ...(input.Table !== undefined && { Table: serializeAws_json1_1TableResource(input.Table, context) }),
-    ...(input.TableWithColumns !== undefined && {
-      TableWithColumns: serializeAws_json1_1TableWithColumnsResource(input.TableWithColumns, context),
-    }),
+    ...(input.Catalog !== undefined &&
+      input.Catalog !== null && { Catalog: serializeAws_json1_1CatalogResource(input.Catalog, context) }),
+    ...(input.DataLocation !== undefined &&
+      input.DataLocation !== null && {
+        DataLocation: serializeAws_json1_1DataLocationResource(input.DataLocation, context),
+      }),
+    ...(input.Database !== undefined &&
+      input.Database !== null && { Database: serializeAws_json1_1DatabaseResource(input.Database, context) }),
+    ...(input.Table !== undefined &&
+      input.Table !== null && { Table: serializeAws_json1_1TableResource(input.Table, context) }),
+    ...(input.TableWithColumns !== undefined &&
+      input.TableWithColumns !== null && {
+        TableWithColumns: serializeAws_json1_1TableWithColumnsResource(input.TableWithColumns, context),
+      }),
   };
 };
 
@@ -1549,32 +1592,40 @@ const serializeAws_json1_1RevokePermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.Permissions !== undefined && {
-      Permissions: serializeAws_json1_1PermissionList(input.Permissions, context),
-    }),
-    ...(input.PermissionsWithGrantOption !== undefined && {
-      PermissionsWithGrantOption: serializeAws_json1_1PermissionList(input.PermissionsWithGrantOption, context),
-    }),
-    ...(input.Principal !== undefined && {
-      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context),
-    }),
-    ...(input.Resource !== undefined && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && { Permissions: serializeAws_json1_1PermissionList(input.Permissions, context) }),
+    ...(input.PermissionsWithGrantOption !== undefined &&
+      input.PermissionsWithGrantOption !== null && {
+        PermissionsWithGrantOption: serializeAws_json1_1PermissionList(input.PermissionsWithGrantOption, context),
+      }),
+    ...(input.Principal !== undefined &&
+      input.Principal !== null && { Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context) }),
+    ...(input.Resource !== undefined &&
+      input.Resource !== null && { Resource: serializeAws_json1_1Resource(input.Resource, context) }),
   };
 };
 
 const serializeAws_json1_1StringValueList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TableResource = (input: TableResource, context: __SerdeContext): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.TableWildcard !== undefined && {
-      TableWildcard: serializeAws_json1_1TableWildcard(input.TableWildcard, context),
-    }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.TableWildcard !== undefined &&
+      input.TableWildcard !== null && {
+        TableWildcard: serializeAws_json1_1TableWildcard(input.TableWildcard, context),
+      }),
   };
 };
 
@@ -1587,26 +1638,33 @@ const serializeAws_json1_1TableWithColumnsResource = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
-    ...(input.ColumnNames !== undefined && {
-      ColumnNames: serializeAws_json1_1ColumnNames(input.ColumnNames, context),
-    }),
-    ...(input.ColumnWildcard !== undefined && {
-      ColumnWildcard: serializeAws_json1_1ColumnWildcard(input.ColumnWildcard, context),
-    }),
-    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.CatalogId !== undefined && input.CatalogId !== null && { CatalogId: input.CatalogId }),
+    ...(input.ColumnNames !== undefined &&
+      input.ColumnNames !== null && { ColumnNames: serializeAws_json1_1ColumnNames(input.ColumnNames, context) }),
+    ...(input.ColumnWildcard !== undefined &&
+      input.ColumnWildcard !== null && {
+        ColumnWildcard: serializeAws_json1_1ColumnWildcard(input.ColumnWildcard, context),
+      }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1TrustedResourceOwners = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UpdateResourceRequest = (input: UpdateResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -1648,7 +1706,14 @@ const deserializeAws_json1_1BatchPermissionsFailureList = (
   output: any,
   context: __SerdeContext
 ): BatchPermissionsFailureEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BatchPermissionsFailureEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchPermissionsFailureEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BatchPermissionsRequestEntry = (
@@ -1693,7 +1758,14 @@ const deserializeAws_json1_1CatalogResource = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ColumnNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ColumnWildcard = (output: any, context: __SerdeContext): ColumnWildcard => {
@@ -1731,7 +1803,14 @@ const deserializeAws_json1_1DataLakePrincipal = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1DataLakePrincipalList = (output: any, context: __SerdeContext): DataLakePrincipal[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataLakePrincipal(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataLakePrincipal(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DataLakeSettings = (output: any, context: __SerdeContext): DataLakeSettings => {
@@ -1886,7 +1965,14 @@ const deserializeAws_json1_1OperationTimeoutException = (
 };
 
 const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeContext): (Permission | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1PrincipalPermissions = (output: any, context: __SerdeContext): PrincipalPermissions => {
@@ -1906,7 +1992,14 @@ const deserializeAws_json1_1PrincipalPermissionsList = (
   output: any,
   context: __SerdeContext
 ): PrincipalPermissions[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PrincipalPermissions(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PrincipalPermissions(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PrincipalResourcePermissions = (
@@ -1941,7 +2034,14 @@ const deserializeAws_json1_1PrincipalResourcePermissionsList = (
   output: any,
   context: __SerdeContext
 ): PrincipalResourcePermissions[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PrincipalResourcePermissions(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PrincipalResourcePermissions(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutDataLakeSettingsResponse = (
@@ -1995,11 +2095,25 @@ const deserializeAws_json1_1ResourceInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ResourceInfoList = (output: any, context: __SerdeContext): ResourceInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceShareList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1RevokePermissionsResponse = (
@@ -2045,7 +2159,14 @@ const deserializeAws_json1_1TableWithColumnsResource = (
 };
 
 const deserializeAws_json1_1TrustedResourceOwners = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1UpdateResourceResponse = (output: any, context: __SerdeContext): UpdateResourceResponse => {
@@ -2102,3 +2223,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

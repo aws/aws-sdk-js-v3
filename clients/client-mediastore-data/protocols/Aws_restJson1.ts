@@ -26,9 +26,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
   input: DeleteObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
@@ -62,9 +60,7 @@ export const serializeAws_restJson1DescribeObjectCommand = async (
   input: DescribeObjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
     const labelValue: string = input.Path;
@@ -99,7 +95,6 @@ export const serializeAws_restJson1GetObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! }),
   };
   let resolvedPath = "/{Path+}";
@@ -135,9 +130,7 @@ export const serializeAws_restJson1ListItemsCommand = async (
   input: ListItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/";
   const query: any = {
     ...(input.Path !== undefined && { Path: input.Path }),
@@ -163,7 +156,7 @@ export const serializeAws_restJson1PutObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     ...(isSerializableHeaderValue(input.StorageClass) && { "x-amz-storage-class": input.StorageClass! }),
     ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
@@ -679,7 +672,14 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
 };
 
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): Item[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Item(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Item(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -702,6 +702,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

@@ -155,7 +155,6 @@ export const serializeAws_restJson1AbortDocumentVersionUploadCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
@@ -195,7 +194,6 @@ export const serializeAws_restJson1ActivateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}/activation";
@@ -226,7 +224,7 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
@@ -241,12 +239,12 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.NotificationOptions !== undefined && {
-      NotificationOptions: serializeAws_restJson1NotificationOptions(input.NotificationOptions, context),
-    }),
-    ...(input.Principals !== undefined && {
-      Principals: serializeAws_restJson1SharePrincipalList(input.Principals, context),
-    }),
+    ...(input.NotificationOptions !== undefined &&
+      input.NotificationOptions !== null && {
+        NotificationOptions: serializeAws_restJson1NotificationOptions(input.NotificationOptions, context),
+      }),
+    ...(input.Principals !== undefined &&
+      input.Principals !== null && { Principals: serializeAws_restJson1SharePrincipalList(input.Principals, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -265,7 +263,7 @@ export const serializeAws_restJson1CreateCommentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
@@ -289,11 +287,12 @@ export const serializeAws_restJson1CreateCommentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.NotifyCollaborators !== undefined && { NotifyCollaborators: input.NotifyCollaborators }),
-    ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
-    ...(input.Text !== undefined && { Text: input.Text }),
-    ...(input.ThreadId !== undefined && { ThreadId: input.ThreadId }),
-    ...(input.Visibility !== undefined && { Visibility: input.Visibility }),
+    ...(input.NotifyCollaborators !== undefined &&
+      input.NotifyCollaborators !== null && { NotifyCollaborators: input.NotifyCollaborators }),
+    ...(input.ParentId !== undefined && input.ParentId !== null && { ParentId: input.ParentId }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+    ...(input.ThreadId !== undefined && input.ThreadId !== null && { ThreadId: input.ThreadId }),
+    ...(input.Visibility !== undefined && input.Visibility !== null && { Visibility: input.Visibility }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -312,7 +311,7 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/customMetadata";
@@ -330,9 +329,10 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.CustomMetadata !== undefined && {
-      CustomMetadata: serializeAws_restJson1CustomMetadataMap(input.CustomMetadata, context),
-    }),
+    ...(input.CustomMetadata !== undefined &&
+      input.CustomMetadata !== null && {
+        CustomMetadata: serializeAws_restJson1CustomMetadataMap(input.CustomMetadata, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -352,14 +352,15 @@ export const serializeAws_restJson1CreateFolderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders";
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined && { ParentFolderId: input.ParentFolderId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined &&
+      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -378,7 +379,7 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/labels";
@@ -393,7 +394,8 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Labels !== undefined && { Labels: serializeAws_restJson1SharedLabels(input.Labels, context) }),
+    ...(input.Labels !== undefined &&
+      input.Labels !== null && { Labels: serializeAws_restJson1SharedLabels(input.Labels, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -412,7 +414,7 @@ export const serializeAws_restJson1CreateNotificationSubscriptionCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions";
   if (input.OrganizationId !== undefined) {
@@ -426,9 +428,10 @@ export const serializeAws_restJson1CreateNotificationSubscriptionCommand = async
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Endpoint !== undefined && { Endpoint: input.Endpoint }),
-    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
-    ...(input.SubscriptionType !== undefined && { SubscriptionType: input.SubscriptionType }),
+    ...(input.Endpoint !== undefined && input.Endpoint !== null && { Endpoint: input.Endpoint }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
+    ...(input.SubscriptionType !== undefined &&
+      input.SubscriptionType !== null && { SubscriptionType: input.SubscriptionType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -447,22 +450,22 @@ export const serializeAws_restJson1CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users";
   let body: any;
   body = JSON.stringify({
-    ...(input.EmailAddress !== undefined && { EmailAddress: input.EmailAddress }),
-    ...(input.GivenName !== undefined && { GivenName: input.GivenName }),
-    ...(input.OrganizationId !== undefined && { OrganizationId: input.OrganizationId }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.StorageRule !== undefined && {
-      StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context),
-    }),
-    ...(input.Surname !== undefined && { Surname: input.Surname }),
-    ...(input.TimeZoneId !== undefined && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Username !== undefined && { Username: input.Username }),
+    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
+    ...(input.GivenName !== undefined && input.GivenName !== null && { GivenName: input.GivenName }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.StorageRule !== undefined &&
+      input.StorageRule !== null && { StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context) }),
+    ...(input.Surname !== undefined && input.Surname !== null && { Surname: input.Surname }),
+    ...(input.TimeZoneId !== undefined && input.TimeZoneId !== null && { TimeZoneId: input.TimeZoneId }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -481,7 +484,6 @@ export const serializeAws_restJson1DeactivateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}/activation";
@@ -512,7 +514,6 @@ export const serializeAws_restJson1DeleteCommentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
@@ -561,7 +562,6 @@ export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/customMetadata";
@@ -598,7 +598,6 @@ export const serializeAws_restJson1DeleteDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}";
@@ -629,7 +628,6 @@ export const serializeAws_restJson1DeleteFolderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}";
@@ -660,7 +658,6 @@ export const serializeAws_restJson1DeleteFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}/contents";
@@ -691,7 +688,6 @@ export const serializeAws_restJson1DeleteLabelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/labels";
@@ -726,9 +722,7 @@ export const serializeAws_restJson1DeleteNotificationSubscriptionCommand = async
   input: DeleteNotificationSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
   if (input.OrganizationId !== undefined) {
     const labelValue: string = input.OrganizationId;
@@ -766,7 +760,6 @@ export const serializeAws_restJson1DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}";
@@ -797,7 +790,6 @@ export const serializeAws_restJson1DescribeActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/activities";
@@ -833,7 +825,6 @@ export const serializeAws_restJson1DescribeCommentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
@@ -878,7 +869,6 @@ export const serializeAws_restJson1DescribeDocumentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions";
@@ -916,7 +906,6 @@ export const serializeAws_restJson1DescribeFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}/contents";
@@ -956,7 +945,6 @@ export const serializeAws_restJson1DescribeGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/groups";
@@ -984,9 +972,7 @@ export const serializeAws_restJson1DescribeNotificationSubscriptionsCommand = as
   input: DescribeNotificationSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions";
   if (input.OrganizationId !== undefined) {
     const labelValue: string = input.OrganizationId;
@@ -1020,7 +1006,6 @@ export const serializeAws_restJson1DescribeResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
@@ -1057,7 +1042,6 @@ export const serializeAws_restJson1DescribeRootFoldersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/me/root";
@@ -1084,7 +1068,6 @@ export const serializeAws_restJson1DescribeUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users";
@@ -1118,7 +1101,6 @@ export const serializeAws_restJson1GetCurrentUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/me";
@@ -1140,7 +1122,6 @@ export const serializeAws_restJson1GetDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}";
@@ -1175,7 +1156,6 @@ export const serializeAws_restJson1GetDocumentPathCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/path";
@@ -1212,7 +1192,6 @@ export const serializeAws_restJson1GetDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
@@ -1257,7 +1236,6 @@ export const serializeAws_restJson1GetFolderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}";
@@ -1292,7 +1270,6 @@ export const serializeAws_restJson1GetFolderPathCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}/path";
@@ -1329,7 +1306,6 @@ export const serializeAws_restJson1GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources";
@@ -1358,23 +1334,27 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContentCreatedTimestamp !== undefined && {
-      ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
-    }),
-    ...(input.ContentModifiedTimestamp !== undefined && {
-      ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
-    }),
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
-    ...(input.DocumentSizeInBytes !== undefined && { DocumentSizeInBytes: input.DocumentSizeInBytes }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined && { ParentFolderId: input.ParentFolderId }),
+    ...(input.ContentCreatedTimestamp !== undefined &&
+      input.ContentCreatedTimestamp !== null && {
+        ContentCreatedTimestamp: Math.round(input.ContentCreatedTimestamp.getTime() / 1000),
+      }),
+    ...(input.ContentModifiedTimestamp !== undefined &&
+      input.ContentModifiedTimestamp !== null && {
+        ContentModifiedTimestamp: Math.round(input.ContentModifiedTimestamp.getTime() / 1000),
+      }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
+    ...(input.DocumentSizeInBytes !== undefined &&
+      input.DocumentSizeInBytes !== null && { DocumentSizeInBytes: input.DocumentSizeInBytes }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined &&
+      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1393,7 +1373,6 @@ export const serializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
@@ -1424,7 +1403,6 @@ export const serializeAws_restJson1RemoveResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}";
@@ -1468,7 +1446,7 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}";
@@ -1483,9 +1461,10 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState !== undefined && { ResourceState: input.ResourceState }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined &&
+      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
+    ...(input.ResourceState !== undefined && input.ResourceState !== null && { ResourceState: input.ResourceState }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1504,7 +1483,7 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
@@ -1528,7 +1507,7 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.VersionStatus !== undefined && { VersionStatus: input.VersionStatus }),
+    ...(input.VersionStatus !== undefined && input.VersionStatus !== null && { VersionStatus: input.VersionStatus }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1547,7 +1526,7 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}";
@@ -1562,9 +1541,10 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParentFolderId !== undefined && { ParentFolderId: input.ParentFolderId }),
-    ...(input.ResourceState !== undefined && { ResourceState: input.ResourceState }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined &&
+      input.ParentFolderId !== null && { ParentFolderId: input.ParentFolderId }),
+    ...(input.ResourceState !== undefined && input.ResourceState !== null && { ResourceState: input.ResourceState }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1583,7 +1563,7 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}";
@@ -1598,15 +1578,15 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.GivenName !== undefined && { GivenName: input.GivenName }),
-    ...(input.GrantPoweruserPrivileges !== undefined && { GrantPoweruserPrivileges: input.GrantPoweruserPrivileges }),
-    ...(input.Locale !== undefined && { Locale: input.Locale }),
-    ...(input.StorageRule !== undefined && {
-      StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context),
-    }),
-    ...(input.Surname !== undefined && { Surname: input.Surname }),
-    ...(input.TimeZoneId !== undefined && { TimeZoneId: input.TimeZoneId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.GivenName !== undefined && input.GivenName !== null && { GivenName: input.GivenName }),
+    ...(input.GrantPoweruserPrivileges !== undefined &&
+      input.GrantPoweruserPrivileges !== null && { GrantPoweruserPrivileges: input.GrantPoweruserPrivileges }),
+    ...(input.Locale !== undefined && input.Locale !== null && { Locale: input.Locale }),
+    ...(input.StorageRule !== undefined &&
+      input.StorageRule !== null && { StorageRule: serializeAws_restJson1StorageRuleType(input.StorageRule, context) }),
+    ...(input.Surname !== undefined && input.Surname !== null && { Surname: input.Surname }),
+    ...(input.TimeZoneId !== undefined && input.TimeZoneId !== null && { TimeZoneId: input.TimeZoneId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5993,42 +5973,59 @@ const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = asyn
 };
 
 const serializeAws_restJson1CustomMetadataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1NotificationOptions = (input: NotificationOptions, context: __SerdeContext): any => {
   return {
-    ...(input.EmailMessage !== undefined && { EmailMessage: input.EmailMessage }),
-    ...(input.SendEmail !== undefined && { SendEmail: input.SendEmail }),
+    ...(input.EmailMessage !== undefined && input.EmailMessage !== null && { EmailMessage: input.EmailMessage }),
+    ...(input.SendEmail !== undefined && input.SendEmail !== null && { SendEmail: input.SendEmail }),
   };
 };
 
 const serializeAws_restJson1SharedLabels = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1SharePrincipal = (input: SharePrincipal, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Role !== undefined && { Role: input.Role }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_restJson1SharePrincipalList = (input: SharePrincipal[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1SharePrincipal(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SharePrincipal(entry, context);
+    });
 };
 
 const serializeAws_restJson1StorageRuleType = (input: StorageRuleType, context: __SerdeContext): any => {
   return {
-    ...(input.StorageAllocatedInBytes !== undefined && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
-    ...(input.StorageType !== undefined && { StorageType: input.StorageType }),
+    ...(input.StorageAllocatedInBytes !== undefined &&
+      input.StorageAllocatedInBytes !== null && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
+    ...(input.StorageType !== undefined && input.StorageType !== null && { StorageType: input.StorageType }),
   };
 };
 
@@ -6089,7 +6086,14 @@ const deserializeAws_restJson1Comment = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1CommentList = (output: any, context: __SerdeContext): Comment[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Comment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Comment(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeContext): CommentMetadata => {
@@ -6110,13 +6114,15 @@ const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1CustomMetadataMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
@@ -6147,7 +6153,14 @@ const deserializeAws_restJson1DocumentMetadata = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1DocumentMetadataList = (output: any, context: __SerdeContext): DocumentMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DocumentMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DocumentMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DocumentSourceUrlMap = (
@@ -6155,10 +6168,15 @@ const deserializeAws_restJson1DocumentSourceUrlMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DocumentSourceType | string, any]) => ({
-      ...acc,
-      [key]: value,
-    }),
+    (acc: { [key: string]: string }, [key, value]: [DocumentSourceType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: value,
+      };
+    },
     {}
   );
 };
@@ -6168,10 +6186,15 @@ const deserializeAws_restJson1DocumentThumbnailUrlMap = (
   context: __SerdeContext
 ): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DocumentThumbnailType | string, any]) => ({
-      ...acc,
-      [key]: value,
-    }),
+    (acc: { [key: string]: string }, [key, value]: [DocumentThumbnailType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: value,
+      };
+    },
     {}
   );
 };
@@ -6219,11 +6242,25 @@ const deserializeAws_restJson1DocumentVersionMetadataList = (
   output: any,
   context: __SerdeContext
 ): DocumentVersionMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DocumentVersionMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DocumentVersionMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EntityIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeContext): FolderMetadata => {
@@ -6257,7 +6294,14 @@ const deserializeAws_restJson1FolderMetadata = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1FolderMetadataList = (output: any, context: __SerdeContext): FolderMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1FolderMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FolderMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GroupMetadata = (output: any, context: __SerdeContext): GroupMetadata => {
@@ -6268,11 +6312,25 @@ const deserializeAws_restJson1GroupMetadata = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1GroupMetadataList = (output: any, context: __SerdeContext): GroupMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GroupMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GroupMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1OrganizationUserList = (output: any, context: __SerdeContext): User[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1User(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1User(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participants => {
@@ -6296,7 +6354,14 @@ const deserializeAws_restJson1PermissionInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1PermissionInfoList = (output: any, context: __SerdeContext): PermissionInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PermissionInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PermissionInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext): Principal => {
@@ -6311,7 +6376,14 @@ const deserializeAws_restJson1Principal = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1PrincipalList = (output: any, context: __SerdeContext): Principal[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Principal(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Principal(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
@@ -6349,11 +6421,25 @@ const deserializeAws_restJson1ResourcePathComponentList = (
   output: any,
   context: __SerdeContext
 ): ResourcePathComponent[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ResourcePathComponent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourcePathComponent(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SharedLabels = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ShareResult = (output: any, context: __SerdeContext): ShareResult => {
@@ -6372,17 +6458,26 @@ const deserializeAws_restJson1ShareResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ShareResultsList = (output: any, context: __SerdeContext): ShareResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ShareResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ShareResult(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SignedHeaderMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1StorageRuleType = (output: any, context: __SerdeContext): StorageRuleType => {
@@ -6405,7 +6500,14 @@ const deserializeAws_restJson1Subscription = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1SubscriptionList = (output: any, context: __SerdeContext): Subscription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Subscription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Subscription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UploadMetadata = (output: any, context: __SerdeContext): UploadMetadata => {
@@ -6452,7 +6554,14 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
 };
 
 const deserializeAws_restJson1UserActivities = (output: any, context: __SerdeContext): Activity[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Activity(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Activity(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeContext): UserMetadata => {
@@ -6466,7 +6575,14 @@ const deserializeAws_restJson1UserMetadata = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1UserMetadataList = (output: any, context: __SerdeContext): UserMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UserMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UserStorageMetadata = (output: any, context: __SerdeContext): UserStorageMetadata => {
@@ -6502,6 +6618,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

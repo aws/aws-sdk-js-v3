@@ -156,7 +156,7 @@ export const serializeAws_json1_1AssociateAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.AssociateAdminAccount",
   };
   let body: any;
@@ -169,7 +169,7 @@ export const serializeAws_json1_1DeleteAppsListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.DeleteAppsList",
   };
   let body: any;
@@ -182,7 +182,7 @@ export const serializeAws_json1_1DeleteNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.DeleteNotificationChannel",
   };
   let body: any;
@@ -195,7 +195,7 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.DeletePolicy",
   };
   let body: any;
@@ -208,7 +208,7 @@ export const serializeAws_json1_1DeleteProtocolsListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.DeleteProtocolsList",
   };
   let body: any;
@@ -221,7 +221,7 @@ export const serializeAws_json1_1DisassociateAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.DisassociateAdminAccount",
   };
   let body: any;
@@ -234,7 +234,7 @@ export const serializeAws_json1_1GetAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetAdminAccount",
   };
   let body: any;
@@ -247,7 +247,7 @@ export const serializeAws_json1_1GetAppsListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetAppsList",
   };
   let body: any;
@@ -260,7 +260,7 @@ export const serializeAws_json1_1GetComplianceDetailCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetComplianceDetail",
   };
   let body: any;
@@ -273,7 +273,7 @@ export const serializeAws_json1_1GetNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetNotificationChannel",
   };
   let body: any;
@@ -286,7 +286,7 @@ export const serializeAws_json1_1GetPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetPolicy",
   };
   let body: any;
@@ -299,7 +299,7 @@ export const serializeAws_json1_1GetProtectionStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetProtectionStatus",
   };
   let body: any;
@@ -312,7 +312,7 @@ export const serializeAws_json1_1GetProtocolsListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetProtocolsList",
   };
   let body: any;
@@ -325,7 +325,7 @@ export const serializeAws_json1_1GetViolationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.GetViolationDetails",
   };
   let body: any;
@@ -338,7 +338,7 @@ export const serializeAws_json1_1ListAppsListsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.ListAppsLists",
   };
   let body: any;
@@ -351,7 +351,7 @@ export const serializeAws_json1_1ListComplianceStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.ListComplianceStatus",
   };
   let body: any;
@@ -364,7 +364,7 @@ export const serializeAws_json1_1ListMemberAccountsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.ListMemberAccounts",
   };
   let body: any;
@@ -377,7 +377,7 @@ export const serializeAws_json1_1ListPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.ListPolicies",
   };
   let body: any;
@@ -390,7 +390,7 @@ export const serializeAws_json1_1ListProtocolsListsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.ListProtocolsLists",
   };
   let body: any;
@@ -403,7 +403,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.ListTagsForResource",
   };
   let body: any;
@@ -416,7 +416,7 @@ export const serializeAws_json1_1PutAppsListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.PutAppsList",
   };
   let body: any;
@@ -429,7 +429,7 @@ export const serializeAws_json1_1PutNotificationChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.PutNotificationChannel",
   };
   let body: any;
@@ -442,7 +442,7 @@ export const serializeAws_json1_1PutPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.PutPolicy",
   };
   let body: any;
@@ -455,7 +455,7 @@ export const serializeAws_json1_1PutProtocolsListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.PutProtocolsList",
   };
   let body: any;
@@ -468,7 +468,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.TagResource",
   };
   let body: any;
@@ -481,7 +481,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSFMS_20180101.UntagResource",
   };
   let body: any;
@@ -513,8 +513,7 @@ const deserializeAws_json1_1AssociateAdminAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -589,8 +588,7 @@ const deserializeAws_json1_1DeleteAppsListCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -657,8 +655,7 @@ const deserializeAws_json1_1DeleteNotificationChannelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -725,8 +722,7 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -809,8 +805,7 @@ const deserializeAws_json1_1DeleteProtocolsListCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -877,8 +872,7 @@ const deserializeAws_json1_1DisassociateAdminAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -948,8 +942,7 @@ const deserializeAws_json1_1GetAdminAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1019,8 +1012,7 @@ const deserializeAws_json1_1GetAppsListCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1090,8 +1082,7 @@ const deserializeAws_json1_1GetComplianceDetailCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1169,8 +1160,7 @@ const deserializeAws_json1_1GetNotificationChannelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1240,8 +1230,7 @@ const deserializeAws_json1_1GetPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1319,8 +1308,7 @@ const deserializeAws_json1_1GetProtectionStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1390,8 +1378,7 @@ const deserializeAws_json1_1GetProtocolsListCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1461,8 +1448,7 @@ const deserializeAws_json1_1GetViolationDetailsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1532,8 +1518,7 @@ const deserializeAws_json1_1ListAppsListsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1611,8 +1596,7 @@ const deserializeAws_json1_1ListComplianceStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1674,8 +1658,7 @@ const deserializeAws_json1_1ListMemberAccountsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1737,8 +1720,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1816,8 +1798,7 @@ const deserializeAws_json1_1ListProtocolsListsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1887,8 +1868,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -1966,8 +1946,7 @@ const deserializeAws_json1_1PutAppsListCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -2050,8 +2029,7 @@ const deserializeAws_json1_1PutNotificationChannelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -2121,8 +2099,7 @@ const deserializeAws_json1_1PutPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -2216,8 +2193,7 @@ const deserializeAws_json1_1PutProtocolsListCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -2303,8 +2279,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -2390,8 +2365,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
@@ -2534,27 +2508,39 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1App = (input: App, context: __SerdeContext): any => {
   return {
-    ...(input.AppName !== undefined && { AppName: input.AppName }),
-    ...(input.Port !== undefined && { Port: input.Port }),
-    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+    ...(input.AppName !== undefined && input.AppName !== null && { AppName: input.AppName }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
   };
 };
 
 const serializeAws_json1_1AppsList = (input: App[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1App(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1App(entry, context);
+    });
 };
 
 const serializeAws_json1_1AppsListData = (input: AppsListData, context: __SerdeContext): any => {
   return {
-    ...(input.AppsList !== undefined && { AppsList: serializeAws_json1_1AppsList(input.AppsList, context) }),
-    ...(input.CreateTime !== undefined && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
-    ...(input.LastUpdateTime !== undefined && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
-    ...(input.ListId !== undefined && { ListId: input.ListId }),
-    ...(input.ListName !== undefined && { ListName: input.ListName }),
-    ...(input.ListUpdateToken !== undefined && { ListUpdateToken: input.ListUpdateToken }),
-    ...(input.PreviousAppsList !== undefined && {
-      PreviousAppsList: serializeAws_json1_1PreviousAppsList(input.PreviousAppsList, context),
-    }),
+    ...(input.AppsList !== undefined &&
+      input.AppsList !== null && { AppsList: serializeAws_json1_1AppsList(input.AppsList, context) }),
+    ...(input.CreateTime !== undefined &&
+      input.CreateTime !== null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
+    ...(input.LastUpdateTime !== undefined &&
+      input.LastUpdateTime !== null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
+    ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
+    ...(input.ListName !== undefined && input.ListName !== null && { ListName: input.ListName }),
+    ...(input.ListUpdateToken !== undefined &&
+      input.ListUpdateToken !== null && { ListUpdateToken: input.ListUpdateToken }),
+    ...(input.PreviousAppsList !== undefined &&
+      input.PreviousAppsList !== null && {
+        PreviousAppsList: serializeAws_json1_1PreviousAppsList(input.PreviousAppsList, context),
+      }),
   };
 };
 
@@ -2563,12 +2549,19 @@ const serializeAws_json1_1AssociateAdminAccountRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdminAccount !== undefined && { AdminAccount: input.AdminAccount }),
+    ...(input.AdminAccount !== undefined && input.AdminAccount !== null && { AdminAccount: input.AdminAccount }),
   };
 };
 
 const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CustomerPolicyScopeMap = (
@@ -2576,17 +2569,22 @@ const serializeAws_json1_1CustomerPolicyScopeMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => ({
-      ...acc,
-      [key]: serializeAws_json1_1CustomerPolicyScopeIdList(value, context),
-    }),
+    (acc: { [key: string]: string[] }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: serializeAws_json1_1CustomerPolicyScopeIdList(value, context),
+      };
+    },
     {}
   );
 };
 
 const serializeAws_json1_1DeleteAppsListRequest = (input: DeleteAppsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ListId !== undefined && { ListId: input.ListId }),
+    ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
   };
 };
 
@@ -2599,8 +2597,9 @@ const serializeAws_json1_1DeleteNotificationChannelRequest = (
 
 const serializeAws_json1_1DeletePolicyRequest = (input: DeletePolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DeleteAllPolicyResources !== undefined && { DeleteAllPolicyResources: input.DeleteAllPolicyResources }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.DeleteAllPolicyResources !== undefined &&
+      input.DeleteAllPolicyResources !== null && { DeleteAllPolicyResources: input.DeleteAllPolicyResources }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -2609,7 +2608,7 @@ const serializeAws_json1_1DeleteProtocolsListRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListId !== undefined && { ListId: input.ListId }),
+    ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
   };
 };
 
@@ -2626,8 +2625,8 @@ const serializeAws_json1_1GetAdminAccountRequest = (input: GetAdminAccountReques
 
 const serializeAws_json1_1GetAppsListRequest = (input: GetAppsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DefaultList !== undefined && { DefaultList: input.DefaultList }),
-    ...(input.ListId !== undefined && { ListId: input.ListId }),
+    ...(input.DefaultList !== undefined && input.DefaultList !== null && { DefaultList: input.DefaultList }),
+    ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
   };
 };
 
@@ -2636,8 +2635,8 @@ const serializeAws_json1_1GetComplianceDetailRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MemberAccount !== undefined && { MemberAccount: input.MemberAccount }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.MemberAccount !== undefined && input.MemberAccount !== null && { MemberAccount: input.MemberAccount }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -2650,7 +2649,7 @@ const serializeAws_json1_1GetNotificationChannelRequest = (
 
 const serializeAws_json1_1GetPolicyRequest = (input: GetPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -2659,19 +2658,22 @@ const serializeAws_json1_1GetProtectionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MemberAccountId !== undefined && { MemberAccountId: input.MemberAccountId }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.MemberAccountId !== undefined &&
+      input.MemberAccountId !== null && { MemberAccountId: input.MemberAccountId }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1GetProtocolsListRequest = (input: GetProtocolsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DefaultList !== undefined && { DefaultList: input.DefaultList }),
-    ...(input.ListId !== undefined && { ListId: input.ListId }),
+    ...(input.DefaultList !== undefined && input.DefaultList !== null && { DefaultList: input.DefaultList }),
+    ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
   };
 };
 
@@ -2680,18 +2682,18 @@ const serializeAws_json1_1GetViolationDetailsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MemberAccount !== undefined && { MemberAccount: input.MemberAccount }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.MemberAccount !== undefined && input.MemberAccount !== null && { MemberAccount: input.MemberAccount }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
   };
 };
 
 const serializeAws_json1_1ListAppsListsRequest = (input: ListAppsListsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DefaultLists !== undefined && { DefaultLists: input.DefaultLists }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DefaultLists !== undefined && input.DefaultLists !== null && { DefaultLists: input.DefaultLists }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2700,9 +2702,9 @@ const serializeAws_json1_1ListComplianceStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
   };
 };
 
@@ -2711,15 +2713,15 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2728,9 +2730,9 @@ const serializeAws_json1_1ListProtocolsListsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DefaultLists !== undefined && { DefaultLists: input.DefaultLists }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DefaultLists !== undefined && input.DefaultLists !== null && { DefaultLists: input.DefaultLists }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2739,86 +2741,110 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any => {
   return {
-    ...(input.ExcludeMap !== undefined && {
-      ExcludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.ExcludeMap, context),
-    }),
-    ...(input.ExcludeResourceTags !== undefined && { ExcludeResourceTags: input.ExcludeResourceTags }),
-    ...(input.IncludeMap !== undefined && {
-      IncludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.IncludeMap, context),
-    }),
-    ...(input.PolicyId !== undefined && { PolicyId: input.PolicyId }),
-    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
-    ...(input.PolicyUpdateToken !== undefined && { PolicyUpdateToken: input.PolicyUpdateToken }),
-    ...(input.RemediationEnabled !== undefined && { RemediationEnabled: input.RemediationEnabled }),
-    ...(input.ResourceTags !== undefined && {
-      ResourceTags: serializeAws_json1_1ResourceTags(input.ResourceTags, context),
-    }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
-    ...(input.ResourceTypeList !== undefined && {
-      ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),
-    }),
-    ...(input.SecurityServicePolicyData !== undefined && {
-      SecurityServicePolicyData: serializeAws_json1_1SecurityServicePolicyData(
-        input.SecurityServicePolicyData,
-        context
-      ),
-    }),
+    ...(input.ExcludeMap !== undefined &&
+      input.ExcludeMap !== null && {
+        ExcludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.ExcludeMap, context),
+      }),
+    ...(input.ExcludeResourceTags !== undefined &&
+      input.ExcludeResourceTags !== null && { ExcludeResourceTags: input.ExcludeResourceTags }),
+    ...(input.IncludeMap !== undefined &&
+      input.IncludeMap !== null && {
+        IncludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.IncludeMap, context),
+      }),
+    ...(input.PolicyId !== undefined && input.PolicyId !== null && { PolicyId: input.PolicyId }),
+    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyUpdateToken !== undefined &&
+      input.PolicyUpdateToken !== null && { PolicyUpdateToken: input.PolicyUpdateToken }),
+    ...(input.RemediationEnabled !== undefined &&
+      input.RemediationEnabled !== null && { RemediationEnabled: input.RemediationEnabled }),
+    ...(input.ResourceTags !== undefined &&
+      input.ResourceTags !== null && { ResourceTags: serializeAws_json1_1ResourceTags(input.ResourceTags, context) }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.ResourceTypeList !== undefined &&
+      input.ResourceTypeList !== null && {
+        ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),
+      }),
+    ...(input.SecurityServicePolicyData !== undefined &&
+      input.SecurityServicePolicyData !== null && {
+        SecurityServicePolicyData: serializeAws_json1_1SecurityServicePolicyData(
+          input.SecurityServicePolicyData,
+          context
+        ),
+      }),
   };
 };
 
 const serializeAws_json1_1PreviousAppsList = (input: { [key: string]: App[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: App[] }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: App[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_json1_1AppsList(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1PreviousProtocolsList = (
   input: { [key: string]: string[] },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_json1_1ProtocolsList(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1ProtocolsList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ProtocolsListData = (input: ProtocolsListData, context: __SerdeContext): any => {
   return {
-    ...(input.CreateTime !== undefined && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
-    ...(input.LastUpdateTime !== undefined && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
-    ...(input.ListId !== undefined && { ListId: input.ListId }),
-    ...(input.ListName !== undefined && { ListName: input.ListName }),
-    ...(input.ListUpdateToken !== undefined && { ListUpdateToken: input.ListUpdateToken }),
-    ...(input.PreviousProtocolsList !== undefined && {
-      PreviousProtocolsList: serializeAws_json1_1PreviousProtocolsList(input.PreviousProtocolsList, context),
-    }),
-    ...(input.ProtocolsList !== undefined && {
-      ProtocolsList: serializeAws_json1_1ProtocolsList(input.ProtocolsList, context),
-    }),
+    ...(input.CreateTime !== undefined &&
+      input.CreateTime !== null && { CreateTime: Math.round(input.CreateTime.getTime() / 1000) }),
+    ...(input.LastUpdateTime !== undefined &&
+      input.LastUpdateTime !== null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
+    ...(input.ListId !== undefined && input.ListId !== null && { ListId: input.ListId }),
+    ...(input.ListName !== undefined && input.ListName !== null && { ListName: input.ListName }),
+    ...(input.ListUpdateToken !== undefined &&
+      input.ListUpdateToken !== null && { ListUpdateToken: input.ListUpdateToken }),
+    ...(input.PreviousProtocolsList !== undefined &&
+      input.PreviousProtocolsList !== null && {
+        PreviousProtocolsList: serializeAws_json1_1PreviousProtocolsList(input.PreviousProtocolsList, context),
+      }),
+    ...(input.ProtocolsList !== undefined &&
+      input.ProtocolsList !== null && {
+        ProtocolsList: serializeAws_json1_1ProtocolsList(input.ProtocolsList, context),
+      }),
   };
 };
 
 const serializeAws_json1_1PutAppsListRequest = (input: PutAppsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AppsList !== undefined && { AppsList: serializeAws_json1_1AppsListData(input.AppsList, context) }),
-    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.AppsList !== undefined &&
+      input.AppsList !== null && { AppsList: serializeAws_json1_1AppsListData(input.AppsList, context) }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
@@ -2827,40 +2853,58 @@ const serializeAws_json1_1PutNotificationChannelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnsRoleName !== undefined && { SnsRoleName: input.SnsRoleName }),
-    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SnsRoleName !== undefined && input.SnsRoleName !== null && { SnsRoleName: input.SnsRoleName }),
+    ...(input.SnsTopicArn !== undefined && input.SnsTopicArn !== null && { SnsTopicArn: input.SnsTopicArn }),
   };
 };
 
 const serializeAws_json1_1PutPolicyRequest = (input: PutPolicyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Policy !== undefined && { Policy: serializeAws_json1_1Policy(input.Policy, context) }),
-    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.Policy !== undefined &&
+      input.Policy !== null && { Policy: serializeAws_json1_1Policy(input.Policy, context) }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1PutProtocolsListRequest = (input: PutProtocolsListRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ProtocolsList !== undefined && {
-      ProtocolsList: serializeAws_json1_1ProtocolsListData(input.ProtocolsList, context),
-    }),
-    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ProtocolsList !== undefined &&
+      input.ProtocolsList !== null && {
+        ProtocolsList: serializeAws_json1_1ProtocolsListData(input.ProtocolsList, context),
+      }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1ResourceTags = (input: ResourceTag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ResourceTag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ResourceTag(entry, context);
+    });
 };
 
 const serializeAws_json1_1ResourceTypeList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SecurityServicePolicyData = (
@@ -2868,37 +2912,54 @@ const serializeAws_json1_1SecurityServicePolicyData = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ManagedServiceData !== undefined && { ManagedServiceData: input.ManagedServiceData }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.ManagedServiceData !== undefined &&
+      input.ManagedServiceData !== null && { ManagedServiceData: input.ManagedServiceData }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagList !== undefined && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagList !== undefined &&
+      input.TagList !== null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2911,7 +2972,14 @@ const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App =>
 };
 
 const deserializeAws_json1_1AppsList = (output: any, context: __SerdeContext): App[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1App(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1App(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AppsListData = (output: any, context: __SerdeContext): AppsListData => {
@@ -2952,7 +3020,14 @@ const deserializeAws_json1_1AppsListDataSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1AppsListsData = (output: any, context: __SerdeContext): AppsListDataSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AppsListDataSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AppsListDataSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AwsEc2InstanceViolation = (
@@ -2987,7 +3062,14 @@ const deserializeAws_json1_1AwsEc2NetworkInterfaceViolations = (
   output: any,
   context: __SerdeContext
 ): AwsEc2NetworkInterfaceViolation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AwsEc2NetworkInterfaceViolation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AwsEc2NetworkInterfaceViolation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AwsVPCSecurityGroupViolation = (
@@ -3023,11 +3105,25 @@ const deserializeAws_json1_1ComplianceViolator = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ComplianceViolators = (output: any, context: __SerdeContext): ComplianceViolator[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ComplianceViolator(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ComplianceViolator(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomerPolicyScopeIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1CustomerPolicyScopeMap = (
@@ -3035,10 +3131,15 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
   context: __SerdeContext
 ): { [key: string]: string[] } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_json1_1CustomerPolicyScopeIdList(value, context),
-    }),
+    (acc: { [key: string]: string[] }, [key, value]: [CustomerPolicyScopeIdType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_json1_1CustomerPolicyScopeIdList(value, context),
+      };
+    },
     {}
   );
 };
@@ -3057,7 +3158,14 @@ const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1EvaluationResults = (output: any, context: __SerdeContext): EvaluationResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EvaluationResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluationResult(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GetAdminAccountResponse = (
@@ -3180,10 +3288,15 @@ const deserializeAws_json1_1InvalidTypeException = (output: any, context: __Serd
 
 const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DependentServiceName | string, any]) => ({
-      ...acc,
-      [key]: value,
-    }),
+    (acc: { [key: string]: string }, [key, value]: [DependentServiceName | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: value,
+      };
+    },
     {}
   );
 };
@@ -3266,11 +3379,25 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 };
 
 const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1NetworkFirewallActionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation = (
@@ -3385,7 +3512,14 @@ const deserializeAws_json1_1PartialMatch = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1PartialMatches = (output: any, context: __SerdeContext): PartialMatch[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PartialMatch(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PartialMatch(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
@@ -3479,7 +3613,14 @@ const deserializeAws_json1_1PolicyComplianceStatusList = (
   output: any,
   context: __SerdeContext
 ): PolicyComplianceStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PolicyComplianceStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PolicyComplianceStatus(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
@@ -3500,34 +3641,52 @@ const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1PolicySummaryList = (output: any, context: __SerdeContext): PolicySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PolicySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PolicySummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeContext): { [key: string]: App[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: App[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: App[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1AppsList(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1PreviousProtocolsList = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1ProtocolsList(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1ProtocolsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ProtocolsListData = (output: any, context: __SerdeContext): ProtocolsListData => {
@@ -3571,7 +3730,14 @@ const deserializeAws_json1_1ProtocolsListDataSummary = (
 };
 
 const deserializeAws_json1_1ProtocolsListsData = (output: any, context: __SerdeContext): ProtocolsListDataSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ProtocolsListDataSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProtocolsListDataSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutAppsListResponse = (output: any, context: __SerdeContext): PutAppsListResponse => {
@@ -3609,7 +3775,14 @@ const deserializeAws_json1_1PutProtocolsListResponse = (
 };
 
 const deserializeAws_json1_1ResourceIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -3629,11 +3802,25 @@ const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ResourceTags = (output: any, context: __SerdeContext): ResourceTag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceTag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceTypeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeContext): ResourceViolation => {
@@ -3686,7 +3873,14 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1ResourceViolations = (output: any, context: __SerdeContext): ResourceViolation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourceViolation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceViolation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SecurityGroupRemediationAction = (
@@ -3712,7 +3906,14 @@ const deserializeAws_json1_1SecurityGroupRemediationActions = (
   output: any,
   context: __SerdeContext
 ): SecurityGroupRemediationAction[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SecurityGroupRemediationAction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SecurityGroupRemediationAction(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SecurityGroupRuleDescription = (
@@ -3751,7 +3952,14 @@ const deserializeAws_json1_1StatefulRuleGroup = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1StatefulRuleGroupList = (output: any, context: __SerdeContext): StatefulRuleGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1StatefulRuleGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StatefulRuleGroup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeContext): StatelessRuleGroup => {
@@ -3764,7 +3972,14 @@ const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1StatelessRuleGroupList = (output: any, context: __SerdeContext): StatelessRuleGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1StatelessRuleGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StatelessRuleGroup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -3775,7 +3990,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -3783,7 +4005,14 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1TargetViolationReasons = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -3862,3 +4091,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

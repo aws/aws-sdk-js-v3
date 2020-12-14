@@ -32,9 +32,7 @@ export const serializeAws_restJson1DeleteHumanLoopCommand = async (
   input: DeleteHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
     const labelValue: string = input.HumanLoopName;
@@ -62,9 +60,7 @@ export const serializeAws_restJson1DescribeHumanLoopCommand = async (
   input: DescribeHumanLoopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/human-loops/{HumanLoopName}";
   if (input.HumanLoopName !== undefined) {
     const labelValue: string = input.HumanLoopName;
@@ -92,9 +88,7 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
   input: ListHumanLoopsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/human-loops";
   const query: any = {
     ...(input.CreationTimeAfter !== undefined && {
@@ -127,19 +121,22 @@ export const serializeAws_restJson1StartHumanLoopCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/human-loops";
   let body: any;
   body = JSON.stringify({
-    ...(input.DataAttributes !== undefined && {
-      DataAttributes: serializeAws_restJson1HumanLoopDataAttributes(input.DataAttributes, context),
-    }),
-    ...(input.FlowDefinitionArn !== undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
-    ...(input.HumanLoopInput !== undefined && {
-      HumanLoopInput: serializeAws_restJson1HumanLoopInput(input.HumanLoopInput, context),
-    }),
-    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
+    ...(input.DataAttributes !== undefined &&
+      input.DataAttributes !== null && {
+        DataAttributes: serializeAws_restJson1HumanLoopDataAttributes(input.DataAttributes, context),
+      }),
+    ...(input.FlowDefinitionArn !== undefined &&
+      input.FlowDefinitionArn !== null && { FlowDefinitionArn: input.FlowDefinitionArn }),
+    ...(input.HumanLoopInput !== undefined &&
+      input.HumanLoopInput !== null && {
+        HumanLoopInput: serializeAws_restJson1HumanLoopInput(input.HumanLoopInput, context),
+      }),
+    ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -158,12 +155,12 @@ export const serializeAws_restJson1StopHumanLoopCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/human-loops/stop";
   let body: any;
   body = JSON.stringify({
-    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
+    ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -710,7 +707,14 @@ const serializeAws_restJson1ContentClassifiers = (
   input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1HumanLoopDataAttributes = (
@@ -718,15 +722,16 @@ const serializeAws_restJson1HumanLoopDataAttributes = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ContentClassifiers !== undefined && {
-      ContentClassifiers: serializeAws_restJson1ContentClassifiers(input.ContentClassifiers, context),
-    }),
+    ...(input.ContentClassifiers !== undefined &&
+      input.ContentClassifiers !== null && {
+        ContentClassifiers: serializeAws_restJson1ContentClassifiers(input.ContentClassifiers, context),
+      }),
   };
 };
 
 const serializeAws_restJson1HumanLoopInput = (input: HumanLoopInput, context: __SerdeContext): any => {
   return {
-    ...(input.InputContent !== undefined && { InputContent: input.InputContent }),
+    ...(input.InputContent !== undefined && input.InputContent !== null && { InputContent: input.InputContent }),
   };
 };
 
@@ -737,7 +742,14 @@ const deserializeAws_restJson1HumanLoopOutput = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __SerdeContext): HumanLoopSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1HumanLoopSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1HumanLoopSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {
@@ -779,6 +791,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

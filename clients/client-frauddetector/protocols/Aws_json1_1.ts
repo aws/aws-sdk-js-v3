@@ -248,7 +248,7 @@ export const serializeAws_json1_1BatchCreateVariableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.BatchCreateVariable",
   };
   let body: any;
@@ -261,7 +261,7 @@ export const serializeAws_json1_1BatchGetVariableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.BatchGetVariable",
   };
   let body: any;
@@ -274,7 +274,7 @@ export const serializeAws_json1_1CreateDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateDetectorVersion",
   };
   let body: any;
@@ -287,7 +287,7 @@ export const serializeAws_json1_1CreateModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateModel",
   };
   let body: any;
@@ -300,7 +300,7 @@ export const serializeAws_json1_1CreateModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateModelVersion",
   };
   let body: any;
@@ -313,7 +313,7 @@ export const serializeAws_json1_1CreateRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateRule",
   };
   let body: any;
@@ -326,7 +326,7 @@ export const serializeAws_json1_1CreateVariableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.CreateVariable",
   };
   let body: any;
@@ -339,7 +339,7 @@ export const serializeAws_json1_1DeleteDetectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteDetector",
   };
   let body: any;
@@ -352,7 +352,7 @@ export const serializeAws_json1_1DeleteDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteDetectorVersion",
   };
   let body: any;
@@ -365,7 +365,7 @@ export const serializeAws_json1_1DeleteEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEntityType",
   };
   let body: any;
@@ -378,7 +378,7 @@ export const serializeAws_json1_1DeleteEventCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEvent",
   };
   let body: any;
@@ -391,7 +391,7 @@ export const serializeAws_json1_1DeleteEventTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEventType",
   };
   let body: any;
@@ -404,7 +404,7 @@ export const serializeAws_json1_1DeleteExternalModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteExternalModel",
   };
   let body: any;
@@ -417,7 +417,7 @@ export const serializeAws_json1_1DeleteLabelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteLabel",
   };
   let body: any;
@@ -430,7 +430,7 @@ export const serializeAws_json1_1DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteModel",
   };
   let body: any;
@@ -443,7 +443,7 @@ export const serializeAws_json1_1DeleteModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteModelVersion",
   };
   let body: any;
@@ -456,7 +456,7 @@ export const serializeAws_json1_1DeleteOutcomeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteOutcome",
   };
   let body: any;
@@ -469,7 +469,7 @@ export const serializeAws_json1_1DeleteRuleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteRule",
   };
   let body: any;
@@ -482,7 +482,7 @@ export const serializeAws_json1_1DeleteVariableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteVariable",
   };
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_json1_1DescribeDetectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DescribeDetector",
   };
   let body: any;
@@ -508,7 +508,7 @@ export const serializeAws_json1_1DescribeModelVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.DescribeModelVersions",
   };
   let body: any;
@@ -521,7 +521,7 @@ export const serializeAws_json1_1GetDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectors",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1GetDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectorVersion",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1GetEntityTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetEntityTypes",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1GetEventPredictionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetEventPrediction",
   };
   let body: any;
@@ -573,7 +573,7 @@ export const serializeAws_json1_1GetEventTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetEventTypes",
   };
   let body: any;
@@ -586,7 +586,7 @@ export const serializeAws_json1_1GetExternalModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetExternalModels",
   };
   let body: any;
@@ -599,7 +599,7 @@ export const serializeAws_json1_1GetKMSEncryptionKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetKMSEncryptionKey",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
@@ -610,7 +610,7 @@ export const serializeAws_json1_1GetLabelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetLabels",
   };
   let body: any;
@@ -623,7 +623,7 @@ export const serializeAws_json1_1GetModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetModels",
   };
   let body: any;
@@ -636,7 +636,7 @@ export const serializeAws_json1_1GetModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetModelVersion",
   };
   let body: any;
@@ -649,7 +649,7 @@ export const serializeAws_json1_1GetOutcomesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetOutcomes",
   };
   let body: any;
@@ -662,7 +662,7 @@ export const serializeAws_json1_1GetRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetRules",
   };
   let body: any;
@@ -675,7 +675,7 @@ export const serializeAws_json1_1GetVariablesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.GetVariables",
   };
   let body: any;
@@ -688,7 +688,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.ListTagsForResource",
   };
   let body: any;
@@ -701,7 +701,7 @@ export const serializeAws_json1_1PutDetectorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutDetector",
   };
   let body: any;
@@ -714,7 +714,7 @@ export const serializeAws_json1_1PutEntityTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutEntityType",
   };
   let body: any;
@@ -727,7 +727,7 @@ export const serializeAws_json1_1PutEventTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutEventType",
   };
   let body: any;
@@ -740,7 +740,7 @@ export const serializeAws_json1_1PutExternalModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutExternalModel",
   };
   let body: any;
@@ -753,7 +753,7 @@ export const serializeAws_json1_1PutKMSEncryptionKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutKMSEncryptionKey",
   };
   let body: any;
@@ -766,7 +766,7 @@ export const serializeAws_json1_1PutLabelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutLabel",
   };
   let body: any;
@@ -779,7 +779,7 @@ export const serializeAws_json1_1PutOutcomeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.PutOutcome",
   };
   let body: any;
@@ -792,7 +792,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.TagResource",
   };
   let body: any;
@@ -805,7 +805,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UntagResource",
   };
   let body: any;
@@ -818,7 +818,7 @@ export const serializeAws_json1_1UpdateDetectorVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersion",
   };
   let body: any;
@@ -831,7 +831,7 @@ export const serializeAws_json1_1UpdateDetectorVersionMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata",
   };
   let body: any;
@@ -844,7 +844,7 @@ export const serializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus",
   };
   let body: any;
@@ -857,7 +857,7 @@ export const serializeAws_json1_1UpdateModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModel",
   };
   let body: any;
@@ -870,7 +870,7 @@ export const serializeAws_json1_1UpdateModelVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModelVersion",
   };
   let body: any;
@@ -883,7 +883,7 @@ export const serializeAws_json1_1UpdateModelVersionStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModelVersionStatus",
   };
   let body: any;
@@ -896,7 +896,7 @@ export const serializeAws_json1_1UpdateRuleMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateRuleMetadata",
   };
   let body: any;
@@ -909,7 +909,7 @@ export const serializeAws_json1_1UpdateRuleVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateRuleVersion",
   };
   let body: any;
@@ -922,7 +922,7 @@ export const serializeAws_json1_1UpdateVariableCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateVariable",
   };
   let body: any;
@@ -957,8 +957,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1036,8 +1035,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1115,8 +1113,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1202,8 +1199,7 @@ const deserializeAws_json1_1CreateModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1273,8 +1269,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1352,8 +1347,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1431,8 +1425,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1510,8 +1503,7 @@ const deserializeAws_json1_1DeleteDetectorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1597,8 +1589,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1692,8 +1683,7 @@ const deserializeAws_json1_1DeleteEntityTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1771,8 +1761,7 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1850,8 +1839,7 @@ const deserializeAws_json1_1DeleteEventTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -1929,8 +1917,7 @@ const deserializeAws_json1_1DeleteExternalModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2016,8 +2003,7 @@ const deserializeAws_json1_1DeleteLabelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.frauddetector#ConflictException":
@@ -2087,8 +2073,7 @@ const deserializeAws_json1_1DeleteModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2166,8 +2151,7 @@ const deserializeAws_json1_1DeleteModelVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2245,8 +2229,7 @@ const deserializeAws_json1_1DeleteOutcomeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2332,8 +2315,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2419,8 +2401,7 @@ const deserializeAws_json1_1DeleteVariableCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2506,8 +2487,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2593,8 +2573,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2672,8 +2651,7 @@ const deserializeAws_json1_1GetDetectorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2759,8 +2737,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2846,8 +2823,7 @@ const deserializeAws_json1_1GetEntityTypesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -2925,8 +2901,7 @@ const deserializeAws_json1_1GetEventPredictionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3020,8 +2995,7 @@ const deserializeAws_json1_1GetEventTypesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3099,8 +3073,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3186,8 +3159,7 @@ const deserializeAws_json1_1GetKMSEncryptionKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3257,8 +3229,7 @@ const deserializeAws_json1_1GetLabelsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3336,8 +3307,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3415,8 +3385,7 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3494,8 +3463,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3581,8 +3549,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3668,8 +3635,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3755,8 +3721,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3826,8 +3791,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3905,8 +3869,7 @@ const deserializeAws_json1_1PutEntityTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -3976,8 +3939,7 @@ const deserializeAws_json1_1PutEventTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4047,8 +4009,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4126,8 +4087,7 @@ const deserializeAws_json1_1PutKMSEncryptionKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4205,8 +4165,7 @@ const deserializeAws_json1_1PutLabelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4276,8 +4235,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4355,8 +4313,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4426,8 +4383,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4497,8 +4453,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4584,8 +4539,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4663,8 +4617,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4750,8 +4703,7 @@ const deserializeAws_json1_1UpdateModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4829,8 +4781,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4908,8 +4859,7 @@ const deserializeAws_json1_1UpdateModelVersionStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -4987,8 +4937,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -5074,8 +5023,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -5161,8 +5109,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.frauddetector#AccessDeniedException":
@@ -5316,16 +5263,18 @@ const serializeAws_json1_1BatchCreateVariableRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
-    ...(input.variableEntries !== undefined && {
-      variableEntries: serializeAws_json1_1VariableEntryList(input.variableEntries, context),
-    }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.variableEntries !== undefined &&
+      input.variableEntries !== null && {
+        variableEntries: serializeAws_json1_1VariableEntryList(input.variableEntries, context),
+      }),
   };
 };
 
 const serializeAws_json1_1BatchGetVariableRequest = (input: BatchGetVariableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.names !== undefined && { names: serializeAws_json1_1NameList(input.names, context) }),
+    ...(input.names !== undefined &&
+      input.names !== null && { names: serializeAws_json1_1NameList(input.names, context) }),
   };
 };
 
@@ -5334,27 +5283,31 @@ const serializeAws_json1_1CreateDetectorVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.externalModelEndpoints !== undefined && {
-      externalModelEndpoints: serializeAws_json1_1ListOfStrings(input.externalModelEndpoints, context),
-    }),
-    ...(input.modelVersions !== undefined && {
-      modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context),
-    }),
-    ...(input.ruleExecutionMode !== undefined && { ruleExecutionMode: input.ruleExecutionMode }),
-    ...(input.rules !== undefined && { rules: serializeAws_json1_1RuleList(input.rules, context) }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.externalModelEndpoints !== undefined &&
+      input.externalModelEndpoints !== null && {
+        externalModelEndpoints: serializeAws_json1_1ListOfStrings(input.externalModelEndpoints, context),
+      }),
+    ...(input.modelVersions !== undefined &&
+      input.modelVersions !== null && {
+        modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context),
+      }),
+    ...(input.ruleExecutionMode !== undefined &&
+      input.ruleExecutionMode !== null && { ruleExecutionMode: input.ruleExecutionMode }),
+    ...(input.rules !== undefined &&
+      input.rules !== null && { rules: serializeAws_json1_1RuleList(input.rules, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateModelRequest = (input: CreateModelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.eventTypeName !== undefined && { eventTypeName: input.eventTypeName }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
@@ -5363,58 +5316,62 @@ const serializeAws_json1_1CreateModelVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.externalEventsDetail !== undefined && {
-      externalEventsDetail: serializeAws_json1_1ExternalEventsDetail(input.externalEventsDetail, context),
-    }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
-    ...(input.trainingDataSchema !== undefined && {
-      trainingDataSchema: serializeAws_json1_1TrainingDataSchema(input.trainingDataSchema, context),
-    }),
-    ...(input.trainingDataSource !== undefined && { trainingDataSource: input.trainingDataSource }),
+    ...(input.externalEventsDetail !== undefined &&
+      input.externalEventsDetail !== null && {
+        externalEventsDetail: serializeAws_json1_1ExternalEventsDetail(input.externalEventsDetail, context),
+      }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.trainingDataSchema !== undefined &&
+      input.trainingDataSchema !== null && {
+        trainingDataSchema: serializeAws_json1_1TrainingDataSchema(input.trainingDataSchema, context),
+      }),
+    ...(input.trainingDataSource !== undefined &&
+      input.trainingDataSource !== null && { trainingDataSource: input.trainingDataSource }),
   };
 };
 
 const serializeAws_json1_1CreateRuleRequest = (input: CreateRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.expression !== undefined && { expression: input.expression }),
-    ...(input.language !== undefined && { language: input.language }),
-    ...(input.outcomes !== undefined && {
-      outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context),
-    }),
-    ...(input.ruleId !== undefined && { ruleId: input.ruleId }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.language !== undefined && input.language !== null && { language: input.language }),
+    ...(input.outcomes !== undefined &&
+      input.outcomes !== null && { outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context) }),
+    ...(input.ruleId !== undefined && input.ruleId !== null && { ruleId: input.ruleId }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateVariableRequest = (input: CreateVariableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.dataSource !== undefined && { dataSource: input.dataSource }),
-    ...(input.dataType !== undefined && { dataType: input.dataType }),
-    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
-    ...(input.variableType !== undefined && { variableType: input.variableType }),
+    ...(input.dataSource !== undefined && input.dataSource !== null && { dataSource: input.dataSource }),
+    ...(input.dataType !== undefined && input.dataType !== null && { dataType: input.dataType }),
+    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.variableType !== undefined && input.variableType !== null && { variableType: input.variableType }),
   };
 };
 
 const serializeAws_json1_1CsvIndexToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1DeleteDetectorRequest = (input: DeleteDetectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
   };
 };
 
@@ -5423,27 +5380,28 @@ const serializeAws_json1_1DeleteDetectorVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
   };
 };
 
 const serializeAws_json1_1DeleteEntityTypeRequest = (input: DeleteEntityTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1DeleteEventRequest = (input: DeleteEventRequest, context: __SerdeContext): any => {
   return {
-    ...(input.eventId !== undefined && { eventId: input.eventId }),
-    ...(input.eventTypeName !== undefined && { eventTypeName: input.eventTypeName }),
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
   };
 };
 
 const serializeAws_json1_1DeleteEventTypeRequest = (input: DeleteEventTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
@@ -5452,20 +5410,20 @@ const serializeAws_json1_1DeleteExternalModelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.modelEndpoint !== undefined && { modelEndpoint: input.modelEndpoint }),
+    ...(input.modelEndpoint !== undefined && input.modelEndpoint !== null && { modelEndpoint: input.modelEndpoint }),
   };
 };
 
 const serializeAws_json1_1DeleteLabelRequest = (input: DeleteLabelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1DeleteModelRequest = (input: DeleteModelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
   };
 };
 
@@ -5474,35 +5432,36 @@ const serializeAws_json1_1DeleteModelVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.modelVersionNumber !== undefined &&
+      input.modelVersionNumber !== null && { modelVersionNumber: input.modelVersionNumber }),
   };
 };
 
 const serializeAws_json1_1DeleteOutcomeRequest = (input: DeleteOutcomeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1DeleteRuleRequest = (input: DeleteRuleRequest, context: __SerdeContext): any => {
   return {
-    ...(input.rule !== undefined && { rule: serializeAws_json1_1Rule(input.rule, context) }),
+    ...(input.rule !== undefined && input.rule !== null && { rule: serializeAws_json1_1Rule(input.rule, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteVariableRequest = (input: DeleteVariableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
   };
 };
 
 const serializeAws_json1_1DescribeDetectorRequest = (input: DescribeDetectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -5511,35 +5470,39 @@ const serializeAws_json1_1DescribeModelVersionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.modelVersionNumber !== undefined &&
+      input.modelVersionNumber !== null && { modelVersionNumber: input.modelVersionNumber }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1Entity = (input: Entity, context: __SerdeContext): any => {
   return {
-    ...(input.entityId !== undefined && { entityId: input.entityId }),
-    ...(input.entityType !== undefined && { entityType: input.entityType }),
+    ...(input.entityId !== undefined && input.entityId !== null && { entityId: input.entityId }),
+    ...(input.entityType !== undefined && input.entityType !== null && { entityType: input.entityType }),
   };
 };
 
 const serializeAws_json1_1EventVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1ExternalEventsDetail = (input: ExternalEventsDetail, context: __SerdeContext): any => {
   return {
-    ...(input.dataAccessRoleArn !== undefined && { dataAccessRoleArn: input.dataAccessRoleArn }),
-    ...(input.dataLocation !== undefined && { dataLocation: input.dataLocation }),
+    ...(input.dataAccessRoleArn !== undefined &&
+      input.dataAccessRoleArn !== null && { dataAccessRoleArn: input.dataAccessRoleArn }),
+    ...(input.dataLocation !== undefined && input.dataLocation !== null && { dataLocation: input.dataLocation }),
   };
 };
 
@@ -5547,20 +5510,22 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   input: { [key: string]: ModelEndpointDataBlob },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: ModelEndpointDataBlob }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: ModelEndpointDataBlob }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_json1_1ModelEndpointDataBlob(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1GetDetectorsRequest = (input: GetDetectorsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -5569,16 +5534,17 @@ const serializeAws_json1_1GetDetectorVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
   };
 };
 
 const serializeAws_json1_1GetEntityTypesRequest = (input: GetEntityTypesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -5587,29 +5553,34 @@ const serializeAws_json1_1GetEventPredictionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
-    ...(input.entities !== undefined && { entities: serializeAws_json1_1listOfEntities(input.entities, context) }),
-    ...(input.eventId !== undefined && { eventId: input.eventId }),
-    ...(input.eventTimestamp !== undefined && { eventTimestamp: input.eventTimestamp }),
-    ...(input.eventTypeName !== undefined && { eventTypeName: input.eventTypeName }),
-    ...(input.eventVariables !== undefined && {
-      eventVariables: serializeAws_json1_1EventVariableMap(input.eventVariables, context),
-    }),
-    ...(input.externalModelEndpointDataBlobs !== undefined && {
-      externalModelEndpointDataBlobs: serializeAws_json1_1ExternalModelEndpointDataBlobMap(
-        input.externalModelEndpointDataBlobs,
-        context
-      ),
-    }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
+    ...(input.entities !== undefined &&
+      input.entities !== null && { entities: serializeAws_json1_1listOfEntities(input.entities, context) }),
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTimestamp !== undefined &&
+      input.eventTimestamp !== null && { eventTimestamp: input.eventTimestamp }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.eventVariables !== undefined &&
+      input.eventVariables !== null && {
+        eventVariables: serializeAws_json1_1EventVariableMap(input.eventVariables, context),
+      }),
+    ...(input.externalModelEndpointDataBlobs !== undefined &&
+      input.externalModelEndpointDataBlobs !== null && {
+        externalModelEndpointDataBlobs: serializeAws_json1_1ExternalModelEndpointDataBlobMap(
+          input.externalModelEndpointDataBlobs,
+          context
+        ),
+      }),
   };
 };
 
 const serializeAws_json1_1GetEventTypesRequest = (input: GetEventTypesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -5618,101 +5589,126 @@ const serializeAws_json1_1GetExternalModelsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.modelEndpoint !== undefined && { modelEndpoint: input.modelEndpoint }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.modelEndpoint !== undefined && input.modelEndpoint !== null && { modelEndpoint: input.modelEndpoint }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetLabelsRequest = (input: GetLabelsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetModelsRequest = (input: GetModelsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetModelVersionRequest = (input: GetModelVersionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.modelVersionNumber !== undefined &&
+      input.modelVersionNumber !== null && { modelVersionNumber: input.modelVersionNumber }),
   };
 };
 
 const serializeAws_json1_1GetOutcomesRequest = (input: GetOutcomesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1GetRulesRequest = (input: GetRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.ruleId !== undefined && { ruleId: input.ruleId }),
-    ...(input.ruleVersion !== undefined && { ruleVersion: input.ruleVersion }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.ruleId !== undefined && input.ruleId !== null && { ruleId: input.ruleId }),
+    ...(input.ruleVersion !== undefined && input.ruleVersion !== null && { ruleVersion: input.ruleVersion }),
   };
 };
 
 const serializeAws_json1_1GetVariablesRequest = (input: GetVariablesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1JsonKeyToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1labelMapper = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_json1_1ListOfStrings(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1LabelSchema = (input: LabelSchema, context: __SerdeContext): any => {
   return {
-    ...(input.labelMapper !== undefined && {
-      labelMapper: serializeAws_json1_1labelMapper(input.labelMapper, context),
-    }),
+    ...(input.labelMapper !== undefined &&
+      input.labelMapper !== null && { labelMapper: serializeAws_json1_1labelMapper(input.labelMapper, context) }),
   };
 };
 
 const serializeAws_json1_1listOfEntities = (input: Entity[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Entity(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Entity(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListOfModelVersions = (input: ModelVersion[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ModelVersion(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ModelVersion(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListOfStrings = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
@@ -5720,26 +5716,30 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.resourceARN !== undefined && { resourceARN: input.resourceARN }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.resourceARN !== undefined && input.resourceARN !== null && { resourceARN: input.resourceARN }),
   };
 };
 
 const serializeAws_json1_1ModelEndpointDataBlob = (input: ModelEndpointDataBlob, context: __SerdeContext): any => {
   return {
-    ...(input.byteBuffer !== undefined && { byteBuffer: context.base64Encoder(input.byteBuffer) }),
-    ...(input.contentType !== undefined && { contentType: input.contentType }),
+    ...(input.byteBuffer !== undefined &&
+      input.byteBuffer !== null && { byteBuffer: context.base64Encoder(input.byteBuffer) }),
+    ...(input.contentType !== undefined && input.contentType !== null && { contentType: input.contentType }),
   };
 };
 
 const serializeAws_json1_1ModelInputConfiguration = (input: ModelInputConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.csvInputTemplate !== undefined && { csvInputTemplate: input.csvInputTemplate }),
-    ...(input.eventTypeName !== undefined && { eventTypeName: input.eventTypeName }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.jsonInputTemplate !== undefined && { jsonInputTemplate: input.jsonInputTemplate }),
-    ...(input.useEventVariables !== undefined && { useEventVariables: input.useEventVariables }),
+    ...(input.csvInputTemplate !== undefined &&
+      input.csvInputTemplate !== null && { csvInputTemplate: input.csvInputTemplate }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.format !== undefined && input.format !== null && { format: input.format }),
+    ...(input.jsonInputTemplate !== undefined &&
+      input.jsonInputTemplate !== null && { jsonInputTemplate: input.jsonInputTemplate }),
+    ...(input.useEventVariables !== undefined &&
+      input.useEventVariables !== null && { useEventVariables: input.useEventVariables }),
   };
 };
 
@@ -5748,80 +5748,102 @@ const serializeAws_json1_1ModelOutputConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.csvIndexToVariableMap !== undefined && {
-      csvIndexToVariableMap: serializeAws_json1_1CsvIndexToVariableMap(input.csvIndexToVariableMap, context),
-    }),
-    ...(input.format !== undefined && { format: input.format }),
-    ...(input.jsonKeyToVariableMap !== undefined && {
-      jsonKeyToVariableMap: serializeAws_json1_1JsonKeyToVariableMap(input.jsonKeyToVariableMap, context),
-    }),
+    ...(input.csvIndexToVariableMap !== undefined &&
+      input.csvIndexToVariableMap !== null && {
+        csvIndexToVariableMap: serializeAws_json1_1CsvIndexToVariableMap(input.csvIndexToVariableMap, context),
+      }),
+    ...(input.format !== undefined && input.format !== null && { format: input.format }),
+    ...(input.jsonKeyToVariableMap !== undefined &&
+      input.jsonKeyToVariableMap !== null && {
+        jsonKeyToVariableMap: serializeAws_json1_1JsonKeyToVariableMap(input.jsonKeyToVariableMap, context),
+      }),
   };
 };
 
 const serializeAws_json1_1ModelVersion = (input: ModelVersion, context: __SerdeContext): any => {
   return {
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.modelVersionNumber !== undefined &&
+      input.modelVersionNumber !== null && { modelVersionNumber: input.modelVersionNumber }),
   };
 };
 
 const serializeAws_json1_1NameList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1NonEmptyListOfStrings = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PutDetectorRequest = (input: PutDetectorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.eventTypeName !== undefined && { eventTypeName: input.eventTypeName }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1PutEntityTypeRequest = (input: PutEntityTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1PutEventTypeRequest = (input: PutEventTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.entityTypes !== undefined && {
-      entityTypes: serializeAws_json1_1NonEmptyListOfStrings(input.entityTypes, context),
-    }),
-    ...(input.eventVariables !== undefined && {
-      eventVariables: serializeAws_json1_1NonEmptyListOfStrings(input.eventVariables, context),
-    }),
-    ...(input.labels !== undefined && { labels: serializeAws_json1_1ListOfStrings(input.labels, context) }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.entityTypes !== undefined &&
+      input.entityTypes !== null && {
+        entityTypes: serializeAws_json1_1NonEmptyListOfStrings(input.entityTypes, context),
+      }),
+    ...(input.eventVariables !== undefined &&
+      input.eventVariables !== null && {
+        eventVariables: serializeAws_json1_1NonEmptyListOfStrings(input.eventVariables, context),
+      }),
+    ...(input.labels !== undefined &&
+      input.labels !== null && { labels: serializeAws_json1_1ListOfStrings(input.labels, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1PutExternalModelRequest = (input: PutExternalModelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.inputConfiguration !== undefined && {
-      inputConfiguration: serializeAws_json1_1ModelInputConfiguration(input.inputConfiguration, context),
-    }),
-    ...(input.invokeModelEndpointRoleArn !== undefined && {
-      invokeModelEndpointRoleArn: input.invokeModelEndpointRoleArn,
-    }),
-    ...(input.modelEndpoint !== undefined && { modelEndpoint: input.modelEndpoint }),
-    ...(input.modelEndpointStatus !== undefined && { modelEndpointStatus: input.modelEndpointStatus }),
-    ...(input.modelSource !== undefined && { modelSource: input.modelSource }),
-    ...(input.outputConfiguration !== undefined && {
-      outputConfiguration: serializeAws_json1_1ModelOutputConfiguration(input.outputConfiguration, context),
-    }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.inputConfiguration !== undefined &&
+      input.inputConfiguration !== null && {
+        inputConfiguration: serializeAws_json1_1ModelInputConfiguration(input.inputConfiguration, context),
+      }),
+    ...(input.invokeModelEndpointRoleArn !== undefined &&
+      input.invokeModelEndpointRoleArn !== null && { invokeModelEndpointRoleArn: input.invokeModelEndpointRoleArn }),
+    ...(input.modelEndpoint !== undefined && input.modelEndpoint !== null && { modelEndpoint: input.modelEndpoint }),
+    ...(input.modelEndpointStatus !== undefined &&
+      input.modelEndpointStatus !== null && { modelEndpointStatus: input.modelEndpointStatus }),
+    ...(input.modelSource !== undefined && input.modelSource !== null && { modelSource: input.modelSource }),
+    ...(input.outputConfiguration !== undefined &&
+      input.outputConfiguration !== null && {
+        outputConfiguration: serializeAws_json1_1ModelOutputConfiguration(input.outputConfiguration, context),
+      }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
@@ -5830,75 +5852,98 @@ const serializeAws_json1_1PutKMSEncryptionKeyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.kmsEncryptionKeyArn !== undefined && { kmsEncryptionKeyArn: input.kmsEncryptionKeyArn }),
+    ...(input.kmsEncryptionKeyArn !== undefined &&
+      input.kmsEncryptionKeyArn !== null && { kmsEncryptionKeyArn: input.kmsEncryptionKeyArn }),
   };
 };
 
 const serializeAws_json1_1PutLabelRequest = (input: PutLabelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1PutOutcomeRequest = (input: PutOutcomeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1Rule = (input: Rule, context: __SerdeContext): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.ruleId !== undefined && { ruleId: input.ruleId }),
-    ...(input.ruleVersion !== undefined && { ruleVersion: input.ruleVersion }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.ruleId !== undefined && input.ruleId !== null && { ruleId: input.ruleId }),
+    ...(input.ruleVersion !== undefined && input.ruleVersion !== null && { ruleVersion: input.ruleVersion }),
   };
 };
 
 const serializeAws_json1_1RuleList = (input: Rule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Rule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Rule(entry, context);
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.key !== undefined && { key: input.key }),
-    ...(input.value !== undefined && { value: input.value }),
+    ...(input.key !== undefined && input.key !== null && { key: input.key }),
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
   };
 };
 
 const serializeAws_json1_1tagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1tagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceARN !== undefined && { resourceARN: input.resourceARN }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.resourceARN !== undefined && input.resourceARN !== null && { resourceARN: input.resourceARN }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1TrainingDataSchema = (input: TrainingDataSchema, context: __SerdeContext): any => {
   return {
-    ...(input.labelSchema !== undefined && {
-      labelSchema: serializeAws_json1_1LabelSchema(input.labelSchema, context),
-    }),
-    ...(input.modelVariables !== undefined && {
-      modelVariables: serializeAws_json1_1ListOfStrings(input.modelVariables, context),
-    }),
+    ...(input.labelSchema !== undefined &&
+      input.labelSchema !== null && { labelSchema: serializeAws_json1_1LabelSchema(input.labelSchema, context) }),
+    ...(input.modelVariables !== undefined &&
+      input.modelVariables !== null && {
+        modelVariables: serializeAws_json1_1ListOfStrings(input.modelVariables, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.resourceARN !== undefined && { resourceARN: input.resourceARN }),
-    ...(input.tagKeys !== undefined && { tagKeys: serializeAws_json1_1tagKeyList(input.tagKeys, context) }),
+    ...(input.resourceARN !== undefined && input.resourceARN !== null && { resourceARN: input.resourceARN }),
+    ...(input.tagKeys !== undefined &&
+      input.tagKeys !== null && { tagKeys: serializeAws_json1_1tagKeyList(input.tagKeys, context) }),
   };
 };
 
@@ -5907,9 +5952,10 @@ const serializeAws_json1_1UpdateDetectorVersionMetadataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
   };
 };
 
@@ -5918,17 +5964,22 @@ const serializeAws_json1_1UpdateDetectorVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
-    ...(input.externalModelEndpoints !== undefined && {
-      externalModelEndpoints: serializeAws_json1_1ListOfStrings(input.externalModelEndpoints, context),
-    }),
-    ...(input.modelVersions !== undefined && {
-      modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context),
-    }),
-    ...(input.ruleExecutionMode !== undefined && { ruleExecutionMode: input.ruleExecutionMode }),
-    ...(input.rules !== undefined && { rules: serializeAws_json1_1RuleList(input.rules, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
+    ...(input.externalModelEndpoints !== undefined &&
+      input.externalModelEndpoints !== null && {
+        externalModelEndpoints: serializeAws_json1_1ListOfStrings(input.externalModelEndpoints, context),
+      }),
+    ...(input.modelVersions !== undefined &&
+      input.modelVersions !== null && {
+        modelVersions: serializeAws_json1_1ListOfModelVersions(input.modelVersions, context),
+      }),
+    ...(input.ruleExecutionMode !== undefined &&
+      input.ruleExecutionMode !== null && { ruleExecutionMode: input.ruleExecutionMode }),
+    ...(input.rules !== undefined &&
+      input.rules !== null && { rules: serializeAws_json1_1RuleList(input.rules, context) }),
   };
 };
 
@@ -5937,17 +5988,18 @@ const serializeAws_json1_1UpdateDetectorVersionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.detectorId !== undefined && { detectorId: input.detectorId }),
-    ...(input.detectorVersionId !== undefined && { detectorVersionId: input.detectorVersionId }),
-    ...(input.status !== undefined && { status: input.status }),
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
   };
 };
 
 const serializeAws_json1_1UpdateModelRequest = (input: UpdateModelRequest, context: __SerdeContext): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
   };
 };
 
@@ -5956,13 +6008,15 @@ const serializeAws_json1_1UpdateModelVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.externalEventsDetail !== undefined && {
-      externalEventsDetail: serializeAws_json1_1ExternalEventsDetail(input.externalEventsDetail, context),
-    }),
-    ...(input.majorVersionNumber !== undefined && { majorVersionNumber: input.majorVersionNumber }),
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.externalEventsDetail !== undefined &&
+      input.externalEventsDetail !== null && {
+        externalEventsDetail: serializeAws_json1_1ExternalEventsDetail(input.externalEventsDetail, context),
+      }),
+    ...(input.majorVersionNumber !== undefined &&
+      input.majorVersionNumber !== null && { majorVersionNumber: input.majorVersionNumber }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
@@ -5971,10 +6025,11 @@ const serializeAws_json1_1UpdateModelVersionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.modelId !== undefined && { modelId: input.modelId }),
-    ...(input.modelType !== undefined && { modelType: input.modelType }),
-    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
-    ...(input.status !== undefined && { status: input.status }),
+    ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
+    ...(input.modelVersionNumber !== undefined &&
+      input.modelVersionNumber !== null && { modelVersionNumber: input.modelVersionNumber }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
   };
 };
 
@@ -5983,8 +6038,8 @@ const serializeAws_json1_1UpdateRuleMetadataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.rule !== undefined && { rule: serializeAws_json1_1Rule(input.rule, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.rule !== undefined && input.rule !== null && { rule: serializeAws_json1_1Rule(input.rule, context) }),
   };
 };
 
@@ -5993,39 +6048,45 @@ const serializeAws_json1_1UpdateRuleVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.expression !== undefined && { expression: input.expression }),
-    ...(input.language !== undefined && { language: input.language }),
-    ...(input.outcomes !== undefined && {
-      outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context),
-    }),
-    ...(input.rule !== undefined && { rule: serializeAws_json1_1Rule(input.rule, context) }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1tagList(input.tags, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.expression !== undefined && input.expression !== null && { expression: input.expression }),
+    ...(input.language !== undefined && input.language !== null && { language: input.language }),
+    ...(input.outcomes !== undefined &&
+      input.outcomes !== null && { outcomes: serializeAws_json1_1NonEmptyListOfStrings(input.outcomes, context) }),
+    ...(input.rule !== undefined && input.rule !== null && { rule: serializeAws_json1_1Rule(input.rule, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateVariableRequest = (input: UpdateVariableRequest, context: __SerdeContext): any => {
   return {
-    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.variableType !== undefined && { variableType: input.variableType }),
+    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.variableType !== undefined && input.variableType !== null && { variableType: input.variableType }),
   };
 };
 
 const serializeAws_json1_1VariableEntry = (input: VariableEntry, context: __SerdeContext): any => {
   return {
-    ...(input.dataSource !== undefined && { dataSource: input.dataSource }),
-    ...(input.dataType !== undefined && { dataType: input.dataType }),
-    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.variableType !== undefined && { variableType: input.variableType }),
+    ...(input.dataSource !== undefined && input.dataSource !== null && { dataSource: input.dataSource }),
+    ...(input.dataType !== undefined && input.dataType !== null && { dataType: input.dataType }),
+    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.variableType !== undefined && input.variableType !== null && { variableType: input.variableType }),
   };
 };
 
 const serializeAws_json1_1VariableEntryList = (input: VariableEntry[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1VariableEntry(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1VariableEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -6049,7 +6110,14 @@ const deserializeAws_json1_1BatchCreateVariableErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchCreateVariableError[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BatchCreateVariableError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchCreateVariableError(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BatchCreateVariableResult = (
@@ -6076,7 +6144,14 @@ const deserializeAws_json1_1BatchGetVariableErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchGetVariableError[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BatchGetVariableError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchGetVariableError(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BatchGetVariableResult = (output: any, context: __SerdeContext): BatchGetVariableResult => {
@@ -6146,13 +6221,15 @@ const deserializeAws_json1_1CsvIndexToVariableMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1DataValidationMetrics = (output: any, context: __SerdeContext): DataValidationMetrics => {
@@ -6264,7 +6341,14 @@ const deserializeAws_json1_1Detector = (output: any, context: __SerdeContext): D
 };
 
 const deserializeAws_json1_1DetectorList = (output: any, context: __SerdeContext): Detector[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Detector(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Detector(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DetectorVersionSummary = (output: any, context: __SerdeContext): DetectorVersionSummary => {
@@ -6284,7 +6368,14 @@ const deserializeAws_json1_1DetectorVersionSummaryList = (
   output: any,
   context: __SerdeContext
 ): DetectorVersionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DetectorVersionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DetectorVersionSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EntityType = (output: any, context: __SerdeContext): EntityType => {
@@ -6299,7 +6390,14 @@ const deserializeAws_json1_1EntityType = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1entityTypeList = (output: any, context: __SerdeContext): EntityType[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EntityType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EntityType(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
@@ -6326,7 +6424,14 @@ const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1eventTypeList = (output: any, context: __SerdeContext): EventType[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EventType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EventType(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ExternalEventsDetail = (output: any, context: __SerdeContext): ExternalEventsDetail => {
@@ -6368,7 +6473,14 @@ const deserializeAws_json1_1ExternalModel = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1ExternalModelList = (output: any, context: __SerdeContext): ExternalModel[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ExternalModel(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExternalModel(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FieldValidationMessage = (output: any, context: __SerdeContext): FieldValidationMessage => {
@@ -6385,7 +6497,14 @@ const deserializeAws_json1_1fieldValidationMessageList = (
   output: any,
   context: __SerdeContext
 ): FieldValidationMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FieldValidationMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FieldValidationMessage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FileValidationMessage = (output: any, context: __SerdeContext): FileValidationMessage => {
@@ -6400,7 +6519,14 @@ const deserializeAws_json1_1fileValidationMessageList = (
   output: any,
   context: __SerdeContext
 ): FileValidationMessage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FileValidationMessage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FileValidationMessage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GetDetectorsResult = (output: any, context: __SerdeContext): GetDetectorsResult => {
@@ -6597,13 +6723,15 @@ const deserializeAws_json1_1JsonKeyToVariableMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1KMSKey = (output: any, context: __SerdeContext): KMSKey => {
@@ -6627,17 +6755,26 @@ const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Labe
 };
 
 const deserializeAws_json1_1labelList = (output: any, context: __SerdeContext): Label[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Label(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Label(entry, context);
+    });
 };
 
 const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1ListOfStrings(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext): LabelSchema => {
@@ -6650,19 +6787,47 @@ const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ListOfModelScores = (output: any, context: __SerdeContext): ModelScores[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ModelScores(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelScores(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListOfModelVersions = (output: any, context: __SerdeContext): ModelVersion[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ModelVersion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelVersion(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListOfRuleResults = (output: any, context: __SerdeContext): RuleResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1RuleResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RuleResult(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListOfStrings = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ListTagsForResourceResult = (
@@ -6688,7 +6853,14 @@ const deserializeAws_json1_1MetricDataPoint = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1metricDataPointsList = (output: any, context: __SerdeContext): MetricDataPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricDataPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricDataPoint(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Model = (output: any, context: __SerdeContext): Model => {
@@ -6727,7 +6899,14 @@ const deserializeAws_json1_1ModelInputConfiguration = (
 };
 
 const deserializeAws_json1_1modelList = (output: any, context: __SerdeContext): Model[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Model(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Model(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ModelOutputConfiguration = (
@@ -6748,13 +6927,15 @@ const deserializeAws_json1_1ModelOutputConfiguration = (
 };
 
 const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1ModelScores = (output: any, context: __SerdeContext): ModelScores => {
@@ -6815,11 +6996,25 @@ const deserializeAws_json1_1ModelVersionDetail = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1modelVersionDetailList = (output: any, context: __SerdeContext): ModelVersionDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ModelVersionDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelVersionDetail(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NonEmptyListOfStrings = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Outcome = (output: any, context: __SerdeContext): Outcome => {
@@ -6834,7 +7029,14 @@ const deserializeAws_json1_1Outcome = (output: any, context: __SerdeContext): Ou
 };
 
 const deserializeAws_json1_1OutcomeList = (output: any, context: __SerdeContext): Outcome[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Outcome(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Outcome(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutDetectorResult = (output: any, context: __SerdeContext): PutDetectorResult => {
@@ -6905,11 +7107,25 @@ const deserializeAws_json1_1RuleDetail = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1RuleDetailList = (output: any, context: __SerdeContext): RuleDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1RuleDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RuleDetail(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RuleList = (output: any, context: __SerdeContext): Rule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Rule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Rule(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RuleResult = (output: any, context: __SerdeContext): RuleResult => {
@@ -6930,7 +7146,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1tagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
@@ -7073,7 +7296,14 @@ const deserializeAws_json1_1Variable = (output: any, context: __SerdeContext): V
 };
 
 const deserializeAws_json1_1VariableList = (output: any, context: __SerdeContext): Variable[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Variable(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Variable(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -7126,3 +7356,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -127,7 +127,7 @@ export const serializeAws_json1_1CancelClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.CancelCluster",
   };
   let body: any;
@@ -140,7 +140,7 @@ export const serializeAws_json1_1CancelJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.CancelJob",
   };
   let body: any;
@@ -153,7 +153,7 @@ export const serializeAws_json1_1CreateAddressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.CreateAddress",
   };
   let body: any;
@@ -166,7 +166,7 @@ export const serializeAws_json1_1CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.CreateCluster",
   };
   let body: any;
@@ -179,7 +179,7 @@ export const serializeAws_json1_1CreateJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.CreateJob",
   };
   let body: any;
@@ -192,7 +192,7 @@ export const serializeAws_json1_1CreateReturnShippingLabelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.CreateReturnShippingLabel",
   };
   let body: any;
@@ -205,7 +205,7 @@ export const serializeAws_json1_1DescribeAddressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeAddress",
   };
   let body: any;
@@ -218,7 +218,7 @@ export const serializeAws_json1_1DescribeAddressesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeAddresses",
   };
   let body: any;
@@ -231,7 +231,7 @@ export const serializeAws_json1_1DescribeClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeCluster",
   };
   let body: any;
@@ -244,7 +244,7 @@ export const serializeAws_json1_1DescribeJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeJob",
   };
   let body: any;
@@ -257,7 +257,7 @@ export const serializeAws_json1_1DescribeReturnShippingLabelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeReturnShippingLabel",
   };
   let body: any;
@@ -270,7 +270,7 @@ export const serializeAws_json1_1GetJobManifestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.GetJobManifest",
   };
   let body: any;
@@ -283,7 +283,7 @@ export const serializeAws_json1_1GetJobUnlockCodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.GetJobUnlockCode",
   };
   let body: any;
@@ -296,7 +296,7 @@ export const serializeAws_json1_1GetSnowballUsageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.GetSnowballUsage",
   };
   let body: any;
@@ -309,7 +309,7 @@ export const serializeAws_json1_1GetSoftwareUpdatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.GetSoftwareUpdates",
   };
   let body: any;
@@ -322,7 +322,7 @@ export const serializeAws_json1_1ListClusterJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.ListClusterJobs",
   };
   let body: any;
@@ -335,7 +335,7 @@ export const serializeAws_json1_1ListClustersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.ListClusters",
   };
   let body: any;
@@ -348,7 +348,7 @@ export const serializeAws_json1_1ListCompatibleImagesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.ListCompatibleImages",
   };
   let body: any;
@@ -361,7 +361,7 @@ export const serializeAws_json1_1ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.ListJobs",
   };
   let body: any;
@@ -374,7 +374,7 @@ export const serializeAws_json1_1UpdateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.UpdateCluster",
   };
   let body: any;
@@ -387,7 +387,7 @@ export const serializeAws_json1_1UpdateJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.UpdateJob",
   };
   let body: any;
@@ -400,7 +400,7 @@ export const serializeAws_json1_1UpdateJobShipmentStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSIESnowballJobManagementService.UpdateJobShipmentState",
   };
   let body: any;
@@ -435,8 +435,7 @@ const deserializeAws_json1_1CancelClusterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
@@ -506,8 +505,7 @@ const deserializeAws_json1_1CancelJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
@@ -577,8 +575,7 @@ const deserializeAws_json1_1CreateAddressCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAddressException":
     case "com.amazonaws.snowball#InvalidAddressException":
@@ -640,8 +637,7 @@ const deserializeAws_json1_1CreateClusterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
@@ -719,8 +715,7 @@ const deserializeAws_json1_1CreateJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterLimitExceededException":
     case "com.amazonaws.snowball#ClusterLimitExceededException":
@@ -806,8 +801,7 @@ const deserializeAws_json1_1CreateReturnShippingLabelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.snowball#ConflictException":
@@ -893,8 +887,7 @@ const deserializeAws_json1_1DescribeAddressCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
@@ -948,8 +941,7 @@ const deserializeAws_json1_1DescribeAddressesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
@@ -1011,8 +1003,7 @@ const deserializeAws_json1_1DescribeClusterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
@@ -1066,8 +1057,7 @@ const deserializeAws_json1_1DescribeJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidResourceException":
     case "com.amazonaws.snowball#InvalidResourceException":
@@ -1121,8 +1111,7 @@ const deserializeAws_json1_1DescribeReturnShippingLabelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.snowball#ConflictException":
@@ -1192,8 +1181,7 @@ const deserializeAws_json1_1GetJobManifestCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
@@ -1255,8 +1243,7 @@ const deserializeAws_json1_1GetJobUnlockCodeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
@@ -1318,8 +1305,7 @@ const deserializeAws_json1_1GetSnowballUsageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -1365,8 +1351,7 @@ const deserializeAws_json1_1GetSoftwareUpdatesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
@@ -1428,8 +1413,7 @@ const deserializeAws_json1_1ListClusterJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
@@ -1491,8 +1475,7 @@ const deserializeAws_json1_1ListClustersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
@@ -1546,8 +1529,7 @@ const deserializeAws_json1_1ListCompatibleImagesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
@@ -1609,8 +1591,7 @@ const deserializeAws_json1_1ListJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.snowball#InvalidNextTokenException":
@@ -1664,8 +1645,7 @@ const deserializeAws_json1_1UpdateClusterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "Ec2RequestFailedException":
     case "com.amazonaws.snowball#Ec2RequestFailedException":
@@ -1751,8 +1731,7 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClusterLimitExceededException":
     case "com.amazonaws.snowball#ClusterLimitExceededException":
@@ -1846,8 +1825,7 @@ const deserializeAws_json1_1UpdateJobShipmentStateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.snowball#InvalidJobStateException":
@@ -2049,85 +2027,90 @@ const deserializeAws_json1_1UnsupportedAddressExceptionResponse = async (
 
 const serializeAws_json1_1Address = (input: Address, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
-    ...(input.City !== undefined && { City: input.City }),
-    ...(input.Company !== undefined && { Company: input.Company }),
-    ...(input.Country !== undefined && { Country: input.Country }),
-    ...(input.IsRestricted !== undefined && { IsRestricted: input.IsRestricted }),
-    ...(input.Landmark !== undefined && { Landmark: input.Landmark }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber }),
-    ...(input.PostalCode !== undefined && { PostalCode: input.PostalCode }),
-    ...(input.PrefectureOrDistrict !== undefined && { PrefectureOrDistrict: input.PrefectureOrDistrict }),
-    ...(input.StateOrProvince !== undefined && { StateOrProvince: input.StateOrProvince }),
-    ...(input.Street1 !== undefined && { Street1: input.Street1 }),
-    ...(input.Street2 !== undefined && { Street2: input.Street2 }),
-    ...(input.Street3 !== undefined && { Street3: input.Street3 }),
+    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
+    ...(input.City !== undefined && input.City !== null && { City: input.City }),
+    ...(input.Company !== undefined && input.Company !== null && { Company: input.Company }),
+    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
+    ...(input.IsRestricted !== undefined && input.IsRestricted !== null && { IsRestricted: input.IsRestricted }),
+    ...(input.Landmark !== undefined && input.Landmark !== null && { Landmark: input.Landmark }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PhoneNumber !== undefined && input.PhoneNumber !== null && { PhoneNumber: input.PhoneNumber }),
+    ...(input.PostalCode !== undefined && input.PostalCode !== null && { PostalCode: input.PostalCode }),
+    ...(input.PrefectureOrDistrict !== undefined &&
+      input.PrefectureOrDistrict !== null && { PrefectureOrDistrict: input.PrefectureOrDistrict }),
+    ...(input.StateOrProvince !== undefined &&
+      input.StateOrProvince !== null && { StateOrProvince: input.StateOrProvince }),
+    ...(input.Street1 !== undefined && input.Street1 !== null && { Street1: input.Street1 }),
+    ...(input.Street2 !== undefined && input.Street2 !== null && { Street2: input.Street2 }),
+    ...(input.Street3 !== undefined && input.Street3 !== null && { Street3: input.Street3 }),
   };
 };
 
 const serializeAws_json1_1CancelClusterRequest = (input: CancelClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
   };
 };
 
 const serializeAws_json1_1CancelJobRequest = (input: CancelJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1CreateAddressRequest = (input: CreateAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Address !== undefined && { Address: serializeAws_json1_1Address(input.Address, context) }),
+    ...(input.Address !== undefined &&
+      input.Address !== null && { Address: serializeAws_json1_1Address(input.Address, context) }),
   };
 };
 
 const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.JobType !== undefined && { JobType: input.JobType }),
-    ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
-    ...(input.SnowballType !== undefined && { SnowballType: input.SnowballType }),
-    ...(input.TaxDocuments !== undefined && {
-      TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context),
-    }),
+    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined &&
+      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
+    ...(input.KmsKeyARN !== undefined && input.KmsKeyARN !== null && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Resources !== undefined &&
+      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined &&
+      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
+    ...(input.TaxDocuments !== undefined &&
+      input.TaxDocuments !== null && { TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context) }),
   };
 };
 
 const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
-    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.DeviceConfiguration !== undefined && {
-      DeviceConfiguration: serializeAws_json1_1DeviceConfiguration(input.DeviceConfiguration, context),
-    }),
-    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.JobType !== undefined && { JobType: input.JobType }),
-    ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
-    ...(input.SnowballCapacityPreference !== undefined && {
-      SnowballCapacityPreference: input.SnowballCapacityPreference,
-    }),
-    ...(input.SnowballType !== undefined && { SnowballType: input.SnowballType }),
-    ...(input.TaxDocuments !== undefined && {
-      TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context),
-    }),
+    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DeviceConfiguration !== undefined &&
+      input.DeviceConfiguration !== null && {
+        DeviceConfiguration: serializeAws_json1_1DeviceConfiguration(input.DeviceConfiguration, context),
+      }),
+    ...(input.ForwardingAddressId !== undefined &&
+      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.JobType !== undefined && input.JobType !== null && { JobType: input.JobType }),
+    ...(input.KmsKeyARN !== undefined && input.KmsKeyARN !== null && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Resources !== undefined &&
+      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined &&
+      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballCapacityPreference !== undefined &&
+      input.SnowballCapacityPreference !== null && { SnowballCapacityPreference: input.SnowballCapacityPreference }),
+    ...(input.SnowballType !== undefined && input.SnowballType !== null && { SnowballType: input.SnowballType }),
+    ...(input.TaxDocuments !== undefined &&
+      input.TaxDocuments !== null && { TaxDocuments: serializeAws_json1_1TaxDocuments(input.TaxDocuments, context) }),
   };
 };
 
@@ -2136,8 +2119,9 @@ const serializeAws_json1_1CreateReturnShippingLabelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.ShippingOption !== undefined &&
+      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
   };
 };
 
@@ -2146,26 +2130,26 @@ const serializeAws_json1_1DescribeAddressesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeAddressRequest = (input: DescribeAddressRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
+    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
   };
 };
 
 const serializeAws_json1_1DescribeClusterRequest = (input: DescribeClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
   };
 };
 
 const serializeAws_json1_1DescribeJobRequest = (input: DescribeJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
@@ -2174,35 +2158,44 @@ const serializeAws_json1_1DescribeReturnShippingLabelRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1DeviceConfiguration = (input: DeviceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SnowconeDeviceConfiguration !== undefined && {
-      SnowconeDeviceConfiguration: serializeAws_json1_1SnowconeDeviceConfiguration(
-        input.SnowconeDeviceConfiguration,
-        context
-      ),
-    }),
+    ...(input.SnowconeDeviceConfiguration !== undefined &&
+      input.SnowconeDeviceConfiguration !== null && {
+        SnowconeDeviceConfiguration: serializeAws_json1_1SnowconeDeviceConfiguration(
+          input.SnowconeDeviceConfiguration,
+          context
+        ),
+      }),
   };
 };
 
 const serializeAws_json1_1Ec2AmiResource = (input: Ec2AmiResource, context: __SerdeContext): any => {
   return {
-    ...(input.AmiId !== undefined && { AmiId: input.AmiId }),
-    ...(input.SnowballAmiId !== undefined && { SnowballAmiId: input.SnowballAmiId }),
+    ...(input.AmiId !== undefined && input.AmiId !== null && { AmiId: input.AmiId }),
+    ...(input.SnowballAmiId !== undefined && input.SnowballAmiId !== null && { SnowballAmiId: input.SnowballAmiId }),
   };
 };
 
 const serializeAws_json1_1Ec2AmiResourceList = (input: Ec2AmiResource[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Ec2AmiResource(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Ec2AmiResource(entry, context);
+    });
 };
 
 const serializeAws_json1_1EventTriggerDefinition = (input: EventTriggerDefinition, context: __SerdeContext): any => {
   return {
-    ...(input.EventResourceARN !== undefined && { EventResourceARN: input.EventResourceARN }),
+    ...(input.EventResourceARN !== undefined &&
+      input.EventResourceARN !== null && { EventResourceARN: input.EventResourceARN }),
   };
 };
 
@@ -2210,18 +2203,25 @@ const serializeAws_json1_1EventTriggerDefinitionList = (
   input: EventTriggerDefinition[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1EventTriggerDefinition(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EventTriggerDefinition(entry, context);
+    });
 };
 
 const serializeAws_json1_1GetJobManifestRequest = (input: GetJobManifestRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1GetJobUnlockCodeRequest = (input: GetJobUnlockCodeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
@@ -2234,66 +2234,82 @@ const serializeAws_json1_1GetSoftwareUpdatesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1INDTaxDocuments = (input: INDTaxDocuments, context: __SerdeContext): any => {
   return {
-    ...(input.GSTIN !== undefined && { GSTIN: input.GSTIN }),
+    ...(input.GSTIN !== undefined && input.GSTIN !== null && { GSTIN: input.GSTIN }),
   };
 };
 
 const serializeAws_json1_1JobResource = (input: JobResource, context: __SerdeContext): any => {
   return {
-    ...(input.Ec2AmiResources !== undefined && {
-      Ec2AmiResources: serializeAws_json1_1Ec2AmiResourceList(input.Ec2AmiResources, context),
-    }),
-    ...(input.LambdaResources !== undefined && {
-      LambdaResources: serializeAws_json1_1LambdaResourceList(input.LambdaResources, context),
-    }),
-    ...(input.S3Resources !== undefined && {
-      S3Resources: serializeAws_json1_1S3ResourceList(input.S3Resources, context),
-    }),
+    ...(input.Ec2AmiResources !== undefined &&
+      input.Ec2AmiResources !== null && {
+        Ec2AmiResources: serializeAws_json1_1Ec2AmiResourceList(input.Ec2AmiResources, context),
+      }),
+    ...(input.LambdaResources !== undefined &&
+      input.LambdaResources !== null && {
+        LambdaResources: serializeAws_json1_1LambdaResourceList(input.LambdaResources, context),
+      }),
+    ...(input.S3Resources !== undefined &&
+      input.S3Resources !== null && { S3Resources: serializeAws_json1_1S3ResourceList(input.S3Resources, context) }),
   };
 };
 
 const serializeAws_json1_1JobStateList = (input: (JobState | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1KeyRange = (input: KeyRange, context: __SerdeContext): any => {
   return {
-    ...(input.BeginMarker !== undefined && { BeginMarker: input.BeginMarker }),
-    ...(input.EndMarker !== undefined && { EndMarker: input.EndMarker }),
+    ...(input.BeginMarker !== undefined && input.BeginMarker !== null && { BeginMarker: input.BeginMarker }),
+    ...(input.EndMarker !== undefined && input.EndMarker !== null && { EndMarker: input.EndMarker }),
   };
 };
 
 const serializeAws_json1_1LambdaResource = (input: LambdaResource, context: __SerdeContext): any => {
   return {
-    ...(input.EventTriggers !== undefined && {
-      EventTriggers: serializeAws_json1_1EventTriggerDefinitionList(input.EventTriggers, context),
-    }),
-    ...(input.LambdaArn !== undefined && { LambdaArn: input.LambdaArn }),
+    ...(input.EventTriggers !== undefined &&
+      input.EventTriggers !== null && {
+        EventTriggers: serializeAws_json1_1EventTriggerDefinitionList(input.EventTriggers, context),
+      }),
+    ...(input.LambdaArn !== undefined && input.LambdaArn !== null && { LambdaArn: input.LambdaArn }),
   };
 };
 
 const serializeAws_json1_1LambdaResourceList = (input: LambdaResource[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1LambdaResource(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1LambdaResource(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListClusterJobsRequest = (input: ListClusterJobsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListClustersRequest = (input: ListClustersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -2302,37 +2318,46 @@ const serializeAws_json1_1ListCompatibleImagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListJobsRequest = (input: ListJobsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1Notification = (input: Notification, context: __SerdeContext): any => {
   return {
-    ...(input.JobStatesToNotify !== undefined && {
-      JobStatesToNotify: serializeAws_json1_1JobStateList(input.JobStatesToNotify, context),
-    }),
-    ...(input.NotifyAll !== undefined && { NotifyAll: input.NotifyAll }),
-    ...(input.SnsTopicARN !== undefined && { SnsTopicARN: input.SnsTopicARN }),
+    ...(input.JobStatesToNotify !== undefined &&
+      input.JobStatesToNotify !== null && {
+        JobStatesToNotify: serializeAws_json1_1JobStateList(input.JobStatesToNotify, context),
+      }),
+    ...(input.NotifyAll !== undefined && input.NotifyAll !== null && { NotifyAll: input.NotifyAll }),
+    ...(input.SnsTopicARN !== undefined && input.SnsTopicARN !== null && { SnsTopicARN: input.SnsTopicARN }),
   };
 };
 
 const serializeAws_json1_1S3Resource = (input: S3Resource, context: __SerdeContext): any => {
   return {
-    ...(input.BucketArn !== undefined && { BucketArn: input.BucketArn }),
-    ...(input.KeyRange !== undefined && { KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context) }),
+    ...(input.BucketArn !== undefined && input.BucketArn !== null && { BucketArn: input.BucketArn }),
+    ...(input.KeyRange !== undefined &&
+      input.KeyRange !== null && { KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context) }),
   };
 };
 
 const serializeAws_json1_1S3ResourceList = (input: S3Resource[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1S3Resource(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1S3Resource(entry, context);
+    });
 };
 
 const serializeAws_json1_1SnowconeDeviceConfiguration = (
@@ -2340,48 +2365,53 @@ const serializeAws_json1_1SnowconeDeviceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WirelessConnection !== undefined && {
-      WirelessConnection: serializeAws_json1_1WirelessConnection(input.WirelessConnection, context),
-    }),
+    ...(input.WirelessConnection !== undefined &&
+      input.WirelessConnection !== null && {
+        WirelessConnection: serializeAws_json1_1WirelessConnection(input.WirelessConnection, context),
+      }),
   };
 };
 
 const serializeAws_json1_1TaxDocuments = (input: TaxDocuments, context: __SerdeContext): any => {
   return {
-    ...(input.IND !== undefined && { IND: serializeAws_json1_1INDTaxDocuments(input.IND, context) }),
+    ...(input.IND !== undefined &&
+      input.IND !== null && { IND: serializeAws_json1_1INDTaxDocuments(input.IND, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
-    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
+    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
+    ...(input.ClusterId !== undefined && input.ClusterId !== null && { ClusterId: input.ClusterId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined &&
+      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Resources !== undefined &&
+      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined &&
+      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
   };
 };
 
 const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.ForwardingAddressId !== undefined && { ForwardingAddressId: input.ForwardingAddressId }),
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1Notification(input.Notification, context),
-    }),
-    ...(input.Resources !== undefined && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
-    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
-    ...(input.SnowballCapacityPreference !== undefined && {
-      SnowballCapacityPreference: input.SnowballCapacityPreference,
-    }),
+    ...(input.AddressId !== undefined && input.AddressId !== null && { AddressId: input.AddressId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined &&
+      input.ForwardingAddressId !== null && { ForwardingAddressId: input.ForwardingAddressId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && { Notification: serializeAws_json1_1Notification(input.Notification, context) }),
+    ...(input.Resources !== undefined &&
+      input.Resources !== null && { Resources: serializeAws_json1_1JobResource(input.Resources, context) }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined &&
+      input.ShippingOption !== null && { ShippingOption: input.ShippingOption }),
+    ...(input.SnowballCapacityPreference !== undefined &&
+      input.SnowballCapacityPreference !== null && { SnowballCapacityPreference: input.SnowballCapacityPreference }),
   };
 };
 
@@ -2390,14 +2420,14 @@ const serializeAws_json1_1UpdateJobShipmentStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.ShipmentState !== undefined && { ShipmentState: input.ShipmentState }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.ShipmentState !== undefined && input.ShipmentState !== null && { ShipmentState: input.ShipmentState }),
   };
 };
 
 const serializeAws_json1_1WirelessConnection = (input: WirelessConnection, context: __SerdeContext): any => {
   return {
-    ...(input.IsWifiEnabled !== undefined && { IsWifiEnabled: input.IsWifiEnabled }),
+    ...(input.IsWifiEnabled !== undefined && input.IsWifiEnabled !== null && { IsWifiEnabled: input.IsWifiEnabled }),
   };
 };
 
@@ -2425,7 +2455,14 @@ const deserializeAws_json1_1Address = (output: any, context: __SerdeContext): Ad
 };
 
 const deserializeAws_json1_1AddressList = (output: any, context: __SerdeContext): Address[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Address(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Address(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CancelClusterResult = (output: any, context: __SerdeContext): CancelClusterResult => {
@@ -2458,7 +2495,14 @@ const deserializeAws_json1_1ClusterListEntry = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ClusterListEntryList = (output: any, context: __SerdeContext): ClusterListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ClusterListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ClusterListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeContext): ClusterMetadata => {
@@ -2504,7 +2548,14 @@ const deserializeAws_json1_1CompatibleImage = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1CompatibleImageList = (output: any, context: __SerdeContext): CompatibleImage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CompatibleImage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CompatibleImage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -2630,7 +2681,14 @@ const deserializeAws_json1_1Ec2AmiResource = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1Ec2AmiResourceList = (output: any, context: __SerdeContext): Ec2AmiResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Ec2AmiResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Ec2AmiResource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Ec2RequestFailedException = (
@@ -2653,7 +2711,14 @@ const deserializeAws_json1_1EventTriggerDefinitionList = (
   output: any,
   context: __SerdeContext
 ): EventTriggerDefinition[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EventTriggerDefinition(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EventTriggerDefinition(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GetJobManifestResult = (output: any, context: __SerdeContext): GetJobManifestResult => {
@@ -2754,7 +2819,14 @@ const deserializeAws_json1_1JobListEntry = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1JobListEntryList = (output: any, context: __SerdeContext): JobListEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1JobListEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1JobListEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1JobLogs = (output: any, context: __SerdeContext): JobLogs => {
@@ -2825,7 +2897,14 @@ const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1JobMetadataList = (output: any, context: __SerdeContext): JobMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1JobMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1JobMetadata(entry, context);
+    });
 };
 
 const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext): JobResource => {
@@ -2846,7 +2925,14 @@ const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1JobStateList = (output: any, context: __SerdeContext): (JobState | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1KeyRange = (output: any, context: __SerdeContext): KeyRange => {
@@ -2876,7 +2962,14 @@ const deserializeAws_json1_1LambdaResource = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1LambdaResourceList = (output: any, context: __SerdeContext): LambdaResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LambdaResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LambdaResource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListClusterJobsResult = (output: any, context: __SerdeContext): ListClusterJobsResult => {
@@ -2953,7 +3046,14 @@ const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1S3ResourceList = (output: any, context: __SerdeContext): S3Resource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1S3Resource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1S3Resource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Shipment = (output: any, context: __SerdeContext): Shipment => {
@@ -3081,3 +3181,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

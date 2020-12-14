@@ -190,7 +190,7 @@ export const serializeAws_json1_1CreateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreateDataset",
   };
   let body: any;
@@ -203,7 +203,7 @@ export const serializeAws_json1_1CreateDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreateDatasetGroup",
   };
   let body: any;
@@ -216,7 +216,7 @@ export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreateDatasetImportJob",
   };
   let body: any;
@@ -229,7 +229,7 @@ export const serializeAws_json1_1CreateForecastCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreateForecast",
   };
   let body: any;
@@ -242,7 +242,7 @@ export const serializeAws_json1_1CreateForecastExportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreateForecastExportJob",
   };
   let body: any;
@@ -255,7 +255,7 @@ export const serializeAws_json1_1CreatePredictorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreatePredictor",
   };
   let body: any;
@@ -268,7 +268,7 @@ export const serializeAws_json1_1CreatePredictorBacktestExportJobCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.CreatePredictorBacktestExportJob",
   };
   let body: any;
@@ -281,7 +281,7 @@ export const serializeAws_json1_1DeleteDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeleteDataset",
   };
   let body: any;
@@ -294,7 +294,7 @@ export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeleteDatasetGroup",
   };
   let body: any;
@@ -307,7 +307,7 @@ export const serializeAws_json1_1DeleteDatasetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeleteDatasetImportJob",
   };
   let body: any;
@@ -320,7 +320,7 @@ export const serializeAws_json1_1DeleteForecastCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeleteForecast",
   };
   let body: any;
@@ -333,7 +333,7 @@ export const serializeAws_json1_1DeleteForecastExportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeleteForecastExportJob",
   };
   let body: any;
@@ -346,7 +346,7 @@ export const serializeAws_json1_1DeletePredictorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeletePredictor",
   };
   let body: any;
@@ -359,7 +359,7 @@ export const serializeAws_json1_1DeletePredictorBacktestExportJobCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DeletePredictorBacktestExportJob",
   };
   let body: any;
@@ -372,7 +372,7 @@ export const serializeAws_json1_1DescribeDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribeDataset",
   };
   let body: any;
@@ -385,7 +385,7 @@ export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribeDatasetGroup",
   };
   let body: any;
@@ -398,7 +398,7 @@ export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribeDatasetImportJob",
   };
   let body: any;
@@ -411,7 +411,7 @@ export const serializeAws_json1_1DescribeForecastCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribeForecast",
   };
   let body: any;
@@ -424,7 +424,7 @@ export const serializeAws_json1_1DescribeForecastExportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribeForecastExportJob",
   };
   let body: any;
@@ -437,7 +437,7 @@ export const serializeAws_json1_1DescribePredictorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribePredictor",
   };
   let body: any;
@@ -450,7 +450,7 @@ export const serializeAws_json1_1DescribePredictorBacktestExportJobCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.DescribePredictorBacktestExportJob",
   };
   let body: any;
@@ -463,7 +463,7 @@ export const serializeAws_json1_1GetAccuracyMetricsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.GetAccuracyMetrics",
   };
   let body: any;
@@ -476,7 +476,7 @@ export const serializeAws_json1_1ListDatasetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListDatasetGroups",
   };
   let body: any;
@@ -489,7 +489,7 @@ export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListDatasetImportJobs",
   };
   let body: any;
@@ -502,7 +502,7 @@ export const serializeAws_json1_1ListDatasetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListDatasets",
   };
   let body: any;
@@ -515,7 +515,7 @@ export const serializeAws_json1_1ListForecastExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListForecastExportJobs",
   };
   let body: any;
@@ -528,7 +528,7 @@ export const serializeAws_json1_1ListForecastsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListForecasts",
   };
   let body: any;
@@ -541,7 +541,7 @@ export const serializeAws_json1_1ListPredictorBacktestExportJobsCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListPredictorBacktestExportJobs",
   };
   let body: any;
@@ -554,7 +554,7 @@ export const serializeAws_json1_1ListPredictorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListPredictors",
   };
   let body: any;
@@ -567,7 +567,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.ListTagsForResource",
   };
   let body: any;
@@ -580,7 +580,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.TagResource",
   };
   let body: any;
@@ -593,7 +593,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.UntagResource",
   };
   let body: any;
@@ -606,7 +606,7 @@ export const serializeAws_json1_1UpdateDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonForecast.UpdateDatasetGroup",
   };
   let body: any;
@@ -641,8 +641,7 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -712,8 +711,7 @@ const deserializeAws_json1_1CreateDatasetGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -799,8 +797,7 @@ const deserializeAws_json1_1CreateDatasetImportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -886,8 +883,7 @@ const deserializeAws_json1_1CreateForecastCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -973,8 +969,7 @@ const deserializeAws_json1_1CreateForecastExportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1060,8 +1055,7 @@ const deserializeAws_json1_1CreatePredictorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1147,8 +1141,7 @@ const deserializeAws_json1_1CreatePredictorBacktestExportJobCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1231,8 +1224,7 @@ const deserializeAws_json1_1DeleteDatasetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1299,8 +1291,7 @@ const deserializeAws_json1_1DeleteDatasetGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1367,8 +1358,7 @@ const deserializeAws_json1_1DeleteDatasetImportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1435,8 +1425,7 @@ const deserializeAws_json1_1DeleteForecastCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1503,8 +1492,7 @@ const deserializeAws_json1_1DeleteForecastExportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1571,8 +1559,7 @@ const deserializeAws_json1_1DeletePredictorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1639,8 +1626,7 @@ const deserializeAws_json1_1DeletePredictorBacktestExportJobCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1710,8 +1696,7 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1773,8 +1758,7 @@ const deserializeAws_json1_1DescribeDatasetGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1836,8 +1820,7 @@ const deserializeAws_json1_1DescribeDatasetImportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1899,8 +1882,7 @@ const deserializeAws_json1_1DescribeForecastCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -1962,8 +1944,7 @@ const deserializeAws_json1_1DescribeForecastExportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2025,8 +2006,7 @@ const deserializeAws_json1_1DescribePredictorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2088,8 +2068,7 @@ const deserializeAws_json1_1DescribePredictorBacktestExportJobCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2151,8 +2130,7 @@ const deserializeAws_json1_1GetAccuracyMetricsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2222,8 +2200,7 @@ const deserializeAws_json1_1ListDatasetGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
@@ -2277,8 +2254,7 @@ const deserializeAws_json1_1ListDatasetImportJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2340,8 +2316,7 @@ const deserializeAws_json1_1ListDatasetsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.forecast#InvalidNextTokenException":
@@ -2395,8 +2370,7 @@ const deserializeAws_json1_1ListForecastExportJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2458,8 +2432,7 @@ const deserializeAws_json1_1ListForecastsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2521,8 +2494,7 @@ const deserializeAws_json1_1ListPredictorBacktestExportJobsCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2584,8 +2556,7 @@ const deserializeAws_json1_1ListPredictorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2647,8 +2618,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2710,8 +2680,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2781,8 +2750,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2844,8 +2812,7 @@ const deserializeAws_json1_1UpdateDatasetGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecast#InvalidInputException":
@@ -2979,7 +2946,14 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 };
 
 const serializeAws_json1_1ArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1CategoricalParameterRange = (
@@ -2987,8 +2961,9 @@ const serializeAws_json1_1CategoricalParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1Values(input.Values, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1Values(input.Values, context) }),
   };
 };
 
@@ -2996,7 +2971,14 @@ const serializeAws_json1_1CategoricalParameterRanges = (
   input: CategoricalParameterRange[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1CategoricalParameterRange(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CategoricalParameterRange(entry, context);
+    });
 };
 
 const serializeAws_json1_1ContinuousParameterRange = (
@@ -3004,10 +2986,10 @@ const serializeAws_json1_1ContinuousParameterRange = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxValue !== undefined && { MaxValue: input.MaxValue }),
-    ...(input.MinValue !== undefined && { MinValue: input.MinValue }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ScalingType !== undefined && { ScalingType: input.ScalingType }),
+    ...(input.MaxValue !== undefined && input.MaxValue !== null && { MaxValue: input.MaxValue }),
+    ...(input.MinValue !== undefined && input.MinValue !== null && { MinValue: input.MinValue }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
   };
 };
 
@@ -3015,7 +2997,14 @@ const serializeAws_json1_1ContinuousParameterRanges = (
   input: ContinuousParameterRange[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ContinuousParameterRange(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ContinuousParameterRange(entry, context);
+    });
 };
 
 const serializeAws_json1_1CreateDatasetGroupRequest = (
@@ -3023,10 +3012,12 @@ const serializeAws_json1_1CreateDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetArns !== undefined && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
-    ...(input.DatasetGroupName !== undefined && { DatasetGroupName: input.DatasetGroupName }),
-    ...(input.Domain !== undefined && { Domain: input.Domain }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.DatasetArns !== undefined &&
+      input.DatasetArns !== null && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
+    ...(input.DatasetGroupName !== undefined &&
+      input.DatasetGroupName !== null && { DatasetGroupName: input.DatasetGroupName }),
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3035,30 +3026,35 @@ const serializeAws_json1_1CreateDatasetImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSource !== undefined && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
-    ...(input.DatasetArn !== undefined && { DatasetArn: input.DatasetArn }),
-    ...(input.DatasetImportJobName !== undefined && { DatasetImportJobName: input.DatasetImportJobName }),
-    ...(input.GeolocationFormat !== undefined && { GeolocationFormat: input.GeolocationFormat }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TimeZone !== undefined && { TimeZone: input.TimeZone }),
-    ...(input.TimestampFormat !== undefined && { TimestampFormat: input.TimestampFormat }),
-    ...(input.UseGeolocationForTimeZone !== undefined && {
-      UseGeolocationForTimeZone: input.UseGeolocationForTimeZone,
-    }),
+    ...(input.DataSource !== undefined &&
+      input.DataSource !== null && { DataSource: serializeAws_json1_1DataSource(input.DataSource, context) }),
+    ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
+    ...(input.DatasetImportJobName !== undefined &&
+      input.DatasetImportJobName !== null && { DatasetImportJobName: input.DatasetImportJobName }),
+    ...(input.GeolocationFormat !== undefined &&
+      input.GeolocationFormat !== null && { GeolocationFormat: input.GeolocationFormat }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TimeZone !== undefined && input.TimeZone !== null && { TimeZone: input.TimeZone }),
+    ...(input.TimestampFormat !== undefined &&
+      input.TimestampFormat !== null && { TimestampFormat: input.TimestampFormat }),
+    ...(input.UseGeolocationForTimeZone !== undefined &&
+      input.UseGeolocationForTimeZone !== null && { UseGeolocationForTimeZone: input.UseGeolocationForTimeZone }),
   };
 };
 
 const serializeAws_json1_1CreateDatasetRequest = (input: CreateDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DataFrequency !== undefined && { DataFrequency: input.DataFrequency }),
-    ...(input.DatasetName !== undefined && { DatasetName: input.DatasetName }),
-    ...(input.DatasetType !== undefined && { DatasetType: input.DatasetType }),
-    ...(input.Domain !== undefined && { Domain: input.Domain }),
-    ...(input.EncryptionConfig !== undefined && {
-      EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
-    }),
-    ...(input.Schema !== undefined && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.DataFrequency !== undefined && input.DataFrequency !== null && { DataFrequency: input.DataFrequency }),
+    ...(input.DatasetName !== undefined && input.DatasetName !== null && { DatasetName: input.DatasetName }),
+    ...(input.DatasetType !== undefined && input.DatasetType !== null && { DatasetType: input.DatasetType }),
+    ...(input.Domain !== undefined && input.Domain !== null && { Domain: input.Domain }),
+    ...(input.EncryptionConfig !== undefined &&
+      input.EncryptionConfig !== null && {
+        EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
+      }),
+    ...(input.Schema !== undefined &&
+      input.Schema !== null && { Schema: serializeAws_json1_1Schema(input.Schema, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3067,23 +3063,24 @@ const serializeAws_json1_1CreateForecastExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Destination !== undefined && {
-      Destination: serializeAws_json1_1DataDestination(input.Destination, context),
-    }),
-    ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
-    ...(input.ForecastExportJobName !== undefined && { ForecastExportJobName: input.ForecastExportJobName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Destination !== undefined &&
+      input.Destination !== null && { Destination: serializeAws_json1_1DataDestination(input.Destination, context) }),
+    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
+    ...(input.ForecastExportJobName !== undefined &&
+      input.ForecastExportJobName !== null && { ForecastExportJobName: input.ForecastExportJobName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateForecastRequest = (input: CreateForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ForecastName !== undefined && { ForecastName: input.ForecastName }),
-    ...(input.ForecastTypes !== undefined && {
-      ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
-    }),
-    ...(input.PredictorArn !== undefined && { PredictorArn: input.PredictorArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ForecastName !== undefined && input.ForecastName !== null && { ForecastName: input.ForecastName }),
+    ...(input.ForecastTypes !== undefined &&
+      input.ForecastTypes !== null && {
+        ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
+      }),
+    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -3092,58 +3089,68 @@ const serializeAws_json1_1CreatePredictorBacktestExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Destination !== undefined && {
-      Destination: serializeAws_json1_1DataDestination(input.Destination, context),
-    }),
-    ...(input.PredictorArn !== undefined && { PredictorArn: input.PredictorArn }),
-    ...(input.PredictorBacktestExportJobName !== undefined && {
-      PredictorBacktestExportJobName: input.PredictorBacktestExportJobName,
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.Destination !== undefined &&
+      input.Destination !== null && { Destination: serializeAws_json1_1DataDestination(input.Destination, context) }),
+    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
+    ...(input.PredictorBacktestExportJobName !== undefined &&
+      input.PredictorBacktestExportJobName !== null && {
+        PredictorBacktestExportJobName: input.PredictorBacktestExportJobName,
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AlgorithmArn !== undefined && { AlgorithmArn: input.AlgorithmArn }),
-    ...(input.EncryptionConfig !== undefined && {
-      EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
-    }),
-    ...(input.EvaluationParameters !== undefined && {
-      EvaluationParameters: serializeAws_json1_1EvaluationParameters(input.EvaluationParameters, context),
-    }),
-    ...(input.FeaturizationConfig !== undefined && {
-      FeaturizationConfig: serializeAws_json1_1FeaturizationConfig(input.FeaturizationConfig, context),
-    }),
-    ...(input.ForecastHorizon !== undefined && { ForecastHorizon: input.ForecastHorizon }),
-    ...(input.ForecastTypes !== undefined && {
-      ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
-    }),
-    ...(input.HPOConfig !== undefined && {
-      HPOConfig: serializeAws_json1_1HyperParameterTuningJobConfig(input.HPOConfig, context),
-    }),
-    ...(input.InputDataConfig !== undefined && {
-      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.PerformAutoML !== undefined && { PerformAutoML: input.PerformAutoML }),
-    ...(input.PerformHPO !== undefined && { PerformHPO: input.PerformHPO }),
-    ...(input.PredictorName !== undefined && { PredictorName: input.PredictorName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TrainingParameters !== undefined && {
-      TrainingParameters: serializeAws_json1_1TrainingParameters(input.TrainingParameters, context),
-    }),
+    ...(input.AlgorithmArn !== undefined && input.AlgorithmArn !== null && { AlgorithmArn: input.AlgorithmArn }),
+    ...(input.EncryptionConfig !== undefined &&
+      input.EncryptionConfig !== null && {
+        EncryptionConfig: serializeAws_json1_1EncryptionConfig(input.EncryptionConfig, context),
+      }),
+    ...(input.EvaluationParameters !== undefined &&
+      input.EvaluationParameters !== null && {
+        EvaluationParameters: serializeAws_json1_1EvaluationParameters(input.EvaluationParameters, context),
+      }),
+    ...(input.FeaturizationConfig !== undefined &&
+      input.FeaturizationConfig !== null && {
+        FeaturizationConfig: serializeAws_json1_1FeaturizationConfig(input.FeaturizationConfig, context),
+      }),
+    ...(input.ForecastHorizon !== undefined &&
+      input.ForecastHorizon !== null && { ForecastHorizon: input.ForecastHorizon }),
+    ...(input.ForecastTypes !== undefined &&
+      input.ForecastTypes !== null && {
+        ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
+      }),
+    ...(input.HPOConfig !== undefined &&
+      input.HPOConfig !== null && {
+        HPOConfig: serializeAws_json1_1HyperParameterTuningJobConfig(input.HPOConfig, context),
+      }),
+    ...(input.InputDataConfig !== undefined &&
+      input.InputDataConfig !== null && {
+        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+      }),
+    ...(input.PerformAutoML !== undefined && input.PerformAutoML !== null && { PerformAutoML: input.PerformAutoML }),
+    ...(input.PerformHPO !== undefined && input.PerformHPO !== null && { PerformHPO: input.PerformHPO }),
+    ...(input.PredictorName !== undefined && input.PredictorName !== null && { PredictorName: input.PredictorName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TrainingParameters !== undefined &&
+      input.TrainingParameters !== null && {
+        TrainingParameters: serializeAws_json1_1TrainingParameters(input.TrainingParameters, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DataDestination = (input: DataDestination, context: __SerdeContext): any => {
   return {
-    ...(input.S3Config !== undefined && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
+    ...(input.S3Config !== undefined &&
+      input.S3Config !== null && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
   };
 };
 
 const serializeAws_json1_1DataSource = (input: DataSource, context: __SerdeContext): any => {
   return {
-    ...(input.S3Config !== undefined && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
+    ...(input.S3Config !== undefined &&
+      input.S3Config !== null && { S3Config: serializeAws_json1_1S3Config(input.S3Config, context) }),
   };
 };
 
@@ -3152,7 +3159,8 @@ const serializeAws_json1_1DeleteDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetGroupArn !== undefined && { DatasetGroupArn: input.DatasetGroupArn }),
+    ...(input.DatasetGroupArn !== undefined &&
+      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
   };
 };
 
@@ -3161,13 +3169,14 @@ const serializeAws_json1_1DeleteDatasetImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetImportJobArn !== undefined && { DatasetImportJobArn: input.DatasetImportJobArn }),
+    ...(input.DatasetImportJobArn !== undefined &&
+      input.DatasetImportJobArn !== null && { DatasetImportJobArn: input.DatasetImportJobArn }),
   };
 };
 
 const serializeAws_json1_1DeleteDatasetRequest = (input: DeleteDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetArn !== undefined && { DatasetArn: input.DatasetArn }),
+    ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
   };
 };
 
@@ -3176,13 +3185,14 @@ const serializeAws_json1_1DeleteForecastExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForecastExportJobArn !== undefined && { ForecastExportJobArn: input.ForecastExportJobArn }),
+    ...(input.ForecastExportJobArn !== undefined &&
+      input.ForecastExportJobArn !== null && { ForecastExportJobArn: input.ForecastExportJobArn }),
   };
 };
 
 const serializeAws_json1_1DeleteForecastRequest = (input: DeleteForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
+    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
   };
 };
 
@@ -3191,15 +3201,16 @@ const serializeAws_json1_1DeletePredictorBacktestExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredictorBacktestExportJobArn !== undefined && {
-      PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
-    }),
+    ...(input.PredictorBacktestExportJobArn !== undefined &&
+      input.PredictorBacktestExportJobArn !== null && {
+        PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
+      }),
   };
 };
 
 const serializeAws_json1_1DeletePredictorRequest = (input: DeletePredictorRequest, context: __SerdeContext): any => {
   return {
-    ...(input.PredictorArn !== undefined && { PredictorArn: input.PredictorArn }),
+    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
   };
 };
 
@@ -3208,7 +3219,8 @@ const serializeAws_json1_1DescribeDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetGroupArn !== undefined && { DatasetGroupArn: input.DatasetGroupArn }),
+    ...(input.DatasetGroupArn !== undefined &&
+      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
   };
 };
 
@@ -3217,13 +3229,14 @@ const serializeAws_json1_1DescribeDatasetImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetImportJobArn !== undefined && { DatasetImportJobArn: input.DatasetImportJobArn }),
+    ...(input.DatasetImportJobArn !== undefined &&
+      input.DatasetImportJobArn !== null && { DatasetImportJobArn: input.DatasetImportJobArn }),
   };
 };
 
 const serializeAws_json1_1DescribeDatasetRequest = (input: DescribeDatasetRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetArn !== undefined && { DatasetArn: input.DatasetArn }),
+    ...(input.DatasetArn !== undefined && input.DatasetArn !== null && { DatasetArn: input.DatasetArn }),
   };
 };
 
@@ -3232,13 +3245,14 @@ const serializeAws_json1_1DescribeForecastExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ForecastExportJobArn !== undefined && { ForecastExportJobArn: input.ForecastExportJobArn }),
+    ...(input.ForecastExportJobArn !== undefined &&
+      input.ForecastExportJobArn !== null && { ForecastExportJobArn: input.ForecastExportJobArn }),
   };
 };
 
 const serializeAws_json1_1DescribeForecastRequest = (input: DescribeForecastRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
+    ...(input.ForecastArn !== undefined && input.ForecastArn !== null && { ForecastArn: input.ForecastArn }),
   };
 };
 
@@ -3247,9 +3261,10 @@ const serializeAws_json1_1DescribePredictorBacktestExportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredictorBacktestExportJobArn !== undefined && {
-      PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
-    }),
+    ...(input.PredictorBacktestExportJobArn !== undefined &&
+      input.PredictorBacktestExportJobArn !== null && {
+        PredictorBacktestExportJobArn: input.PredictorBacktestExportJobArn,
+      }),
   };
 };
 
@@ -3258,54 +3273,62 @@ const serializeAws_json1_1DescribePredictorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredictorArn !== undefined && { PredictorArn: input.PredictorArn }),
+    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
   };
 };
 
 const serializeAws_json1_1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
   return {
-    ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.KMSKeyArn !== undefined && input.KMSKeyArn !== null && { KMSKeyArn: input.KMSKeyArn }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
 
 const serializeAws_json1_1EvaluationParameters = (input: EvaluationParameters, context: __SerdeContext): any => {
   return {
-    ...(input.BackTestWindowOffset !== undefined && { BackTestWindowOffset: input.BackTestWindowOffset }),
-    ...(input.NumberOfBacktestWindows !== undefined && { NumberOfBacktestWindows: input.NumberOfBacktestWindows }),
+    ...(input.BackTestWindowOffset !== undefined &&
+      input.BackTestWindowOffset !== null && { BackTestWindowOffset: input.BackTestWindowOffset }),
+    ...(input.NumberOfBacktestWindows !== undefined &&
+      input.NumberOfBacktestWindows !== null && { NumberOfBacktestWindows: input.NumberOfBacktestWindows }),
   };
 };
 
 const serializeAws_json1_1Featurization = (input: Featurization, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
-    ...(input.FeaturizationPipeline !== undefined && {
-      FeaturizationPipeline: serializeAws_json1_1FeaturizationPipeline(input.FeaturizationPipeline, context),
-    }),
+    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
+    ...(input.FeaturizationPipeline !== undefined &&
+      input.FeaturizationPipeline !== null && {
+        FeaturizationPipeline: serializeAws_json1_1FeaturizationPipeline(input.FeaturizationPipeline, context),
+      }),
   };
 };
 
 const serializeAws_json1_1FeaturizationConfig = (input: FeaturizationConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Featurizations !== undefined && {
-      Featurizations: serializeAws_json1_1Featurizations(input.Featurizations, context),
-    }),
-    ...(input.ForecastDimensions !== undefined && {
-      ForecastDimensions: serializeAws_json1_1ForecastDimensions(input.ForecastDimensions, context),
-    }),
-    ...(input.ForecastFrequency !== undefined && { ForecastFrequency: input.ForecastFrequency }),
+    ...(input.Featurizations !== undefined &&
+      input.Featurizations !== null && {
+        Featurizations: serializeAws_json1_1Featurizations(input.Featurizations, context),
+      }),
+    ...(input.ForecastDimensions !== undefined &&
+      input.ForecastDimensions !== null && {
+        ForecastDimensions: serializeAws_json1_1ForecastDimensions(input.ForecastDimensions, context),
+      }),
+    ...(input.ForecastFrequency !== undefined &&
+      input.ForecastFrequency !== null && { ForecastFrequency: input.ForecastFrequency }),
   };
 };
 
 const serializeAws_json1_1FeaturizationMethod = (input: FeaturizationMethod, context: __SerdeContext): any => {
   return {
-    ...(input.FeaturizationMethodName !== undefined && { FeaturizationMethodName: input.FeaturizationMethodName }),
-    ...(input.FeaturizationMethodParameters !== undefined && {
-      FeaturizationMethodParameters: serializeAws_json1_1FeaturizationMethodParameters(
-        input.FeaturizationMethodParameters,
-        context
-      ),
-    }),
+    ...(input.FeaturizationMethodName !== undefined &&
+      input.FeaturizationMethodName !== null && { FeaturizationMethodName: input.FeaturizationMethodName }),
+    ...(input.FeaturizationMethodParameters !== undefined &&
+      input.FeaturizationMethodParameters !== null && {
+        FeaturizationMethodParameters: serializeAws_json1_1FeaturizationMethodParameters(
+          input.FeaturizationMethodParameters,
+          context
+        ),
+      }),
   };
 };
 
@@ -3313,41 +3336,78 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1FeaturizationPipeline = (input: FeaturizationMethod[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1FeaturizationMethod(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1FeaturizationMethod(entry, context);
+    });
 };
 
 const serializeAws_json1_1Featurizations = (input: Featurization[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Featurization(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Featurization(entry, context);
+    });
 };
 
 const serializeAws_json1_1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.Condition !== undefined && { Condition: input.Condition }),
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Condition !== undefined && input.Condition !== null && { Condition: input.Condition }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1Filters = (input: Filter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Filter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Filter(entry, context);
+    });
 };
 
 const serializeAws_json1_1ForecastDimensions = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ForecastTypes = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetAccuracyMetricsRequest = (
@@ -3355,7 +3415,7 @@ const serializeAws_json1_1GetAccuracyMetricsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PredictorArn !== undefined && { PredictorArn: input.PredictorArn }),
+    ...(input.PredictorArn !== undefined && input.PredictorArn !== null && { PredictorArn: input.PredictorArn }),
   };
 };
 
@@ -3364,32 +3424,42 @@ const serializeAws_json1_1HyperParameterTuningJobConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ParameterRanges !== undefined && {
-      ParameterRanges: serializeAws_json1_1ParameterRanges(input.ParameterRanges, context),
-    }),
+    ...(input.ParameterRanges !== undefined &&
+      input.ParameterRanges !== null && {
+        ParameterRanges: serializeAws_json1_1ParameterRanges(input.ParameterRanges, context),
+      }),
   };
 };
 
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.DatasetGroupArn !== undefined && { DatasetGroupArn: input.DatasetGroupArn }),
-    ...(input.SupplementaryFeatures !== undefined && {
-      SupplementaryFeatures: serializeAws_json1_1SupplementaryFeatures(input.SupplementaryFeatures, context),
-    }),
+    ...(input.DatasetGroupArn !== undefined &&
+      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
+    ...(input.SupplementaryFeatures !== undefined &&
+      input.SupplementaryFeatures !== null && {
+        SupplementaryFeatures: serializeAws_json1_1SupplementaryFeatures(input.SupplementaryFeatures, context),
+      }),
   };
 };
 
 const serializeAws_json1_1IntegerParameterRange = (input: IntegerParameterRange, context: __SerdeContext): any => {
   return {
-    ...(input.MaxValue !== undefined && { MaxValue: input.MaxValue }),
-    ...(input.MinValue !== undefined && { MinValue: input.MinValue }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ScalingType !== undefined && { ScalingType: input.ScalingType }),
+    ...(input.MaxValue !== undefined && input.MaxValue !== null && { MaxValue: input.MaxValue }),
+    ...(input.MinValue !== undefined && input.MinValue !== null && { MinValue: input.MinValue }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
   };
 };
 
 const serializeAws_json1_1IntegerParameterRanges = (input: IntegerParameterRange[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1IntegerParameterRange(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1IntegerParameterRange(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListDatasetGroupsRequest = (
@@ -3397,8 +3467,8 @@ const serializeAws_json1_1ListDatasetGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3407,16 +3477,17 @@ const serializeAws_json1_1ListDatasetImportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListDatasetsRequest = (input: ListDatasetsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3425,17 +3496,19 @@ const serializeAws_json1_1ListForecastExportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListForecastsRequest = (input: ListForecastsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3444,17 +3517,19 @@ const serializeAws_json1_1ListPredictorBacktestExportJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListPredictorsRequest = (input: ListPredictorsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Filters !== undefined && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_json1_1Filters(input.Filters, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3463,104 +3538,137 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1ParameterRanges = (input: ParameterRanges, context: __SerdeContext): any => {
   return {
-    ...(input.CategoricalParameterRanges !== undefined && {
-      CategoricalParameterRanges: serializeAws_json1_1CategoricalParameterRanges(
-        input.CategoricalParameterRanges,
-        context
-      ),
-    }),
-    ...(input.ContinuousParameterRanges !== undefined && {
-      ContinuousParameterRanges: serializeAws_json1_1ContinuousParameterRanges(
-        input.ContinuousParameterRanges,
-        context
-      ),
-    }),
-    ...(input.IntegerParameterRanges !== undefined && {
-      IntegerParameterRanges: serializeAws_json1_1IntegerParameterRanges(input.IntegerParameterRanges, context),
-    }),
+    ...(input.CategoricalParameterRanges !== undefined &&
+      input.CategoricalParameterRanges !== null && {
+        CategoricalParameterRanges: serializeAws_json1_1CategoricalParameterRanges(
+          input.CategoricalParameterRanges,
+          context
+        ),
+      }),
+    ...(input.ContinuousParameterRanges !== undefined &&
+      input.ContinuousParameterRanges !== null && {
+        ContinuousParameterRanges: serializeAws_json1_1ContinuousParameterRanges(
+          input.ContinuousParameterRanges,
+          context
+        ),
+      }),
+    ...(input.IntegerParameterRanges !== undefined &&
+      input.IntegerParameterRanges !== null && {
+        IntegerParameterRanges: serializeAws_json1_1IntegerParameterRanges(input.IntegerParameterRanges, context),
+      }),
   };
 };
 
 const serializeAws_json1_1S3Config = (input: S3Config, context: __SerdeContext): any => {
   return {
-    ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
-    ...(input.Path !== undefined && { Path: input.Path }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.KMSKeyArn !== undefined && input.KMSKeyArn !== null && { KMSKeyArn: input.KMSKeyArn }),
+    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
 
 const serializeAws_json1_1Schema = (input: Schema, context: __SerdeContext): any => {
   return {
-    ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_json1_1SchemaAttributes(input.Attributes, context),
-    }),
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && { Attributes: serializeAws_json1_1SchemaAttributes(input.Attributes, context) }),
   };
 };
 
 const serializeAws_json1_1SchemaAttribute = (input: SchemaAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeName !== undefined && { AttributeName: input.AttributeName }),
-    ...(input.AttributeType !== undefined && { AttributeType: input.AttributeType }),
+    ...(input.AttributeName !== undefined && input.AttributeName !== null && { AttributeName: input.AttributeName }),
+    ...(input.AttributeType !== undefined && input.AttributeType !== null && { AttributeType: input.AttributeType }),
   };
 };
 
 const serializeAws_json1_1SchemaAttributes = (input: SchemaAttribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1SchemaAttribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SchemaAttribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1SupplementaryFeature = (input: SupplementaryFeature, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1SupplementaryFeatures = (input: SupplementaryFeature[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1SupplementaryFeature(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SupplementaryFeature(entry, context);
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -3569,17 +3677,33 @@ const serializeAws_json1_1UpdateDatasetGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatasetArns !== undefined && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
-    ...(input.DatasetGroupArn !== undefined && { DatasetGroupArn: input.DatasetGroupArn }),
+    ...(input.DatasetArns !== undefined &&
+      input.DatasetArns !== null && { DatasetArns: serializeAws_json1_1ArnList(input.DatasetArns, context) }),
+    ...(input.DatasetGroupArn !== undefined &&
+      input.DatasetGroupArn !== null && { DatasetGroupArn: input.DatasetGroupArn }),
   };
 };
 
 const serializeAws_json1_1Values = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1CategoricalParameterRange = (
@@ -3599,7 +3723,14 @@ const deserializeAws_json1_1CategoricalParameterRanges = (
   output: any,
   context: __SerdeContext
 ): CategoricalParameterRange[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CategoricalParameterRange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CategoricalParameterRange(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ContinuousParameterRange = (
@@ -3618,7 +3749,14 @@ const deserializeAws_json1_1ContinuousParameterRanges = (
   output: any,
   context: __SerdeContext
 ): ContinuousParameterRange[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ContinuousParameterRange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ContinuousParameterRange(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateDatasetGroupResponse = (
@@ -3698,7 +3836,14 @@ const deserializeAws_json1_1DataDestination = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DatasetGroupSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DatasetGroupSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
@@ -3719,7 +3864,14 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImportJobSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DatasetImportJobSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DatasetImportJobSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DatasetImportJobSummary = (
@@ -3753,7 +3905,14 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
 };
 
 const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DatasetSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DatasetSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
@@ -4058,7 +4217,14 @@ const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ErrorMetrics = (output: any, context: __SerdeContext): ErrorMetric[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ErrorMetric(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ErrorMetric(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
@@ -4129,39 +4295,71 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1FeaturizationPipeline = (output: any, context: __SerdeContext): FeaturizationMethod[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FeaturizationMethod(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FeaturizationMethod(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Featurizations = (output: any, context: __SerdeContext): Featurization[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Featurization(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Featurization(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FieldStatistics = (output: any, context: __SerdeContext): { [key: string]: Statistics } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: Statistics }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: Statistics }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_json1_1Statistics(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1ForecastDimensions = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ForecastExportJobs = (output: any, context: __SerdeContext): ForecastExportJobSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ForecastExportJobSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ForecastExportJobSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ForecastExportJobSummary = (
@@ -4195,7 +4393,14 @@ const deserializeAws_json1_1ForecastExportJobSummary = (
 };
 
 const deserializeAws_json1_1Forecasts = (output: any, context: __SerdeContext): ForecastSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ForecastSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ForecastSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ForecastSummary = (output: any, context: __SerdeContext): ForecastSummary => {
@@ -4219,7 +4424,14 @@ const deserializeAws_json1_1ForecastSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ForecastTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1GetAccuracyMetricsResponse = (
@@ -4270,7 +4482,14 @@ const deserializeAws_json1_1IntegerParameterRanges = (
   output: any,
   context: __SerdeContext
 ): IntegerParameterRange[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IntegerParameterRange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IntegerParameterRange(entry, context);
+    });
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
@@ -4421,7 +4640,14 @@ const deserializeAws_json1_1PredictorBacktestExportJobs = (
   output: any,
   context: __SerdeContext
 ): PredictorBacktestExportJobSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PredictorBacktestExportJobSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PredictorBacktestExportJobSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PredictorBacktestExportJobSummary = (
@@ -4455,7 +4681,14 @@ const deserializeAws_json1_1PredictorBacktestExportJobSummary = (
 };
 
 const deserializeAws_json1_1PredictorEvaluationResults = (output: any, context: __SerdeContext): EvaluationResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EvaluationResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluationResult(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PredictorExecution = (output: any, context: __SerdeContext): PredictorExecution => {
@@ -4481,11 +4714,25 @@ const deserializeAws_json1_1PredictorExecutionDetails = (
 };
 
 const deserializeAws_json1_1PredictorExecutions = (output: any, context: __SerdeContext): PredictorExecution[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PredictorExecution(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PredictorExecution(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Predictors = (output: any, context: __SerdeContext): PredictorSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PredictorSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PredictorSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PredictorSummary = (output: any, context: __SerdeContext): PredictorSummary => {
@@ -4559,7 +4806,14 @@ const deserializeAws_json1_1SchemaAttribute = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1SchemaAttributes = (output: any, context: __SerdeContext): SchemaAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SchemaAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SchemaAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Statistics = (output: any, context: __SerdeContext): Statistics => {
@@ -4584,7 +4838,14 @@ const deserializeAws_json1_1SupplementaryFeature = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1SupplementaryFeatures = (output: any, context: __SerdeContext): SupplementaryFeature[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SupplementaryFeature(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SupplementaryFeature(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -4599,15 +4860,36 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TestWindowDetails = (output: any, context: __SerdeContext): TestWindowSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TestWindowSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TestWindowSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TestWindows = (output: any, context: __SerdeContext): WindowSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WindowSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WindowSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeContext): TestWindowSummary => {
@@ -4626,13 +4908,15 @@ const deserializeAws_json1_1TestWindowSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -4647,7 +4931,14 @@ const deserializeAws_json1_1UpdateDatasetGroupResponse = (
 };
 
 const deserializeAws_json1_1Values = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1WeightedQuantileLoss = (output: any, context: __SerdeContext): WeightedQuantileLoss => {
@@ -4658,7 +4949,14 @@ const deserializeAws_json1_1WeightedQuantileLoss = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1WeightedQuantileLosses = (output: any, context: __SerdeContext): WeightedQuantileLoss[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WeightedQuantileLoss(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WeightedQuantileLoss(entry, context);
+    });
 };
 
 const deserializeAws_json1_1WindowSummary = (output: any, context: __SerdeContext): WindowSummary => {
@@ -4731,3 +5029,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -46,16 +46,17 @@ export const serializeAws_restJson1GetClipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/getClip";
   let body: any;
   body = JSON.stringify({
-    ...(input.ClipFragmentSelector !== undefined && {
-      ClipFragmentSelector: serializeAws_restJson1ClipFragmentSelector(input.ClipFragmentSelector, context),
-    }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ClipFragmentSelector !== undefined &&
+      input.ClipFragmentSelector !== null && {
+        ClipFragmentSelector: serializeAws_restJson1ClipFragmentSelector(input.ClipFragmentSelector, context),
+      }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -74,23 +75,25 @@ export const serializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/getDASHStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
-    ...(input.DASHFragmentSelector !== undefined && {
-      DASHFragmentSelector: serializeAws_restJson1DASHFragmentSelector(input.DASHFragmentSelector, context),
-    }),
-    ...(input.DisplayFragmentNumber !== undefined && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
-    ...(input.DisplayFragmentTimestamp !== undefined && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
-    ...(input.Expires !== undefined && { Expires: input.Expires }),
-    ...(input.MaxManifestFragmentResults !== undefined && {
-      MaxManifestFragmentResults: input.MaxManifestFragmentResults,
-    }),
-    ...(input.PlaybackMode !== undefined && { PlaybackMode: input.PlaybackMode }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.DASHFragmentSelector !== undefined &&
+      input.DASHFragmentSelector !== null && {
+        DASHFragmentSelector: serializeAws_restJson1DASHFragmentSelector(input.DASHFragmentSelector, context),
+      }),
+    ...(input.DisplayFragmentNumber !== undefined &&
+      input.DisplayFragmentNumber !== null && { DisplayFragmentNumber: input.DisplayFragmentNumber }),
+    ...(input.DisplayFragmentTimestamp !== undefined &&
+      input.DisplayFragmentTimestamp !== null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
+    ...(input.Expires !== undefined && input.Expires !== null && { Expires: input.Expires }),
+    ...(input.MaxManifestFragmentResults !== undefined &&
+      input.MaxManifestFragmentResults !== null && { MaxManifestFragmentResults: input.MaxManifestFragmentResults }),
+    ...(input.PlaybackMode !== undefined && input.PlaybackMode !== null && { PlaybackMode: input.PlaybackMode }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -109,24 +112,29 @@ export const serializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/getHLSStreamingSessionURL";
   let body: any;
   body = JSON.stringify({
-    ...(input.ContainerFormat !== undefined && { ContainerFormat: input.ContainerFormat }),
-    ...(input.DiscontinuityMode !== undefined && { DiscontinuityMode: input.DiscontinuityMode }),
-    ...(input.DisplayFragmentTimestamp !== undefined && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
-    ...(input.Expires !== undefined && { Expires: input.Expires }),
-    ...(input.HLSFragmentSelector !== undefined && {
-      HLSFragmentSelector: serializeAws_restJson1HLSFragmentSelector(input.HLSFragmentSelector, context),
-    }),
-    ...(input.MaxMediaPlaylistFragmentResults !== undefined && {
-      MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults,
-    }),
-    ...(input.PlaybackMode !== undefined && { PlaybackMode: input.PlaybackMode }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ContainerFormat !== undefined &&
+      input.ContainerFormat !== null && { ContainerFormat: input.ContainerFormat }),
+    ...(input.DiscontinuityMode !== undefined &&
+      input.DiscontinuityMode !== null && { DiscontinuityMode: input.DiscontinuityMode }),
+    ...(input.DisplayFragmentTimestamp !== undefined &&
+      input.DisplayFragmentTimestamp !== null && { DisplayFragmentTimestamp: input.DisplayFragmentTimestamp }),
+    ...(input.Expires !== undefined && input.Expires !== null && { Expires: input.Expires }),
+    ...(input.HLSFragmentSelector !== undefined &&
+      input.HLSFragmentSelector !== null && {
+        HLSFragmentSelector: serializeAws_restJson1HLSFragmentSelector(input.HLSFragmentSelector, context),
+      }),
+    ...(input.MaxMediaPlaylistFragmentResults !== undefined &&
+      input.MaxMediaPlaylistFragmentResults !== null && {
+        MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults,
+      }),
+    ...(input.PlaybackMode !== undefined && input.PlaybackMode !== null && { PlaybackMode: input.PlaybackMode }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -145,15 +153,14 @@ export const serializeAws_restJson1GetMediaForFragmentListCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/getMediaForFragmentList";
   let body: any;
   body = JSON.stringify({
-    ...(input.Fragments !== undefined && {
-      Fragments: serializeAws_restJson1FragmentNumberList(input.Fragments, context),
-    }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Fragments !== undefined &&
+      input.Fragments !== null && { Fragments: serializeAws_restJson1FragmentNumberList(input.Fragments, context) }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -172,17 +179,18 @@ export const serializeAws_restJson1ListFragmentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/listFragments";
   let body: any;
   body = JSON.stringify({
-    ...(input.FragmentSelector !== undefined && {
-      FragmentSelector: serializeAws_restJson1FragmentSelector(input.FragmentSelector, context),
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.FragmentSelector !== undefined &&
+      input.FragmentSelector !== null && {
+        FragmentSelector: serializeAws_restJson1FragmentSelector(input.FragmentSelector, context),
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -858,69 +866,92 @@ const deserializeAws_restJson1UnsupportedStreamMediaTypeExceptionResponse = asyn
 
 const serializeAws_restJson1ClipFragmentSelector = (input: ClipFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1ClipTimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.FragmentSelectorType !== undefined &&
+      input.FragmentSelectorType !== null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange !== undefined &&
+      input.TimestampRange !== null && {
+        TimestampRange: serializeAws_restJson1ClipTimestampRange(input.TimestampRange, context),
+      }),
   };
 };
 
 const serializeAws_restJson1ClipTimestampRange = (input: ClipTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp !== undefined &&
+      input.EndTimestamp !== null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined &&
+      input.StartTimestamp !== null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1DASHFragmentSelector = (input: DASHFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1DASHTimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.FragmentSelectorType !== undefined &&
+      input.FragmentSelectorType !== null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange !== undefined &&
+      input.TimestampRange !== null && {
+        TimestampRange: serializeAws_restJson1DASHTimestampRange(input.TimestampRange, context),
+      }),
   };
 };
 
 const serializeAws_restJson1DASHTimestampRange = (input: DASHTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp !== undefined &&
+      input.EndTimestamp !== null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined &&
+      input.StartTimestamp !== null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1FragmentNumberList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1FragmentSelector = (input: FragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1TimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.FragmentSelectorType !== undefined &&
+      input.FragmentSelectorType !== null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange !== undefined &&
+      input.TimestampRange !== null && {
+        TimestampRange: serializeAws_restJson1TimestampRange(input.TimestampRange, context),
+      }),
   };
 };
 
 const serializeAws_restJson1HLSFragmentSelector = (input: HLSFragmentSelector, context: __SerdeContext): any => {
   return {
-    ...(input.FragmentSelectorType !== undefined && { FragmentSelectorType: input.FragmentSelectorType }),
-    ...(input.TimestampRange !== undefined && {
-      TimestampRange: serializeAws_restJson1HLSTimestampRange(input.TimestampRange, context),
-    }),
+    ...(input.FragmentSelectorType !== undefined &&
+      input.FragmentSelectorType !== null && { FragmentSelectorType: input.FragmentSelectorType }),
+    ...(input.TimestampRange !== undefined &&
+      input.TimestampRange !== null && {
+        TimestampRange: serializeAws_restJson1HLSTimestampRange(input.TimestampRange, context),
+      }),
   };
 };
 
 const serializeAws_restJson1HLSTimestampRange = (input: HLSTimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp !== undefined &&
+      input.EndTimestamp !== null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined &&
+      input.StartTimestamp !== null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1TimestampRange = (input: TimestampRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTimestamp !== undefined && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
-    ...(input.StartTimestamp !== undefined && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
+    ...(input.EndTimestamp !== undefined &&
+      input.EndTimestamp !== null && { EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000) }),
+    ...(input.StartTimestamp !== undefined &&
+      input.StartTimestamp !== null && { StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000) }),
   };
 };
 
@@ -948,7 +979,14 @@ const deserializeAws_restJson1Fragment = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1FragmentList = (output: any, context: __SerdeContext): Fragment[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Fragment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Fragment(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -971,6 +1009,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

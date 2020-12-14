@@ -63,7 +63,7 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.CreateConnection",
   };
   let body: any;
@@ -76,7 +76,7 @@ export const serializeAws_json1_0CreateHostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.CreateHost",
   };
   let body: any;
@@ -89,7 +89,7 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.DeleteConnection",
   };
   let body: any;
@@ -102,7 +102,7 @@ export const serializeAws_json1_0DeleteHostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.DeleteHost",
   };
   let body: any;
@@ -115,7 +115,7 @@ export const serializeAws_json1_0GetConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.GetConnection",
   };
   let body: any;
@@ -128,7 +128,7 @@ export const serializeAws_json1_0GetHostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.GetHost",
   };
   let body: any;
@@ -141,7 +141,7 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.ListConnections",
   };
   let body: any;
@@ -154,7 +154,7 @@ export const serializeAws_json1_0ListHostsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.ListHosts",
   };
   let body: any;
@@ -167,7 +167,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.ListTagsForResource",
   };
   let body: any;
@@ -180,7 +180,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.TagResource",
   };
   let body: any;
@@ -193,7 +193,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.UntagResource",
   };
   let body: any;
@@ -206,7 +206,7 @@ export const serializeAws_json1_0UpdateHostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "CodeStar_connections_20191201.UpdateHost",
   };
   let body: any;
@@ -241,8 +241,7 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.codestarconnections#LimitExceededException":
@@ -312,8 +311,7 @@ const deserializeAws_json1_0CreateHostCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.codestarconnections#LimitExceededException":
@@ -367,8 +365,7 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
@@ -422,8 +419,7 @@ const deserializeAws_json1_0DeleteHostCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
@@ -485,8 +481,7 @@ const deserializeAws_json1_0GetConnectionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
@@ -548,8 +543,7 @@ const deserializeAws_json1_0GetHostCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
@@ -611,8 +605,7 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -658,8 +651,7 @@ const deserializeAws_json1_0ListHostsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -705,8 +697,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
@@ -760,8 +751,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.codestarconnections#LimitExceededException":
@@ -823,8 +813,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarconnections#ResourceNotFoundException":
@@ -878,8 +867,7 @@ const deserializeAws_json1_0UpdateHostCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.codestarconnections#ConflictException":
@@ -1007,61 +995,65 @@ const deserializeAws_json1_0UnsupportedOperationExceptionResponse = async (
 
 const serializeAws_json1_0CreateConnectionInput = (input: CreateConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionName !== undefined && { ConnectionName: input.ConnectionName }),
-    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
-    ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ConnectionName !== undefined &&
+      input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
+    ...(input.ProviderType !== undefined && input.ProviderType !== null && { ProviderType: input.ProviderType }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0CreateHostInput = (input: CreateHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ProviderEndpoint !== undefined && { ProviderEndpoint: input.ProviderEndpoint }),
-    ...(input.ProviderType !== undefined && { ProviderType: input.ProviderType }),
-    ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ProviderEndpoint !== undefined &&
+      input.ProviderEndpoint !== null && { ProviderEndpoint: input.ProviderEndpoint }),
+    ...(input.ProviderType !== undefined && input.ProviderType !== null && { ProviderType: input.ProviderType }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
+      }),
   };
 };
 
 const serializeAws_json1_0DeleteConnectionInput = (input: DeleteConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
+    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
 const serializeAws_json1_0DeleteHostInput = (input: DeleteHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
+    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
   };
 };
 
 const serializeAws_json1_0GetConnectionInput = (input: GetConnectionInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectionArn !== undefined && { ConnectionArn: input.ConnectionArn }),
+    ...(input.ConnectionArn !== undefined && input.ConnectionArn !== null && { ConnectionArn: input.ConnectionArn }),
   };
 };
 
 const serializeAws_json1_0GetHostInput = (input: GetHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
+    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
   };
 };
 
 const serializeAws_json1_0ListConnectionsInput = (input: ListConnectionsInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArnFilter !== undefined && { HostArnFilter: input.HostArnFilter }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ProviderTypeFilter !== undefined && { ProviderTypeFilter: input.ProviderTypeFilter }),
+    ...(input.HostArnFilter !== undefined && input.HostArnFilter !== null && { HostArnFilter: input.HostArnFilter }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ProviderTypeFilter !== undefined &&
+      input.ProviderTypeFilter !== null && { ProviderTypeFilter: input.ProviderTypeFilter }),
   };
 };
 
 const serializeAws_json1_0ListHostsInput = (input: ListHostsInput, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1070,65 +1062,99 @@ const serializeAws_json1_0ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_0SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_0SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_0TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_0TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_0Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_0Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_0UpdateHostInput = (input: UpdateHostInput, context: __SerdeContext): any => {
   return {
-    ...(input.HostArn !== undefined && { HostArn: input.HostArn }),
-    ...(input.ProviderEndpoint !== undefined && { ProviderEndpoint: input.ProviderEndpoint }),
-    ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.HostArn !== undefined && input.HostArn !== null && { HostArn: input.HostArn }),
+    ...(input.ProviderEndpoint !== undefined &&
+      input.ProviderEndpoint !== null && { ProviderEndpoint: input.ProviderEndpoint }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_0VpcConfiguration(input.VpcConfiguration, context),
+      }),
   };
 };
 
 const serializeAws_json1_0VpcConfiguration = (input: VpcConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_0SubnetIds(input.SubnetIds, context) }),
-    ...(input.TlsCertificate !== undefined && { TlsCertificate: input.TlsCertificate }),
-    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_0SecurityGroupIds(input.SecurityGroupIds, context),
+      }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_0SubnetIds(input.SubnetIds, context) }),
+    ...(input.TlsCertificate !== undefined &&
+      input.TlsCertificate !== null && { TlsCertificate: input.TlsCertificate }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
   };
 };
 
@@ -1154,7 +1180,14 @@ const deserializeAws_json1_0Connection = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_0ConnectionList = (output: any, context: __SerdeContext): Connection[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Connection(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Connection(entry, context);
+    });
 };
 
 const deserializeAws_json1_0CreateConnectionOutput = (output: any, context: __SerdeContext): CreateConnectionOutput => {
@@ -1223,7 +1256,14 @@ const deserializeAws_json1_0Host = (output: any, context: __SerdeContext): Host 
 };
 
 const deserializeAws_json1_0HostList = (output: any, context: __SerdeContext): Host[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Host(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Host(entry, context);
+    });
 };
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -1283,11 +1323,25 @@ const deserializeAws_json1_0ResourceUnavailableException = (
 };
 
 const deserializeAws_json1_0SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_0SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
@@ -1298,7 +1352,14 @@ const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {
@@ -1388,3 +1449,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

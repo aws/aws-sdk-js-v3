@@ -24,9 +24,7 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -54,9 +52,7 @@ export const serializeAws_restJson1GetConnectionCommand = async (
   input: GetConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
     const labelValue: string = input.ConnectionId;
@@ -85,7 +81,7 @@ export const serializeAws_restJson1PostToConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/@connections/{ConnectionId}";
   if (input.ConnectionId !== undefined) {
@@ -417,6 +413,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

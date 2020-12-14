@@ -84,14 +84,14 @@ export const serializeAws_restJson1CreateDiscovererCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/discoverers";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.SourceArn !== undefined && { SourceArn: input.SourceArn }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.SourceArn !== undefined && input.SourceArn !== null && { SourceArn: input.SourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -110,7 +110,7 @@ export const serializeAws_restJson1CreateRegistryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
@@ -124,8 +124,8 @@ export const serializeAws_restJson1CreateRegistryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -144,7 +144,7 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
@@ -167,10 +167,10 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -188,9 +188,7 @@ export const serializeAws_restJson1DeleteDiscovererCommand = async (
   input: DeleteDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
@@ -218,9 +216,7 @@ export const serializeAws_restJson1DeleteRegistryCommand = async (
   input: DeleteRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
@@ -248,9 +244,7 @@ export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
   input: DeleteResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/policy";
   const query: any = {
     ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
@@ -273,9 +267,7 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
   input: DeleteSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -312,9 +304,7 @@ export const serializeAws_restJson1DeleteSchemaVersionCommand = async (
   input: DeleteSchemaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/version/{SchemaVersion}";
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -360,9 +350,7 @@ export const serializeAws_restJson1DescribeCodeBindingCommand = async (
   input: DescribeCodeBindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -412,9 +400,7 @@ export const serializeAws_restJson1DescribeDiscovererCommand = async (
   input: DescribeDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
@@ -442,9 +428,7 @@ export const serializeAws_restJson1DescribeRegistryCommand = async (
   input: DescribeRegistryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
@@ -472,9 +456,7 @@ export const serializeAws_restJson1DescribeSchemaCommand = async (
   input: DescribeSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -515,9 +497,7 @@ export const serializeAws_restJson1ExportSchemaCommand = async (
   input: ExportSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/export";
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -559,9 +539,7 @@ export const serializeAws_restJson1GetCodeBindingSourceCommand = async (
   input: GetCodeBindingSourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}/source";
   if (input.SchemaName !== undefined) {
     const labelValue: string = input.SchemaName;
@@ -612,15 +590,16 @@ export const serializeAws_restJson1GetDiscoveredSchemaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/discover";
   let body: any;
   body = JSON.stringify({
-    ...(input.Events !== undefined && {
-      Events: serializeAws_restJson1__listOfGetDiscoveredSchemaVersionItemInput(input.Events, context),
-    }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Events !== undefined &&
+      input.Events !== null && {
+        Events: serializeAws_restJson1__listOfGetDiscoveredSchemaVersionItemInput(input.Events, context),
+      }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -638,9 +617,7 @@ export const serializeAws_restJson1GetResourcePolicyCommand = async (
   input: GetResourcePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/policy";
   const query: any = {
     ...(input.RegistryName !== undefined && { registryName: input.RegistryName }),
@@ -663,9 +640,7 @@ export const serializeAws_restJson1ListDiscoverersCommand = async (
   input: ListDiscoverersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/discoverers";
   const query: any = {
     ...(input.DiscovererIdPrefix !== undefined && { discovererIdPrefix: input.DiscovererIdPrefix }),
@@ -691,9 +666,7 @@ export const serializeAws_restJson1ListRegistriesCommand = async (
   input: ListRegistriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries";
   const query: any = {
     ...(input.Scope !== undefined && { scope: input.Scope }),
@@ -719,9 +692,7 @@ export const serializeAws_restJson1ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
@@ -755,9 +726,7 @@ export const serializeAws_restJson1ListSchemaVersionsCommand = async (
   input: ListSchemaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/versions";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
@@ -799,9 +768,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -829,9 +796,7 @@ export const serializeAws_restJson1PutCodeBindingCommand = async (
   input: PutCodeBindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}/language/{Language}";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
@@ -882,7 +847,7 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/policy";
   const query: any = {
@@ -890,8 +855,8 @@ export const serializeAws_restJson1PutResourcePolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Policy !== undefined && { Policy: __LazyJsonString.fromObject(input.Policy) }),
-    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+    ...(input.Policy !== undefined && input.Policy !== null && { Policy: __LazyJsonString.fromObject(input.Policy) }),
+    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -910,9 +875,7 @@ export const serializeAws_restJson1SearchSchemasCommand = async (
   input: SearchSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/search";
   if (input.RegistryName !== undefined) {
     const labelValue: string = input.RegistryName;
@@ -946,9 +909,7 @@ export const serializeAws_restJson1StartDiscovererCommand = async (
   input: StartDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}/start";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
@@ -976,9 +937,7 @@ export const serializeAws_restJson1StopDiscovererCommand = async (
   input: StopDiscovererCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}/stop";
   if (input.DiscovererId !== undefined) {
     const labelValue: string = input.DiscovererId;
@@ -1007,7 +966,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
@@ -1021,7 +980,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1039,9 +998,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1074,7 +1031,7 @@ export const serializeAws_restJson1UpdateDiscovererCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/discoverers/id/{DiscovererId}";
   if (input.DiscovererId !== undefined) {
@@ -1088,7 +1045,7 @@ export const serializeAws_restJson1UpdateDiscovererCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1107,7 +1064,7 @@ export const serializeAws_restJson1UpdateRegistryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}";
   if (input.RegistryName !== undefined) {
@@ -1121,7 +1078,7 @@ export const serializeAws_restJson1UpdateRegistryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1140,7 +1097,7 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/registries/name/{RegistryName}/schemas/name/{SchemaName}";
   if (input.RegistryName !== undefined) {
@@ -1164,9 +1121,9 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientTokenId: input.ClientTokenId ?? generateIdempotencyToken(),
-    ...(input.Content !== undefined && { Content: input.Content }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4481,53 +4438,104 @@ const serializeAws_restJson1__listOfGetDiscoveredSchemaVersionItemInput = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1__listOfDiscovererSummary = (
   output: any,
   context: __SerdeContext
 ): DiscovererSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DiscovererSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DiscovererSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfRegistrySummary = (output: any, context: __SerdeContext): RegistrySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1RegistrySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RegistrySummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfSchemaSummary = (output: any, context: __SerdeContext): SchemaSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SchemaSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SchemaSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
 ): SchemaVersionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SchemaVersionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SchemaVersionSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfSearchSchemaSummary = (
   output: any,
   context: __SerdeContext
 ): SearchSchemaSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SearchSchemaSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SearchSchemaSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfSearchSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
 ): SearchSchemaVersionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SearchSchemaVersionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SearchSchemaVersionSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DiscovererSummary = (output: any, context: __SerdeContext): DiscovererSummary => {
@@ -4605,13 +4613,15 @@ const deserializeAws_restJson1SearchSchemaVersionSummary = (
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -4634,6 +4644,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

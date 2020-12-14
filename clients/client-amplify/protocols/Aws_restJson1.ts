@@ -105,41 +105,52 @@ export const serializeAws_restJson1CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps";
   let body: any;
   body = JSON.stringify({
-    ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
-    ...(input.autoBranchCreationConfig !== undefined && {
-      autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
-    }),
-    ...(input.autoBranchCreationPatterns !== undefined && {
-      autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
-        input.autoBranchCreationPatterns,
-        context
-      ),
-    }),
-    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
-    ...(input.customHeaders !== undefined && { customHeaders: input.customHeaders }),
-    ...(input.customRules !== undefined && {
-      customRules: serializeAws_restJson1CustomRules(input.customRules, context),
-    }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.enableAutoBranchCreation !== undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
-    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableBranchAutoBuild !== undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
-    ...(input.enableBranchAutoDeletion !== undefined && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
-    ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.iamServiceRoleArn !== undefined && { iamServiceRoleArn: input.iamServiceRoleArn }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.oauthToken !== undefined && { oauthToken: input.oauthToken }),
-    ...(input.platform !== undefined && { platform: input.platform }),
-    ...(input.repository !== undefined && { repository: input.repository }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.accessToken !== undefined && input.accessToken !== null && { accessToken: input.accessToken }),
+    ...(input.autoBranchCreationConfig !== undefined &&
+      input.autoBranchCreationConfig !== null && {
+        autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(
+          input.autoBranchCreationConfig,
+          context
+        ),
+      }),
+    ...(input.autoBranchCreationPatterns !== undefined &&
+      input.autoBranchCreationPatterns !== null && {
+        autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
+          input.autoBranchCreationPatterns,
+          context
+        ),
+      }),
+    ...(input.basicAuthCredentials !== undefined &&
+      input.basicAuthCredentials !== null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec !== undefined && input.buildSpec !== null && { buildSpec: input.buildSpec }),
+    ...(input.customHeaders !== undefined && input.customHeaders !== null && { customHeaders: input.customHeaders }),
+    ...(input.customRules !== undefined &&
+      input.customRules !== null && { customRules: serializeAws_restJson1CustomRules(input.customRules, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.enableAutoBranchCreation !== undefined &&
+      input.enableAutoBranchCreation !== null && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
+    ...(input.enableBasicAuth !== undefined &&
+      input.enableBasicAuth !== null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableBranchAutoBuild !== undefined &&
+      input.enableBranchAutoBuild !== null && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
+    ...(input.enableBranchAutoDeletion !== undefined &&
+      input.enableBranchAutoDeletion !== null && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
+    ...(input.environmentVariables !== undefined &&
+      input.environmentVariables !== null && {
+        environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
+      }),
+    ...(input.iamServiceRoleArn !== undefined &&
+      input.iamServiceRoleArn !== null && { iamServiceRoleArn: input.iamServiceRoleArn }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.oauthToken !== undefined && input.oauthToken !== null && { oauthToken: input.oauthToken }),
+    ...(input.platform !== undefined && input.platform !== null && { platform: input.platform }),
+    ...(input.repository !== undefined && input.repository !== null && { repository: input.repository }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -158,7 +169,7 @@ export const serializeAws_restJson1CreateBackendEnvironmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
@@ -172,9 +183,11 @@ export const serializeAws_restJson1CreateBackendEnvironmentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.deploymentArtifacts !== undefined && { deploymentArtifacts: input.deploymentArtifacts }),
-    ...(input.environmentName !== undefined && { environmentName: input.environmentName }),
-    ...(input.stackName !== undefined && { stackName: input.stackName }),
+    ...(input.deploymentArtifacts !== undefined &&
+      input.deploymentArtifacts !== null && { deploymentArtifacts: input.deploymentArtifacts }),
+    ...(input.environmentName !== undefined &&
+      input.environmentName !== null && { environmentName: input.environmentName }),
+    ...(input.stackName !== undefined && input.stackName !== null && { stackName: input.stackName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -193,7 +206,7 @@ export const serializeAws_restJson1CreateBranchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
@@ -207,27 +220,34 @@ export const serializeAws_restJson1CreateBranchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.backendEnvironmentArn !== undefined && { backendEnvironmentArn: input.backendEnvironmentArn }),
-    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.displayName !== undefined && { displayName: input.displayName }),
-    ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableNotification !== undefined && { enableNotification: input.enableNotification }),
-    ...(input.enablePerformanceMode !== undefined && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.framework !== undefined && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName !== undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
-    }),
-    ...(input.stage !== undefined && { stage: input.stage }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.ttl !== undefined && { ttl: input.ttl }),
+    ...(input.backendEnvironmentArn !== undefined &&
+      input.backendEnvironmentArn !== null && { backendEnvironmentArn: input.backendEnvironmentArn }),
+    ...(input.basicAuthCredentials !== undefined &&
+      input.basicAuthCredentials !== null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.branchName !== undefined && input.branchName !== null && { branchName: input.branchName }),
+    ...(input.buildSpec !== undefined && input.buildSpec !== null && { buildSpec: input.buildSpec }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
+    ...(input.enableAutoBuild !== undefined &&
+      input.enableAutoBuild !== null && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth !== undefined &&
+      input.enableBasicAuth !== null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableNotification !== undefined &&
+      input.enableNotification !== null && { enableNotification: input.enableNotification }),
+    ...(input.enablePerformanceMode !== undefined &&
+      input.enablePerformanceMode !== null && { enablePerformanceMode: input.enablePerformanceMode }),
+    ...(input.enablePullRequestPreview !== undefined &&
+      input.enablePullRequestPreview !== null && { enablePullRequestPreview: input.enablePullRequestPreview }),
+    ...(input.environmentVariables !== undefined &&
+      input.environmentVariables !== null && {
+        environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
+      }),
+    ...(input.framework !== undefined && input.framework !== null && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName !== undefined &&
+      input.pullRequestEnvironmentName !== null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
+    ...(input.stage !== undefined && input.stage !== null && { stage: input.stage }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.ttl !== undefined && input.ttl !== null && { ttl: input.ttl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -246,7 +266,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments";
   if (input.appId !== undefined) {
@@ -269,7 +289,8 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.fileMap !== undefined && { fileMap: serializeAws_restJson1FileMap(input.fileMap, context) }),
+    ...(input.fileMap !== undefined &&
+      input.fileMap !== null && { fileMap: serializeAws_restJson1FileMap(input.fileMap, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -288,7 +309,7 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
@@ -302,18 +323,22 @@ export const serializeAws_restJson1CreateDomainAssociationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.autoSubDomainCreationPatterns !== undefined && {
-      autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
-        input.autoSubDomainCreationPatterns,
-        context
-      ),
-    }),
-    ...(input.autoSubDomainIAMRole !== undefined && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
-    ...(input.domainName !== undefined && { domainName: input.domainName }),
-    ...(input.enableAutoSubDomain !== undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
-    ...(input.subDomainSettings !== undefined && {
-      subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
-    }),
+    ...(input.autoSubDomainCreationPatterns !== undefined &&
+      input.autoSubDomainCreationPatterns !== null && {
+        autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
+          input.autoSubDomainCreationPatterns,
+          context
+        ),
+      }),
+    ...(input.autoSubDomainIAMRole !== undefined &&
+      input.autoSubDomainIAMRole !== null && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
+    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
+    ...(input.enableAutoSubDomain !== undefined &&
+      input.enableAutoSubDomain !== null && { enableAutoSubDomain: input.enableAutoSubDomain }),
+    ...(input.subDomainSettings !== undefined &&
+      input.subDomainSettings !== null && {
+        subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -332,7 +357,7 @@ export const serializeAws_restJson1CreateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
@@ -346,8 +371,8 @@ export const serializeAws_restJson1CreateWebhookCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.description !== undefined && { description: input.description }),
+    ...(input.branchName !== undefined && input.branchName !== null && { branchName: input.branchName }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -365,9 +390,7 @@ export const serializeAws_restJson1DeleteAppCommand = async (
   input: DeleteAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -395,9 +418,7 @@ export const serializeAws_restJson1DeleteBackendEnvironmentCommand = async (
   input: DeleteBackendEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -434,9 +455,7 @@ export const serializeAws_restJson1DeleteBranchCommand = async (
   input: DeleteBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -473,9 +492,7 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
   input: DeleteDomainAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -512,9 +529,7 @@ export const serializeAws_restJson1DeleteJobCommand = async (
   input: DeleteJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -560,9 +575,7 @@ export const serializeAws_restJson1DeleteWebhookCommand = async (
   input: DeleteWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
     const labelValue: string = input.webhookId;
@@ -591,7 +604,7 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/accesslogs";
   if (input.appId !== undefined) {
@@ -605,9 +618,11 @@ export const serializeAws_restJson1GenerateAccessLogsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.domainName !== undefined && { domainName: input.domainName }),
-    ...(input.endTime !== undefined && { endTime: Math.round(input.endTime.getTime() / 1000) }),
-    ...(input.startTime !== undefined && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.domainName !== undefined && input.domainName !== null && { domainName: input.domainName }),
+    ...(input.endTime !== undefined &&
+      input.endTime !== null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime !== undefined &&
+      input.startTime !== null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -625,9 +640,7 @@ export const serializeAws_restJson1GetAppCommand = async (
   input: GetAppCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -655,9 +668,7 @@ export const serializeAws_restJson1GetArtifactUrlCommand = async (
   input: GetArtifactUrlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/artifacts/{artifactId}";
   if (input.artifactId !== undefined) {
     const labelValue: string = input.artifactId;
@@ -685,9 +696,7 @@ export const serializeAws_restJson1GetBackendEnvironmentCommand = async (
   input: GetBackendEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/backendenvironments/{environmentName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -724,9 +733,7 @@ export const serializeAws_restJson1GetBranchCommand = async (
   input: GetBranchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -763,9 +770,7 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
   input: GetDomainAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -802,9 +807,7 @@ export const serializeAws_restJson1GetJobCommand = async (
   input: GetJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -850,9 +853,7 @@ export const serializeAws_restJson1GetWebhookCommand = async (
   input: GetWebhookCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
     const labelValue: string = input.webhookId;
@@ -880,9 +881,7 @@ export const serializeAws_restJson1ListAppsCommand = async (
   input: ListAppsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -906,9 +905,7 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
   input: ListArtifactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -959,9 +956,7 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
   input: ListBackendEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/backendenvironments";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -995,9 +990,7 @@ export const serializeAws_restJson1ListBranchesCommand = async (
   input: ListBranchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1030,9 +1023,7 @@ export const serializeAws_restJson1ListDomainAssociationsCommand = async (
   input: ListDomainAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/domains";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1065,9 +1056,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1109,9 +1098,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1139,9 +1126,7 @@ export const serializeAws_restJson1ListWebhooksCommand = async (
   input: ListWebhooksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/webhooks";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1175,7 +1160,7 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/deployments/start";
   if (input.appId !== undefined) {
@@ -1198,8 +1183,8 @@ export const serializeAws_restJson1StartDeploymentCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.jobId !== undefined && { jobId: input.jobId }),
-    ...(input.sourceUrl !== undefined && { sourceUrl: input.sourceUrl }),
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+    ...(input.sourceUrl !== undefined && input.sourceUrl !== null && { sourceUrl: input.sourceUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1218,7 +1203,7 @@ export const serializeAws_restJson1StartJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
   if (input.appId !== undefined) {
@@ -1241,12 +1226,13 @@ export const serializeAws_restJson1StartJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.commitId !== undefined && { commitId: input.commitId }),
-    ...(input.commitMessage !== undefined && { commitMessage: input.commitMessage }),
-    ...(input.commitTime !== undefined && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
-    ...(input.jobId !== undefined && { jobId: input.jobId }),
-    ...(input.jobReason !== undefined && { jobReason: input.jobReason }),
-    ...(input.jobType !== undefined && { jobType: input.jobType }),
+    ...(input.commitId !== undefined && input.commitId !== null && { commitId: input.commitId }),
+    ...(input.commitMessage !== undefined && input.commitMessage !== null && { commitMessage: input.commitMessage }),
+    ...(input.commitTime !== undefined &&
+      input.commitTime !== null && { commitTime: Math.round(input.commitTime.getTime() / 1000) }),
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+    ...(input.jobReason !== undefined && input.jobReason !== null && { jobReason: input.jobReason }),
+    ...(input.jobType !== undefined && input.jobType !== null && { jobType: input.jobType }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1264,9 +1250,7 @@ export const serializeAws_restJson1StopJobCommand = async (
   input: StopJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop";
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
@@ -1313,7 +1297,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -1327,7 +1311,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1345,9 +1329,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1380,7 +1362,7 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}";
   if (input.appId !== undefined) {
@@ -1394,35 +1376,46 @@ export const serializeAws_restJson1UpdateAppCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
-    ...(input.autoBranchCreationConfig !== undefined && {
-      autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(input.autoBranchCreationConfig, context),
-    }),
-    ...(input.autoBranchCreationPatterns !== undefined && {
-      autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
-        input.autoBranchCreationPatterns,
-        context
-      ),
-    }),
-    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
-    ...(input.customHeaders !== undefined && { customHeaders: input.customHeaders }),
-    ...(input.customRules !== undefined && {
-      customRules: serializeAws_restJson1CustomRules(input.customRules, context),
-    }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.enableAutoBranchCreation !== undefined && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
-    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableBranchAutoBuild !== undefined && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
-    ...(input.enableBranchAutoDeletion !== undefined && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
-    ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.iamServiceRoleArn !== undefined && { iamServiceRoleArn: input.iamServiceRoleArn }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.oauthToken !== undefined && { oauthToken: input.oauthToken }),
-    ...(input.platform !== undefined && { platform: input.platform }),
-    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.accessToken !== undefined && input.accessToken !== null && { accessToken: input.accessToken }),
+    ...(input.autoBranchCreationConfig !== undefined &&
+      input.autoBranchCreationConfig !== null && {
+        autoBranchCreationConfig: serializeAws_restJson1AutoBranchCreationConfig(
+          input.autoBranchCreationConfig,
+          context
+        ),
+      }),
+    ...(input.autoBranchCreationPatterns !== undefined &&
+      input.autoBranchCreationPatterns !== null && {
+        autoBranchCreationPatterns: serializeAws_restJson1AutoBranchCreationPatterns(
+          input.autoBranchCreationPatterns,
+          context
+        ),
+      }),
+    ...(input.basicAuthCredentials !== undefined &&
+      input.basicAuthCredentials !== null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec !== undefined && input.buildSpec !== null && { buildSpec: input.buildSpec }),
+    ...(input.customHeaders !== undefined && input.customHeaders !== null && { customHeaders: input.customHeaders }),
+    ...(input.customRules !== undefined &&
+      input.customRules !== null && { customRules: serializeAws_restJson1CustomRules(input.customRules, context) }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.enableAutoBranchCreation !== undefined &&
+      input.enableAutoBranchCreation !== null && { enableAutoBranchCreation: input.enableAutoBranchCreation }),
+    ...(input.enableBasicAuth !== undefined &&
+      input.enableBasicAuth !== null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableBranchAutoBuild !== undefined &&
+      input.enableBranchAutoBuild !== null && { enableBranchAutoBuild: input.enableBranchAutoBuild }),
+    ...(input.enableBranchAutoDeletion !== undefined &&
+      input.enableBranchAutoDeletion !== null && { enableBranchAutoDeletion: input.enableBranchAutoDeletion }),
+    ...(input.environmentVariables !== undefined &&
+      input.environmentVariables !== null && {
+        environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
+      }),
+    ...(input.iamServiceRoleArn !== undefined &&
+      input.iamServiceRoleArn !== null && { iamServiceRoleArn: input.iamServiceRoleArn }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.oauthToken !== undefined && input.oauthToken !== null && { oauthToken: input.oauthToken }),
+    ...(input.platform !== undefined && input.platform !== null && { platform: input.platform }),
+    ...(input.repository !== undefined && input.repository !== null && { repository: input.repository }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1441,7 +1434,7 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
   if (input.appId !== undefined) {
@@ -1464,25 +1457,32 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.backendEnvironmentArn !== undefined && { backendEnvironmentArn: input.backendEnvironmentArn }),
-    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
-    ...(input.description !== undefined && { description: input.description }),
-    ...(input.displayName !== undefined && { displayName: input.displayName }),
-    ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enableNotification !== undefined && { enableNotification: input.enableNotification }),
-    ...(input.enablePerformanceMode !== undefined && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.framework !== undefined && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName !== undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
-    }),
-    ...(input.stage !== undefined && { stage: input.stage }),
-    ...(input.ttl !== undefined && { ttl: input.ttl }),
+    ...(input.backendEnvironmentArn !== undefined &&
+      input.backendEnvironmentArn !== null && { backendEnvironmentArn: input.backendEnvironmentArn }),
+    ...(input.basicAuthCredentials !== undefined &&
+      input.basicAuthCredentials !== null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec !== undefined && input.buildSpec !== null && { buildSpec: input.buildSpec }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.displayName !== undefined && input.displayName !== null && { displayName: input.displayName }),
+    ...(input.enableAutoBuild !== undefined &&
+      input.enableAutoBuild !== null && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth !== undefined &&
+      input.enableBasicAuth !== null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enableNotification !== undefined &&
+      input.enableNotification !== null && { enableNotification: input.enableNotification }),
+    ...(input.enablePerformanceMode !== undefined &&
+      input.enablePerformanceMode !== null && { enablePerformanceMode: input.enablePerformanceMode }),
+    ...(input.enablePullRequestPreview !== undefined &&
+      input.enablePullRequestPreview !== null && { enablePullRequestPreview: input.enablePullRequestPreview }),
+    ...(input.environmentVariables !== undefined &&
+      input.environmentVariables !== null && {
+        environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
+      }),
+    ...(input.framework !== undefined && input.framework !== null && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName !== undefined &&
+      input.pullRequestEnvironmentName !== null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
+    ...(input.stage !== undefined && input.stage !== null && { stage: input.stage }),
+    ...(input.ttl !== undefined && input.ttl !== null && { ttl: input.ttl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1501,7 +1501,7 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
   if (input.appId !== undefined) {
@@ -1524,17 +1524,21 @@ export const serializeAws_restJson1UpdateDomainAssociationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.autoSubDomainCreationPatterns !== undefined && {
-      autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
-        input.autoSubDomainCreationPatterns,
-        context
-      ),
-    }),
-    ...(input.autoSubDomainIAMRole !== undefined && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
-    ...(input.enableAutoSubDomain !== undefined && { enableAutoSubDomain: input.enableAutoSubDomain }),
-    ...(input.subDomainSettings !== undefined && {
-      subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
-    }),
+    ...(input.autoSubDomainCreationPatterns !== undefined &&
+      input.autoSubDomainCreationPatterns !== null && {
+        autoSubDomainCreationPatterns: serializeAws_restJson1AutoSubDomainCreationPatterns(
+          input.autoSubDomainCreationPatterns,
+          context
+        ),
+      }),
+    ...(input.autoSubDomainIAMRole !== undefined &&
+      input.autoSubDomainIAMRole !== null && { autoSubDomainIAMRole: input.autoSubDomainIAMRole }),
+    ...(input.enableAutoSubDomain !== undefined &&
+      input.enableAutoSubDomain !== null && { enableAutoSubDomain: input.enableAutoSubDomain }),
+    ...(input.subDomainSettings !== undefined &&
+      input.subDomainSettings !== null && {
+        subDomainSettings: serializeAws_restJson1SubDomainSettings(input.subDomainSettings, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1553,7 +1557,7 @@ export const serializeAws_restJson1UpdateWebhookCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/webhooks/{webhookId}";
   if (input.webhookId !== undefined) {
@@ -1567,8 +1571,8 @@ export const serializeAws_restJson1UpdateWebhookCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.description !== undefined && { description: input.description }),
+    ...(input.branchName !== undefined && input.branchName !== null && { branchName: input.branchName }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4793,83 +4797,122 @@ const serializeAws_restJson1AutoBranchCreationConfig = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
-    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
-    ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
-    ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
-    ...(input.enablePerformanceMode !== undefined && { enablePerformanceMode: input.enablePerformanceMode }),
-    ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
-    ...(input.environmentVariables !== undefined && {
-      environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
-    }),
-    ...(input.framework !== undefined && { framework: input.framework }),
-    ...(input.pullRequestEnvironmentName !== undefined && {
-      pullRequestEnvironmentName: input.pullRequestEnvironmentName,
-    }),
-    ...(input.stage !== undefined && { stage: input.stage }),
+    ...(input.basicAuthCredentials !== undefined &&
+      input.basicAuthCredentials !== null && { basicAuthCredentials: input.basicAuthCredentials }),
+    ...(input.buildSpec !== undefined && input.buildSpec !== null && { buildSpec: input.buildSpec }),
+    ...(input.enableAutoBuild !== undefined &&
+      input.enableAutoBuild !== null && { enableAutoBuild: input.enableAutoBuild }),
+    ...(input.enableBasicAuth !== undefined &&
+      input.enableBasicAuth !== null && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enablePerformanceMode !== undefined &&
+      input.enablePerformanceMode !== null && { enablePerformanceMode: input.enablePerformanceMode }),
+    ...(input.enablePullRequestPreview !== undefined &&
+      input.enablePullRequestPreview !== null && { enablePullRequestPreview: input.enablePullRequestPreview }),
+    ...(input.environmentVariables !== undefined &&
+      input.environmentVariables !== null && {
+        environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
+      }),
+    ...(input.framework !== undefined && input.framework !== null && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName !== undefined &&
+      input.pullRequestEnvironmentName !== null && { pullRequestEnvironmentName: input.pullRequestEnvironmentName }),
+    ...(input.stage !== undefined && input.stage !== null && { stage: input.stage }),
   };
 };
 
 const serializeAws_restJson1AutoBranchCreationPatterns = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1AutoSubDomainCreationPatterns = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1CustomRule = (input: CustomRule, context: __SerdeContext): any => {
   return {
-    ...(input.condition !== undefined && { condition: input.condition }),
-    ...(input.source !== undefined && { source: input.source }),
-    ...(input.status !== undefined && { status: input.status }),
-    ...(input.target !== undefined && { target: input.target }),
+    ...(input.condition !== undefined && input.condition !== null && { condition: input.condition }),
+    ...(input.source !== undefined && input.source !== null && { source: input.source }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
+    ...(input.target !== undefined && input.target !== null && { target: input.target }),
   };
 };
 
 const serializeAws_restJson1CustomRules = (input: CustomRule[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1CustomRule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CustomRule(entry, context);
+    });
 };
 
 const serializeAws_restJson1EnvironmentVariables = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1FileMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1SubDomainSetting = (input: SubDomainSetting, context: __SerdeContext): any => {
   return {
-    ...(input.branchName !== undefined && { branchName: input.branchName }),
-    ...(input.prefix !== undefined && { prefix: input.prefix }),
+    ...(input.branchName !== undefined && input.branchName !== null && { branchName: input.branchName }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
   };
 };
 
 const serializeAws_restJson1SubDomainSettings = (input: SubDomainSetting[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1SubDomainSetting(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SubDomainSetting(entry, context);
+    });
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App => {
@@ -4943,7 +4986,14 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
 };
 
 const deserializeAws_restJson1Apps = (output: any, context: __SerdeContext): App[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1App(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1App(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Artifact = (output: any, context: __SerdeContext): Artifact => {
@@ -4955,11 +5005,25 @@ const deserializeAws_restJson1Artifact = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Artifacts = (output: any, context: __SerdeContext): Artifact[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Artifact(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Artifact(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssociatedResources = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AutoBranchCreationConfig = (
@@ -4998,11 +5062,25 @@ const deserializeAws_restJson1AutoBranchCreationConfig = (
 };
 
 const deserializeAws_restJson1AutoBranchCreationPatterns = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AutoSubDomainCreationPatterns = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1BackendEnvironment = (output: any, context: __SerdeContext): BackendEnvironment => {
@@ -5030,7 +5108,14 @@ const deserializeAws_restJson1BackendEnvironment = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1BackendEnvironments = (output: any, context: __SerdeContext): BackendEnvironment[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BackendEnvironment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BackendEnvironment(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): Branch => {
@@ -5110,11 +5195,25 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
 };
 
 const deserializeAws_restJson1Branches = (output: any, context: __SerdeContext): Branch[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Branch(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Branch(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CustomDomains = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1CustomRule = (output: any, context: __SerdeContext): CustomRule => {
@@ -5127,7 +5226,14 @@ const deserializeAws_restJson1CustomRule = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1CustomRules = (output: any, context: __SerdeContext): CustomRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CustomRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CustomRule(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DomainAssociation = (output: any, context: __SerdeContext): DomainAssociation => {
@@ -5163,30 +5269,41 @@ const deserializeAws_restJson1DomainAssociation = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1DomainAssociations = (output: any, context: __SerdeContext): DomainAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DomainAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DomainAssociation(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EnvironmentVariables = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1FileUploadUrls = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
@@ -5203,7 +5320,14 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
 };
 
 const deserializeAws_restJson1JobSummaries = (output: any, context: __SerdeContext): JobSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1JobSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
@@ -5241,13 +5365,15 @@ const deserializeAws_restJson1ProductionBranch = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1Screenshots = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Step => {
@@ -5276,7 +5402,14 @@ const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Ste
 };
 
 const deserializeAws_restJson1Steps = (output: any, context: __SerdeContext): Step[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Step(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Step(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SubDomain = (output: any, context: __SerdeContext): SubDomain => {
@@ -5291,7 +5424,14 @@ const deserializeAws_restJson1SubDomain = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1SubDomains = (output: any, context: __SerdeContext): SubDomain[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SubDomain(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SubDomain(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SubDomainSetting = (output: any, context: __SerdeContext): SubDomainSetting => {
@@ -5302,13 +5442,15 @@ const deserializeAws_restJson1SubDomainSetting = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Webhook = (output: any, context: __SerdeContext): Webhook => {
@@ -5330,7 +5472,14 @@ const deserializeAws_restJson1Webhook = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1Webhooks = (output: any, context: __SerdeContext): Webhook[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Webhook(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Webhook(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -5353,6 +5502,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

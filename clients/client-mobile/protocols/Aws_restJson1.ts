@@ -39,7 +39,7 @@ export const serializeAws_restJson1CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/projects";
   const query: any = {
@@ -68,9 +68,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/projects/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -98,9 +96,7 @@ export const serializeAws_restJson1DescribeBundleCommand = async (
   input: DescribeBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
     const labelValue: string = input.bundleId;
@@ -128,9 +124,7 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   input: DescribeProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/project";
   const query: any = {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
@@ -154,9 +148,7 @@ export const serializeAws_restJson1ExportBundleCommand = async (
   input: ExportBundleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/bundles/{bundleId}";
   if (input.bundleId !== undefined) {
     const labelValue: string = input.bundleId;
@@ -189,9 +181,7 @@ export const serializeAws_restJson1ExportProjectCommand = async (
   input: ExportProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/exports/{projectId}";
   if (input.projectId !== undefined) {
     const labelValue: string = input.projectId;
@@ -219,9 +209,7 @@ export const serializeAws_restJson1ListBundlesCommand = async (
   input: ListBundlesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/bundles";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
@@ -245,9 +233,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/projects";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
@@ -272,7 +258,7 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/update";
   const query: any = {
@@ -1319,13 +1305,15 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
 };
 
 const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1BundleDetails = (output: any, context: __SerdeContext): BundleDetails => {
@@ -1343,11 +1331,25 @@ const deserializeAws_restJson1BundleDetails = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1BundleList = (output: any, context: __SerdeContext): BundleDetails[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BundleDetails(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BundleDetails(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Platforms = (output: any, context: __SerdeContext): (Platform | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeContext): ProjectDetails => {
@@ -1373,7 +1375,14 @@ const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ProjectSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ProjectSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
@@ -1397,7 +1406,14 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Resource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Resource(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1420,6 +1436,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

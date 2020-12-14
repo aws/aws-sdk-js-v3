@@ -431,7 +431,7 @@ export const serializeAws_json1_1ActivateGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ActivateGateway",
   };
   let body: any;
@@ -444,7 +444,7 @@ export const serializeAws_json1_1AddCacheCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.AddCache",
   };
   let body: any;
@@ -457,7 +457,7 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.AddTagsToResource",
   };
   let body: any;
@@ -470,7 +470,7 @@ export const serializeAws_json1_1AddUploadBufferCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.AddUploadBuffer",
   };
   let body: any;
@@ -483,7 +483,7 @@ export const serializeAws_json1_1AddWorkingStorageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.AddWorkingStorage",
   };
   let body: any;
@@ -496,7 +496,7 @@ export const serializeAws_json1_1AssignTapePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.AssignTapePool",
   };
   let body: any;
@@ -509,7 +509,7 @@ export const serializeAws_json1_1AttachVolumeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.AttachVolume",
   };
   let body: any;
@@ -522,7 +522,7 @@ export const serializeAws_json1_1CancelArchivalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CancelArchival",
   };
   let body: any;
@@ -535,7 +535,7 @@ export const serializeAws_json1_1CancelRetrievalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CancelRetrieval",
   };
   let body: any;
@@ -548,7 +548,7 @@ export const serializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateCachediSCSIVolume",
   };
   let body: any;
@@ -561,7 +561,7 @@ export const serializeAws_json1_1CreateNFSFileShareCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateNFSFileShare",
   };
   let body: any;
@@ -574,7 +574,7 @@ export const serializeAws_json1_1CreateSMBFileShareCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateSMBFileShare",
   };
   let body: any;
@@ -587,7 +587,7 @@ export const serializeAws_json1_1CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateSnapshot",
   };
   let body: any;
@@ -600,7 +600,7 @@ export const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint",
   };
   let body: any;
@@ -613,7 +613,7 @@ export const serializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateStorediSCSIVolume",
   };
   let body: any;
@@ -626,7 +626,7 @@ export const serializeAws_json1_1CreateTapePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateTapePool",
   };
   let body: any;
@@ -639,7 +639,7 @@ export const serializeAws_json1_1CreateTapesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateTapes",
   };
   let body: any;
@@ -652,7 +652,7 @@ export const serializeAws_json1_1CreateTapeWithBarcodeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.CreateTapeWithBarcode",
   };
   let body: any;
@@ -665,7 +665,7 @@ export const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteAutomaticTapeCreationPolicy",
   };
   let body: any;
@@ -678,7 +678,7 @@ export const serializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteBandwidthRateLimit",
   };
   let body: any;
@@ -691,7 +691,7 @@ export const serializeAws_json1_1DeleteChapCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteChapCredentials",
   };
   let body: any;
@@ -704,7 +704,7 @@ export const serializeAws_json1_1DeleteFileShareCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteFileShare",
   };
   let body: any;
@@ -717,7 +717,7 @@ export const serializeAws_json1_1DeleteGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteGateway",
   };
   let body: any;
@@ -730,7 +730,7 @@ export const serializeAws_json1_1DeleteSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteSnapshotSchedule",
   };
   let body: any;
@@ -743,7 +743,7 @@ export const serializeAws_json1_1DeleteTapeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteTape",
   };
   let body: any;
@@ -756,7 +756,7 @@ export const serializeAws_json1_1DeleteTapeArchiveCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteTapeArchive",
   };
   let body: any;
@@ -769,7 +769,7 @@ export const serializeAws_json1_1DeleteTapePoolCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteTapePool",
   };
   let body: any;
@@ -782,7 +782,7 @@ export const serializeAws_json1_1DeleteVolumeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DeleteVolume",
   };
   let body: any;
@@ -795,7 +795,7 @@ export const serializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeAvailabilityMonitorTest",
   };
   let body: any;
@@ -808,7 +808,7 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeBandwidthRateLimit",
   };
   let body: any;
@@ -821,7 +821,7 @@ export const serializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule",
   };
   let body: any;
@@ -834,7 +834,7 @@ export const serializeAws_json1_1DescribeCacheCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeCache",
   };
   let body: any;
@@ -847,7 +847,7 @@ export const serializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeCachediSCSIVolumes",
   };
   let body: any;
@@ -860,7 +860,7 @@ export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeChapCredentials",
   };
   let body: any;
@@ -873,7 +873,7 @@ export const serializeAws_json1_1DescribeGatewayInformationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeGatewayInformation",
   };
   let body: any;
@@ -886,7 +886,7 @@ export const serializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeMaintenanceStartTime",
   };
   let body: any;
@@ -899,7 +899,7 @@ export const serializeAws_json1_1DescribeNFSFileSharesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeNFSFileShares",
   };
   let body: any;
@@ -912,7 +912,7 @@ export const serializeAws_json1_1DescribeSMBFileSharesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeSMBFileShares",
   };
   let body: any;
@@ -925,7 +925,7 @@ export const serializeAws_json1_1DescribeSMBSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeSMBSettings",
   };
   let body: any;
@@ -938,7 +938,7 @@ export const serializeAws_json1_1DescribeSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeSnapshotSchedule",
   };
   let body: any;
@@ -951,7 +951,7 @@ export const serializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeStorediSCSIVolumes",
   };
   let body: any;
@@ -964,7 +964,7 @@ export const serializeAws_json1_1DescribeTapeArchivesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeTapeArchives",
   };
   let body: any;
@@ -977,7 +977,7 @@ export const serializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeTapeRecoveryPoints",
   };
   let body: any;
@@ -990,7 +990,7 @@ export const serializeAws_json1_1DescribeTapesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeTapes",
   };
   let body: any;
@@ -1003,7 +1003,7 @@ export const serializeAws_json1_1DescribeUploadBufferCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeUploadBuffer",
   };
   let body: any;
@@ -1016,7 +1016,7 @@ export const serializeAws_json1_1DescribeVTLDevicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeVTLDevices",
   };
   let body: any;
@@ -1029,7 +1029,7 @@ export const serializeAws_json1_1DescribeWorkingStorageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DescribeWorkingStorage",
   };
   let body: any;
@@ -1042,7 +1042,7 @@ export const serializeAws_json1_1DetachVolumeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DetachVolume",
   };
   let body: any;
@@ -1055,7 +1055,7 @@ export const serializeAws_json1_1DisableGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.DisableGateway",
   };
   let body: any;
@@ -1068,7 +1068,7 @@ export const serializeAws_json1_1JoinDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.JoinDomain",
   };
   let body: any;
@@ -1081,7 +1081,7 @@ export const serializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListAutomaticTapeCreationPolicies",
   };
   let body: any;
@@ -1094,7 +1094,7 @@ export const serializeAws_json1_1ListFileSharesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListFileShares",
   };
   let body: any;
@@ -1107,7 +1107,7 @@ export const serializeAws_json1_1ListGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListGateways",
   };
   let body: any;
@@ -1120,7 +1120,7 @@ export const serializeAws_json1_1ListLocalDisksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListLocalDisks",
   };
   let body: any;
@@ -1133,7 +1133,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListTagsForResource",
   };
   let body: any;
@@ -1146,7 +1146,7 @@ export const serializeAws_json1_1ListTapePoolsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListTapePools",
   };
   let body: any;
@@ -1159,7 +1159,7 @@ export const serializeAws_json1_1ListTapesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListTapes",
   };
   let body: any;
@@ -1172,7 +1172,7 @@ export const serializeAws_json1_1ListVolumeInitiatorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListVolumeInitiators",
   };
   let body: any;
@@ -1185,7 +1185,7 @@ export const serializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListVolumeRecoveryPoints",
   };
   let body: any;
@@ -1198,7 +1198,7 @@ export const serializeAws_json1_1ListVolumesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ListVolumes",
   };
   let body: any;
@@ -1211,7 +1211,7 @@ export const serializeAws_json1_1NotifyWhenUploadedCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.NotifyWhenUploaded",
   };
   let body: any;
@@ -1224,7 +1224,7 @@ export const serializeAws_json1_1RefreshCacheCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.RefreshCache",
   };
   let body: any;
@@ -1237,7 +1237,7 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.RemoveTagsFromResource",
   };
   let body: any;
@@ -1250,7 +1250,7 @@ export const serializeAws_json1_1ResetCacheCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ResetCache",
   };
   let body: any;
@@ -1263,7 +1263,7 @@ export const serializeAws_json1_1RetrieveTapeArchiveCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.RetrieveTapeArchive",
   };
   let body: any;
@@ -1276,7 +1276,7 @@ export const serializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.RetrieveTapeRecoveryPoint",
   };
   let body: any;
@@ -1289,7 +1289,7 @@ export const serializeAws_json1_1SetLocalConsolePasswordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.SetLocalConsolePassword",
   };
   let body: any;
@@ -1302,7 +1302,7 @@ export const serializeAws_json1_1SetSMBGuestPasswordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.SetSMBGuestPassword",
   };
   let body: any;
@@ -1315,7 +1315,7 @@ export const serializeAws_json1_1ShutdownGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.ShutdownGateway",
   };
   let body: any;
@@ -1328,7 +1328,7 @@ export const serializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.StartAvailabilityMonitorTest",
   };
   let body: any;
@@ -1341,7 +1341,7 @@ export const serializeAws_json1_1StartGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.StartGateway",
   };
   let body: any;
@@ -1354,7 +1354,7 @@ export const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateAutomaticTapeCreationPolicy",
   };
   let body: any;
@@ -1367,7 +1367,7 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateBandwidthRateLimit",
   };
   let body: any;
@@ -1380,7 +1380,7 @@ export const serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateBandwidthRateLimitSchedule",
   };
   let body: any;
@@ -1393,7 +1393,7 @@ export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateChapCredentials",
   };
   let body: any;
@@ -1406,7 +1406,7 @@ export const serializeAws_json1_1UpdateGatewayInformationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateGatewayInformation",
   };
   let body: any;
@@ -1419,7 +1419,7 @@ export const serializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateGatewaySoftwareNow",
   };
   let body: any;
@@ -1432,7 +1432,7 @@ export const serializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateMaintenanceStartTime",
   };
   let body: any;
@@ -1445,7 +1445,7 @@ export const serializeAws_json1_1UpdateNFSFileShareCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateNFSFileShare",
   };
   let body: any;
@@ -1458,7 +1458,7 @@ export const serializeAws_json1_1UpdateSMBFileShareCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateSMBFileShare",
   };
   let body: any;
@@ -1471,7 +1471,7 @@ export const serializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateSMBFileShareVisibility",
   };
   let body: any;
@@ -1484,7 +1484,7 @@ export const serializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateSMBSecurityStrategy",
   };
   let body: any;
@@ -1497,7 +1497,7 @@ export const serializeAws_json1_1UpdateSnapshotScheduleCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateSnapshotSchedule",
   };
   let body: any;
@@ -1510,7 +1510,7 @@ export const serializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "StorageGateway_20130630.UpdateVTLDeviceType",
   };
   let body: any;
@@ -1545,8 +1545,7 @@ const deserializeAws_json1_1ActivateGatewayCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1608,8 +1607,7 @@ const deserializeAws_json1_1AddCacheCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1671,8 +1669,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1734,8 +1731,7 @@ const deserializeAws_json1_1AddUploadBufferCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1797,8 +1793,7 @@ const deserializeAws_json1_1AddWorkingStorageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1860,8 +1855,7 @@ const deserializeAws_json1_1AssignTapePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1923,8 +1917,7 @@ const deserializeAws_json1_1AttachVolumeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -1986,8 +1979,7 @@ const deserializeAws_json1_1CancelArchivalCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2049,8 +2041,7 @@ const deserializeAws_json1_1CancelRetrievalCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2112,8 +2103,7 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2175,8 +2165,7 @@ const deserializeAws_json1_1CreateNFSFileShareCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2238,8 +2227,7 @@ const deserializeAws_json1_1CreateSMBFileShareCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2301,8 +2289,7 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2372,8 +2359,7 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2443,8 +2429,7 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2506,8 +2491,7 @@ const deserializeAws_json1_1CreateTapePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2569,8 +2553,7 @@ const deserializeAws_json1_1CreateTapesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2632,8 +2615,7 @@ const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2695,8 +2677,7 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2758,8 +2739,7 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2821,8 +2801,7 @@ const deserializeAws_json1_1DeleteChapCredentialsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2884,8 +2863,7 @@ const deserializeAws_json1_1DeleteFileShareCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -2947,8 +2925,7 @@ const deserializeAws_json1_1DeleteGatewayCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3010,8 +2987,7 @@ const deserializeAws_json1_1DeleteSnapshotScheduleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3073,8 +3049,7 @@ const deserializeAws_json1_1DeleteTapeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3136,8 +3111,7 @@ const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3199,8 +3173,7 @@ const deserializeAws_json1_1DeleteTapePoolCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3262,8 +3235,7 @@ const deserializeAws_json1_1DeleteVolumeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3325,8 +3297,7 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3388,8 +3359,7 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3451,8 +3421,7 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3514,8 +3483,7 @@ const deserializeAws_json1_1DescribeCacheCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3577,8 +3545,7 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3640,8 +3607,7 @@ const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3703,8 +3669,7 @@ const deserializeAws_json1_1DescribeGatewayInformationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3766,8 +3731,7 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3829,8 +3793,7 @@ const deserializeAws_json1_1DescribeNFSFileSharesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3892,8 +3855,7 @@ const deserializeAws_json1_1DescribeSMBFileSharesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -3955,8 +3917,7 @@ const deserializeAws_json1_1DescribeSMBSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4018,8 +3979,7 @@ const deserializeAws_json1_1DescribeSnapshotScheduleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4081,8 +4041,7 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4144,8 +4103,7 @@ const deserializeAws_json1_1DescribeTapeArchivesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4207,8 +4165,7 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4270,8 +4227,7 @@ const deserializeAws_json1_1DescribeTapesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4333,8 +4289,7 @@ const deserializeAws_json1_1DescribeUploadBufferCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4396,8 +4351,7 @@ const deserializeAws_json1_1DescribeVTLDevicesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4459,8 +4413,7 @@ const deserializeAws_json1_1DescribeWorkingStorageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4522,8 +4475,7 @@ const deserializeAws_json1_1DetachVolumeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4585,8 +4537,7 @@ const deserializeAws_json1_1DisableGatewayCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4648,8 +4599,7 @@ const deserializeAws_json1_1JoinDomainCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4711,8 +4661,7 @@ const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4774,8 +4723,7 @@ const deserializeAws_json1_1ListFileSharesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4837,8 +4785,7 @@ const deserializeAws_json1_1ListGatewaysCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4900,8 +4847,7 @@ const deserializeAws_json1_1ListLocalDisksCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -4963,8 +4909,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5026,8 +4971,7 @@ const deserializeAws_json1_1ListTapePoolsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5089,8 +5033,7 @@ const deserializeAws_json1_1ListTapesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5152,8 +5095,7 @@ const deserializeAws_json1_1ListVolumeInitiatorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5215,8 +5157,7 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5278,8 +5219,7 @@ const deserializeAws_json1_1ListVolumesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5341,8 +5281,7 @@ const deserializeAws_json1_1NotifyWhenUploadedCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5404,8 +5343,7 @@ const deserializeAws_json1_1RefreshCacheCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5467,8 +5405,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5530,8 +5467,7 @@ const deserializeAws_json1_1ResetCacheCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5593,8 +5529,7 @@ const deserializeAws_json1_1RetrieveTapeArchiveCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5656,8 +5591,7 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5719,8 +5653,7 @@ const deserializeAws_json1_1SetLocalConsolePasswordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5782,8 +5715,7 @@ const deserializeAws_json1_1SetSMBGuestPasswordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5845,8 +5777,7 @@ const deserializeAws_json1_1ShutdownGatewayCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5908,8 +5839,7 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -5971,8 +5901,7 @@ const deserializeAws_json1_1StartGatewayCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6034,8 +5963,7 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6097,8 +6025,7 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6160,8 +6087,7 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6223,8 +6149,7 @@ const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6286,8 +6211,7 @@ const deserializeAws_json1_1UpdateGatewayInformationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6349,8 +6273,7 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6412,8 +6335,7 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6475,8 +6397,7 @@ const deserializeAws_json1_1UpdateNFSFileShareCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6538,8 +6459,7 @@ const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6601,8 +6521,7 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6664,8 +6583,7 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6727,8 +6645,7 @@ const deserializeAws_json1_1UpdateSnapshotScheduleCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6790,8 +6707,7 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
@@ -6873,62 +6789,67 @@ const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
 
 const serializeAws_json1_1ActivateGatewayInput = (input: ActivateGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.ActivationKey !== undefined && { ActivationKey: input.ActivationKey }),
-    ...(input.GatewayName !== undefined && { GatewayName: input.GatewayName }),
-    ...(input.GatewayRegion !== undefined && { GatewayRegion: input.GatewayRegion }),
-    ...(input.GatewayTimezone !== undefined && { GatewayTimezone: input.GatewayTimezone }),
-    ...(input.GatewayType !== undefined && { GatewayType: input.GatewayType }),
-    ...(input.MediumChangerType !== undefined && { MediumChangerType: input.MediumChangerType }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TapeDriveType !== undefined && { TapeDriveType: input.TapeDriveType }),
+    ...(input.ActivationKey !== undefined && input.ActivationKey !== null && { ActivationKey: input.ActivationKey }),
+    ...(input.GatewayName !== undefined && input.GatewayName !== null && { GatewayName: input.GatewayName }),
+    ...(input.GatewayRegion !== undefined && input.GatewayRegion !== null && { GatewayRegion: input.GatewayRegion }),
+    ...(input.GatewayTimezone !== undefined &&
+      input.GatewayTimezone !== null && { GatewayTimezone: input.GatewayTimezone }),
+    ...(input.GatewayType !== undefined && input.GatewayType !== null && { GatewayType: input.GatewayType }),
+    ...(input.MediumChangerType !== undefined &&
+      input.MediumChangerType !== null && { MediumChangerType: input.MediumChangerType }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TapeDriveType !== undefined && input.TapeDriveType !== null && { TapeDriveType: input.TapeDriveType }),
   };
 };
 
 const serializeAws_json1_1AddCacheInput = (input: AddCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds !== undefined && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.DiskIds !== undefined &&
+      input.DiskIds !== null && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1AddTagsToResourceInput = (input: AddTagsToResourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1AddUploadBufferInput = (input: AddUploadBufferInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds !== undefined && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.DiskIds !== undefined &&
+      input.DiskIds !== null && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1AddWorkingStorageInput = (input: AddWorkingStorageInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskIds !== undefined && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.DiskIds !== undefined &&
+      input.DiskIds !== null && { DiskIds: serializeAws_json1_1DiskIds(input.DiskIds, context) }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1AssignTapePoolInput = (input: AssignTapePoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.BypassGovernanceRetention !== undefined && {
-      BypassGovernanceRetention: input.BypassGovernanceRetention,
-    }),
-    ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.BypassGovernanceRetention !== undefined &&
+      input.BypassGovernanceRetention !== null && { BypassGovernanceRetention: input.BypassGovernanceRetention }),
+    ...(input.PoolId !== undefined && input.PoolId !== null && { PoolId: input.PoolId }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
 const serializeAws_json1_1AttachVolumeInput = (input: AttachVolumeInput, context: __SerdeContext): any => {
   return {
-    ...(input.DiskId !== undefined && { DiskId: input.DiskId }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
-    ...(input.TargetName !== undefined && { TargetName: input.TargetName }),
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.DiskId !== undefined && input.DiskId !== null && { DiskId: input.DiskId }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.NetworkInterfaceId !== undefined &&
+      input.NetworkInterfaceId !== null && { NetworkInterfaceId: input.NetworkInterfaceId }),
+    ...(input.TargetName !== undefined && input.TargetName !== null && { TargetName: input.TargetName }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
@@ -6937,11 +6858,14 @@ const serializeAws_json1_1AutomaticTapeCreationRule = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MinimumNumTapes !== undefined && { MinimumNumTapes: input.MinimumNumTapes }),
-    ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
-    ...(input.TapeBarcodePrefix !== undefined && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
-    ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
-    ...(input.Worm !== undefined && { Worm: input.Worm }),
+    ...(input.MinimumNumTapes !== undefined &&
+      input.MinimumNumTapes !== null && { MinimumNumTapes: input.MinimumNumTapes }),
+    ...(input.PoolId !== undefined && input.PoolId !== null && { PoolId: input.PoolId }),
+    ...(input.TapeBarcodePrefix !== undefined &&
+      input.TapeBarcodePrefix !== null && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
+    ...(input.TapeSizeInBytes !== undefined &&
+      input.TapeSizeInBytes !== null && { TapeSizeInBytes: input.TapeSizeInBytes }),
+    ...(input.Worm !== undefined && input.Worm !== null && { Worm: input.Worm }),
   };
 };
 
@@ -6949,7 +6873,14 @@ const serializeAws_json1_1AutomaticTapeCreationRules = (
   input: AutomaticTapeCreationRule[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1AutomaticTapeCreationRule(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AutomaticTapeCreationRule(entry, context);
+    });
 };
 
 const serializeAws_json1_1BandwidthRateLimitInterval = (
@@ -6957,17 +6888,23 @@ const serializeAws_json1_1BandwidthRateLimitInterval = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AverageDownloadRateLimitInBitsPerSec !== undefined && {
-      AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
-    }),
-    ...(input.AverageUploadRateLimitInBitsPerSec !== undefined && {
-      AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
-    }),
-    ...(input.DaysOfWeek !== undefined && { DaysOfWeek: serializeAws_json1_1DaysOfWeek(input.DaysOfWeek, context) }),
-    ...(input.EndHourOfDay !== undefined && { EndHourOfDay: input.EndHourOfDay }),
-    ...(input.EndMinuteOfHour !== undefined && { EndMinuteOfHour: input.EndMinuteOfHour }),
-    ...(input.StartHourOfDay !== undefined && { StartHourOfDay: input.StartHourOfDay }),
-    ...(input.StartMinuteOfHour !== undefined && { StartMinuteOfHour: input.StartMinuteOfHour }),
+    ...(input.AverageDownloadRateLimitInBitsPerSec !== undefined &&
+      input.AverageDownloadRateLimitInBitsPerSec !== null && {
+        AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
+      }),
+    ...(input.AverageUploadRateLimitInBitsPerSec !== undefined &&
+      input.AverageUploadRateLimitInBitsPerSec !== null && {
+        AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
+      }),
+    ...(input.DaysOfWeek !== undefined &&
+      input.DaysOfWeek !== null && { DaysOfWeek: serializeAws_json1_1DaysOfWeek(input.DaysOfWeek, context) }),
+    ...(input.EndHourOfDay !== undefined && input.EndHourOfDay !== null && { EndHourOfDay: input.EndHourOfDay }),
+    ...(input.EndMinuteOfHour !== undefined &&
+      input.EndMinuteOfHour !== null && { EndMinuteOfHour: input.EndMinuteOfHour }),
+    ...(input.StartHourOfDay !== undefined &&
+      input.StartHourOfDay !== null && { StartHourOfDay: input.StartHourOfDay }),
+    ...(input.StartMinuteOfHour !== undefined &&
+      input.StartMinuteOfHour !== null && { StartMinuteOfHour: input.StartMinuteOfHour }),
   };
 };
 
@@ -6975,28 +6912,34 @@ const serializeAws_json1_1BandwidthRateLimitIntervals = (
   input: BandwidthRateLimitInterval[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1BandwidthRateLimitInterval(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1BandwidthRateLimitInterval(entry, context);
+    });
 };
 
 const serializeAws_json1_1CacheAttributes = (input: CacheAttributes, context: __SerdeContext): any => {
   return {
-    ...(input.CacheStaleTimeoutInSeconds !== undefined && {
-      CacheStaleTimeoutInSeconds: input.CacheStaleTimeoutInSeconds,
-    }),
+    ...(input.CacheStaleTimeoutInSeconds !== undefined &&
+      input.CacheStaleTimeoutInSeconds !== null && { CacheStaleTimeoutInSeconds: input.CacheStaleTimeoutInSeconds }),
   };
 };
 
 const serializeAws_json1_1CancelArchivalInput = (input: CancelArchivalInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
 const serializeAws_json1_1CancelRetrievalInput = (input: CancelRetrievalInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
@@ -7005,81 +6948,99 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
-    ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId }),
-    ...(input.SourceVolumeARN !== undefined && { SourceVolumeARN: input.SourceVolumeARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TargetName !== undefined && { TargetName: input.TargetName }),
-    ...(input.VolumeSizeInBytes !== undefined && { VolumeSizeInBytes: input.VolumeSizeInBytes }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.NetworkInterfaceId !== undefined &&
+      input.NetworkInterfaceId !== null && { NetworkInterfaceId: input.NetworkInterfaceId }),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
+    ...(input.SourceVolumeARN !== undefined &&
+      input.SourceVolumeARN !== null && { SourceVolumeARN: input.SourceVolumeARN }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TargetName !== undefined && input.TargetName !== null && { TargetName: input.TargetName }),
+    ...(input.VolumeSizeInBytes !== undefined &&
+      input.VolumeSizeInBytes !== null && { VolumeSizeInBytes: input.VolumeSizeInBytes }),
   };
 };
 
 const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareInput, context: __SerdeContext): any => {
   return {
-    ...(input.CacheAttributes !== undefined && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
-    ...(input.ClientList !== undefined && {
-      ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context),
-    }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
-    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.LocationARN !== undefined && { LocationARN: input.LocationARN }),
-    ...(input.NFSFileShareDefaults !== undefined && {
-      NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
-    }),
-    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
-    ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
-    ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
-    ...(input.Role !== undefined && { Role: input.Role }),
-    ...(input.Squash !== undefined && { Squash: input.Squash }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.CacheAttributes !== undefined &&
+      input.CacheAttributes !== null && {
+        CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+      }),
+    ...(input.ClientList !== undefined &&
+      input.ClientList !== null && { ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context) }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.DefaultStorageClass !== undefined &&
+      input.DefaultStorageClass !== null && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareName !== undefined && input.FileShareName !== null && { FileShareName: input.FileShareName }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.GuessMIMETypeEnabled !== undefined &&
+      input.GuessMIMETypeEnabled !== null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.LocationARN !== undefined && input.LocationARN !== null && { LocationARN: input.LocationARN }),
+    ...(input.NFSFileShareDefaults !== undefined &&
+      input.NFSFileShareDefaults !== null && {
+        NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
+      }),
+    ...(input.NotificationPolicy !== undefined &&
+      input.NotificationPolicy !== null && { NotificationPolicy: input.NotificationPolicy }),
+    ...(input.ObjectACL !== undefined && input.ObjectACL !== null && { ObjectACL: input.ObjectACL }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
+    ...(input.Squash !== undefined && input.Squash !== null && { Squash: input.Squash }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateSMBFileShareInput = (input: CreateSMBFileShareInput, context: __SerdeContext): any => {
   return {
-    ...(input.AccessBasedEnumeration !== undefined && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
-    ...(input.AdminUserList !== undefined && {
-      AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
-    }),
-    ...(input.AuditDestinationARN !== undefined && { AuditDestinationARN: input.AuditDestinationARN }),
-    ...(input.Authentication !== undefined && { Authentication: input.Authentication }),
-    ...(input.CacheAttributes !== undefined && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
-    ...(input.CaseSensitivity !== undefined && { CaseSensitivity: input.CaseSensitivity }),
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
-    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
-    ...(input.InvalidUserList !== undefined && {
-      InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
-    }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.LocationARN !== undefined && { LocationARN: input.LocationARN }),
-    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
-    ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
-    ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
-    ...(input.Role !== undefined && { Role: input.Role }),
-    ...(input.SMBACLEnabled !== undefined && { SMBACLEnabled: input.SMBACLEnabled }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.ValidUserList !== undefined && {
-      ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
-    }),
+    ...(input.AccessBasedEnumeration !== undefined &&
+      input.AccessBasedEnumeration !== null && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
+    ...(input.AdminUserList !== undefined &&
+      input.AdminUserList !== null && {
+        AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
+      }),
+    ...(input.AuditDestinationARN !== undefined &&
+      input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
+    ...(input.Authentication !== undefined &&
+      input.Authentication !== null && { Authentication: input.Authentication }),
+    ...(input.CacheAttributes !== undefined &&
+      input.CacheAttributes !== null && {
+        CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+      }),
+    ...(input.CaseSensitivity !== undefined &&
+      input.CaseSensitivity !== null && { CaseSensitivity: input.CaseSensitivity }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.DefaultStorageClass !== undefined &&
+      input.DefaultStorageClass !== null && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareName !== undefined && input.FileShareName !== null && { FileShareName: input.FileShareName }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.GuessMIMETypeEnabled !== undefined &&
+      input.GuessMIMETypeEnabled !== null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
+    ...(input.InvalidUserList !== undefined &&
+      input.InvalidUserList !== null && {
+        InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
+      }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.LocationARN !== undefined && input.LocationARN !== null && { LocationARN: input.LocationARN }),
+    ...(input.NotificationPolicy !== undefined &&
+      input.NotificationPolicy !== null && { NotificationPolicy: input.NotificationPolicy }),
+    ...(input.ObjectACL !== undefined && input.ObjectACL !== null && { ObjectACL: input.ObjectACL }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
+    ...(input.Role !== undefined && input.Role !== null && { Role: input.Role }),
+    ...(input.SMBACLEnabled !== undefined && input.SMBACLEnabled !== null && { SMBACLEnabled: input.SMBACLEnabled }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ValidUserList !== undefined &&
+      input.ValidUserList !== null && {
+        ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
+      }),
   };
 };
 
@@ -7088,17 +7049,19 @@ const serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnapshotDescription !== undefined && { SnapshotDescription: input.SnapshotDescription }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.SnapshotDescription !== undefined &&
+      input.SnapshotDescription !== null && { SnapshotDescription: input.SnapshotDescription }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
 const serializeAws_json1_1CreateSnapshotInput = (input: CreateSnapshotInput, context: __SerdeContext): any => {
   return {
-    ...(input.SnapshotDescription !== undefined && { SnapshotDescription: input.SnapshotDescription }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.SnapshotDescription !== undefined &&
+      input.SnapshotDescription !== null && { SnapshotDescription: input.SnapshotDescription }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
@@ -7107,40 +7070,47 @@ const serializeAws_json1_1CreateStorediSCSIVolumeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DiskId !== undefined && { DiskId: input.DiskId }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NetworkInterfaceId !== undefined && { NetworkInterfaceId: input.NetworkInterfaceId }),
-    ...(input.PreserveExistingData !== undefined && { PreserveExistingData: input.PreserveExistingData }),
-    ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TargetName !== undefined && { TargetName: input.TargetName }),
+    ...(input.DiskId !== undefined && input.DiskId !== null && { DiskId: input.DiskId }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.NetworkInterfaceId !== undefined &&
+      input.NetworkInterfaceId !== null && { NetworkInterfaceId: input.NetworkInterfaceId }),
+    ...(input.PreserveExistingData !== undefined &&
+      input.PreserveExistingData !== null && { PreserveExistingData: input.PreserveExistingData }),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TargetName !== undefined && input.TargetName !== null && { TargetName: input.TargetName }),
   };
 };
 
 const serializeAws_json1_1CreateTapePoolInput = (input: CreateTapePoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.PoolName !== undefined && { PoolName: input.PoolName }),
-    ...(input.RetentionLockTimeInDays !== undefined && { RetentionLockTimeInDays: input.RetentionLockTimeInDays }),
-    ...(input.RetentionLockType !== undefined && { RetentionLockType: input.RetentionLockType }),
-    ...(input.StorageClass !== undefined && { StorageClass: input.StorageClass }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.PoolName !== undefined && input.PoolName !== null && { PoolName: input.PoolName }),
+    ...(input.RetentionLockTimeInDays !== undefined &&
+      input.RetentionLockTimeInDays !== null && { RetentionLockTimeInDays: input.RetentionLockTimeInDays }),
+    ...(input.RetentionLockType !== undefined &&
+      input.RetentionLockType !== null && { RetentionLockType: input.RetentionLockType }),
+    ...(input.StorageClass !== undefined && input.StorageClass !== null && { StorageClass: input.StorageClass }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateTapesInput = (input: CreateTapesInput, context: __SerdeContext): any => {
   return {
-    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NumTapesToCreate !== undefined && { NumTapesToCreate: input.NumTapesToCreate }),
-    ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TapeBarcodePrefix !== undefined && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
-    ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
-    ...(input.Worm !== undefined && { Worm: input.Worm }),
+    ...(input.ClientToken !== undefined && input.ClientToken !== null && { ClientToken: input.ClientToken }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.NumTapesToCreate !== undefined &&
+      input.NumTapesToCreate !== null && { NumTapesToCreate: input.NumTapesToCreate }),
+    ...(input.PoolId !== undefined && input.PoolId !== null && { PoolId: input.PoolId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TapeBarcodePrefix !== undefined &&
+      input.TapeBarcodePrefix !== null && { TapeBarcodePrefix: input.TapeBarcodePrefix }),
+    ...(input.TapeSizeInBytes !== undefined &&
+      input.TapeSizeInBytes !== null && { TapeSizeInBytes: input.TapeSizeInBytes }),
+    ...(input.Worm !== undefined && input.Worm !== null && { Worm: input.Worm }),
   };
 };
 
@@ -7149,19 +7119,27 @@ const serializeAws_json1_1CreateTapeWithBarcodeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.PoolId !== undefined && { PoolId: input.PoolId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.TapeBarcode !== undefined && { TapeBarcode: input.TapeBarcode }),
-    ...(input.TapeSizeInBytes !== undefined && { TapeSizeInBytes: input.TapeSizeInBytes }),
-    ...(input.Worm !== undefined && { Worm: input.Worm }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.PoolId !== undefined && input.PoolId !== null && { PoolId: input.PoolId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.TapeBarcode !== undefined && input.TapeBarcode !== null && { TapeBarcode: input.TapeBarcode }),
+    ...(input.TapeSizeInBytes !== undefined &&
+      input.TapeSizeInBytes !== null && { TapeSizeInBytes: input.TapeSizeInBytes }),
+    ...(input.Worm !== undefined && input.Worm !== null && { Worm: input.Worm }),
   };
 };
 
 const serializeAws_json1_1DaysOfWeek = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput = (
@@ -7169,7 +7147,7 @@ const serializeAws_json1_1DeleteAutomaticTapeCreationPolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7178,8 +7156,8 @@ const serializeAws_json1_1DeleteBandwidthRateLimitInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BandwidthType !== undefined && { BandwidthType: input.BandwidthType }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.BandwidthType !== undefined && input.BandwidthType !== null && { BandwidthType: input.BandwidthType }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7188,21 +7166,21 @@ const serializeAws_json1_1DeleteChapCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InitiatorName !== undefined && { InitiatorName: input.InitiatorName }),
-    ...(input.TargetARN !== undefined && { TargetARN: input.TargetARN }),
+    ...(input.InitiatorName !== undefined && input.InitiatorName !== null && { InitiatorName: input.InitiatorName }),
+    ...(input.TargetARN !== undefined && input.TargetARN !== null && { TargetARN: input.TargetARN }),
   };
 };
 
 const serializeAws_json1_1DeleteFileShareInput = (input: DeleteFileShareInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
-    ...(input.ForceDelete !== undefined && { ForceDelete: input.ForceDelete }),
+    ...(input.FileShareARN !== undefined && input.FileShareARN !== null && { FileShareARN: input.FileShareARN }),
+    ...(input.ForceDelete !== undefined && input.ForceDelete !== null && { ForceDelete: input.ForceDelete }),
   };
 };
 
 const serializeAws_json1_1DeleteGatewayInput = (input: DeleteGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7211,38 +7189,36 @@ const serializeAws_json1_1DeleteSnapshotScheduleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
 const serializeAws_json1_1DeleteTapeArchiveInput = (input: DeleteTapeArchiveInput, context: __SerdeContext): any => {
   return {
-    ...(input.BypassGovernanceRetention !== undefined && {
-      BypassGovernanceRetention: input.BypassGovernanceRetention,
-    }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.BypassGovernanceRetention !== undefined &&
+      input.BypassGovernanceRetention !== null && { BypassGovernanceRetention: input.BypassGovernanceRetention }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
 const serializeAws_json1_1DeleteTapeInput = (input: DeleteTapeInput, context: __SerdeContext): any => {
   return {
-    ...(input.BypassGovernanceRetention !== undefined && {
-      BypassGovernanceRetention: input.BypassGovernanceRetention,
-    }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.BypassGovernanceRetention !== undefined &&
+      input.BypassGovernanceRetention !== null && { BypassGovernanceRetention: input.BypassGovernanceRetention }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
 const serializeAws_json1_1DeleteTapePoolInput = (input: DeleteTapePoolInput, context: __SerdeContext): any => {
   return {
-    ...(input.PoolARN !== undefined && { PoolARN: input.PoolARN }),
+    ...(input.PoolARN !== undefined && input.PoolARN !== null && { PoolARN: input.PoolARN }),
   };
 };
 
 const serializeAws_json1_1DeleteVolumeInput = (input: DeleteVolumeInput, context: __SerdeContext): any => {
   return {
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
@@ -7251,7 +7227,7 @@ const serializeAws_json1_1DescribeAvailabilityMonitorTestInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7260,7 +7236,7 @@ const serializeAws_json1_1DescribeBandwidthRateLimitInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7269,7 +7245,7 @@ const serializeAws_json1_1DescribeBandwidthRateLimitScheduleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7278,13 +7254,14 @@ const serializeAws_json1_1DescribeCachediSCSIVolumesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARNs !== undefined && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
+    ...(input.VolumeARNs !== undefined &&
+      input.VolumeARNs !== null && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeCacheInput = (input: DescribeCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7293,7 +7270,7 @@ const serializeAws_json1_1DescribeChapCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TargetARN !== undefined && { TargetARN: input.TargetARN }),
+    ...(input.TargetARN !== undefined && input.TargetARN !== null && { TargetARN: input.TargetARN }),
   };
 };
 
@@ -7302,7 +7279,7 @@ const serializeAws_json1_1DescribeGatewayInformationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7311,7 +7288,7 @@ const serializeAws_json1_1DescribeMaintenanceStartTimeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7320,9 +7297,10 @@ const serializeAws_json1_1DescribeNFSFileSharesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FileShareARNList !== undefined && {
-      FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context),
-    }),
+    ...(input.FileShareARNList !== undefined &&
+      input.FileShareARNList !== null && {
+        FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context),
+      }),
   };
 };
 
@@ -7331,9 +7309,10 @@ const serializeAws_json1_1DescribeSMBFileSharesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FileShareARNList !== undefined && {
-      FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context),
-    }),
+    ...(input.FileShareARNList !== undefined &&
+      input.FileShareARNList !== null && {
+        FileShareARNList: serializeAws_json1_1FileShareARNList(input.FileShareARNList, context),
+      }),
   };
 };
 
@@ -7342,7 +7321,7 @@ const serializeAws_json1_1DescribeSMBSettingsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7351,7 +7330,7 @@ const serializeAws_json1_1DescribeSnapshotScheduleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
@@ -7360,7 +7339,8 @@ const serializeAws_json1_1DescribeStorediSCSIVolumesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARNs !== undefined && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
+    ...(input.VolumeARNs !== undefined &&
+      input.VolumeARNs !== null && { VolumeARNs: serializeAws_json1_1VolumeARNs(input.VolumeARNs, context) }),
   };
 };
 
@@ -7369,9 +7349,10 @@ const serializeAws_json1_1DescribeTapeArchivesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.TapeARNs !== undefined && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.TapeARNs !== undefined &&
+      input.TapeARNs !== null && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
@@ -7380,18 +7361,19 @@ const serializeAws_json1_1DescribeTapeRecoveryPointsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1DescribeTapesInput = (input: DescribeTapesInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.TapeARNs !== undefined && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.TapeARNs !== undefined &&
+      input.TapeARNs !== null && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
@@ -7400,18 +7382,19 @@ const serializeAws_json1_1DescribeUploadBufferInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1DescribeVTLDevicesInput = (input: DescribeVTLDevicesInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.VTLDeviceARNs !== undefined && {
-      VTLDeviceARNs: serializeAws_json1_1VTLDeviceARNs(input.VTLDeviceARNs, context),
-    }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.VTLDeviceARNs !== undefined &&
+      input.VTLDeviceARNs !== null && {
+        VTLDeviceARNs: serializeAws_json1_1VTLDeviceARNs(input.VTLDeviceARNs, context),
+      }),
   };
 };
 
@@ -7420,58 +7403,103 @@ const serializeAws_json1_1DescribeWorkingStorageInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1DetachVolumeInput = (input: DetachVolumeInput, context: __SerdeContext): any => {
   return {
-    ...(input.ForceDetach !== undefined && { ForceDetach: input.ForceDetach }),
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.ForceDetach !== undefined && input.ForceDetach !== null && { ForceDetach: input.ForceDetach }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
 const serializeAws_json1_1DisableGatewayInput = (input: DisableGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1DiskIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1FileShareARNList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1FileShareClientList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1FileShareUserList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1FolderList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Hosts = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1JoinDomainInput = (input: JoinDomainInput, context: __SerdeContext): any => {
   return {
-    ...(input.DomainControllers !== undefined && {
-      DomainControllers: serializeAws_json1_1Hosts(input.DomainControllers, context),
-    }),
-    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.OrganizationalUnit !== undefined && { OrganizationalUnit: input.OrganizationalUnit }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.TimeoutInSeconds !== undefined && { TimeoutInSeconds: input.TimeoutInSeconds }),
-    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.DomainControllers !== undefined &&
+      input.DomainControllers !== null && {
+        DomainControllers: serializeAws_json1_1Hosts(input.DomainControllers, context),
+      }),
+    ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.OrganizationalUnit !== undefined &&
+      input.OrganizationalUnit !== null && { OrganizationalUnit: input.OrganizationalUnit }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.TimeoutInSeconds !== undefined &&
+      input.TimeoutInSeconds !== null && { TimeoutInSeconds: input.TimeoutInSeconds }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
   };
 };
 
@@ -7480,28 +7508,28 @@ const serializeAws_json1_1ListAutomaticTapeCreationPoliciesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1ListFileSharesInput = (input: ListFileSharesInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1ListGatewaysInput = (input: ListGatewaysInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1ListLocalDisksInput = (input: ListLocalDisksInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7510,25 +7538,27 @@ const serializeAws_json1_1ListTagsForResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
   };
 };
 
 const serializeAws_json1_1ListTapePoolsInput = (input: ListTapePoolsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.PoolARNs !== undefined && { PoolARNs: serializeAws_json1_1PoolARNs(input.PoolARNs, context) }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.PoolARNs !== undefined &&
+      input.PoolARNs !== null && { PoolARNs: serializeAws_json1_1PoolARNs(input.PoolARNs, context) }),
   };
 };
 
 const serializeAws_json1_1ListTapesInput = (input: ListTapesInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
-    ...(input.TapeARNs !== undefined && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
+    ...(input.TapeARNs !== undefined &&
+      input.TapeARNs !== null && { TapeARNs: serializeAws_json1_1TapeARNs(input.TapeARNs, context) }),
   };
 };
 
@@ -7537,7 +7567,7 @@ const serializeAws_json1_1ListVolumeInitiatorsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
@@ -7546,42 +7576,50 @@ const serializeAws_json1_1ListVolumeRecoveryPointsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1ListVolumesInput = (input: ListVolumesInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.Marker !== undefined && input.Marker !== null && { Marker: input.Marker }),
   };
 };
 
 const serializeAws_json1_1NFSFileShareDefaults = (input: NFSFileShareDefaults, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryMode !== undefined && { DirectoryMode: input.DirectoryMode }),
-    ...(input.FileMode !== undefined && { FileMode: input.FileMode }),
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.OwnerId !== undefined && { OwnerId: input.OwnerId }),
+    ...(input.DirectoryMode !== undefined && input.DirectoryMode !== null && { DirectoryMode: input.DirectoryMode }),
+    ...(input.FileMode !== undefined && input.FileMode !== null && { FileMode: input.FileMode }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.OwnerId !== undefined && input.OwnerId !== null && { OwnerId: input.OwnerId }),
   };
 };
 
 const serializeAws_json1_1NotifyWhenUploadedInput = (input: NotifyWhenUploadedInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
+    ...(input.FileShareARN !== undefined && input.FileShareARN !== null && { FileShareARN: input.FileShareARN }),
   };
 };
 
 const serializeAws_json1_1PoolARNs = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RefreshCacheInput = (input: RefreshCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
-    ...(input.FolderList !== undefined && { FolderList: serializeAws_json1_1FolderList(input.FolderList, context) }),
-    ...(input.Recursive !== undefined && { Recursive: input.Recursive }),
+    ...(input.FileShareARN !== undefined && input.FileShareARN !== null && { FileShareARN: input.FileShareARN }),
+    ...(input.FolderList !== undefined &&
+      input.FolderList !== null && { FolderList: serializeAws_json1_1FolderList(input.FolderList, context) }),
+    ...(input.Recursive !== undefined && input.Recursive !== null && { Recursive: input.Recursive }),
   };
 };
 
@@ -7590,14 +7628,15 @@ const serializeAws_json1_1RemoveTagsFromResourceInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1ResetCacheInput = (input: ResetCacheInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7606,8 +7645,8 @@ const serializeAws_json1_1RetrieveTapeArchiveInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
@@ -7616,8 +7655,8 @@ const serializeAws_json1_1RetrieveTapeRecoveryPointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.TapeARN !== undefined && { TapeARN: input.TapeARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.TapeARN !== undefined && input.TapeARN !== null && { TapeARN: input.TapeARN }),
   };
 };
 
@@ -7626,8 +7665,9 @@ const serializeAws_json1_1SetLocalConsolePasswordInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.LocalConsolePassword !== undefined && { LocalConsolePassword: input.LocalConsolePassword }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.LocalConsolePassword !== undefined &&
+      input.LocalConsolePassword !== null && { LocalConsolePassword: input.LocalConsolePassword }),
   };
 };
 
@@ -7636,14 +7676,14 @@ const serializeAws_json1_1SetSMBGuestPasswordInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
   };
 };
 
 const serializeAws_json1_1ShutdownGatewayInput = (input: ShutdownGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7652,33 +7692,54 @@ const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1StartGatewayInput = (input: StartGatewayInput, context: __SerdeContext): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TapeARNs = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput = (
@@ -7686,13 +7747,14 @@ const serializeAws_json1_1UpdateAutomaticTapeCreationPolicyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AutomaticTapeCreationRules !== undefined && {
-      AutomaticTapeCreationRules: serializeAws_json1_1AutomaticTapeCreationRules(
-        input.AutomaticTapeCreationRules,
-        context
-      ),
-    }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.AutomaticTapeCreationRules !== undefined &&
+      input.AutomaticTapeCreationRules !== null && {
+        AutomaticTapeCreationRules: serializeAws_json1_1AutomaticTapeCreationRules(
+          input.AutomaticTapeCreationRules,
+          context
+        ),
+      }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7701,13 +7763,15 @@ const serializeAws_json1_1UpdateBandwidthRateLimitInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AverageDownloadRateLimitInBitsPerSec !== undefined && {
-      AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
-    }),
-    ...(input.AverageUploadRateLimitInBitsPerSec !== undefined && {
-      AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
-    }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.AverageDownloadRateLimitInBitsPerSec !== undefined &&
+      input.AverageDownloadRateLimitInBitsPerSec !== null && {
+        AverageDownloadRateLimitInBitsPerSec: input.AverageDownloadRateLimitInBitsPerSec,
+      }),
+    ...(input.AverageUploadRateLimitInBitsPerSec !== undefined &&
+      input.AverageUploadRateLimitInBitsPerSec !== null && {
+        AverageUploadRateLimitInBitsPerSec: input.AverageUploadRateLimitInBitsPerSec,
+      }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7716,13 +7780,14 @@ const serializeAws_json1_1UpdateBandwidthRateLimitScheduleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BandwidthRateLimitIntervals !== undefined && {
-      BandwidthRateLimitIntervals: serializeAws_json1_1BandwidthRateLimitIntervals(
-        input.BandwidthRateLimitIntervals,
-        context
-      ),
-    }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.BandwidthRateLimitIntervals !== undefined &&
+      input.BandwidthRateLimitIntervals !== null && {
+        BandwidthRateLimitIntervals: serializeAws_json1_1BandwidthRateLimitIntervals(
+          input.BandwidthRateLimitIntervals,
+          context
+        ),
+      }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7731,14 +7796,14 @@ const serializeAws_json1_1UpdateChapCredentialsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.InitiatorName !== undefined && { InitiatorName: input.InitiatorName }),
-    ...(input.SecretToAuthenticateInitiator !== undefined && {
-      SecretToAuthenticateInitiator: input.SecretToAuthenticateInitiator,
-    }),
-    ...(input.SecretToAuthenticateTarget !== undefined && {
-      SecretToAuthenticateTarget: input.SecretToAuthenticateTarget,
-    }),
-    ...(input.TargetARN !== undefined && { TargetARN: input.TargetARN }),
+    ...(input.InitiatorName !== undefined && input.InitiatorName !== null && { InitiatorName: input.InitiatorName }),
+    ...(input.SecretToAuthenticateInitiator !== undefined &&
+      input.SecretToAuthenticateInitiator !== null && {
+        SecretToAuthenticateInitiator: input.SecretToAuthenticateInitiator,
+      }),
+    ...(input.SecretToAuthenticateTarget !== undefined &&
+      input.SecretToAuthenticateTarget !== null && { SecretToAuthenticateTarget: input.SecretToAuthenticateTarget }),
+    ...(input.TargetARN !== undefined && input.TargetARN !== null && { TargetARN: input.TargetARN }),
   };
 };
 
@@ -7747,10 +7812,12 @@ const serializeAws_json1_1UpdateGatewayInformationInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchLogGroupARN !== undefined && { CloudWatchLogGroupARN: input.CloudWatchLogGroupARN }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.GatewayName !== undefined && { GatewayName: input.GatewayName }),
-    ...(input.GatewayTimezone !== undefined && { GatewayTimezone: input.GatewayTimezone }),
+    ...(input.CloudWatchLogGroupARN !== undefined &&
+      input.CloudWatchLogGroupARN !== null && { CloudWatchLogGroupARN: input.CloudWatchLogGroupARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayName !== undefined && input.GatewayName !== null && { GatewayName: input.GatewayName }),
+    ...(input.GatewayTimezone !== undefined &&
+      input.GatewayTimezone !== null && { GatewayTimezone: input.GatewayTimezone }),
   };
 };
 
@@ -7759,7 +7826,7 @@ const serializeAws_json1_1UpdateGatewaySoftwareNowInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7768,67 +7835,81 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DayOfMonth !== undefined && { DayOfMonth: input.DayOfMonth }),
-    ...(input.DayOfWeek !== undefined && { DayOfWeek: input.DayOfWeek }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.HourOfDay !== undefined && { HourOfDay: input.HourOfDay }),
-    ...(input.MinuteOfHour !== undefined && { MinuteOfHour: input.MinuteOfHour }),
+    ...(input.DayOfMonth !== undefined && input.DayOfMonth !== null && { DayOfMonth: input.DayOfMonth }),
+    ...(input.DayOfWeek !== undefined && input.DayOfWeek !== null && { DayOfWeek: input.DayOfWeek }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.HourOfDay !== undefined && input.HourOfDay !== null && { HourOfDay: input.HourOfDay }),
+    ...(input.MinuteOfHour !== undefined && input.MinuteOfHour !== null && { MinuteOfHour: input.MinuteOfHour }),
   };
 };
 
 const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareInput, context: __SerdeContext): any => {
   return {
-    ...(input.CacheAttributes !== undefined && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
-    ...(input.ClientList !== undefined && {
-      ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context),
-    }),
-    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
-    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
-    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
-    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NFSFileShareDefaults !== undefined && {
-      NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
-    }),
-    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
-    ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
-    ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
-    ...(input.Squash !== undefined && { Squash: input.Squash }),
+    ...(input.CacheAttributes !== undefined &&
+      input.CacheAttributes !== null && {
+        CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+      }),
+    ...(input.ClientList !== undefined &&
+      input.ClientList !== null && { ClientList: serializeAws_json1_1FileShareClientList(input.ClientList, context) }),
+    ...(input.DefaultStorageClass !== undefined &&
+      input.DefaultStorageClass !== null && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareARN !== undefined && input.FileShareARN !== null && { FileShareARN: input.FileShareARN }),
+    ...(input.FileShareName !== undefined && input.FileShareName !== null && { FileShareName: input.FileShareName }),
+    ...(input.GuessMIMETypeEnabled !== undefined &&
+      input.GuessMIMETypeEnabled !== null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.NFSFileShareDefaults !== undefined &&
+      input.NFSFileShareDefaults !== null && {
+        NFSFileShareDefaults: serializeAws_json1_1NFSFileShareDefaults(input.NFSFileShareDefaults, context),
+      }),
+    ...(input.NotificationPolicy !== undefined &&
+      input.NotificationPolicy !== null && { NotificationPolicy: input.NotificationPolicy }),
+    ...(input.ObjectACL !== undefined && input.ObjectACL !== null && { ObjectACL: input.ObjectACL }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
+    ...(input.Squash !== undefined && input.Squash !== null && { Squash: input.Squash }),
   };
 };
 
 const serializeAws_json1_1UpdateSMBFileShareInput = (input: UpdateSMBFileShareInput, context: __SerdeContext): any => {
   return {
-    ...(input.AccessBasedEnumeration !== undefined && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
-    ...(input.AdminUserList !== undefined && {
-      AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
-    }),
-    ...(input.AuditDestinationARN !== undefined && { AuditDestinationARN: input.AuditDestinationARN }),
-    ...(input.CacheAttributes !== undefined && {
-      CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
-    }),
-    ...(input.CaseSensitivity !== undefined && { CaseSensitivity: input.CaseSensitivity }),
-    ...(input.DefaultStorageClass !== undefined && { DefaultStorageClass: input.DefaultStorageClass }),
-    ...(input.FileShareARN !== undefined && { FileShareARN: input.FileShareARN }),
-    ...(input.FileShareName !== undefined && { FileShareName: input.FileShareName }),
-    ...(input.GuessMIMETypeEnabled !== undefined && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
-    ...(input.InvalidUserList !== undefined && {
-      InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
-    }),
-    ...(input.KMSEncrypted !== undefined && { KMSEncrypted: input.KMSEncrypted }),
-    ...(input.KMSKey !== undefined && { KMSKey: input.KMSKey }),
-    ...(input.NotificationPolicy !== undefined && { NotificationPolicy: input.NotificationPolicy }),
-    ...(input.ObjectACL !== undefined && { ObjectACL: input.ObjectACL }),
-    ...(input.ReadOnly !== undefined && { ReadOnly: input.ReadOnly }),
-    ...(input.RequesterPays !== undefined && { RequesterPays: input.RequesterPays }),
-    ...(input.SMBACLEnabled !== undefined && { SMBACLEnabled: input.SMBACLEnabled }),
-    ...(input.ValidUserList !== undefined && {
-      ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
-    }),
+    ...(input.AccessBasedEnumeration !== undefined &&
+      input.AccessBasedEnumeration !== null && { AccessBasedEnumeration: input.AccessBasedEnumeration }),
+    ...(input.AdminUserList !== undefined &&
+      input.AdminUserList !== null && {
+        AdminUserList: serializeAws_json1_1FileShareUserList(input.AdminUserList, context),
+      }),
+    ...(input.AuditDestinationARN !== undefined &&
+      input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
+    ...(input.CacheAttributes !== undefined &&
+      input.CacheAttributes !== null && {
+        CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
+      }),
+    ...(input.CaseSensitivity !== undefined &&
+      input.CaseSensitivity !== null && { CaseSensitivity: input.CaseSensitivity }),
+    ...(input.DefaultStorageClass !== undefined &&
+      input.DefaultStorageClass !== null && { DefaultStorageClass: input.DefaultStorageClass }),
+    ...(input.FileShareARN !== undefined && input.FileShareARN !== null && { FileShareARN: input.FileShareARN }),
+    ...(input.FileShareName !== undefined && input.FileShareName !== null && { FileShareName: input.FileShareName }),
+    ...(input.GuessMIMETypeEnabled !== undefined &&
+      input.GuessMIMETypeEnabled !== null && { GuessMIMETypeEnabled: input.GuessMIMETypeEnabled }),
+    ...(input.InvalidUserList !== undefined &&
+      input.InvalidUserList !== null && {
+        InvalidUserList: serializeAws_json1_1FileShareUserList(input.InvalidUserList, context),
+      }),
+    ...(input.KMSEncrypted !== undefined && input.KMSEncrypted !== null && { KMSEncrypted: input.KMSEncrypted }),
+    ...(input.KMSKey !== undefined && input.KMSKey !== null && { KMSKey: input.KMSKey }),
+    ...(input.NotificationPolicy !== undefined &&
+      input.NotificationPolicy !== null && { NotificationPolicy: input.NotificationPolicy }),
+    ...(input.ObjectACL !== undefined && input.ObjectACL !== null && { ObjectACL: input.ObjectACL }),
+    ...(input.ReadOnly !== undefined && input.ReadOnly !== null && { ReadOnly: input.ReadOnly }),
+    ...(input.RequesterPays !== undefined && input.RequesterPays !== null && { RequesterPays: input.RequesterPays }),
+    ...(input.SMBACLEnabled !== undefined && input.SMBACLEnabled !== null && { SMBACLEnabled: input.SMBACLEnabled }),
+    ...(input.ValidUserList !== undefined &&
+      input.ValidUserList !== null && {
+        ValidUserList: serializeAws_json1_1FileShareUserList(input.ValidUserList, context),
+      }),
   };
 };
 
@@ -7837,8 +7918,9 @@ const serializeAws_json1_1UpdateSMBFileShareVisibilityInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FileSharesVisible !== undefined && { FileSharesVisible: input.FileSharesVisible }),
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
+    ...(input.FileSharesVisible !== undefined &&
+      input.FileSharesVisible !== null && { FileSharesVisible: input.FileSharesVisible }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
   };
 };
 
@@ -7847,8 +7929,9 @@ const serializeAws_json1_1UpdateSMBSecurityStrategyInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GatewayARN !== undefined && { GatewayARN: input.GatewayARN }),
-    ...(input.SMBSecurityStrategy !== undefined && { SMBSecurityStrategy: input.SMBSecurityStrategy }),
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.SMBSecurityStrategy !== undefined &&
+      input.SMBSecurityStrategy !== null && { SMBSecurityStrategy: input.SMBSecurityStrategy }),
   };
 };
 
@@ -7857,11 +7940,12 @@ const serializeAws_json1_1UpdateSnapshotScheduleInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.RecurrenceInHours !== undefined && { RecurrenceInHours: input.RecurrenceInHours }),
-    ...(input.StartAt !== undefined && { StartAt: input.StartAt }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VolumeARN !== undefined && { VolumeARN: input.VolumeARN }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.RecurrenceInHours !== undefined &&
+      input.RecurrenceInHours !== null && { RecurrenceInHours: input.RecurrenceInHours }),
+    ...(input.StartAt !== undefined && input.StartAt !== null && { StartAt: input.StartAt }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VolumeARN !== undefined && input.VolumeARN !== null && { VolumeARN: input.VolumeARN }),
   };
 };
 
@@ -7870,17 +7954,31 @@ const serializeAws_json1_1UpdateVTLDeviceTypeInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceType !== undefined && { DeviceType: input.DeviceType }),
-    ...(input.VTLDeviceARN !== undefined && { VTLDeviceARN: input.VTLDeviceARN }),
+    ...(input.DeviceType !== undefined && input.DeviceType !== null && { DeviceType: input.DeviceType }),
+    ...(input.VTLDeviceARN !== undefined && input.VTLDeviceARN !== null && { VTLDeviceARN: input.VTLDeviceARN }),
   };
 };
 
 const serializeAws_json1_1VolumeARNs = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1VTLDeviceARNs = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ActivateGatewayOutput = (output: any, context: __SerdeContext): ActivateGatewayOutput => {
@@ -7949,7 +8047,14 @@ const deserializeAws_json1_1AutomaticTapeCreationPolicyInfos = (
   output: any,
   context: __SerdeContext
 ): AutomaticTapeCreationPolicyInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AutomaticTapeCreationPolicyInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AutomaticTapeCreationPolicyInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AutomaticTapeCreationRule = (
@@ -7974,7 +8079,14 @@ const deserializeAws_json1_1AutomaticTapeCreationRules = (
   output: any,
   context: __SerdeContext
 ): AutomaticTapeCreationRule[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AutomaticTapeCreationRule(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AutomaticTapeCreationRule(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BandwidthRateLimitInterval = (
@@ -8010,7 +8122,14 @@ const deserializeAws_json1_1BandwidthRateLimitIntervals = (
   output: any,
   context: __SerdeContext
 ): BandwidthRateLimitInterval[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BandwidthRateLimitInterval(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BandwidthRateLimitInterval(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CacheAttributes = (output: any, context: __SerdeContext): CacheAttributes => {
@@ -8058,7 +8177,14 @@ const deserializeAws_json1_1CachediSCSIVolume = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1CachediSCSIVolumes = (output: any, context: __SerdeContext): CachediSCSIVolume[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CachediSCSIVolume(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CachediSCSIVolume(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CancelArchivalOutput = (output: any, context: __SerdeContext): CancelArchivalOutput => {
@@ -8074,7 +8200,14 @@ const deserializeAws_json1_1CancelRetrievalOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ChapCredentials = (output: any, context: __SerdeContext): ChapInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ChapInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ChapInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ChapInfo = (output: any, context: __SerdeContext): ChapInfo => {
@@ -8181,7 +8314,14 @@ const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
 };
 
 const deserializeAws_json1_1DaysOfWeek = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyOutput = (
@@ -8646,29 +8786,59 @@ const deserializeAws_json1_1Disk = (output: any, context: __SerdeContext): Disk 
 };
 
 const deserializeAws_json1_1DiskAttributeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DiskIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Disks = (output: any, context: __SerdeContext): Disk[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Disk(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Disk(entry, context);
+    });
 };
 
 const deserializeAws_json1_1errorDetails = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1FileShareClientList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1FileShareInfo = (output: any, context: __SerdeContext): FileShareInfo => {
@@ -8684,11 +8854,25 @@ const deserializeAws_json1_1FileShareInfo = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1FileShareInfoList = (output: any, context: __SerdeContext): FileShareInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FileShareInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FileShareInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FileShareUserList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext): GatewayInfo => {
@@ -8711,15 +8895,36 @@ const deserializeAws_json1_1GatewayInfo = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1GatewayNetworkInterfaces = (output: any, context: __SerdeContext): NetworkInterface[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1NetworkInterface(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NetworkInterface(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Gateways = (output: any, context: __SerdeContext): GatewayInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1GatewayInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GatewayInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Initiators = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
@@ -8933,7 +9138,14 @@ const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1NFSFileShareInfoList = (output: any, context: __SerdeContext): NFSFileShareInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1NFSFileShareInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NFSFileShareInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NotifyWhenUploadedOutput = (
@@ -8965,7 +9177,14 @@ const deserializeAws_json1_1PoolInfo = (output: any, context: __SerdeContext): P
 };
 
 const deserializeAws_json1_1PoolInfos = (output: any, context: __SerdeContext): PoolInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PoolInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PoolInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RefreshCacheOutput = (output: any, context: __SerdeContext): RefreshCacheOutput => {
@@ -9112,7 +9331,14 @@ const deserializeAws_json1_1SMBFileShareInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1SMBFileShareInfoList = (output: any, context: __SerdeContext): SMBFileShareInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SMBFileShareInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SMBFileShareInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
@@ -9181,7 +9407,14 @@ const deserializeAws_json1_1StorediSCSIVolume = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1StorediSCSIVolumes = (output: any, context: __SerdeContext): StorediSCSIVolume[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1StorediSCSIVolume(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1StorediSCSIVolume(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -9192,7 +9425,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tape = (output: any, context: __SerdeContext): Tape => {
@@ -9257,11 +9497,25 @@ const deserializeAws_json1_1TapeArchive = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1TapeArchives = (output: any, context: __SerdeContext): TapeArchive[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TapeArchive(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TapeArchive(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TapeARNs = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): TapeInfo => {
@@ -9285,7 +9539,14 @@ const deserializeAws_json1_1TapeInfo = (output: any, context: __SerdeContext): T
 };
 
 const deserializeAws_json1_1TapeInfos = (output: any, context: __SerdeContext): TapeInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TapeInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TapeInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TapeRecoveryPointInfo = (output: any, context: __SerdeContext): TapeRecoveryPointInfo => {
@@ -9305,11 +9566,25 @@ const deserializeAws_json1_1TapeRecoveryPointInfos = (
   output: any,
   context: __SerdeContext
 ): TapeRecoveryPointInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TapeRecoveryPointInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TapeRecoveryPointInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tapes = (output: any, context: __SerdeContext): Tape[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tape(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tape(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyOutput = (
@@ -9451,7 +9726,14 @@ const deserializeAws_json1_1VolumeInfo = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1VolumeInfos = (output: any, context: __SerdeContext): VolumeInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1VolumeInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VolumeInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VolumeiSCSIAttributes = (output: any, context: __SerdeContext): VolumeiSCSIAttributes => {
@@ -9495,7 +9777,14 @@ const deserializeAws_json1_1VolumeRecoveryPointInfos = (
   output: any,
   context: __SerdeContext
 ): VolumeRecoveryPointInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1VolumeRecoveryPointInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VolumeRecoveryPointInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): VTLDevice => {
@@ -9517,7 +9806,14 @@ const deserializeAws_json1_1VTLDevice = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1VTLDevices = (output: any, context: __SerdeContext): VTLDevice[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1VTLDevice(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VTLDevice(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -9570,3 +9866,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

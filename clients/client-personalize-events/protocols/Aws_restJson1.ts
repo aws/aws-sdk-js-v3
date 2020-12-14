@@ -16,15 +16,16 @@ export const serializeAws_restJson1PutEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/events";
   let body: any;
   body = JSON.stringify({
-    ...(input.eventList !== undefined && { eventList: serializeAws_restJson1EventList(input.eventList, context) }),
-    ...(input.sessionId !== undefined && { sessionId: input.sessionId }),
-    ...(input.trackingId !== undefined && { trackingId: input.trackingId }),
-    ...(input.userId !== undefined && { userId: input.userId }),
+    ...(input.eventList !== undefined &&
+      input.eventList !== null && { eventList: serializeAws_restJson1EventList(input.eventList, context) }),
+    ...(input.sessionId !== undefined && input.sessionId !== null && { sessionId: input.sessionId }),
+    ...(input.trackingId !== undefined && input.trackingId !== null && { trackingId: input.trackingId }),
+    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -43,13 +44,14 @@ export const serializeAws_restJson1PutItemsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/items";
   let body: any;
   body = JSON.stringify({
-    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn }),
-    ...(input.items !== undefined && { items: serializeAws_restJson1ItemList(input.items, context) }),
+    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
+    ...(input.items !== undefined &&
+      input.items !== null && { items: serializeAws_restJson1ItemList(input.items, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -68,13 +70,14 @@ export const serializeAws_restJson1PutUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/users";
   let body: any;
   body = JSON.stringify({
-    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn }),
-    ...(input.users !== undefined && { users: serializeAws_restJson1UserList(input.users, context) }),
+    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
+    ...(input.users !== undefined &&
+      input.users !== null && { users: serializeAws_restJson1UserList(input.users, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -293,45 +296,78 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
-    ...(input.eventId !== undefined && { eventId: input.eventId }),
-    ...(input.eventType !== undefined && { eventType: input.eventType }),
-    ...(input.eventValue !== undefined && { eventValue: input.eventValue }),
-    ...(input.impression !== undefined && { impression: serializeAws_restJson1Impression(input.impression, context) }),
-    ...(input.itemId !== undefined && { itemId: input.itemId }),
-    ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
-    ...(input.recommendationId !== undefined && { recommendationId: input.recommendationId }),
-    ...(input.sentAt !== undefined && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventType !== undefined && input.eventType !== null && { eventType: input.eventType }),
+    ...(input.eventValue !== undefined && input.eventValue !== null && { eventValue: input.eventValue }),
+    ...(input.impression !== undefined &&
+      input.impression !== null && { impression: serializeAws_restJson1Impression(input.impression, context) }),
+    ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.recommendationId !== undefined &&
+      input.recommendationId !== null && { recommendationId: input.recommendationId }),
+    ...(input.sentAt !== undefined && input.sentAt !== null && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
   };
 };
 
 const serializeAws_restJson1EventList = (input: Event[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Event(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Event(entry, context);
+    });
 };
 
 const serializeAws_restJson1Impression = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Item = (input: Item, context: __SerdeContext): any => {
   return {
-    ...(input.itemId !== undefined && { itemId: input.itemId }),
-    ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.itemId !== undefined && input.itemId !== null && { itemId: input.itemId }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && { properties: __LazyJsonString.fromObject(input.properties) }),
   };
 };
 
 const serializeAws_restJson1ItemList = (input: Item[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Item(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Item(entry, context);
+    });
 };
 
 const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
   return {
-    ...(input.properties !== undefined && { properties: __LazyJsonString.fromObject(input.properties) }),
-    ...(input.userId !== undefined && { userId: input.userId }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && { properties: __LazyJsonString.fromObject(input.properties) }),
+    ...(input.userId !== undefined && input.userId !== null && { userId: input.userId }),
   };
 };
 
 const serializeAws_restJson1UserList = (input: User[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1User(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1User(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -354,6 +390,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

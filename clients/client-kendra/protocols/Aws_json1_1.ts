@@ -196,7 +196,7 @@ export const serializeAws_json1_1BatchDeleteDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.BatchDeleteDocument",
   };
   let body: any;
@@ -209,7 +209,7 @@ export const serializeAws_json1_1BatchPutDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.BatchPutDocument",
   };
   let body: any;
@@ -222,7 +222,7 @@ export const serializeAws_json1_1CreateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.CreateDataSource",
   };
   let body: any;
@@ -235,7 +235,7 @@ export const serializeAws_json1_1CreateFaqCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.CreateFaq",
   };
   let body: any;
@@ -248,7 +248,7 @@ export const serializeAws_json1_1CreateIndexCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.CreateIndex",
   };
   let body: any;
@@ -261,7 +261,7 @@ export const serializeAws_json1_1CreateThesaurusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.CreateThesaurus",
   };
   let body: any;
@@ -274,7 +274,7 @@ export const serializeAws_json1_1DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DeleteDataSource",
   };
   let body: any;
@@ -287,7 +287,7 @@ export const serializeAws_json1_1DeleteFaqCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DeleteFaq",
   };
   let body: any;
@@ -300,7 +300,7 @@ export const serializeAws_json1_1DeleteIndexCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DeleteIndex",
   };
   let body: any;
@@ -313,7 +313,7 @@ export const serializeAws_json1_1DeleteThesaurusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DeleteThesaurus",
   };
   let body: any;
@@ -326,7 +326,7 @@ export const serializeAws_json1_1DescribeDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DescribeDataSource",
   };
   let body: any;
@@ -339,7 +339,7 @@ export const serializeAws_json1_1DescribeFaqCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DescribeFaq",
   };
   let body: any;
@@ -352,7 +352,7 @@ export const serializeAws_json1_1DescribeIndexCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DescribeIndex",
   };
   let body: any;
@@ -365,7 +365,7 @@ export const serializeAws_json1_1DescribeThesaurusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.DescribeThesaurus",
   };
   let body: any;
@@ -378,7 +378,7 @@ export const serializeAws_json1_1ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.ListDataSources",
   };
   let body: any;
@@ -391,7 +391,7 @@ export const serializeAws_json1_1ListDataSourceSyncJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.ListDataSourceSyncJobs",
   };
   let body: any;
@@ -404,7 +404,7 @@ export const serializeAws_json1_1ListFaqsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.ListFaqs",
   };
   let body: any;
@@ -417,7 +417,7 @@ export const serializeAws_json1_1ListIndicesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.ListIndices",
   };
   let body: any;
@@ -430,7 +430,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.ListTagsForResource",
   };
   let body: any;
@@ -443,7 +443,7 @@ export const serializeAws_json1_1ListThesauriCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.ListThesauri",
   };
   let body: any;
@@ -456,7 +456,7 @@ export const serializeAws_json1_1QueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.Query",
   };
   let body: any;
@@ -469,7 +469,7 @@ export const serializeAws_json1_1StartDataSourceSyncJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.StartDataSourceSyncJob",
   };
   let body: any;
@@ -482,7 +482,7 @@ export const serializeAws_json1_1StopDataSourceSyncJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.StopDataSourceSyncJob",
   };
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_json1_1SubmitFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.SubmitFeedback",
   };
   let body: any;
@@ -508,7 +508,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.TagResource",
   };
   let body: any;
@@ -521,7 +521,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.UntagResource",
   };
   let body: any;
@@ -534,7 +534,7 @@ export const serializeAws_json1_1UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.UpdateDataSource",
   };
   let body: any;
@@ -547,7 +547,7 @@ export const serializeAws_json1_1UpdateIndexCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.UpdateIndex",
   };
   let body: any;
@@ -560,7 +560,7 @@ export const serializeAws_json1_1UpdateThesaurusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSKendraFrontendService.UpdateThesaurus",
   };
   let body: any;
@@ -595,8 +595,7 @@ const deserializeAws_json1_1BatchDeleteDocumentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -690,8 +689,7 @@ const deserializeAws_json1_1BatchPutDocumentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -793,8 +791,7 @@ const deserializeAws_json1_1CreateDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -904,8 +901,7 @@ const deserializeAws_json1_1CreateFaqCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1007,8 +1003,7 @@ const deserializeAws_json1_1CreateIndexCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1110,8 +1105,7 @@ const deserializeAws_json1_1CreateThesaurusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1210,8 +1204,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1302,8 +1295,7 @@ const deserializeAws_json1_1DeleteFaqCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1394,8 +1386,7 @@ const deserializeAws_json1_1DeleteIndexCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1486,8 +1477,7 @@ const deserializeAws_json1_1DeleteThesaurusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1581,8 +1571,7 @@ const deserializeAws_json1_1DescribeDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1668,8 +1657,7 @@ const deserializeAws_json1_1DescribeFaqCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1755,8 +1743,7 @@ const deserializeAws_json1_1DescribeIndexCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1842,8 +1829,7 @@ const deserializeAws_json1_1DescribeThesaurusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -1929,8 +1915,7 @@ const deserializeAws_json1_1ListDataSourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2016,8 +2001,7 @@ const deserializeAws_json1_1ListDataSourceSyncJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2111,8 +2095,7 @@ const deserializeAws_json1_1ListFaqsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2198,8 +2181,7 @@ const deserializeAws_json1_1ListIndicesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2277,8 +2259,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2364,8 +2345,7 @@ const deserializeAws_json1_1ListThesauriCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2451,8 +2431,7 @@ const deserializeAws_json1_1QueryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2554,8 +2533,7 @@ const deserializeAws_json1_1StartDataSourceSyncJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2654,8 +2632,7 @@ const deserializeAws_json1_1StopDataSourceSyncJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2738,8 +2715,7 @@ const deserializeAws_json1_1SubmitFeedbackCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2833,8 +2809,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -2920,8 +2895,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -3004,8 +2978,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -3096,8 +3069,7 @@ const deserializeAws_json1_1UpdateIndexCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -3196,8 +3168,7 @@ const deserializeAws_json1_1UpdateThesaurusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.kendra#AccessDeniedException":
@@ -3419,47 +3390,59 @@ const serializeAws_json1_1AccessControlListConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KeyPath !== undefined && { KeyPath: input.KeyPath }),
+    ...(input.KeyPath !== undefined && input.KeyPath !== null && { KeyPath: input.KeyPath }),
   };
 };
 
 const serializeAws_json1_1AclConfiguration = (input: AclConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AllowedGroupsColumnName !== undefined && { AllowedGroupsColumnName: input.AllowedGroupsColumnName }),
+    ...(input.AllowedGroupsColumnName !== undefined &&
+      input.AllowedGroupsColumnName !== null && { AllowedGroupsColumnName: input.AllowedGroupsColumnName }),
   };
 };
 
 const serializeAws_json1_1AttributeFilter = (input: AttributeFilter, context: __SerdeContext): any => {
   return {
-    ...(input.AndAllFilters !== undefined && {
-      AndAllFilters: serializeAws_json1_1AttributeFilterList(input.AndAllFilters, context),
-    }),
-    ...(input.ContainsAll !== undefined && {
-      ContainsAll: serializeAws_json1_1DocumentAttribute(input.ContainsAll, context),
-    }),
-    ...(input.ContainsAny !== undefined && {
-      ContainsAny: serializeAws_json1_1DocumentAttribute(input.ContainsAny, context),
-    }),
-    ...(input.EqualsTo !== undefined && { EqualsTo: serializeAws_json1_1DocumentAttribute(input.EqualsTo, context) }),
-    ...(input.GreaterThan !== undefined && {
-      GreaterThan: serializeAws_json1_1DocumentAttribute(input.GreaterThan, context),
-    }),
-    ...(input.GreaterThanOrEquals !== undefined && {
-      GreaterThanOrEquals: serializeAws_json1_1DocumentAttribute(input.GreaterThanOrEquals, context),
-    }),
-    ...(input.LessThan !== undefined && { LessThan: serializeAws_json1_1DocumentAttribute(input.LessThan, context) }),
-    ...(input.LessThanOrEquals !== undefined && {
-      LessThanOrEquals: serializeAws_json1_1DocumentAttribute(input.LessThanOrEquals, context),
-    }),
-    ...(input.NotFilter !== undefined && { NotFilter: serializeAws_json1_1AttributeFilter(input.NotFilter, context) }),
-    ...(input.OrAllFilters !== undefined && {
-      OrAllFilters: serializeAws_json1_1AttributeFilterList(input.OrAllFilters, context),
-    }),
+    ...(input.AndAllFilters !== undefined &&
+      input.AndAllFilters !== null && {
+        AndAllFilters: serializeAws_json1_1AttributeFilterList(input.AndAllFilters, context),
+      }),
+    ...(input.ContainsAll !== undefined &&
+      input.ContainsAll !== null && { ContainsAll: serializeAws_json1_1DocumentAttribute(input.ContainsAll, context) }),
+    ...(input.ContainsAny !== undefined &&
+      input.ContainsAny !== null && { ContainsAny: serializeAws_json1_1DocumentAttribute(input.ContainsAny, context) }),
+    ...(input.EqualsTo !== undefined &&
+      input.EqualsTo !== null && { EqualsTo: serializeAws_json1_1DocumentAttribute(input.EqualsTo, context) }),
+    ...(input.GreaterThan !== undefined &&
+      input.GreaterThan !== null && { GreaterThan: serializeAws_json1_1DocumentAttribute(input.GreaterThan, context) }),
+    ...(input.GreaterThanOrEquals !== undefined &&
+      input.GreaterThanOrEquals !== null && {
+        GreaterThanOrEquals: serializeAws_json1_1DocumentAttribute(input.GreaterThanOrEquals, context),
+      }),
+    ...(input.LessThan !== undefined &&
+      input.LessThan !== null && { LessThan: serializeAws_json1_1DocumentAttribute(input.LessThan, context) }),
+    ...(input.LessThanOrEquals !== undefined &&
+      input.LessThanOrEquals !== null && {
+        LessThanOrEquals: serializeAws_json1_1DocumentAttribute(input.LessThanOrEquals, context),
+      }),
+    ...(input.NotFilter !== undefined &&
+      input.NotFilter !== null && { NotFilter: serializeAws_json1_1AttributeFilter(input.NotFilter, context) }),
+    ...(input.OrAllFilters !== undefined &&
+      input.OrAllFilters !== null && {
+        OrAllFilters: serializeAws_json1_1AttributeFilterList(input.OrAllFilters, context),
+      }),
   };
 };
 
 const serializeAws_json1_1AttributeFilterList = (input: AttributeFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1AttributeFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1AttributeFilter(entry, context);
+    });
 };
 
 const serializeAws_json1_1BatchDeleteDocumentRequest = (
@@ -3467,24 +3450,27 @@ const serializeAws_json1_1BatchDeleteDocumentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceSyncJobMetricTarget !== undefined && {
-      DataSourceSyncJobMetricTarget: serializeAws_json1_1DataSourceSyncJobMetricTarget(
-        input.DataSourceSyncJobMetricTarget,
-        context
-      ),
-    }),
-    ...(input.DocumentIdList !== undefined && {
-      DocumentIdList: serializeAws_json1_1DocumentIdList(input.DocumentIdList, context),
-    }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.DataSourceSyncJobMetricTarget !== undefined &&
+      input.DataSourceSyncJobMetricTarget !== null && {
+        DataSourceSyncJobMetricTarget: serializeAws_json1_1DataSourceSyncJobMetricTarget(
+          input.DataSourceSyncJobMetricTarget,
+          context
+        ),
+      }),
+    ...(input.DocumentIdList !== undefined &&
+      input.DocumentIdList !== null && {
+        DocumentIdList: serializeAws_json1_1DocumentIdList(input.DocumentIdList, context),
+      }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1BatchPutDocumentRequest = (input: BatchPutDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Documents !== undefined && { Documents: serializeAws_json1_1DocumentList(input.Documents, context) }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.Documents !== undefined &&
+      input.Documents !== null && { Documents: serializeAws_json1_1DocumentList(input.Documents, context) }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
 
@@ -3493,37 +3479,59 @@ const serializeAws_json1_1CapacityUnitsConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QueryCapacityUnits !== undefined && { QueryCapacityUnits: input.QueryCapacityUnits }),
-    ...(input.StorageCapacityUnits !== undefined && { StorageCapacityUnits: input.StorageCapacityUnits }),
+    ...(input.QueryCapacityUnits !== undefined &&
+      input.QueryCapacityUnits !== null && { QueryCapacityUnits: input.QueryCapacityUnits }),
+    ...(input.StorageCapacityUnits !== undefined &&
+      input.StorageCapacityUnits !== null && { StorageCapacityUnits: input.StorageCapacityUnits }),
   };
 };
 
 const serializeAws_json1_1ChangeDetectingColumns = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ClickFeedback = (input: ClickFeedback, context: __SerdeContext): any => {
   return {
-    ...(input.ClickTime !== undefined && { ClickTime: Math.round(input.ClickTime.getTime() / 1000) }),
-    ...(input.ResultId !== undefined && { ResultId: input.ResultId }),
+    ...(input.ClickTime !== undefined &&
+      input.ClickTime !== null && { ClickTime: Math.round(input.ClickTime.getTime() / 1000) }),
+    ...(input.ResultId !== undefined && input.ResultId !== null && { ResultId: input.ResultId }),
   };
 };
 
 const serializeAws_json1_1ClickFeedbackList = (input: ClickFeedback[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ClickFeedback(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ClickFeedback(entry, context);
+    });
 };
 
 const serializeAws_json1_1ColumnConfiguration = (input: ColumnConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ChangeDetectingColumns !== undefined && {
-      ChangeDetectingColumns: serializeAws_json1_1ChangeDetectingColumns(input.ChangeDetectingColumns, context),
-    }),
-    ...(input.DocumentDataColumnName !== undefined && { DocumentDataColumnName: input.DocumentDataColumnName }),
-    ...(input.DocumentIdColumnName !== undefined && { DocumentIdColumnName: input.DocumentIdColumnName }),
-    ...(input.DocumentTitleColumnName !== undefined && { DocumentTitleColumnName: input.DocumentTitleColumnName }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
+    ...(input.ChangeDetectingColumns !== undefined &&
+      input.ChangeDetectingColumns !== null && {
+        ChangeDetectingColumns: serializeAws_json1_1ChangeDetectingColumns(input.ChangeDetectingColumns, context),
+      }),
+    ...(input.DocumentDataColumnName !== undefined &&
+      input.DocumentDataColumnName !== null && { DocumentDataColumnName: input.DocumentDataColumnName }),
+    ...(input.DocumentIdColumnName !== undefined &&
+      input.DocumentIdColumnName !== null && { DocumentIdColumnName: input.DocumentIdColumnName }),
+    ...(input.DocumentTitleColumnName !== undefined &&
+      input.DocumentTitleColumnName !== null && { DocumentTitleColumnName: input.DocumentTitleColumnName }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
   };
 };
 
@@ -3532,13 +3540,15 @@ const serializeAws_json1_1ConfluenceAttachmentConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AttachmentFieldMappings !== undefined && {
-      AttachmentFieldMappings: serializeAws_json1_1ConfluenceAttachmentFieldMappingsList(
-        input.AttachmentFieldMappings,
-        context
-      ),
-    }),
-    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.AttachmentFieldMappings !== undefined &&
+      input.AttachmentFieldMappings !== null && {
+        AttachmentFieldMappings: serializeAws_json1_1ConfluenceAttachmentFieldMappingsList(
+          input.AttachmentFieldMappings,
+          context
+        ),
+      }),
+    ...(input.CrawlAttachments !== undefined &&
+      input.CrawlAttachments !== null && { CrawlAttachments: input.CrawlAttachments }),
   };
 };
 
@@ -3546,7 +3556,14 @@ const serializeAws_json1_1ConfluenceAttachmentFieldMappingsList = (
   input: ConfluenceAttachmentToIndexFieldMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping(entry, context);
+    });
 };
 
 const serializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping = (
@@ -3554,9 +3571,12 @@ const serializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
-    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
-    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+    ...(input.DataSourceFieldName !== undefined &&
+      input.DataSourceFieldName !== null && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined &&
+      input.DateFieldFormat !== null && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined &&
+      input.IndexFieldName !== null && { IndexFieldName: input.IndexFieldName }),
   };
 };
 
@@ -3565,9 +3585,10 @@ const serializeAws_json1_1ConfluenceBlogConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BlogFieldMappings !== undefined && {
-      BlogFieldMappings: serializeAws_json1_1ConfluenceBlogFieldMappingsList(input.BlogFieldMappings, context),
-    }),
+    ...(input.BlogFieldMappings !== undefined &&
+      input.BlogFieldMappings !== null && {
+        BlogFieldMappings: serializeAws_json1_1ConfluenceBlogFieldMappingsList(input.BlogFieldMappings, context),
+      }),
   };
 };
 
@@ -3575,7 +3596,14 @@ const serializeAws_json1_1ConfluenceBlogFieldMappingsList = (
   input: ConfluenceBlogToIndexFieldMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ConfluenceBlogToIndexFieldMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConfluenceBlogToIndexFieldMapping(entry, context);
+    });
 };
 
 const serializeAws_json1_1ConfluenceBlogToIndexFieldMapping = (
@@ -3583,41 +3611,51 @@ const serializeAws_json1_1ConfluenceBlogToIndexFieldMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
-    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
-    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+    ...(input.DataSourceFieldName !== undefined &&
+      input.DataSourceFieldName !== null && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined &&
+      input.DateFieldFormat !== null && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined &&
+      input.IndexFieldName !== null && { IndexFieldName: input.IndexFieldName }),
   };
 };
 
 const serializeAws_json1_1ConfluenceConfiguration = (input: ConfluenceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AttachmentConfiguration !== undefined && {
-      AttachmentConfiguration: serializeAws_json1_1ConfluenceAttachmentConfiguration(
-        input.AttachmentConfiguration,
-        context
-      ),
-    }),
-    ...(input.BlogConfiguration !== undefined && {
-      BlogConfiguration: serializeAws_json1_1ConfluenceBlogConfiguration(input.BlogConfiguration, context),
-    }),
-    ...(input.ExclusionPatterns !== undefined && {
-      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
-    }),
-    ...(input.InclusionPatterns !== undefined && {
-      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
-    }),
-    ...(input.PageConfiguration !== undefined && {
-      PageConfiguration: serializeAws_json1_1ConfluencePageConfiguration(input.PageConfiguration, context),
-    }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.ServerUrl !== undefined && { ServerUrl: input.ServerUrl }),
-    ...(input.SpaceConfiguration !== undefined && {
-      SpaceConfiguration: serializeAws_json1_1ConfluenceSpaceConfiguration(input.SpaceConfiguration, context),
-    }),
-    ...(input.Version !== undefined && { Version: input.Version }),
-    ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.AttachmentConfiguration !== undefined &&
+      input.AttachmentConfiguration !== null && {
+        AttachmentConfiguration: serializeAws_json1_1ConfluenceAttachmentConfiguration(
+          input.AttachmentConfiguration,
+          context
+        ),
+      }),
+    ...(input.BlogConfiguration !== undefined &&
+      input.BlogConfiguration !== null && {
+        BlogConfiguration: serializeAws_json1_1ConfluenceBlogConfiguration(input.BlogConfiguration, context),
+      }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.PageConfiguration !== undefined &&
+      input.PageConfiguration !== null && {
+        PageConfiguration: serializeAws_json1_1ConfluencePageConfiguration(input.PageConfiguration, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.ServerUrl !== undefined && input.ServerUrl !== null && { ServerUrl: input.ServerUrl }),
+    ...(input.SpaceConfiguration !== undefined &&
+      input.SpaceConfiguration !== null && {
+        SpaceConfiguration: serializeAws_json1_1ConfluenceSpaceConfiguration(input.SpaceConfiguration, context),
+      }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
   };
 };
 
@@ -3626,9 +3664,10 @@ const serializeAws_json1_1ConfluencePageConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.PageFieldMappings !== undefined && {
-      PageFieldMappings: serializeAws_json1_1ConfluencePageFieldMappingsList(input.PageFieldMappings, context),
-    }),
+    ...(input.PageFieldMappings !== undefined &&
+      input.PageFieldMappings !== null && {
+        PageFieldMappings: serializeAws_json1_1ConfluencePageFieldMappingsList(input.PageFieldMappings, context),
+      }),
   };
 };
 
@@ -3636,7 +3675,14 @@ const serializeAws_json1_1ConfluencePageFieldMappingsList = (
   input: ConfluencePageToIndexFieldMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ConfluencePageToIndexFieldMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConfluencePageToIndexFieldMapping(entry, context);
+    });
 };
 
 const serializeAws_json1_1ConfluencePageToIndexFieldMapping = (
@@ -3644,9 +3690,12 @@ const serializeAws_json1_1ConfluencePageToIndexFieldMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
-    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
-    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+    ...(input.DataSourceFieldName !== undefined &&
+      input.DataSourceFieldName !== null && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined &&
+      input.DateFieldFormat !== null && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined &&
+      input.IndexFieldName !== null && { IndexFieldName: input.IndexFieldName }),
   };
 };
 
@@ -3655,17 +3704,22 @@ const serializeAws_json1_1ConfluenceSpaceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CrawlArchivedSpaces !== undefined && { CrawlArchivedSpaces: input.CrawlArchivedSpaces }),
-    ...(input.CrawlPersonalSpaces !== undefined && { CrawlPersonalSpaces: input.CrawlPersonalSpaces }),
-    ...(input.ExcludeSpaces !== undefined && {
-      ExcludeSpaces: serializeAws_json1_1ConfluenceSpaceList(input.ExcludeSpaces, context),
-    }),
-    ...(input.IncludeSpaces !== undefined && {
-      IncludeSpaces: serializeAws_json1_1ConfluenceSpaceList(input.IncludeSpaces, context),
-    }),
-    ...(input.SpaceFieldMappings !== undefined && {
-      SpaceFieldMappings: serializeAws_json1_1ConfluenceSpaceFieldMappingsList(input.SpaceFieldMappings, context),
-    }),
+    ...(input.CrawlArchivedSpaces !== undefined &&
+      input.CrawlArchivedSpaces !== null && { CrawlArchivedSpaces: input.CrawlArchivedSpaces }),
+    ...(input.CrawlPersonalSpaces !== undefined &&
+      input.CrawlPersonalSpaces !== null && { CrawlPersonalSpaces: input.CrawlPersonalSpaces }),
+    ...(input.ExcludeSpaces !== undefined &&
+      input.ExcludeSpaces !== null && {
+        ExcludeSpaces: serializeAws_json1_1ConfluenceSpaceList(input.ExcludeSpaces, context),
+      }),
+    ...(input.IncludeSpaces !== undefined &&
+      input.IncludeSpaces !== null && {
+        IncludeSpaces: serializeAws_json1_1ConfluenceSpaceList(input.IncludeSpaces, context),
+      }),
+    ...(input.SpaceFieldMappings !== undefined &&
+      input.SpaceFieldMappings !== null && {
+        SpaceFieldMappings: serializeAws_json1_1ConfluenceSpaceFieldMappingsList(input.SpaceFieldMappings, context),
+      }),
   };
 };
 
@@ -3673,11 +3727,25 @@ const serializeAws_json1_1ConfluenceSpaceFieldMappingsList = (
   input: ConfluenceSpaceToIndexFieldMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1ConfluenceSpaceToIndexFieldMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ConfluenceSpaceToIndexFieldMapping(entry, context);
+    });
 };
 
 const serializeAws_json1_1ConfluenceSpaceList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ConfluenceSpaceToIndexFieldMapping = (
@@ -3685,136 +3753,166 @@ const serializeAws_json1_1ConfluenceSpaceToIndexFieldMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
-    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
-    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+    ...(input.DataSourceFieldName !== undefined &&
+      input.DataSourceFieldName !== null && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined &&
+      input.DateFieldFormat !== null && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined &&
+      input.IndexFieldName !== null && { IndexFieldName: input.IndexFieldName }),
   };
 };
 
 const serializeAws_json1_1ConnectionConfiguration = (input: ConnectionConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseHost !== undefined && { DatabaseHost: input.DatabaseHost }),
-    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.DatabasePort !== undefined && { DatabasePort: input.DatabasePort }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.DatabaseHost !== undefined && input.DatabaseHost !== null && { DatabaseHost: input.DatabaseHost }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.DatabasePort !== undefined && input.DatabasePort !== null && { DatabasePort: input.DatabasePort }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
   };
 };
 
 const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Configuration !== undefined && {
-      Configuration: serializeAws_json1_1DataSourceConfiguration(input.Configuration, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_json1_1DataSourceConfiguration(input.Configuration, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.Schedule !== undefined && input.Schedule !== null && { Schedule: input.Schedule }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.FileFormat !== undefined && { FileFormat: input.FileFormat }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3Path !== undefined && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.FileFormat !== undefined && input.FileFormat !== null && { FileFormat: input.FileFormat }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.S3Path !== undefined &&
+      input.S3Path !== null && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Edition !== undefined && { Edition: input.Edition }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.ServerSideEncryptionConfiguration !== undefined && {
-      ServerSideEncryptionConfiguration: serializeAws_json1_1ServerSideEncryptionConfiguration(
-        input.ServerSideEncryptionConfiguration,
-        context
-      ),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.UserContextPolicy !== undefined && { UserContextPolicy: input.UserContextPolicy }),
-    ...(input.UserTokenConfigurations !== undefined && {
-      UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Edition !== undefined && input.Edition !== null && { Edition: input.Edition }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.ServerSideEncryptionConfiguration !== undefined &&
+      input.ServerSideEncryptionConfiguration !== null && {
+        ServerSideEncryptionConfiguration: serializeAws_json1_1ServerSideEncryptionConfiguration(
+          input.ServerSideEncryptionConfiguration,
+          context
+        ),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserContextPolicy !== undefined &&
+      input.UserContextPolicy !== null && { UserContextPolicy: input.UserContextPolicy }),
+    ...(input.UserTokenConfigurations !== undefined &&
+      input.UserTokenConfigurations !== null && {
+        UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
+      }),
   };
 };
 
 const serializeAws_json1_1CreateThesaurusRequest = (input: CreateThesaurusRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.SourceS3Path !== undefined && { SourceS3Path: serializeAws_json1_1S3Path(input.SourceS3Path, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.SourceS3Path !== undefined &&
+      input.SourceS3Path !== null && { SourceS3Path: serializeAws_json1_1S3Path(input.SourceS3Path, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1DatabaseConfiguration = (input: DatabaseConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AclConfiguration !== undefined && {
-      AclConfiguration: serializeAws_json1_1AclConfiguration(input.AclConfiguration, context),
-    }),
-    ...(input.ColumnConfiguration !== undefined && {
-      ColumnConfiguration: serializeAws_json1_1ColumnConfiguration(input.ColumnConfiguration, context),
-    }),
-    ...(input.ConnectionConfiguration !== undefined && {
-      ConnectionConfiguration: serializeAws_json1_1ConnectionConfiguration(input.ConnectionConfiguration, context),
-    }),
-    ...(input.DatabaseEngineType !== undefined && { DatabaseEngineType: input.DatabaseEngineType }),
-    ...(input.SqlConfiguration !== undefined && {
-      SqlConfiguration: serializeAws_json1_1SqlConfiguration(input.SqlConfiguration, context),
-    }),
-    ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.AclConfiguration !== undefined &&
+      input.AclConfiguration !== null && {
+        AclConfiguration: serializeAws_json1_1AclConfiguration(input.AclConfiguration, context),
+      }),
+    ...(input.ColumnConfiguration !== undefined &&
+      input.ColumnConfiguration !== null && {
+        ColumnConfiguration: serializeAws_json1_1ColumnConfiguration(input.ColumnConfiguration, context),
+      }),
+    ...(input.ConnectionConfiguration !== undefined &&
+      input.ConnectionConfiguration !== null && {
+        ConnectionConfiguration: serializeAws_json1_1ConnectionConfiguration(input.ConnectionConfiguration, context),
+      }),
+    ...(input.DatabaseEngineType !== undefined &&
+      input.DatabaseEngineType !== null && { DatabaseEngineType: input.DatabaseEngineType }),
+    ...(input.SqlConfiguration !== undefined &&
+      input.SqlConfiguration !== null && {
+        SqlConfiguration: serializeAws_json1_1SqlConfiguration(input.SqlConfiguration, context),
+      }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ConfluenceConfiguration !== undefined && {
-      ConfluenceConfiguration: serializeAws_json1_1ConfluenceConfiguration(input.ConfluenceConfiguration, context),
-    }),
-    ...(input.DatabaseConfiguration !== undefined && {
-      DatabaseConfiguration: serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context),
-    }),
-    ...(input.GoogleDriveConfiguration !== undefined && {
-      GoogleDriveConfiguration: serializeAws_json1_1GoogleDriveConfiguration(input.GoogleDriveConfiguration, context),
-    }),
-    ...(input.OneDriveConfiguration !== undefined && {
-      OneDriveConfiguration: serializeAws_json1_1OneDriveConfiguration(input.OneDriveConfiguration, context),
-    }),
-    ...(input.S3Configuration !== undefined && {
-      S3Configuration: serializeAws_json1_1S3DataSourceConfiguration(input.S3Configuration, context),
-    }),
-    ...(input.SalesforceConfiguration !== undefined && {
-      SalesforceConfiguration: serializeAws_json1_1SalesforceConfiguration(input.SalesforceConfiguration, context),
-    }),
-    ...(input.ServiceNowConfiguration !== undefined && {
-      ServiceNowConfiguration: serializeAws_json1_1ServiceNowConfiguration(input.ServiceNowConfiguration, context),
-    }),
-    ...(input.SharePointConfiguration !== undefined && {
-      SharePointConfiguration: serializeAws_json1_1SharePointConfiguration(input.SharePointConfiguration, context),
-    }),
+    ...(input.ConfluenceConfiguration !== undefined &&
+      input.ConfluenceConfiguration !== null && {
+        ConfluenceConfiguration: serializeAws_json1_1ConfluenceConfiguration(input.ConfluenceConfiguration, context),
+      }),
+    ...(input.DatabaseConfiguration !== undefined &&
+      input.DatabaseConfiguration !== null && {
+        DatabaseConfiguration: serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context),
+      }),
+    ...(input.GoogleDriveConfiguration !== undefined &&
+      input.GoogleDriveConfiguration !== null && {
+        GoogleDriveConfiguration: serializeAws_json1_1GoogleDriveConfiguration(input.GoogleDriveConfiguration, context),
+      }),
+    ...(input.OneDriveConfiguration !== undefined &&
+      input.OneDriveConfiguration !== null && {
+        OneDriveConfiguration: serializeAws_json1_1OneDriveConfiguration(input.OneDriveConfiguration, context),
+      }),
+    ...(input.S3Configuration !== undefined &&
+      input.S3Configuration !== null && {
+        S3Configuration: serializeAws_json1_1S3DataSourceConfiguration(input.S3Configuration, context),
+      }),
+    ...(input.SalesforceConfiguration !== undefined &&
+      input.SalesforceConfiguration !== null && {
+        SalesforceConfiguration: serializeAws_json1_1SalesforceConfiguration(input.SalesforceConfiguration, context),
+      }),
+    ...(input.ServiceNowConfiguration !== undefined &&
+      input.ServiceNowConfiguration !== null && {
+        ServiceNowConfiguration: serializeAws_json1_1ServiceNowConfiguration(input.ServiceNowConfiguration, context),
+      }),
+    ...(input.SharePointConfiguration !== undefined &&
+      input.SharePointConfiguration !== null && {
+        SharePointConfiguration: serializeAws_json1_1SharePointConfiguration(input.SharePointConfiguration, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DataSourceInclusionsExclusionsStrings = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DataSourceSyncJobMetricTarget = (
@@ -3822,8 +3920,9 @@ const serializeAws_json1_1DataSourceSyncJobMetricTarget = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceSyncJobId !== undefined && { DataSourceSyncJobId: input.DataSourceSyncJobId }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceSyncJobId !== undefined &&
+      input.DataSourceSyncJobId !== null && { DataSourceSyncJobId: input.DataSourceSyncJobId }),
   };
 };
 
@@ -3832,9 +3931,12 @@ const serializeAws_json1_1DataSourceToIndexFieldMapping = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DataSourceFieldName !== undefined && { DataSourceFieldName: input.DataSourceFieldName }),
-    ...(input.DateFieldFormat !== undefined && { DateFieldFormat: input.DateFieldFormat }),
-    ...(input.IndexFieldName !== undefined && { IndexFieldName: input.IndexFieldName }),
+    ...(input.DataSourceFieldName !== undefined &&
+      input.DataSourceFieldName !== null && { DataSourceFieldName: input.DataSourceFieldName }),
+    ...(input.DateFieldFormat !== undefined &&
+      input.DateFieldFormat !== null && { DateFieldFormat: input.DateFieldFormat }),
+    ...(input.IndexFieldName !== undefined &&
+      input.IndexFieldName !== null && { IndexFieldName: input.IndexFieldName }),
   };
 };
 
@@ -3842,7 +3944,14 @@ const serializeAws_json1_1DataSourceToIndexFieldMappingList = (
   input: DataSourceToIndexFieldMapping[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1DataSourceToIndexFieldMapping(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DataSourceToIndexFieldMapping(entry, context);
+    });
 };
 
 const serializeAws_json1_1DataSourceVpcConfiguration = (
@@ -3850,37 +3959,39 @@ const serializeAws_json1_1DataSourceVpcConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
-    }),
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1SecurityGroupIdList(input.SecurityGroupIds, context),
+      }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
 };
 
 const serializeAws_json1_1DeleteDataSourceRequest = (input: DeleteDataSourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1DeleteFaqRequest = (input: DeleteFaqRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1DeleteIndexRequest = (input: DeleteIndexRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
   };
 };
 
 const serializeAws_json1_1DeleteThesaurusRequest = (input: DeleteThesaurusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
@@ -3889,21 +4000,21 @@ const serializeAws_json1_1DescribeDataSourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1DescribeFaqRequest = (input: DescribeFaqRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1DescribeIndexRequest = (input: DescribeIndexRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
   };
 };
 
@@ -3912,44 +4023,69 @@ const serializeAws_json1_1DescribeThesaurusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1Document = (input: Document, context: __SerdeContext): any => {
   return {
-    ...(input.AccessControlList !== undefined && {
-      AccessControlList: serializeAws_json1_1PrincipalList(input.AccessControlList, context),
-    }),
-    ...(input.Attributes !== undefined && {
-      Attributes: serializeAws_json1_1DocumentAttributeList(input.Attributes, context),
-    }),
-    ...(input.Blob !== undefined && { Blob: context.base64Encoder(input.Blob) }),
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.S3Path !== undefined && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
-    ...(input.Title !== undefined && { Title: input.Title }),
+    ...(input.AccessControlList !== undefined &&
+      input.AccessControlList !== null && {
+        AccessControlList: serializeAws_json1_1PrincipalList(input.AccessControlList, context),
+      }),
+    ...(input.Attributes !== undefined &&
+      input.Attributes !== null && {
+        Attributes: serializeAws_json1_1DocumentAttributeList(input.Attributes, context),
+      }),
+    ...(input.Blob !== undefined && input.Blob !== null && { Blob: context.base64Encoder(input.Blob) }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.S3Path !== undefined &&
+      input.S3Path !== null && { S3Path: serializeAws_json1_1S3Path(input.S3Path, context) }),
+    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
   };
 };
 
 const serializeAws_json1_1DocumentAttribute = (input: DocumentAttribute, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: serializeAws_json1_1DocumentAttributeValue(input.Value, context) }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined &&
+      input.Value !== null && { Value: serializeAws_json1_1DocumentAttributeValue(input.Value, context) }),
   };
 };
 
 const serializeAws_json1_1DocumentAttributeKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DocumentAttributeList = (input: DocumentAttribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1DocumentAttribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DocumentAttribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1DocumentAttributeStringListValue = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DocumentAttributeValue = (input: DocumentAttributeValue, context: __SerdeContext): any => {
@@ -3965,11 +4101,25 @@ const serializeAws_json1_1DocumentAttributeValue = (input: DocumentAttributeValu
 };
 
 const serializeAws_json1_1DocumentIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DocumentList = (input: Document[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Document(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Document(entry, context);
+    });
 };
 
 const serializeAws_json1_1DocumentMetadataConfiguration = (
@@ -3977,10 +4127,12 @@ const serializeAws_json1_1DocumentMetadataConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Relevance !== undefined && { Relevance: serializeAws_json1_1Relevance(input.Relevance, context) }),
-    ...(input.Search !== undefined && { Search: serializeAws_json1_1Search(input.Search, context) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Relevance !== undefined &&
+      input.Relevance !== null && { Relevance: serializeAws_json1_1Relevance(input.Relevance, context) }),
+    ...(input.Search !== undefined &&
+      input.Search !== null && { Search: serializeAws_json1_1Search(input.Search, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -3988,7 +4140,14 @@ const serializeAws_json1_1DocumentMetadataConfigurationList = (
   input: DocumentMetadataConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1DocumentMetadataConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DocumentMetadataConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1DocumentsMetadataConfiguration = (
@@ -3996,30 +4155,59 @@ const serializeAws_json1_1DocumentsMetadataConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
+    ...(input.S3Prefix !== undefined && input.S3Prefix !== null && { S3Prefix: input.S3Prefix }),
   };
 };
 
 const serializeAws_json1_1ExcludeMimeTypesList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ExcludeSharedDrivesList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ExcludeUserAccountsList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Facet = (input: Facet, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentAttributeKey !== undefined && { DocumentAttributeKey: input.DocumentAttributeKey }),
+    ...(input.DocumentAttributeKey !== undefined &&
+      input.DocumentAttributeKey !== null && { DocumentAttributeKey: input.DocumentAttributeKey }),
   };
 };
 
 const serializeAws_json1_1FacetList = (input: Facet[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Facet(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Facet(entry, context);
+    });
 };
 
 const serializeAws_json1_1GoogleDriveConfiguration = (
@@ -4027,25 +4215,31 @@ const serializeAws_json1_1GoogleDriveConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExcludeMimeTypes !== undefined && {
-      ExcludeMimeTypes: serializeAws_json1_1ExcludeMimeTypesList(input.ExcludeMimeTypes, context),
-    }),
-    ...(input.ExcludeSharedDrives !== undefined && {
-      ExcludeSharedDrives: serializeAws_json1_1ExcludeSharedDrivesList(input.ExcludeSharedDrives, context),
-    }),
-    ...(input.ExcludeUserAccounts !== undefined && {
-      ExcludeUserAccounts: serializeAws_json1_1ExcludeUserAccountsList(input.ExcludeUserAccounts, context),
-    }),
-    ...(input.ExclusionPatterns !== undefined && {
-      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
-    }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.InclusionPatterns !== undefined && {
-      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
-    }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
+    ...(input.ExcludeMimeTypes !== undefined &&
+      input.ExcludeMimeTypes !== null && {
+        ExcludeMimeTypes: serializeAws_json1_1ExcludeMimeTypesList(input.ExcludeMimeTypes, context),
+      }),
+    ...(input.ExcludeSharedDrives !== undefined &&
+      input.ExcludeSharedDrives !== null && {
+        ExcludeSharedDrives: serializeAws_json1_1ExcludeSharedDrivesList(input.ExcludeSharedDrives, context),
+      }),
+    ...(input.ExcludeUserAccounts !== undefined &&
+      input.ExcludeUserAccounts !== null && {
+        ExcludeUserAccounts: serializeAws_json1_1ExcludeUserAccountsList(input.ExcludeUserAccounts, context),
+      }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
   };
 };
 
@@ -4054,8 +4248,10 @@ const serializeAws_json1_1JsonTokenTypeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupAttributeField !== undefined && { GroupAttributeField: input.GroupAttributeField }),
-    ...(input.UserNameAttributeField !== undefined && { UserNameAttributeField: input.UserNameAttributeField }),
+    ...(input.GroupAttributeField !== undefined &&
+      input.GroupAttributeField !== null && { GroupAttributeField: input.GroupAttributeField }),
+    ...(input.UserNameAttributeField !== undefined &&
+      input.UserNameAttributeField !== null && { UserNameAttributeField: input.UserNameAttributeField }),
   };
 };
 
@@ -4064,21 +4260,24 @@ const serializeAws_json1_1JwtTokenTypeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClaimRegex !== undefined && { ClaimRegex: input.ClaimRegex }),
-    ...(input.GroupAttributeField !== undefined && { GroupAttributeField: input.GroupAttributeField }),
-    ...(input.Issuer !== undefined && { Issuer: input.Issuer }),
-    ...(input.KeyLocation !== undefined && { KeyLocation: input.KeyLocation }),
-    ...(input.SecretManagerArn !== undefined && { SecretManagerArn: input.SecretManagerArn }),
-    ...(input.URL !== undefined && { URL: input.URL }),
-    ...(input.UserNameAttributeField !== undefined && { UserNameAttributeField: input.UserNameAttributeField }),
+    ...(input.ClaimRegex !== undefined && input.ClaimRegex !== null && { ClaimRegex: input.ClaimRegex }),
+    ...(input.GroupAttributeField !== undefined &&
+      input.GroupAttributeField !== null && { GroupAttributeField: input.GroupAttributeField }),
+    ...(input.Issuer !== undefined && input.Issuer !== null && { Issuer: input.Issuer }),
+    ...(input.KeyLocation !== undefined && input.KeyLocation !== null && { KeyLocation: input.KeyLocation }),
+    ...(input.SecretManagerArn !== undefined &&
+      input.SecretManagerArn !== null && { SecretManagerArn: input.SecretManagerArn }),
+    ...(input.URL !== undefined && input.URL !== null && { URL: input.URL }),
+    ...(input.UserNameAttributeField !== undefined &&
+      input.UserNameAttributeField !== null && { UserNameAttributeField: input.UserNameAttributeField }),
   };
 };
 
 const serializeAws_json1_1ListDataSourcesRequest = (input: ListDataSourcesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4087,29 +4286,30 @@ const serializeAws_json1_1ListDataSourceSyncJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StartTimeFilter !== undefined && {
-      StartTimeFilter: serializeAws_json1_1TimeRange(input.StartTimeFilter, context),
-    }),
-    ...(input.StatusFilter !== undefined && { StatusFilter: input.StatusFilter }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StartTimeFilter !== undefined &&
+      input.StartTimeFilter !== null && {
+        StartTimeFilter: serializeAws_json1_1TimeRange(input.StartTimeFilter, context),
+      }),
+    ...(input.StatusFilter !== undefined && input.StatusFilter !== null && { StatusFilter: input.StatusFilter }),
   };
 };
 
 const serializeAws_json1_1ListFaqsRequest = (input: ListFaqsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListIndicesRequest = (input: ListIndicesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -4118,113 +4318,147 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
   };
 };
 
 const serializeAws_json1_1ListThesauriRequest = (input: ListThesauriRequest, context: __SerdeContext): any => {
   return {
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1OneDriveConfiguration = (input: OneDriveConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.DisableLocalGroups !== undefined && { DisableLocalGroups: input.DisableLocalGroups }),
-    ...(input.ExclusionPatterns !== undefined && {
-      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
-    }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.InclusionPatterns !== undefined && {
-      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
-    }),
-    ...(input.OneDriveUsers !== undefined && {
-      OneDriveUsers: serializeAws_json1_1OneDriveUsers(input.OneDriveUsers, context),
-    }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.TenantDomain !== undefined && { TenantDomain: input.TenantDomain }),
+    ...(input.DisableLocalGroups !== undefined &&
+      input.DisableLocalGroups !== null && { DisableLocalGroups: input.DisableLocalGroups }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.OneDriveUsers !== undefined &&
+      input.OneDriveUsers !== null && {
+        OneDriveUsers: serializeAws_json1_1OneDriveUsers(input.OneDriveUsers, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.TenantDomain !== undefined && input.TenantDomain !== null && { TenantDomain: input.TenantDomain }),
   };
 };
 
 const serializeAws_json1_1OneDriveUserList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1OneDriveUsers = (input: OneDriveUsers, context: __SerdeContext): any => {
   return {
-    ...(input.OneDriveUserList !== undefined && {
-      OneDriveUserList: serializeAws_json1_1OneDriveUserList(input.OneDriveUserList, context),
-    }),
-    ...(input.OneDriveUserS3Path !== undefined && {
-      OneDriveUserS3Path: serializeAws_json1_1S3Path(input.OneDriveUserS3Path, context),
-    }),
+    ...(input.OneDriveUserList !== undefined &&
+      input.OneDriveUserList !== null && {
+        OneDriveUserList: serializeAws_json1_1OneDriveUserList(input.OneDriveUserList, context),
+      }),
+    ...(input.OneDriveUserS3Path !== undefined &&
+      input.OneDriveUserS3Path !== null && {
+        OneDriveUserS3Path: serializeAws_json1_1S3Path(input.OneDriveUserS3Path, context),
+      }),
   };
 };
 
 const serializeAws_json1_1Principal = (input: Principal, context: __SerdeContext): any => {
   return {
-    ...(input.Access !== undefined && { Access: input.Access }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Access !== undefined && input.Access !== null && { Access: input.Access }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1PrincipalList = (input: Principal[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Principal(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Principal(entry, context);
+    });
 };
 
 const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AttributeFilter !== undefined && {
-      AttributeFilter: serializeAws_json1_1AttributeFilter(input.AttributeFilter, context),
-    }),
-    ...(input.Facets !== undefined && { Facets: serializeAws_json1_1FacetList(input.Facets, context) }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.PageNumber !== undefined && { PageNumber: input.PageNumber }),
-    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
-    ...(input.QueryResultTypeFilter !== undefined && { QueryResultTypeFilter: input.QueryResultTypeFilter }),
-    ...(input.QueryText !== undefined && { QueryText: input.QueryText }),
-    ...(input.RequestedDocumentAttributes !== undefined && {
-      RequestedDocumentAttributes: serializeAws_json1_1DocumentAttributeKeyList(
-        input.RequestedDocumentAttributes,
-        context
-      ),
-    }),
-    ...(input.SortingConfiguration !== undefined && {
-      SortingConfiguration: serializeAws_json1_1SortingConfiguration(input.SortingConfiguration, context),
-    }),
-    ...(input.UserContext !== undefined && {
-      UserContext: serializeAws_json1_1UserContext(input.UserContext, context),
-    }),
-    ...(input.VisitorId !== undefined && { VisitorId: input.VisitorId }),
+    ...(input.AttributeFilter !== undefined &&
+      input.AttributeFilter !== null && {
+        AttributeFilter: serializeAws_json1_1AttributeFilter(input.AttributeFilter, context),
+      }),
+    ...(input.Facets !== undefined &&
+      input.Facets !== null && { Facets: serializeAws_json1_1FacetList(input.Facets, context) }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.PageNumber !== undefined && input.PageNumber !== null && { PageNumber: input.PageNumber }),
+    ...(input.PageSize !== undefined && input.PageSize !== null && { PageSize: input.PageSize }),
+    ...(input.QueryResultTypeFilter !== undefined &&
+      input.QueryResultTypeFilter !== null && { QueryResultTypeFilter: input.QueryResultTypeFilter }),
+    ...(input.QueryText !== undefined && input.QueryText !== null && { QueryText: input.QueryText }),
+    ...(input.RequestedDocumentAttributes !== undefined &&
+      input.RequestedDocumentAttributes !== null && {
+        RequestedDocumentAttributes: serializeAws_json1_1DocumentAttributeKeyList(
+          input.RequestedDocumentAttributes,
+          context
+        ),
+      }),
+    ...(input.SortingConfiguration !== undefined &&
+      input.SortingConfiguration !== null && {
+        SortingConfiguration: serializeAws_json1_1SortingConfiguration(input.SortingConfiguration, context),
+      }),
+    ...(input.UserContext !== undefined &&
+      input.UserContext !== null && { UserContext: serializeAws_json1_1UserContext(input.UserContext, context) }),
+    ...(input.VisitorId !== undefined && input.VisitorId !== null && { VisitorId: input.VisitorId }),
   };
 };
 
 const serializeAws_json1_1Relevance = (input: Relevance, context: __SerdeContext): any => {
   return {
-    ...(input.Duration !== undefined && { Duration: input.Duration }),
-    ...(input.Freshness !== undefined && { Freshness: input.Freshness }),
-    ...(input.Importance !== undefined && { Importance: input.Importance }),
-    ...(input.RankOrder !== undefined && { RankOrder: input.RankOrder }),
-    ...(input.ValueImportanceMap !== undefined && {
-      ValueImportanceMap: serializeAws_json1_1ValueImportanceMap(input.ValueImportanceMap, context),
-    }),
+    ...(input.Duration !== undefined && input.Duration !== null && { Duration: input.Duration }),
+    ...(input.Freshness !== undefined && input.Freshness !== null && { Freshness: input.Freshness }),
+    ...(input.Importance !== undefined && input.Importance !== null && { Importance: input.Importance }),
+    ...(input.RankOrder !== undefined && input.RankOrder !== null && { RankOrder: input.RankOrder }),
+    ...(input.ValueImportanceMap !== undefined &&
+      input.ValueImportanceMap !== null && {
+        ValueImportanceMap: serializeAws_json1_1ValueImportanceMap(input.ValueImportanceMap, context),
+      }),
   };
 };
 
 const serializeAws_json1_1RelevanceFeedback = (input: RelevanceFeedback, context: __SerdeContext): any => {
   return {
-    ...(input.RelevanceValue !== undefined && { RelevanceValue: input.RelevanceValue }),
-    ...(input.ResultId !== undefined && { ResultId: input.ResultId }),
+    ...(input.RelevanceValue !== undefined &&
+      input.RelevanceValue !== null && { RelevanceValue: input.RelevanceValue }),
+    ...(input.ResultId !== undefined && input.ResultId !== null && { ResultId: input.ResultId }),
   };
 };
 
 const serializeAws_json1_1RelevanceFeedbackList = (input: RelevanceFeedback[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1RelevanceFeedback(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1RelevanceFeedback(entry, context);
+    });
 };
 
 const serializeAws_json1_1S3DataSourceConfiguration = (
@@ -4232,35 +4466,40 @@ const serializeAws_json1_1S3DataSourceConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AccessControlListConfiguration !== undefined && {
-      AccessControlListConfiguration: serializeAws_json1_1AccessControlListConfiguration(
-        input.AccessControlListConfiguration,
-        context
-      ),
-    }),
-    ...(input.BucketName !== undefined && { BucketName: input.BucketName }),
-    ...(input.DocumentsMetadataConfiguration !== undefined && {
-      DocumentsMetadataConfiguration: serializeAws_json1_1DocumentsMetadataConfiguration(
-        input.DocumentsMetadataConfiguration,
-        context
-      ),
-    }),
-    ...(input.ExclusionPatterns !== undefined && {
-      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
-    }),
-    ...(input.InclusionPatterns !== undefined && {
-      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
-    }),
-    ...(input.InclusionPrefixes !== undefined && {
-      InclusionPrefixes: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPrefixes, context),
-    }),
+    ...(input.AccessControlListConfiguration !== undefined &&
+      input.AccessControlListConfiguration !== null && {
+        AccessControlListConfiguration: serializeAws_json1_1AccessControlListConfiguration(
+          input.AccessControlListConfiguration,
+          context
+        ),
+      }),
+    ...(input.BucketName !== undefined && input.BucketName !== null && { BucketName: input.BucketName }),
+    ...(input.DocumentsMetadataConfiguration !== undefined &&
+      input.DocumentsMetadataConfiguration !== null && {
+        DocumentsMetadataConfiguration: serializeAws_json1_1DocumentsMetadataConfiguration(
+          input.DocumentsMetadataConfiguration,
+          context
+        ),
+      }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.InclusionPrefixes !== undefined &&
+      input.InclusionPrefixes !== null && {
+        InclusionPrefixes: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPrefixes, context),
+      }),
   };
 };
 
 const serializeAws_json1_1S3Path = (input: S3Path, context: __SerdeContext): any => {
   return {
-    ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
-    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
   };
 };
 
@@ -4269,17 +4508,21 @@ const serializeAws_json1_1SalesforceChatterFeedConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.IncludeFilterTypes !== undefined && {
-      IncludeFilterTypes: serializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes(
-        input.IncludeFilterTypes,
-        context
-      ),
-    }),
+    ...(input.DocumentDataFieldName !== undefined &&
+      input.DocumentDataFieldName !== null && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.IncludeFilterTypes !== undefined &&
+      input.IncludeFilterTypes !== null && {
+        IncludeFilterTypes: serializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes(
+          input.IncludeFilterTypes,
+          context
+        ),
+      }),
   };
 };
 
@@ -4287,50 +4530,64 @@ const serializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes = (
   input: (SalesforceChatterFeedIncludeFilterType | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SalesforceConfiguration = (input: SalesforceConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ChatterFeedConfiguration !== undefined && {
-      ChatterFeedConfiguration: serializeAws_json1_1SalesforceChatterFeedConfiguration(
-        input.ChatterFeedConfiguration,
-        context
-      ),
-    }),
-    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
-    ...(input.ExcludeAttachmentFilePatterns !== undefined && {
-      ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-        input.ExcludeAttachmentFilePatterns,
-        context
-      ),
-    }),
-    ...(input.IncludeAttachmentFilePatterns !== undefined && {
-      IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-        input.IncludeAttachmentFilePatterns,
-        context
-      ),
-    }),
-    ...(input.KnowledgeArticleConfiguration !== undefined && {
-      KnowledgeArticleConfiguration: serializeAws_json1_1SalesforceKnowledgeArticleConfiguration(
-        input.KnowledgeArticleConfiguration,
-        context
-      ),
-    }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.ServerUrl !== undefined && { ServerUrl: input.ServerUrl }),
-    ...(input.StandardObjectAttachmentConfiguration !== undefined && {
-      StandardObjectAttachmentConfiguration: serializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration(
-        input.StandardObjectAttachmentConfiguration,
-        context
-      ),
-    }),
-    ...(input.StandardObjectConfigurations !== undefined && {
-      StandardObjectConfigurations: serializeAws_json1_1SalesforceStandardObjectConfigurationList(
-        input.StandardObjectConfigurations,
-        context
-      ),
-    }),
+    ...(input.ChatterFeedConfiguration !== undefined &&
+      input.ChatterFeedConfiguration !== null && {
+        ChatterFeedConfiguration: serializeAws_json1_1SalesforceChatterFeedConfiguration(
+          input.ChatterFeedConfiguration,
+          context
+        ),
+      }),
+    ...(input.CrawlAttachments !== undefined &&
+      input.CrawlAttachments !== null && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.ExcludeAttachmentFilePatterns !== undefined &&
+      input.ExcludeAttachmentFilePatterns !== null && {
+        ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.ExcludeAttachmentFilePatterns,
+          context
+        ),
+      }),
+    ...(input.IncludeAttachmentFilePatterns !== undefined &&
+      input.IncludeAttachmentFilePatterns !== null && {
+        IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.IncludeAttachmentFilePatterns,
+          context
+        ),
+      }),
+    ...(input.KnowledgeArticleConfiguration !== undefined &&
+      input.KnowledgeArticleConfiguration !== null && {
+        KnowledgeArticleConfiguration: serializeAws_json1_1SalesforceKnowledgeArticleConfiguration(
+          input.KnowledgeArticleConfiguration,
+          context
+        ),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.ServerUrl !== undefined && input.ServerUrl !== null && { ServerUrl: input.ServerUrl }),
+    ...(input.StandardObjectAttachmentConfiguration !== undefined &&
+      input.StandardObjectAttachmentConfiguration !== null && {
+        StandardObjectAttachmentConfiguration: serializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration(
+          input.StandardObjectAttachmentConfiguration,
+          context
+        ),
+      }),
+    ...(input.StandardObjectConfigurations !== undefined &&
+      input.StandardObjectConfigurations !== null && {
+        StandardObjectConfigurations: serializeAws_json1_1SalesforceStandardObjectConfigurationList(
+          input.StandardObjectConfigurations,
+          context
+        ),
+      }),
   };
 };
 
@@ -4339,12 +4596,15 @@ const serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.DocumentDataFieldName !== undefined &&
+      input.DocumentDataFieldName !== null && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -4352,7 +4612,14 @@ const serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList 
   input: SalesforceCustomKnowledgeArticleTypeConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
@@ -4360,21 +4627,24 @@ const serializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomKnowledgeArticleTypeConfigurations !== undefined && {
-      CustomKnowledgeArticleTypeConfigurations: serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList(
-        input.CustomKnowledgeArticleTypeConfigurations,
-        context
-      ),
-    }),
-    ...(input.IncludedStates !== undefined && {
-      IncludedStates: serializeAws_json1_1SalesforceKnowledgeArticleStateList(input.IncludedStates, context),
-    }),
-    ...(input.StandardKnowledgeArticleTypeConfiguration !== undefined && {
-      StandardKnowledgeArticleTypeConfiguration: serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration(
-        input.StandardKnowledgeArticleTypeConfiguration,
-        context
-      ),
-    }),
+    ...(input.CustomKnowledgeArticleTypeConfigurations !== undefined &&
+      input.CustomKnowledgeArticleTypeConfigurations !== null && {
+        CustomKnowledgeArticleTypeConfigurations: serializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationList(
+          input.CustomKnowledgeArticleTypeConfigurations,
+          context
+        ),
+      }),
+    ...(input.IncludedStates !== undefined &&
+      input.IncludedStates !== null && {
+        IncludedStates: serializeAws_json1_1SalesforceKnowledgeArticleStateList(input.IncludedStates, context),
+      }),
+    ...(input.StandardKnowledgeArticleTypeConfiguration !== undefined &&
+      input.StandardKnowledgeArticleTypeConfiguration !== null && {
+        StandardKnowledgeArticleTypeConfiguration: serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration(
+          input.StandardKnowledgeArticleTypeConfiguration,
+          context
+        ),
+      }),
   };
 };
 
@@ -4382,7 +4652,14 @@ const serializeAws_json1_1SalesforceKnowledgeArticleStateList = (
   input: (SalesforceKnowledgeArticleState | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration = (
@@ -4390,11 +4667,14 @@ const serializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration = 
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
+    ...(input.DocumentDataFieldName !== undefined &&
+      input.DocumentDataFieldName !== null && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
   };
 };
 
@@ -4403,10 +4683,12 @@ const serializeAws_json1_1SalesforceStandardObjectAttachmentConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
   };
 };
 
@@ -4415,12 +4697,15 @@ const serializeAws_json1_1SalesforceStandardObjectConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.DocumentDataFieldName !== undefined &&
+      input.DocumentDataFieldName !== null && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -4428,20 +4713,34 @@ const serializeAws_json1_1SalesforceStandardObjectConfigurationList = (
   input: SalesforceStandardObjectConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1Search = (input: Search, context: __SerdeContext): any => {
   return {
-    ...(input.Displayable !== undefined && { Displayable: input.Displayable }),
-    ...(input.Facetable !== undefined && { Facetable: input.Facetable }),
-    ...(input.Searchable !== undefined && { Searchable: input.Searchable }),
-    ...(input.Sortable !== undefined && { Sortable: input.Sortable }),
+    ...(input.Displayable !== undefined && input.Displayable !== null && { Displayable: input.Displayable }),
+    ...(input.Facetable !== undefined && input.Facetable !== null && { Facetable: input.Facetable }),
+    ...(input.Searchable !== undefined && input.Searchable !== null && { Searchable: input.Searchable }),
+    ...(input.Sortable !== undefined && input.Sortable !== null && { Sortable: input.Sortable }),
   };
 };
 
 const serializeAws_json1_1SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ServerSideEncryptionConfiguration = (
@@ -4449,27 +4748,30 @@ const serializeAws_json1_1ServerSideEncryptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
   };
 };
 
 const serializeAws_json1_1ServiceNowConfiguration = (input: ServiceNowConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.HostUrl !== undefined && { HostUrl: input.HostUrl }),
-    ...(input.KnowledgeArticleConfiguration !== undefined && {
-      KnowledgeArticleConfiguration: serializeAws_json1_1ServiceNowKnowledgeArticleConfiguration(
-        input.KnowledgeArticleConfiguration,
-        context
-      ),
-    }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.ServiceCatalogConfiguration !== undefined && {
-      ServiceCatalogConfiguration: serializeAws_json1_1ServiceNowServiceCatalogConfiguration(
-        input.ServiceCatalogConfiguration,
-        context
-      ),
-    }),
-    ...(input.ServiceNowBuildVersion !== undefined && { ServiceNowBuildVersion: input.ServiceNowBuildVersion }),
+    ...(input.HostUrl !== undefined && input.HostUrl !== null && { HostUrl: input.HostUrl }),
+    ...(input.KnowledgeArticleConfiguration !== undefined &&
+      input.KnowledgeArticleConfiguration !== null && {
+        KnowledgeArticleConfiguration: serializeAws_json1_1ServiceNowKnowledgeArticleConfiguration(
+          input.KnowledgeArticleConfiguration,
+          context
+        ),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.ServiceCatalogConfiguration !== undefined &&
+      input.ServiceCatalogConfiguration !== null && {
+        ServiceCatalogConfiguration: serializeAws_json1_1ServiceNowServiceCatalogConfiguration(
+          input.ServiceCatalogConfiguration,
+          context
+        ),
+      }),
+    ...(input.ServiceNowBuildVersion !== undefined &&
+      input.ServiceNowBuildVersion !== null && { ServiceNowBuildVersion: input.ServiceNowBuildVersion }),
   };
 };
 
@@ -4478,24 +4780,30 @@ const serializeAws_json1_1ServiceNowKnowledgeArticleConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
-    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.ExcludeAttachmentFilePatterns !== undefined && {
-      ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-        input.ExcludeAttachmentFilePatterns,
-        context
-      ),
-    }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.IncludeAttachmentFilePatterns !== undefined && {
-      IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-        input.IncludeAttachmentFilePatterns,
-        context
-      ),
-    }),
+    ...(input.CrawlAttachments !== undefined &&
+      input.CrawlAttachments !== null && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DocumentDataFieldName !== undefined &&
+      input.DocumentDataFieldName !== null && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.ExcludeAttachmentFilePatterns !== undefined &&
+      input.ExcludeAttachmentFilePatterns !== null && {
+        ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.ExcludeAttachmentFilePatterns,
+          context
+        ),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.IncludeAttachmentFilePatterns !== undefined &&
+      input.IncludeAttachmentFilePatterns !== null && {
+        IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.IncludeAttachmentFilePatterns,
+          context
+        ),
+      }),
   };
 };
 
@@ -4504,67 +4812,91 @@ const serializeAws_json1_1ServiceNowServiceCatalogConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
-    ...(input.DocumentDataFieldName !== undefined && { DocumentDataFieldName: input.DocumentDataFieldName }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.ExcludeAttachmentFilePatterns !== undefined && {
-      ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-        input.ExcludeAttachmentFilePatterns,
-        context
-      ),
-    }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.IncludeAttachmentFilePatterns !== undefined && {
-      IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
-        input.IncludeAttachmentFilePatterns,
-        context
-      ),
-    }),
+    ...(input.CrawlAttachments !== undefined &&
+      input.CrawlAttachments !== null && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DocumentDataFieldName !== undefined &&
+      input.DocumentDataFieldName !== null && { DocumentDataFieldName: input.DocumentDataFieldName }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.ExcludeAttachmentFilePatterns !== undefined &&
+      input.ExcludeAttachmentFilePatterns !== null && {
+        ExcludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.ExcludeAttachmentFilePatterns,
+          context
+        ),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.IncludeAttachmentFilePatterns !== undefined &&
+      input.IncludeAttachmentFilePatterns !== null && {
+        IncludeAttachmentFilePatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(
+          input.IncludeAttachmentFilePatterns,
+          context
+        ),
+      }),
   };
 };
 
 const serializeAws_json1_1SharePointConfiguration = (input: SharePointConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.CrawlAttachments !== undefined && { CrawlAttachments: input.CrawlAttachments }),
-    ...(input.DisableLocalGroups !== undefined && { DisableLocalGroups: input.DisableLocalGroups }),
-    ...(input.DocumentTitleFieldName !== undefined && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
-    ...(input.ExclusionPatterns !== undefined && {
-      ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
-    }),
-    ...(input.FieldMappings !== undefined && {
-      FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
-    }),
-    ...(input.InclusionPatterns !== undefined && {
-      InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
-    }),
-    ...(input.SecretArn !== undefined && { SecretArn: input.SecretArn }),
-    ...(input.SharePointVersion !== undefined && { SharePointVersion: input.SharePointVersion }),
-    ...(input.Urls !== undefined && { Urls: serializeAws_json1_1SharePointUrlList(input.Urls, context) }),
-    ...(input.UseChangeLog !== undefined && { UseChangeLog: input.UseChangeLog }),
-    ...(input.VpcConfiguration !== undefined && {
-      VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
-    }),
+    ...(input.CrawlAttachments !== undefined &&
+      input.CrawlAttachments !== null && { CrawlAttachments: input.CrawlAttachments }),
+    ...(input.DisableLocalGroups !== undefined &&
+      input.DisableLocalGroups !== null && { DisableLocalGroups: input.DisableLocalGroups }),
+    ...(input.DocumentTitleFieldName !== undefined &&
+      input.DocumentTitleFieldName !== null && { DocumentTitleFieldName: input.DocumentTitleFieldName }),
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.SharePointVersion !== undefined &&
+      input.SharePointVersion !== null && { SharePointVersion: input.SharePointVersion }),
+    ...(input.Urls !== undefined &&
+      input.Urls !== null && { Urls: serializeAws_json1_1SharePointUrlList(input.Urls, context) }),
+    ...(input.UseChangeLog !== undefined && input.UseChangeLog !== null && { UseChangeLog: input.UseChangeLog }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
   };
 };
 
 const serializeAws_json1_1SharePointUrlList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SortingConfiguration = (input: SortingConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.DocumentAttributeKey !== undefined && { DocumentAttributeKey: input.DocumentAttributeKey }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.DocumentAttributeKey !== undefined &&
+      input.DocumentAttributeKey !== null && { DocumentAttributeKey: input.DocumentAttributeKey }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1SqlConfiguration = (input: SqlConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.QueryIdentifiersEnclosingOption !== undefined && {
-      QueryIdentifiersEnclosingOption: input.QueryIdentifiersEnclosingOption,
-    }),
+    ...(input.QueryIdentifiersEnclosingOption !== undefined &&
+      input.QueryIdentifiersEnclosingOption !== null && {
+        QueryIdentifiersEnclosingOption: input.QueryIdentifiersEnclosingOption,
+      }),
   };
 };
 
@@ -4573,8 +4905,8 @@ const serializeAws_json1_1StartDataSourceSyncJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
@@ -4583,131 +4915,165 @@ const serializeAws_json1_1StopDataSourceSyncJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
   };
 };
 
 const serializeAws_json1_1SubmitFeedbackRequest = (input: SubmitFeedbackRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClickFeedbackItems !== undefined && {
-      ClickFeedbackItems: serializeAws_json1_1ClickFeedbackList(input.ClickFeedbackItems, context),
-    }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.QueryId !== undefined && { QueryId: input.QueryId }),
-    ...(input.RelevanceFeedbackItems !== undefined && {
-      RelevanceFeedbackItems: serializeAws_json1_1RelevanceFeedbackList(input.RelevanceFeedbackItems, context),
-    }),
+    ...(input.ClickFeedbackItems !== undefined &&
+      input.ClickFeedbackItems !== null && {
+        ClickFeedbackItems: serializeAws_json1_1ClickFeedbackList(input.ClickFeedbackItems, context),
+      }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.QueryId !== undefined && input.QueryId !== null && { QueryId: input.QueryId }),
+    ...(input.RelevanceFeedbackItems !== undefined &&
+      input.RelevanceFeedbackItems !== null && {
+        RelevanceFeedbackItems: serializeAws_json1_1RelevanceFeedbackList(input.RelevanceFeedbackItems, context),
+      }),
   };
 };
 
 const serializeAws_json1_1SubnetIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
   return {
-    ...(input.EndTime !== undefined && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
-    ...(input.StartTime !== undefined && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
   };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1UpdateDataSourceRequest = (input: UpdateDataSourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Configuration !== undefined && {
-      Configuration: serializeAws_json1_1DataSourceConfiguration(input.Configuration, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.Schedule !== undefined && { Schedule: input.Schedule }),
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_json1_1DataSourceConfiguration(input.Configuration, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.Schedule !== undefined && input.Schedule !== null && { Schedule: input.Schedule }),
   };
 };
 
 const serializeAws_json1_1UpdateIndexRequest = (input: UpdateIndexRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CapacityUnits !== undefined && {
-      CapacityUnits: serializeAws_json1_1CapacityUnitsConfiguration(input.CapacityUnits, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.DocumentMetadataConfigurationUpdates !== undefined && {
-      DocumentMetadataConfigurationUpdates: serializeAws_json1_1DocumentMetadataConfigurationList(
-        input.DocumentMetadataConfigurationUpdates,
-        context
-      ),
-    }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.UserContextPolicy !== undefined && { UserContextPolicy: input.UserContextPolicy }),
-    ...(input.UserTokenConfigurations !== undefined && {
-      UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
-    }),
+    ...(input.CapacityUnits !== undefined &&
+      input.CapacityUnits !== null && {
+        CapacityUnits: serializeAws_json1_1CapacityUnitsConfiguration(input.CapacityUnits, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DocumentMetadataConfigurationUpdates !== undefined &&
+      input.DocumentMetadataConfigurationUpdates !== null && {
+        DocumentMetadataConfigurationUpdates: serializeAws_json1_1DocumentMetadataConfigurationList(
+          input.DocumentMetadataConfigurationUpdates,
+          context
+        ),
+      }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.UserContextPolicy !== undefined &&
+      input.UserContextPolicy !== null && { UserContextPolicy: input.UserContextPolicy }),
+    ...(input.UserTokenConfigurations !== undefined &&
+      input.UserTokenConfigurations !== null && {
+        UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UpdateThesaurusRequest = (input: UpdateThesaurusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.IndexId !== undefined && { IndexId: input.IndexId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.SourceS3Path !== undefined && { SourceS3Path: serializeAws_json1_1S3Path(input.SourceS3Path, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.SourceS3Path !== undefined &&
+      input.SourceS3Path !== null && { SourceS3Path: serializeAws_json1_1S3Path(input.SourceS3Path, context) }),
   };
 };
 
 const serializeAws_json1_1UserContext = (input: UserContext, context: __SerdeContext): any => {
   return {
-    ...(input.Token !== undefined && { Token: input.Token }),
+    ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
   };
 };
 
 const serializeAws_json1_1UserTokenConfiguration = (input: UserTokenConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.JsonTokenTypeConfiguration !== undefined && {
-      JsonTokenTypeConfiguration: serializeAws_json1_1JsonTokenTypeConfiguration(
-        input.JsonTokenTypeConfiguration,
-        context
-      ),
-    }),
-    ...(input.JwtTokenTypeConfiguration !== undefined && {
-      JwtTokenTypeConfiguration: serializeAws_json1_1JwtTokenTypeConfiguration(
-        input.JwtTokenTypeConfiguration,
-        context
-      ),
-    }),
+    ...(input.JsonTokenTypeConfiguration !== undefined &&
+      input.JsonTokenTypeConfiguration !== null && {
+        JsonTokenTypeConfiguration: serializeAws_json1_1JsonTokenTypeConfiguration(
+          input.JsonTokenTypeConfiguration,
+          context
+        ),
+      }),
+    ...(input.JwtTokenTypeConfiguration !== undefined &&
+      input.JwtTokenTypeConfiguration !== null && {
+        JwtTokenTypeConfiguration: serializeAws_json1_1JwtTokenTypeConfiguration(
+          input.JwtTokenTypeConfiguration,
+          context
+        ),
+      }),
   };
 };
 
@@ -4715,17 +5081,26 @@ const serializeAws_json1_1UserTokenConfigurationList = (
   input: UserTokenConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1UserTokenConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1UserTokenConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1ValueImportanceMap = (input: { [key: string]: number }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1AccessControlListConfiguration = (
@@ -4770,7 +5145,14 @@ const deserializeAws_json1_1AdditionalResultAttributeList = (
   output: any,
   context: __SerdeContext
 ): AdditionalResultAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AdditionalResultAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AdditionalResultAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AdditionalResultAttributeValue = (
@@ -4812,9 +5194,14 @@ const deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocuments = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteDocumentResponseFailedDocument[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchDeleteDocumentResponseFailedDocument(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BatchPutDocumentResponse = (
@@ -4844,9 +5231,14 @@ const deserializeAws_json1_1BatchPutDocumentResponseFailedDocuments = (
   output: any,
   context: __SerdeContext
 ): BatchPutDocumentResponseFailedDocument[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1BatchPutDocumentResponseFailedDocument(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchPutDocumentResponseFailedDocument(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CapacityUnitsConfiguration = (
@@ -4866,7 +5258,14 @@ const deserializeAws_json1_1CapacityUnitsConfiguration = (
 };
 
 const deserializeAws_json1_1ChangeDetectingColumns = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ColumnConfiguration = (output: any, context: __SerdeContext): ColumnConfiguration => {
@@ -4918,9 +5317,14 @@ const deserializeAws_json1_1ConfluenceAttachmentFieldMappingsList = (
   output: any,
   context: __SerdeContext
 ): ConfluenceAttachmentToIndexFieldMapping[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConfluenceAttachmentToIndexFieldMapping = (
@@ -4955,7 +5359,14 @@ const deserializeAws_json1_1ConfluenceBlogFieldMappingsList = (
   output: any,
   context: __SerdeContext
 ): ConfluenceBlogToIndexFieldMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConfluenceBlogToIndexFieldMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConfluenceBlogToIndexFieldMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConfluenceBlogToIndexFieldMapping = (
@@ -5029,7 +5440,14 @@ const deserializeAws_json1_1ConfluencePageFieldMappingsList = (
   output: any,
   context: __SerdeContext
 ): ConfluencePageToIndexFieldMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConfluencePageToIndexFieldMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConfluencePageToIndexFieldMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConfluencePageToIndexFieldMapping = (
@@ -5080,11 +5498,25 @@ const deserializeAws_json1_1ConfluenceSpaceFieldMappingsList = (
   output: any,
   context: __SerdeContext
 ): ConfluenceSpaceToIndexFieldMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConfluenceSpaceToIndexFieldMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConfluenceSpaceToIndexFieldMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConfluenceSpaceList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ConfluenceSpaceToIndexFieldMapping = (
@@ -5219,7 +5651,14 @@ const deserializeAws_json1_1DataSourceInclusionsExclusionsStrings = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DataSourceSummary = (output: any, context: __SerdeContext): DataSourceSummary => {
@@ -5240,7 +5679,14 @@ const deserializeAws_json1_1DataSourceSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1DataSourceSummaryList = (output: any, context: __SerdeContext): DataSourceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataSourceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataSourceSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DataSourceSyncJob = (output: any, context: __SerdeContext): DataSourceSyncJob => {
@@ -5270,7 +5716,14 @@ const deserializeAws_json1_1DataSourceSyncJobHistoryList = (
   output: any,
   context: __SerdeContext
 ): DataSourceSyncJob[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataSourceSyncJob(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataSourceSyncJob(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DataSourceSyncJobMetrics = (
@@ -5313,7 +5766,14 @@ const deserializeAws_json1_1DataSourceToIndexFieldMappingList = (
   output: any,
   context: __SerdeContext
 ): DataSourceToIndexFieldMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataSourceToIndexFieldMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataSourceToIndexFieldMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DataSourceVpcConfiguration = (
@@ -5473,11 +5933,25 @@ const deserializeAws_json1_1DocumentAttribute = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1DocumentAttributeList = (output: any, context: __SerdeContext): DocumentAttribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DocumentAttribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentAttribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DocumentAttributeStringListValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DocumentAttributeValue = (output: any, context: __SerdeContext): DocumentAttributeValue => {
@@ -5521,7 +5995,14 @@ const deserializeAws_json1_1DocumentAttributeValueCountPairList = (
   output: any,
   context: __SerdeContext
 ): DocumentAttributeValueCountPair[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DocumentAttributeValueCountPair(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentAttributeValueCountPair(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DocumentMetadataConfiguration = (
@@ -5546,7 +6027,14 @@ const deserializeAws_json1_1DocumentMetadataConfigurationList = (
   output: any,
   context: __SerdeContext
 ): DocumentMetadataConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DocumentMetadataConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentMetadataConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DocumentsMetadataConfiguration = (
@@ -5559,15 +6047,36 @@ const deserializeAws_json1_1DocumentsMetadataConfiguration = (
 };
 
 const deserializeAws_json1_1ExcludeMimeTypesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ExcludeSharedDrivesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ExcludeUserAccountsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1FacetResult = (output: any, context: __SerdeContext): FacetResult => {
@@ -5588,7 +6097,14 @@ const deserializeAws_json1_1FacetResult = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1FacetResultList = (output: any, context: __SerdeContext): FacetResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FacetResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FacetResult(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FaqStatistics = (output: any, context: __SerdeContext): FaqStatistics => {
@@ -5618,7 +6134,14 @@ const deserializeAws_json1_1FaqSummary = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1FaqSummaryItems = (output: any, context: __SerdeContext): FaqSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FaqSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FaqSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GoogleDriveConfiguration = (
@@ -5664,7 +6187,14 @@ const deserializeAws_json1_1Highlight = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1HighlightList = (output: any, context: __SerdeContext): Highlight[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Highlight(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Highlight(entry, context);
+    });
 };
 
 const deserializeAws_json1_1IndexConfigurationSummary = (
@@ -5691,7 +6221,14 @@ const deserializeAws_json1_1IndexConfigurationSummaryList = (
   output: any,
   context: __SerdeContext
 ): IndexConfigurationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IndexConfigurationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IndexConfigurationSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1IndexStatistics = (output: any, context: __SerdeContext): IndexStatistics => {
@@ -5850,7 +6387,14 @@ const deserializeAws_json1_1OneDriveConfiguration = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1OneDriveUserList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1OneDriveUsers = (output: any, context: __SerdeContext): OneDriveUsers => {
@@ -5916,7 +6460,14 @@ const deserializeAws_json1_1QueryResultItem = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1QueryResultItemList = (output: any, context: __SerdeContext): QueryResultItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1QueryResultItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QueryResultItem(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Relevance = (output: any, context: __SerdeContext): Relevance => {
@@ -6029,7 +6580,14 @@ const deserializeAws_json1_1SalesforceChatterFeedIncludeFilterTypes = (
   output: any,
   context: __SerdeContext
 ): (SalesforceChatterFeedIncludeFilterType | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SalesforceConfiguration = (
@@ -6097,9 +6655,14 @@ const deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfigurationLis
   output: any,
   context: __SerdeContext
 ): SalesforceCustomKnowledgeArticleTypeConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SalesforceCustomKnowledgeArticleTypeConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SalesforceKnowledgeArticleConfiguration = (
@@ -6134,7 +6697,14 @@ const deserializeAws_json1_1SalesforceKnowledgeArticleStateList = (
   output: any,
   context: __SerdeContext
 ): (SalesforceKnowledgeArticleState | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SalesforceStandardKnowledgeArticleTypeConfiguration = (
@@ -6198,9 +6768,14 @@ const deserializeAws_json1_1SalesforceStandardObjectConfigurationList = (
   output: any,
   context: __SerdeContext
 ): SalesforceStandardObjectConfiguration[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SalesforceStandardObjectConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ScoreAttributes = (output: any, context: __SerdeContext): ScoreAttributes => {
@@ -6220,7 +6795,14 @@ const deserializeAws_json1_1Search = (output: any, context: __SerdeContext): Sea
 };
 
 const deserializeAws_json1_1SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ServerSideEncryptionConfiguration = (
@@ -6368,7 +6950,14 @@ const deserializeAws_json1_1SharePointConfiguration = (
 };
 
 const deserializeAws_json1_1SharePointUrlList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SqlConfiguration = (output: any, context: __SerdeContext): SqlConfiguration => {
@@ -6390,7 +6979,14 @@ const deserializeAws_json1_1StartDataSourceSyncJobResponse = (
 };
 
 const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6401,7 +6997,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -6446,7 +7049,14 @@ const deserializeAws_json1_1ThesaurusSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ThesaurusSummaryItems = (output: any, context: __SerdeContext): ThesaurusSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ThesaurusSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ThesaurusSummary(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -6476,7 +7086,14 @@ const deserializeAws_json1_1UserTokenConfigurationList = (
   output: any,
   context: __SerdeContext
 ): UserTokenConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1UserTokenConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1UserTokenConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
@@ -6486,13 +7103,15 @@ const deserializeAws_json1_1ValidationException = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeContext): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -6545,3 +7164,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

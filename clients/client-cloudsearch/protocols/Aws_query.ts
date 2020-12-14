@@ -175,7 +175,7 @@ export const serializeAws_queryBuildSuggestersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -191,7 +191,7 @@ export const serializeAws_queryCreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -207,7 +207,7 @@ export const serializeAws_queryDefineAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -223,7 +223,7 @@ export const serializeAws_queryDefineExpressionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -239,7 +239,7 @@ export const serializeAws_queryDefineIndexFieldCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -255,7 +255,7 @@ export const serializeAws_queryDefineSuggesterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -271,7 +271,7 @@ export const serializeAws_queryDeleteAnalysisSchemeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -287,7 +287,7 @@ export const serializeAws_queryDeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -303,7 +303,7 @@ export const serializeAws_queryDeleteExpressionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -319,7 +319,7 @@ export const serializeAws_queryDeleteIndexFieldCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -335,7 +335,7 @@ export const serializeAws_queryDeleteSuggesterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -351,7 +351,7 @@ export const serializeAws_queryDescribeAnalysisSchemesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -367,7 +367,7 @@ export const serializeAws_queryDescribeAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -383,7 +383,7 @@ export const serializeAws_queryDescribeDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -399,7 +399,7 @@ export const serializeAws_queryDescribeDomainsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -415,7 +415,7 @@ export const serializeAws_queryDescribeExpressionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -431,7 +431,7 @@ export const serializeAws_queryDescribeIndexFieldsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -447,7 +447,7 @@ export const serializeAws_queryDescribeScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -463,7 +463,7 @@ export const serializeAws_queryDescribeServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -479,7 +479,7 @@ export const serializeAws_queryDescribeSuggestersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -495,7 +495,7 @@ export const serializeAws_queryIndexDocumentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -511,7 +511,7 @@ export const serializeAws_queryListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   const body = buildFormUrlencodedString({
     Action: "ListDomainNames",
@@ -525,7 +525,7 @@ export const serializeAws_queryUpdateAvailabilityOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -541,7 +541,7 @@ export const serializeAws_queryUpdateDomainEndpointOptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -557,7 +557,7 @@ export const serializeAws_queryUpdateScalingParametersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -573,7 +573,7 @@ export const serializeAws_queryUpdateServiceAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2717,19 +2717,19 @@ const deserializeAws_queryValidationExceptionResponse = async (
 
 const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Stopwords !== undefined) {
+  if (input.Stopwords !== undefined && input.Stopwords !== null) {
     entries["Stopwords"] = input.Stopwords;
   }
-  if (input.JapaneseTokenizationDictionary !== undefined) {
+  if (input.JapaneseTokenizationDictionary !== undefined && input.JapaneseTokenizationDictionary !== null) {
     entries["JapaneseTokenizationDictionary"] = input.JapaneseTokenizationDictionary;
   }
-  if (input.Synonyms !== undefined) {
+  if (input.Synonyms !== undefined && input.Synonyms !== null) {
     entries["Synonyms"] = input.Synonyms;
   }
-  if (input.AlgorithmicStemming !== undefined) {
+  if (input.AlgorithmicStemming !== undefined && input.AlgorithmicStemming !== null) {
     entries["AlgorithmicStemming"] = input.AlgorithmicStemming;
   }
-  if (input.StemmingDictionary !== undefined) {
+  if (input.StemmingDictionary !== undefined && input.StemmingDictionary !== null) {
     entries["StemmingDictionary"] = input.StemmingDictionary;
   }
   return entries;
@@ -2737,13 +2737,13 @@ const serializeAws_queryAnalysisOptions = (input: AnalysisOptions, context: __Se
 
 const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AnalysisSchemeLanguage !== undefined) {
+  if (input.AnalysisSchemeLanguage !== undefined && input.AnalysisSchemeLanguage !== null) {
     entries["AnalysisSchemeLanguage"] = input.AnalysisSchemeLanguage;
   }
-  if (input.AnalysisSchemeName !== undefined) {
+  if (input.AnalysisSchemeName !== undefined && input.AnalysisSchemeName !== null) {
     entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
   }
-  if (input.AnalysisOptions !== undefined) {
+  if (input.AnalysisOptions !== undefined && input.AnalysisOptions !== null) {
     const memberEntries = serializeAws_queryAnalysisOptions(input.AnalysisOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisOptions.${key}`;
@@ -2755,7 +2755,7 @@ const serializeAws_queryAnalysisScheme = (input: AnalysisScheme, context: __Serd
 
 const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2763,7 +2763,7 @@ const serializeAws_queryBuildSuggestersRequest = (input: BuildSuggestersRequest,
 
 const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2771,19 +2771,19 @@ const serializeAws_queryCreateDomainRequest = (input: CreateDomainRequest, conte
 
 const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.SourceFields !== undefined) {
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
   return entries;
@@ -2791,22 +2791,22 @@ const serializeAws_queryDateArrayOptions = (input: DateArrayOptions, context: __
 
 const serializeAws_queryDateOptions = (input: DateOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.SortEnabled !== undefined) {
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -2817,10 +2817,10 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AnalysisScheme !== undefined) {
+  if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
     const memberEntries = serializeAws_queryAnalysisScheme(input.AnalysisScheme, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisScheme.${key}`;
@@ -2832,10 +2832,10 @@ const serializeAws_queryDefineAnalysisSchemeRequest = (
 
 const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Expression !== undefined) {
+  if (input.Expression !== undefined && input.Expression !== null) {
     const memberEntries = serializeAws_queryExpression(input.Expression, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Expression.${key}`;
@@ -2847,10 +2847,10 @@ const serializeAws_queryDefineExpressionRequest = (input: DefineExpressionReques
 
 const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.IndexField !== undefined) {
+  if (input.IndexField !== undefined && input.IndexField !== null) {
     const memberEntries = serializeAws_queryIndexField(input.IndexField, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IndexField.${key}`;
@@ -2862,10 +2862,10 @@ const serializeAws_queryDefineIndexFieldRequest = (input: DefineIndexFieldReques
 
 const serializeAws_queryDefineSuggesterRequest = (input: DefineSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Suggester !== undefined) {
+  if (input.Suggester !== undefined && input.Suggester !== null) {
     const memberEntries = serializeAws_querySuggester(input.Suggester, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Suggester.${key}`;
@@ -2880,10 +2880,10 @@ const serializeAws_queryDeleteAnalysisSchemeRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AnalysisSchemeName !== undefined) {
+  if (input.AnalysisSchemeName !== undefined && input.AnalysisSchemeName !== null) {
     entries["AnalysisSchemeName"] = input.AnalysisSchemeName;
   }
   return entries;
@@ -2891,7 +2891,7 @@ const serializeAws_queryDeleteAnalysisSchemeRequest = (
 
 const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2899,10 +2899,10 @@ const serializeAws_queryDeleteDomainRequest = (input: DeleteDomainRequest, conte
 
 const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExpressionName !== undefined) {
+  if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
     entries["ExpressionName"] = input.ExpressionName;
   }
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2910,10 +2910,10 @@ const serializeAws_queryDeleteExpressionRequest = (input: DeleteExpressionReques
 
 const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.IndexFieldName !== undefined) {
+  if (input.IndexFieldName !== undefined && input.IndexFieldName !== null) {
     entries["IndexFieldName"] = input.IndexFieldName;
   }
   return entries;
@@ -2921,10 +2921,10 @@ const serializeAws_queryDeleteIndexFieldRequest = (input: DeleteIndexFieldReques
 
 const serializeAws_queryDeleteSuggesterRequest = (input: DeleteSuggesterRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SuggesterName !== undefined) {
+  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
     entries["SuggesterName"] = input.SuggesterName;
   }
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -2935,17 +2935,17 @@ const serializeAws_queryDescribeAnalysisSchemesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.AnalysisSchemeNames !== undefined) {
+  if (input.AnalysisSchemeNames !== undefined && input.AnalysisSchemeNames !== null) {
     const memberEntries = serializeAws_queryStandardNameList(input.AnalysisSchemeNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AnalysisSchemeNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2956,10 +2956,10 @@ const serializeAws_queryDescribeAvailabilityOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2970,10 +2970,10 @@ const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -2981,7 +2981,7 @@ const serializeAws_queryDescribeDomainEndpointOptionsRequest = (
 
 const serializeAws_queryDescribeDomainsRequest = (input: DescribeDomainsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainNames !== undefined) {
+  if (input.DomainNames !== undefined && input.DomainNames !== null) {
     const memberEntries = serializeAws_queryDomainNameList(input.DomainNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainNames.${key}`;
@@ -2996,17 +2996,17 @@ const serializeAws_queryDescribeExpressionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.ExpressionNames !== undefined) {
+  if (input.ExpressionNames !== undefined && input.ExpressionNames !== null) {
     const memberEntries = serializeAws_queryStandardNameList(input.ExpressionNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ExpressionNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -3017,17 +3017,17 @@ const serializeAws_queryDescribeIndexFieldsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.FieldNames !== undefined) {
+  if (input.FieldNames !== undefined && input.FieldNames !== null) {
     const memberEntries = serializeAws_queryDynamicFieldNameList(input.FieldNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `FieldNames.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -3038,7 +3038,7 @@ const serializeAws_queryDescribeScalingParametersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -3049,10 +3049,10 @@ const serializeAws_queryDescribeServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
   return entries;
@@ -3063,13 +3063,13 @@ const serializeAws_queryDescribeSuggestersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.Deployed !== undefined) {
+  if (input.Deployed !== undefined && input.Deployed !== null) {
     entries["Deployed"] = input.Deployed;
   }
-  if (input.SuggesterNames !== undefined) {
+  if (input.SuggesterNames !== undefined && input.SuggesterNames !== null) {
     const memberEntries = serializeAws_queryStandardNameList(input.SuggesterNames, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SuggesterNames.${key}`;
@@ -3081,13 +3081,13 @@ const serializeAws_queryDescribeSuggestersRequest = (
 
 const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.SortExpression !== undefined) {
+  if (input.SortExpression !== undefined && input.SortExpression !== null) {
     entries["SortExpression"] = input.SortExpression;
   }
-  if (input.FuzzyMatching !== undefined) {
+  if (input.FuzzyMatching !== undefined && input.FuzzyMatching !== null) {
     entries["FuzzyMatching"] = input.FuzzyMatching;
   }
   return entries;
@@ -3095,10 +3095,10 @@ const serializeAws_queryDocumentSuggesterOptions = (input: DocumentSuggesterOpti
 
 const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TLSSecurityPolicy !== undefined) {
+  if (input.TLSSecurityPolicy !== undefined && input.TLSSecurityPolicy !== null) {
     entries["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
   }
-  if (input.EnforceHTTPS !== undefined) {
+  if (input.EnforceHTTPS !== undefined && input.EnforceHTTPS !== null) {
     entries["EnforceHTTPS"] = input.EnforceHTTPS;
   }
   return entries;
@@ -3108,6 +3108,9 @@ const serializeAws_queryDomainNameList = (input: string[], context: __SerdeConte
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3116,19 +3119,19 @@ const serializeAws_queryDomainNameList = (input: string[], context: __SerdeConte
 
 const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SourceFields !== undefined) {
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
   }
   return entries;
@@ -3136,22 +3139,22 @@ const serializeAws_queryDoubleArrayOptions = (input: DoubleArrayOptions, context
 
 const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SortEnabled !== undefined) {
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
   return entries;
@@ -3161,6 +3164,9 @@ const serializeAws_queryDynamicFieldNameList = (input: string[], context: __Serd
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3169,10 +3175,10 @@ const serializeAws_queryDynamicFieldNameList = (input: string[], context: __Serd
 
 const serializeAws_queryExpression = (input: Expression, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExpressionValue !== undefined) {
+  if (input.ExpressionValue !== undefined && input.ExpressionValue !== null) {
     entries["ExpressionValue"] = input.ExpressionValue;
   }
-  if (input.ExpressionName !== undefined) {
+  if (input.ExpressionName !== undefined && input.ExpressionName !== null) {
     entries["ExpressionName"] = input.ExpressionName;
   }
   return entries;
@@ -3180,7 +3186,7 @@ const serializeAws_queryExpression = (input: Expression, context: __SerdeContext
 
 const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -3188,83 +3194,83 @@ const serializeAws_queryIndexDocumentsRequest = (input: IndexDocumentsRequest, c
 
 const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IndexFieldType !== undefined) {
+  if (input.IndexFieldType !== undefined && input.IndexFieldType !== null) {
     entries["IndexFieldType"] = input.IndexFieldType;
   }
-  if (input.IntOptions !== undefined) {
+  if (input.IntOptions !== undefined && input.IntOptions !== null) {
     const memberEntries = serializeAws_queryIntOptions(input.IntOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.IntArrayOptions !== undefined) {
+  if (input.IntArrayOptions !== undefined && input.IntArrayOptions !== null) {
     const memberEntries = serializeAws_queryIntArrayOptions(input.IntArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `IntArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TextOptions !== undefined) {
+  if (input.TextOptions !== undefined && input.TextOptions !== null) {
     const memberEntries = serializeAws_queryTextOptions(input.TextOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TextArrayOptions !== undefined) {
+  if (input.TextArrayOptions !== undefined && input.TextArrayOptions !== null) {
     const memberEntries = serializeAws_queryTextArrayOptions(input.TextArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TextArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DateOptions !== undefined) {
+  if (input.DateOptions !== undefined && input.DateOptions !== null) {
     const memberEntries = serializeAws_queryDateOptions(input.DateOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DoubleOptions !== undefined) {
+  if (input.DoubleOptions !== undefined && input.DoubleOptions !== null) {
     const memberEntries = serializeAws_queryDoubleOptions(input.DoubleOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LatLonOptions !== undefined) {
+  if (input.LatLonOptions !== undefined && input.LatLonOptions !== null) {
     const memberEntries = serializeAws_queryLatLonOptions(input.LatLonOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LatLonOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.IndexFieldName !== undefined) {
+  if (input.IndexFieldName !== undefined && input.IndexFieldName !== null) {
     entries["IndexFieldName"] = input.IndexFieldName;
   }
-  if (input.DoubleArrayOptions !== undefined) {
+  if (input.DoubleArrayOptions !== undefined && input.DoubleArrayOptions !== null) {
     const memberEntries = serializeAws_queryDoubleArrayOptions(input.DoubleArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DoubleArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LiteralOptions !== undefined) {
+  if (input.LiteralOptions !== undefined && input.LiteralOptions !== null) {
     const memberEntries = serializeAws_queryLiteralOptions(input.LiteralOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DateArrayOptions !== undefined) {
+  if (input.DateArrayOptions !== undefined && input.DateArrayOptions !== null) {
     const memberEntries = serializeAws_queryDateArrayOptions(input.DateArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DateArrayOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.LiteralArrayOptions !== undefined) {
+  if (input.LiteralArrayOptions !== undefined && input.LiteralArrayOptions !== null) {
     const memberEntries = serializeAws_queryLiteralArrayOptions(input.LiteralArrayOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LiteralArrayOptions.${key}`;
@@ -3276,19 +3282,19 @@ const serializeAws_queryIndexField = (input: IndexField, context: __SerdeContext
 
 const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.SourceFields !== undefined) {
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -3296,22 +3302,22 @@ const serializeAws_queryIntArrayOptions = (input: IntArrayOptions, context: __Se
 
 const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SortEnabled !== undefined) {
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
   return entries;
@@ -3319,22 +3325,22 @@ const serializeAws_queryIntOptions = (input: IntOptions, context: __SerdeContext
 
 const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SortEnabled !== undefined) {
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -3342,19 +3348,19 @@ const serializeAws_queryLatLonOptions = (input: LatLonOptions, context: __SerdeC
 
 const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.SourceFields !== undefined) {
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
   return entries;
@@ -3362,22 +3368,22 @@ const serializeAws_queryLiteralArrayOptions = (input: LiteralArrayOptions, conte
 
 const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SortEnabled !== undefined) {
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
-  if (input.FacetEnabled !== undefined) {
+  if (input.FacetEnabled !== undefined && input.FacetEnabled !== null) {
     entries["FacetEnabled"] = input.FacetEnabled;
   }
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.SearchEnabled !== undefined) {
+  if (input.SearchEnabled !== undefined && input.SearchEnabled !== null) {
     entries["SearchEnabled"] = input.SearchEnabled;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
   return entries;
@@ -3385,13 +3391,13 @@ const serializeAws_queryLiteralOptions = (input: LiteralOptions, context: __Serd
 
 const serializeAws_queryScalingParameters = (input: ScalingParameters, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DesiredReplicationCount !== undefined) {
+  if (input.DesiredReplicationCount !== undefined && input.DesiredReplicationCount !== null) {
     entries["DesiredReplicationCount"] = input.DesiredReplicationCount;
   }
-  if (input.DesiredInstanceType !== undefined) {
+  if (input.DesiredInstanceType !== undefined && input.DesiredInstanceType !== null) {
     entries["DesiredInstanceType"] = input.DesiredInstanceType;
   }
-  if (input.DesiredPartitionCount !== undefined) {
+  if (input.DesiredPartitionCount !== undefined && input.DesiredPartitionCount !== null) {
     entries["DesiredPartitionCount"] = input.DesiredPartitionCount;
   }
   return entries;
@@ -3401,6 +3407,9 @@ const serializeAws_queryStandardNameList = (input: string[], context: __SerdeCon
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3409,14 +3418,14 @@ const serializeAws_queryStandardNameList = (input: string[], context: __SerdeCon
 
 const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DocumentSuggesterOptions !== undefined) {
+  if (input.DocumentSuggesterOptions !== undefined && input.DocumentSuggesterOptions !== null) {
     const memberEntries = serializeAws_queryDocumentSuggesterOptions(input.DocumentSuggesterOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DocumentSuggesterOptions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.SuggesterName !== undefined) {
+  if (input.SuggesterName !== undefined && input.SuggesterName !== null) {
     entries["SuggesterName"] = input.SuggesterName;
   }
   return entries;
@@ -3424,19 +3433,19 @@ const serializeAws_querySuggester = (input: Suggester, context: __SerdeContext):
 
 const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.HighlightEnabled !== undefined) {
+  if (input.HighlightEnabled !== undefined && input.HighlightEnabled !== null) {
     entries["HighlightEnabled"] = input.HighlightEnabled;
   }
-  if (input.AnalysisScheme !== undefined) {
+  if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
   }
-  if (input.SourceFields !== undefined) {
+  if (input.SourceFields !== undefined && input.SourceFields !== null) {
     entries["SourceFields"] = input.SourceFields;
   }
   return entries;
@@ -3444,22 +3453,22 @@ const serializeAws_queryTextArrayOptions = (input: TextArrayOptions, context: __
 
 const serializeAws_queryTextOptions = (input: TextOptions, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DefaultValue !== undefined) {
+  if (input.DefaultValue !== undefined && input.DefaultValue !== null) {
     entries["DefaultValue"] = input.DefaultValue;
   }
-  if (input.ReturnEnabled !== undefined) {
+  if (input.ReturnEnabled !== undefined && input.ReturnEnabled !== null) {
     entries["ReturnEnabled"] = input.ReturnEnabled;
   }
-  if (input.HighlightEnabled !== undefined) {
+  if (input.HighlightEnabled !== undefined && input.HighlightEnabled !== null) {
     entries["HighlightEnabled"] = input.HighlightEnabled;
   }
-  if (input.SourceField !== undefined) {
+  if (input.SourceField !== undefined && input.SourceField !== null) {
     entries["SourceField"] = input.SourceField;
   }
-  if (input.AnalysisScheme !== undefined) {
+  if (input.AnalysisScheme !== undefined && input.AnalysisScheme !== null) {
     entries["AnalysisScheme"] = input.AnalysisScheme;
   }
-  if (input.SortEnabled !== undefined) {
+  if (input.SortEnabled !== undefined && input.SortEnabled !== null) {
     entries["SortEnabled"] = input.SortEnabled;
   }
   return entries;
@@ -3470,10 +3479,10 @@ const serializeAws_queryUpdateAvailabilityOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.MultiAZ !== undefined) {
+  if (input.MultiAZ !== undefined && input.MultiAZ !== null) {
     entries["MultiAZ"] = input.MultiAZ;
   }
   return entries;
@@ -3484,10 +3493,10 @@ const serializeAws_queryUpdateDomainEndpointOptionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
-  if (input.DomainEndpointOptions !== undefined) {
+  if (input.DomainEndpointOptions !== undefined && input.DomainEndpointOptions !== null) {
     const memberEntries = serializeAws_queryDomainEndpointOptions(input.DomainEndpointOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DomainEndpointOptions.${key}`;
@@ -3502,14 +3511,14 @@ const serializeAws_queryUpdateScalingParametersRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ScalingParameters !== undefined) {
+  if (input.ScalingParameters !== undefined && input.ScalingParameters !== null) {
     const memberEntries = serializeAws_queryScalingParameters(input.ScalingParameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ScalingParameters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -3520,10 +3529,10 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AccessPolicies !== undefined) {
+  if (input.AccessPolicies !== undefined && input.AccessPolicies !== null) {
     entries["AccessPolicies"] = input.AccessPolicies;
   }
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     entries["DomainName"] = input.DomainName;
   }
   return entries;
@@ -3602,7 +3611,14 @@ const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryAnalysisSchemeStatusList = (output: any, context: __SerdeContext): AnalysisSchemeStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAnalysisSchemeStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAnalysisSchemeStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryAvailabilityOptionsStatus = (
@@ -4046,13 +4062,15 @@ const deserializeAws_queryDomainEndpointOptionsStatus = (
 };
 
 const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
@@ -4114,7 +4132,14 @@ const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeContext): DomainStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryDomainStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryDomainStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
@@ -4202,11 +4227,25 @@ const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryExpressionStatusList = (output: any, context: __SerdeContext): ExpressionStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryExpressionStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryExpressionStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
@@ -4298,7 +4337,14 @@ const deserializeAws_queryIndexFieldStatus = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeContext): IndexFieldStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryIndexFieldStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryIndexFieldStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
@@ -4632,7 +4678,14 @@ const deserializeAws_querySuggesterStatus = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeContext): SuggesterStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySuggesterStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySuggesterStatus(entry, context);
+    });
 };
 
 const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {

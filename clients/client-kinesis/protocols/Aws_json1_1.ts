@@ -155,7 +155,7 @@ export const serializeAws_json1_1AddTagsToStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.AddTagsToStream",
   };
   let body: any;
@@ -168,7 +168,7 @@ export const serializeAws_json1_1CreateStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.CreateStream",
   };
   let body: any;
@@ -181,7 +181,7 @@ export const serializeAws_json1_1DecreaseStreamRetentionPeriodCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DecreaseStreamRetentionPeriod",
   };
   let body: any;
@@ -194,7 +194,7 @@ export const serializeAws_json1_1DeleteStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DeleteStream",
   };
   let body: any;
@@ -207,7 +207,7 @@ export const serializeAws_json1_1DeregisterStreamConsumerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DeregisterStreamConsumer",
   };
   let body: any;
@@ -220,7 +220,7 @@ export const serializeAws_json1_1DescribeLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DescribeLimits",
   };
   let body: any;
@@ -233,7 +233,7 @@ export const serializeAws_json1_1DescribeStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DescribeStream",
   };
   let body: any;
@@ -246,7 +246,7 @@ export const serializeAws_json1_1DescribeStreamConsumerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DescribeStreamConsumer",
   };
   let body: any;
@@ -259,7 +259,7 @@ export const serializeAws_json1_1DescribeStreamSummaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DescribeStreamSummary",
   };
   let body: any;
@@ -272,7 +272,7 @@ export const serializeAws_json1_1DisableEnhancedMonitoringCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.DisableEnhancedMonitoring",
   };
   let body: any;
@@ -285,7 +285,7 @@ export const serializeAws_json1_1EnableEnhancedMonitoringCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.EnableEnhancedMonitoring",
   };
   let body: any;
@@ -298,7 +298,7 @@ export const serializeAws_json1_1GetRecordsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.GetRecords",
   };
   let body: any;
@@ -311,7 +311,7 @@ export const serializeAws_json1_1GetShardIteratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.GetShardIterator",
   };
   let body: any;
@@ -324,7 +324,7 @@ export const serializeAws_json1_1IncreaseStreamRetentionPeriodCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.IncreaseStreamRetentionPeriod",
   };
   let body: any;
@@ -337,7 +337,7 @@ export const serializeAws_json1_1ListShardsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.ListShards",
   };
   let body: any;
@@ -350,7 +350,7 @@ export const serializeAws_json1_1ListStreamConsumersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.ListStreamConsumers",
   };
   let body: any;
@@ -363,7 +363,7 @@ export const serializeAws_json1_1ListStreamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.ListStreams",
   };
   let body: any;
@@ -376,7 +376,7 @@ export const serializeAws_json1_1ListTagsForStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.ListTagsForStream",
   };
   let body: any;
@@ -389,7 +389,7 @@ export const serializeAws_json1_1MergeShardsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.MergeShards",
   };
   let body: any;
@@ -402,7 +402,7 @@ export const serializeAws_json1_1PutRecordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.PutRecord",
   };
   let body: any;
@@ -415,7 +415,7 @@ export const serializeAws_json1_1PutRecordsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.PutRecords",
   };
   let body: any;
@@ -428,7 +428,7 @@ export const serializeAws_json1_1RegisterStreamConsumerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.RegisterStreamConsumer",
   };
   let body: any;
@@ -441,7 +441,7 @@ export const serializeAws_json1_1RemoveTagsFromStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.RemoveTagsFromStream",
   };
   let body: any;
@@ -454,7 +454,7 @@ export const serializeAws_json1_1SplitShardCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.SplitShard",
   };
   let body: any;
@@ -467,7 +467,7 @@ export const serializeAws_json1_1StartStreamEncryptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.StartStreamEncryption",
   };
   let body: any;
@@ -480,7 +480,7 @@ export const serializeAws_json1_1StopStreamEncryptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.StopStreamEncryption",
   };
   let body: any;
@@ -493,7 +493,7 @@ export const serializeAws_json1_1SubscribeToShardCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.SubscribeToShard",
   };
   let body: any;
@@ -506,7 +506,7 @@ export const serializeAws_json1_1UpdateShardCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Kinesis_20131202.UpdateShardCount",
   };
   let body: any;
@@ -538,8 +538,7 @@ const deserializeAws_json1_1AddTagsToStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -614,8 +613,7 @@ const deserializeAws_json1_1CreateStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -682,8 +680,7 @@ const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -758,8 +755,7 @@ const deserializeAws_json1_1DeleteStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
@@ -826,8 +822,7 @@ const deserializeAws_json1_1DeregisterStreamConsumerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -897,8 +892,7 @@ const deserializeAws_json1_1DescribeLimitsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
@@ -952,8 +946,7 @@ const deserializeAws_json1_1DescribeStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
@@ -1015,8 +1008,7 @@ const deserializeAws_json1_1DescribeStreamConsumerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1086,8 +1078,7 @@ const deserializeAws_json1_1DescribeStreamSummaryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
@@ -1149,8 +1140,7 @@ const deserializeAws_json1_1DisableEnhancedMonitoringCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1228,8 +1218,7 @@ const deserializeAws_json1_1EnableEnhancedMonitoringCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1307,8 +1296,7 @@ const deserializeAws_json1_1GetRecordsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredIteratorException":
     case "com.amazonaws.kinesis#ExpiredIteratorException":
@@ -1434,8 +1422,7 @@ const deserializeAws_json1_1GetShardIteratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1502,8 +1489,7 @@ const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1581,8 +1567,7 @@ const deserializeAws_json1_1ListShardsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.kinesis#ExpiredNextTokenException":
@@ -1668,8 +1653,7 @@ const deserializeAws_json1_1ListStreamConsumersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.kinesis#ExpiredNextTokenException":
@@ -1755,8 +1739,7 @@ const deserializeAws_json1_1ListStreamsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis#LimitExceededException":
@@ -1810,8 +1793,7 @@ const deserializeAws_json1_1ListTagsForStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1878,8 +1860,7 @@ const deserializeAws_json1_1MergeShardsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -1957,8 +1938,7 @@ const deserializeAws_json1_1PutRecordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2076,8 +2056,7 @@ const deserializeAws_json1_1PutRecordsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2195,8 +2174,7 @@ const deserializeAws_json1_1RegisterStreamConsumerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2271,8 +2249,7 @@ const deserializeAws_json1_1RemoveTagsFromStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2347,8 +2324,7 @@ const deserializeAws_json1_1SplitShardCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2423,8 +2399,7 @@ const deserializeAws_json1_1StartStreamEncryptionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2547,8 +2522,7 @@ const deserializeAws_json1_1StopStreamEncryptionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2626,8 +2600,7 @@ const deserializeAws_json1_1SubscribeToShardCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2705,8 +2678,7 @@ const deserializeAws_json1_1UpdateShardCountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
@@ -2954,15 +2926,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsToStreamInput = (input: AddTagsToStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagMap(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateStreamInput = (input: CreateStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ShardCount !== undefined && { ShardCount: input.ShardCount }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ShardCount !== undefined && input.ShardCount !== null && { ShardCount: input.ShardCount }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2971,15 +2943,17 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionPeriodHours !== undefined && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.RetentionPeriodHours !== undefined &&
+      input.RetentionPeriodHours !== null && { RetentionPeriodHours: input.RetentionPeriodHours }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1DeleteStreamInput = (input: DeleteStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.EnforceConsumerDeletion !== undefined && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.EnforceConsumerDeletion !== undefined &&
+      input.EnforceConsumerDeletion !== null && { EnforceConsumerDeletion: input.EnforceConsumerDeletion }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -2988,9 +2962,9 @@ const serializeAws_json1_1DeregisterStreamConsumerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConsumerARN !== undefined && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ConsumerName !== undefined && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.ConsumerARN !== undefined && input.ConsumerARN !== null && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ConsumerName !== undefined && input.ConsumerName !== null && { ConsumerName: input.ConsumerName }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
   };
 };
 
@@ -3003,17 +2977,18 @@ const serializeAws_json1_1DescribeStreamConsumerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConsumerARN !== undefined && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ConsumerName !== undefined && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.ConsumerARN !== undefined && input.ConsumerARN !== null && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ConsumerName !== undefined && input.ConsumerName !== null && { ConsumerName: input.ConsumerName }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
   };
 };
 
 const serializeAws_json1_1DescribeStreamInput = (input: DescribeStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId !== undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ExclusiveStartShardId !== undefined &&
+      input.ExclusiveStartShardId !== null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -3022,7 +2997,7 @@ const serializeAws_json1_1DescribeStreamSummaryInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -3031,10 +3006,11 @@ const serializeAws_json1_1DisableEnhancedMonitoringInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ShardLevelMetrics !== undefined && {
-      ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
-    }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ShardLevelMetrics !== undefined &&
+      input.ShardLevelMetrics !== null && {
+        ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
+      }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -3043,27 +3019,31 @@ const serializeAws_json1_1EnableEnhancedMonitoringInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ShardLevelMetrics !== undefined && {
-      ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
-    }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ShardLevelMetrics !== undefined &&
+      input.ShardLevelMetrics !== null && {
+        ShardLevelMetrics: serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context),
+      }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1GetRecordsInput = (input: GetRecordsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.ShardIterator !== undefined && { ShardIterator: input.ShardIterator }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.ShardIterator !== undefined && input.ShardIterator !== null && { ShardIterator: input.ShardIterator }),
   };
 };
 
 const serializeAws_json1_1GetShardIteratorInput = (input: GetShardIteratorInput, context: __SerdeContext): any => {
   return {
-    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
-    ...(input.ShardIteratorType !== undefined && { ShardIteratorType: input.ShardIteratorType }),
-    ...(input.StartingSequenceNumber !== undefined && { StartingSequenceNumber: input.StartingSequenceNumber }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
+    ...(input.ShardIteratorType !== undefined &&
+      input.ShardIteratorType !== null && { ShardIteratorType: input.ShardIteratorType }),
+    ...(input.StartingSequenceNumber !== undefined &&
+      input.StartingSequenceNumber !== null && { StartingSequenceNumber: input.StartingSequenceNumber }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
   };
 };
 
@@ -3072,23 +3052,25 @@ const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RetentionPeriodHours !== undefined && { RetentionPeriodHours: input.RetentionPeriodHours }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.RetentionPeriodHours !== undefined &&
+      input.RetentionPeriodHours !== null && { RetentionPeriodHours: input.RetentionPeriodHours }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartShardId !== undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ShardFilter !== undefined && {
-      ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context),
-    }),
-    ...(input.StreamCreationTimestamp !== undefined && {
-      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-    }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ExclusiveStartShardId !== undefined &&
+      input.ExclusiveStartShardId !== null && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ShardFilter !== undefined &&
+      input.ShardFilter !== null && { ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context) }),
+    ...(input.StreamCreationTimestamp !== undefined &&
+      input.StreamCreationTimestamp !== null && {
+        StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
+      }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -3097,68 +3079,79 @@ const serializeAws_json1_1ListStreamConsumersInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
-    ...(input.StreamCreationTimestamp !== undefined && {
-      StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
-    }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
+    ...(input.StreamCreationTimestamp !== undefined &&
+      input.StreamCreationTimestamp !== null && {
+        StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
+      }),
   };
 };
 
 const serializeAws_json1_1ListStreamsInput = (input: ListStreamsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartStreamName !== undefined && { ExclusiveStartStreamName: input.ExclusiveStartStreamName }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.ExclusiveStartStreamName !== undefined &&
+      input.ExclusiveStartStreamName !== null && { ExclusiveStartStreamName: input.ExclusiveStartStreamName }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
   };
 };
 
 const serializeAws_json1_1ListTagsForStreamInput = (input: ListTagsForStreamInput, context: __SerdeContext): any => {
   return {
-    ...(input.ExclusiveStartTagKey !== undefined && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.ExclusiveStartTagKey !== undefined &&
+      input.ExclusiveStartTagKey !== null && { ExclusiveStartTagKey: input.ExclusiveStartTagKey }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1MergeShardsInput = (input: MergeShardsInput, context: __SerdeContext): any => {
   return {
-    ...(input.AdjacentShardToMerge !== undefined && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
-    ...(input.ShardToMerge !== undefined && { ShardToMerge: input.ShardToMerge }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.AdjacentShardToMerge !== undefined &&
+      input.AdjacentShardToMerge !== null && { AdjacentShardToMerge: input.AdjacentShardToMerge }),
+    ...(input.ShardToMerge !== undefined && input.ShardToMerge !== null && { ShardToMerge: input.ShardToMerge }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1MetricsNameList = (input: (MetricsName | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PutRecordInput = (input: PutRecordInput, context: __SerdeContext): any => {
   return {
-    ...(input.Data !== undefined && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey !== undefined && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey !== undefined && { PartitionKey: input.PartitionKey }),
-    ...(input.SequenceNumberForOrdering !== undefined && {
-      SequenceNumberForOrdering: input.SequenceNumberForOrdering,
-    }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
+    ...(input.ExplicitHashKey !== undefined &&
+      input.ExplicitHashKey !== null && { ExplicitHashKey: input.ExplicitHashKey }),
+    ...(input.PartitionKey !== undefined && input.PartitionKey !== null && { PartitionKey: input.PartitionKey }),
+    ...(input.SequenceNumberForOrdering !== undefined &&
+      input.SequenceNumberForOrdering !== null && { SequenceNumberForOrdering: input.SequenceNumberForOrdering }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1PutRecordsInput = (input: PutRecordsInput, context: __SerdeContext): any => {
   return {
-    ...(input.Records !== undefined && {
-      Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context),
-    }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Records !== undefined &&
+      input.Records !== null && { Records: serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context) }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1PutRecordsRequestEntry = (input: PutRecordsRequestEntry, context: __SerdeContext): any => {
   return {
-    ...(input.Data !== undefined && { Data: context.base64Encoder(input.Data) }),
-    ...(input.ExplicitHashKey !== undefined && { ExplicitHashKey: input.ExplicitHashKey }),
-    ...(input.PartitionKey !== undefined && { PartitionKey: input.PartitionKey }),
+    ...(input.Data !== undefined && input.Data !== null && { Data: context.base64Encoder(input.Data) }),
+    ...(input.ExplicitHashKey !== undefined &&
+      input.ExplicitHashKey !== null && { ExplicitHashKey: input.ExplicitHashKey }),
+    ...(input.PartitionKey !== undefined && input.PartitionKey !== null && { PartitionKey: input.PartitionKey }),
   };
 };
 
@@ -3166,7 +3159,14 @@ const serializeAws_json1_1PutRecordsRequestEntryList = (
   input: PutRecordsRequestEntry[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1PutRecordsRequestEntry(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PutRecordsRequestEntry(entry, context);
+    });
 };
 
 const serializeAws_json1_1RegisterStreamConsumerInput = (
@@ -3174,8 +3174,8 @@ const serializeAws_json1_1RegisterStreamConsumerInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConsumerName !== undefined && { ConsumerName: input.ConsumerName }),
-    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.ConsumerName !== undefined && input.ConsumerName !== null && { ConsumerName: input.ConsumerName }),
+    ...(input.StreamARN !== undefined && input.StreamARN !== null && { StreamARN: input.StreamARN }),
   };
 };
 
@@ -3184,32 +3184,37 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
 const serializeAws_json1_1ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
   return {
-    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
-    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __SerdeContext): any => {
   return {
-    ...(input.NewStartingHashKey !== undefined && { NewStartingHashKey: input.NewStartingHashKey }),
-    ...(input.ShardToSplit !== undefined && { ShardToSplit: input.ShardToSplit }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.NewStartingHashKey !== undefined &&
+      input.NewStartingHashKey !== null && { NewStartingHashKey: input.NewStartingHashKey }),
+    ...(input.ShardToSplit !== undefined && input.ShardToSplit !== null && { ShardToSplit: input.ShardToSplit }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1StartingPosition = (input: StartingPosition, context: __SerdeContext): any => {
   return {
-    ...(input.SequenceNumber !== undefined && { SequenceNumber: input.SequenceNumber }),
-    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.SequenceNumber !== undefined &&
+      input.SequenceNumber !== null && { SequenceNumber: input.SequenceNumber }),
+    ...(input.Timestamp !== undefined &&
+      input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -3218,9 +3223,10 @@ const serializeAws_json1_1StartStreamEncryptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionType !== undefined && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.EncryptionType !== undefined &&
+      input.EncryptionType !== null && { EncryptionType: input.EncryptionType }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
@@ -3229,41 +3235,53 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EncryptionType !== undefined && { EncryptionType: input.EncryptionType }),
-    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.EncryptionType !== undefined &&
+      input.EncryptionType !== null && { EncryptionType: input.EncryptionType }),
+    ...(input.KeyId !== undefined && input.KeyId !== null && { KeyId: input.KeyId }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
   };
 };
 
 const serializeAws_json1_1SubscribeToShardInput = (input: SubscribeToShardInput, context: __SerdeContext): any => {
   return {
-    ...(input.ConsumerARN !== undefined && { ConsumerARN: input.ConsumerARN }),
-    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
-    ...(input.StartingPosition !== undefined && {
-      StartingPosition: serializeAws_json1_1StartingPosition(input.StartingPosition, context),
-    }),
+    ...(input.ConsumerARN !== undefined && input.ConsumerARN !== null && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ShardId !== undefined && input.ShardId !== null && { ShardId: input.ShardId }),
+    ...(input.StartingPosition !== undefined &&
+      input.StartingPosition !== null && {
+        StartingPosition: serializeAws_json1_1StartingPosition(input.StartingPosition, context),
+      }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput, context: __SerdeContext): any => {
   return {
-    ...(input.ScalingType !== undefined && { ScalingType: input.ScalingType }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.TargetShardCount !== undefined && { TargetShardCount: input.TargetShardCount }),
+    ...(input.ScalingType !== undefined && input.ScalingType !== null && { ScalingType: input.ScalingType }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.TargetShardCount !== undefined &&
+      input.TargetShardCount !== null && { TargetShardCount: input.TargetShardCount }),
   };
 };
 
@@ -3282,7 +3300,14 @@ const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1ChildShardList = (output: any, context: __SerdeContext): ChildShard[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ChildShard(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ChildShard(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Consumer = (output: any, context: __SerdeContext): Consumer => {
@@ -3313,7 +3338,14 @@ const deserializeAws_json1_1ConsumerDescription = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1ConsumerList = (output: any, context: __SerdeContext): Consumer[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Consumer(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Consumer(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
@@ -3367,7 +3399,14 @@ const deserializeAws_json1_1EnhancedMetrics = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1EnhancedMonitoringList = (output: any, context: __SerdeContext): EnhancedMetrics[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EnhancedMetrics(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EnhancedMetrics(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EnhancedMonitoringOutput = (
@@ -3556,7 +3595,14 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
 };
 
 const deserializeAws_json1_1MetricsNameList = (output: any, context: __SerdeContext): (MetricsName | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
@@ -3607,7 +3653,14 @@ const deserializeAws_json1_1PutRecordsResultEntryList = (
   output: any,
   context: __SerdeContext
 ): PutRecordsResultEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PutRecordsResultEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PutRecordsResultEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1_Record = (output: any, context: __SerdeContext): _Record => {
@@ -3626,7 +3679,14 @@ const deserializeAws_json1_1_Record = (output: any, context: __SerdeContext): _R
 };
 
 const deserializeAws_json1_1RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1_Record(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1_Record(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RegisterStreamConsumerOutput = (
@@ -3690,11 +3750,25 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
 };
 
 const deserializeAws_json1_1ShardIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): Shard[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Shard(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Shard(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StreamDescription = (output: any, context: __SerdeContext): StreamDescription => {
@@ -3757,7 +3831,14 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
 };
 
 const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
@@ -3867,7 +3948,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UpdateShardCountOutput = (output: any, context: __SerdeContext): UpdateShardCountOutput => {
@@ -3932,3 +4020,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

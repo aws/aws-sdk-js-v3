@@ -26,15 +26,15 @@ export const serializeAws_restJson1GetIceServerConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/get-ice-server-config";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
-    ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
-    ...(input.Service !== undefined && { Service: input.Service }),
-    ...(input.Username !== undefined && { Username: input.Username }),
+    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
+    ...(input.ClientId !== undefined && input.ClientId !== null && { ClientId: input.ClientId }),
+    ...(input.Service !== undefined && input.Service !== null && { Service: input.Service }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -53,14 +53,16 @@ export const serializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/send-alexa-offer-to-master";
   let body: any;
   body = JSON.stringify({
-    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
-    ...(input.MessagePayload !== undefined && { MessagePayload: input.MessagePayload }),
-    ...(input.SenderClientId !== undefined && { SenderClientId: input.SenderClientId }),
+    ...(input.ChannelARN !== undefined && input.ChannelARN !== null && { ChannelARN: input.ChannelARN }),
+    ...(input.MessagePayload !== undefined &&
+      input.MessagePayload !== null && { MessagePayload: input.MessagePayload }),
+    ...(input.SenderClientId !== undefined &&
+      input.SenderClientId !== null && { SenderClientId: input.SenderClientId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -363,11 +365,25 @@ const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1IceServerList = (output: any, context: __SerdeContext): IceServer[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1IceServer(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1IceServer(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -390,6 +406,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

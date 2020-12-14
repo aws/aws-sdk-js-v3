@@ -39,7 +39,7 @@ export const serializeAws_json1_0CancelQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "Timestream_20181101.CancelQuery",
   };
   let body: any;
@@ -52,7 +52,7 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "Timestream_20181101.DescribeEndpoints",
   };
   let body: any;
@@ -65,7 +65,7 @@ export const serializeAws_json1_0QueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "Timestream_20181101.Query",
   };
   let body: any;
@@ -100,8 +100,7 @@ const deserializeAws_json1_0CancelQueryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
@@ -187,8 +186,7 @@ const deserializeAws_json1_0DescribeEndpointsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.timestreamquery#InternalServerException":
@@ -258,8 +256,7 @@ const deserializeAws_json1_0QueryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.timestreamquery#AccessDeniedException":
@@ -441,7 +438,7 @@ const deserializeAws_json1_0ValidationExceptionResponse = async (
 
 const serializeAws_json1_0CancelQueryRequest = (input: CancelQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.QueryId !== undefined && { QueryId: input.QueryId }),
+    ...(input.QueryId !== undefined && input.QueryId !== null && { QueryId: input.QueryId }),
   };
 };
 
@@ -455,9 +452,9 @@ const serializeAws_json1_0DescribeEndpointsRequest = (
 const serializeAws_json1_0QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.MaxRows !== undefined && { MaxRows: input.MaxRows }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QueryString !== undefined && { QueryString: input.QueryString }),
+    ...(input.MaxRows !== undefined && input.MaxRows !== null && { MaxRows: input.MaxRows }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.QueryString !== undefined && input.QueryString !== null && { QueryString: input.QueryString }),
   };
 };
 
@@ -485,7 +482,14 @@ const deserializeAws_json1_0ColumnInfo = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_0ColumnInfoList = (output: any, context: __SerdeContext): ColumnInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0ColumnInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0ColumnInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -514,7 +518,14 @@ const deserializeAws_json1_0Datum = (output: any, context: __SerdeContext): Datu
 };
 
 const deserializeAws_json1_0DatumList = (output: any, context: __SerdeContext): Datum[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Datum(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Datum(entry, context);
+    });
 };
 
 const deserializeAws_json1_0DescribeEndpointsResponse = (
@@ -540,7 +551,14 @@ const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): E
 };
 
 const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Endpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Endpoint(entry, context);
+    });
 };
 
 const deserializeAws_json1_0InternalServerException = (
@@ -616,7 +634,14 @@ const deserializeAws_json1_0Row = (output: any, context: __SerdeContext): Row =>
 };
 
 const deserializeAws_json1_0RowList = (output: any, context: __SerdeContext): Row[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0Row(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0Row(entry, context);
+    });
 };
 
 const deserializeAws_json1_0ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -636,7 +661,14 @@ const deserializeAws_json1_0TimeSeriesDataPoint = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0TimeSeriesDataPointList = (output: any, context: __SerdeContext): TimeSeriesDataPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0TimeSeriesDataPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0TimeSeriesDataPoint(entry, context);
+    });
 };
 
 const deserializeAws_json1_0Type = (output: any, context: __SerdeContext): Type => {
@@ -713,3 +745,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

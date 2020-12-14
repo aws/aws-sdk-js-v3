@@ -346,7 +346,7 @@ export const serializeAws_json1_1AcceptSharedDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.AcceptSharedDirectory",
   };
   let body: any;
@@ -359,7 +359,7 @@ export const serializeAws_json1_1AddIpRoutesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.AddIpRoutes",
   };
   let body: any;
@@ -372,7 +372,7 @@ export const serializeAws_json1_1AddRegionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.AddRegion",
   };
   let body: any;
@@ -385,7 +385,7 @@ export const serializeAws_json1_1AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.AddTagsToResource",
   };
   let body: any;
@@ -398,7 +398,7 @@ export const serializeAws_json1_1CancelSchemaExtensionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CancelSchemaExtension",
   };
   let body: any;
@@ -411,7 +411,7 @@ export const serializeAws_json1_1ConnectDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ConnectDirectory",
   };
   let body: any;
@@ -424,7 +424,7 @@ export const serializeAws_json1_1CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateAlias",
   };
   let body: any;
@@ -437,7 +437,7 @@ export const serializeAws_json1_1CreateComputerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateComputer",
   };
   let body: any;
@@ -450,7 +450,7 @@ export const serializeAws_json1_1CreateConditionalForwarderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateConditionalForwarder",
   };
   let body: any;
@@ -463,7 +463,7 @@ export const serializeAws_json1_1CreateDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateDirectory",
   };
   let body: any;
@@ -476,7 +476,7 @@ export const serializeAws_json1_1CreateLogSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateLogSubscription",
   };
   let body: any;
@@ -489,7 +489,7 @@ export const serializeAws_json1_1CreateMicrosoftADCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateMicrosoftAD",
   };
   let body: any;
@@ -502,7 +502,7 @@ export const serializeAws_json1_1CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateSnapshot",
   };
   let body: any;
@@ -515,7 +515,7 @@ export const serializeAws_json1_1CreateTrustCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.CreateTrust",
   };
   let body: any;
@@ -528,7 +528,7 @@ export const serializeAws_json1_1DeleteConditionalForwarderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeleteConditionalForwarder",
   };
   let body: any;
@@ -541,7 +541,7 @@ export const serializeAws_json1_1DeleteDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeleteDirectory",
   };
   let body: any;
@@ -554,7 +554,7 @@ export const serializeAws_json1_1DeleteLogSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeleteLogSubscription",
   };
   let body: any;
@@ -567,7 +567,7 @@ export const serializeAws_json1_1DeleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeleteSnapshot",
   };
   let body: any;
@@ -580,7 +580,7 @@ export const serializeAws_json1_1DeleteTrustCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeleteTrust",
   };
   let body: any;
@@ -593,7 +593,7 @@ export const serializeAws_json1_1DeregisterCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeregisterCertificate",
   };
   let body: any;
@@ -606,7 +606,7 @@ export const serializeAws_json1_1DeregisterEventTopicCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DeregisterEventTopic",
   };
   let body: any;
@@ -619,7 +619,7 @@ export const serializeAws_json1_1DescribeCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeCertificate",
   };
   let body: any;
@@ -632,7 +632,7 @@ export const serializeAws_json1_1DescribeConditionalForwardersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeConditionalForwarders",
   };
   let body: any;
@@ -645,7 +645,7 @@ export const serializeAws_json1_1DescribeDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeDirectories",
   };
   let body: any;
@@ -658,7 +658,7 @@ export const serializeAws_json1_1DescribeDomainControllersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeDomainControllers",
   };
   let body: any;
@@ -671,7 +671,7 @@ export const serializeAws_json1_1DescribeEventTopicsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeEventTopics",
   };
   let body: any;
@@ -684,7 +684,7 @@ export const serializeAws_json1_1DescribeLDAPSSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeLDAPSSettings",
   };
   let body: any;
@@ -697,7 +697,7 @@ export const serializeAws_json1_1DescribeRegionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeRegions",
   };
   let body: any;
@@ -710,7 +710,7 @@ export const serializeAws_json1_1DescribeSharedDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeSharedDirectories",
   };
   let body: any;
@@ -723,7 +723,7 @@ export const serializeAws_json1_1DescribeSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeSnapshots",
   };
   let body: any;
@@ -736,7 +736,7 @@ export const serializeAws_json1_1DescribeTrustsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DescribeTrusts",
   };
   let body: any;
@@ -749,7 +749,7 @@ export const serializeAws_json1_1DisableClientAuthenticationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DisableClientAuthentication",
   };
   let body: any;
@@ -762,7 +762,7 @@ export const serializeAws_json1_1DisableLDAPSCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DisableLDAPS",
   };
   let body: any;
@@ -775,7 +775,7 @@ export const serializeAws_json1_1DisableRadiusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DisableRadius",
   };
   let body: any;
@@ -788,7 +788,7 @@ export const serializeAws_json1_1DisableSsoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.DisableSso",
   };
   let body: any;
@@ -801,7 +801,7 @@ export const serializeAws_json1_1EnableClientAuthenticationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.EnableClientAuthentication",
   };
   let body: any;
@@ -814,7 +814,7 @@ export const serializeAws_json1_1EnableLDAPSCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.EnableLDAPS",
   };
   let body: any;
@@ -827,7 +827,7 @@ export const serializeAws_json1_1EnableRadiusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.EnableRadius",
   };
   let body: any;
@@ -840,7 +840,7 @@ export const serializeAws_json1_1EnableSsoCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.EnableSso",
   };
   let body: any;
@@ -853,7 +853,7 @@ export const serializeAws_json1_1GetDirectoryLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.GetDirectoryLimits",
   };
   let body: any;
@@ -866,7 +866,7 @@ export const serializeAws_json1_1GetSnapshotLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.GetSnapshotLimits",
   };
   let body: any;
@@ -879,7 +879,7 @@ export const serializeAws_json1_1ListCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ListCertificates",
   };
   let body: any;
@@ -892,7 +892,7 @@ export const serializeAws_json1_1ListIpRoutesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ListIpRoutes",
   };
   let body: any;
@@ -905,7 +905,7 @@ export const serializeAws_json1_1ListLogSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ListLogSubscriptions",
   };
   let body: any;
@@ -918,7 +918,7 @@ export const serializeAws_json1_1ListSchemaExtensionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ListSchemaExtensions",
   };
   let body: any;
@@ -931,7 +931,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ListTagsForResource",
   };
   let body: any;
@@ -944,7 +944,7 @@ export const serializeAws_json1_1RegisterCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RegisterCertificate",
   };
   let body: any;
@@ -957,7 +957,7 @@ export const serializeAws_json1_1RegisterEventTopicCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RegisterEventTopic",
   };
   let body: any;
@@ -970,7 +970,7 @@ export const serializeAws_json1_1RejectSharedDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RejectSharedDirectory",
   };
   let body: any;
@@ -983,7 +983,7 @@ export const serializeAws_json1_1RemoveIpRoutesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RemoveIpRoutes",
   };
   let body: any;
@@ -996,7 +996,7 @@ export const serializeAws_json1_1RemoveRegionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RemoveRegion",
   };
   let body: any;
@@ -1009,7 +1009,7 @@ export const serializeAws_json1_1RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RemoveTagsFromResource",
   };
   let body: any;
@@ -1022,7 +1022,7 @@ export const serializeAws_json1_1ResetUserPasswordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ResetUserPassword",
   };
   let body: any;
@@ -1035,7 +1035,7 @@ export const serializeAws_json1_1RestoreFromSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.RestoreFromSnapshot",
   };
   let body: any;
@@ -1048,7 +1048,7 @@ export const serializeAws_json1_1ShareDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.ShareDirectory",
   };
   let body: any;
@@ -1061,7 +1061,7 @@ export const serializeAws_json1_1StartSchemaExtensionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.StartSchemaExtension",
   };
   let body: any;
@@ -1074,7 +1074,7 @@ export const serializeAws_json1_1UnshareDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.UnshareDirectory",
   };
   let body: any;
@@ -1087,7 +1087,7 @@ export const serializeAws_json1_1UpdateConditionalForwarderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.UpdateConditionalForwarder",
   };
   let body: any;
@@ -1100,7 +1100,7 @@ export const serializeAws_json1_1UpdateNumberOfDomainControllersCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.UpdateNumberOfDomainControllers",
   };
   let body: any;
@@ -1113,7 +1113,7 @@ export const serializeAws_json1_1UpdateRadiusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.UpdateRadius",
   };
   let body: any;
@@ -1126,7 +1126,7 @@ export const serializeAws_json1_1UpdateTrustCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.UpdateTrust",
   };
   let body: any;
@@ -1139,7 +1139,7 @@ export const serializeAws_json1_1VerifyTrustCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "DirectoryService_20150416.VerifyTrust",
   };
   let body: any;
@@ -1174,8 +1174,7 @@ const deserializeAws_json1_1AcceptSharedDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -1261,8 +1260,7 @@ const deserializeAws_json1_1AddIpRoutesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -1364,8 +1362,7 @@ const deserializeAws_json1_1AddRegionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
@@ -1491,8 +1488,7 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -1578,8 +1574,7 @@ const deserializeAws_json1_1CancelSchemaExtensionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -1649,8 +1644,7 @@ const deserializeAws_json1_1ConnectDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -1728,8 +1722,7 @@ const deserializeAws_json1_1CreateAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -1815,8 +1808,7 @@ const deserializeAws_json1_1CreateComputerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice#AuthenticationFailedException":
@@ -1926,8 +1918,7 @@ const deserializeAws_json1_1CreateConditionalForwarderCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2029,8 +2020,7 @@ const deserializeAws_json1_1CreateDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2108,8 +2098,7 @@ const deserializeAws_json1_1CreateLogSubscriptionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2203,8 +2192,7 @@ const deserializeAws_json1_1CreateMicrosoftADCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2290,8 +2278,7 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2377,8 +2364,7 @@ const deserializeAws_json1_1CreateTrustCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2472,8 +2458,7 @@ const deserializeAws_json1_1DeleteConditionalForwarderCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2567,8 +2552,7 @@ const deserializeAws_json1_1DeleteDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2638,8 +2622,7 @@ const deserializeAws_json1_1DeleteLogSubscriptionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2717,8 +2700,7 @@ const deserializeAws_json1_1DeleteSnapshotCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2796,8 +2778,7 @@ const deserializeAws_json1_1DeleteTrustCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -2883,8 +2864,7 @@ const deserializeAws_json1_1DeregisterCertificateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateDoesNotExistException":
     case "com.amazonaws.directoryservice#CertificateDoesNotExistException":
@@ -2994,8 +2974,7 @@ const deserializeAws_json1_1DeregisterEventTopicCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3073,8 +3052,7 @@ const deserializeAws_json1_1DescribeCertificateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateDoesNotExistException":
     case "com.amazonaws.directoryservice#CertificateDoesNotExistException":
@@ -3168,8 +3146,7 @@ const deserializeAws_json1_1DescribeConditionalForwardersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3263,8 +3240,7 @@ const deserializeAws_json1_1DescribeDirectoriesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3350,8 +3326,7 @@ const deserializeAws_json1_1DescribeDomainControllersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3445,8 +3420,7 @@ const deserializeAws_json1_1DescribeEventTopicsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3524,8 +3498,7 @@ const deserializeAws_json1_1DescribeLDAPSSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3619,8 +3592,7 @@ const deserializeAws_json1_1DescribeRegionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
@@ -3722,8 +3694,7 @@ const deserializeAws_json1_1DescribeSharedDirectoriesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3817,8 +3788,7 @@ const deserializeAws_json1_1DescribeSnapshotsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3904,8 +3874,7 @@ const deserializeAws_json1_1DescribeTrustsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -3999,8 +3968,7 @@ const deserializeAws_json1_1DisableClientAuthenticationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
@@ -4094,8 +4062,7 @@ const deserializeAws_json1_1DisableLDAPSCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4197,8 +4164,7 @@ const deserializeAws_json1_1DisableRadiusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4268,8 +4234,7 @@ const deserializeAws_json1_1DisableSsoCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice#AuthenticationFailedException":
@@ -4355,8 +4320,7 @@ const deserializeAws_json1_1EnableClientAuthenticationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
@@ -4458,8 +4422,7 @@ const deserializeAws_json1_1EnableLDAPSCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4569,8 +4532,7 @@ const deserializeAws_json1_1EnableRadiusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4656,8 +4618,7 @@ const deserializeAws_json1_1EnableSsoCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthenticationFailedException":
     case "com.amazonaws.directoryservice#AuthenticationFailedException":
@@ -4743,8 +4704,7 @@ const deserializeAws_json1_1GetDirectoryLimitsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4814,8 +4774,7 @@ const deserializeAws_json1_1GetSnapshotLimitsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4885,8 +4844,7 @@ const deserializeAws_json1_1ListCertificatesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -4980,8 +4938,7 @@ const deserializeAws_json1_1ListIpRoutesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5067,8 +5024,7 @@ const deserializeAws_json1_1ListLogSubscriptionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5146,8 +5102,7 @@ const deserializeAws_json1_1ListSchemaExtensionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5225,8 +5180,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5312,8 +5266,7 @@ const deserializeAws_json1_1RegisterCertificateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateAlreadyExistsException":
     case "com.amazonaws.directoryservice#CertificateAlreadyExistsException":
@@ -5431,8 +5384,7 @@ const deserializeAws_json1_1RegisterEventTopicCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5510,8 +5462,7 @@ const deserializeAws_json1_1RejectSharedDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5597,8 +5548,7 @@ const deserializeAws_json1_1RemoveIpRoutesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5684,8 +5634,7 @@ const deserializeAws_json1_1RemoveRegionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
@@ -5779,8 +5728,7 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5858,8 +5806,7 @@ const deserializeAws_json1_1ResetUserPasswordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -5961,8 +5908,7 @@ const deserializeAws_json1_1RestoreFromSnapshotCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6040,8 +5986,7 @@ const deserializeAws_json1_1ShareDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.directoryservice#AccessDeniedException":
@@ -6167,8 +6112,7 @@ const deserializeAws_json1_1StartSchemaExtensionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6262,8 +6206,7 @@ const deserializeAws_json1_1UnshareDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6349,8 +6292,7 @@ const deserializeAws_json1_1UpdateConditionalForwarderCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6444,8 +6386,7 @@ const deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6547,8 +6488,7 @@ const deserializeAws_json1_1UpdateRadiusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6626,8 +6566,7 @@ const deserializeAws_json1_1UpdateTrustCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -6705,8 +6644,7 @@ const deserializeAws_json1_1VerifyTrustCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
@@ -7280,27 +7218,31 @@ const serializeAws_json1_1AcceptSharedDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SharedDirectoryId !== undefined && { SharedDirectoryId: input.SharedDirectoryId }),
+    ...(input.SharedDirectoryId !== undefined &&
+      input.SharedDirectoryId !== null && { SharedDirectoryId: input.SharedDirectoryId }),
   };
 };
 
 const serializeAws_json1_1AddIpRoutesRequest = (input: AddIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.IpRoutes !== undefined && { IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context) }),
-    ...(input.UpdateSecurityGroupForDirectoryControllers !== undefined && {
-      UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.IpRoutes !== undefined &&
+      input.IpRoutes !== null && { IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context) }),
+    ...(input.UpdateSecurityGroupForDirectoryControllers !== undefined &&
+      input.UpdateSecurityGroupForDirectoryControllers !== null && {
+        UpdateSecurityGroupForDirectoryControllers: input.UpdateSecurityGroupForDirectoryControllers,
+      }),
   };
 };
 
 const serializeAws_json1_1AddRegionRequest = (input: AddRegionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
-    ...(input.VPCSettings !== undefined && {
-      VPCSettings: serializeAws_json1_1DirectoryVpcSettings(input.VPCSettings, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RegionName !== undefined && input.RegionName !== null && { RegionName: input.RegionName }),
+    ...(input.VPCSettings !== undefined &&
+      input.VPCSettings !== null && {
+        VPCSettings: serializeAws_json1_1DirectoryVpcSettings(input.VPCSettings, context),
+      }),
   };
 };
 
@@ -7309,20 +7251,27 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1Attribute = (input: Attribute, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1Attributes = (input: Attribute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Attribute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Attribute(entry, context);
+    });
 };
 
 const serializeAws_json1_1CancelSchemaExtensionRequest = (
@@ -7330,53 +7279,64 @@ const serializeAws_json1_1CancelSchemaExtensionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.SchemaExtensionId !== undefined && { SchemaExtensionId: input.SchemaExtensionId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.SchemaExtensionId !== undefined &&
+      input.SchemaExtensionId !== null && { SchemaExtensionId: input.SchemaExtensionId }),
   };
 };
 
 const serializeAws_json1_1CidrIps = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ClientCertAuthSettings = (input: ClientCertAuthSettings, context: __SerdeContext): any => {
   return {
-    ...(input.OCSPUrl !== undefined && { OCSPUrl: input.OCSPUrl }),
+    ...(input.OCSPUrl !== undefined && input.OCSPUrl !== null && { OCSPUrl: input.OCSPUrl }),
   };
 };
 
 const serializeAws_json1_1ConnectDirectoryRequest = (input: ConnectDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConnectSettings !== undefined && {
-      ConnectSettings: serializeAws_json1_1DirectoryConnectSettings(input.ConnectSettings, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
-    ...(input.Size !== undefined && { Size: input.Size }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ConnectSettings !== undefined &&
+      input.ConnectSettings !== null && {
+        ConnectSettings: serializeAws_json1_1DirectoryConnectSettings(input.ConnectSettings, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.ShortName !== undefined && input.ShortName !== null && { ShortName: input.ShortName }),
+    ...(input.Size !== undefined && input.Size !== null && { Size: input.Size }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateAliasRequest = (input: CreateAliasRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Alias !== undefined && { Alias: input.Alias }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Alias !== undefined && input.Alias !== null && { Alias: input.Alias }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1CreateComputerRequest = (input: CreateComputerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ComputerAttributes !== undefined && {
-      ComputerAttributes: serializeAws_json1_1Attributes(input.ComputerAttributes, context),
-    }),
-    ...(input.ComputerName !== undefined && { ComputerName: input.ComputerName }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.OrganizationalUnitDistinguishedName !== undefined && {
-      OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
-    }),
-    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.ComputerAttributes !== undefined &&
+      input.ComputerAttributes !== null && {
+        ComputerAttributes: serializeAws_json1_1Attributes(input.ComputerAttributes, context),
+      }),
+    ...(input.ComputerName !== undefined && input.ComputerName !== null && { ComputerName: input.ComputerName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.OrganizationalUnitDistinguishedName !== undefined &&
+      input.OrganizationalUnitDistinguishedName !== null && {
+        OrganizationalUnitDistinguishedName: input.OrganizationalUnitDistinguishedName,
+      }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
   };
 };
 
@@ -7385,23 +7345,26 @@ const serializeAws_json1_1CreateConditionalForwarderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs !== undefined && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
-    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DnsIpAddrs !== undefined &&
+      input.DnsIpAddrs !== null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
+    ...(input.RemoteDomainName !== undefined &&
+      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
 const serializeAws_json1_1CreateDirectoryRequest = (input: CreateDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
-    ...(input.Size !== undefined && { Size: input.Size }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VpcSettings !== undefined && {
-      VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.ShortName !== undefined && input.ShortName !== null && { ShortName: input.ShortName }),
+    ...(input.Size !== undefined && input.Size !== null && { Size: input.Size }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcSettings !== undefined &&
+      input.VpcSettings !== null && {
+        VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
+      }),
   };
 };
 
@@ -7410,8 +7373,8 @@ const serializeAws_json1_1CreateLogSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.LogGroupName !== undefined && { LogGroupName: input.LogGroupName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.LogGroupName !== undefined && input.LogGroupName !== null && { LogGroupName: input.LogGroupName }),
   };
 };
 
@@ -7420,36 +7383,40 @@ const serializeAws_json1_1CreateMicrosoftADRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Edition !== undefined && { Edition: input.Edition }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
-    ...(input.VpcSettings !== undefined && {
-      VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Edition !== undefined && input.Edition !== null && { Edition: input.Edition }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.ShortName !== undefined && input.ShortName !== null && { ShortName: input.ShortName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.VpcSettings !== undefined &&
+      input.VpcSettings !== null && {
+        VpcSettings: serializeAws_json1_1DirectoryVpcSettings(input.VpcSettings, context),
+      }),
   };
 };
 
 const serializeAws_json1_1CreateSnapshotRequest = (input: CreateSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1CreateTrustRequest = (input: CreateTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ConditionalForwarderIpAddrs !== undefined && {
-      ConditionalForwarderIpAddrs: serializeAws_json1_1DnsIpAddrs(input.ConditionalForwarderIpAddrs, context),
-    }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
-    ...(input.SelectiveAuth !== undefined && { SelectiveAuth: input.SelectiveAuth }),
-    ...(input.TrustDirection !== undefined && { TrustDirection: input.TrustDirection }),
-    ...(input.TrustPassword !== undefined && { TrustPassword: input.TrustPassword }),
-    ...(input.TrustType !== undefined && { TrustType: input.TrustType }),
+    ...(input.ConditionalForwarderIpAddrs !== undefined &&
+      input.ConditionalForwarderIpAddrs !== null && {
+        ConditionalForwarderIpAddrs: serializeAws_json1_1DnsIpAddrs(input.ConditionalForwarderIpAddrs, context),
+      }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainName !== undefined &&
+      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.SelectiveAuth !== undefined && input.SelectiveAuth !== null && { SelectiveAuth: input.SelectiveAuth }),
+    ...(input.TrustDirection !== undefined &&
+      input.TrustDirection !== null && { TrustDirection: input.TrustDirection }),
+    ...(input.TrustPassword !== undefined && input.TrustPassword !== null && { TrustPassword: input.TrustPassword }),
+    ...(input.TrustType !== undefined && input.TrustType !== null && { TrustType: input.TrustType }),
   };
 };
 
@@ -7458,14 +7425,15 @@ const serializeAws_json1_1DeleteConditionalForwarderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainName !== undefined &&
+      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
 const serializeAws_json1_1DeleteDirectoryRequest = (input: DeleteDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -7474,22 +7442,23 @@ const serializeAws_json1_1DeleteLogSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1DeleteSnapshotRequest = (input: DeleteSnapshotRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId }),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
   };
 };
 
 const serializeAws_json1_1DeleteTrustRequest = (input: DeleteTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DeleteAssociatedConditionalForwarder !== undefined && {
-      DeleteAssociatedConditionalForwarder: input.DeleteAssociatedConditionalForwarder,
-    }),
-    ...(input.TrustId !== undefined && { TrustId: input.TrustId }),
+    ...(input.DeleteAssociatedConditionalForwarder !== undefined &&
+      input.DeleteAssociatedConditionalForwarder !== null && {
+        DeleteAssociatedConditionalForwarder: input.DeleteAssociatedConditionalForwarder,
+      }),
+    ...(input.TrustId !== undefined && input.TrustId !== null && { TrustId: input.TrustId }),
   };
 };
 
@@ -7498,8 +7467,8 @@ const serializeAws_json1_1DeregisterCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateId !== undefined && { CertificateId: input.CertificateId }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.CertificateId !== undefined && input.CertificateId !== null && { CertificateId: input.CertificateId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -7508,8 +7477,8 @@ const serializeAws_json1_1DeregisterEventTopicRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicName !== undefined && { TopicName: input.TopicName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicName !== undefined && input.TopicName !== null && { TopicName: input.TopicName }),
   };
 };
 
@@ -7518,8 +7487,8 @@ const serializeAws_json1_1DescribeCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateId !== undefined && { CertificateId: input.CertificateId }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.CertificateId !== undefined && input.CertificateId !== null && { CertificateId: input.CertificateId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -7528,10 +7497,11 @@ const serializeAws_json1_1DescribeConditionalForwardersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RemoteDomainNames !== undefined && {
-      RemoteDomainNames: serializeAws_json1_1RemoteDomainNames(input.RemoteDomainNames, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainNames !== undefined &&
+      input.RemoteDomainNames !== null && {
+        RemoteDomainNames: serializeAws_json1_1RemoteDomainNames(input.RemoteDomainNames, context),
+      }),
   };
 };
 
@@ -7540,11 +7510,10 @@ const serializeAws_json1_1DescribeDirectoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryIds !== undefined && {
-      DirectoryIds: serializeAws_json1_1DirectoryIds(input.DirectoryIds, context),
-    }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryIds !== undefined &&
+      input.DirectoryIds !== null && { DirectoryIds: serializeAws_json1_1DirectoryIds(input.DirectoryIds, context) }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7553,12 +7522,13 @@ const serializeAws_json1_1DescribeDomainControllersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.DomainControllerIds !== undefined && {
-      DomainControllerIds: serializeAws_json1_1DomainControllerIds(input.DomainControllerIds, context),
-    }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DomainControllerIds !== undefined &&
+      input.DomainControllerIds !== null && {
+        DomainControllerIds: serializeAws_json1_1DomainControllerIds(input.DomainControllerIds, context),
+      }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7567,8 +7537,9 @@ const serializeAws_json1_1DescribeEventTopicsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicNames !== undefined && { TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context) }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicNames !== undefined &&
+      input.TopicNames !== null && { TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context) }),
   };
 };
 
@@ -7577,18 +7548,18 @@ const serializeAws_json1_1DescribeLDAPSSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DescribeRegionsRequest = (input: DescribeRegionsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.RegionName !== undefined && input.RegionName !== null && { RegionName: input.RegionName }),
   };
 };
 
@@ -7597,12 +7568,14 @@ const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.OwnerDirectoryId !== undefined && { OwnerDirectoryId: input.OwnerDirectoryId }),
-    ...(input.SharedDirectoryIds !== undefined && {
-      SharedDirectoryIds: serializeAws_json1_1DirectoryIds(input.SharedDirectoryIds, context),
-    }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OwnerDirectoryId !== undefined &&
+      input.OwnerDirectoryId !== null && { OwnerDirectoryId: input.OwnerDirectoryId }),
+    ...(input.SharedDirectoryIds !== undefined &&
+      input.SharedDirectoryIds !== null && {
+        SharedDirectoryIds: serializeAws_json1_1DirectoryIds(input.SharedDirectoryIds, context),
+      }),
   };
 };
 
@@ -7611,21 +7584,21 @@ const serializeAws_json1_1DescribeSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.SnapshotIds !== undefined && {
-      SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.SnapshotIds !== undefined &&
+      input.SnapshotIds !== null && { SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context) }),
   };
 };
 
 const serializeAws_json1_1DescribeTrustsRequest = (input: DescribeTrustsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.TrustIds !== undefined && { TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context) }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.TrustIds !== undefined &&
+      input.TrustIds !== null && { TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context) }),
   };
 };
 
@@ -7634,23 +7607,34 @@ const serializeAws_json1_1DirectoryConnectSettings = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomerDnsIps !== undefined && {
-      CustomerDnsIps: serializeAws_json1_1DnsIpAddrs(input.CustomerDnsIps, context),
-    }),
-    ...(input.CustomerUserName !== undefined && { CustomerUserName: input.CustomerUserName }),
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+    ...(input.CustomerDnsIps !== undefined &&
+      input.CustomerDnsIps !== null && {
+        CustomerDnsIps: serializeAws_json1_1DnsIpAddrs(input.CustomerDnsIps, context),
+      }),
+    ...(input.CustomerUserName !== undefined &&
+      input.CustomerUserName !== null && { CustomerUserName: input.CustomerUserName }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
   };
 };
 
 const serializeAws_json1_1DirectoryIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DirectoryVpcSettings = (input: DirectoryVpcSettings, context: __SerdeContext): any => {
   return {
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.VpcId !== undefined && { VpcId: input.VpcId }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.VpcId !== undefined && input.VpcId !== null && { VpcId: input.VpcId }),
   };
 };
 
@@ -7659,38 +7643,52 @@ const serializeAws_json1_1DisableClientAuthenticationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DisableLDAPSRequest = (input: DisableLDAPSRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1DisableRadiusRequest = (input: DisableRadiusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1DisableSsoRequest = (input: DisableSsoRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
   };
 };
 
 const serializeAws_json1_1DnsIpAddrs = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DomainControllerIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1EnableClientAuthenticationRequest = (
@@ -7698,32 +7696,33 @@ const serializeAws_json1_1EnableClientAuthenticationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1EnableLDAPSRequest = (input: EnableLDAPSRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1EnableRadiusRequest = (input: EnableRadiusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RadiusSettings !== undefined && {
-      RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RadiusSettings !== undefined &&
+      input.RadiusSettings !== null && {
+        RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
+      }),
   };
 };
 
 const serializeAws_json1_1EnableSsoRequest = (input: EnableSsoRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
   };
 };
 
@@ -7739,34 +7738,41 @@ const serializeAws_json1_1GetSnapshotLimitsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1IpRoute = (input: IpRoute, context: __SerdeContext): any => {
   return {
-    ...(input.CidrIp !== undefined && { CidrIp: input.CidrIp }),
-    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.CidrIp !== undefined && input.CidrIp !== null && { CidrIp: input.CidrIp }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   };
 };
 
 const serializeAws_json1_1IpRoutes = (input: IpRoute[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1IpRoute(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1IpRoute(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListCertificatesRequest = (input: ListCertificatesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListIpRoutesRequest = (input: ListIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7775,9 +7781,9 @@ const serializeAws_json1_1ListLogSubscriptionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7786,9 +7792,9 @@ const serializeAws_json1_1ListSchemaExtensionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7797,24 +7803,25 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
 const serializeAws_json1_1RadiusSettings = (input: RadiusSettings, context: __SerdeContext): any => {
   return {
-    ...(input.AuthenticationProtocol !== undefined && { AuthenticationProtocol: input.AuthenticationProtocol }),
-    ...(input.DisplayLabel !== undefined && { DisplayLabel: input.DisplayLabel }),
-    ...(input.RadiusPort !== undefined && { RadiusPort: input.RadiusPort }),
-    ...(input.RadiusRetries !== undefined && { RadiusRetries: input.RadiusRetries }),
-    ...(input.RadiusServers !== undefined && {
-      RadiusServers: serializeAws_json1_1Servers(input.RadiusServers, context),
-    }),
-    ...(input.RadiusTimeout !== undefined && { RadiusTimeout: input.RadiusTimeout }),
-    ...(input.SharedSecret !== undefined && { SharedSecret: input.SharedSecret }),
-    ...(input.UseSameUsername !== undefined && { UseSameUsername: input.UseSameUsername }),
+    ...(input.AuthenticationProtocol !== undefined &&
+      input.AuthenticationProtocol !== null && { AuthenticationProtocol: input.AuthenticationProtocol }),
+    ...(input.DisplayLabel !== undefined && input.DisplayLabel !== null && { DisplayLabel: input.DisplayLabel }),
+    ...(input.RadiusPort !== undefined && input.RadiusPort !== null && { RadiusPort: input.RadiusPort }),
+    ...(input.RadiusRetries !== undefined && input.RadiusRetries !== null && { RadiusRetries: input.RadiusRetries }),
+    ...(input.RadiusServers !== undefined &&
+      input.RadiusServers !== null && { RadiusServers: serializeAws_json1_1Servers(input.RadiusServers, context) }),
+    ...(input.RadiusTimeout !== undefined && input.RadiusTimeout !== null && { RadiusTimeout: input.RadiusTimeout }),
+    ...(input.SharedSecret !== undefined && input.SharedSecret !== null && { SharedSecret: input.SharedSecret }),
+    ...(input.UseSameUsername !== undefined &&
+      input.UseSameUsername !== null && { UseSameUsername: input.UseSameUsername }),
   };
 };
 
@@ -7823,12 +7830,14 @@ const serializeAws_json1_1RegisterCertificateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CertificateData !== undefined && { CertificateData: input.CertificateData }),
-    ...(input.ClientCertAuthSettings !== undefined && {
-      ClientCertAuthSettings: serializeAws_json1_1ClientCertAuthSettings(input.ClientCertAuthSettings, context),
-    }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.CertificateData !== undefined &&
+      input.CertificateData !== null && { CertificateData: input.CertificateData }),
+    ...(input.ClientCertAuthSettings !== undefined &&
+      input.ClientCertAuthSettings !== null && {
+        ClientCertAuthSettings: serializeAws_json1_1ClientCertAuthSettings(input.ClientCertAuthSettings, context),
+      }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -7837,8 +7846,8 @@ const serializeAws_json1_1RegisterEventTopicRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.TopicName !== undefined && { TopicName: input.TopicName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicName !== undefined && input.TopicName !== null && { TopicName: input.TopicName }),
   };
 };
 
@@ -7847,24 +7856,33 @@ const serializeAws_json1_1RejectSharedDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SharedDirectoryId !== undefined && { SharedDirectoryId: input.SharedDirectoryId }),
+    ...(input.SharedDirectoryId !== undefined &&
+      input.SharedDirectoryId !== null && { SharedDirectoryId: input.SharedDirectoryId }),
   };
 };
 
 const serializeAws_json1_1RemoteDomainNames = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RemoveIpRoutesRequest = (input: RemoveIpRoutesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.CidrIps !== undefined && { CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context) }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.CidrIps !== undefined &&
+      input.CidrIps !== null && { CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context) }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1RemoveRegionRequest = (input: RemoveRegionRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -7873,8 +7891,9 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -7883,9 +7902,9 @@ const serializeAws_json1_1ResetUserPasswordRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.NewPassword !== undefined && { NewPassword: input.NewPassword }),
-    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.NewPassword !== undefined && input.NewPassword !== null && { NewPassword: input.NewPassword }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
   };
 };
 
@@ -7894,34 +7913,47 @@ const serializeAws_json1_1RestoreFromSnapshotRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId }),
+    ...(input.SnapshotId !== undefined && input.SnapshotId !== null && { SnapshotId: input.SnapshotId }),
   };
 };
 
 const serializeAws_json1_1Servers = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ShareDirectoryRequest = (input: ShareDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.ShareMethod !== undefined && { ShareMethod: input.ShareMethod }),
-    ...(input.ShareNotes !== undefined && { ShareNotes: input.ShareNotes }),
-    ...(input.ShareTarget !== undefined && {
-      ShareTarget: serializeAws_json1_1ShareTarget(input.ShareTarget, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.ShareMethod !== undefined && input.ShareMethod !== null && { ShareMethod: input.ShareMethod }),
+    ...(input.ShareNotes !== undefined && input.ShareNotes !== null && { ShareNotes: input.ShareNotes }),
+    ...(input.ShareTarget !== undefined &&
+      input.ShareTarget !== null && { ShareTarget: serializeAws_json1_1ShareTarget(input.ShareTarget, context) }),
   };
 };
 
 const serializeAws_json1_1ShareTarget = (input: ShareTarget, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1SnapshotIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1StartSchemaExtensionRequest = (
@@ -7929,55 +7961,92 @@ const serializeAws_json1_1StartSchemaExtensionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CreateSnapshotBeforeSchemaExtension !== undefined && {
-      CreateSnapshotBeforeSchemaExtension: input.CreateSnapshotBeforeSchemaExtension,
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.LdifContent !== undefined && { LdifContent: input.LdifContent }),
+    ...(input.CreateSnapshotBeforeSchemaExtension !== undefined &&
+      input.CreateSnapshotBeforeSchemaExtension !== null && {
+        CreateSnapshotBeforeSchemaExtension: input.CreateSnapshotBeforeSchemaExtension,
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.LdifContent !== undefined && input.LdifContent !== null && { LdifContent: input.LdifContent }),
   };
 };
 
 const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TopicNames = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TrustIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UnshareDirectoryRequest = (input: UnshareDirectoryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.UnshareTarget !== undefined && {
-      UnshareTarget: serializeAws_json1_1UnshareTarget(input.UnshareTarget, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.UnshareTarget !== undefined &&
+      input.UnshareTarget !== null && {
+        UnshareTarget: serializeAws_json1_1UnshareTarget(input.UnshareTarget, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UnshareTarget = (input: UnshareTarget, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -7986,9 +8055,11 @@ const serializeAws_json1_1UpdateConditionalForwarderRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.DnsIpAddrs !== undefined && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
-    ...(input.RemoteDomainName !== undefined && { RemoteDomainName: input.RemoteDomainName }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.DnsIpAddrs !== undefined &&
+      input.DnsIpAddrs !== null && { DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context) }),
+    ...(input.RemoteDomainName !== undefined &&
+      input.RemoteDomainName !== null && { RemoteDomainName: input.RemoteDomainName }),
   };
 };
 
@@ -7997,30 +8068,31 @@ const serializeAws_json1_1UpdateNumberOfDomainControllersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DesiredNumber !== undefined && { DesiredNumber: input.DesiredNumber }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DesiredNumber !== undefined && input.DesiredNumber !== null && { DesiredNumber: input.DesiredNumber }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
 const serializeAws_json1_1UpdateRadiusRequest = (input: UpdateRadiusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RadiusSettings !== undefined && {
-      RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
-    }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RadiusSettings !== undefined &&
+      input.RadiusSettings !== null && {
+        RadiusSettings: serializeAws_json1_1RadiusSettings(input.RadiusSettings, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UpdateTrustRequest = (input: UpdateTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SelectiveAuth !== undefined && { SelectiveAuth: input.SelectiveAuth }),
-    ...(input.TrustId !== undefined && { TrustId: input.TrustId }),
+    ...(input.SelectiveAuth !== undefined && input.SelectiveAuth !== null && { SelectiveAuth: input.SelectiveAuth }),
+    ...(input.TrustId !== undefined && input.TrustId !== null && { TrustId: input.TrustId }),
   };
 };
 
 const serializeAws_json1_1VerifyTrustRequest = (input: VerifyTrustRequest, context: __SerdeContext): any => {
   return {
-    ...(input.TrustId !== undefined && { TrustId: input.TrustId }),
+    ...(input.TrustId !== undefined && input.TrustId !== null && { TrustId: input.TrustId }),
   };
 };
 
@@ -8048,7 +8120,14 @@ const deserializeAws_json1_1AddIpRoutesResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AdditionalRegions = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1AddRegionResult = (output: any, context: __SerdeContext): AddRegionResult => {
@@ -8070,7 +8149,14 @@ const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): Attribute[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Attribute(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Attribute(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AuthenticationFailedException = (
@@ -8084,7 +8170,14 @@ const deserializeAws_json1_1AuthenticationFailedException = (
 };
 
 const deserializeAws_json1_1AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1CancelSchemaExtensionResult = (
@@ -8172,7 +8265,14 @@ const deserializeAws_json1_1CertificateLimitExceededException = (
 };
 
 const deserializeAws_json1_1CertificatesInfo = (output: any, context: __SerdeContext): CertificateInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CertificateInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CertificateInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ClientCertAuthSettings = (output: any, context: __SerdeContext): ClientCertAuthSettings => {
@@ -8213,7 +8313,14 @@ const deserializeAws_json1_1ConditionalForwarder = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1ConditionalForwarders = (output: any, context: __SerdeContext): ConditionalForwarder[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConditionalForwarder(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConditionalForwarder(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConnectDirectoryResult = (output: any, context: __SerdeContext): ConnectDirectoryResult => {
@@ -8549,7 +8656,14 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1DirectoryDescriptions = (output: any, context: __SerdeContext): DirectoryDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DirectoryDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DirectoryDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DirectoryDoesNotExistException = (
@@ -8682,7 +8796,14 @@ const deserializeAws_json1_1DisableSsoResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DnsIpAddrs = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DomainController = (output: any, context: __SerdeContext): DomainController => {
@@ -8721,7 +8842,14 @@ const deserializeAws_json1_1DomainControllerLimitExceededException = (
 };
 
 const deserializeAws_json1_1DomainControllers = (output: any, context: __SerdeContext): DomainController[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DomainController(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DomainController(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EnableClientAuthenticationResult = (
@@ -8777,7 +8905,14 @@ const deserializeAws_json1_1EventTopic = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1EventTopics = (output: any, context: __SerdeContext): EventTopic[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EventTopic(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EventTopic(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GetDirectoryLimitsResult = (
@@ -8882,7 +9017,14 @@ const deserializeAws_json1_1InvalidTargetException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1IpAddrs = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1IpRouteInfo = (output: any, context: __SerdeContext): IpRouteInfo => {
@@ -8914,7 +9056,14 @@ const deserializeAws_json1_1IpRouteLimitExceededException = (
 };
 
 const deserializeAws_json1_1IpRoutesInfo = (output: any, context: __SerdeContext): IpRouteInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IpRouteInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IpRouteInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LDAPSSettingInfo = (output: any, context: __SerdeContext): LDAPSSettingInfo => {
@@ -8932,7 +9081,14 @@ const deserializeAws_json1_1LDAPSSettingInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1LDAPSSettingsInfo = (output: any, context: __SerdeContext): LDAPSSettingInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LDAPSSettingInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LDAPSSettingInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListCertificatesResult = (output: any, context: __SerdeContext): ListCertificatesResult => {
@@ -9004,7 +9160,14 @@ const deserializeAws_json1_1LogSubscription = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1LogSubscriptions = (output: any, context: __SerdeContext): LogSubscription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LogSubscription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LogSubscription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NoAvailableCertificateException = (
@@ -9109,7 +9272,14 @@ const deserializeAws_json1_1RegionLimitExceededException = (
 };
 
 const deserializeAws_json1_1RegionsDescription = (output: any, context: __SerdeContext): RegionDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1RegionDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RegionDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RegionsInfo = (output: any, context: __SerdeContext): RegionsInfo => {
@@ -9209,11 +9379,25 @@ const deserializeAws_json1_1SchemaExtensionInfo = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1SchemaExtensionsInfo = (output: any, context: __SerdeContext): SchemaExtensionInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SchemaExtensionInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SchemaExtensionInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Servers = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
@@ -9224,7 +9408,14 @@ const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1SharedDirectories = (output: any, context: __SerdeContext): SharedDirectory[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SharedDirectory(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SharedDirectory(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SharedDirectory = (output: any, context: __SerdeContext): SharedDirectory => {
@@ -9314,7 +9505,14 @@ const deserializeAws_json1_1SnapshotLimits = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1Snapshots = (output: any, context: __SerdeContext): Snapshot[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Snapshot(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Snapshot(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StartSchemaExtensionResult = (
@@ -9330,7 +9528,14 @@ const deserializeAws_json1_1StartSchemaExtensionResult = (
 };
 
 const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -9351,7 +9556,14 @@ const deserializeAws_json1_1TagLimitExceededException = (
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Trust = (output: any, context: __SerdeContext): Trust => {
@@ -9384,7 +9596,14 @@ const deserializeAws_json1_1Trust = (output: any, context: __SerdeContext): Trus
 };
 
 const deserializeAws_json1_1Trusts = (output: any, context: __SerdeContext): Trust[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Trust(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Trust(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UnshareDirectoryResult = (output: any, context: __SerdeContext): UnshareDirectoryResult => {
@@ -9497,3 +9716,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

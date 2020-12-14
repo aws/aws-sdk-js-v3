@@ -75,9 +75,7 @@ export const serializeAws_restJson1CancelJobRunCommand = async (
   input: CancelJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -115,7 +113,7 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints";
   if (input.virtualClusterId !== undefined) {
@@ -129,16 +127,19 @@ export const serializeAws_restJson1CreateManagedEndpointCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.certificateArn !== undefined && { certificateArn: input.certificateArn }),
+    ...(input.certificateArn !== undefined &&
+      input.certificateArn !== null && { certificateArn: input.certificateArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides !== undefined && {
-      configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
-    }),
-    ...(input.executionRoleArn !== undefined && { executionRoleArn: input.executionRoleArn }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.releaseLabel !== undefined && { releaseLabel: input.releaseLabel }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.configurationOverrides !== undefined &&
+      input.configurationOverrides !== null && {
+        configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
+      }),
+    ...(input.executionRoleArn !== undefined &&
+      input.executionRoleArn !== null && { executionRoleArn: input.executionRoleArn }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.releaseLabel !== undefined && input.releaseLabel !== null && { releaseLabel: input.releaseLabel }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -157,17 +158,18 @@ export const serializeAws_restJson1CreateVirtualClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/virtualclusters";
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.containerProvider !== undefined && {
-      containerProvider: serializeAws_restJson1ContainerProvider(input.containerProvider, context),
-    }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.containerProvider !== undefined &&
+      input.containerProvider !== null && {
+        containerProvider: serializeAws_restJson1ContainerProvider(input.containerProvider, context),
+      }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -185,9 +187,7 @@ export const serializeAws_restJson1DeleteManagedEndpointCommand = async (
   input: DeleteManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -224,9 +224,7 @@ export const serializeAws_restJson1DeleteVirtualClusterCommand = async (
   input: DeleteVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -254,9 +252,7 @@ export const serializeAws_restJson1DescribeJobRunCommand = async (
   input: DescribeJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -293,9 +289,7 @@ export const serializeAws_restJson1DescribeManagedEndpointCommand = async (
   input: DescribeManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -332,9 +326,7 @@ export const serializeAws_restJson1DescribeVirtualClusterCommand = async (
   input: DescribeVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{id}";
   if (input.id !== undefined) {
     const labelValue: string = input.id;
@@ -362,9 +354,7 @@ export const serializeAws_restJson1ListJobRunsCommand = async (
   input: ListJobRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns";
   if (input.virtualClusterId !== undefined) {
     const labelValue: string = input.virtualClusterId;
@@ -405,9 +395,7 @@ export const serializeAws_restJson1ListManagedEndpointsCommand = async (
   input: ListManagedEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters/{virtualClusterId}/endpoints";
   if (input.virtualClusterId !== undefined) {
     const labelValue: string = input.virtualClusterId;
@@ -448,9 +436,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -478,9 +464,7 @@ export const serializeAws_restJson1ListVirtualClustersCommand = async (
   input: ListVirtualClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/virtualclusters";
   const query: any = {
     ...(input.containerProviderId !== undefined && { containerProviderId: input.containerProviderId }),
@@ -514,7 +498,7 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/virtualclusters/{virtualClusterId}/jobruns";
   if (input.virtualClusterId !== undefined) {
@@ -529,14 +513,17 @@ export const serializeAws_restJson1StartJobRunCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
-    ...(input.configurationOverrides !== undefined && {
-      configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
-    }),
-    ...(input.executionRoleArn !== undefined && { executionRoleArn: input.executionRoleArn }),
-    ...(input.jobDriver !== undefined && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.releaseLabel !== undefined && { releaseLabel: input.releaseLabel }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.configurationOverrides !== undefined &&
+      input.configurationOverrides !== null && {
+        configurationOverrides: serializeAws_restJson1ConfigurationOverrides(input.configurationOverrides, context),
+      }),
+    ...(input.executionRoleArn !== undefined &&
+      input.executionRoleArn !== null && { executionRoleArn: input.executionRoleArn }),
+    ...(input.jobDriver !== undefined &&
+      input.jobDriver !== null && { jobDriver: serializeAws_restJson1JobDriver(input.jobDriver, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.releaseLabel !== undefined && input.releaseLabel !== null && { releaseLabel: input.releaseLabel }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -555,7 +542,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -569,7 +556,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -587,9 +574,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -1734,35 +1719,48 @@ const serializeAws_restJson1CloudWatchMonitoringConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined &&
+      input.logStreamNamePrefix !== null && { logStreamNamePrefix: input.logStreamNamePrefix }),
   };
 };
 
 const serializeAws_restJson1Configuration = (input: Configuration, context: __SerdeContext): any => {
   return {
-    ...(input.classification !== undefined && { classification: input.classification }),
-    ...(input.configurations !== undefined && {
-      configurations: serializeAws_restJson1ConfigurationList(input.configurations, context),
-    }),
-    ...(input.properties !== undefined && {
-      properties: serializeAws_restJson1SensitivePropertiesMap(input.properties, context),
-    }),
+    ...(input.classification !== undefined &&
+      input.classification !== null && { classification: input.classification }),
+    ...(input.configurations !== undefined &&
+      input.configurations !== null && {
+        configurations: serializeAws_restJson1ConfigurationList(input.configurations, context),
+      }),
+    ...(input.properties !== undefined &&
+      input.properties !== null && {
+        properties: serializeAws_restJson1SensitivePropertiesMap(input.properties, context),
+      }),
   };
 };
 
 const serializeAws_restJson1ConfigurationList = (input: Configuration[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Configuration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Configuration(entry, context);
+    });
 };
 
 const serializeAws_restJson1ConfigurationOverrides = (input: ConfigurationOverrides, context: __SerdeContext): any => {
   return {
-    ...(input.applicationConfiguration !== undefined && {
-      applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
-    }),
-    ...(input.monitoringConfiguration !== undefined && {
-      monitoringConfiguration: serializeAws_restJson1MonitoringConfiguration(input.monitoringConfiguration, context),
-    }),
+    ...(input.applicationConfiguration !== undefined &&
+      input.applicationConfiguration !== null && {
+        applicationConfiguration: serializeAws_restJson1ConfigurationList(input.applicationConfiguration, context),
+      }),
+    ...(input.monitoringConfiguration !== undefined &&
+      input.monitoringConfiguration !== null && {
+        monitoringConfiguration: serializeAws_restJson1MonitoringConfiguration(input.monitoringConfiguration, context),
+      }),
   };
 };
 
@@ -1775,27 +1773,36 @@ const serializeAws_restJson1ContainerInfo = (input: ContainerInfo, context: __Se
 
 const serializeAws_restJson1ContainerProvider = (input: ContainerProvider, context: __SerdeContext): any => {
   return {
-    ...(input.id !== undefined && { id: input.id }),
-    ...(input.info !== undefined && { info: serializeAws_restJson1ContainerInfo(input.info, context) }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.id !== undefined && input.id !== null && { id: input.id }),
+    ...(input.info !== undefined &&
+      input.info !== null && { info: serializeAws_restJson1ContainerInfo(input.info, context) }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
 const serializeAws_restJson1EksInfo = (input: EksInfo, context: __SerdeContext): any => {
   return {
-    ...(input.namespace !== undefined && { namespace: input.namespace }),
+    ...(input.namespace !== undefined && input.namespace !== null && { namespace: input.namespace }),
   };
 };
 
 const serializeAws_restJson1EntryPointArguments = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1JobDriver = (input: JobDriver, context: __SerdeContext): any => {
   return {
-    ...(input.sparkSubmitJobDriver !== undefined && {
-      sparkSubmitJobDriver: serializeAws_restJson1SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
-    }),
+    ...(input.sparkSubmitJobDriver !== undefined &&
+      input.sparkSubmitJobDriver !== null && {
+        sparkSubmitJobDriver: serializeAws_restJson1SparkSubmitJobDriver(input.sparkSubmitJobDriver, context),
+      }),
   };
 };
 
@@ -1804,19 +1811,22 @@ const serializeAws_restJson1MonitoringConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.cloudWatchMonitoringConfiguration !== undefined && {
-      cloudWatchMonitoringConfiguration: serializeAws_restJson1CloudWatchMonitoringConfiguration(
-        input.cloudWatchMonitoringConfiguration,
-        context
-      ),
-    }),
-    ...(input.persistentAppUI !== undefined && { persistentAppUI: input.persistentAppUI }),
-    ...(input.s3MonitoringConfiguration !== undefined && {
-      s3MonitoringConfiguration: serializeAws_restJson1S3MonitoringConfiguration(
-        input.s3MonitoringConfiguration,
-        context
-      ),
-    }),
+    ...(input.cloudWatchMonitoringConfiguration !== undefined &&
+      input.cloudWatchMonitoringConfiguration !== null && {
+        cloudWatchMonitoringConfiguration: serializeAws_restJson1CloudWatchMonitoringConfiguration(
+          input.cloudWatchMonitoringConfiguration,
+          context
+        ),
+      }),
+    ...(input.persistentAppUI !== undefined &&
+      input.persistentAppUI !== null && { persistentAppUI: input.persistentAppUI }),
+    ...(input.s3MonitoringConfiguration !== undefined &&
+      input.s3MonitoringConfiguration !== null && {
+        s3MonitoringConfiguration: serializeAws_restJson1S3MonitoringConfiguration(
+          input.s3MonitoringConfiguration,
+          context
+        ),
+      }),
   };
 };
 
@@ -1825,7 +1835,7 @@ const serializeAws_restJson1S3MonitoringConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logUri !== undefined && { logUri: input.logUri }),
+    ...(input.logUri !== undefined && input.logUri !== null && { logUri: input.logUri }),
   };
 };
 
@@ -1833,33 +1843,39 @@ const serializeAws_restJson1SensitivePropertiesMap = (
   input: { [key: string]: string },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1SparkSubmitJobDriver = (input: SparkSubmitJobDriver, context: __SerdeContext): any => {
   return {
-    ...(input.entryPoint !== undefined && { entryPoint: input.entryPoint }),
-    ...(input.entryPointArguments !== undefined && {
-      entryPointArguments: serializeAws_restJson1EntryPointArguments(input.entryPointArguments, context),
-    }),
-    ...(input.sparkSubmitParameters !== undefined && { sparkSubmitParameters: input.sparkSubmitParameters }),
+    ...(input.entryPoint !== undefined && input.entryPoint !== null && { entryPoint: input.entryPoint }),
+    ...(input.entryPointArguments !== undefined &&
+      input.entryPointArguments !== null && {
+        entryPointArguments: serializeAws_restJson1EntryPointArguments(input.entryPointArguments, context),
+      }),
+    ...(input.sparkSubmitParameters !== undefined &&
+      input.sparkSubmitParameters !== null && { sparkSubmitParameters: input.sparkSubmitParameters }),
   };
 };
 
 const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1CloudWatchMonitoringConfiguration = (
@@ -1891,7 +1907,14 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ConfigurationList = (output: any, context: __SerdeContext): Configuration[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Configuration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Configuration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ConfigurationOverrides = (
@@ -1973,11 +1996,25 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Endpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Endpoint(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EntryPointArguments = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1JobDriver = (output: any, context: __SerdeContext): JobDriver => {
@@ -2029,7 +2066,14 @@ const deserializeAws_restJson1JobRun = (output: any, context: __SerdeContext): J
 };
 
 const deserializeAws_restJson1JobRuns = (output: any, context: __SerdeContext): JobRun[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1JobRun(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JobRun(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MonitoringConfiguration = (
@@ -2063,13 +2107,15 @@ const deserializeAws_restJson1SensitivePropertiesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1SparkSubmitJobDriver = (output: any, context: __SerdeContext): SparkSubmitJobDriver => {
@@ -2087,17 +2133,26 @@ const deserializeAws_restJson1SparkSubmitJobDriver = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeContext): VirtualCluster => {
@@ -2122,7 +2177,14 @@ const deserializeAws_restJson1VirtualCluster = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1VirtualClusters = (output: any, context: __SerdeContext): VirtualCluster[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1VirtualCluster(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VirtualCluster(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2145,6 +2207,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

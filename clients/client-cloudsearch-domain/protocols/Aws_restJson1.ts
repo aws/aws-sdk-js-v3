@@ -31,9 +31,7 @@ export const serializeAws_restJson1SearchCommand = async (
   input: SearchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2013-01-01/search";
   const query: any = {
     format: "sdk",
@@ -71,9 +69,7 @@ export const serializeAws_restJson1SuggestCommand = async (
   input: SuggestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2013-01-01/suggest";
   const query: any = {
     format: "sdk",
@@ -101,7 +97,7 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/octet-stream",
+    "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
   };
   let resolvedPath = "/2013-01-01/documents/batch";
@@ -373,7 +369,14 @@ const deserializeAws_restJson1BucketInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1BucketList = (output: any, context: __SerdeContext): Bucket[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Bucket(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Bucket(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DocumentServiceWarning = (
@@ -389,37 +392,50 @@ const deserializeAws_restJson1DocumentServiceWarnings = (
   output: any,
   context: __SerdeContext
 ): DocumentServiceWarning[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DocumentServiceWarning(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DocumentServiceWarning(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): { [key: string]: BucketInfo } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: BucketInfo }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: BucketInfo }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1BucketInfo(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string[] }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string[] }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1FieldValue(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext): FieldStats => {
@@ -436,17 +452,26 @@ const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit => {
@@ -468,7 +493,14 @@ const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit 
 };
 
 const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): Hit[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Hit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Hit(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hits => {
@@ -491,13 +523,15 @@ const deserializeAws_restJson1SearchStatus = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): { [key: string]: FieldStats } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: FieldStats }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: FieldStats }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1FieldStats(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeContext): SuggestionMatch => {
@@ -509,7 +543,14 @@ const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContext): SuggestionMatch[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1SuggestionMatch(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SuggestionMatch(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {
@@ -550,6 +591,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

@@ -84,7 +84,7 @@ export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate";
   if (input.workbookId !== undefined) {
@@ -107,10 +107,12 @@ export const serializeAws_restJson1BatchCreateTableRowsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToCreate !== undefined && {
-      rowsToCreate: serializeAws_restJson1CreateRowDataList(input.rowsToCreate, context),
-    }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.rowsToCreate !== undefined &&
+      input.rowsToCreate !== null && {
+        rowsToCreate: serializeAws_restJson1CreateRowDataList(input.rowsToCreate, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -129,7 +131,7 @@ export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete";
   if (input.workbookId !== undefined) {
@@ -152,8 +154,10 @@ export const serializeAws_restJson1BatchDeleteTableRowsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowIds !== undefined && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.rowIds !== undefined &&
+      input.rowIds !== null && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -172,7 +176,7 @@ export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate";
   if (input.workbookId !== undefined) {
@@ -195,10 +199,12 @@ export const serializeAws_restJson1BatchUpdateTableRowsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToUpdate !== undefined && {
-      rowsToUpdate: serializeAws_restJson1UpdateRowDataList(input.rowsToUpdate, context),
-    }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.rowsToUpdate !== undefined &&
+      input.rowsToUpdate !== null && {
+        rowsToUpdate: serializeAws_restJson1UpdateRowDataList(input.rowsToUpdate, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -217,7 +223,7 @@ export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert";
   if (input.workbookId !== undefined) {
@@ -240,10 +246,12 @@ export const serializeAws_restJson1BatchUpsertTableRowsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowsToUpsert !== undefined && {
-      rowsToUpsert: serializeAws_restJson1UpsertRowDataList(input.rowsToUpsert, context),
-    }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.rowsToUpsert !== undefined &&
+      input.rowsToUpsert !== null && {
+        rowsToUpsert: serializeAws_restJson1UpsertRowDataList(input.rowsToUpsert, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -261,9 +269,7 @@ export const serializeAws_restJson1DescribeTableDataImportJobCommand = async (
   input: DescribeTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/import/{jobId}";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
@@ -310,19 +316,18 @@ export const serializeAws_restJson1GetScreenDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/screendata";
   let body: any;
   body = JSON.stringify({
-    ...(input.appId !== undefined && { appId: input.appId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.screenId !== undefined && { screenId: input.screenId }),
-    ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1VariableValueMap(input.variables, context),
-    }),
-    ...(input.workbookId !== undefined && { workbookId: input.workbookId }),
+    ...(input.appId !== undefined && input.appId !== null && { appId: input.appId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.screenId !== undefined && input.screenId !== null && { screenId: input.screenId }),
+    ...(input.variables !== undefined &&
+      input.variables !== null && { variables: serializeAws_restJson1VariableValueMap(input.variables, context) }),
+    ...(input.workbookId !== undefined && input.workbookId !== null && { workbookId: input.workbookId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -341,7 +346,7 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}";
   if (input.workbookId !== undefined) {
@@ -382,11 +387,11 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.rowId !== undefined && { rowId: input.rowId }),
-    ...(input.variables !== undefined && {
-      variables: serializeAws_restJson1VariableValueMap(input.variables, context),
-    }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.rowId !== undefined && input.rowId !== null && { rowId: input.rowId }),
+    ...(input.variables !== undefined &&
+      input.variables !== null && { variables: serializeAws_restJson1VariableValueMap(input.variables, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -404,9 +409,7 @@ export const serializeAws_restJson1ListTableColumnsCommand = async (
   input: ListTableColumnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/columns";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
@@ -448,7 +451,7 @@ export const serializeAws_restJson1ListTableRowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/list";
   if (input.workbookId !== undefined) {
@@ -471,9 +474,10 @@ export const serializeAws_restJson1ListTableRowsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.rowIds !== undefined && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.rowIds !== undefined &&
+      input.rowIds !== null && { rowIds: serializeAws_restJson1RowIdList(input.rowIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -491,9 +495,7 @@ export const serializeAws_restJson1ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/workbooks/{workbookId}/tables";
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
@@ -527,7 +529,7 @@ export const serializeAws_restJson1QueryTableRowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{tableId}/rows/query";
   if (input.workbookId !== undefined) {
@@ -550,11 +552,10 @@ export const serializeAws_restJson1QueryTableRowsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.filterFormula !== undefined && {
-      filterFormula: serializeAws_restJson1Filter(input.filterFormula, context),
-    }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filterFormula !== undefined &&
+      input.filterFormula !== null && { filterFormula: serializeAws_restJson1Filter(input.filterFormula, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -573,7 +574,7 @@ export const serializeAws_restJson1StartTableDataImportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/tables/{destinationTableId}/import";
   if (input.workbookId !== undefined) {
@@ -596,14 +597,15 @@ export const serializeAws_restJson1StartTableDataImportJobCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
-    ...(input.dataFormat !== undefined && { dataFormat: input.dataFormat }),
-    ...(input.dataSource !== undefined && {
-      dataSource: serializeAws_restJson1ImportDataSource(input.dataSource, context),
-    }),
-    ...(input.importOptions !== undefined && {
-      importOptions: serializeAws_restJson1ImportOptions(input.importOptions, context),
-    }),
+    ...(input.clientRequestToken !== undefined &&
+      input.clientRequestToken !== null && { clientRequestToken: input.clientRequestToken }),
+    ...(input.dataFormat !== undefined && input.dataFormat !== null && { dataFormat: input.dataFormat }),
+    ...(input.dataSource !== undefined &&
+      input.dataSource !== null && { dataSource: serializeAws_restJson1ImportDataSource(input.dataSource, context) }),
+    ...(input.importOptions !== undefined &&
+      input.importOptions !== null && {
+        importOptions: serializeAws_restJson1ImportOptions(input.importOptions, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2129,21 +2131,29 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1CellInput = (input: CellInput, context: __SerdeContext): any => {
   return {
-    ...(input.fact !== undefined && { fact: input.fact }),
+    ...(input.fact !== undefined && input.fact !== null && { fact: input.fact }),
   };
 };
 
 const serializeAws_restJson1CreateRowData = (input: CreateRowData, context: __SerdeContext): any => {
   return {
-    ...(input.batchItemId !== undefined && { batchItemId: input.batchItemId }),
-    ...(input.cellsToCreate !== undefined && {
-      cellsToCreate: serializeAws_restJson1RowDataInput(input.cellsToCreate, context),
-    }),
+    ...(input.batchItemId !== undefined && input.batchItemId !== null && { batchItemId: input.batchItemId }),
+    ...(input.cellsToCreate !== undefined &&
+      input.cellsToCreate !== null && {
+        cellsToCreate: serializeAws_restJson1RowDataInput(input.cellsToCreate, context),
+      }),
   };
 };
 
 const serializeAws_restJson1CreateRowDataList = (input: CreateRowData[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1CreateRowData(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1CreateRowData(entry, context);
+    });
 };
 
 const serializeAws_restJson1DelimitedTextImportOptions = (
@@ -2151,25 +2161,26 @@ const serializeAws_restJson1DelimitedTextImportOptions = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.dataCharacterEncoding !== undefined && { dataCharacterEncoding: input.dataCharacterEncoding }),
-    ...(input.delimiter !== undefined && { delimiter: input.delimiter }),
-    ...(input.hasHeaderRow !== undefined && { hasHeaderRow: input.hasHeaderRow }),
-    ...(input.ignoreEmptyRows !== undefined && { ignoreEmptyRows: input.ignoreEmptyRows }),
+    ...(input.dataCharacterEncoding !== undefined &&
+      input.dataCharacterEncoding !== null && { dataCharacterEncoding: input.dataCharacterEncoding }),
+    ...(input.delimiter !== undefined && input.delimiter !== null && { delimiter: input.delimiter }),
+    ...(input.hasHeaderRow !== undefined && input.hasHeaderRow !== null && { hasHeaderRow: input.hasHeaderRow }),
+    ...(input.ignoreEmptyRows !== undefined &&
+      input.ignoreEmptyRows !== null && { ignoreEmptyRows: input.ignoreEmptyRows }),
   };
 };
 
 const serializeAws_restJson1DestinationOptions = (input: DestinationOptions, context: __SerdeContext): any => {
   return {
-    ...(input.columnMap !== undefined && {
-      columnMap: serializeAws_restJson1ImportColumnMap(input.columnMap, context),
-    }),
+    ...(input.columnMap !== undefined &&
+      input.columnMap !== null && { columnMap: serializeAws_restJson1ImportColumnMap(input.columnMap, context) }),
   };
 };
 
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
-    ...(input.contextRowId !== undefined && { contextRowId: input.contextRowId }),
-    ...(input.formula !== undefined && { formula: input.formula }),
+    ...(input.contextRowId !== undefined && input.contextRowId !== null && { contextRowId: input.contextRowId }),
+    ...(input.formula !== undefined && input.formula !== null && { formula: input.formula }),
   };
 };
 
@@ -2178,51 +2189,68 @@ const serializeAws_restJson1ImportColumnMap = (
   context: __SerdeContext
 ): any => {
   return Object.entries(input).reduce(
-    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: serializeAws_restJson1SourceDataColumnProperties(value, context),
-    }),
+    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: serializeAws_restJson1SourceDataColumnProperties(value, context),
+      };
+    },
     {}
   );
 };
 
 const serializeAws_restJson1ImportDataSource = (input: ImportDataSource, context: __SerdeContext): any => {
   return {
-    ...(input.dataSourceConfig !== undefined && {
-      dataSourceConfig: serializeAws_restJson1ImportDataSourceConfig(input.dataSourceConfig, context),
-    }),
+    ...(input.dataSourceConfig !== undefined &&
+      input.dataSourceConfig !== null && {
+        dataSourceConfig: serializeAws_restJson1ImportDataSourceConfig(input.dataSourceConfig, context),
+      }),
   };
 };
 
 const serializeAws_restJson1ImportDataSourceConfig = (input: ImportDataSourceConfig, context: __SerdeContext): any => {
   return {
-    ...(input.dataSourceUrl !== undefined && { dataSourceUrl: input.dataSourceUrl }),
+    ...(input.dataSourceUrl !== undefined && input.dataSourceUrl !== null && { dataSourceUrl: input.dataSourceUrl }),
   };
 };
 
 const serializeAws_restJson1ImportOptions = (input: ImportOptions, context: __SerdeContext): any => {
   return {
-    ...(input.delimitedTextOptions !== undefined && {
-      delimitedTextOptions: serializeAws_restJson1DelimitedTextImportOptions(input.delimitedTextOptions, context),
-    }),
-    ...(input.destinationOptions !== undefined && {
-      destinationOptions: serializeAws_restJson1DestinationOptions(input.destinationOptions, context),
-    }),
+    ...(input.delimitedTextOptions !== undefined &&
+      input.delimitedTextOptions !== null && {
+        delimitedTextOptions: serializeAws_restJson1DelimitedTextImportOptions(input.delimitedTextOptions, context),
+      }),
+    ...(input.destinationOptions !== undefined &&
+      input.destinationOptions !== null && {
+        destinationOptions: serializeAws_restJson1DestinationOptions(input.destinationOptions, context),
+      }),
   };
 };
 
 const serializeAws_restJson1RowDataInput = (input: { [key: string]: CellInput }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: CellInput }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: CellInput }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_restJson1CellInput(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1RowIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1SourceDataColumnProperties = (
@@ -2230,40 +2258,57 @@ const serializeAws_restJson1SourceDataColumnProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.columnIndex !== undefined && { columnIndex: input.columnIndex }),
+    ...(input.columnIndex !== undefined && input.columnIndex !== null && { columnIndex: input.columnIndex }),
   };
 };
 
 const serializeAws_restJson1UpdateRowData = (input: UpdateRowData, context: __SerdeContext): any => {
   return {
-    ...(input.cellsToUpdate !== undefined && {
-      cellsToUpdate: serializeAws_restJson1RowDataInput(input.cellsToUpdate, context),
-    }),
-    ...(input.rowId !== undefined && { rowId: input.rowId }),
+    ...(input.cellsToUpdate !== undefined &&
+      input.cellsToUpdate !== null && {
+        cellsToUpdate: serializeAws_restJson1RowDataInput(input.cellsToUpdate, context),
+      }),
+    ...(input.rowId !== undefined && input.rowId !== null && { rowId: input.rowId }),
   };
 };
 
 const serializeAws_restJson1UpdateRowDataList = (input: UpdateRowData[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1UpdateRowData(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UpdateRowData(entry, context);
+    });
 };
 
 const serializeAws_restJson1UpsertRowData = (input: UpsertRowData, context: __SerdeContext): any => {
   return {
-    ...(input.batchItemId !== undefined && { batchItemId: input.batchItemId }),
-    ...(input.cellsToUpdate !== undefined && {
-      cellsToUpdate: serializeAws_restJson1RowDataInput(input.cellsToUpdate, context),
-    }),
-    ...(input.filter !== undefined && { filter: serializeAws_restJson1Filter(input.filter, context) }),
+    ...(input.batchItemId !== undefined && input.batchItemId !== null && { batchItemId: input.batchItemId }),
+    ...(input.cellsToUpdate !== undefined &&
+      input.cellsToUpdate !== null && {
+        cellsToUpdate: serializeAws_restJson1RowDataInput(input.cellsToUpdate, context),
+      }),
+    ...(input.filter !== undefined &&
+      input.filter !== null && { filter: serializeAws_restJson1Filter(input.filter, context) }),
   };
 };
 
 const serializeAws_restJson1UpsertRowDataList = (input: UpsertRowData[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1UpsertRowData(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1UpsertRowData(entry, context);
+    });
 };
 
 const serializeAws_restJson1VariableValue = (input: VariableValue, context: __SerdeContext): any => {
   return {
-    ...(input.rawValue !== undefined && { rawValue: input.rawValue }),
+    ...(input.rawValue !== undefined && input.rawValue !== null && { rawValue: input.rawValue }),
   };
 };
 
@@ -2271,13 +2316,15 @@ const serializeAws_restJson1VariableValueMap = (
   input: { [key: string]: VariableValue },
   context: __SerdeContext
 ): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: VariableValue }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: VariableValue }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: serializeAws_restJson1VariableValue(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cell => {
@@ -2291,7 +2338,14 @@ const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cel
 };
 
 const deserializeAws_restJson1Cells = (output: any, context: __SerdeContext): Cell[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Cell(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Cell(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeContext): ColumnMetadata => {
@@ -2302,13 +2356,15 @@ const deserializeAws_restJson1ColumnMetadata = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1CreatedRowsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1DataItem = (output: any, context: __SerdeContext): DataItem => {
@@ -2322,7 +2378,14 @@ const deserializeAws_restJson1DataItem = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1DataItems = (output: any, context: __SerdeContext): DataItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1DataItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1DelimitedTextImportOptions = (
@@ -2358,7 +2421,14 @@ const deserializeAws_restJson1FailedBatchItem = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1FailedBatchItems = (output: any, context: __SerdeContext): FailedBatchItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1FailedBatchItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FailedBatchItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ImportColumnMap = (
@@ -2366,10 +2436,15 @@ const deserializeAws_restJson1ImportColumnMap = (
   context: __SerdeContext
 ): { [key: string]: SourceDataColumnProperties } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => ({
-      ...acc,
-      [key]: deserializeAws_restJson1SourceDataColumnProperties(value, context),
-    }),
+    (acc: { [key: string]: SourceDataColumnProperties }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1SourceDataColumnProperties(value, context),
+      };
+    },
     {}
   );
 };
@@ -2414,11 +2489,25 @@ const deserializeAws_restJson1ImportOptions = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ResourceIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ResultHeader = (output: any, context: __SerdeContext): ColumnMetadata[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ColumnMetadata(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnMetadata(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
@@ -2432,7 +2521,14 @@ const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1ResultRows = (output: any, context: __SerdeContext): ResultRow[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ResultRow(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResultRow(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ResultSet = (output: any, context: __SerdeContext): ResultSet => {
@@ -2449,17 +2545,26 @@ const deserializeAws_restJson1ResultSet = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1ResultSetMap = (output: any, context: __SerdeContext): { [key: string]: ResultSet } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: ResultSet }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: ResultSet }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1ResultSet(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1RowIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1SourceDataColumnProperties = (
@@ -2489,7 +2594,14 @@ const deserializeAws_restJson1TableColumn = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1TableColumns = (output: any, context: __SerdeContext): TableColumn[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1TableColumn(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TableColumn(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TableDataImportJobMetadata = (
@@ -2527,11 +2639,25 @@ const deserializeAws_restJson1TableRow = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1TableRows = (output: any, context: __SerdeContext): TableRow[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1TableRow(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TableRow(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Tables = (output: any, context: __SerdeContext): Table[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Table(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Table(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UpsertRowsResult = (output: any, context: __SerdeContext): UpsertRowsResult => {
@@ -2548,13 +2674,15 @@ const deserializeAws_restJson1UpsertRowsResultMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: UpsertRowsResult } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: UpsertRowsResult }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: UpsertRowsResult }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: deserializeAws_restJson1UpsertRowsResult(value, context),
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2577,6 +2705,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

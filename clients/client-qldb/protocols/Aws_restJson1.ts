@@ -72,9 +72,7 @@ export const serializeAws_restJson1CancelJournalKinesisStreamCommand = async (
   input: CancelJournalKinesisStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}";
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
@@ -112,15 +110,17 @@ export const serializeAws_restJson1CreateLedgerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ledgers";
   let body: any;
   body = JSON.stringify({
-    ...(input.DeletionProtection !== undefined && { DeletionProtection: input.DeletionProtection }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PermissionsMode !== undefined && { PermissionsMode: input.PermissionsMode }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.DeletionProtection !== undefined &&
+      input.DeletionProtection !== null && { DeletionProtection: input.DeletionProtection }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PermissionsMode !== undefined &&
+      input.PermissionsMode !== null && { PermissionsMode: input.PermissionsMode }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -138,9 +138,7 @@ export const serializeAws_restJson1DeleteLedgerCommand = async (
   input: DeleteLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -168,9 +166,7 @@ export const serializeAws_restJson1DescribeJournalKinesisStreamCommand = async (
   input: DescribeJournalKinesisStreamCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}";
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
@@ -207,9 +203,7 @@ export const serializeAws_restJson1DescribeJournalS3ExportCommand = async (
   input: DescribeJournalS3ExportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports/{ExportId}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -246,9 +240,7 @@ export const serializeAws_restJson1DescribeLedgerCommand = async (
   input: DescribeLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -277,7 +269,7 @@ export const serializeAws_restJson1ExportJournalToS3Command = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
@@ -291,16 +283,17 @@ export const serializeAws_restJson1ExportJournalToS3Command = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ExclusiveEndTime !== undefined && {
-      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000),
-    }),
-    ...(input.InclusiveStartTime !== undefined && {
-      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
-    }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.S3ExportConfiguration !== undefined && {
-      S3ExportConfiguration: serializeAws_restJson1S3ExportConfiguration(input.S3ExportConfiguration, context),
-    }),
+    ...(input.ExclusiveEndTime !== undefined &&
+      input.ExclusiveEndTime !== null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
+    ...(input.InclusiveStartTime !== undefined &&
+      input.InclusiveStartTime !== null && {
+        InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
+      }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.S3ExportConfiguration !== undefined &&
+      input.S3ExportConfiguration !== null && {
+        S3ExportConfiguration: serializeAws_restJson1S3ExportConfiguration(input.S3ExportConfiguration, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -319,7 +312,7 @@ export const serializeAws_restJson1GetBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ledgers/{Name}/block";
   if (input.Name !== undefined) {
@@ -333,12 +326,12 @@ export const serializeAws_restJson1GetBlockCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BlockAddress !== undefined && {
-      BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context),
-    }),
-    ...(input.DigestTipAddress !== undefined && {
-      DigestTipAddress: serializeAws_restJson1ValueHolder(input.DigestTipAddress, context),
-    }),
+    ...(input.BlockAddress !== undefined &&
+      input.BlockAddress !== null && { BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context) }),
+    ...(input.DigestTipAddress !== undefined &&
+      input.DigestTipAddress !== null && {
+        DigestTipAddress: serializeAws_restJson1ValueHolder(input.DigestTipAddress, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -356,9 +349,7 @@ export const serializeAws_restJson1GetDigestCommand = async (
   input: GetDigestCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{Name}/digest";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -387,7 +378,7 @@ export const serializeAws_restJson1GetRevisionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ledgers/{Name}/revision";
   if (input.Name !== undefined) {
@@ -401,13 +392,13 @@ export const serializeAws_restJson1GetRevisionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BlockAddress !== undefined && {
-      BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context),
-    }),
-    ...(input.DigestTipAddress !== undefined && {
-      DigestTipAddress: serializeAws_restJson1ValueHolder(input.DigestTipAddress, context),
-    }),
-    ...(input.DocumentId !== undefined && { DocumentId: input.DocumentId }),
+    ...(input.BlockAddress !== undefined &&
+      input.BlockAddress !== null && { BlockAddress: serializeAws_restJson1ValueHolder(input.BlockAddress, context) }),
+    ...(input.DigestTipAddress !== undefined &&
+      input.DigestTipAddress !== null && {
+        DigestTipAddress: serializeAws_restJson1ValueHolder(input.DigestTipAddress, context),
+      }),
+    ...(input.DocumentId !== undefined && input.DocumentId !== null && { DocumentId: input.DocumentId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -425,9 +416,7 @@ export const serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand = a
   input: ListJournalKinesisStreamsForLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams";
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
@@ -460,9 +449,7 @@ export const serializeAws_restJson1ListJournalS3ExportsCommand = async (
   input: ListJournalS3ExportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/journal-s3-exports";
   const query: any = {
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
@@ -486,9 +473,7 @@ export const serializeAws_restJson1ListJournalS3ExportsForLedgerCommand = async 
   input: ListJournalS3ExportsForLedgerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers/{Name}/journal-s3-exports";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -521,9 +506,7 @@ export const serializeAws_restJson1ListLedgersCommand = async (
   input: ListLedgersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/ledgers";
   const query: any = {
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
@@ -547,9 +530,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -578,7 +559,7 @@ export const serializeAws_restJson1StreamJournalToKinesisCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams";
   if (input.LedgerName !== undefined) {
@@ -592,18 +573,19 @@ export const serializeAws_restJson1StreamJournalToKinesisCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ExclusiveEndTime !== undefined && {
-      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000),
-    }),
-    ...(input.InclusiveStartTime !== undefined && {
-      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
-    }),
-    ...(input.KinesisConfiguration !== undefined && {
-      KinesisConfiguration: serializeAws_restJson1KinesisConfiguration(input.KinesisConfiguration, context),
-    }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.ExclusiveEndTime !== undefined &&
+      input.ExclusiveEndTime !== null && { ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000) }),
+    ...(input.InclusiveStartTime !== undefined &&
+      input.InclusiveStartTime !== null && {
+        InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000),
+      }),
+    ...(input.KinesisConfiguration !== undefined &&
+      input.KinesisConfiguration !== null && {
+        KinesisConfiguration: serializeAws_restJson1KinesisConfiguration(input.KinesisConfiguration, context),
+      }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -622,7 +604,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
@@ -636,7 +618,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -654,9 +636,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -689,7 +669,7 @@ export const serializeAws_restJson1UpdateLedgerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ledgers/{Name}";
   if (input.Name !== undefined) {
@@ -703,7 +683,8 @@ export const serializeAws_restJson1UpdateLedgerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeletionProtection !== undefined && { DeletionProtection: input.DeletionProtection }),
+    ...(input.DeletionProtection !== undefined &&
+      input.DeletionProtection !== null && { DeletionProtection: input.DeletionProtection }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2154,8 +2135,9 @@ const deserializeAws_restJson1ResourcePreconditionNotMetExceptionResponse = asyn
 
 const serializeAws_restJson1KinesisConfiguration = (input: KinesisConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AggregationEnabled !== undefined && { AggregationEnabled: input.AggregationEnabled }),
-    ...(input.StreamArn !== undefined && { StreamArn: input.StreamArn }),
+    ...(input.AggregationEnabled !== undefined &&
+      input.AggregationEnabled !== null && { AggregationEnabled: input.AggregationEnabled }),
+    ...(input.StreamArn !== undefined && input.StreamArn !== null && { StreamArn: input.StreamArn }),
   };
 };
 
@@ -2164,34 +2146,41 @@ const serializeAws_restJson1S3EncryptionConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
-    ...(input.ObjectEncryptionType !== undefined && { ObjectEncryptionType: input.ObjectEncryptionType }),
+    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.ObjectEncryptionType !== undefined &&
+      input.ObjectEncryptionType !== null && { ObjectEncryptionType: input.ObjectEncryptionType }),
   };
 };
 
 const serializeAws_restJson1S3ExportConfiguration = (input: S3ExportConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
-    ...(input.EncryptionConfiguration !== undefined && {
-      EncryptionConfiguration: serializeAws_restJson1S3EncryptionConfiguration(input.EncryptionConfiguration, context),
-    }),
-    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.EncryptionConfiguration !== undefined &&
+      input.EncryptionConfiguration !== null && {
+        EncryptionConfiguration: serializeAws_restJson1S3EncryptionConfiguration(
+          input.EncryptionConfiguration,
+          context
+        ),
+      }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
   };
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1ValueHolder = (input: ValueHolder, context: __SerdeContext): any => {
   return {
-    ...(input.IonText !== undefined && { IonText: input.IonText }),
+    ...(input.IonText !== undefined && input.IonText !== null && { IonText: input.IonText }),
   };
 };
 
@@ -2230,7 +2219,14 @@ const deserializeAws_restJson1JournalKinesisStreamDescriptionList = (
   output: any,
   context: __SerdeContext
 ): JournalKinesisStreamDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1JournalKinesisStreamDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JournalKinesisStreamDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1JournalS3ExportDescription = (
@@ -2265,7 +2261,14 @@ const deserializeAws_restJson1JournalS3ExportList = (
   output: any,
   context: __SerdeContext
 ): JournalS3ExportDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1JournalS3ExportDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1JournalS3ExportDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1KinesisConfiguration = (output: any, context: __SerdeContext): KinesisConfiguration => {
@@ -2279,7 +2282,14 @@ const deserializeAws_restJson1KinesisConfiguration = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1LedgerList = (output: any, context: __SerdeContext): LedgerSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1LedgerSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LedgerSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1LedgerSummary = (output: any, context: __SerdeContext): LedgerSummary => {
@@ -2318,13 +2328,15 @@ const deserializeAws_restJson1S3ExportConfiguration = (output: any, context: __S
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1ValueHolder = (output: any, context: __SerdeContext): ValueHolder => {
@@ -2353,6 +2365,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

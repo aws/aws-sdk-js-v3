@@ -304,7 +304,7 @@ export const serializeAws_json1_1AssociateConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.AssociateConnectionAlias",
   };
   let body: any;
@@ -317,7 +317,7 @@ export const serializeAws_json1_1AssociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.AssociateIpGroups",
   };
   let body: any;
@@ -330,7 +330,7 @@ export const serializeAws_json1_1AuthorizeIpRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.AuthorizeIpRules",
   };
   let body: any;
@@ -343,7 +343,7 @@ export const serializeAws_json1_1CopyWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.CopyWorkspaceImage",
   };
   let body: any;
@@ -356,7 +356,7 @@ export const serializeAws_json1_1CreateConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.CreateConnectionAlias",
   };
   let body: any;
@@ -369,7 +369,7 @@ export const serializeAws_json1_1CreateIpGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.CreateIpGroup",
   };
   let body: any;
@@ -382,7 +382,7 @@ export const serializeAws_json1_1CreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.CreateTags",
   };
   let body: any;
@@ -395,7 +395,7 @@ export const serializeAws_json1_1CreateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.CreateWorkspaces",
   };
   let body: any;
@@ -408,7 +408,7 @@ export const serializeAws_json1_1DeleteConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DeleteConnectionAlias",
   };
   let body: any;
@@ -421,7 +421,7 @@ export const serializeAws_json1_1DeleteIpGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DeleteIpGroup",
   };
   let body: any;
@@ -434,7 +434,7 @@ export const serializeAws_json1_1DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DeleteTags",
   };
   let body: any;
@@ -447,7 +447,7 @@ export const serializeAws_json1_1DeleteWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DeleteWorkspaceImage",
   };
   let body: any;
@@ -460,7 +460,7 @@ export const serializeAws_json1_1DeregisterWorkspaceDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DeregisterWorkspaceDirectory",
   };
   let body: any;
@@ -473,7 +473,7 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeAccount",
   };
   let body: any;
@@ -486,7 +486,7 @@ export const serializeAws_json1_1DescribeAccountModificationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeAccountModifications",
   };
   let body: any;
@@ -499,7 +499,7 @@ export const serializeAws_json1_1DescribeClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeClientProperties",
   };
   let body: any;
@@ -512,7 +512,7 @@ export const serializeAws_json1_1DescribeConnectionAliasesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeConnectionAliases",
   };
   let body: any;
@@ -525,7 +525,7 @@ export const serializeAws_json1_1DescribeConnectionAliasPermissionsCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeConnectionAliasPermissions",
   };
   let body: any;
@@ -538,7 +538,7 @@ export const serializeAws_json1_1DescribeIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeIpGroups",
   };
   let body: any;
@@ -551,7 +551,7 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeTags",
   };
   let body: any;
@@ -564,7 +564,7 @@ export const serializeAws_json1_1DescribeWorkspaceBundlesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceBundles",
   };
   let body: any;
@@ -577,7 +577,7 @@ export const serializeAws_json1_1DescribeWorkspaceDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceDirectories",
   };
   let body: any;
@@ -590,7 +590,7 @@ export const serializeAws_json1_1DescribeWorkspaceImagePermissionsCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceImagePermissions",
   };
   let body: any;
@@ -603,7 +603,7 @@ export const serializeAws_json1_1DescribeWorkspaceImagesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceImages",
   };
   let body: any;
@@ -616,7 +616,7 @@ export const serializeAws_json1_1DescribeWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaces",
   };
   let body: any;
@@ -629,7 +629,7 @@ export const serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspacesConnectionStatus",
   };
   let body: any;
@@ -642,7 +642,7 @@ export const serializeAws_json1_1DescribeWorkspaceSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DescribeWorkspaceSnapshots",
   };
   let body: any;
@@ -655,7 +655,7 @@ export const serializeAws_json1_1DisassociateConnectionAliasCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DisassociateConnectionAlias",
   };
   let body: any;
@@ -668,7 +668,7 @@ export const serializeAws_json1_1DisassociateIpGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.DisassociateIpGroups",
   };
   let body: any;
@@ -681,7 +681,7 @@ export const serializeAws_json1_1ImportWorkspaceImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ImportWorkspaceImage",
   };
   let body: any;
@@ -694,7 +694,7 @@ export const serializeAws_json1_1ListAvailableManagementCidrRangesCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ListAvailableManagementCidrRanges",
   };
   let body: any;
@@ -707,7 +707,7 @@ export const serializeAws_json1_1MigrateWorkspaceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.MigrateWorkspace",
   };
   let body: any;
@@ -720,7 +720,7 @@ export const serializeAws_json1_1ModifyAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifyAccount",
   };
   let body: any;
@@ -733,7 +733,7 @@ export const serializeAws_json1_1ModifyClientPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifyClientProperties",
   };
   let body: any;
@@ -746,7 +746,7 @@ export const serializeAws_json1_1ModifySelfservicePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifySelfservicePermissions",
   };
   let body: any;
@@ -759,7 +759,7 @@ export const serializeAws_json1_1ModifyWorkspaceAccessPropertiesCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceAccessProperties",
   };
   let body: any;
@@ -772,7 +772,7 @@ export const serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceCreationProperties",
   };
   let body: any;
@@ -785,7 +785,7 @@ export const serializeAws_json1_1ModifyWorkspacePropertiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceProperties",
   };
   let body: any;
@@ -798,7 +798,7 @@ export const serializeAws_json1_1ModifyWorkspaceStateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.ModifyWorkspaceState",
   };
   let body: any;
@@ -811,7 +811,7 @@ export const serializeAws_json1_1RebootWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.RebootWorkspaces",
   };
   let body: any;
@@ -824,7 +824,7 @@ export const serializeAws_json1_1RebuildWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.RebuildWorkspaces",
   };
   let body: any;
@@ -837,7 +837,7 @@ export const serializeAws_json1_1RegisterWorkspaceDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.RegisterWorkspaceDirectory",
   };
   let body: any;
@@ -850,7 +850,7 @@ export const serializeAws_json1_1RestoreWorkspaceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.RestoreWorkspace",
   };
   let body: any;
@@ -863,7 +863,7 @@ export const serializeAws_json1_1RevokeIpRulesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.RevokeIpRules",
   };
   let body: any;
@@ -876,7 +876,7 @@ export const serializeAws_json1_1StartWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.StartWorkspaces",
   };
   let body: any;
@@ -889,7 +889,7 @@ export const serializeAws_json1_1StopWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.StopWorkspaces",
   };
   let body: any;
@@ -902,7 +902,7 @@ export const serializeAws_json1_1TerminateWorkspacesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.TerminateWorkspaces",
   };
   let body: any;
@@ -915,7 +915,7 @@ export const serializeAws_json1_1UpdateConnectionAliasPermissionCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.UpdateConnectionAliasPermission",
   };
   let body: any;
@@ -928,7 +928,7 @@ export const serializeAws_json1_1UpdateRulesOfIpGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.UpdateRulesOfIpGroup",
   };
   let body: any;
@@ -941,7 +941,7 @@ export const serializeAws_json1_1UpdateWorkspaceImagePermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "WorkspacesService.UpdateWorkspaceImagePermission",
   };
   let body: any;
@@ -976,8 +976,7 @@ const deserializeAws_json1_1AssociateConnectionAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1071,8 +1070,7 @@ const deserializeAws_json1_1AssociateIpGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1166,8 +1164,7 @@ const deserializeAws_json1_1AuthorizeIpRulesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1253,8 +1250,7 @@ const deserializeAws_json1_1CopyWorkspaceImageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1356,8 +1352,7 @@ const deserializeAws_json1_1CreateConnectionAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1451,8 +1446,7 @@ const deserializeAws_json1_1CreateIpGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1538,8 +1532,7 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -1609,8 +1602,7 @@ const deserializeAws_json1_1CreateWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -1672,8 +1664,7 @@ const deserializeAws_json1_1DeleteConnectionAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1767,8 +1758,7 @@ const deserializeAws_json1_1DeleteIpGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1846,8 +1836,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -1909,8 +1898,7 @@ const deserializeAws_json1_1DeleteWorkspaceImageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -1980,8 +1968,7 @@ const deserializeAws_json1_1DeregisterWorkspaceDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2067,8 +2054,7 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2122,8 +2108,7 @@ const deserializeAws_json1_1DescribeAccountModificationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2177,8 +2162,7 @@ const deserializeAws_json1_1DescribeClientPropertiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2248,8 +2232,7 @@ const deserializeAws_json1_1DescribeConnectionAliasesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2319,8 +2302,7 @@ const deserializeAws_json1_1DescribeConnectionAliasPermissionsCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2398,8 +2380,7 @@ const deserializeAws_json1_1DescribeIpGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2461,8 +2442,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workspaces#ResourceNotFoundException":
@@ -2516,8 +2496,7 @@ const deserializeAws_json1_1DescribeWorkspaceBundlesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2571,8 +2550,7 @@ const deserializeAws_json1_1DescribeWorkspaceDirectoriesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2626,8 +2604,7 @@ const deserializeAws_json1_1DescribeWorkspaceImagePermissionsCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2697,8 +2674,7 @@ const deserializeAws_json1_1DescribeWorkspaceImagesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2752,8 +2728,7 @@ const deserializeAws_json1_1DescribeWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2815,8 +2790,7 @@ const deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -2870,8 +2844,7 @@ const deserializeAws_json1_1DescribeWorkspaceSnapshotsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -2941,8 +2914,7 @@ const deserializeAws_json1_1DisassociateConnectionAliasCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3028,8 +3000,7 @@ const deserializeAws_json1_1DisassociateIpGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3107,8 +3078,7 @@ const deserializeAws_json1_1ImportWorkspaceImageCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3202,8 +3172,7 @@ const deserializeAws_json1_1ListAvailableManagementCidrRangesCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3265,8 +3234,7 @@ const deserializeAws_json1_1MigrateWorkspaceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3360,8 +3328,7 @@ const deserializeAws_json1_1ModifyAccountCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3447,8 +3414,7 @@ const deserializeAws_json1_1ModifyClientPropertiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3518,8 +3484,7 @@ const deserializeAws_json1_1ModifySelfservicePermissionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3589,8 +3554,7 @@ const deserializeAws_json1_1ModifyWorkspaceAccessPropertiesCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3652,8 +3616,7 @@ const deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3731,8 +3694,7 @@ const deserializeAws_json1_1ModifyWorkspacePropertiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -3834,8 +3796,7 @@ const deserializeAws_json1_1ModifyWorkspaceStateCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValuesException":
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
@@ -3905,8 +3866,7 @@ const deserializeAws_json1_1RebootWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3952,8 +3912,7 @@ const deserializeAws_json1_1RebuildWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -3999,8 +3958,7 @@ const deserializeAws_json1_1RegisterWorkspaceDirectoryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -4110,8 +4068,7 @@ const deserializeAws_json1_1RestoreWorkspaceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -4181,8 +4138,7 @@ const deserializeAws_json1_1RevokeIpRulesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -4260,8 +4216,7 @@ const deserializeAws_json1_1StartWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -4307,8 +4262,7 @@ const deserializeAws_json1_1StopWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -4354,8 +4308,7 @@ const deserializeAws_json1_1TerminateWorkspacesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
@@ -4401,8 +4354,7 @@ const deserializeAws_json1_1UpdateConnectionAliasPermissionCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -4504,8 +4456,7 @@ const deserializeAws_json1_1UpdateRulesOfIpGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -4591,8 +4542,7 @@ const deserializeAws_json1_1UpdateWorkspaceImagePermissionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.workspaces#AccessDeniedException":
@@ -4862,7 +4812,14 @@ const deserializeAws_json1_1WorkspacesDefaultRoleNotFoundExceptionResponse = asy
 };
 
 const serializeAws_json1_1ApplicationList = (input: (Application | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AssociateConnectionAliasRequest = (
@@ -4870,8 +4827,8 @@ const serializeAws_json1_1AssociateConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId !== undefined && { AliasId: input.AliasId }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.AliasId !== undefined && input.AliasId !== null && { AliasId: input.AliasId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -4880,30 +4837,47 @@ const serializeAws_json1_1AssociateIpGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.GroupIds !== undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.GroupIds !== undefined &&
+      input.GroupIds !== null && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
   };
 };
 
 const serializeAws_json1_1AuthorizeIpRulesRequest = (input: AuthorizeIpRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules !== undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.UserRules !== undefined &&
+      input.UserRules !== null && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
 const serializeAws_json1_1BundleIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ClientProperties = (input: ClientProperties, context: __SerdeContext): any => {
   return {
-    ...(input.ReconnectEnabled !== undefined && { ReconnectEnabled: input.ReconnectEnabled }),
+    ...(input.ReconnectEnabled !== undefined &&
+      input.ReconnectEnabled !== null && { ReconnectEnabled: input.ReconnectEnabled }),
   };
 };
 
 const serializeAws_json1_1ConnectionAliasIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ConnectionAliasPermission = (
@@ -4911,8 +4885,10 @@ const serializeAws_json1_1ConnectionAliasPermission = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowAssociation !== undefined && { AllowAssociation: input.AllowAssociation }),
-    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
+    ...(input.AllowAssociation !== undefined &&
+      input.AllowAssociation !== null && { AllowAssociation: input.AllowAssociation }),
+    ...(input.SharedAccountId !== undefined &&
+      input.SharedAccountId !== null && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
@@ -4921,11 +4897,11 @@ const serializeAws_json1_1CopyWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.SourceImageId !== undefined && { SourceImageId: input.SourceImageId }),
-    ...(input.SourceRegion !== undefined && { SourceRegion: input.SourceRegion }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourceImageId !== undefined && input.SourceImageId !== null && { SourceImageId: input.SourceImageId }),
+    ...(input.SourceRegion !== undefined && input.SourceRegion !== null && { SourceRegion: input.SourceRegion }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -4934,32 +4910,33 @@ const serializeAws_json1_1CreateConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ConnectionString !== undefined && { ConnectionString: input.ConnectionString }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ConnectionString !== undefined &&
+      input.ConnectionString !== null && { ConnectionString: input.ConnectionString }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateIpGroupRequest = (input: CreateIpGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupDesc !== undefined && { GroupDesc: input.GroupDesc }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.UserRules !== undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
+    ...(input.GroupDesc !== undefined && input.GroupDesc !== null && { GroupDesc: input.GroupDesc }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserRules !== undefined &&
+      input.UserRules !== null && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
 const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateWorkspacesRequest = (input: CreateWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Workspaces !== undefined && {
-      Workspaces: serializeAws_json1_1WorkspaceRequestList(input.Workspaces, context),
-    }),
+    ...(input.Workspaces !== undefined &&
+      input.Workspaces !== null && { Workspaces: serializeAws_json1_1WorkspaceRequestList(input.Workspaces, context) }),
   };
 };
 
@@ -4968,20 +4945,21 @@ const serializeAws_json1_1DeleteConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId !== undefined && { AliasId: input.AliasId }),
+    ...(input.AliasId !== undefined && input.AliasId !== null && { AliasId: input.AliasId }),
   };
 };
 
 const serializeAws_json1_1DeleteIpGroupRequest = (input: DeleteIpGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
   };
 };
 
 const serializeAws_json1_1DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -4990,7 +4968,7 @@ const serializeAws_json1_1DeleteWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageId !== undefined && { ImageId: input.ImageId }),
+    ...(input.ImageId !== undefined && input.ImageId !== null && { ImageId: input.ImageId }),
   };
 };
 
@@ -4999,7 +4977,7 @@ const serializeAws_json1_1DeregisterWorkspaceDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
   };
 };
 
@@ -5008,7 +4986,7 @@ const serializeAws_json1_1DescribeAccountModificationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5021,9 +4999,8 @@ const serializeAws_json1_1DescribeClientPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceIds !== undefined && {
-      ResourceIds: serializeAws_json1_1ResourceIdList(input.ResourceIds, context),
-    }),
+    ...(input.ResourceIds !== undefined &&
+      input.ResourceIds !== null && { ResourceIds: serializeAws_json1_1ResourceIdList(input.ResourceIds, context) }),
   };
 };
 
@@ -5032,12 +5009,11 @@ const serializeAws_json1_1DescribeConnectionAliasesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasIds !== undefined && {
-      AliasIds: serializeAws_json1_1ConnectionAliasIdList(input.AliasIds, context),
-    }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.AliasIds !== undefined &&
+      input.AliasIds !== null && { AliasIds: serializeAws_json1_1ConnectionAliasIdList(input.AliasIds, context) }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5046,23 +5022,24 @@ const serializeAws_json1_1DescribeConnectionAliasPermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId !== undefined && { AliasId: input.AliasId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AliasId !== undefined && input.AliasId !== null && { AliasId: input.AliasId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeIpGroupsRequest = (input: DescribeIpGroupsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupIds !== undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.GroupIds !== undefined &&
+      input.GroupIds !== null && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5071,9 +5048,10 @@ const serializeAws_json1_1DescribeWorkspaceBundlesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleIds !== undefined && { BundleIds: serializeAws_json1_1BundleIdList(input.BundleIds, context) }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Owner !== undefined && { Owner: input.Owner }),
+    ...(input.BundleIds !== undefined &&
+      input.BundleIds !== null && { BundleIds: serializeAws_json1_1BundleIdList(input.BundleIds, context) }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Owner !== undefined && input.Owner !== null && { Owner: input.Owner }),
   };
 };
 
@@ -5082,11 +5060,12 @@ const serializeAws_json1_1DescribeWorkspaceDirectoriesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryIds !== undefined && {
-      DirectoryIds: serializeAws_json1_1DirectoryIdList(input.DirectoryIds, context),
-    }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DirectoryIds !== undefined &&
+      input.DirectoryIds !== null && {
+        DirectoryIds: serializeAws_json1_1DirectoryIdList(input.DirectoryIds, context),
+      }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5095,9 +5074,9 @@ const serializeAws_json1_1DescribeWorkspaceImagePermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageId !== undefined && { ImageId: input.ImageId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ImageId !== undefined && input.ImageId !== null && { ImageId: input.ImageId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5106,12 +5085,11 @@ const serializeAws_json1_1DescribeWorkspaceImagesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ImageIds !== undefined && {
-      ImageIds: serializeAws_json1_1WorkspaceImageIdList(input.ImageIds, context),
-    }),
-    ...(input.ImageType !== undefined && { ImageType: input.ImageType }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ImageIds !== undefined &&
+      input.ImageIds !== null && { ImageIds: serializeAws_json1_1WorkspaceImageIdList(input.ImageIds, context) }),
+    ...(input.ImageType !== undefined && input.ImageType !== null && { ImageType: input.ImageType }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5120,10 +5098,11 @@ const serializeAws_json1_1DescribeWorkspacesConnectionStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.WorkspaceIds !== undefined && {
-      WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context),
-    }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.WorkspaceIds !== undefined &&
+      input.WorkspaceIds !== null && {
+        WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context),
+      }),
   };
 };
 
@@ -5132,7 +5111,7 @@ const serializeAws_json1_1DescribeWorkspaceSnapshotsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
@@ -5141,19 +5120,27 @@ const serializeAws_json1_1DescribeWorkspacesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BundleId !== undefined && { BundleId: input.BundleId }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.UserName !== undefined && { UserName: input.UserName }),
-    ...(input.WorkspaceIds !== undefined && {
-      WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context),
-    }),
+    ...(input.BundleId !== undefined && input.BundleId !== null && { BundleId: input.BundleId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+    ...(input.WorkspaceIds !== undefined &&
+      input.WorkspaceIds !== null && {
+        WorkspaceIds: serializeAws_json1_1WorkspaceIdList(input.WorkspaceIds, context),
+      }),
   };
 };
 
 const serializeAws_json1_1DirectoryIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DisassociateConnectionAliasRequest = (
@@ -5161,7 +5148,7 @@ const serializeAws_json1_1DisassociateConnectionAliasRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId !== undefined && { AliasId: input.AliasId }),
+    ...(input.AliasId !== undefined && input.AliasId !== null && { AliasId: input.AliasId }),
   };
 };
 
@@ -5170,8 +5157,9 @@ const serializeAws_json1_1DisassociateIpGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.GroupIds !== undefined && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.GroupIds !== undefined &&
+      input.GroupIds !== null && { GroupIds: serializeAws_json1_1IpGroupIdList(input.GroupIds, context) }),
   };
 };
 
@@ -5180,34 +5168,58 @@ const serializeAws_json1_1ImportWorkspaceImageRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Applications !== undefined && {
-      Applications: serializeAws_json1_1ApplicationList(input.Applications, context),
-    }),
-    ...(input.Ec2ImageId !== undefined && { Ec2ImageId: input.Ec2ImageId }),
-    ...(input.ImageDescription !== undefined && { ImageDescription: input.ImageDescription }),
-    ...(input.ImageName !== undefined && { ImageName: input.ImageName }),
-    ...(input.IngestionProcess !== undefined && { IngestionProcess: input.IngestionProcess }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Applications !== undefined &&
+      input.Applications !== null && {
+        Applications: serializeAws_json1_1ApplicationList(input.Applications, context),
+      }),
+    ...(input.Ec2ImageId !== undefined && input.Ec2ImageId !== null && { Ec2ImageId: input.Ec2ImageId }),
+    ...(input.ImageDescription !== undefined &&
+      input.ImageDescription !== null && { ImageDescription: input.ImageDescription }),
+    ...(input.ImageName !== undefined && input.ImageName !== null && { ImageName: input.ImageName }),
+    ...(input.IngestionProcess !== undefined &&
+      input.IngestionProcess !== null && { IngestionProcess: input.IngestionProcess }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1IpGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1IpRevokedRuleList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1IpRuleItem = (input: IpRuleItem, context: __SerdeContext): any => {
   return {
-    ...(input.ipRule !== undefined && { ipRule: input.ipRule }),
-    ...(input.ruleDesc !== undefined && { ruleDesc: input.ruleDesc }),
+    ...(input.ipRule !== undefined && input.ipRule !== null && { ipRule: input.ipRule }),
+    ...(input.ruleDesc !== undefined && input.ruleDesc !== null && { ruleDesc: input.ruleDesc }),
   };
 };
 
 const serializeAws_json1_1IpRuleList = (input: IpRuleItem[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1IpRuleItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1IpRuleItem(entry, context);
+    });
 };
 
 const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
@@ -5215,27 +5227,31 @@ const serializeAws_json1_1ListAvailableManagementCidrRangesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ManagementCidrRangeConstraint !== undefined && {
-      ManagementCidrRangeConstraint: input.ManagementCidrRangeConstraint,
-    }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ManagementCidrRangeConstraint !== undefined &&
+      input.ManagementCidrRangeConstraint !== null && {
+        ManagementCidrRangeConstraint: input.ManagementCidrRangeConstraint,
+      }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1MigrateWorkspaceRequest = (input: MigrateWorkspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BundleId !== undefined && { BundleId: input.BundleId }),
-    ...(input.SourceWorkspaceId !== undefined && { SourceWorkspaceId: input.SourceWorkspaceId }),
+    ...(input.BundleId !== undefined && input.BundleId !== null && { BundleId: input.BundleId }),
+    ...(input.SourceWorkspaceId !== undefined &&
+      input.SourceWorkspaceId !== null && { SourceWorkspaceId: input.SourceWorkspaceId }),
   };
 };
 
 const serializeAws_json1_1ModifyAccountRequest = (input: ModifyAccountRequest, context: __SerdeContext): any => {
   return {
-    ...(input.DedicatedTenancyManagementCidrRange !== undefined && {
-      DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange,
-    }),
-    ...(input.DedicatedTenancySupport !== undefined && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
+    ...(input.DedicatedTenancyManagementCidrRange !== undefined &&
+      input.DedicatedTenancyManagementCidrRange !== null && {
+        DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange,
+      }),
+    ...(input.DedicatedTenancySupport !== undefined &&
+      input.DedicatedTenancySupport !== null && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
   };
 };
 
@@ -5244,10 +5260,11 @@ const serializeAws_json1_1ModifyClientPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientProperties !== undefined && {
-      ClientProperties: serializeAws_json1_1ClientProperties(input.ClientProperties, context),
-    }),
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ClientProperties !== undefined &&
+      input.ClientProperties !== null && {
+        ClientProperties: serializeAws_json1_1ClientProperties(input.ClientProperties, context),
+      }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5256,10 +5273,11 @@ const serializeAws_json1_1ModifySelfservicePermissionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.SelfservicePermissions !== undefined && {
-      SelfservicePermissions: serializeAws_json1_1SelfservicePermissions(input.SelfservicePermissions, context),
-    }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.SelfservicePermissions !== undefined &&
+      input.SelfservicePermissions !== null && {
+        SelfservicePermissions: serializeAws_json1_1SelfservicePermissions(input.SelfservicePermissions, context),
+      }),
   };
 };
 
@@ -5268,13 +5286,14 @@ const serializeAws_json1_1ModifyWorkspaceAccessPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.WorkspaceAccessProperties !== undefined && {
-      WorkspaceAccessProperties: serializeAws_json1_1WorkspaceAccessProperties(
-        input.WorkspaceAccessProperties,
-        context
-      ),
-    }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.WorkspaceAccessProperties !== undefined &&
+      input.WorkspaceAccessProperties !== null && {
+        WorkspaceAccessProperties: serializeAws_json1_1WorkspaceAccessProperties(
+          input.WorkspaceAccessProperties,
+          context
+        ),
+      }),
   };
 };
 
@@ -5283,13 +5302,14 @@ const serializeAws_json1_1ModifyWorkspaceCreationPropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.WorkspaceCreationProperties !== undefined && {
-      WorkspaceCreationProperties: serializeAws_json1_1WorkspaceCreationProperties(
-        input.WorkspaceCreationProperties,
-        context
-      ),
-    }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.WorkspaceCreationProperties !== undefined &&
+      input.WorkspaceCreationProperties !== null && {
+        WorkspaceCreationProperties: serializeAws_json1_1WorkspaceCreationProperties(
+          input.WorkspaceCreationProperties,
+          context
+        ),
+      }),
   };
 };
 
@@ -5298,10 +5318,11 @@ const serializeAws_json1_1ModifyWorkspacePropertiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
-    ...(input.WorkspaceProperties !== undefined && {
-      WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
-    }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceProperties !== undefined &&
+      input.WorkspaceProperties !== null && {
+        WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
+      }),
   };
 };
 
@@ -5310,37 +5331,53 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
-    ...(input.WorkspaceState !== undefined && { WorkspaceState: input.WorkspaceState }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceState !== undefined &&
+      input.WorkspaceState !== null && { WorkspaceState: input.WorkspaceState }),
   };
 };
 
 const serializeAws_json1_1RebootRequest = (input: RebootRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1RebootWorkspaceRequests = (input: RebootRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1RebootRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1RebootRequest(entry, context);
+    });
 };
 
 const serializeAws_json1_1RebootWorkspacesRequest = (input: RebootWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.RebootWorkspaceRequests !== undefined && {
-      RebootWorkspaceRequests: serializeAws_json1_1RebootWorkspaceRequests(input.RebootWorkspaceRequests, context),
-    }),
+    ...(input.RebootWorkspaceRequests !== undefined &&
+      input.RebootWorkspaceRequests !== null && {
+        RebootWorkspaceRequests: serializeAws_json1_1RebootWorkspaceRequests(input.RebootWorkspaceRequests, context),
+      }),
   };
 };
 
 const serializeAws_json1_1RebuildRequest = (input: RebuildRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1RebuildWorkspaceRequests = (input: RebuildRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1RebuildRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1RebuildRequest(entry, context);
+    });
 };
 
 const serializeAws_json1_1RebuildWorkspacesRequest = (
@@ -5348,9 +5385,10 @@ const serializeAws_json1_1RebuildWorkspacesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.RebuildWorkspaceRequests !== undefined && {
-      RebuildWorkspaceRequests: serializeAws_json1_1RebuildWorkspaceRequests(input.RebuildWorkspaceRequests, context),
-    }),
+    ...(input.RebuildWorkspaceRequests !== undefined &&
+      input.RebuildWorkspaceRequests !== null && {
+        RebuildWorkspaceRequests: serializeAws_json1_1RebuildWorkspaceRequests(input.RebuildWorkspaceRequests, context),
+      }),
   };
 };
 
@@ -5359,107 +5397,165 @@ const serializeAws_json1_1RegisterWorkspaceDirectoryRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.EnableSelfService !== undefined && { EnableSelfService: input.EnableSelfService }),
-    ...(input.EnableWorkDocs !== undefined && { EnableWorkDocs: input.EnableWorkDocs }),
-    ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.Tenancy !== undefined && { Tenancy: input.Tenancy }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.EnableSelfService !== undefined &&
+      input.EnableSelfService !== null && { EnableSelfService: input.EnableSelfService }),
+    ...(input.EnableWorkDocs !== undefined &&
+      input.EnableWorkDocs !== null && { EnableWorkDocs: input.EnableWorkDocs }),
+    ...(input.SubnetIds !== undefined &&
+      input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.Tenancy !== undefined && input.Tenancy !== null && { Tenancy: input.Tenancy }),
   };
 };
 
 const serializeAws_json1_1ResourceIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1RestoreWorkspaceRequest = (input: RestoreWorkspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1RevokeIpRulesRequest = (input: RevokeIpRulesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules !== undefined && {
-      UserRules: serializeAws_json1_1IpRevokedRuleList(input.UserRules, context),
-    }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.UserRules !== undefined &&
+      input.UserRules !== null && { UserRules: serializeAws_json1_1IpRevokedRuleList(input.UserRules, context) }),
   };
 };
 
 const serializeAws_json1_1SelfservicePermissions = (input: SelfservicePermissions, context: __SerdeContext): any => {
   return {
-    ...(input.ChangeComputeType !== undefined && { ChangeComputeType: input.ChangeComputeType }),
-    ...(input.IncreaseVolumeSize !== undefined && { IncreaseVolumeSize: input.IncreaseVolumeSize }),
-    ...(input.RebuildWorkspace !== undefined && { RebuildWorkspace: input.RebuildWorkspace }),
-    ...(input.RestartWorkspace !== undefined && { RestartWorkspace: input.RestartWorkspace }),
-    ...(input.SwitchRunningMode !== undefined && { SwitchRunningMode: input.SwitchRunningMode }),
+    ...(input.ChangeComputeType !== undefined &&
+      input.ChangeComputeType !== null && { ChangeComputeType: input.ChangeComputeType }),
+    ...(input.IncreaseVolumeSize !== undefined &&
+      input.IncreaseVolumeSize !== null && { IncreaseVolumeSize: input.IncreaseVolumeSize }),
+    ...(input.RebuildWorkspace !== undefined &&
+      input.RebuildWorkspace !== null && { RebuildWorkspace: input.RebuildWorkspace }),
+    ...(input.RestartWorkspace !== undefined &&
+      input.RestartWorkspace !== null && { RestartWorkspace: input.RestartWorkspace }),
+    ...(input.SwitchRunningMode !== undefined &&
+      input.SwitchRunningMode !== null && { SwitchRunningMode: input.SwitchRunningMode }),
   };
 };
 
 const serializeAws_json1_1StartRequest = (input: StartRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1StartWorkspaceRequests = (input: StartRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1StartRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1StartRequest(entry, context);
+    });
 };
 
 const serializeAws_json1_1StartWorkspacesRequest = (input: StartWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.StartWorkspaceRequests !== undefined && {
-      StartWorkspaceRequests: serializeAws_json1_1StartWorkspaceRequests(input.StartWorkspaceRequests, context),
-    }),
+    ...(input.StartWorkspaceRequests !== undefined &&
+      input.StartWorkspaceRequests !== null && {
+        StartWorkspaceRequests: serializeAws_json1_1StartWorkspaceRequests(input.StartWorkspaceRequests, context),
+      }),
   };
 };
 
 const serializeAws_json1_1StopRequest = (input: StopRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1StopWorkspaceRequests = (input: StopRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1StopRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1StopRequest(entry, context);
+    });
 };
 
 const serializeAws_json1_1StopWorkspacesRequest = (input: StopWorkspacesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.StopWorkspaceRequests !== undefined && {
-      StopWorkspaceRequests: serializeAws_json1_1StopWorkspaceRequests(input.StopWorkspaceRequests, context),
-    }),
+    ...(input.StopWorkspaceRequests !== undefined &&
+      input.StopWorkspaceRequests !== null && {
+        StopWorkspaceRequests: serializeAws_json1_1StopWorkspaceRequests(input.StopWorkspaceRequests, context),
+      }),
   };
 };
 
 const serializeAws_json1_1SubnetIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TerminateRequest = (input: TerminateRequest, context: __SerdeContext): any => {
   return {
-    ...(input.WorkspaceId !== undefined && { WorkspaceId: input.WorkspaceId }),
+    ...(input.WorkspaceId !== undefined && input.WorkspaceId !== null && { WorkspaceId: input.WorkspaceId }),
   };
 };
 
 const serializeAws_json1_1TerminateWorkspaceRequests = (input: TerminateRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1TerminateRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1TerminateRequest(entry, context);
+    });
 };
 
 const serializeAws_json1_1TerminateWorkspacesRequest = (
@@ -5467,12 +5563,13 @@ const serializeAws_json1_1TerminateWorkspacesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.TerminateWorkspaceRequests !== undefined && {
-      TerminateWorkspaceRequests: serializeAws_json1_1TerminateWorkspaceRequests(
-        input.TerminateWorkspaceRequests,
-        context
-      ),
-    }),
+    ...(input.TerminateWorkspaceRequests !== undefined &&
+      input.TerminateWorkspaceRequests !== null && {
+        TerminateWorkspaceRequests: serializeAws_json1_1TerminateWorkspaceRequests(
+          input.TerminateWorkspaceRequests,
+          context
+        ),
+      }),
   };
 };
 
@@ -5481,13 +5578,14 @@ const serializeAws_json1_1UpdateConnectionAliasPermissionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AliasId !== undefined && { AliasId: input.AliasId }),
-    ...(input.ConnectionAliasPermission !== undefined && {
-      ConnectionAliasPermission: serializeAws_json1_1ConnectionAliasPermission(
-        input.ConnectionAliasPermission,
-        context
-      ),
-    }),
+    ...(input.AliasId !== undefined && input.AliasId !== null && { AliasId: input.AliasId }),
+    ...(input.ConnectionAliasPermission !== undefined &&
+      input.ConnectionAliasPermission !== null && {
+        ConnectionAliasPermission: serializeAws_json1_1ConnectionAliasPermission(
+          input.ConnectionAliasPermission,
+          context
+        ),
+      }),
   };
 };
 
@@ -5496,8 +5594,9 @@ const serializeAws_json1_1UpdateRulesOfIpGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.GroupId !== undefined && { GroupId: input.GroupId }),
-    ...(input.UserRules !== undefined && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
+    ...(input.GroupId !== undefined && input.GroupId !== null && { GroupId: input.GroupId }),
+    ...(input.UserRules !== undefined &&
+      input.UserRules !== null && { UserRules: serializeAws_json1_1IpRuleList(input.UserRules, context) }),
   };
 };
 
@@ -5506,9 +5605,11 @@ const serializeAws_json1_1UpdateWorkspaceImagePermissionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowCopyImage !== undefined && { AllowCopyImage: input.AllowCopyImage }),
-    ...(input.ImageId !== undefined && { ImageId: input.ImageId }),
-    ...(input.SharedAccountId !== undefined && { SharedAccountId: input.SharedAccountId }),
+    ...(input.AllowCopyImage !== undefined &&
+      input.AllowCopyImage !== null && { AllowCopyImage: input.AllowCopyImage }),
+    ...(input.ImageId !== undefined && input.ImageId !== null && { ImageId: input.ImageId }),
+    ...(input.SharedAccountId !== undefined &&
+      input.SharedAccountId !== null && { SharedAccountId: input.SharedAccountId }),
   };
 };
 
@@ -5517,13 +5618,17 @@ const serializeAws_json1_1WorkspaceAccessProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeviceTypeAndroid !== undefined && { DeviceTypeAndroid: input.DeviceTypeAndroid }),
-    ...(input.DeviceTypeChromeOs !== undefined && { DeviceTypeChromeOs: input.DeviceTypeChromeOs }),
-    ...(input.DeviceTypeIos !== undefined && { DeviceTypeIos: input.DeviceTypeIos }),
-    ...(input.DeviceTypeOsx !== undefined && { DeviceTypeOsx: input.DeviceTypeOsx }),
-    ...(input.DeviceTypeWeb !== undefined && { DeviceTypeWeb: input.DeviceTypeWeb }),
-    ...(input.DeviceTypeWindows !== undefined && { DeviceTypeWindows: input.DeviceTypeWindows }),
-    ...(input.DeviceTypeZeroClient !== undefined && { DeviceTypeZeroClient: input.DeviceTypeZeroClient }),
+    ...(input.DeviceTypeAndroid !== undefined &&
+      input.DeviceTypeAndroid !== null && { DeviceTypeAndroid: input.DeviceTypeAndroid }),
+    ...(input.DeviceTypeChromeOs !== undefined &&
+      input.DeviceTypeChromeOs !== null && { DeviceTypeChromeOs: input.DeviceTypeChromeOs }),
+    ...(input.DeviceTypeIos !== undefined && input.DeviceTypeIos !== null && { DeviceTypeIos: input.DeviceTypeIos }),
+    ...(input.DeviceTypeOsx !== undefined && input.DeviceTypeOsx !== null && { DeviceTypeOsx: input.DeviceTypeOsx }),
+    ...(input.DeviceTypeWeb !== undefined && input.DeviceTypeWeb !== null && { DeviceTypeWeb: input.DeviceTypeWeb }),
+    ...(input.DeviceTypeWindows !== undefined &&
+      input.DeviceTypeWindows !== null && { DeviceTypeWindows: input.DeviceTypeWindows }),
+    ...(input.DeviceTypeZeroClient !== undefined &&
+      input.DeviceTypeZeroClient !== null && { DeviceTypeZeroClient: input.DeviceTypeZeroClient }),
   };
 };
 
@@ -5532,58 +5637,88 @@ const serializeAws_json1_1WorkspaceCreationProperties = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CustomSecurityGroupId !== undefined && { CustomSecurityGroupId: input.CustomSecurityGroupId }),
-    ...(input.DefaultOu !== undefined && { DefaultOu: input.DefaultOu }),
-    ...(input.EnableInternetAccess !== undefined && { EnableInternetAccess: input.EnableInternetAccess }),
-    ...(input.EnableMaintenanceMode !== undefined && { EnableMaintenanceMode: input.EnableMaintenanceMode }),
-    ...(input.EnableWorkDocs !== undefined && { EnableWorkDocs: input.EnableWorkDocs }),
-    ...(input.UserEnabledAsLocalAdministrator !== undefined && {
-      UserEnabledAsLocalAdministrator: input.UserEnabledAsLocalAdministrator,
-    }),
+    ...(input.CustomSecurityGroupId !== undefined &&
+      input.CustomSecurityGroupId !== null && { CustomSecurityGroupId: input.CustomSecurityGroupId }),
+    ...(input.DefaultOu !== undefined && input.DefaultOu !== null && { DefaultOu: input.DefaultOu }),
+    ...(input.EnableInternetAccess !== undefined &&
+      input.EnableInternetAccess !== null && { EnableInternetAccess: input.EnableInternetAccess }),
+    ...(input.EnableMaintenanceMode !== undefined &&
+      input.EnableMaintenanceMode !== null && { EnableMaintenanceMode: input.EnableMaintenanceMode }),
+    ...(input.EnableWorkDocs !== undefined &&
+      input.EnableWorkDocs !== null && { EnableWorkDocs: input.EnableWorkDocs }),
+    ...(input.UserEnabledAsLocalAdministrator !== undefined &&
+      input.UserEnabledAsLocalAdministrator !== null && {
+        UserEnabledAsLocalAdministrator: input.UserEnabledAsLocalAdministrator,
+      }),
   };
 };
 
 const serializeAws_json1_1WorkspaceIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1WorkspaceImageIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1WorkspaceProperties = (input: WorkspaceProperties, context: __SerdeContext): any => {
   return {
-    ...(input.ComputeTypeName !== undefined && { ComputeTypeName: input.ComputeTypeName }),
-    ...(input.RootVolumeSizeGib !== undefined && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
-    ...(input.RunningMode !== undefined && { RunningMode: input.RunningMode }),
-    ...(input.RunningModeAutoStopTimeoutInMinutes !== undefined && {
-      RunningModeAutoStopTimeoutInMinutes: input.RunningModeAutoStopTimeoutInMinutes,
-    }),
-    ...(input.UserVolumeSizeGib !== undefined && { UserVolumeSizeGib: input.UserVolumeSizeGib }),
+    ...(input.ComputeTypeName !== undefined &&
+      input.ComputeTypeName !== null && { ComputeTypeName: input.ComputeTypeName }),
+    ...(input.RootVolumeSizeGib !== undefined &&
+      input.RootVolumeSizeGib !== null && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
+    ...(input.RunningMode !== undefined && input.RunningMode !== null && { RunningMode: input.RunningMode }),
+    ...(input.RunningModeAutoStopTimeoutInMinutes !== undefined &&
+      input.RunningModeAutoStopTimeoutInMinutes !== null && {
+        RunningModeAutoStopTimeoutInMinutes: input.RunningModeAutoStopTimeoutInMinutes,
+      }),
+    ...(input.UserVolumeSizeGib !== undefined &&
+      input.UserVolumeSizeGib !== null && { UserVolumeSizeGib: input.UserVolumeSizeGib }),
   };
 };
 
 const serializeAws_json1_1WorkspaceRequest = (input: WorkspaceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.BundleId !== undefined && { BundleId: input.BundleId }),
-    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
-    ...(input.RootVolumeEncryptionEnabled !== undefined && {
-      RootVolumeEncryptionEnabled: input.RootVolumeEncryptionEnabled,
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
-    ...(input.UserName !== undefined && { UserName: input.UserName }),
-    ...(input.UserVolumeEncryptionEnabled !== undefined && {
-      UserVolumeEncryptionEnabled: input.UserVolumeEncryptionEnabled,
-    }),
-    ...(input.VolumeEncryptionKey !== undefined && { VolumeEncryptionKey: input.VolumeEncryptionKey }),
-    ...(input.WorkspaceProperties !== undefined && {
-      WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
-    }),
+    ...(input.BundleId !== undefined && input.BundleId !== null && { BundleId: input.BundleId }),
+    ...(input.DirectoryId !== undefined && input.DirectoryId !== null && { DirectoryId: input.DirectoryId }),
+    ...(input.RootVolumeEncryptionEnabled !== undefined &&
+      input.RootVolumeEncryptionEnabled !== null && { RootVolumeEncryptionEnabled: input.RootVolumeEncryptionEnabled }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.UserName !== undefined && input.UserName !== null && { UserName: input.UserName }),
+    ...(input.UserVolumeEncryptionEnabled !== undefined &&
+      input.UserVolumeEncryptionEnabled !== null && { UserVolumeEncryptionEnabled: input.UserVolumeEncryptionEnabled }),
+    ...(input.VolumeEncryptionKey !== undefined &&
+      input.VolumeEncryptionKey !== null && { VolumeEncryptionKey: input.VolumeEncryptionKey }),
+    ...(input.WorkspaceProperties !== undefined &&
+      input.WorkspaceProperties !== null && {
+        WorkspaceProperties: serializeAws_json1_1WorkspaceProperties(input.WorkspaceProperties, context),
+      }),
   };
 };
 
 const serializeAws_json1_1WorkspaceRequestList = (input: WorkspaceRequest[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1WorkspaceRequest(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1WorkspaceRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -5616,7 +5751,14 @@ const deserializeAws_json1_1AccountModification = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1AccountModificationList = (output: any, context: __SerdeContext): AccountModification[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AccountModification(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AccountModification(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AssociateConnectionAliasResult = (
@@ -5643,7 +5785,14 @@ const deserializeAws_json1_1AuthorizeIpRulesResult = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext): WorkspaceBundle[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspaceBundle(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkspaceBundle(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeContext): ClientProperties => {
@@ -5654,7 +5803,14 @@ const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ClientPropertiesList = (output: any, context: __SerdeContext): ClientPropertiesResult[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ClientPropertiesResult(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ClientPropertiesResult(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ClientPropertiesResult = (output: any, context: __SerdeContext): ClientPropertiesResult => {
@@ -5713,11 +5869,25 @@ const deserializeAws_json1_1ConnectionAliasAssociationList = (
   output: any,
   context: __SerdeContext
 ): ConnectionAliasAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConnectionAliasAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectionAliasAssociation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConnectionAliasList = (output: any, context: __SerdeContext): ConnectionAlias[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConnectionAlias(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectionAlias(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConnectionAliasPermission = (
@@ -5736,7 +5906,14 @@ const deserializeAws_json1_1ConnectionAliasPermissions = (
   output: any,
   context: __SerdeContext
 ): ConnectionAliasPermission[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ConnectionAliasPermission(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectionAliasPermission(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CopyWorkspaceImageResult = (
@@ -5781,7 +5958,14 @@ const deserializeAws_json1_1CreateWorkspacesResult = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1DedicatedTenancyCidrRangeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
@@ -6020,7 +6204,14 @@ const deserializeAws_json1_1DescribeWorkspacesResult = (
 };
 
 const deserializeAws_json1_1DirectoryList = (output: any, context: __SerdeContext): WorkspaceDirectory[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspaceDirectory(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkspaceDirectory(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DisassociateConnectionAliasResult = (
@@ -6038,7 +6229,14 @@ const deserializeAws_json1_1DisassociateIpGroupsResult = (
 };
 
 const deserializeAws_json1_1DnsIpAddresses = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1FailedCreateWorkspaceRequest = (
@@ -6059,42 +6257,84 @@ const deserializeAws_json1_1FailedCreateWorkspaceRequests = (
   output: any,
   context: __SerdeContext
 ): FailedCreateWorkspaceRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedCreateWorkspaceRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedCreateWorkspaceRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FailedRebootWorkspaceRequests = (
   output: any,
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FailedRebuildWorkspaceRequests = (
   output: any,
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FailedStartWorkspaceRequests = (
   output: any,
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FailedStopWorkspaceRequests = (
   output: any,
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FailedTerminateWorkspaceRequests = (
   output: any,
   context: __SerdeContext
 ): FailedWorkspaceChangeRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedWorkspaceChangeRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FailedWorkspaceChangeRequest = (
@@ -6116,7 +6356,14 @@ const deserializeAws_json1_1ImagePermission = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeContext): ImagePermission[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ImagePermission(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ImagePermission(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ImportWorkspaceImageResult = (
@@ -6147,7 +6394,14 @@ const deserializeAws_json1_1InvalidResourceStateException = (
 };
 
 const deserializeAws_json1_1IpGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1IpRuleItem = (output: any, context: __SerdeContext): IpRuleItem => {
@@ -6158,7 +6412,14 @@ const deserializeAws_json1_1IpRuleItem = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1IpRuleList = (output: any, context: __SerdeContext): IpRuleItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IpRuleItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IpRuleItem(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListAvailableManagementCidrRangesResult = (
@@ -6195,7 +6456,14 @@ const deserializeAws_json1_1ModificationState = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1ModificationStateList = (output: any, context: __SerdeContext): ModificationState[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ModificationState(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModificationState(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ModifyAccountResult = (output: any, context: __SerdeContext): ModifyAccountResult => {
@@ -6397,7 +6665,14 @@ const deserializeAws_json1_1Snapshot = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Snapshot(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Snapshot(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StartWorkspacesResult = (output: any, context: __SerdeContext): StartWorkspacesResult => {
@@ -6419,7 +6694,14 @@ const deserializeAws_json1_1StopWorkspacesResult = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6430,7 +6712,14 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TerminateWorkspacesResult = (
@@ -6604,7 +6893,14 @@ const deserializeAws_json1_1WorkspaceConnectionStatusList = (
   output: any,
   context: __SerdeContext
 ): WorkspaceConnectionStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspaceConnectionStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkspaceConnectionStatus(entry, context);
+    });
 };
 
 const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeContext): WorkspaceDirectory => {
@@ -6675,11 +6971,25 @@ const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1WorkspaceImageList = (output: any, context: __SerdeContext): WorkspaceImage[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspaceImage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkspaceImage(entry, context);
+    });
 };
 
 const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContext): Workspace[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Workspace(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Workspace(entry, context);
+    });
 };
 
 const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __SerdeContext): WorkspaceProperties => {
@@ -6752,7 +7062,14 @@ const deserializeAws_json1_1WorkspacesIpGroup = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1WorkspacesIpGroupsList = (output: any, context: __SerdeContext): WorkspacesIpGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WorkspacesIpGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkspacesIpGroup(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -6805,3 +7122,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

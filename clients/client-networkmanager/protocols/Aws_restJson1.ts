@@ -119,7 +119,7 @@ export const serializeAws_restJson1AssociateCustomerGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -133,9 +133,10 @@ export const serializeAws_restJson1AssociateCustomerGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CustomerGatewayArn !== undefined && { CustomerGatewayArn: input.CustomerGatewayArn }),
-    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId !== undefined && { LinkId: input.LinkId }),
+    ...(input.CustomerGatewayArn !== undefined &&
+      input.CustomerGatewayArn !== null && { CustomerGatewayArn: input.CustomerGatewayArn }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -154,7 +155,7 @@ export const serializeAws_restJson1AssociateLinkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -168,8 +169,8 @@ export const serializeAws_restJson1AssociateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId !== undefined && { LinkId: input.LinkId }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -188,7 +189,7 @@ export const serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations";
   if (input.GlobalNetworkId !== undefined) {
@@ -202,11 +203,12 @@ export const serializeAws_restJson1AssociateTransitGatewayConnectPeerCommand = a
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId !== undefined && { LinkId: input.LinkId }),
-    ...(input.TransitGatewayConnectPeerArn !== undefined && {
-      TransitGatewayConnectPeerArn: input.TransitGatewayConnectPeerArn,
-    }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
+    ...(input.TransitGatewayConnectPeerArn !== undefined &&
+      input.TransitGatewayConnectPeerArn !== null && {
+        TransitGatewayConnectPeerArn: input.TransitGatewayConnectPeerArn,
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -225,7 +227,7 @@ export const serializeAws_restJson1CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/connections";
   if (input.GlobalNetworkId !== undefined) {
@@ -239,12 +241,15 @@ export const serializeAws_restJson1CreateConnectionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectedDeviceId !== undefined && { ConnectedDeviceId: input.ConnectedDeviceId }),
-    ...(input.ConnectedLinkId !== undefined && { ConnectedLinkId: input.ConnectedLinkId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
-    ...(input.LinkId !== undefined && { LinkId: input.LinkId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.ConnectedDeviceId !== undefined &&
+      input.ConnectedDeviceId !== null && { ConnectedDeviceId: input.ConnectedDeviceId }),
+    ...(input.ConnectedLinkId !== undefined &&
+      input.ConnectedLinkId !== null && { ConnectedLinkId: input.ConnectedLinkId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -263,7 +268,7 @@ export const serializeAws_restJson1CreateDeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices";
   if (input.GlobalNetworkId !== undefined) {
@@ -277,17 +282,18 @@ export const serializeAws_restJson1CreateDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AWSLocation !== undefined && {
-      AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
-    ...(input.Model !== undefined && { Model: input.Model }),
-    ...(input.SerialNumber !== undefined && { SerialNumber: input.SerialNumber }),
-    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Vendor !== undefined && { Vendor: input.Vendor }),
+    ...(input.AWSLocation !== undefined &&
+      input.AWSLocation !== null && { AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Location !== undefined &&
+      input.Location !== null && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Model !== undefined && input.Model !== null && { Model: input.Model }),
+    ...(input.SerialNumber !== undefined && input.SerialNumber !== null && { SerialNumber: input.SerialNumber }),
+    ...(input.SiteId !== undefined && input.SiteId !== null && { SiteId: input.SiteId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Vendor !== undefined && input.Vendor !== null && { Vendor: input.Vendor }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -306,13 +312,14 @@ export const serializeAws_restJson1CreateGlobalNetworkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -331,7 +338,7 @@ export const serializeAws_restJson1CreateLinkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links";
   if (input.GlobalNetworkId !== undefined) {
@@ -345,12 +352,14 @@ export const serializeAws_restJson1CreateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Bandwidth !== undefined && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Provider !== undefined && { Provider: input.Provider }),
-    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Bandwidth !== undefined &&
+      input.Bandwidth !== null && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Provider !== undefined && input.Provider !== null && { Provider: input.Provider }),
+    ...(input.SiteId !== undefined && input.SiteId !== null && { SiteId: input.SiteId }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -369,7 +378,7 @@ export const serializeAws_restJson1CreateSiteCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites";
   if (input.GlobalNetworkId !== undefined) {
@@ -383,9 +392,11 @@ export const serializeAws_restJson1CreateSiteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Location !== undefined &&
+      input.Location !== null && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -403,9 +414,7 @@ export const serializeAws_restJson1DeleteConnectionCommand = async (
   input: DeleteConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -442,9 +451,7 @@ export const serializeAws_restJson1DeleteDeviceCommand = async (
   input: DeleteDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -481,9 +488,7 @@ export const serializeAws_restJson1DeleteGlobalNetworkCommand = async (
   input: DeleteGlobalNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -511,9 +516,7 @@ export const serializeAws_restJson1DeleteLinkCommand = async (
   input: DeleteLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links/{LinkId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -550,9 +553,7 @@ export const serializeAws_restJson1DeleteSiteCommand = async (
   input: DeleteSiteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -589,9 +590,7 @@ export const serializeAws_restJson1DeregisterTransitGatewayCommand = async (
   input: DeregisterTransitGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/transit-gateway-registrations/{TransitGatewayArn}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -628,9 +627,7 @@ export const serializeAws_restJson1DescribeGlobalNetworksCommand = async (
   input: DescribeGlobalNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks";
   const query: any = {
     ...(input.GlobalNetworkIds !== undefined && {
@@ -657,9 +654,7 @@ export const serializeAws_restJson1DisassociateCustomerGatewayCommand = async (
   input: DisassociateCustomerGatewayCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/customer-gateway-associations/{CustomerGatewayArn}";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -696,9 +691,7 @@ export const serializeAws_restJson1DisassociateLinkCommand = async (
   input: DisassociateLinkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -731,9 +724,7 @@ export const serializeAws_restJson1DisassociateTransitGatewayConnectPeerCommand 
   input: DisassociateTransitGatewayConnectPeerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath =
     "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations/{TransitGatewayConnectPeerArn}";
   if (input.GlobalNetworkId !== undefined) {
@@ -771,9 +762,7 @@ export const serializeAws_restJson1GetConnectionsCommand = async (
   input: GetConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/connections";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -808,9 +797,7 @@ export const serializeAws_restJson1GetCustomerGatewayAssociationsCommand = async
   input: GetCustomerGatewayAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/customer-gateway-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -846,9 +833,7 @@ export const serializeAws_restJson1GetDevicesCommand = async (
   input: GetDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -883,9 +868,7 @@ export const serializeAws_restJson1GetLinkAssociationsCommand = async (
   input: GetLinkAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/link-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -920,9 +903,7 @@ export const serializeAws_restJson1GetLinksCommand = async (
   input: GetLinksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -959,9 +940,7 @@ export const serializeAws_restJson1GetSitesCommand = async (
   input: GetSitesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -995,9 +974,7 @@ export const serializeAws_restJson1GetTransitGatewayConnectPeerAssociationsComma
   input: GetTransitGatewayConnectPeerAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1033,9 +1010,7 @@ export const serializeAws_restJson1GetTransitGatewayRegistrationsCommand = async
   input: GetTransitGatewayRegistrationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
   if (input.GlobalNetworkId !== undefined) {
     const labelValue: string = input.GlobalNetworkId;
@@ -1071,9 +1046,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1102,7 +1075,7 @@ export const serializeAws_restJson1RegisterTransitGatewayCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/transit-gateway-registrations";
   if (input.GlobalNetworkId !== undefined) {
@@ -1116,7 +1089,8 @@ export const serializeAws_restJson1RegisterTransitGatewayCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TransitGatewayArn !== undefined && { TransitGatewayArn: input.TransitGatewayArn }),
+    ...(input.TransitGatewayArn !== undefined &&
+      input.TransitGatewayArn !== null && { TransitGatewayArn: input.TransitGatewayArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1135,7 +1109,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
@@ -1149,7 +1123,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1167,9 +1142,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -1202,7 +1175,7 @@ export const serializeAws_restJson1UpdateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/connections/{ConnectionId}";
   if (input.GlobalNetworkId !== undefined) {
@@ -1225,9 +1198,10 @@ export const serializeAws_restJson1UpdateConnectionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConnectedLinkId !== undefined && { ConnectedLinkId: input.ConnectedLinkId }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.LinkId !== undefined && { LinkId: input.LinkId }),
+    ...(input.ConnectedLinkId !== undefined &&
+      input.ConnectedLinkId !== null && { ConnectedLinkId: input.ConnectedLinkId }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LinkId !== undefined && input.LinkId !== null && { LinkId: input.LinkId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1246,7 +1220,7 @@ export const serializeAws_restJson1UpdateDeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/devices/{DeviceId}";
   if (input.GlobalNetworkId !== undefined) {
@@ -1269,16 +1243,16 @@ export const serializeAws_restJson1UpdateDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.AWSLocation !== undefined && {
-      AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
-    ...(input.Model !== undefined && { Model: input.Model }),
-    ...(input.SerialNumber !== undefined && { SerialNumber: input.SerialNumber }),
-    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
-    ...(input.Type !== undefined && { Type: input.Type }),
-    ...(input.Vendor !== undefined && { Vendor: input.Vendor }),
+    ...(input.AWSLocation !== undefined &&
+      input.AWSLocation !== null && { AWSLocation: serializeAws_restJson1AWSLocation(input.AWSLocation, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Location !== undefined &&
+      input.Location !== null && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Model !== undefined && input.Model !== null && { Model: input.Model }),
+    ...(input.SerialNumber !== undefined && input.SerialNumber !== null && { SerialNumber: input.SerialNumber }),
+    ...(input.SiteId !== undefined && input.SiteId !== null && { SiteId: input.SiteId }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+    ...(input.Vendor !== undefined && input.Vendor !== null && { Vendor: input.Vendor }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1297,7 +1271,7 @@ export const serializeAws_restJson1UpdateGlobalNetworkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}";
   if (input.GlobalNetworkId !== undefined) {
@@ -1311,7 +1285,7 @@ export const serializeAws_restJson1UpdateGlobalNetworkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1330,7 +1304,7 @@ export const serializeAws_restJson1UpdateLinkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/links/{LinkId}";
   if (input.GlobalNetworkId !== undefined) {
@@ -1353,10 +1327,11 @@ export const serializeAws_restJson1UpdateLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Bandwidth !== undefined && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Provider !== undefined && { Provider: input.Provider }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Bandwidth !== undefined &&
+      input.Bandwidth !== null && { Bandwidth: serializeAws_restJson1Bandwidth(input.Bandwidth, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Provider !== undefined && input.Provider !== null && { Provider: input.Provider }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1375,7 +1350,7 @@ export const serializeAws_restJson1UpdateSiteCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/global-networks/{GlobalNetworkId}/sites/{SiteId}";
   if (input.GlobalNetworkId !== undefined) {
@@ -1398,8 +1373,9 @@ export const serializeAws_restJson1UpdateSiteCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Location !== undefined && { Location: serializeAws_restJson1Location(input.Location, context) }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Location !== undefined &&
+      input.Location !== null && { Location: serializeAws_restJson1Location(input.Location, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4962,35 +4938,42 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1AWSLocation = (input: AWSLocation, context: __SerdeContext): any => {
   return {
-    ...(input.SubnetArn !== undefined && { SubnetArn: input.SubnetArn }),
-    ...(input.Zone !== undefined && { Zone: input.Zone }),
+    ...(input.SubnetArn !== undefined && input.SubnetArn !== null && { SubnetArn: input.SubnetArn }),
+    ...(input.Zone !== undefined && input.Zone !== null && { Zone: input.Zone }),
   };
 };
 
 const serializeAws_restJson1Bandwidth = (input: Bandwidth, context: __SerdeContext): any => {
   return {
-    ...(input.DownloadSpeed !== undefined && { DownloadSpeed: input.DownloadSpeed }),
-    ...(input.UploadSpeed !== undefined && { UploadSpeed: input.UploadSpeed }),
+    ...(input.DownloadSpeed !== undefined && input.DownloadSpeed !== null && { DownloadSpeed: input.DownloadSpeed }),
+    ...(input.UploadSpeed !== undefined && input.UploadSpeed !== null && { UploadSpeed: input.UploadSpeed }),
   };
 };
 
 const serializeAws_restJson1Location = (input: Location, context: __SerdeContext): any => {
   return {
-    ...(input.Address !== undefined && { Address: input.Address }),
-    ...(input.Latitude !== undefined && { Latitude: input.Latitude }),
-    ...(input.Longitude !== undefined && { Longitude: input.Longitude }),
+    ...(input.Address !== undefined && input.Address !== null && { Address: input.Address }),
+    ...(input.Latitude !== undefined && input.Latitude !== null && { Latitude: input.Latitude }),
+    ...(input.Longitude !== undefined && input.Longitude !== null && { Longitude: input.Longitude }),
   };
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AWSLocation = (output: any, context: __SerdeContext): AWSLocation => {
@@ -5037,7 +5020,14 @@ const deserializeAws_restJson1Connection = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1ConnectionList = (output: any, context: __SerdeContext): Connection[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Connection(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Connection(entry, context);
+    });
 };
 
 const deserializeAws_restJson1CustomerGatewayAssociation = (
@@ -5061,7 +5051,14 @@ const deserializeAws_restJson1CustomerGatewayAssociationList = (
   output: any,
   context: __SerdeContext
 ): CustomerGatewayAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CustomerGatewayAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CustomerGatewayAssociation(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
@@ -5097,7 +5094,14 @@ const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): D
 };
 
 const deserializeAws_restJson1DeviceList = (output: any, context: __SerdeContext): Device[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Device(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Device(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeContext): GlobalNetwork => {
@@ -5120,7 +5124,14 @@ const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1GlobalNetworkList = (output: any, context: __SerdeContext): GlobalNetwork[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GlobalNetwork(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GlobalNetwork(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Link => {
@@ -5163,11 +5174,25 @@ const deserializeAws_restJson1LinkAssociation = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1LinkAssociationList = (output: any, context: __SerdeContext): LinkAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1LinkAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LinkAssociation(entry, context);
+    });
 };
 
 const deserializeAws_restJson1LinkList = (output: any, context: __SerdeContext): Link[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Link(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Link(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Location = (output: any, context: __SerdeContext): Location => {
@@ -5202,7 +5227,14 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
 };
 
 const deserializeAws_restJson1SiteList = (output: any, context: __SerdeContext): Site[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Site(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Site(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -5213,7 +5245,14 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TransitGatewayConnectPeerAssociation = (
@@ -5237,9 +5276,14 @@ const deserializeAws_restJson1TransitGatewayConnectPeerAssociationList = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectPeerAssociation[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restJson1TransitGatewayConnectPeerAssociation(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TransitGatewayConnectPeerAssociation(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TransitGatewayRegistration = (
@@ -5264,7 +5308,14 @@ const deserializeAws_restJson1TransitGatewayRegistrationList = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRegistration[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1TransitGatewayRegistration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TransitGatewayRegistration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TransitGatewayRegistrationStateReason = (
@@ -5291,7 +5342,14 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ValidationExceptionField(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ValidationExceptionField(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -5314,6 +5372,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

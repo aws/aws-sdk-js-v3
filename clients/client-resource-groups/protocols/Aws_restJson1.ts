@@ -54,20 +54,22 @@ export const serializeAws_restJson1CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/groups";
   let body: any;
   body = JSON.stringify({
-    ...(input.Configuration !== undefined && {
-      Configuration: serializeAws_restJson1GroupConfigurationList(input.Configuration, context),
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ResourceQuery !== undefined && {
-      ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_restJson1GroupConfigurationList(input.Configuration, context),
+      }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResourceQuery !== undefined &&
+      input.ResourceQuery !== null && {
+        ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -86,13 +88,13 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/delete-group";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -111,13 +113,13 @@ export const serializeAws_restJson1GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/get-group";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -136,12 +138,12 @@ export const serializeAws_restJson1GetGroupConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/get-group-configuration";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -160,13 +162,13 @@ export const serializeAws_restJson1GetGroupQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/get-group-query";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -184,9 +186,7 @@ export const serializeAws_restJson1GetTagsCommand = async (
   input: GetTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -215,15 +215,16 @@ export const serializeAws_restJson1GroupResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/group-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.ResourceArns !== undefined && {
-      ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
-    }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.ResourceArns !== undefined &&
+      input.ResourceArns !== null && {
+        ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -242,16 +243,17 @@ export const serializeAws_restJson1ListGroupResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/list-group-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1ResourceFilterList(input.Filters, context) }),
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1ResourceFilterList(input.Filters, context) }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -270,7 +272,7 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/groups-list";
   const query: any = {
@@ -279,7 +281,8 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.Filters !== undefined && { Filters: serializeAws_restJson1GroupFilterList(input.Filters, context) }),
+    ...(input.Filters !== undefined &&
+      input.Filters !== null && { Filters: serializeAws_restJson1GroupFilterList(input.Filters, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -299,16 +302,17 @@ export const serializeAws_restJson1SearchResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/resources/search";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.ResourceQuery !== undefined && {
-      ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
-    }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceQuery !== undefined &&
+      input.ResourceQuery !== null && {
+        ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -327,7 +331,7 @@ export const serializeAws_restJson1TagCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
@@ -341,7 +345,7 @@ export const serializeAws_restJson1TagCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -360,15 +364,16 @@ export const serializeAws_restJson1UngroupResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ungroup-resources";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.ResourceArns !== undefined && {
-      ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
-    }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.ResourceArns !== undefined &&
+      input.ResourceArns !== null && {
+        ResourceArns: serializeAws_restJson1ResourceArnList(input.ResourceArns, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -387,7 +392,7 @@ export const serializeAws_restJson1UntagCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/resources/{Arn}/tags";
   if (input.Arn !== undefined) {
@@ -401,7 +406,8 @@ export const serializeAws_restJson1UntagCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Keys !== undefined && { Keys: serializeAws_restJson1TagKeyList(input.Keys, context) }),
+    ...(input.Keys !== undefined &&
+      input.Keys !== null && { Keys: serializeAws_restJson1TagKeyList(input.Keys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -420,14 +426,14 @@ export const serializeAws_restJson1UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/update-group";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -446,16 +452,17 @@ export const serializeAws_restJson1UpdateGroupQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/update-group-query";
   let body: any;
   body = JSON.stringify({
-    ...(input.Group !== undefined && { Group: input.Group }),
-    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
-    ...(input.ResourceQuery !== undefined && {
-      ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
-    }),
+    ...(input.Group !== undefined && input.Group !== null && { Group: input.Group }),
+    ...(input.GroupName !== undefined && input.GroupName !== null && { GroupName: input.GroupName }),
+    ...(input.ResourceQuery !== undefined &&
+      input.ResourceQuery !== null && {
+        ResourceQuery: serializeAws_restJson1ResourceQuery(input.ResourceQuery, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2063,10 +2070,9 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
 
 const serializeAws_restJson1GroupConfigurationItem = (input: GroupConfigurationItem, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_restJson1GroupParameterList(input.Parameters, context),
-    }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_restJson1GroupParameterList(input.Parameters, context) }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
@@ -2074,7 +2080,14 @@ const serializeAws_restJson1GroupConfigurationList = (
   input: GroupConfigurationItem[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1GroupConfigurationItem(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1GroupConfigurationItem(entry, context);
+    });
 };
 
 const serializeAws_restJson1GroupConfigurationParameter = (
@@ -2082,77 +2095,138 @@ const serializeAws_restJson1GroupConfigurationParameter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && {
-      Values: serializeAws_restJson1GroupConfigurationParameterValueList(input.Values, context),
-    }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && {
+        Values: serializeAws_restJson1GroupConfigurationParameterValueList(input.Values, context),
+      }),
   };
 };
 
 const serializeAws_restJson1GroupConfigurationParameterValueList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1GroupFilter = (input: GroupFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && { Values: serializeAws_restJson1GroupFilterValues(input.Values, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_restJson1GroupFilterValues(input.Values, context) }),
   };
 };
 
 const serializeAws_restJson1GroupFilterList = (input: GroupFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1GroupFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1GroupFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1GroupFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1GroupParameterList = (
   input: GroupConfigurationParameter[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1GroupConfigurationParameter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1GroupConfigurationParameter(entry, context);
+    });
 };
 
 const serializeAws_restJson1ResourceArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ResourceFilter = (input: ResourceFilter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Values !== undefined && { Values: serializeAws_restJson1ResourceFilterValues(input.Values, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_restJson1ResourceFilterValues(input.Values, context) }),
   };
 };
 
 const serializeAws_restJson1ResourceFilterList = (input: ResourceFilter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1ResourceFilter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ResourceFilter(entry, context);
+    });
 };
 
 const serializeAws_restJson1ResourceFilterValues = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1ResourceQuery = (input: ResourceQuery, context: __SerdeContext): any => {
   return {
-    ...(input.Query !== undefined && { Query: input.Query }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Query !== undefined && input.Query !== null && { Query: input.Query }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1FailedResource = (output: any, context: __SerdeContext): FailedResource => {
@@ -2164,7 +2238,14 @@ const deserializeAws_restJson1FailedResource = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1FailedResourceList = (output: any, context: __SerdeContext): FailedResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1FailedResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FailedResource(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Group = (output: any, context: __SerdeContext): Group => {
@@ -2208,7 +2289,14 @@ const deserializeAws_restJson1GroupConfigurationList = (
   output: any,
   context: __SerdeContext
 ): GroupConfigurationItem[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GroupConfigurationItem(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GroupConfigurationItem(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GroupConfigurationParameter = (
@@ -2228,7 +2316,14 @@ const deserializeAws_restJson1GroupConfigurationParameterValueList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
@@ -2239,18 +2334,39 @@ const deserializeAws_restJson1GroupIdentifier = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1GroupIdentifierList = (output: any, context: __SerdeContext): GroupIdentifier[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GroupIdentifier(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GroupIdentifier(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GroupList = (output: any, context: __SerdeContext): Group[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Group(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Group(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GroupParameterList = (
   output: any,
   context: __SerdeContext
 ): GroupConfigurationParameter[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1GroupConfigurationParameter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1GroupConfigurationParameter(entry, context);
+    });
 };
 
 const deserializeAws_restJson1GroupQuery = (output: any, context: __SerdeContext): GroupQuery => {
@@ -2271,11 +2387,25 @@ const deserializeAws_restJson1QueryError = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1QueryErrorList = (output: any, context: __SerdeContext): QueryError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1QueryError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1QueryError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
@@ -2286,7 +2416,14 @@ const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1ResourceIdentifierList = (output: any, context: __SerdeContext): ResourceIdentifier[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ResourceIdentifier(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourceIdentifier(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ResourceQuery = (output: any, context: __SerdeContext): ResourceQuery => {
@@ -2297,17 +2434,26 @@ const deserializeAws_restJson1ResourceQuery = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1TagKeyList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2330,6 +2476,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

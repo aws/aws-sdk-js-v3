@@ -57,7 +57,7 @@ export const serializeAws_json1_0CreateFHIRDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "HealthLake.CreateFHIRDatastore",
   };
   let body: any;
@@ -70,7 +70,7 @@ export const serializeAws_json1_0DeleteFHIRDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "HealthLake.DeleteFHIRDatastore",
   };
   let body: any;
@@ -83,7 +83,7 @@ export const serializeAws_json1_0DescribeFHIRDatastoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "HealthLake.DescribeFHIRDatastore",
   };
   let body: any;
@@ -96,7 +96,7 @@ export const serializeAws_json1_0DescribeFHIRImportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "HealthLake.DescribeFHIRImportJob",
   };
   let body: any;
@@ -109,7 +109,7 @@ export const serializeAws_json1_0ListFHIRDatastoresCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "HealthLake.ListFHIRDatastores",
   };
   let body: any;
@@ -122,7 +122,7 @@ export const serializeAws_json1_0StartFHIRImportJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.0",
+    "content-type": "application/x-amz-json-1.0",
     "X-Amz-Target": "HealthLake.StartFHIRImportJob",
   };
   let body: any;
@@ -157,8 +157,7 @@ const deserializeAws_json1_0CreateFHIRDatastoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
@@ -228,8 +227,7 @@ const deserializeAws_json1_0DeleteFHIRDatastoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
@@ -323,8 +321,7 @@ const deserializeAws_json1_0DescribeFHIRDatastoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
@@ -402,8 +399,7 @@ const deserializeAws_json1_0DescribeFHIRImportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
@@ -481,8 +477,7 @@ const deserializeAws_json1_0ListFHIRDatastoresCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.healthlake#InternalServerException":
@@ -552,8 +547,7 @@ const deserializeAws_json1_0StartFHIRImportJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.healthlake#AccessDeniedException":
@@ -708,20 +702,25 @@ const serializeAws_json1_0CreateFHIRDatastoreRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DatastoreName !== undefined && { DatastoreName: input.DatastoreName }),
-    ...(input.DatastoreTypeVersion !== undefined && { DatastoreTypeVersion: input.DatastoreTypeVersion }),
-    ...(input.PreloadDataConfig !== undefined && {
-      PreloadDataConfig: serializeAws_json1_0PreloadDataConfig(input.PreloadDataConfig, context),
-    }),
+    ...(input.DatastoreName !== undefined && input.DatastoreName !== null && { DatastoreName: input.DatastoreName }),
+    ...(input.DatastoreTypeVersion !== undefined &&
+      input.DatastoreTypeVersion !== null && { DatastoreTypeVersion: input.DatastoreTypeVersion }),
+    ...(input.PreloadDataConfig !== undefined &&
+      input.PreloadDataConfig !== null && {
+        PreloadDataConfig: serializeAws_json1_0PreloadDataConfig(input.PreloadDataConfig, context),
+      }),
   };
 };
 
 const serializeAws_json1_0DatastoreFilter = (input: DatastoreFilter, context: __SerdeContext): any => {
   return {
-    ...(input.CreatedAfter !== undefined && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
-    ...(input.CreatedBefore !== undefined && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
-    ...(input.DatastoreName !== undefined && { DatastoreName: input.DatastoreName }),
-    ...(input.DatastoreStatus !== undefined && { DatastoreStatus: input.DatastoreStatus }),
+    ...(input.CreatedAfter !== undefined &&
+      input.CreatedAfter !== null && { CreatedAfter: Math.round(input.CreatedAfter.getTime() / 1000) }),
+    ...(input.CreatedBefore !== undefined &&
+      input.CreatedBefore !== null && { CreatedBefore: Math.round(input.CreatedBefore.getTime() / 1000) }),
+    ...(input.DatastoreName !== undefined && input.DatastoreName !== null && { DatastoreName: input.DatastoreName }),
+    ...(input.DatastoreStatus !== undefined &&
+      input.DatastoreStatus !== null && { DatastoreStatus: input.DatastoreStatus }),
   };
 };
 
@@ -730,7 +729,7 @@ const serializeAws_json1_0DeleteFHIRDatastoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
   };
 };
 
@@ -739,7 +738,7 @@ const serializeAws_json1_0DescribeFHIRDatastoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && { DatastoreId: input.DatastoreId }),
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
   };
 };
 
@@ -748,8 +747,8 @@ const serializeAws_json1_0DescribeFHIRImportJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DatastoreId !== undefined && { DatastoreId: input.DatastoreId }),
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
@@ -765,15 +764,17 @@ const serializeAws_json1_0ListFHIRDatastoresRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_0DatastoreFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_0DatastoreFilter(input.Filter, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_0PreloadDataConfig = (input: PreloadDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.PreloadDataType !== undefined && { PreloadDataType: input.PreloadDataType }),
+    ...(input.PreloadDataType !== undefined &&
+      input.PreloadDataType !== null && { PreloadDataType: input.PreloadDataType }),
   };
 };
 
@@ -783,12 +784,14 @@ const serializeAws_json1_0StartFHIRImportJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.DatastoreId !== undefined && { DatastoreId: input.DatastoreId }),
-    ...(input.InputDataConfig !== undefined && {
-      InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.JobName !== undefined && { JobName: input.JobName }),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.DatastoreId !== undefined && input.DatastoreId !== null && { DatastoreId: input.DatastoreId }),
+    ...(input.InputDataConfig !== undefined &&
+      input.InputDataConfig !== null && {
+        InputDataConfig: serializeAws_json1_0InputDataConfig(input.InputDataConfig, context),
+      }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
   };
 };
 
@@ -848,7 +851,14 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0DatastorePropertiesList = (output: any, context: __SerdeContext): DatastoreProperties[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_0DatastoreProperties(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0DatastoreProperties(entry, context);
+    });
 };
 
 const deserializeAws_json1_0DeleteFHIRDatastoreResponse = (
@@ -1035,3 +1045,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

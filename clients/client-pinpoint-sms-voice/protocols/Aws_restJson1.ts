@@ -62,12 +62,13 @@ export const serializeAws_restJson1CreateConfigurationSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationSetName !== undefined && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.ConfigurationSetName !== undefined &&
+      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -86,7 +87,7 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
@@ -100,10 +101,12 @@ export const serializeAws_restJson1CreateConfigurationSetEventDestinationCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EventDestination !== undefined && {
-      EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
-    }),
-    ...(input.EventDestinationName !== undefined && { EventDestinationName: input.EventDestinationName }),
+    ...(input.EventDestination !== undefined &&
+      input.EventDestination !== null && {
+        EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
+      }),
+    ...(input.EventDestinationName !== undefined &&
+      input.EventDestinationName !== null && { EventDestinationName: input.EventDestinationName }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -121,9 +124,7 @@ export const serializeAws_restJson1DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
@@ -151,9 +152,7 @@ export const serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
   if (input.EventDestinationName !== undefined) {
@@ -191,9 +190,7 @@ export const serializeAws_restJson1GetConfigurationSetEventDestinationsCommand =
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations";
   if (input.ConfigurationSetName !== undefined) {
     const labelValue: string = input.ConfigurationSetName;
@@ -221,9 +218,7 @@ export const serializeAws_restJson1ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   const query: any = {
     ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
@@ -248,16 +243,20 @@ export const serializeAws_restJson1SendVoiceMessageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/sms-voice/voice/message";
   let body: any;
   body = JSON.stringify({
-    ...(input.CallerId !== undefined && { CallerId: input.CallerId }),
-    ...(input.ConfigurationSetName !== undefined && { ConfigurationSetName: input.ConfigurationSetName }),
-    ...(input.Content !== undefined && { Content: serializeAws_restJson1VoiceMessageContent(input.Content, context) }),
-    ...(input.DestinationPhoneNumber !== undefined && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
-    ...(input.OriginationPhoneNumber !== undefined && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
+    ...(input.CallerId !== undefined && input.CallerId !== null && { CallerId: input.CallerId }),
+    ...(input.ConfigurationSetName !== undefined &&
+      input.ConfigurationSetName !== null && { ConfigurationSetName: input.ConfigurationSetName }),
+    ...(input.Content !== undefined &&
+      input.Content !== null && { Content: serializeAws_restJson1VoiceMessageContent(input.Content, context) }),
+    ...(input.DestinationPhoneNumber !== undefined &&
+      input.DestinationPhoneNumber !== null && { DestinationPhoneNumber: input.DestinationPhoneNumber }),
+    ...(input.OriginationPhoneNumber !== undefined &&
+      input.OriginationPhoneNumber !== null && { OriginationPhoneNumber: input.OriginationPhoneNumber }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -276,7 +275,7 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath =
     "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
@@ -300,9 +299,10 @@ export const serializeAws_restJson1UpdateConfigurationSetEventDestinationCommand
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.EventDestination !== undefined && {
-      EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
-    }),
+    ...(input.EventDestination !== undefined &&
+      input.EventDestination !== null && {
+        EventDestination: serializeAws_restJson1EventDestinationDefinition(input.EventDestination, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1047,7 +1047,7 @@ const serializeAws_restJson1CallInstructionsMessageType = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
   };
 };
 
@@ -1056,8 +1056,8 @@ const serializeAws_restJson1CloudWatchLogsDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
-    ...(input.LogGroupArn !== undefined && { LogGroupArn: input.LogGroupArn }),
+    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
+    ...(input.LogGroupArn !== undefined && input.LogGroupArn !== null && { LogGroupArn: input.LogGroupArn }),
   };
 };
 
@@ -1066,30 +1066,41 @@ const serializeAws_restJson1EventDestinationDefinition = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.CloudWatchLogsDestination !== undefined && {
-      CloudWatchLogsDestination: serializeAws_restJson1CloudWatchLogsDestination(
-        input.CloudWatchLogsDestination,
-        context
-      ),
-    }),
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.KinesisFirehoseDestination !== undefined && {
-      KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
-        input.KinesisFirehoseDestination,
-        context
-      ),
-    }),
-    ...(input.MatchingEventTypes !== undefined && {
-      MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
-    }),
-    ...(input.SnsDestination !== undefined && {
-      SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
-    }),
+    ...(input.CloudWatchLogsDestination !== undefined &&
+      input.CloudWatchLogsDestination !== null && {
+        CloudWatchLogsDestination: serializeAws_restJson1CloudWatchLogsDestination(
+          input.CloudWatchLogsDestination,
+          context
+        ),
+      }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.KinesisFirehoseDestination !== undefined &&
+      input.KinesisFirehoseDestination !== null && {
+        KinesisFirehoseDestination: serializeAws_restJson1KinesisFirehoseDestination(
+          input.KinesisFirehoseDestination,
+          context
+        ),
+      }),
+    ...(input.MatchingEventTypes !== undefined &&
+      input.MatchingEventTypes !== null && {
+        MatchingEventTypes: serializeAws_restJson1EventTypes(input.MatchingEventTypes, context),
+      }),
+    ...(input.SnsDestination !== undefined &&
+      input.SnsDestination !== null && {
+        SnsDestination: serializeAws_restJson1SnsDestination(input.SnsDestination, context),
+      }),
   };
 };
 
 const serializeAws_restJson1EventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1KinesisFirehoseDestination = (
@@ -1097,47 +1108,49 @@ const serializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DeliveryStreamArn !== undefined && { DeliveryStreamArn: input.DeliveryStreamArn }),
-    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.DeliveryStreamArn !== undefined &&
+      input.DeliveryStreamArn !== null && { DeliveryStreamArn: input.DeliveryStreamArn }),
+    ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
   };
 };
 
 const serializeAws_restJson1PlainTextMessageType = (input: PlainTextMessageType, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.Text !== undefined && { Text: input.Text }),
-    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+    ...(input.VoiceId !== undefined && input.VoiceId !== null && { VoiceId: input.VoiceId }),
   };
 };
 
 const serializeAws_restJson1SnsDestination = (input: SnsDestination, context: __SerdeContext): any => {
   return {
-    ...(input.TopicArn !== undefined && { TopicArn: input.TopicArn }),
+    ...(input.TopicArn !== undefined && input.TopicArn !== null && { TopicArn: input.TopicArn }),
   };
 };
 
 const serializeAws_restJson1SSMLMessageType = (input: SSMLMessageType, context: __SerdeContext): any => {
   return {
-    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
-    ...(input.Text !== undefined && { Text: input.Text }),
-    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
+    ...(input.VoiceId !== undefined && input.VoiceId !== null && { VoiceId: input.VoiceId }),
   };
 };
 
 const serializeAws_restJson1VoiceMessageContent = (input: VoiceMessageContent, context: __SerdeContext): any => {
   return {
-    ...(input.CallInstructionsMessage !== undefined && {
-      CallInstructionsMessage: serializeAws_restJson1CallInstructionsMessageType(
-        input.CallInstructionsMessage,
-        context
-      ),
-    }),
-    ...(input.PlainTextMessage !== undefined && {
-      PlainTextMessage: serializeAws_restJson1PlainTextMessageType(input.PlainTextMessage, context),
-    }),
-    ...(input.SSMLMessage !== undefined && {
-      SSMLMessage: serializeAws_restJson1SSMLMessageType(input.SSMLMessage, context),
-    }),
+    ...(input.CallInstructionsMessage !== undefined &&
+      input.CallInstructionsMessage !== null && {
+        CallInstructionsMessage: serializeAws_restJson1CallInstructionsMessageType(
+          input.CallInstructionsMessage,
+          context
+        ),
+      }),
+    ...(input.PlainTextMessage !== undefined &&
+      input.PlainTextMessage !== null && {
+        PlainTextMessage: serializeAws_restJson1PlainTextMessageType(input.PlainTextMessage, context),
+      }),
+    ...(input.SSMLMessage !== undefined &&
+      input.SSMLMessage !== null && { SSMLMessage: serializeAws_restJson1SSMLMessageType(input.SSMLMessage, context) }),
   };
 };
 
@@ -1152,7 +1165,14 @@ const deserializeAws_restJson1CloudWatchLogsDestination = (
 };
 
 const deserializeAws_restJson1ConfigurationSets = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
@@ -1179,11 +1199,25 @@ const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1EventDestination(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EventDestination(entry, context);
+    });
 };
 
 const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1KinesisFirehoseDestination = (
@@ -1225,6 +1259,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

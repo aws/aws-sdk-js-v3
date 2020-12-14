@@ -285,7 +285,7 @@ export const serializeAws_json1_1AddCustomRoutingEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.AddCustomRoutingEndpoints",
   };
   let body: any;
@@ -298,7 +298,7 @@ export const serializeAws_json1_1AdvertiseByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.AdvertiseByoipCidr",
   };
   let body: any;
@@ -311,7 +311,7 @@ export const serializeAws_json1_1AllowCustomRoutingTrafficCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic",
   };
   let body: any;
@@ -324,7 +324,7 @@ export const serializeAws_json1_1CreateAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateAccelerator",
   };
   let body: any;
@@ -337,7 +337,7 @@ export const serializeAws_json1_1CreateCustomRoutingAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator",
   };
   let body: any;
@@ -350,7 +350,7 @@ export const serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingEndpointGroup",
   };
   let body: any;
@@ -363,7 +363,7 @@ export const serializeAws_json1_1CreateCustomRoutingListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingListener",
   };
   let body: any;
@@ -376,7 +376,7 @@ export const serializeAws_json1_1CreateEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateEndpointGroup",
   };
   let body: any;
@@ -389,7 +389,7 @@ export const serializeAws_json1_1CreateListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.CreateListener",
   };
   let body: any;
@@ -402,7 +402,7 @@ export const serializeAws_json1_1DeleteAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteAccelerator",
   };
   let body: any;
@@ -415,7 +415,7 @@ export const serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator",
   };
   let body: any;
@@ -428,7 +428,7 @@ export const serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup",
   };
   let body: any;
@@ -441,7 +441,7 @@ export const serializeAws_json1_1DeleteCustomRoutingListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingListener",
   };
   let body: any;
@@ -454,7 +454,7 @@ export const serializeAws_json1_1DeleteEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteEndpointGroup",
   };
   let body: any;
@@ -467,7 +467,7 @@ export const serializeAws_json1_1DeleteListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteListener",
   };
   let body: any;
@@ -480,7 +480,7 @@ export const serializeAws_json1_1DenyCustomRoutingTrafficCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DenyCustomRoutingTraffic",
   };
   let body: any;
@@ -493,7 +493,7 @@ export const serializeAws_json1_1DeprovisionByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DeprovisionByoipCidr",
   };
   let body: any;
@@ -506,7 +506,7 @@ export const serializeAws_json1_1DescribeAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAccelerator",
   };
   let body: any;
@@ -519,7 +519,7 @@ export const serializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes",
   };
   let body: any;
@@ -532,7 +532,7 @@ export const serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator",
   };
   let body: any;
@@ -545,7 +545,7 @@ export const serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesComma
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAcceleratorAttributes",
   };
   let body: any;
@@ -558,7 +558,7 @@ export const serializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingEndpointGroup",
   };
   let body: any;
@@ -571,7 +571,7 @@ export const serializeAws_json1_1DescribeCustomRoutingListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingListener",
   };
   let body: any;
@@ -584,7 +584,7 @@ export const serializeAws_json1_1DescribeEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeEndpointGroup",
   };
   let body: any;
@@ -597,7 +597,7 @@ export const serializeAws_json1_1DescribeListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeListener",
   };
   let body: any;
@@ -610,7 +610,7 @@ export const serializeAws_json1_1ListAcceleratorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListAccelerators",
   };
   let body: any;
@@ -623,7 +623,7 @@ export const serializeAws_json1_1ListByoipCidrsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListByoipCidrs",
   };
   let body: any;
@@ -636,7 +636,7 @@ export const serializeAws_json1_1ListCustomRoutingAcceleratorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingAccelerators",
   };
   let body: any;
@@ -649,7 +649,7 @@ export const serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups",
   };
   let body: any;
@@ -662,7 +662,7 @@ export const serializeAws_json1_1ListCustomRoutingListenersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingListeners",
   };
   let body: any;
@@ -675,7 +675,7 @@ export const serializeAws_json1_1ListCustomRoutingPortMappingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings",
   };
   let body: any;
@@ -688,7 +688,7 @@ export const serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationComma
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappingsByDestination",
   };
   let body: any;
@@ -701,7 +701,7 @@ export const serializeAws_json1_1ListEndpointGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListEndpointGroups",
   };
   let body: any;
@@ -714,7 +714,7 @@ export const serializeAws_json1_1ListListenersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListListeners",
   };
   let body: any;
@@ -727,7 +727,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ListTagsForResource",
   };
   let body: any;
@@ -740,7 +740,7 @@ export const serializeAws_json1_1ProvisionByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.ProvisionByoipCidr",
   };
   let body: any;
@@ -753,7 +753,7 @@ export const serializeAws_json1_1RemoveCustomRoutingEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints",
   };
   let body: any;
@@ -766,7 +766,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.TagResource",
   };
   let body: any;
@@ -779,7 +779,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UntagResource",
   };
   let body: any;
@@ -792,7 +792,7 @@ export const serializeAws_json1_1UpdateAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAccelerator",
   };
   let body: any;
@@ -805,7 +805,7 @@ export const serializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes",
   };
   let body: any;
@@ -818,7 +818,7 @@ export const serializeAws_json1_1UpdateCustomRoutingAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator",
   };
   let body: any;
@@ -831,7 +831,7 @@ export const serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes",
   };
   let body: any;
@@ -844,7 +844,7 @@ export const serializeAws_json1_1UpdateCustomRoutingListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingListener",
   };
   let body: any;
@@ -857,7 +857,7 @@ export const serializeAws_json1_1UpdateEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateEndpointGroup",
   };
   let body: any;
@@ -870,7 +870,7 @@ export const serializeAws_json1_1UpdateListenerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateListener",
   };
   let body: any;
@@ -883,7 +883,7 @@ export const serializeAws_json1_1WithdrawByoipCidrCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "GlobalAccelerator_V20180706.WithdrawByoipCidr",
   };
   let body: any;
@@ -918,8 +918,7 @@ const deserializeAws_json1_1AddCustomRoutingEndpointsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -1021,8 +1020,7 @@ const deserializeAws_json1_1AdvertiseByoipCidrCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -1105,8 +1103,7 @@ const deserializeAws_json1_1AllowCustomRoutingTrafficCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -1168,8 +1165,7 @@ const deserializeAws_json1_1CreateAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -1239,8 +1235,7 @@ const deserializeAws_json1_1CreateCustomRoutingAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -1318,8 +1313,7 @@ const deserializeAws_json1_1CreateCustomRoutingEndpointGroupCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -1429,8 +1423,7 @@ const deserializeAws_json1_1CreateCustomRoutingListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -1516,8 +1509,7 @@ const deserializeAws_json1_1CreateEndpointGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -1619,8 +1611,7 @@ const deserializeAws_json1_1CreateListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -1703,8 +1694,7 @@ const deserializeAws_json1_1DeleteAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotDisabledException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException":
@@ -1787,8 +1777,7 @@ const deserializeAws_json1_1DeleteCustomRoutingAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotDisabledException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotDisabledException":
@@ -1871,8 +1860,7 @@ const deserializeAws_json1_1DeleteCustomRoutingEndpointGroupCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
@@ -1939,8 +1927,7 @@ const deserializeAws_json1_1DeleteCustomRoutingListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AssociatedEndpointGroupFoundException":
     case "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException":
@@ -2015,8 +2002,7 @@ const deserializeAws_json1_1DeleteEndpointGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
@@ -2083,8 +2069,7 @@ const deserializeAws_json1_1DeleteListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AssociatedEndpointGroupFoundException":
     case "com.amazonaws.globalaccelerator#AssociatedEndpointGroupFoundException":
@@ -2159,8 +2144,7 @@ const deserializeAws_json1_1DenyCustomRoutingTrafficCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -2222,8 +2206,7 @@ const deserializeAws_json1_1DeprovisionByoipCidrCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -2309,8 +2292,7 @@ const deserializeAws_json1_1DescribeAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -2380,8 +2362,7 @@ const deserializeAws_json1_1DescribeAcceleratorAttributesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -2451,8 +2432,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -2522,8 +2502,7 @@ const deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommandErr
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -2593,8 +2572,7 @@ const deserializeAws_json1_1DescribeCustomRoutingEndpointGroupCommandError = asy
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
@@ -2664,8 +2642,7 @@ const deserializeAws_json1_1DescribeCustomRoutingListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -2735,8 +2712,7 @@ const deserializeAws_json1_1DescribeEndpointGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EndpointGroupNotFoundException":
     case "com.amazonaws.globalaccelerator#EndpointGroupNotFoundException":
@@ -2806,8 +2782,7 @@ const deserializeAws_json1_1DescribeListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -2877,8 +2852,7 @@ const deserializeAws_json1_1ListAcceleratorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -2948,8 +2922,7 @@ const deserializeAws_json1_1ListByoipCidrsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -3027,8 +3000,7 @@ const deserializeAws_json1_1ListCustomRoutingAcceleratorsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -3098,8 +3070,7 @@ const deserializeAws_json1_1ListCustomRoutingEndpointGroupsCommandError = async 
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -3177,8 +3148,7 @@ const deserializeAws_json1_1ListCustomRoutingListenersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -3256,8 +3226,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -3343,8 +3312,7 @@ const deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommandErr
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EndpointNotFoundException":
     case "com.amazonaws.globalaccelerator#EndpointNotFoundException":
@@ -3422,8 +3390,7 @@ const deserializeAws_json1_1ListEndpointGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -3501,8 +3468,7 @@ const deserializeAws_json1_1ListListenersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -3580,8 +3546,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -3651,8 +3616,7 @@ const deserializeAws_json1_1ProvisionByoipCidrCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -3735,8 +3699,7 @@ const deserializeAws_json1_1RemoveCustomRoutingEndpointsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -3830,8 +3793,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -3901,8 +3863,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -3972,8 +3933,7 @@ const deserializeAws_json1_1UpdateAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -4043,8 +4003,7 @@ const deserializeAws_json1_1UpdateAcceleratorAttributesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -4122,8 +4081,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -4193,8 +4151,7 @@ const deserializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommandError
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AcceleratorNotFoundException":
     case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
@@ -4272,8 +4229,7 @@ const deserializeAws_json1_1UpdateCustomRoutingListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -4359,8 +4315,7 @@ const deserializeAws_json1_1UpdateEndpointGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -4446,8 +4401,7 @@ const deserializeAws_json1_1UpdateListenerCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
     case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
@@ -4533,8 +4487,7 @@ const deserializeAws_json1_1WithdrawByoipCidrCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
@@ -4868,13 +4821,15 @@ const serializeAws_json1_1AddCustomRoutingEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointConfigurations !== undefined && {
-      EndpointConfigurations: serializeAws_json1_1CustomRoutingEndpointConfigurations(
-        input.EndpointConfigurations,
-        context
-      ),
-    }),
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointConfigurations !== undefined &&
+      input.EndpointConfigurations !== null && {
+        EndpointConfigurations: serializeAws_json1_1CustomRoutingEndpointConfigurations(
+          input.EndpointConfigurations,
+          context
+        ),
+      }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -4883,7 +4838,7 @@ const serializeAws_json1_1AdvertiseByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
+    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
   };
 };
 
@@ -4892,17 +4847,19 @@ const serializeAws_json1_1AllowCustomRoutingTrafficRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AllowAllTrafficToEndpoint !== undefined && {
-      AllowAllTrafficToEndpoint: input.AllowAllTrafficToEndpoint,
-    }),
-    ...(input.DestinationAddresses !== undefined && {
-      DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
-    }),
-    ...(input.DestinationPorts !== undefined && {
-      DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
-    }),
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
+    ...(input.AllowAllTrafficToEndpoint !== undefined &&
+      input.AllowAllTrafficToEndpoint !== null && { AllowAllTrafficToEndpoint: input.AllowAllTrafficToEndpoint }),
+    ...(input.DestinationAddresses !== undefined &&
+      input.DestinationAddresses !== null && {
+        DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
+      }),
+    ...(input.DestinationPorts !== undefined &&
+      input.DestinationPorts !== null && {
+        DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
+      }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -4911,8 +4868,8 @@ const serializeAws_json1_1CidrAuthorizationContext = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Message !== undefined && { Message: input.Message }),
-    ...(input.Signature !== undefined && { Signature: input.Signature }),
+    ...(input.Message !== undefined && input.Message !== null && { Message: input.Message }),
+    ...(input.Signature !== undefined && input.Signature !== null && { Signature: input.Signature }),
   };
 };
 
@@ -4921,14 +4878,13 @@ const serializeAws_json1_1CreateAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
-    ...(input.IpAddresses !== undefined && {
-      IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
+    ...(input.IpAddresses !== undefined &&
+      input.IpAddresses !== null && { IpAddresses: serializeAws_json1_1IpAddresses(input.IpAddresses, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4937,11 +4893,11 @@ const serializeAws_json1_1CreateCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
@@ -4950,15 +4906,17 @@ const serializeAws_json1_1CreateCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationConfigurations !== undefined && {
-      DestinationConfigurations: serializeAws_json1_1CustomRoutingDestinationConfigurations(
-        input.DestinationConfigurations,
-        context
-      ),
-    }),
-    ...(input.EndpointGroupRegion !== undefined && { EndpointGroupRegion: input.EndpointGroupRegion }),
+    ...(input.DestinationConfigurations !== undefined &&
+      input.DestinationConfigurations !== null && {
+        DestinationConfigurations: serializeAws_json1_1CustomRoutingDestinationConfigurations(
+          input.DestinationConfigurations,
+          context
+        ),
+      }),
+    ...(input.EndpointGroupRegion !== undefined &&
+      input.EndpointGroupRegion !== null && { EndpointGroupRegion: input.EndpointGroupRegion }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -4967,9 +4925,11 @@ const serializeAws_json1_1CreateCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.PortRanges !== undefined &&
+      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
   };
 };
 
@@ -4978,33 +4938,43 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointConfigurations !== undefined && {
-      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
-    }),
-    ...(input.EndpointGroupRegion !== undefined && { EndpointGroupRegion: input.EndpointGroupRegion }),
-    ...(input.HealthCheckIntervalSeconds !== undefined && {
-      HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds,
-    }),
-    ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
-    ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
-    ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.EndpointConfigurations !== undefined &&
+      input.EndpointConfigurations !== null && {
+        EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
+      }),
+    ...(input.EndpointGroupRegion !== undefined &&
+      input.EndpointGroupRegion !== null && { EndpointGroupRegion: input.EndpointGroupRegion }),
+    ...(input.HealthCheckIntervalSeconds !== undefined &&
+      input.HealthCheckIntervalSeconds !== null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
+    ...(input.HealthCheckPath !== undefined &&
+      input.HealthCheckPath !== null && { HealthCheckPath: input.HealthCheckPath }),
+    ...(input.HealthCheckPort !== undefined &&
+      input.HealthCheckPort !== null && { HealthCheckPort: input.HealthCheckPort }),
+    ...(input.HealthCheckProtocol !== undefined &&
+      input.HealthCheckProtocol !== null && { HealthCheckProtocol: input.HealthCheckProtocol }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.PortOverrides !== undefined && {
-      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
-    }),
-    ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
-    ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.PortOverrides !== undefined &&
+      input.PortOverrides !== null && {
+        PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+      }),
+    ...(input.ThresholdCount !== undefined &&
+      input.ThresholdCount !== null && { ThresholdCount: input.ThresholdCount }),
+    ...(input.TrafficDialPercentage !== undefined &&
+      input.TrafficDialPercentage !== null && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
 };
 
 const serializeAws_json1_1CreateListenerRequest = (input: CreateListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.ClientAffinity !== undefined && { ClientAffinity: input.ClientAffinity }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.ClientAffinity !== undefined &&
+      input.ClientAffinity !== null && { ClientAffinity: input.ClientAffinity }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
-    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
-    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+    ...(input.PortRanges !== undefined &&
+      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
   };
 };
 
@@ -5013,11 +4983,10 @@ const serializeAws_json1_1CustomRoutingDestinationConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
-    ...(input.Protocols !== undefined && {
-      Protocols: serializeAws_json1_1CustomRoutingProtocols(input.Protocols, context),
-    }),
-    ...(input.ToPort !== undefined && { ToPort: input.ToPort }),
+    ...(input.FromPort !== undefined && input.FromPort !== null && { FromPort: input.FromPort }),
+    ...(input.Protocols !== undefined &&
+      input.Protocols !== null && { Protocols: serializeAws_json1_1CustomRoutingProtocols(input.Protocols, context) }),
+    ...(input.ToPort !== undefined && input.ToPort !== null && { ToPort: input.ToPort }),
   };
 };
 
@@ -5025,7 +4994,14 @@ const serializeAws_json1_1CustomRoutingDestinationConfigurations = (
   input: CustomRoutingDestinationConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1CustomRoutingDestinationConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CustomRoutingDestinationConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1CustomRoutingEndpointConfiguration = (
@@ -5033,7 +5009,7 @@ const serializeAws_json1_1CustomRoutingEndpointConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
+    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -5041,14 +5017,28 @@ const serializeAws_json1_1CustomRoutingEndpointConfigurations = (
   input: CustomRoutingEndpointConfiguration[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1CustomRoutingEndpointConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1CustomRoutingEndpointConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1CustomRoutingProtocols = (
   input: (CustomRoutingProtocol | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeleteAcceleratorRequest = (
@@ -5056,7 +5046,8 @@ const serializeAws_json1_1DeleteAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -5065,7 +5056,8 @@ const serializeAws_json1_1DeleteCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -5074,7 +5066,8 @@ const serializeAws_json1_1DeleteCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -5083,7 +5076,7 @@ const serializeAws_json1_1DeleteCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -5092,13 +5085,14 @@ const serializeAws_json1_1DeleteEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
 const serializeAws_json1_1DeleteListenerRequest = (input: DeleteListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -5107,15 +5101,19 @@ const serializeAws_json1_1DenyCustomRoutingTrafficRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DenyAllTrafficToEndpoint !== undefined && { DenyAllTrafficToEndpoint: input.DenyAllTrafficToEndpoint }),
-    ...(input.DestinationAddresses !== undefined && {
-      DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
-    }),
-    ...(input.DestinationPorts !== undefined && {
-      DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
-    }),
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
+    ...(input.DenyAllTrafficToEndpoint !== undefined &&
+      input.DenyAllTrafficToEndpoint !== null && { DenyAllTrafficToEndpoint: input.DenyAllTrafficToEndpoint }),
+    ...(input.DestinationAddresses !== undefined &&
+      input.DestinationAddresses !== null && {
+        DestinationAddresses: serializeAws_json1_1DestinationAddresses(input.DestinationAddresses, context),
+      }),
+    ...(input.DestinationPorts !== undefined &&
+      input.DestinationPorts !== null && {
+        DestinationPorts: serializeAws_json1_1DestinationPorts(input.DestinationPorts, context),
+      }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
   };
 };
 
@@ -5124,7 +5122,7 @@ const serializeAws_json1_1DeprovisionByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
+    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
   };
 };
 
@@ -5133,7 +5131,8 @@ const serializeAws_json1_1DescribeAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -5142,7 +5141,8 @@ const serializeAws_json1_1DescribeAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -5151,7 +5151,8 @@ const serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -5160,7 +5161,8 @@ const serializeAws_json1_1DescribeCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
   };
 };
 
@@ -5169,7 +5171,8 @@ const serializeAws_json1_1DescribeCustomRoutingEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
@@ -5178,7 +5181,7 @@ const serializeAws_json1_1DescribeCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
   };
 };
 
@@ -5187,57 +5190,92 @@ const serializeAws_json1_1DescribeEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
   };
 };
 
 const serializeAws_json1_1DescribeListenerRequest = (input: DescribeListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
   };
 };
 
 const serializeAws_json1_1DestinationAddresses = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DestinationPorts = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1EndpointConfiguration = (input: EndpointConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.ClientIPPreservationEnabled !== undefined && {
-      ClientIPPreservationEnabled: input.ClientIPPreservationEnabled,
-    }),
-    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
-    ...(input.Weight !== undefined && { Weight: input.Weight }),
+    ...(input.ClientIPPreservationEnabled !== undefined &&
+      input.ClientIPPreservationEnabled !== null && { ClientIPPreservationEnabled: input.ClientIPPreservationEnabled }),
+    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
+    ...(input.Weight !== undefined && input.Weight !== null && { Weight: input.Weight }),
   };
 };
 
 const serializeAws_json1_1EndpointConfigurations = (input: EndpointConfiguration[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1EndpointConfiguration(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1EndpointConfiguration(entry, context);
+    });
 };
 
 const serializeAws_json1_1EndpointIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1IpAddresses = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListAcceleratorsRequest = (input: ListAcceleratorsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListByoipCidrsRequest = (input: ListByoipCidrsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5246,8 +5284,8 @@ const serializeAws_json1_1ListCustomRoutingAcceleratorsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5256,9 +5294,9 @@ const serializeAws_json1_1ListCustomRoutingEndpointGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5267,9 +5305,10 @@ const serializeAws_json1_1ListCustomRoutingListenersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5278,10 +5317,11 @@ const serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationAddress !== undefined && { DestinationAddress: input.DestinationAddress }),
-    ...(input.EndpointId !== undefined && { EndpointId: input.EndpointId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.DestinationAddress !== undefined &&
+      input.DestinationAddress !== null && { DestinationAddress: input.DestinationAddress }),
+    ...(input.EndpointId !== undefined && input.EndpointId !== null && { EndpointId: input.EndpointId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5290,10 +5330,12 @@ const serializeAws_json1_1ListCustomRoutingPortMappingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5302,17 +5344,18 @@ const serializeAws_json1_1ListEndpointGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1ListListenersRequest = (input: ListListenersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -5321,30 +5364,44 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
 const serializeAws_json1_1PortOverride = (input: PortOverride, context: __SerdeContext): any => {
   return {
-    ...(input.EndpointPort !== undefined && { EndpointPort: input.EndpointPort }),
-    ...(input.ListenerPort !== undefined && { ListenerPort: input.ListenerPort }),
+    ...(input.EndpointPort !== undefined && input.EndpointPort !== null && { EndpointPort: input.EndpointPort }),
+    ...(input.ListenerPort !== undefined && input.ListenerPort !== null && { ListenerPort: input.ListenerPort }),
   };
 };
 
 const serializeAws_json1_1PortOverrides = (input: PortOverride[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1PortOverride(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PortOverride(entry, context);
+    });
 };
 
 const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
-    ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
-    ...(input.ToPort !== undefined && { ToPort: input.ToPort }),
+    ...(input.FromPort !== undefined && input.FromPort !== null && { FromPort: input.FromPort }),
+    ...(input.ToPort !== undefined && input.ToPort !== null && { ToPort: input.ToPort }),
   };
 };
 
 const serializeAws_json1_1PortRanges = (input: PortRange[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1PortRange(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PortRange(entry, context);
+    });
 };
 
 const serializeAws_json1_1ProvisionByoipCidrRequest = (
@@ -5352,10 +5409,11 @@ const serializeAws_json1_1ProvisionByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
-    ...(input.CidrAuthorizationContext !== undefined && {
-      CidrAuthorizationContext: serializeAws_json1_1CidrAuthorizationContext(input.CidrAuthorizationContext, context),
-    }),
+    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
+    ...(input.CidrAuthorizationContext !== undefined &&
+      input.CidrAuthorizationContext !== null && {
+        CidrAuthorizationContext: serializeAws_json1_1CidrAuthorizationContext(input.CidrAuthorizationContext, context),
+      }),
   };
 };
 
@@ -5364,39 +5422,54 @@ const serializeAws_json1_1RemoveCustomRoutingEndpointsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.EndpointIds !== undefined && {
-      EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context),
-    }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.EndpointIds !== undefined &&
+      input.EndpointIds !== null && { EndpointIds: serializeAws_json1_1EndpointIds(input.EndpointIds, context) }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
 
 const serializeAws_json1_1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context) }),
   };
 };
 
@@ -5405,10 +5478,14 @@ const serializeAws_json1_1UpdateAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.FlowLogsEnabled !== undefined && { FlowLogsEnabled: input.FlowLogsEnabled }),
-    ...(input.FlowLogsS3Bucket !== undefined && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
-    ...(input.FlowLogsS3Prefix !== undefined && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.FlowLogsEnabled !== undefined &&
+      input.FlowLogsEnabled !== null && { FlowLogsEnabled: input.FlowLogsEnabled }),
+    ...(input.FlowLogsS3Bucket !== undefined &&
+      input.FlowLogsS3Bucket !== null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
+    ...(input.FlowLogsS3Prefix !== undefined &&
+      input.FlowLogsS3Prefix !== null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
   };
 };
 
@@ -5417,10 +5494,11 @@ const serializeAws_json1_1UpdateAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -5429,10 +5507,14 @@ const serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.FlowLogsEnabled !== undefined && { FlowLogsEnabled: input.FlowLogsEnabled }),
-    ...(input.FlowLogsS3Bucket !== undefined && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
-    ...(input.FlowLogsS3Prefix !== undefined && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.FlowLogsEnabled !== undefined &&
+      input.FlowLogsEnabled !== null && { FlowLogsEnabled: input.FlowLogsEnabled }),
+    ...(input.FlowLogsS3Bucket !== undefined &&
+      input.FlowLogsS3Bucket !== null && { FlowLogsS3Bucket: input.FlowLogsS3Bucket }),
+    ...(input.FlowLogsS3Prefix !== undefined &&
+      input.FlowLogsS3Prefix !== null && { FlowLogsS3Prefix: input.FlowLogsS3Prefix }),
   };
 };
 
@@ -5441,10 +5523,11 @@ const serializeAws_json1_1UpdateCustomRoutingAcceleratorRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AcceleratorArn !== undefined && { AcceleratorArn: input.AcceleratorArn }),
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
-    ...(input.IpAddressType !== undefined && { IpAddressType: input.IpAddressType }),
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.AcceleratorArn !== undefined &&
+      input.AcceleratorArn !== null && { AcceleratorArn: input.AcceleratorArn }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.IpAddressType !== undefined && input.IpAddressType !== null && { IpAddressType: input.IpAddressType }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -5453,8 +5536,9 @@ const serializeAws_json1_1UpdateCustomRoutingListenerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.PortRanges !== undefined &&
+      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
   };
 };
 
@@ -5463,30 +5547,39 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EndpointConfigurations !== undefined && {
-      EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
-    }),
-    ...(input.EndpointGroupArn !== undefined && { EndpointGroupArn: input.EndpointGroupArn }),
-    ...(input.HealthCheckIntervalSeconds !== undefined && {
-      HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds,
-    }),
-    ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
-    ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
-    ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
-    ...(input.PortOverrides !== undefined && {
-      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
-    }),
-    ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
-    ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
+    ...(input.EndpointConfigurations !== undefined &&
+      input.EndpointConfigurations !== null && {
+        EndpointConfigurations: serializeAws_json1_1EndpointConfigurations(input.EndpointConfigurations, context),
+      }),
+    ...(input.EndpointGroupArn !== undefined &&
+      input.EndpointGroupArn !== null && { EndpointGroupArn: input.EndpointGroupArn }),
+    ...(input.HealthCheckIntervalSeconds !== undefined &&
+      input.HealthCheckIntervalSeconds !== null && { HealthCheckIntervalSeconds: input.HealthCheckIntervalSeconds }),
+    ...(input.HealthCheckPath !== undefined &&
+      input.HealthCheckPath !== null && { HealthCheckPath: input.HealthCheckPath }),
+    ...(input.HealthCheckPort !== undefined &&
+      input.HealthCheckPort !== null && { HealthCheckPort: input.HealthCheckPort }),
+    ...(input.HealthCheckProtocol !== undefined &&
+      input.HealthCheckProtocol !== null && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.PortOverrides !== undefined &&
+      input.PortOverrides !== null && {
+        PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+      }),
+    ...(input.ThresholdCount !== undefined &&
+      input.ThresholdCount !== null && { ThresholdCount: input.ThresholdCount }),
+    ...(input.TrafficDialPercentage !== undefined &&
+      input.TrafficDialPercentage !== null && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
 };
 
 const serializeAws_json1_1UpdateListenerRequest = (input: UpdateListenerRequest, context: __SerdeContext): any => {
   return {
-    ...(input.ClientAffinity !== undefined && { ClientAffinity: input.ClientAffinity }),
-    ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
-    ...(input.PortRanges !== undefined && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
-    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+    ...(input.ClientAffinity !== undefined &&
+      input.ClientAffinity !== null && { ClientAffinity: input.ClientAffinity }),
+    ...(input.ListenerArn !== undefined && input.ListenerArn !== null && { ListenerArn: input.ListenerArn }),
+    ...(input.PortRanges !== undefined &&
+      input.PortRanges !== null && { PortRanges: serializeAws_json1_1PortRanges(input.PortRanges, context) }),
+    ...(input.Protocol !== undefined && input.Protocol !== null && { Protocol: input.Protocol }),
   };
 };
 
@@ -5495,7 +5588,7 @@ const serializeAws_json1_1WithdrawByoipCidrRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Cidr !== undefined && { Cidr: input.Cidr }),
+    ...(input.Cidr !== undefined && input.Cidr !== null && { Cidr: input.Cidr }),
   };
 };
 
@@ -5554,7 +5647,14 @@ const deserializeAws_json1_1AcceleratorNotFoundException = (
 };
 
 const deserializeAws_json1_1Accelerators = (output: any, context: __SerdeContext): Accelerator[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Accelerator(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Accelerator(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
@@ -5629,7 +5729,14 @@ const deserializeAws_json1_1ByoipCidrEvent = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1ByoipCidrEvents = (output: any, context: __SerdeContext): ByoipCidrEvent[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ByoipCidrEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ByoipCidrEvent(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ByoipCidrNotFoundException = (
@@ -5642,7 +5749,14 @@ const deserializeAws_json1_1ByoipCidrNotFoundException = (
 };
 
 const deserializeAws_json1_1ByoipCidrs = (output: any, context: __SerdeContext): ByoipCidr[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ByoipCidr(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ByoipCidr(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -5766,7 +5880,14 @@ const deserializeAws_json1_1CustomRoutingAccelerators = (
   output: any,
   context: __SerdeContext
 ): CustomRoutingAccelerator[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingAccelerator(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomRoutingAccelerator(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomRoutingDestinationDescription = (
@@ -5787,7 +5908,14 @@ const deserializeAws_json1_1CustomRoutingDestinationDescriptions = (
   output: any,
   context: __SerdeContext
 ): CustomRoutingDestinationDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingDestinationDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomRoutingDestinationDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomRoutingEndpointDescription = (
@@ -5803,7 +5931,14 @@ const deserializeAws_json1_1CustomRoutingEndpointDescriptions = (
   output: any,
   context: __SerdeContext
 ): CustomRoutingEndpointDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingEndpointDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomRoutingEndpointDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomRoutingEndpointGroup = (
@@ -5832,7 +5967,14 @@ const deserializeAws_json1_1CustomRoutingEndpointGroups = (
   output: any,
   context: __SerdeContext
 ): CustomRoutingEndpointGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingEndpointGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomRoutingEndpointGroup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomRoutingListener = (output: any, context: __SerdeContext): CustomRoutingListener => {
@@ -5849,14 +5991,28 @@ const deserializeAws_json1_1CustomRoutingListeners = (
   output: any,
   context: __SerdeContext
 ): CustomRoutingListener[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1CustomRoutingListener(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomRoutingListener(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CustomRoutingProtocols = (
   output: any,
   context: __SerdeContext
 ): (CustomRoutingProtocol | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1DeprovisionByoipCidrResponse = (
@@ -5999,7 +6155,14 @@ const deserializeAws_json1_1DestinationPortMappings = (
   output: any,
   context: __SerdeContext
 ): DestinationPortMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DestinationPortMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DestinationPortMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EndpointAlreadyExistsException = (
@@ -6025,7 +6188,14 @@ const deserializeAws_json1_1EndpointDescription = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1EndpointDescriptions = (output: any, context: __SerdeContext): EndpointDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EndpointDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointDescription(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContext): EndpointGroup => {
@@ -6084,7 +6254,14 @@ const deserializeAws_json1_1EndpointGroupNotFoundException = (
 };
 
 const deserializeAws_json1_1EndpointGroups = (output: any, context: __SerdeContext): EndpointGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1EndpointGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EndpointGroup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1EndpointNotFoundException = (
@@ -6142,7 +6319,14 @@ const deserializeAws_json1_1InvalidPortRangeException = (
 };
 
 const deserializeAws_json1_1IpAddresses = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSet => {
@@ -6156,7 +6340,14 @@ const deserializeAws_json1_1IpSet = (output: any, context: __SerdeContext): IpSe
 };
 
 const deserializeAws_json1_1IpSets = (output: any, context: __SerdeContext): IpSet[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1IpSet(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1IpSet(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -6289,7 +6480,14 @@ const deserializeAws_json1_1ListenerNotFoundException = (
 };
 
 const deserializeAws_json1_1Listeners = (output: any, context: __SerdeContext): Listener[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Listener(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Listener(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListListenersResponse = (output: any, context: __SerdeContext): ListListenersResponse => {
@@ -6335,7 +6533,14 @@ const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1PortMappings = (output: any, context: __SerdeContext): PortMapping[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PortMapping(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PortMapping(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext): PortOverride => {
@@ -6346,7 +6551,14 @@ const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1PortOverrides = (output: any, context: __SerdeContext): PortOverride[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PortOverride(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PortOverride(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
@@ -6357,11 +6569,25 @@ const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1PortRanges = (output: any, context: __SerdeContext): PortRange[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PortRange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PortRange(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Protocols = (output: any, context: __SerdeContext): (Protocol | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ProvisionByoipCidrResponse = (
@@ -6384,7 +6610,14 @@ const deserializeAws_json1_1SocketAddress = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1SocketAddresses = (output: any, context: __SerdeContext): SocketAddress[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SocketAddress(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SocketAddress(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -6399,7 +6632,14 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -6549,3 +6789,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

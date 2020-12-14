@@ -158,7 +158,7 @@ export const serializeAws_json1_1AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.AddTags",
   };
   let body: any;
@@ -171,7 +171,7 @@ export const serializeAws_json1_1CreateBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateBatchPrediction",
   };
   let body: any;
@@ -184,7 +184,7 @@ export const serializeAws_json1_1CreateDataSourceFromRDSCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateDataSourceFromRDS",
   };
   let body: any;
@@ -197,7 +197,7 @@ export const serializeAws_json1_1CreateDataSourceFromRedshiftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateDataSourceFromRedshift",
   };
   let body: any;
@@ -210,7 +210,7 @@ export const serializeAws_json1_1CreateDataSourceFromS3Command = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateDataSourceFromS3",
   };
   let body: any;
@@ -223,7 +223,7 @@ export const serializeAws_json1_1CreateEvaluationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateEvaluation",
   };
   let body: any;
@@ -236,7 +236,7 @@ export const serializeAws_json1_1CreateMLModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateMLModel",
   };
   let body: any;
@@ -249,7 +249,7 @@ export const serializeAws_json1_1CreateRealtimeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.CreateRealtimeEndpoint",
   };
   let body: any;
@@ -262,7 +262,7 @@ export const serializeAws_json1_1DeleteBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DeleteBatchPrediction",
   };
   let body: any;
@@ -275,7 +275,7 @@ export const serializeAws_json1_1DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DeleteDataSource",
   };
   let body: any;
@@ -288,7 +288,7 @@ export const serializeAws_json1_1DeleteEvaluationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DeleteEvaluation",
   };
   let body: any;
@@ -301,7 +301,7 @@ export const serializeAws_json1_1DeleteMLModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DeleteMLModel",
   };
   let body: any;
@@ -314,7 +314,7 @@ export const serializeAws_json1_1DeleteRealtimeEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DeleteRealtimeEndpoint",
   };
   let body: any;
@@ -327,7 +327,7 @@ export const serializeAws_json1_1DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DeleteTags",
   };
   let body: any;
@@ -340,7 +340,7 @@ export const serializeAws_json1_1DescribeBatchPredictionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DescribeBatchPredictions",
   };
   let body: any;
@@ -353,7 +353,7 @@ export const serializeAws_json1_1DescribeDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DescribeDataSources",
   };
   let body: any;
@@ -366,7 +366,7 @@ export const serializeAws_json1_1DescribeEvaluationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DescribeEvaluations",
   };
   let body: any;
@@ -379,7 +379,7 @@ export const serializeAws_json1_1DescribeMLModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DescribeMLModels",
   };
   let body: any;
@@ -392,7 +392,7 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.DescribeTags",
   };
   let body: any;
@@ -405,7 +405,7 @@ export const serializeAws_json1_1GetBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.GetBatchPrediction",
   };
   let body: any;
@@ -418,7 +418,7 @@ export const serializeAws_json1_1GetDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.GetDataSource",
   };
   let body: any;
@@ -431,7 +431,7 @@ export const serializeAws_json1_1GetEvaluationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.GetEvaluation",
   };
   let body: any;
@@ -444,7 +444,7 @@ export const serializeAws_json1_1GetMLModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.GetMLModel",
   };
   let body: any;
@@ -457,7 +457,7 @@ export const serializeAws_json1_1PredictCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.Predict",
   };
   let body: any;
@@ -470,7 +470,7 @@ export const serializeAws_json1_1UpdateBatchPredictionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.UpdateBatchPrediction",
   };
   let body: any;
@@ -483,7 +483,7 @@ export const serializeAws_json1_1UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.UpdateDataSource",
   };
   let body: any;
@@ -496,7 +496,7 @@ export const serializeAws_json1_1UpdateEvaluationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.UpdateEvaluation",
   };
   let body: any;
@@ -509,7 +509,7 @@ export const serializeAws_json1_1UpdateMLModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AmazonML_20141212.UpdateMLModel",
   };
   let body: any;
@@ -544,8 +544,7 @@ const deserializeAws_json1_1AddTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -631,8 +630,7 @@ const deserializeAws_json1_1CreateBatchPredictionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
@@ -702,8 +700,7 @@ const deserializeAws_json1_1CreateDataSourceFromRDSCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
@@ -773,8 +770,7 @@ const deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
@@ -844,8 +840,7 @@ const deserializeAws_json1_1CreateDataSourceFromS3CommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
@@ -915,8 +910,7 @@ const deserializeAws_json1_1CreateEvaluationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
@@ -986,8 +980,7 @@ const deserializeAws_json1_1CreateMLModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
@@ -1057,8 +1050,7 @@ const deserializeAws_json1_1CreateRealtimeEndpointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1128,8 +1120,7 @@ const deserializeAws_json1_1DeleteBatchPredictionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1199,8 +1190,7 @@ const deserializeAws_json1_1DeleteDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1270,8 +1260,7 @@ const deserializeAws_json1_1DeleteEvaluationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1341,8 +1330,7 @@ const deserializeAws_json1_1DeleteMLModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1412,8 +1400,7 @@ const deserializeAws_json1_1DeleteRealtimeEndpointCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1483,8 +1470,7 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1562,8 +1548,7 @@ const deserializeAws_json1_1DescribeBatchPredictionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1625,8 +1610,7 @@ const deserializeAws_json1_1DescribeDataSourcesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1688,8 +1672,7 @@ const deserializeAws_json1_1DescribeEvaluationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1751,8 +1734,7 @@ const deserializeAws_json1_1DescribeMLModelsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1814,8 +1796,7 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1885,8 +1866,7 @@ const deserializeAws_json1_1GetBatchPredictionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -1956,8 +1936,7 @@ const deserializeAws_json1_1GetDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2027,8 +2006,7 @@ const deserializeAws_json1_1GetEvaluationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2098,8 +2076,7 @@ const deserializeAws_json1_1GetMLModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2169,8 +2146,7 @@ const deserializeAws_json1_1PredictCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2256,8 +2232,7 @@ const deserializeAws_json1_1UpdateBatchPredictionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2327,8 +2302,7 @@ const deserializeAws_json1_1UpdateDataSourceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2398,8 +2372,7 @@ const deserializeAws_json1_1UpdateEvaluationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2469,8 +2442,7 @@ const deserializeAws_json1_1UpdateMLModelCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.machinelearning#InternalServerException":
@@ -2635,9 +2607,9 @@ const deserializeAws_json1_1TagLimitExceededExceptionResponse = async (
 
 const serializeAws_json1_1AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -2646,13 +2618,14 @@ const serializeAws_json1_1CreateBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionDataSourceId !== undefined && {
-      BatchPredictionDataSourceId: input.BatchPredictionDataSourceId,
-    }),
-    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
-    ...(input.BatchPredictionName !== undefined && { BatchPredictionName: input.BatchPredictionName }),
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
-    ...(input.OutputUri !== undefined && { OutputUri: input.OutputUri }),
+    ...(input.BatchPredictionDataSourceId !== undefined &&
+      input.BatchPredictionDataSourceId !== null && { BatchPredictionDataSourceId: input.BatchPredictionDataSourceId }),
+    ...(input.BatchPredictionId !== undefined &&
+      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionName !== undefined &&
+      input.BatchPredictionName !== null && { BatchPredictionName: input.BatchPredictionName }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.OutputUri !== undefined && input.OutputUri !== null && { OutputUri: input.OutputUri }),
   };
 };
 
@@ -2661,11 +2634,14 @@ const serializeAws_json1_1CreateDataSourceFromRDSInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
-    ...(input.RDSData !== undefined && { RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context) }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
+    ...(input.ComputeStatistics !== undefined &&
+      input.ComputeStatistics !== null && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined &&
+      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
+    ...(input.RDSData !== undefined &&
+      input.RDSData !== null && { RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context) }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
   };
 };
 
@@ -2674,11 +2650,14 @@ const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec !== undefined && { DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context) }),
-    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
+    ...(input.ComputeStatistics !== undefined &&
+      input.ComputeStatistics !== null && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined &&
+      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSpec !== undefined &&
+      input.DataSpec !== null && { DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context) }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
   };
 };
 
@@ -2687,33 +2666,38 @@ const serializeAws_json1_1CreateDataSourceFromS3Input = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ComputeStatistics !== undefined && { ComputeStatistics: input.ComputeStatistics }),
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
-    ...(input.DataSpec !== undefined && { DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context) }),
+    ...(input.ComputeStatistics !== undefined &&
+      input.ComputeStatistics !== null && { ComputeStatistics: input.ComputeStatistics }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined &&
+      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSpec !== undefined &&
+      input.DataSpec !== null && { DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context) }),
   };
 };
 
 const serializeAws_json1_1CreateEvaluationInput = (input: CreateEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationDataSourceId !== undefined && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
-    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
-    ...(input.EvaluationName !== undefined && { EvaluationName: input.EvaluationName }),
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.EvaluationDataSourceId !== undefined &&
+      input.EvaluationDataSourceId !== null && { EvaluationDataSourceId: input.EvaluationDataSourceId }),
+    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationName !== undefined &&
+      input.EvaluationName !== null && { EvaluationName: input.EvaluationName }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
   };
 };
 
 const serializeAws_json1_1CreateMLModelInput = (input: CreateMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
-    ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
-    ...(input.MLModelType !== undefined && { MLModelType: input.MLModelType }),
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1TrainingParameters(input.Parameters, context),
-    }),
-    ...(input.Recipe !== undefined && { Recipe: input.Recipe }),
-    ...(input.RecipeUri !== undefined && { RecipeUri: input.RecipeUri }),
-    ...(input.TrainingDataSourceId !== undefined && { TrainingDataSourceId: input.TrainingDataSourceId }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelName !== undefined && input.MLModelName !== null && { MLModelName: input.MLModelName }),
+    ...(input.MLModelType !== undefined && input.MLModelType !== null && { MLModelType: input.MLModelType }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_json1_1TrainingParameters(input.Parameters, context) }),
+    ...(input.Recipe !== undefined && input.Recipe !== null && { Recipe: input.Recipe }),
+    ...(input.RecipeUri !== undefined && input.RecipeUri !== null && { RecipeUri: input.RecipeUri }),
+    ...(input.TrainingDataSourceId !== undefined &&
+      input.TrainingDataSourceId !== null && { TrainingDataSourceId: input.TrainingDataSourceId }),
   };
 };
 
@@ -2722,7 +2706,7 @@ const serializeAws_json1_1CreateRealtimeEndpointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
   };
 };
 
@@ -2731,25 +2715,26 @@ const serializeAws_json1_1DeleteBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionId !== undefined &&
+      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
 const serializeAws_json1_1DeleteDataSourceInput = (input: DeleteDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
   };
 };
 
 const serializeAws_json1_1DeleteEvaluationInput = (input: DeleteEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
   };
 };
 
 const serializeAws_json1_1DeleteMLModelInput = (input: DeleteMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
   };
 };
 
@@ -2758,15 +2743,16 @@ const serializeAws_json1_1DeleteRealtimeEndpointInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
   };
 };
 
 const serializeAws_json1_1DeleteTagsInput = (input: DeleteTagsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context) }),
   };
 };
 
@@ -2775,17 +2761,18 @@ const serializeAws_json1_1DescribeBatchPredictionsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && { GE: input.GE }),
-    ...(input.GT !== undefined && { GT: input.GT }),
-    ...(input.LE !== undefined && { LE: input.LE }),
-    ...(input.LT !== undefined && { LT: input.LT }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NE !== undefined && { NE: input.NE }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined &&
+      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
+    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
+    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
+    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -2794,17 +2781,18 @@ const serializeAws_json1_1DescribeDataSourcesInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && { GE: input.GE }),
-    ...(input.GT !== undefined && { GT: input.GT }),
-    ...(input.LE !== undefined && { LE: input.LE }),
-    ...(input.LT !== undefined && { LT: input.LT }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NE !== undefined && { NE: input.NE }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined &&
+      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
+    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
+    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
+    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
@@ -2813,131 +2801,153 @@ const serializeAws_json1_1DescribeEvaluationsInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && { GE: input.GE }),
-    ...(input.GT !== undefined && { GT: input.GT }),
-    ...(input.LE !== undefined && { LE: input.LE }),
-    ...(input.LT !== undefined && { LT: input.LT }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NE !== undefined && { NE: input.NE }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined &&
+      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
+    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
+    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
+    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1DescribeMLModelsInput = (input: DescribeMLModelsInput, context: __SerdeContext): any => {
   return {
-    ...(input.EQ !== undefined && { EQ: input.EQ }),
-    ...(input.FilterVariable !== undefined && { FilterVariable: input.FilterVariable }),
-    ...(input.GE !== undefined && { GE: input.GE }),
-    ...(input.GT !== undefined && { GT: input.GT }),
-    ...(input.LE !== undefined && { LE: input.LE }),
-    ...(input.LT !== undefined && { LT: input.LT }),
-    ...(input.Limit !== undefined && { Limit: input.Limit }),
-    ...(input.NE !== undefined && { NE: input.NE }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
-    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.EQ !== undefined && input.EQ !== null && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined &&
+      input.FilterVariable !== null && { FilterVariable: input.FilterVariable }),
+    ...(input.GE !== undefined && input.GE !== null && { GE: input.GE }),
+    ...(input.GT !== undefined && input.GT !== null && { GT: input.GT }),
+    ...(input.LE !== undefined && input.LE !== null && { LE: input.LE }),
+    ...(input.LT !== undefined && input.LT !== null && { LT: input.LT }),
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NE !== undefined && input.NE !== null && { NE: input.NE }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && input.SortOrder !== null && { SortOrder: input.SortOrder }),
   };
 };
 
 const serializeAws_json1_1DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   return {
-    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
-    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && input.ResourceType !== null && { ResourceType: input.ResourceType }),
   };
 };
 
 const serializeAws_json1_1EDPSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetBatchPredictionInput = (input: GetBatchPredictionInput, context: __SerdeContext): any => {
   return {
-    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionId !== undefined &&
+      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
   };
 };
 
 const serializeAws_json1_1GetDataSourceInput = (input: GetDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
-    ...(input.Verbose !== undefined && { Verbose: input.Verbose }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.Verbose !== undefined && input.Verbose !== null && { Verbose: input.Verbose }),
   };
 };
 
 const serializeAws_json1_1GetEvaluationInput = (input: GetEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
   };
 };
 
 const serializeAws_json1_1GetMLModelInput = (input: GetMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
-    ...(input.Verbose !== undefined && { Verbose: input.Verbose }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.Verbose !== undefined && input.Verbose !== null && { Verbose: input.Verbose }),
   };
 };
 
 const serializeAws_json1_1PredictInput = (input: PredictInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
-    ...(input.PredictEndpoint !== undefined && { PredictEndpoint: input.PredictEndpoint }),
-    ...(input.Record !== undefined && { Record: serializeAws_json1_1Record(input.Record, context) }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.PredictEndpoint !== undefined &&
+      input.PredictEndpoint !== null && { PredictEndpoint: input.PredictEndpoint }),
+    ...(input.Record !== undefined &&
+      input.Record !== null && { Record: serializeAws_json1_1Record(input.Record, context) }),
   };
 };
 
 const serializeAws_json1_1RDSDatabase = (input: RDSDatabase, context: __SerdeContext): any => {
   return {
-    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
-    ...(input.InstanceIdentifier !== undefined && { InstanceIdentifier: input.InstanceIdentifier }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
+    ...(input.InstanceIdentifier !== undefined &&
+      input.InstanceIdentifier !== null && { InstanceIdentifier: input.InstanceIdentifier }),
   };
 };
 
 const serializeAws_json1_1RDSDatabaseCredentials = (input: RDSDatabaseCredentials, context: __SerdeContext): any => {
   return {
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.Username !== undefined && { Username: input.Username }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_1RDSDataSpec = (input: RDSDataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataRearrangement !== undefined && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri !== undefined && { DataSchemaUri: input.DataSchemaUri }),
-    ...(input.DatabaseCredentials !== undefined && {
-      DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context),
-    }),
-    ...(input.DatabaseInformation !== undefined && {
-      DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context),
-    }),
-    ...(input.ResourceRole !== undefined && { ResourceRole: input.ResourceRole }),
-    ...(input.S3StagingLocation !== undefined && { S3StagingLocation: input.S3StagingLocation }),
-    ...(input.SecurityGroupIds !== undefined && {
-      SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context),
-    }),
-    ...(input.SelectSqlQuery !== undefined && { SelectSqlQuery: input.SelectSqlQuery }),
-    ...(input.ServiceRole !== undefined && { ServiceRole: input.ServiceRole }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.DataRearrangement !== undefined &&
+      input.DataRearrangement !== null && { DataRearrangement: input.DataRearrangement }),
+    ...(input.DataSchema !== undefined && input.DataSchema !== null && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaUri !== undefined && input.DataSchemaUri !== null && { DataSchemaUri: input.DataSchemaUri }),
+    ...(input.DatabaseCredentials !== undefined &&
+      input.DatabaseCredentials !== null && {
+        DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(input.DatabaseCredentials, context),
+      }),
+    ...(input.DatabaseInformation !== undefined &&
+      input.DatabaseInformation !== null && {
+        DatabaseInformation: serializeAws_json1_1RDSDatabase(input.DatabaseInformation, context),
+      }),
+    ...(input.ResourceRole !== undefined && input.ResourceRole !== null && { ResourceRole: input.ResourceRole }),
+    ...(input.S3StagingLocation !== undefined &&
+      input.S3StagingLocation !== null && { S3StagingLocation: input.S3StagingLocation }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(input.SecurityGroupIds, context),
+      }),
+    ...(input.SelectSqlQuery !== undefined &&
+      input.SelectSqlQuery !== null && { SelectSqlQuery: input.SelectSqlQuery }),
+    ...(input.ServiceRole !== undefined && input.ServiceRole !== null && { ServiceRole: input.ServiceRole }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   };
 };
 
 const serializeAws_json1_1Record = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1RedshiftDatabase = (input: RedshiftDatabase, context: __SerdeContext): any => {
   return {
-    ...(input.ClusterIdentifier !== undefined && { ClusterIdentifier: input.ClusterIdentifier }),
-    ...(input.DatabaseName !== undefined && { DatabaseName: input.DatabaseName }),
+    ...(input.ClusterIdentifier !== undefined &&
+      input.ClusterIdentifier !== null && { ClusterIdentifier: input.ClusterIdentifier }),
+    ...(input.DatabaseName !== undefined && input.DatabaseName !== null && { DatabaseName: input.DatabaseName }),
   };
 };
 
@@ -2946,59 +2956,83 @@ const serializeAws_json1_1RedshiftDatabaseCredentials = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Password !== undefined && { Password: input.Password }),
-    ...(input.Username !== undefined && { Username: input.Username }),
+    ...(input.Password !== undefined && input.Password !== null && { Password: input.Password }),
+    ...(input.Username !== undefined && input.Username !== null && { Username: input.Username }),
   };
 };
 
 const serializeAws_json1_1RedshiftDataSpec = (input: RedshiftDataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataRearrangement !== undefined && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaUri !== undefined && { DataSchemaUri: input.DataSchemaUri }),
-    ...(input.DatabaseCredentials !== undefined && {
-      DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
-    }),
-    ...(input.DatabaseInformation !== undefined && {
-      DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context),
-    }),
-    ...(input.S3StagingLocation !== undefined && { S3StagingLocation: input.S3StagingLocation }),
-    ...(input.SelectSqlQuery !== undefined && { SelectSqlQuery: input.SelectSqlQuery }),
+    ...(input.DataRearrangement !== undefined &&
+      input.DataRearrangement !== null && { DataRearrangement: input.DataRearrangement }),
+    ...(input.DataSchema !== undefined && input.DataSchema !== null && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaUri !== undefined && input.DataSchemaUri !== null && { DataSchemaUri: input.DataSchemaUri }),
+    ...(input.DatabaseCredentials !== undefined &&
+      input.DatabaseCredentials !== null && {
+        DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(input.DatabaseCredentials, context),
+      }),
+    ...(input.DatabaseInformation !== undefined &&
+      input.DatabaseInformation !== null && {
+        DatabaseInformation: serializeAws_json1_1RedshiftDatabase(input.DatabaseInformation, context),
+      }),
+    ...(input.S3StagingLocation !== undefined &&
+      input.S3StagingLocation !== null && { S3StagingLocation: input.S3StagingLocation }),
+    ...(input.SelectSqlQuery !== undefined &&
+      input.SelectSqlQuery !== null && { SelectSqlQuery: input.SelectSqlQuery }),
   };
 };
 
 const serializeAws_json1_1S3DataSpec = (input: S3DataSpec, context: __SerdeContext): any => {
   return {
-    ...(input.DataLocationS3 !== undefined && { DataLocationS3: input.DataLocationS3 }),
-    ...(input.DataRearrangement !== undefined && { DataRearrangement: input.DataRearrangement }),
-    ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
-    ...(input.DataSchemaLocationS3 !== undefined && { DataSchemaLocationS3: input.DataSchemaLocationS3 }),
+    ...(input.DataLocationS3 !== undefined &&
+      input.DataLocationS3 !== null && { DataLocationS3: input.DataLocationS3 }),
+    ...(input.DataRearrangement !== undefined &&
+      input.DataRearrangement !== null && { DataRearrangement: input.DataRearrangement }),
+    ...(input.DataSchema !== undefined && input.DataSchema !== null && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaLocationS3 !== undefined &&
+      input.DataSchemaLocationS3 !== null && { DataSchemaLocationS3: input.DataSchemaLocationS3 }),
   };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1TagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const serializeAws_json1_1TrainingParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1UpdateBatchPredictionInput = (
@@ -3006,30 +3040,35 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.BatchPredictionId !== undefined && { BatchPredictionId: input.BatchPredictionId }),
-    ...(input.BatchPredictionName !== undefined && { BatchPredictionName: input.BatchPredictionName }),
+    ...(input.BatchPredictionId !== undefined &&
+      input.BatchPredictionId !== null && { BatchPredictionId: input.BatchPredictionId }),
+    ...(input.BatchPredictionName !== undefined &&
+      input.BatchPredictionName !== null && { BatchPredictionName: input.BatchPredictionName }),
   };
 };
 
 const serializeAws_json1_1UpdateDataSourceInput = (input: UpdateDataSourceInput, context: __SerdeContext): any => {
   return {
-    ...(input.DataSourceId !== undefined && { DataSourceId: input.DataSourceId }),
-    ...(input.DataSourceName !== undefined && { DataSourceName: input.DataSourceName }),
+    ...(input.DataSourceId !== undefined && input.DataSourceId !== null && { DataSourceId: input.DataSourceId }),
+    ...(input.DataSourceName !== undefined &&
+      input.DataSourceName !== null && { DataSourceName: input.DataSourceName }),
   };
 };
 
 const serializeAws_json1_1UpdateEvaluationInput = (input: UpdateEvaluationInput, context: __SerdeContext): any => {
   return {
-    ...(input.EvaluationId !== undefined && { EvaluationId: input.EvaluationId }),
-    ...(input.EvaluationName !== undefined && { EvaluationName: input.EvaluationName }),
+    ...(input.EvaluationId !== undefined && input.EvaluationId !== null && { EvaluationId: input.EvaluationId }),
+    ...(input.EvaluationName !== undefined &&
+      input.EvaluationName !== null && { EvaluationName: input.EvaluationName }),
   };
 };
 
 const serializeAws_json1_1UpdateMLModelInput = (input: UpdateMLModelInput, context: __SerdeContext): any => {
   return {
-    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
-    ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
-    ...(input.ScoreThreshold !== undefined && { ScoreThreshold: input.ScoreThreshold }),
+    ...(input.MLModelId !== undefined && input.MLModelId !== null && { MLModelId: input.MLModelId }),
+    ...(input.MLModelName !== undefined && input.MLModelName !== null && { MLModelName: input.MLModelName }),
+    ...(input.ScoreThreshold !== undefined &&
+      input.ScoreThreshold !== null && { ScoreThreshold: input.ScoreThreshold }),
   };
 };
 
@@ -3088,7 +3127,14 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1BatchPredictions = (output: any, context: __SerdeContext): BatchPrediction[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BatchPrediction(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchPrediction(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateBatchPredictionOutput = (
@@ -3207,7 +3253,14 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1DataSource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DataSource(entry, context);
+    });
 };
 
 const deserializeAws_json1_1DeleteBatchPredictionOutput = (
@@ -3322,10 +3375,15 @@ const deserializeAws_json1_1DescribeTagsOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [DetailsAttributes | string, any]) => ({
-      ...acc,
-      [key]: value,
-    }),
+    (acc: { [key: string]: string }, [key, value]: [DetailsAttributes | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: value,
+      };
+    },
     {}
   );
 };
@@ -3372,7 +3430,14 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Evaluation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Evaluation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1GetBatchPredictionOutput = (
@@ -3671,7 +3736,14 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
 };
 
 const deserializeAws_json1_1MLModels = (output: any, context: __SerdeContext): MLModel[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MLModel(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MLModel(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
@@ -3687,13 +3759,15 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1Prediction = (output: any, context: __SerdeContext): Prediction => {
@@ -3811,13 +3885,15 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: number } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: number }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -3837,17 +3913,26 @@ const deserializeAws_json1_1TagLimitExceededException = (
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Tag(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1UpdateBatchPredictionOutput = (
@@ -3930,3 +4015,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

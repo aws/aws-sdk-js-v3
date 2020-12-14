@@ -325,7 +325,7 @@ export const serializeAws_queryCancelUpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -341,7 +341,7 @@ export const serializeAws_queryContinueUpdateRollbackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -357,7 +357,7 @@ export const serializeAws_queryCreateChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -373,7 +373,7 @@ export const serializeAws_queryCreateStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -389,7 +389,7 @@ export const serializeAws_queryCreateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -405,7 +405,7 @@ export const serializeAws_queryCreateStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -421,7 +421,7 @@ export const serializeAws_queryDeleteChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -437,7 +437,7 @@ export const serializeAws_queryDeleteStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -453,7 +453,7 @@ export const serializeAws_queryDeleteStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -469,7 +469,7 @@ export const serializeAws_queryDeleteStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -485,7 +485,7 @@ export const serializeAws_queryDeregisterTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -501,7 +501,7 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -517,7 +517,7 @@ export const serializeAws_queryDescribeChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -533,7 +533,7 @@ export const serializeAws_queryDescribeStackDriftDetectionStatusCommand = async 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -549,7 +549,7 @@ export const serializeAws_queryDescribeStackEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -565,7 +565,7 @@ export const serializeAws_queryDescribeStackInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -581,7 +581,7 @@ export const serializeAws_queryDescribeStackResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -597,7 +597,7 @@ export const serializeAws_queryDescribeStackResourceDriftsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -613,7 +613,7 @@ export const serializeAws_queryDescribeStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -629,7 +629,7 @@ export const serializeAws_queryDescribeStacksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -645,7 +645,7 @@ export const serializeAws_queryDescribeStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -661,7 +661,7 @@ export const serializeAws_queryDescribeStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -677,7 +677,7 @@ export const serializeAws_queryDescribeTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -693,7 +693,7 @@ export const serializeAws_queryDescribeTypeRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -709,7 +709,7 @@ export const serializeAws_queryDetectStackDriftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -725,7 +725,7 @@ export const serializeAws_queryDetectStackResourceDriftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -741,7 +741,7 @@ export const serializeAws_queryDetectStackSetDriftCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -757,7 +757,7 @@ export const serializeAws_queryEstimateTemplateCostCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -773,7 +773,7 @@ export const serializeAws_queryExecuteChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -789,7 +789,7 @@ export const serializeAws_queryGetStackPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -805,7 +805,7 @@ export const serializeAws_queryGetTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -821,7 +821,7 @@ export const serializeAws_queryGetTemplateSummaryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -837,7 +837,7 @@ export const serializeAws_queryListChangeSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -853,7 +853,7 @@ export const serializeAws_queryListExportsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -869,7 +869,7 @@ export const serializeAws_queryListImportsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -885,7 +885,7 @@ export const serializeAws_queryListStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -901,7 +901,7 @@ export const serializeAws_queryListStackResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -917,7 +917,7 @@ export const serializeAws_queryListStacksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -933,7 +933,7 @@ export const serializeAws_queryListStackSetOperationResultsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -949,7 +949,7 @@ export const serializeAws_queryListStackSetOperationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -965,7 +965,7 @@ export const serializeAws_queryListStackSetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -981,7 +981,7 @@ export const serializeAws_queryListTypeRegistrationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -997,7 +997,7 @@ export const serializeAws_queryListTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1013,7 +1013,7 @@ export const serializeAws_queryListTypeVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1029,7 +1029,7 @@ export const serializeAws_queryRecordHandlerProgressCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1045,7 +1045,7 @@ export const serializeAws_queryRegisterTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1061,7 +1061,7 @@ export const serializeAws_querySetStackPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1077,7 +1077,7 @@ export const serializeAws_querySetTypeDefaultVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1093,7 +1093,7 @@ export const serializeAws_querySignalResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1109,7 +1109,7 @@ export const serializeAws_queryStopStackSetOperationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1125,7 +1125,7 @@ export const serializeAws_queryUpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1141,7 +1141,7 @@ export const serializeAws_queryUpdateStackInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1157,7 +1157,7 @@ export const serializeAws_queryUpdateStackSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1173,7 +1173,7 @@ export const serializeAws_queryUpdateTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1189,7 +1189,7 @@ export const serializeAws_queryValidateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -4633,6 +4633,9 @@ const serializeAws_queryAccountList = (input: string[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -4641,10 +4644,10 @@ const serializeAws_queryAccountList = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryAutoDeployment = (input: AutoDeployment, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     entries["Enabled"] = input.Enabled;
   }
-  if (input.RetainStacksOnAccountRemoval !== undefined) {
+  if (input.RetainStacksOnAccountRemoval !== undefined && input.RetainStacksOnAccountRemoval !== null) {
     entries["RetainStacksOnAccountRemoval"] = input.RetainStacksOnAccountRemoval;
   }
   return entries;
@@ -4652,10 +4655,10 @@ const serializeAws_queryAutoDeployment = (input: AutoDeployment, context: __Serd
 
 const serializeAws_queryCancelUpdateStackInput = (input: CancelUpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -4665,6 +4668,9 @@ const serializeAws_queryCapabilities = (input: (Capability | string)[], context:
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -4676,20 +4682,20 @@ const serializeAws_queryContinueUpdateRollbackInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.RoleARN !== undefined) {
+  if (input.RoleARN !== undefined && input.RoleARN !== null) {
     entries["RoleARN"] = input.RoleARN;
   }
-  if (input.ResourcesToSkip !== undefined) {
+  if (input.ResourcesToSkip !== undefined && input.ResourcesToSkip !== null) {
     const memberEntries = serializeAws_queryResourcesToSkip(input.ResourcesToSkip, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourcesToSkip.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -4697,83 +4703,83 @@ const serializeAws_queryContinueUpdateRollbackInput = (
 
 const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.UsePreviousTemplate !== undefined) {
+  if (input.UsePreviousTemplate !== undefined && input.UsePreviousTemplate !== null) {
     entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Capabilities !== undefined) {
+  if (input.Capabilities !== undefined && input.Capabilities !== null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceTypes !== undefined) {
+  if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
     const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
+  if (input.RoleARN !== undefined && input.RoleARN !== null) {
     entries["RoleARN"] = input.RoleARN;
   }
-  if (input.RollbackConfiguration !== undefined) {
+  if (input.RollbackConfiguration !== undefined && input.RollbackConfiguration !== null) {
     const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.NotificationARNs !== undefined) {
+  if (input.NotificationARNs !== undefined && input.NotificationARNs !== null) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ChangeSetName !== undefined) {
+  if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
     entries["ChangeSetName"] = input.ChangeSetName;
   }
-  if (input.ClientToken !== undefined) {
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
     entries["ClientToken"] = input.ClientToken;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.ChangeSetType !== undefined) {
+  if (input.ChangeSetType !== undefined && input.ChangeSetType !== null) {
     entries["ChangeSetType"] = input.ChangeSetType;
   }
-  if (input.ResourcesToImport !== undefined) {
+  if (input.ResourcesToImport !== undefined && input.ResourcesToImport !== null) {
     const memberEntries = serializeAws_queryResourcesToImport(input.ResourcesToImport, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourcesToImport.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.IncludeNestedStacks !== undefined) {
+  if (input.IncludeNestedStacks !== undefined && input.IncludeNestedStacks !== null) {
     entries["IncludeNestedStacks"] = input.IncludeNestedStacks;
   }
   return entries;
@@ -4781,79 +4787,79 @@ const serializeAws_queryCreateChangeSetInput = (input: CreateChangeSetInput, con
 
 const serializeAws_queryCreateStackInput = (input: CreateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DisableRollback !== undefined) {
+  if (input.DisableRollback !== undefined && input.DisableRollback !== null) {
     entries["DisableRollback"] = input.DisableRollback;
   }
-  if (input.RollbackConfiguration !== undefined) {
+  if (input.RollbackConfiguration !== undefined && input.RollbackConfiguration !== null) {
     const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.TimeoutInMinutes !== undefined) {
+  if (input.TimeoutInMinutes !== undefined && input.TimeoutInMinutes !== null) {
     entries["TimeoutInMinutes"] = input.TimeoutInMinutes;
   }
-  if (input.NotificationARNs !== undefined) {
+  if (input.NotificationARNs !== undefined && input.NotificationARNs !== null) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Capabilities !== undefined) {
+  if (input.Capabilities !== undefined && input.Capabilities !== null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceTypes !== undefined) {
+  if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
     const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
+  if (input.RoleARN !== undefined && input.RoleARN !== null) {
     entries["RoleARN"] = input.RoleARN;
   }
-  if (input.OnFailure !== undefined) {
+  if (input.OnFailure !== undefined && input.OnFailure !== null) {
     entries["OnFailure"] = input.OnFailure;
   }
-  if (input.StackPolicyBody !== undefined) {
+  if (input.StackPolicyBody !== undefined && input.StackPolicyBody !== null) {
     entries["StackPolicyBody"] = input.StackPolicyBody;
   }
-  if (input.StackPolicyURL !== undefined) {
+  if (input.StackPolicyURL !== undefined && input.StackPolicyURL !== null) {
     entries["StackPolicyURL"] = input.StackPolicyURL;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
-  if (input.EnableTerminationProtection !== undefined) {
+  if (input.EnableTerminationProtection !== undefined && input.EnableTerminationProtection !== null) {
     entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
   }
   return entries;
@@ -4864,38 +4870,38 @@ const serializeAws_queryCreateStackInstancesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.Accounts !== undefined) {
+  if (input.Accounts !== undefined && input.Accounts !== null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DeploymentTargets !== undefined) {
+  if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
     const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions !== undefined) {
+  if (input.Regions !== undefined && input.Regions !== null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ParameterOverrides !== undefined) {
+  if (input.ParameterOverrides !== undefined && input.ParameterOverrides !== null) {
     const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences !== undefined) {
+  if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
@@ -4905,7 +4911,7 @@ const serializeAws_queryCreateStackInstancesInput = (
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
   return entries;
@@ -4913,49 +4919,49 @@ const serializeAws_queryCreateStackInstancesInput = (
 
 const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Capabilities !== undefined) {
+  if (input.Capabilities !== undefined && input.Capabilities !== null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AdministrationRoleARN !== undefined) {
+  if (input.AdministrationRoleARN !== undefined && input.AdministrationRoleARN !== null) {
     entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
   }
-  if (input.ExecutionRoleName !== undefined) {
+  if (input.ExecutionRoleName !== undefined && input.ExecutionRoleName !== null) {
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
   }
-  if (input.PermissionModel !== undefined) {
+  if (input.PermissionModel !== undefined && input.PermissionModel !== null) {
     entries["PermissionModel"] = input.PermissionModel;
   }
-  if (input.AutoDeployment !== undefined) {
+  if (input.AutoDeployment !== undefined && input.AutoDeployment !== null) {
     const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoDeployment.${key}`;
@@ -4965,7 +4971,7 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
   if (input.ClientRequestToken === undefined) {
     input.ClientRequestToken = generateIdempotencyToken();
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -4973,10 +4979,10 @@ const serializeAws_queryCreateStackSetInput = (input: CreateStackSetInput, conte
 
 const serializeAws_queryDeleteChangeSetInput = (input: DeleteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName !== undefined) {
+  if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
     entries["ChangeSetName"] = input.ChangeSetName;
   }
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
   return entries;
@@ -4984,20 +4990,20 @@ const serializeAws_queryDeleteChangeSetInput = (input: DeleteChangeSetInput, con
 
 const serializeAws_queryDeleteStackInput = (input: DeleteStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.RetainResources !== undefined) {
+  if (input.RetainResources !== undefined && input.RetainResources !== null) {
     const memberEntries = serializeAws_queryRetainResources(input.RetainResources, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RetainResources.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
+  if (input.RoleARN !== undefined && input.RoleARN !== null) {
     entries["RoleARN"] = input.RoleARN;
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -5008,44 +5014,44 @@ const serializeAws_queryDeleteStackInstancesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.Accounts !== undefined) {
+  if (input.Accounts !== undefined && input.Accounts !== null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DeploymentTargets !== undefined) {
+  if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
     const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions !== undefined) {
+  if (input.Regions !== undefined && input.Regions !== null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences !== undefined) {
+  if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RetainStacks !== undefined) {
+  if (input.RetainStacks !== undefined && input.RetainStacks !== null) {
     entries["RetainStacks"] = input.RetainStacks;
   }
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
   return entries;
@@ -5053,7 +5059,7 @@ const serializeAws_queryDeleteStackInstancesInput = (
 
 const serializeAws_queryDeleteStackSetInput = (input: DeleteStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
   return entries;
@@ -5061,14 +5067,14 @@ const serializeAws_queryDeleteStackSetInput = (input: DeleteStackSetInput, conte
 
 const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Accounts !== undefined) {
+  if (input.Accounts !== undefined && input.Accounts !== null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OrganizationalUnitIds !== undefined) {
+  if (input.OrganizationalUnitIds !== undefined && input.OrganizationalUnitIds !== null) {
     const memberEntries = serializeAws_queryOrganizationalUnitIdList(input.OrganizationalUnitIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OrganizationalUnitIds.${key}`;
@@ -5080,16 +5086,16 @@ const serializeAws_queryDeploymentTargets = (input: DeploymentTargets, context: 
 
 const serializeAws_queryDeregisterTypeInput = (input: DeregisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
+  if (input.TypeName !== undefined && input.TypeName !== null) {
     entries["TypeName"] = input.TypeName;
   }
-  if (input.VersionId !== undefined) {
+  if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -5100,7 +5106,7 @@ const serializeAws_queryDescribeAccountLimitsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5108,13 +5114,13 @@ const serializeAws_queryDescribeAccountLimitsInput = (
 
 const serializeAws_queryDescribeChangeSetInput = (input: DescribeChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName !== undefined) {
+  if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
     entries["ChangeSetName"] = input.ChangeSetName;
   }
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5125,7 +5131,7 @@ const serializeAws_queryDescribeStackDriftDetectionStatusInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackDriftDetectionId !== undefined) {
+  if (input.StackDriftDetectionId !== undefined && input.StackDriftDetectionId !== null) {
     entries["StackDriftDetectionId"] = input.StackDriftDetectionId;
   }
   return entries;
@@ -5133,10 +5139,10 @@ const serializeAws_queryDescribeStackDriftDetectionStatusInput = (
 
 const serializeAws_queryDescribeStackEventsInput = (input: DescribeStackEventsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5147,13 +5153,13 @@ const serializeAws_queryDescribeStackInstanceInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.StackInstanceAccount !== undefined) {
+  if (input.StackInstanceAccount !== undefined && input.StackInstanceAccount !== null) {
     entries["StackInstanceAccount"] = input.StackInstanceAccount;
   }
-  if (input.StackInstanceRegion !== undefined) {
+  if (input.StackInstanceRegion !== undefined && input.StackInstanceRegion !== null) {
     entries["StackInstanceRegion"] = input.StackInstanceRegion;
   }
   return entries;
@@ -5164,10 +5170,10 @@ const serializeAws_queryDescribeStackResourceDriftsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.StackResourceDriftStatusFilters !== undefined) {
+  if (input.StackResourceDriftStatusFilters !== undefined && input.StackResourceDriftStatusFilters !== null) {
     const memberEntries = serializeAws_queryStackResourceDriftStatusFilters(
       input.StackResourceDriftStatusFilters,
       context
@@ -5177,10 +5183,10 @@ const serializeAws_queryDescribeStackResourceDriftsInput = (
       entries[loc] = value;
     });
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
   return entries;
@@ -5191,10 +5197,10 @@ const serializeAws_queryDescribeStackResourceInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.LogicalResourceId !== undefined) {
+  if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
   }
   return entries;
@@ -5205,13 +5211,13 @@ const serializeAws_queryDescribeStackResourcesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.LogicalResourceId !== undefined) {
+  if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
   }
-  if (input.PhysicalResourceId !== undefined) {
+  if (input.PhysicalResourceId !== undefined && input.PhysicalResourceId !== null) {
     entries["PhysicalResourceId"] = input.PhysicalResourceId;
   }
   return entries;
@@ -5219,7 +5225,7 @@ const serializeAws_queryDescribeStackResourcesInput = (
 
 const serializeAws_queryDescribeStackSetInput = (input: DescribeStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
   return entries;
@@ -5230,10 +5236,10 @@ const serializeAws_queryDescribeStackSetOperationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
   return entries;
@@ -5241,10 +5247,10 @@ const serializeAws_queryDescribeStackSetOperationInput = (
 
 const serializeAws_queryDescribeStacksInput = (input: DescribeStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5252,16 +5258,16 @@ const serializeAws_queryDescribeStacksInput = (input: DescribeStacksInput, conte
 
 const serializeAws_queryDescribeTypeInput = (input: DescribeTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
+  if (input.TypeName !== undefined && input.TypeName !== null) {
     entries["TypeName"] = input.TypeName;
   }
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.VersionId !== undefined) {
+  if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -5272,7 +5278,7 @@ const serializeAws_queryDescribeTypeRegistrationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RegistrationToken !== undefined) {
+  if (input.RegistrationToken !== undefined && input.RegistrationToken !== null) {
     entries["RegistrationToken"] = input.RegistrationToken;
   }
   return entries;
@@ -5280,10 +5286,10 @@ const serializeAws_queryDescribeTypeRegistrationInput = (
 
 const serializeAws_queryDetectStackDriftInput = (input: DetectStackDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.LogicalResourceIds !== undefined) {
+  if (input.LogicalResourceIds !== undefined && input.LogicalResourceIds !== null) {
     const memberEntries = serializeAws_queryLogicalResourceIds(input.LogicalResourceIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LogicalResourceIds.${key}`;
@@ -5298,10 +5304,10 @@ const serializeAws_queryDetectStackResourceDriftInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.LogicalResourceId !== undefined) {
+  if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
   }
   return entries;
@@ -5309,10 +5315,10 @@ const serializeAws_queryDetectStackResourceDriftInput = (
 
 const serializeAws_queryDetectStackSetDriftInput = (input: DetectStackSetDriftInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.OperationPreferences !== undefined) {
+  if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
@@ -5322,7 +5328,7 @@ const serializeAws_queryDetectStackSetDriftInput = (input: DetectStackSetDriftIn
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
   return entries;
@@ -5333,13 +5339,13 @@ const serializeAws_queryEstimateTemplateCostInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
@@ -5351,13 +5357,13 @@ const serializeAws_queryEstimateTemplateCostInput = (
 
 const serializeAws_queryExecuteChangeSetInput = (input: ExecuteChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ChangeSetName !== undefined) {
+  if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
     entries["ChangeSetName"] = input.ChangeSetName;
   }
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -5365,7 +5371,7 @@ const serializeAws_queryExecuteChangeSetInput = (input: ExecuteChangeSetInput, c
 
 const serializeAws_queryGetStackPolicyInput = (input: GetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
   return entries;
@@ -5373,13 +5379,13 @@ const serializeAws_queryGetStackPolicyInput = (input: GetStackPolicyInput, conte
 
 const serializeAws_queryGetTemplateInput = (input: GetTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.ChangeSetName !== undefined) {
+  if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
     entries["ChangeSetName"] = input.ChangeSetName;
   }
-  if (input.TemplateStage !== undefined) {
+  if (input.TemplateStage !== undefined && input.TemplateStage !== null) {
     entries["TemplateStage"] = input.TemplateStage;
   }
   return entries;
@@ -5387,16 +5393,16 @@ const serializeAws_queryGetTemplateInput = (input: GetTemplateInput, context: __
 
 const serializeAws_queryGetTemplateSummaryInput = (input: GetTemplateSummaryInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
   return entries;
@@ -5404,10 +5410,10 @@ const serializeAws_queryGetTemplateSummaryInput = (input: GetTemplateSummaryInpu
 
 const serializeAws_queryListChangeSetsInput = (input: ListChangeSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5415,7 +5421,7 @@ const serializeAws_queryListChangeSetsInput = (input: ListChangeSetsInput, conte
 
 const serializeAws_queryListExportsInput = (input: ListExportsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5423,10 +5429,10 @@ const serializeAws_queryListExportsInput = (input: ListExportsInput, context: __
 
 const serializeAws_queryListImportsInput = (input: ListImportsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ExportName !== undefined) {
+  if (input.ExportName !== undefined && input.ExportName !== null) {
     entries["ExportName"] = input.ExportName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5434,26 +5440,26 @@ const serializeAws_queryListImportsInput = (input: ListImportsInput, context: __
 
 const serializeAws_queryListStackInstancesInput = (input: ListStackInstancesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
-  if (input.Filters !== undefined) {
+  if (input.Filters !== undefined && input.Filters !== null) {
     const memberEntries = serializeAws_queryStackInstanceFilters(input.Filters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Filters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.StackInstanceAccount !== undefined) {
+  if (input.StackInstanceAccount !== undefined && input.StackInstanceAccount !== null) {
     entries["StackInstanceAccount"] = input.StackInstanceAccount;
   }
-  if (input.StackInstanceRegion !== undefined) {
+  if (input.StackInstanceRegion !== undefined && input.StackInstanceRegion !== null) {
     entries["StackInstanceRegion"] = input.StackInstanceRegion;
   }
   return entries;
@@ -5461,10 +5467,10 @@ const serializeAws_queryListStackInstancesInput = (input: ListStackInstancesInpu
 
 const serializeAws_queryListStackResourcesInput = (input: ListStackResourcesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5475,16 +5481,16 @@ const serializeAws_queryListStackSetOperationResultsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
   return entries;
@@ -5495,13 +5501,13 @@ const serializeAws_queryListStackSetOperationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
   return entries;
@@ -5509,13 +5515,13 @@ const serializeAws_queryListStackSetOperationsInput = (
 
 const serializeAws_queryListStackSetsInput = (input: ListStackSetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -5523,10 +5529,10 @@ const serializeAws_queryListStackSetsInput = (input: ListStackSetsInput, context
 
 const serializeAws_queryListStacksInput = (input: ListStacksInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.StackStatusFilter !== undefined) {
+  if (input.StackStatusFilter !== undefined && input.StackStatusFilter !== null) {
     const memberEntries = serializeAws_queryStackStatusFilter(input.StackStatusFilter, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `StackStatusFilter.${key}`;
@@ -5541,22 +5547,22 @@ const serializeAws_queryListTypeRegistrationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
+  if (input.TypeName !== undefined && input.TypeName !== null) {
     entries["TypeName"] = input.TypeName;
   }
-  if (input.TypeArn !== undefined) {
+  if (input.TypeArn !== undefined && input.TypeArn !== null) {
     entries["TypeArn"] = input.TypeArn;
   }
-  if (input.RegistrationStatusFilter !== undefined) {
+  if (input.RegistrationStatusFilter !== undefined && input.RegistrationStatusFilter !== null) {
     entries["RegistrationStatusFilter"] = input.RegistrationStatusFilter;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5564,22 +5570,22 @@ const serializeAws_queryListTypeRegistrationsInput = (
 
 const serializeAws_queryListTypesInput = (input: ListTypesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Visibility !== undefined) {
+  if (input.Visibility !== undefined && input.Visibility !== null) {
     entries["Visibility"] = input.Visibility;
   }
-  if (input.ProvisioningType !== undefined) {
+  if (input.ProvisioningType !== undefined && input.ProvisioningType !== null) {
     entries["ProvisioningType"] = input.ProvisioningType;
   }
-  if (input.DeprecatedStatus !== undefined) {
+  if (input.DeprecatedStatus !== undefined && input.DeprecatedStatus !== null) {
     entries["DeprecatedStatus"] = input.DeprecatedStatus;
   }
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -5587,22 +5593,22 @@ const serializeAws_queryListTypesInput = (input: ListTypesInput, context: __Serd
 
 const serializeAws_queryListTypeVersionsInput = (input: ListTypeVersionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
+  if (input.TypeName !== undefined && input.TypeName !== null) {
     entries["TypeName"] = input.TypeName;
   }
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.MaxResults !== undefined) {
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
-  if (input.DeprecatedStatus !== undefined) {
+  if (input.DeprecatedStatus !== undefined && input.DeprecatedStatus !== null) {
     entries["DeprecatedStatus"] = input.DeprecatedStatus;
   }
   return entries;
@@ -5610,10 +5616,10 @@ const serializeAws_queryListTypeVersionsInput = (input: ListTypeVersionsInput, c
 
 const serializeAws_queryLoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LogRoleArn !== undefined) {
+  if (input.LogRoleArn !== undefined && input.LogRoleArn !== null) {
     entries["LogRoleArn"] = input.LogRoleArn;
   }
-  if (input.LogGroupName !== undefined) {
+  if (input.LogGroupName !== undefined && input.LogGroupName !== null) {
     entries["LogGroupName"] = input.LogGroupName;
   }
   return entries;
@@ -5623,6 +5629,9 @@ const serializeAws_queryLogicalResourceIds = (input: string[], context: __SerdeC
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5633,6 +5642,9 @@ const serializeAws_queryNotificationARNs = (input: string[], context: __SerdeCon
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5643,6 +5655,9 @@ const serializeAws_queryOrganizationalUnitIdList = (input: string[], context: __
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5651,16 +5666,16 @@ const serializeAws_queryOrganizationalUnitIdList = (input: string[], context: __
 
 const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterKey !== undefined) {
+  if (input.ParameterKey !== undefined && input.ParameterKey !== null) {
     entries["ParameterKey"] = input.ParameterKey;
   }
-  if (input.ParameterValue !== undefined) {
+  if (input.ParameterValue !== undefined && input.ParameterValue !== null) {
     entries["ParameterValue"] = input.ParameterValue;
   }
-  if (input.UsePreviousValue !== undefined) {
+  if (input.UsePreviousValue !== undefined && input.UsePreviousValue !== null) {
     entries["UsePreviousValue"] = input.UsePreviousValue;
   }
-  if (input.ResolvedValue !== undefined) {
+  if (input.ResolvedValue !== undefined && input.ResolvedValue !== null) {
     entries["ResolvedValue"] = input.ResolvedValue;
   }
   return entries;
@@ -5670,6 +5685,9 @@ const serializeAws_queryParameters = (input: Parameter[], context: __SerdeContex
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryParameter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -5684,25 +5702,25 @@ const serializeAws_queryRecordHandlerProgressInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.BearerToken !== undefined) {
+  if (input.BearerToken !== undefined && input.BearerToken !== null) {
     entries["BearerToken"] = input.BearerToken;
   }
-  if (input.OperationStatus !== undefined) {
+  if (input.OperationStatus !== undefined && input.OperationStatus !== null) {
     entries["OperationStatus"] = input.OperationStatus;
   }
-  if (input.CurrentOperationStatus !== undefined) {
+  if (input.CurrentOperationStatus !== undefined && input.CurrentOperationStatus !== null) {
     entries["CurrentOperationStatus"] = input.CurrentOperationStatus;
   }
-  if (input.StatusMessage !== undefined) {
+  if (input.StatusMessage !== undefined && input.StatusMessage !== null) {
     entries["StatusMessage"] = input.StatusMessage;
   }
-  if (input.ErrorCode !== undefined) {
+  if (input.ErrorCode !== undefined && input.ErrorCode !== null) {
     entries["ErrorCode"] = input.ErrorCode;
   }
-  if (input.ResourceModel !== undefined) {
+  if (input.ResourceModel !== undefined && input.ResourceModel !== null) {
     entries["ResourceModel"] = input.ResourceModel;
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -5712,6 +5730,9 @@ const serializeAws_queryRegionList = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5720,26 +5741,26 @@ const serializeAws_queryRegionList = (input: string[], context: __SerdeContext):
 
 const serializeAws_queryRegisterTypeInput = (input: RegisterTypeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
+  if (input.TypeName !== undefined && input.TypeName !== null) {
     entries["TypeName"] = input.TypeName;
   }
-  if (input.SchemaHandlerPackage !== undefined) {
+  if (input.SchemaHandlerPackage !== undefined && input.SchemaHandlerPackage !== null) {
     entries["SchemaHandlerPackage"] = input.SchemaHandlerPackage;
   }
-  if (input.LoggingConfig !== undefined) {
+  if (input.LoggingConfig !== undefined && input.LoggingConfig !== null) {
     const memberEntries = serializeAws_queryLoggingConfig(input.LoggingConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoggingConfig.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ExecutionRoleArn !== undefined) {
+  if (input.ExecutionRoleArn !== undefined && input.ExecutionRoleArn !== null) {
     entries["ExecutionRoleArn"] = input.ExecutionRoleArn;
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -5751,11 +5772,13 @@ const serializeAws_queryResourceIdentifierProperties = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    entries[`entry.${counter}.value`] = input[key];
-    counter++;
-  });
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key];
+      counter++;
+    });
   return entries;
 };
 
@@ -5763,6 +5786,9 @@ const serializeAws_queryResourcesToImport = (input: ResourceToImport[], context:
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryResourceToImport(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -5776,6 +5802,9 @@ const serializeAws_queryResourcesToSkip = (input: string[], context: __SerdeCont
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5784,13 +5813,13 @@ const serializeAws_queryResourcesToSkip = (input: string[], context: __SerdeCont
 
 const serializeAws_queryResourceToImport = (input: ResourceToImport, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceType !== undefined) {
+  if (input.ResourceType !== undefined && input.ResourceType !== null) {
     entries["ResourceType"] = input.ResourceType;
   }
-  if (input.LogicalResourceId !== undefined) {
+  if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
   }
-  if (input.ResourceIdentifier !== undefined) {
+  if (input.ResourceIdentifier !== undefined && input.ResourceIdentifier !== null) {
     const memberEntries = serializeAws_queryResourceIdentifierProperties(input.ResourceIdentifier, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceIdentifier.${key}`;
@@ -5804,6 +5833,9 @@ const serializeAws_queryResourceTypes = (input: string[], context: __SerdeContex
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5814,6 +5846,9 @@ const serializeAws_queryRetainResources = (input: string[], context: __SerdeCont
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5822,14 +5857,14 @@ const serializeAws_queryRetainResources = (input: string[], context: __SerdeCont
 
 const serializeAws_queryRollbackConfiguration = (input: RollbackConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RollbackTriggers !== undefined) {
+  if (input.RollbackTriggers !== undefined && input.RollbackTriggers !== null) {
     const memberEntries = serializeAws_queryRollbackTriggers(input.RollbackTriggers, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackTriggers.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MonitoringTimeInMinutes !== undefined) {
+  if (input.MonitoringTimeInMinutes !== undefined && input.MonitoringTimeInMinutes !== null) {
     entries["MonitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
   }
   return entries;
@@ -5837,10 +5872,10 @@ const serializeAws_queryRollbackConfiguration = (input: RollbackConfiguration, c
 
 const serializeAws_queryRollbackTrigger = (input: RollbackTrigger, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
   return entries;
@@ -5850,6 +5885,9 @@ const serializeAws_queryRollbackTriggers = (input: RollbackTrigger[], context: _
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryRollbackTrigger(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -5861,13 +5899,13 @@ const serializeAws_queryRollbackTriggers = (input: RollbackTrigger[], context: _
 
 const serializeAws_querySetStackPolicyInput = (input: SetStackPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.StackPolicyBody !== undefined) {
+  if (input.StackPolicyBody !== undefined && input.StackPolicyBody !== null) {
     entries["StackPolicyBody"] = input.StackPolicyBody;
   }
-  if (input.StackPolicyURL !== undefined) {
+  if (input.StackPolicyURL !== undefined && input.StackPolicyURL !== null) {
     entries["StackPolicyURL"] = input.StackPolicyURL;
   }
   return entries;
@@ -5878,16 +5916,16 @@ const serializeAws_querySetTypeDefaultVersionInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
+  if (input.Arn !== undefined && input.Arn !== null) {
     entries["Arn"] = input.Arn;
   }
-  if (input.Type !== undefined) {
+  if (input.Type !== undefined && input.Type !== null) {
     entries["Type"] = input.Type;
   }
-  if (input.TypeName !== undefined) {
+  if (input.TypeName !== undefined && input.TypeName !== null) {
     entries["TypeName"] = input.TypeName;
   }
-  if (input.VersionId !== undefined) {
+  if (input.VersionId !== undefined && input.VersionId !== null) {
     entries["VersionId"] = input.VersionId;
   }
   return entries;
@@ -5895,16 +5933,16 @@ const serializeAws_querySetTypeDefaultVersionInput = (
 
 const serializeAws_querySignalResourceInput = (input: SignalResourceInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.LogicalResourceId !== undefined) {
+  if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
     entries["LogicalResourceId"] = input.LogicalResourceId;
   }
-  if (input.UniqueId !== undefined) {
+  if (input.UniqueId !== undefined && input.UniqueId !== null) {
     entries["UniqueId"] = input.UniqueId;
   }
-  if (input.Status !== undefined) {
+  if (input.Status !== undefined && input.Status !== null) {
     entries["Status"] = input.Status;
   }
   return entries;
@@ -5912,10 +5950,10 @@ const serializeAws_querySignalResourceInput = (input: SignalResourceInput, conte
 
 const serializeAws_queryStackInstanceFilter = (input: StackInstanceFilter, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Values !== undefined) {
+  if (input.Values !== undefined && input.Values !== null) {
     entries["Values"] = input.Values;
   }
   return entries;
@@ -5925,6 +5963,9 @@ const serializeAws_queryStackInstanceFilters = (input: StackInstanceFilter[], co
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryStackInstanceFilter(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -5941,6 +5982,9 @@ const serializeAws_queryStackResourceDriftStatusFilters = (
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5952,23 +5996,23 @@ const serializeAws_queryStackSetOperationPreferences = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RegionOrder !== undefined) {
+  if (input.RegionOrder !== undefined && input.RegionOrder !== null) {
     const memberEntries = serializeAws_queryRegionList(input.RegionOrder, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RegionOrder.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.FailureToleranceCount !== undefined) {
+  if (input.FailureToleranceCount !== undefined && input.FailureToleranceCount !== null) {
     entries["FailureToleranceCount"] = input.FailureToleranceCount;
   }
-  if (input.FailureTolerancePercentage !== undefined) {
+  if (input.FailureTolerancePercentage !== undefined && input.FailureTolerancePercentage !== null) {
     entries["FailureTolerancePercentage"] = input.FailureTolerancePercentage;
   }
-  if (input.MaxConcurrentCount !== undefined) {
+  if (input.MaxConcurrentCount !== undefined && input.MaxConcurrentCount !== null) {
     entries["MaxConcurrentCount"] = input.MaxConcurrentCount;
   }
-  if (input.MaxConcurrentPercentage !== undefined) {
+  if (input.MaxConcurrentPercentage !== undefined && input.MaxConcurrentPercentage !== null) {
     entries["MaxConcurrentPercentage"] = input.MaxConcurrentPercentage;
   }
   return entries;
@@ -5978,6 +6022,9 @@ const serializeAws_queryStackStatusFilter = (input: (StackStatus | string)[], co
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -5989,10 +6036,10 @@ const serializeAws_queryStopStackSetOperationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
   return entries;
@@ -6000,10 +6047,10 @@ const serializeAws_queryStopStackSetOperationInput = (
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -6013,6 +6060,9 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -6024,76 +6074,76 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
 
 const serializeAws_queryUpdateStackInput = (input: UpdateStackInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.UsePreviousTemplate !== undefined) {
+  if (input.UsePreviousTemplate !== undefined && input.UsePreviousTemplate !== null) {
     entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
   }
-  if (input.StackPolicyDuringUpdateBody !== undefined) {
+  if (input.StackPolicyDuringUpdateBody !== undefined && input.StackPolicyDuringUpdateBody !== null) {
     entries["StackPolicyDuringUpdateBody"] = input.StackPolicyDuringUpdateBody;
   }
-  if (input.StackPolicyDuringUpdateURL !== undefined) {
+  if (input.StackPolicyDuringUpdateURL !== undefined && input.StackPolicyDuringUpdateURL !== null) {
     entries["StackPolicyDuringUpdateURL"] = input.StackPolicyDuringUpdateURL;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Capabilities !== undefined) {
+  if (input.Capabilities !== undefined && input.Capabilities !== null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ResourceTypes !== undefined) {
+  if (input.ResourceTypes !== undefined && input.ResourceTypes !== null) {
     const memberEntries = serializeAws_queryResourceTypes(input.ResourceTypes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceTypes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.RoleARN !== undefined) {
+  if (input.RoleARN !== undefined && input.RoleARN !== null) {
     entries["RoleARN"] = input.RoleARN;
   }
-  if (input.RollbackConfiguration !== undefined) {
+  if (input.RollbackConfiguration !== undefined && input.RollbackConfiguration !== null) {
     const memberEntries = serializeAws_queryRollbackConfiguration(input.RollbackConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RollbackConfiguration.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.StackPolicyBody !== undefined) {
+  if (input.StackPolicyBody !== undefined && input.StackPolicyBody !== null) {
     entries["StackPolicyBody"] = input.StackPolicyBody;
   }
-  if (input.StackPolicyURL !== undefined) {
+  if (input.StackPolicyURL !== undefined && input.StackPolicyURL !== null) {
     entries["StackPolicyURL"] = input.StackPolicyURL;
   }
-  if (input.NotificationARNs !== undefined) {
+  if (input.NotificationARNs !== undefined && input.NotificationARNs !== null) {
     const memberEntries = serializeAws_queryNotificationARNs(input.NotificationARNs, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `NotificationARNs.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ClientRequestToken !== undefined) {
+  if (input.ClientRequestToken !== undefined && input.ClientRequestToken !== null) {
     entries["ClientRequestToken"] = input.ClientRequestToken;
   }
   return entries;
@@ -6104,38 +6154,38 @@ const serializeAws_queryUpdateStackInstancesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.Accounts !== undefined) {
+  if (input.Accounts !== undefined && input.Accounts !== null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.DeploymentTargets !== undefined) {
+  if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
     const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions !== undefined) {
+  if (input.Regions !== undefined && input.Regions !== null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ParameterOverrides !== undefined) {
+  if (input.ParameterOverrides !== undefined && input.ParameterOverrides !== null) {
     const memberEntries = serializeAws_queryParameters(input.ParameterOverrides, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterOverrides.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences !== undefined) {
+  if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
@@ -6145,7 +6195,7 @@ const serializeAws_queryUpdateStackInstancesInput = (
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
   return entries;
@@ -6153,66 +6203,66 @@ const serializeAws_queryUpdateStackInstancesInput = (
 
 const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StackSetName !== undefined) {
+  if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
-  if (input.Description !== undefined) {
+  if (input.Description !== undefined && input.Description !== null) {
     entries["Description"] = input.Description;
   }
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
-  if (input.UsePreviousTemplate !== undefined) {
+  if (input.UsePreviousTemplate !== undefined && input.UsePreviousTemplate !== null) {
     entries["UsePreviousTemplate"] = input.UsePreviousTemplate;
   }
-  if (input.Parameters !== undefined) {
+  if (input.Parameters !== undefined && input.Parameters !== null) {
     const memberEntries = serializeAws_queryParameters(input.Parameters, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Parameters.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Capabilities !== undefined) {
+  if (input.Capabilities !== undefined && input.Capabilities !== null) {
     const memberEntries = serializeAws_queryCapabilities(input.Capabilities, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Capabilities.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTags(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.OperationPreferences !== undefined) {
+  if (input.OperationPreferences !== undefined && input.OperationPreferences !== null) {
     const memberEntries = serializeAws_queryStackSetOperationPreferences(input.OperationPreferences, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `OperationPreferences.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AdministrationRoleARN !== undefined) {
+  if (input.AdministrationRoleARN !== undefined && input.AdministrationRoleARN !== null) {
     entries["AdministrationRoleARN"] = input.AdministrationRoleARN;
   }
-  if (input.ExecutionRoleName !== undefined) {
+  if (input.ExecutionRoleName !== undefined && input.ExecutionRoleName !== null) {
     entries["ExecutionRoleName"] = input.ExecutionRoleName;
   }
-  if (input.DeploymentTargets !== undefined) {
+  if (input.DeploymentTargets !== undefined && input.DeploymentTargets !== null) {
     const memberEntries = serializeAws_queryDeploymentTargets(input.DeploymentTargets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `DeploymentTargets.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.PermissionModel !== undefined) {
+  if (input.PermissionModel !== undefined && input.PermissionModel !== null) {
     entries["PermissionModel"] = input.PermissionModel;
   }
-  if (input.AutoDeployment !== undefined) {
+  if (input.AutoDeployment !== undefined && input.AutoDeployment !== null) {
     const memberEntries = serializeAws_queryAutoDeployment(input.AutoDeployment, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AutoDeployment.${key}`;
@@ -6222,17 +6272,17 @@ const serializeAws_queryUpdateStackSetInput = (input: UpdateStackSetInput, conte
   if (input.OperationId === undefined) {
     input.OperationId = generateIdempotencyToken();
   }
-  if (input.OperationId !== undefined) {
+  if (input.OperationId !== undefined && input.OperationId !== null) {
     entries["OperationId"] = input.OperationId;
   }
-  if (input.Accounts !== undefined) {
+  if (input.Accounts !== undefined && input.Accounts !== null) {
     const memberEntries = serializeAws_queryAccountList(input.Accounts, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Accounts.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Regions !== undefined) {
+  if (input.Regions !== undefined && input.Regions !== null) {
     const memberEntries = serializeAws_queryRegionList(input.Regions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Regions.${key}`;
@@ -6247,10 +6297,10 @@ const serializeAws_queryUpdateTerminationProtectionInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EnableTerminationProtection !== undefined) {
+  if (input.EnableTerminationProtection !== undefined && input.EnableTerminationProtection !== null) {
     entries["EnableTerminationProtection"] = input.EnableTerminationProtection;
   }
-  if (input.StackName !== undefined) {
+  if (input.StackName !== undefined && input.StackName !== null) {
     entries["StackName"] = input.StackName;
   }
   return entries;
@@ -6258,10 +6308,10 @@ const serializeAws_queryUpdateTerminationProtectionInput = (
 
 const serializeAws_queryValidateTemplateInput = (input: ValidateTemplateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TemplateBody !== undefined) {
+  if (input.TemplateBody !== undefined && input.TemplateBody !== null) {
     entries["TemplateBody"] = input.TemplateBody;
   }
-  if (input.TemplateURL !== undefined) {
+  if (input.TemplateURL !== undefined && input.TemplateURL !== null) {
     entries["TemplateURL"] = input.TemplateURL;
   }
   return entries;
@@ -6296,15 +6346,36 @@ const deserializeAws_queryAccountLimit = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryAccountLimitList = (output: any, context: __SerdeContext): AccountLimit[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryAccountLimit(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryAccountLimit(entry, context);
+    });
 };
 
 const deserializeAws_queryAccountList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryAllowedValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryAlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
@@ -6332,7 +6403,14 @@ const deserializeAws_queryAutoDeployment = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryCapabilities = (output: any, context: __SerdeContext): (Capability | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryCFNRegistryException = (output: any, context: __SerdeContext): CFNRegistryException => {
@@ -6360,7 +6438,14 @@ const deserializeAws_queryChange = (output: any, context: __SerdeContext): Chang
 };
 
 const deserializeAws_queryChanges = (output: any, context: __SerdeContext): Change[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryChange(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryChange(entry, context);
+    });
 };
 
 const deserializeAws_queryChangeSetNotFoundException = (
@@ -6377,7 +6462,14 @@ const deserializeAws_queryChangeSetNotFoundException = (
 };
 
 const deserializeAws_queryChangeSetSummaries = (output: any, context: __SerdeContext): ChangeSetSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryChangeSetSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryChangeSetSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSummary => {
@@ -7021,7 +7113,14 @@ const deserializeAws_queryExport = (output: any, context: __SerdeContext): Expor
 };
 
 const deserializeAws_queryExports = (output: any, context: __SerdeContext): Export[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryExport(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryExport(entry, context);
+    });
 };
 
 const deserializeAws_queryGetStackPolicyOutput = (output: any, context: __SerdeContext): GetStackPolicyOutput => {
@@ -7133,7 +7232,14 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
 };
 
 const deserializeAws_queryImports = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryInsufficientCapabilitiesException = (
@@ -7462,7 +7568,14 @@ const deserializeAws_queryLoggingConfig = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryLogicalResourceIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryModuleInfo = (output: any, context: __SerdeContext): ModuleInfo => {
@@ -7493,7 +7606,14 @@ const deserializeAws_queryNameAlreadyExistsException = (
 };
 
 const deserializeAws_queryNotificationARNs = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryOperationIdAlreadyExistsException = (
@@ -7549,7 +7669,14 @@ const deserializeAws_queryOperationStatusCheckFailedException = (
 };
 
 const deserializeAws_queryOrganizationalUnitIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryOutput = (output: any, context: __SerdeContext): Output => {
@@ -7575,7 +7702,14 @@ const deserializeAws_queryOutput = (output: any, context: __SerdeContext): Outpu
 };
 
 const deserializeAws_queryOutputs = (output: any, context: __SerdeContext): Output[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryOutput(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryOutput(entry, context);
+    });
 };
 
 const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
@@ -7647,18 +7781,39 @@ const deserializeAws_queryParameterDeclaration = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryParameterDeclarations = (output: any, context: __SerdeContext): ParameterDeclaration[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryParameterDeclaration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryParameterDeclaration(entry, context);
+    });
 };
 
 const deserializeAws_queryParameters = (output: any, context: __SerdeContext): Parameter[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryParameter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryParameter(entry, context);
+    });
 };
 
 const deserializeAws_queryPhysicalResourceIdContext = (
   output: any,
   context: __SerdeContext
 ): PhysicalResourceIdContextKeyValuePair[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPhysicalResourceIdContextKeyValuePair(entry, context);
+    });
 };
 
 const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
@@ -7701,7 +7856,14 @@ const deserializeAws_queryPropertyDifference = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryPropertyDifferences = (output: any, context: __SerdeContext): PropertyDifference[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPropertyDifference(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPropertyDifference(entry, context);
+    });
 };
 
 const deserializeAws_queryRecordHandlerProgressOutput = (
@@ -7713,7 +7875,14 @@ const deserializeAws_queryRecordHandlerProgressOutput = (
 };
 
 const deserializeAws_queryRegionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryRegisterTypeOutput = (output: any, context: __SerdeContext): RegisterTypeOutput => {
@@ -7727,7 +7896,14 @@ const deserializeAws_queryRegisterTypeOutput = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryRegistrationTokenList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
@@ -7804,18 +7980,39 @@ const deserializeAws_queryResourceChangeDetail = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryResourceChangeDetails = (output: any, context: __SerdeContext): ResourceChangeDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryResourceChangeDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryResourceChangeDetail(entry, context);
+    });
 };
 
 const deserializeAws_queryResourceIdentifiers = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryResourceIdentifierSummaries = (
   output: any,
   context: __SerdeContext
 ): ResourceIdentifierSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryResourceIdentifierSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryResourceIdentifierSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryResourceIdentifierSummary = (
@@ -7873,7 +8070,14 @@ const deserializeAws_queryResourceTargetDefinition = (
 };
 
 const deserializeAws_queryResourceTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryRollbackConfiguration = (output: any, context: __SerdeContext): RollbackConfiguration => {
@@ -7911,11 +8115,25 @@ const deserializeAws_queryRollbackTrigger = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryRollbackTriggers = (output: any, context: __SerdeContext): RollbackTrigger[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryRollbackTrigger(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryRollbackTrigger(entry, context);
+    });
 };
 
 const deserializeAws_queryScope = (output: any, context: __SerdeContext): (ResourceAttribute | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_querySetTypeDefaultVersionOutput = (
@@ -8129,7 +8347,14 @@ const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_queryStackEvents = (output: any, context: __SerdeContext): StackEvent[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackEvent(entry, context);
+    });
 };
 
 const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext): StackInstance => {
@@ -8218,7 +8443,14 @@ const deserializeAws_queryStackInstanceNotFoundException = (
 };
 
 const deserializeAws_queryStackInstanceSummaries = (output: any, context: __SerdeContext): StackInstanceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackInstanceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackInstanceSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeContext): StackInstanceSummary => {
@@ -8474,15 +8706,36 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (
 };
 
 const deserializeAws_queryStackResourceDrifts = (output: any, context: __SerdeContext): StackResourceDrift[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackResourceDrift(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackResourceDrift(entry, context);
+    });
 };
 
 const deserializeAws_queryStackResources = (output: any, context: __SerdeContext): StackResource[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackResource(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackResource(entry, context);
+    });
 };
 
 const deserializeAws_queryStackResourceSummaries = (output: any, context: __SerdeContext): StackResourceSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackResourceSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackResourceSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeContext): StackResourceSummary => {
@@ -8527,7 +8780,14 @@ const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryStacks = (output: any, context: __SerdeContext): Stack[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStack(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStack(entry, context);
+    });
 };
 
 const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): StackSet => {
@@ -8786,7 +9046,14 @@ const deserializeAws_queryStackSetOperationResultSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationResultSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackSetOperationResultSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackSetOperationResultSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryStackSetOperationResultSummary = (
@@ -8826,7 +9093,14 @@ const deserializeAws_queryStackSetOperationSummaries = (
   output: any,
   context: __SerdeContext
 ): StackSetOperationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackSetOperationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackSetOperationSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryStackSetOperationSummary = (
@@ -8859,7 +9133,14 @@ const deserializeAws_queryStackSetOperationSummary = (
 };
 
 const deserializeAws_queryStackSetSummaries = (output: any, context: __SerdeContext): StackSetSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackSetSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackSetSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContext): StackSetSummary => {
@@ -8901,7 +9182,14 @@ const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryStackSummaries = (output: any, context: __SerdeContext): StackSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryStackSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryStackSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext): StackSummary => {
@@ -8955,7 +9243,14 @@ const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryStageList = (output: any, context: __SerdeContext): (TemplateStage | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryStaleRequestException = (output: any, context: __SerdeContext): StaleRequestException => {
@@ -8991,7 +9286,14 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 };
 
 const deserializeAws_queryTags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTag(entry, context);
+    });
 };
 
 const deserializeAws_queryTemplateParameter = (output: any, context: __SerdeContext): TemplateParameter => {
@@ -9017,7 +9319,14 @@ const deserializeAws_queryTemplateParameter = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryTemplateParameters = (output: any, context: __SerdeContext): TemplateParameter[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTemplateParameter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTemplateParameter(entry, context);
+    });
 };
 
 const deserializeAws_queryTokenAlreadyExistsException = (
@@ -9034,7 +9343,14 @@ const deserializeAws_queryTokenAlreadyExistsException = (
 };
 
 const deserializeAws_queryTransformsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryTypeNotFoundException = (output: any, context: __SerdeContext): TypeNotFoundException => {
@@ -9048,7 +9364,14 @@ const deserializeAws_queryTypeNotFoundException = (output: any, context: __Serde
 };
 
 const deserializeAws_queryTypeSummaries = (output: any, context: __SerdeContext): TypeSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTypeSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTypeSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): TypeSummary => {
@@ -9082,7 +9405,14 @@ const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryTypeVersionSummaries = (output: any, context: __SerdeContext): TypeVersionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTypeVersionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTypeVersionSummary(entry, context);
+    });
 };
 
 const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeContext): TypeVersionSummary => {

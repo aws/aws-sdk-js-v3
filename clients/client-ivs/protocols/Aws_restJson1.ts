@@ -70,12 +70,13 @@ export const serializeAws_restJson1BatchGetChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/BatchGetChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arns !== undefined && { arns: serializeAws_restJson1ChannelArnList(input.arns, context) }),
+    ...(input.arns !== undefined &&
+      input.arns !== null && { arns: serializeAws_restJson1ChannelArnList(input.arns, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -94,12 +95,13 @@ export const serializeAws_restJson1BatchGetStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/BatchGetStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.arns !== undefined && { arns: serializeAws_restJson1StreamKeyArnList(input.arns, context) }),
+    ...(input.arns !== undefined &&
+      input.arns !== null && { arns: serializeAws_restJson1StreamKeyArnList(input.arns, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -118,16 +120,16 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/CreateChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.authorized !== undefined && { authorized: input.authorized }),
-    ...(input.latencyMode !== undefined && { latencyMode: input.latencyMode }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.authorized !== undefined && input.authorized !== null && { authorized: input.authorized }),
+    ...(input.latencyMode !== undefined && input.latencyMode !== null && { latencyMode: input.latencyMode }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -146,13 +148,13 @@ export const serializeAws_restJson1CreateStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/CreateStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn !== undefined && { channelArn: input.channelArn }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -171,12 +173,12 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/DeleteChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -195,12 +197,12 @@ export const serializeAws_restJson1DeletePlaybackKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/DeletePlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -219,12 +221,12 @@ export const serializeAws_restJson1DeleteStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/DeleteStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -243,12 +245,12 @@ export const serializeAws_restJson1GetChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/GetChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -267,12 +269,12 @@ export const serializeAws_restJson1GetPlaybackKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/GetPlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -291,12 +293,12 @@ export const serializeAws_restJson1GetStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/GetStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn !== undefined && { channelArn: input.channelArn }),
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -315,12 +317,12 @@ export const serializeAws_restJson1GetStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/GetStreamKey";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -339,14 +341,15 @@ export const serializeAws_restJson1ImportPlaybackKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ImportPlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.publicKeyMaterial !== undefined && { publicKeyMaterial: input.publicKeyMaterial }),
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.publicKeyMaterial !== undefined &&
+      input.publicKeyMaterial !== null && { publicKeyMaterial: input.publicKeyMaterial }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -365,14 +368,14 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ListChannels";
   let body: any;
   body = JSON.stringify({
-    ...(input.filterByName !== undefined && { filterByName: input.filterByName }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filterByName !== undefined && input.filterByName !== null && { filterByName: input.filterByName }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -391,13 +394,13 @@ export const serializeAws_restJson1ListPlaybackKeyPairsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ListPlaybackKeyPairs";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -416,14 +419,14 @@ export const serializeAws_restJson1ListStreamKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ListStreamKeys";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn !== undefined && { channelArn: input.channelArn }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -442,13 +445,13 @@ export const serializeAws_restJson1ListStreamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/ListStreams";
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -467,7 +470,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -481,8 +484,8 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -501,13 +504,13 @@ export const serializeAws_restJson1PutMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/PutMetadata";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn !== undefined && { channelArn: input.channelArn }),
-    ...(input.metadata !== undefined && { metadata: input.metadata }),
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
+    ...(input.metadata !== undefined && input.metadata !== null && { metadata: input.metadata }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -526,12 +529,12 @@ export const serializeAws_restJson1StopStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/StopStream";
   let body: any;
   body = JSON.stringify({
-    ...(input.channelArn !== undefined && { channelArn: input.channelArn }),
+    ...(input.channelArn !== undefined && input.channelArn !== null && { channelArn: input.channelArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -550,7 +553,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -564,7 +567,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -582,9 +585,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: string = input.resourceArn;
@@ -617,16 +618,16 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/UpdateChannel";
   let body: any;
   body = JSON.stringify({
-    ...(input.arn !== undefined && { arn: input.arn }),
-    ...(input.authorized !== undefined && { authorized: input.authorized }),
-    ...(input.latencyMode !== undefined && { latencyMode: input.latencyMode }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.type !== undefined && { type: input.type }),
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.authorized !== undefined && input.authorized !== null && { authorized: input.authorized }),
+    ...(input.latencyMode !== undefined && input.latencyMode !== null && { latencyMode: input.latencyMode }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2425,21 +2426,37 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 };
 
 const serializeAws_restJson1ChannelArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1StreamKeyArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1BatchError = (output: any, context: __SerdeContext): BatchError => {
@@ -2451,7 +2468,14 @@ const deserializeAws_restJson1BatchError = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1BatchErrors = (output: any, context: __SerdeContext): BatchError[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BatchError(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BatchError(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
@@ -2472,11 +2496,25 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1ChannelList = (output: any, context: __SerdeContext): ChannelSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ChannelSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext): Channel[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Channel(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Channel(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
@@ -2508,7 +2546,14 @@ const deserializeAws_restJson1PlaybackKeyPairList = (
   output: any,
   context: __SerdeContext
 ): PlaybackKeyPairSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PlaybackKeyPairSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PlaybackKeyPairSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PlaybackKeyPairSummary = (
@@ -2552,11 +2597,25 @@ const deserializeAws_restJson1StreamKey = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1StreamKeyList = (output: any, context: __SerdeContext): StreamKeySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1StreamKeySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamKeySummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StreamKeys = (output: any, context: __SerdeContext): StreamKey[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1StreamKey(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamKey(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StreamKeySummary = (output: any, context: __SerdeContext): StreamKeySummary => {
@@ -2571,7 +2630,14 @@ const deserializeAws_restJson1StreamKeySummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext): StreamSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1StreamSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
@@ -2588,13 +2654,15 @@ const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2617,6 +2685,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

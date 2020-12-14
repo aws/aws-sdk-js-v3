@@ -75,9 +75,7 @@ export const serializeAws_restJson1BulkPublishCommand = async (
   input: BulkPublishCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/bulkpublish";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -105,9 +103,7 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.DatasetName !== undefined) {
     const labelValue: string = input.DatasetName;
@@ -153,9 +149,7 @@ export const serializeAws_restJson1DescribeDatasetCommand = async (
   input: DescribeDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
@@ -201,9 +195,7 @@ export const serializeAws_restJson1DescribeIdentityPoolUsageCommand = async (
   input: DescribeIdentityPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -231,9 +223,7 @@ export const serializeAws_restJson1DescribeIdentityUsageCommand = async (
   input: DescribeIdentityUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}";
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
@@ -270,9 +260,7 @@ export const serializeAws_restJson1GetBulkPublishDetailsCommand = async (
   input: GetBulkPublishDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/getBulkPublishDetails";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -300,9 +288,7 @@ export const serializeAws_restJson1GetCognitoEventsCommand = async (
   input: GetCognitoEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -330,9 +316,7 @@ export const serializeAws_restJson1GetIdentityPoolConfigurationCommand = async (
   input: GetIdentityPoolConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -360,9 +344,7 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets";
   if (input.IdentityPoolId !== undefined) {
     const labelValue: string = input.IdentityPoolId;
@@ -404,9 +386,7 @@ export const serializeAws_restJson1ListIdentityPoolUsageCommand = async (
   input: ListIdentityPoolUsageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -430,9 +410,7 @@ export const serializeAws_restJson1ListRecordsCommand = async (
   input: ListRecordsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/records";
   if (input.IdentityId !== undefined) {
     const labelValue: string = input.IdentityId;
@@ -486,7 +464,7 @@ export const serializeAws_restJson1RegisterDeviceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/identity/{IdentityId}/device";
   if (input.IdentityPoolId !== undefined) {
@@ -509,8 +487,8 @@ export const serializeAws_restJson1RegisterDeviceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Platform !== undefined && { Platform: input.Platform }),
-    ...(input.Token !== undefined && { Token: input.Token }),
+    ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
+    ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -529,7 +507,7 @@ export const serializeAws_restJson1SetCognitoEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/events";
   if (input.IdentityPoolId !== undefined) {
@@ -543,7 +521,8 @@ export const serializeAws_restJson1SetCognitoEventsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Events !== undefined && { Events: serializeAws_restJson1Events(input.Events, context) }),
+    ...(input.Events !== undefined &&
+      input.Events !== null && { Events: serializeAws_restJson1Events(input.Events, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -562,7 +541,7 @@ export const serializeAws_restJson1SetIdentityPoolConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/configuration";
   if (input.IdentityPoolId !== undefined) {
@@ -576,10 +555,12 @@ export const serializeAws_restJson1SetIdentityPoolConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CognitoStreams !== undefined && {
-      CognitoStreams: serializeAws_restJson1CognitoStreams(input.CognitoStreams, context),
-    }),
-    ...(input.PushSync !== undefined && { PushSync: serializeAws_restJson1PushSync(input.PushSync, context) }),
+    ...(input.CognitoStreams !== undefined &&
+      input.CognitoStreams !== null && {
+        CognitoStreams: serializeAws_restJson1CognitoStreams(input.CognitoStreams, context),
+      }),
+    ...(input.PushSync !== undefined &&
+      input.PushSync !== null && { PushSync: serializeAws_restJson1PushSync(input.PushSync, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -597,9 +578,7 @@ export const serializeAws_restJson1SubscribeToDatasetCommand = async (
   input: SubscribeToDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.DatasetName !== undefined) {
@@ -655,9 +634,7 @@ export const serializeAws_restJson1UnsubscribeFromDatasetCommand = async (
   input: UnsubscribeFromDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath =
     "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}/subscriptions/{DeviceId}";
   if (input.IdentityId !== undefined) {
@@ -714,7 +691,7 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-Client-Context": input.ClientContext! }),
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
@@ -747,11 +724,13 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
-    ...(input.RecordPatches !== undefined && {
-      RecordPatches: serializeAws_restJson1RecordPatchList(input.RecordPatches, context),
-    }),
-    ...(input.SyncSessionToken !== undefined && { SyncSessionToken: input.SyncSessionToken }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.RecordPatches !== undefined &&
+      input.RecordPatches !== null && {
+        RecordPatches: serializeAws_restJson1RecordPatchList(input.RecordPatches, context),
+      }),
+    ...(input.SyncSessionToken !== undefined &&
+      input.SyncSessionToken !== null && { SyncSessionToken: input.SyncSessionToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2611,55 +2590,82 @@ const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
 };
 
 const serializeAws_restJson1ApplicationArnList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1CognitoStreams = (input: CognitoStreams, context: __SerdeContext): any => {
   return {
-    ...(input.DisabledReason !== undefined && { DisabledReason: input.DisabledReason }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
-    ...(input.StreamingStatus !== undefined && { StreamingStatus: input.StreamingStatus }),
+    ...(input.DisabledReason !== undefined &&
+      input.DisabledReason !== null && { DisabledReason: input.DisabledReason }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.StreamName !== undefined && input.StreamName !== null && { StreamName: input.StreamName }),
+    ...(input.StreamingStatus !== undefined &&
+      input.StreamingStatus !== null && { StreamingStatus: input.StreamingStatus }),
   };
 };
 
 const serializeAws_restJson1Events = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1PushSync = (input: PushSync, context: __SerdeContext): any => {
   return {
-    ...(input.ApplicationArns !== undefined && {
-      ApplicationArns: serializeAws_restJson1ApplicationArnList(input.ApplicationArns, context),
-    }),
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.ApplicationArns !== undefined &&
+      input.ApplicationArns !== null && {
+        ApplicationArns: serializeAws_restJson1ApplicationArnList(input.ApplicationArns, context),
+      }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
   };
 };
 
 const serializeAws_restJson1RecordPatch = (input: RecordPatch, context: __SerdeContext): any => {
   return {
-    ...(input.DeviceLastModifiedDate !== undefined && {
-      DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000),
-    }),
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Op !== undefined && { Op: input.Op }),
-    ...(input.SyncCount !== undefined && { SyncCount: input.SyncCount }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.DeviceLastModifiedDate !== undefined &&
+      input.DeviceLastModifiedDate !== null && {
+        DeviceLastModifiedDate: Math.round(input.DeviceLastModifiedDate.getTime() / 1000),
+      }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Op !== undefined && input.Op !== null && { Op: input.Op }),
+    ...(input.SyncCount !== undefined && input.SyncCount !== null && { SyncCount: input.SyncCount }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1RecordPatchList = (input: RecordPatch[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1RecordPatch(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RecordPatch(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ApplicationArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1CognitoStreams = (output: any, context: __SerdeContext): CognitoStreams => {
@@ -2693,17 +2699,26 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1DatasetList = (output: any, context: __SerdeContext): Dataset[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Dataset(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Dataset(entry, context);
+    });
 };
 
 const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __SerdeContext): IdentityPoolUsage => {
@@ -2723,7 +2738,14 @@ const deserializeAws_restJson1IdentityPoolUsage = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1IdentityPoolUsageList = (output: any, context: __SerdeContext): IdentityPoolUsage[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1IdentityPoolUsage(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1IdentityPoolUsage(entry, context);
+    });
 };
 
 const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeContext): IdentityUsage => {
@@ -2741,7 +2763,14 @@ const deserializeAws_restJson1IdentityUsage = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1MergedDatasetNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1PushSync = (output: any, context: __SerdeContext): PushSync => {
@@ -2773,7 +2802,14 @@ const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1_Record(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1_Record(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -2796,6 +2832,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

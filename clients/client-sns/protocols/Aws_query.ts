@@ -187,7 +187,7 @@ export const serializeAws_queryAddPermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -203,7 +203,7 @@ export const serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -219,7 +219,7 @@ export const serializeAws_queryConfirmSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -235,7 +235,7 @@ export const serializeAws_queryCreatePlatformApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -251,7 +251,7 @@ export const serializeAws_queryCreatePlatformEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -267,7 +267,7 @@ export const serializeAws_queryCreateTopicCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -283,7 +283,7 @@ export const serializeAws_queryDeleteEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -299,7 +299,7 @@ export const serializeAws_queryDeletePlatformApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -315,7 +315,7 @@ export const serializeAws_queryDeleteTopicCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -331,7 +331,7 @@ export const serializeAws_queryGetEndpointAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -347,7 +347,7 @@ export const serializeAws_queryGetPlatformApplicationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -363,7 +363,7 @@ export const serializeAws_queryGetSMSAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -379,7 +379,7 @@ export const serializeAws_queryGetSubscriptionAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -395,7 +395,7 @@ export const serializeAws_queryGetTopicAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -411,7 +411,7 @@ export const serializeAws_queryListEndpointsByPlatformApplicationCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -427,7 +427,7 @@ export const serializeAws_queryListPhoneNumbersOptedOutCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -443,7 +443,7 @@ export const serializeAws_queryListPlatformApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -459,7 +459,7 @@ export const serializeAws_queryListSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -475,7 +475,7 @@ export const serializeAws_queryListSubscriptionsByTopicCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -491,7 +491,7 @@ export const serializeAws_queryListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -507,7 +507,7 @@ export const serializeAws_queryListTopicsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -523,7 +523,7 @@ export const serializeAws_queryOptInPhoneNumberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -539,7 +539,7 @@ export const serializeAws_queryPublishCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -555,7 +555,7 @@ export const serializeAws_queryRemovePermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -571,7 +571,7 @@ export const serializeAws_querySetEndpointAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -587,7 +587,7 @@ export const serializeAws_querySetPlatformApplicationAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -603,7 +603,7 @@ export const serializeAws_querySetSMSAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -619,7 +619,7 @@ export const serializeAws_querySetSubscriptionAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -635,7 +635,7 @@ export const serializeAws_querySetTopicAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -651,7 +651,7 @@ export const serializeAws_querySubscribeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -667,7 +667,7 @@ export const serializeAws_queryTagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -683,7 +683,7 @@ export const serializeAws_queryUnsubscribeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -699,7 +699,7 @@ export const serializeAws_queryUntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "content-type": "application/x-www-form-urlencoded",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -3833,6 +3833,9 @@ const serializeAws_queryActionsList = (input: string[], context: __SerdeContext)
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3841,20 +3844,20 @@ const serializeAws_queryActionsList = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.Label !== undefined) {
+  if (input.Label !== undefined && input.Label !== null) {
     entries["Label"] = input.Label;
   }
-  if (input.AWSAccountId !== undefined) {
+  if (input.AWSAccountId !== undefined && input.AWSAccountId !== null) {
     const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AWSAccountId.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ActionName !== undefined) {
+  if (input.ActionName !== undefined && input.ActionName !== null) {
     const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ActionName.${key}`;
@@ -3869,7 +3872,7 @@ const serializeAws_queryCheckIfPhoneNumberIsOptedOutInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.phoneNumber !== undefined) {
+  if (input.phoneNumber !== undefined && input.phoneNumber !== null) {
     entries["phoneNumber"] = input.phoneNumber;
   }
   return entries;
@@ -3877,13 +3880,13 @@ const serializeAws_queryCheckIfPhoneNumberIsOptedOutInput = (
 
 const serializeAws_queryConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.Token !== undefined) {
+  if (input.Token !== undefined && input.Token !== null) {
     entries["Token"] = input.Token;
   }
-  if (input.AuthenticateOnUnsubscribe !== undefined) {
+  if (input.AuthenticateOnUnsubscribe !== undefined && input.AuthenticateOnUnsubscribe !== null) {
     entries["AuthenticateOnUnsubscribe"] = input.AuthenticateOnUnsubscribe;
   }
   return entries;
@@ -3894,13 +3897,13 @@ const serializeAws_queryCreatePlatformApplicationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Platform !== undefined) {
+  if (input.Platform !== undefined && input.Platform !== null) {
     entries["Platform"] = input.Platform;
   }
-  if (input.Attributes !== undefined) {
+  if (input.Attributes !== undefined && input.Attributes !== null) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
@@ -3915,16 +3918,16 @@ const serializeAws_queryCreatePlatformEndpointInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn !== undefined) {
+  if (input.PlatformApplicationArn !== undefined && input.PlatformApplicationArn !== null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
-  if (input.Token !== undefined) {
+  if (input.Token !== undefined && input.Token !== null) {
     entries["Token"] = input.Token;
   }
-  if (input.CustomUserData !== undefined) {
+  if (input.CustomUserData !== undefined && input.CustomUserData !== null) {
     entries["CustomUserData"] = input.CustomUserData;
   }
-  if (input.Attributes !== undefined) {
+  if (input.Attributes !== undefined && input.Attributes !== null) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
@@ -3936,17 +3939,17 @@ const serializeAws_queryCreatePlatformEndpointInput = (
 
 const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     entries["Name"] = input.Name;
   }
-  if (input.Attributes !== undefined) {
+  if (input.Attributes !== undefined && input.Attributes !== null) {
     const memberEntries = serializeAws_queryTopicAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -3960,6 +3963,9 @@ const serializeAws_queryDelegatesList = (input: string[], context: __SerdeContex
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -3968,7 +3974,7 @@ const serializeAws_queryDelegatesList = (input: string[], context: __SerdeContex
 
 const serializeAws_queryDeleteEndpointInput = (input: DeleteEndpointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EndpointArn !== undefined) {
+  if (input.EndpointArn !== undefined && input.EndpointArn !== null) {
     entries["EndpointArn"] = input.EndpointArn;
   }
   return entries;
@@ -3979,7 +3985,7 @@ const serializeAws_queryDeletePlatformApplicationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn !== undefined) {
+  if (input.PlatformApplicationArn !== undefined && input.PlatformApplicationArn !== null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
   return entries;
@@ -3987,7 +3993,7 @@ const serializeAws_queryDeletePlatformApplicationInput = (
 
 const serializeAws_queryDeleteTopicInput = (input: DeleteTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
   return entries;
@@ -3998,7 +4004,7 @@ const serializeAws_queryGetEndpointAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EndpointArn !== undefined) {
+  if (input.EndpointArn !== undefined && input.EndpointArn !== null) {
     entries["EndpointArn"] = input.EndpointArn;
   }
   return entries;
@@ -4009,7 +4015,7 @@ const serializeAws_queryGetPlatformApplicationAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn !== undefined) {
+  if (input.PlatformApplicationArn !== undefined && input.PlatformApplicationArn !== null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
   return entries;
@@ -4017,7 +4023,7 @@ const serializeAws_queryGetPlatformApplicationAttributesInput = (
 
 const serializeAws_queryGetSMSAttributesInput = (input: GetSMSAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.attributes !== undefined) {
+  if (input.attributes !== undefined && input.attributes !== null) {
     const memberEntries = serializeAws_queryListString(input.attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
@@ -4032,7 +4038,7 @@ const serializeAws_queryGetSubscriptionAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionArn !== undefined) {
+  if (input.SubscriptionArn !== undefined && input.SubscriptionArn !== null) {
     entries["SubscriptionArn"] = input.SubscriptionArn;
   }
   return entries;
@@ -4040,7 +4046,7 @@ const serializeAws_queryGetSubscriptionAttributesInput = (
 
 const serializeAws_queryGetTopicAttributesInput = (input: GetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
   return entries;
@@ -4051,10 +4057,10 @@ const serializeAws_queryListEndpointsByPlatformApplicationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn !== undefined) {
+  if (input.PlatformApplicationArn !== undefined && input.PlatformApplicationArn !== null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -4065,7 +4071,7 @@ const serializeAws_queryListPhoneNumbersOptedOutInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.nextToken !== undefined) {
+  if (input.nextToken !== undefined && input.nextToken !== null) {
     entries["nextToken"] = input.nextToken;
   }
   return entries;
@@ -4076,7 +4082,7 @@ const serializeAws_queryListPlatformApplicationsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -4086,6 +4092,9 @@ const serializeAws_queryListString = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -4097,10 +4106,10 @@ const serializeAws_queryListSubscriptionsByTopicInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -4108,7 +4117,7 @@ const serializeAws_queryListSubscriptionsByTopicInput = (
 
 const serializeAws_queryListSubscriptionsInput = (input: ListSubscriptionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -4119,7 +4128,7 @@ const serializeAws_queryListTagsForResourceRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ResourceArn !== undefined) {
+  if (input.ResourceArn !== undefined && input.ResourceArn !== null) {
     entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
@@ -4127,7 +4136,7 @@ const serializeAws_queryListTagsForResourceRequest = (
 
 const serializeAws_queryListTopicsInput = (input: ListTopicsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
+  if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
   }
   return entries;
@@ -4136,11 +4145,13 @@ const serializeAws_queryListTopicsInput = (input: ListTopicsInput, context: __Se
 const serializeAws_queryMapStringToString = (input: { [key: string]: string }, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    entries[`entry.${counter}.value`] = input[key];
-    counter++;
-  });
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key];
+      counter++;
+    });
   return entries;
 };
 
@@ -4150,26 +4161,28 @@ const serializeAws_queryMessageAttributeMap = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.Name`] = key;
-    const memberEntries = serializeAws_queryMessageAttributeValue(input[key], context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      entries[`entry.${counter}.Value.${key}`] = value;
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.Name`] = key;
+      const memberEntries = serializeAws_queryMessageAttributeValue(input[key], context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        entries[`entry.${counter}.Value.${key}`] = value;
+      });
+      counter++;
     });
-    counter++;
-  });
   return entries;
 };
 
 const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DataType !== undefined) {
+  if (input.DataType !== undefined && input.DataType !== null) {
     entries["DataType"] = input.DataType;
   }
-  if (input.StringValue !== undefined) {
+  if (input.StringValue !== undefined && input.StringValue !== null) {
     entries["StringValue"] = input.StringValue;
   }
-  if (input.BinaryValue !== undefined) {
+  if (input.BinaryValue !== undefined && input.BinaryValue !== null) {
     entries["BinaryValue"] = context.base64Encoder(input.BinaryValue);
   }
   return entries;
@@ -4177,7 +4190,7 @@ const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, c
 
 const serializeAws_queryOptInPhoneNumberInput = (input: OptInPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.phoneNumber !== undefined) {
+  if (input.phoneNumber !== undefined && input.phoneNumber !== null) {
     entries["phoneNumber"] = input.phoneNumber;
   }
   return entries;
@@ -4185,35 +4198,35 @@ const serializeAws_queryOptInPhoneNumberInput = (input: OptInPhoneNumberInput, c
 
 const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.TargetArn !== undefined) {
+  if (input.TargetArn !== undefined && input.TargetArn !== null) {
     entries["TargetArn"] = input.TargetArn;
   }
-  if (input.PhoneNumber !== undefined) {
+  if (input.PhoneNumber !== undefined && input.PhoneNumber !== null) {
     entries["PhoneNumber"] = input.PhoneNumber;
   }
-  if (input.Message !== undefined) {
+  if (input.Message !== undefined && input.Message !== null) {
     entries["Message"] = input.Message;
   }
-  if (input.Subject !== undefined) {
+  if (input.Subject !== undefined && input.Subject !== null) {
     entries["Subject"] = input.Subject;
   }
-  if (input.MessageStructure !== undefined) {
+  if (input.MessageStructure !== undefined && input.MessageStructure !== null) {
     entries["MessageStructure"] = input.MessageStructure;
   }
-  if (input.MessageAttributes !== undefined) {
+  if (input.MessageAttributes !== undefined && input.MessageAttributes !== null) {
     const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MessageDeduplicationId !== undefined) {
+  if (input.MessageDeduplicationId !== undefined && input.MessageDeduplicationId !== null) {
     entries["MessageDeduplicationId"] = input.MessageDeduplicationId;
   }
-  if (input.MessageGroupId !== undefined) {
+  if (input.MessageGroupId !== undefined && input.MessageGroupId !== null) {
     entries["MessageGroupId"] = input.MessageGroupId;
   }
   return entries;
@@ -4221,10 +4234,10 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
 
 const serializeAws_queryRemovePermissionInput = (input: RemovePermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.Label !== undefined) {
+  if (input.Label !== undefined && input.Label !== null) {
     entries["Label"] = input.Label;
   }
   return entries;
@@ -4235,10 +4248,10 @@ const serializeAws_querySetEndpointAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EndpointArn !== undefined) {
+  if (input.EndpointArn !== undefined && input.EndpointArn !== null) {
     entries["EndpointArn"] = input.EndpointArn;
   }
-  if (input.Attributes !== undefined) {
+  if (input.Attributes !== undefined && input.Attributes !== null) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
@@ -4253,10 +4266,10 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn !== undefined) {
+  if (input.PlatformApplicationArn !== undefined && input.PlatformApplicationArn !== null) {
     entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
   }
-  if (input.Attributes !== undefined) {
+  if (input.Attributes !== undefined && input.Attributes !== null) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
@@ -4268,7 +4281,7 @@ const serializeAws_querySetPlatformApplicationAttributesInput = (
 
 const serializeAws_querySetSMSAttributesInput = (input: SetSMSAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.attributes !== undefined) {
+  if (input.attributes !== undefined && input.attributes !== null) {
     const memberEntries = serializeAws_queryMapStringToString(input.attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
@@ -4283,13 +4296,13 @@ const serializeAws_querySetSubscriptionAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SubscriptionArn !== undefined) {
+  if (input.SubscriptionArn !== undefined && input.SubscriptionArn !== null) {
     entries["SubscriptionArn"] = input.SubscriptionArn;
   }
-  if (input.AttributeName !== undefined) {
+  if (input.AttributeName !== undefined && input.AttributeName !== null) {
     entries["AttributeName"] = input.AttributeName;
   }
-  if (input.AttributeValue !== undefined) {
+  if (input.AttributeValue !== undefined && input.AttributeValue !== null) {
     entries["AttributeValue"] = input.AttributeValue;
   }
   return entries;
@@ -4297,13 +4310,13 @@ const serializeAws_querySetSubscriptionAttributesInput = (
 
 const serializeAws_querySetTopicAttributesInput = (input: SetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.AttributeName !== undefined) {
+  if (input.AttributeName !== undefined && input.AttributeName !== null) {
     entries["AttributeName"] = input.AttributeName;
   }
-  if (input.AttributeValue !== undefined) {
+  if (input.AttributeValue !== undefined && input.AttributeValue !== null) {
     entries["AttributeValue"] = input.AttributeValue;
   }
   return entries;
@@ -4311,23 +4324,23 @@ const serializeAws_querySetTopicAttributesInput = (input: SetTopicAttributesInpu
 
 const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn !== undefined) {
+  if (input.TopicArn !== undefined && input.TopicArn !== null) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.Protocol !== undefined) {
+  if (input.Protocol !== undefined && input.Protocol !== null) {
     entries["Protocol"] = input.Protocol;
   }
-  if (input.Endpoint !== undefined) {
+  if (input.Endpoint !== undefined && input.Endpoint !== null) {
     entries["Endpoint"] = input.Endpoint;
   }
-  if (input.Attributes !== undefined) {
+  if (input.Attributes !== undefined && input.Attributes !== null) {
     const memberEntries = serializeAws_querySubscriptionAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReturnSubscriptionArn !== undefined) {
+  if (input.ReturnSubscriptionArn !== undefined && input.ReturnSubscriptionArn !== null) {
     entries["ReturnSubscriptionArn"] = input.ReturnSubscriptionArn;
   }
   return entries;
@@ -4339,20 +4352,22 @@ const serializeAws_querySubscriptionAttributesMap = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    entries[`entry.${counter}.value`] = input[key];
-    counter++;
-  });
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key];
+      counter++;
+    });
   return entries;
 };
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     entries["Key"] = input.Key;
   }
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     entries["Value"] = input.Value;
   }
   return entries;
@@ -4362,6 +4377,9 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     entries[`member.${counter}`] = entry;
     counter++;
   }
@@ -4372,6 +4390,9 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
+    if (entry === null) {
+      continue;
+    }
     const memberEntries = serializeAws_queryTag(entry, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       entries[`member.${counter}.${key}`] = value;
@@ -4383,10 +4404,10 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 
 const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn !== undefined) {
+  if (input.ResourceArn !== undefined && input.ResourceArn !== null) {
     entries["ResourceArn"] = input.ResourceArn;
   }
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
@@ -4399,17 +4420,19 @@ const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context
 const serializeAws_queryTopicAttributesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  Object.keys(input).forEach((key) => {
-    entries[`entry.${counter}.key`] = key;
-    entries[`entry.${counter}.value`] = input[key];
-    counter++;
-  });
+  Object.keys(input)
+    .filter((key) => input[key] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key];
+      counter++;
+    });
   return entries;
 };
 
 const serializeAws_queryUnsubscribeInput = (input: UnsubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionArn !== undefined) {
+  if (input.SubscriptionArn !== undefined && input.SubscriptionArn !== null) {
     entries["SubscriptionArn"] = input.SubscriptionArn;
   }
   return entries;
@@ -4417,10 +4440,10 @@ const serializeAws_queryUnsubscribeInput = (input: UnsubscribeInput, context: __
 
 const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn !== undefined) {
+  if (input.ResourceArn !== undefined && input.ResourceArn !== null) {
     entries["ResourceArn"] = input.ResourceArn;
   }
-  if (input.TagKeys !== undefined) {
+  if (input.TagKeys !== undefined && input.TagKeys !== null) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
@@ -4795,14 +4818,28 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
 };
 
 const deserializeAws_queryListOfEndpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryEndpoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryEndpoint(entry, context);
+    });
 };
 
 const deserializeAws_queryListOfPlatformApplications = (
   output: any,
   context: __SerdeContext
 ): PlatformApplication[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryPlatformApplication(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPlatformApplication(entry, context);
+    });
 };
 
 const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
@@ -4931,13 +4968,15 @@ const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryMapStringToString = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryNotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
@@ -4959,7 +4998,14 @@ const deserializeAws_queryOptInPhoneNumberResponse = (
 };
 
 const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
@@ -5080,13 +5126,15 @@ const deserializeAws_querySubscriptionAttributesMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_querySubscriptionLimitExceededException = (
@@ -5103,7 +5151,14 @@ const deserializeAws_querySubscriptionLimitExceededException = (
 };
 
 const deserializeAws_querySubscriptionsList = (output: any, context: __SerdeContext): Subscription[] => {
-  return (output || []).map((entry: any) => deserializeAws_querySubscription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_querySubscription(entry, context);
+    });
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -5134,7 +5189,14 @@ const deserializeAws_queryTagLimitExceededException = (
 };
 
 const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTag(entry, context);
+    });
 };
 
 const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
@@ -5173,13 +5235,15 @@ const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic 
 };
 
 const deserializeAws_queryTopicAttributesMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return output.reduce(
-    (acc: any, pair: any) => ({
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [pair["key"]]: pair["value"],
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_queryTopicLimitExceededException = (
@@ -5196,7 +5260,14 @@ const deserializeAws_queryTopicLimitExceededException = (
 };
 
 const deserializeAws_queryTopicsList = (output: any, context: __SerdeContext): Topic[] => {
-  return (output || []).map((entry: any) => deserializeAws_queryTopic(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryTopic(entry, context);
+    });
 };
 
 const deserializeAws_queryUntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {

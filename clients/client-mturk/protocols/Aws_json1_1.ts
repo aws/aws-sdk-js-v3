@@ -218,7 +218,7 @@ export const serializeAws_json1_1AcceptQualificationRequestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.AcceptQualificationRequest",
   };
   let body: any;
@@ -231,7 +231,7 @@ export const serializeAws_json1_1ApproveAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ApproveAssignment",
   };
   let body: any;
@@ -244,7 +244,7 @@ export const serializeAws_json1_1AssociateQualificationWithWorkerCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.AssociateQualificationWithWorker",
   };
   let body: any;
@@ -257,7 +257,7 @@ export const serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT",
   };
   let body: any;
@@ -270,7 +270,7 @@ export const serializeAws_json1_1CreateHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.CreateHIT",
   };
   let body: any;
@@ -283,7 +283,7 @@ export const serializeAws_json1_1CreateHITTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.CreateHITType",
   };
   let body: any;
@@ -296,7 +296,7 @@ export const serializeAws_json1_1CreateHITWithHITTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.CreateHITWithHITType",
   };
   let body: any;
@@ -309,7 +309,7 @@ export const serializeAws_json1_1CreateQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.CreateQualificationType",
   };
   let body: any;
@@ -322,7 +322,7 @@ export const serializeAws_json1_1CreateWorkerBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.CreateWorkerBlock",
   };
   let body: any;
@@ -335,7 +335,7 @@ export const serializeAws_json1_1DeleteHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.DeleteHIT",
   };
   let body: any;
@@ -348,7 +348,7 @@ export const serializeAws_json1_1DeleteQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.DeleteQualificationType",
   };
   let body: any;
@@ -361,7 +361,7 @@ export const serializeAws_json1_1DeleteWorkerBlockCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.DeleteWorkerBlock",
   };
   let body: any;
@@ -374,7 +374,7 @@ export const serializeAws_json1_1DisassociateQualificationFromWorkerCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.DisassociateQualificationFromWorker",
   };
   let body: any;
@@ -387,7 +387,7 @@ export const serializeAws_json1_1GetAccountBalanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.GetAccountBalance",
   };
   let body: any;
@@ -400,7 +400,7 @@ export const serializeAws_json1_1GetAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.GetAssignment",
   };
   let body: any;
@@ -413,7 +413,7 @@ export const serializeAws_json1_1GetFileUploadURLCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.GetFileUploadURL",
   };
   let body: any;
@@ -426,7 +426,7 @@ export const serializeAws_json1_1GetHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.GetHIT",
   };
   let body: any;
@@ -439,7 +439,7 @@ export const serializeAws_json1_1GetQualificationScoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.GetQualificationScore",
   };
   let body: any;
@@ -452,7 +452,7 @@ export const serializeAws_json1_1GetQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.GetQualificationType",
   };
   let body: any;
@@ -465,7 +465,7 @@ export const serializeAws_json1_1ListAssignmentsForHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListAssignmentsForHIT",
   };
   let body: any;
@@ -478,7 +478,7 @@ export const serializeAws_json1_1ListBonusPaymentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListBonusPayments",
   };
   let body: any;
@@ -491,7 +491,7 @@ export const serializeAws_json1_1ListHITsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListHITs",
   };
   let body: any;
@@ -504,7 +504,7 @@ export const serializeAws_json1_1ListHITsForQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListHITsForQualificationType",
   };
   let body: any;
@@ -517,7 +517,7 @@ export const serializeAws_json1_1ListQualificationRequestsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListQualificationRequests",
   };
   let body: any;
@@ -530,7 +530,7 @@ export const serializeAws_json1_1ListQualificationTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListQualificationTypes",
   };
   let body: any;
@@ -543,7 +543,7 @@ export const serializeAws_json1_1ListReviewableHITsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListReviewableHITs",
   };
   let body: any;
@@ -556,7 +556,7 @@ export const serializeAws_json1_1ListReviewPolicyResultsForHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListReviewPolicyResultsForHIT",
   };
   let body: any;
@@ -569,7 +569,7 @@ export const serializeAws_json1_1ListWorkerBlocksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListWorkerBlocks",
   };
   let body: any;
@@ -582,7 +582,7 @@ export const serializeAws_json1_1ListWorkersWithQualificationTypeCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType",
   };
   let body: any;
@@ -595,7 +595,7 @@ export const serializeAws_json1_1NotifyWorkersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.NotifyWorkers",
   };
   let body: any;
@@ -608,7 +608,7 @@ export const serializeAws_json1_1RejectAssignmentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.RejectAssignment",
   };
   let body: any;
@@ -621,7 +621,7 @@ export const serializeAws_json1_1RejectQualificationRequestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.RejectQualificationRequest",
   };
   let body: any;
@@ -634,7 +634,7 @@ export const serializeAws_json1_1SendBonusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.SendBonus",
   };
   let body: any;
@@ -647,7 +647,7 @@ export const serializeAws_json1_1SendTestEventNotificationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.SendTestEventNotification",
   };
   let body: any;
@@ -660,7 +660,7 @@ export const serializeAws_json1_1UpdateExpirationForHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.UpdateExpirationForHIT",
   };
   let body: any;
@@ -673,7 +673,7 @@ export const serializeAws_json1_1UpdateHITReviewStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.UpdateHITReviewStatus",
   };
   let body: any;
@@ -686,7 +686,7 @@ export const serializeAws_json1_1UpdateHITTypeOfHITCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.UpdateHITTypeOfHIT",
   };
   let body: any;
@@ -699,7 +699,7 @@ export const serializeAws_json1_1UpdateNotificationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.UpdateNotificationSettings",
   };
   let body: any;
@@ -712,7 +712,7 @@ export const serializeAws_json1_1UpdateQualificationTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "MTurkRequesterServiceV20170117.UpdateQualificationType",
   };
   let body: any;
@@ -747,8 +747,7 @@ const deserializeAws_json1_1AcceptQualificationRequestCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -810,8 +809,7 @@ const deserializeAws_json1_1ApproveAssignmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -873,8 +871,7 @@ const deserializeAws_json1_1AssociateQualificationWithWorkerCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -936,8 +933,7 @@ const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError = asyn
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -999,8 +995,7 @@ const deserializeAws_json1_1CreateHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1062,8 +1057,7 @@ const deserializeAws_json1_1CreateHITTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1125,8 +1119,7 @@ const deserializeAws_json1_1CreateHITWithHITTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1188,8 +1181,7 @@ const deserializeAws_json1_1CreateQualificationTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1251,8 +1243,7 @@ const deserializeAws_json1_1CreateWorkerBlockCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1314,8 +1305,7 @@ const deserializeAws_json1_1DeleteHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1377,8 +1367,7 @@ const deserializeAws_json1_1DeleteQualificationTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1440,8 +1429,7 @@ const deserializeAws_json1_1DeleteWorkerBlockCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1503,8 +1491,7 @@ const deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError = as
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1566,8 +1553,7 @@ const deserializeAws_json1_1GetAccountBalanceCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1629,8 +1615,7 @@ const deserializeAws_json1_1GetAssignmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1692,8 +1677,7 @@ const deserializeAws_json1_1GetFileUploadURLCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1755,8 +1739,7 @@ const deserializeAws_json1_1GetHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1818,8 +1801,7 @@ const deserializeAws_json1_1GetQualificationScoreCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1881,8 +1863,7 @@ const deserializeAws_json1_1GetQualificationTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -1944,8 +1925,7 @@ const deserializeAws_json1_1ListAssignmentsForHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2007,8 +1987,7 @@ const deserializeAws_json1_1ListBonusPaymentsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2070,8 +2049,7 @@ const deserializeAws_json1_1ListHITsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2133,8 +2111,7 @@ const deserializeAws_json1_1ListHITsForQualificationTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2196,8 +2173,7 @@ const deserializeAws_json1_1ListQualificationRequestsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2259,8 +2235,7 @@ const deserializeAws_json1_1ListQualificationTypesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2322,8 +2297,7 @@ const deserializeAws_json1_1ListReviewableHITsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2385,8 +2359,7 @@ const deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2448,8 +2421,7 @@ const deserializeAws_json1_1ListWorkerBlocksCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2511,8 +2483,7 @@ const deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError = async
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2574,8 +2545,7 @@ const deserializeAws_json1_1NotifyWorkersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2637,8 +2607,7 @@ const deserializeAws_json1_1RejectAssignmentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2700,8 +2669,7 @@ const deserializeAws_json1_1RejectQualificationRequestCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2763,8 +2731,7 @@ const deserializeAws_json1_1SendBonusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2826,8 +2793,7 @@ const deserializeAws_json1_1SendTestEventNotificationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2889,8 +2855,7 @@ const deserializeAws_json1_1UpdateExpirationForHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -2952,8 +2917,7 @@ const deserializeAws_json1_1UpdateHITReviewStatusCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -3015,8 +2979,7 @@ const deserializeAws_json1_1UpdateHITTypeOfHITCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -3078,8 +3041,7 @@ const deserializeAws_json1_1UpdateNotificationSettingsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -3141,8 +3103,7 @@ const deserializeAws_json1_1UpdateQualificationTypeCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestError":
     case "com.amazonaws.mturk#RequestError":
@@ -3212,8 +3173,9 @@ const serializeAws_json1_1AcceptQualificationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntegerValue !== undefined && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationRequestId !== undefined && { QualificationRequestId: input.QualificationRequestId }),
+    ...(input.IntegerValue !== undefined && input.IntegerValue !== null && { IntegerValue: input.IntegerValue }),
+    ...(input.QualificationRequestId !== undefined &&
+      input.QualificationRequestId !== null && { QualificationRequestId: input.QualificationRequestId }),
   };
 };
 
@@ -3222,9 +3184,11 @@ const serializeAws_json1_1ApproveAssignmentRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
-    ...(input.OverrideRejection !== undefined && { OverrideRejection: input.OverrideRejection }),
-    ...(input.RequesterFeedback !== undefined && { RequesterFeedback: input.RequesterFeedback }),
+    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
+    ...(input.OverrideRejection !== undefined &&
+      input.OverrideRejection !== null && { OverrideRejection: input.OverrideRejection }),
+    ...(input.RequesterFeedback !== undefined &&
+      input.RequesterFeedback !== null && { RequesterFeedback: input.RequesterFeedback }),
   };
 };
 
@@ -3232,7 +3196,14 @@ const serializeAws_json1_1AssignmentStatusList = (
   input: (AssignmentStatus | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
@@ -3240,10 +3211,12 @@ const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.IntegerValue !== undefined && { IntegerValue: input.IntegerValue }),
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.SendNotification !== undefined && { SendNotification: input.SendNotification }),
-    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
+    ...(input.IntegerValue !== undefined && input.IntegerValue !== null && { IntegerValue: input.IntegerValue }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.SendNotification !== undefined &&
+      input.SendNotification !== null && { SendNotification: input.SendNotification }),
+    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -3252,68 +3225,75 @@ const serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
-    ...(input.NumberOfAdditionalAssignments !== undefined && {
-      NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
-    }),
-    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.NumberOfAdditionalAssignments !== undefined &&
+      input.NumberOfAdditionalAssignments !== null && {
+        NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments,
+      }),
+    ...(input.UniqueRequestToken !== undefined &&
+      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
 const serializeAws_json1_1CreateHITRequest = (input: CreateHITRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentDurationInSeconds !== undefined && {
-      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds,
-    }),
-    ...(input.AssignmentReviewPolicy !== undefined && {
-      AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
-    }),
-    ...(input.AutoApprovalDelayInSeconds !== undefined && {
-      AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds,
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.HITLayoutId !== undefined && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters !== undefined && {
-      HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
-    }),
-    ...(input.HITReviewPolicy !== undefined && {
-      HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
-    }),
-    ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
-    ...(input.LifetimeInSeconds !== undefined && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments !== undefined && { MaxAssignments: input.MaxAssignments }),
-    ...(input.QualificationRequirements !== undefined && {
-      QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
-        input.QualificationRequirements,
-        context
-      ),
-    }),
-    ...(input.Question !== undefined && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.Reward !== undefined && { Reward: input.Reward }),
-    ...(input.Title !== undefined && { Title: input.Title }),
-    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.AssignmentDurationInSeconds !== undefined &&
+      input.AssignmentDurationInSeconds !== null && { AssignmentDurationInSeconds: input.AssignmentDurationInSeconds }),
+    ...(input.AssignmentReviewPolicy !== undefined &&
+      input.AssignmentReviewPolicy !== null && {
+        AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
+      }),
+    ...(input.AutoApprovalDelayInSeconds !== undefined &&
+      input.AutoApprovalDelayInSeconds !== null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.HITLayoutId !== undefined && input.HITLayoutId !== null && { HITLayoutId: input.HITLayoutId }),
+    ...(input.HITLayoutParameters !== undefined &&
+      input.HITLayoutParameters !== null && {
+        HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
+      }),
+    ...(input.HITReviewPolicy !== undefined &&
+      input.HITReviewPolicy !== null && {
+        HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
+      }),
+    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
+    ...(input.LifetimeInSeconds !== undefined &&
+      input.LifetimeInSeconds !== null && { LifetimeInSeconds: input.LifetimeInSeconds }),
+    ...(input.MaxAssignments !== undefined &&
+      input.MaxAssignments !== null && { MaxAssignments: input.MaxAssignments }),
+    ...(input.QualificationRequirements !== undefined &&
+      input.QualificationRequirements !== null && {
+        QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
+          input.QualificationRequirements,
+          context
+        ),
+      }),
+    ...(input.Question !== undefined && input.Question !== null && { Question: input.Question }),
+    ...(input.RequesterAnnotation !== undefined &&
+      input.RequesterAnnotation !== null && { RequesterAnnotation: input.RequesterAnnotation }),
+    ...(input.Reward !== undefined && input.Reward !== null && { Reward: input.Reward }),
+    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
+    ...(input.UniqueRequestToken !== undefined &&
+      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
 const serializeAws_json1_1CreateHITTypeRequest = (input: CreateHITTypeRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentDurationInSeconds !== undefined && {
-      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds,
-    }),
-    ...(input.AutoApprovalDelayInSeconds !== undefined && {
-      AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds,
-    }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
-    ...(input.QualificationRequirements !== undefined && {
-      QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
-        input.QualificationRequirements,
-        context
-      ),
-    }),
-    ...(input.Reward !== undefined && { Reward: input.Reward }),
-    ...(input.Title !== undefined && { Title: input.Title }),
+    ...(input.AssignmentDurationInSeconds !== undefined &&
+      input.AssignmentDurationInSeconds !== null && { AssignmentDurationInSeconds: input.AssignmentDurationInSeconds }),
+    ...(input.AutoApprovalDelayInSeconds !== undefined &&
+      input.AutoApprovalDelayInSeconds !== null && { AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
+    ...(input.QualificationRequirements !== undefined &&
+      input.QualificationRequirements !== null && {
+        QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
+          input.QualificationRequirements,
+          context
+        ),
+      }),
+    ...(input.Reward !== undefined && input.Reward !== null && { Reward: input.Reward }),
+    ...(input.Title !== undefined && input.Title !== null && { Title: input.Title }),
   };
 };
 
@@ -3322,22 +3302,29 @@ const serializeAws_json1_1CreateHITWithHITTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentReviewPolicy !== undefined && {
-      AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
-    }),
-    ...(input.HITLayoutId !== undefined && { HITLayoutId: input.HITLayoutId }),
-    ...(input.HITLayoutParameters !== undefined && {
-      HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
-    }),
-    ...(input.HITReviewPolicy !== undefined && {
-      HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
-    }),
-    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
-    ...(input.LifetimeInSeconds !== undefined && { LifetimeInSeconds: input.LifetimeInSeconds }),
-    ...(input.MaxAssignments !== undefined && { MaxAssignments: input.MaxAssignments }),
-    ...(input.Question !== undefined && { Question: input.Question }),
-    ...(input.RequesterAnnotation !== undefined && { RequesterAnnotation: input.RequesterAnnotation }),
-    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.AssignmentReviewPolicy !== undefined &&
+      input.AssignmentReviewPolicy !== null && {
+        AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(input.AssignmentReviewPolicy, context),
+      }),
+    ...(input.HITLayoutId !== undefined && input.HITLayoutId !== null && { HITLayoutId: input.HITLayoutId }),
+    ...(input.HITLayoutParameters !== undefined &&
+      input.HITLayoutParameters !== null && {
+        HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(input.HITLayoutParameters, context),
+      }),
+    ...(input.HITReviewPolicy !== undefined &&
+      input.HITReviewPolicy !== null && {
+        HITReviewPolicy: serializeAws_json1_1ReviewPolicy(input.HITReviewPolicy, context),
+      }),
+    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
+    ...(input.LifetimeInSeconds !== undefined &&
+      input.LifetimeInSeconds !== null && { LifetimeInSeconds: input.LifetimeInSeconds }),
+    ...(input.MaxAssignments !== undefined &&
+      input.MaxAssignments !== null && { MaxAssignments: input.MaxAssignments }),
+    ...(input.Question !== undefined && input.Question !== null && { Question: input.Question }),
+    ...(input.RequesterAnnotation !== undefined &&
+      input.RequesterAnnotation !== null && { RequesterAnnotation: input.RequesterAnnotation }),
+    ...(input.UniqueRequestToken !== undefined &&
+      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
   };
 };
 
@@ -3346,16 +3333,20 @@ const serializeAws_json1_1CreateQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AnswerKey !== undefined && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted !== undefined && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.QualificationTypeStatus !== undefined && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds !== undefined && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test !== undefined && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined && { TestDurationInSeconds: input.TestDurationInSeconds }),
+    ...(input.AnswerKey !== undefined && input.AnswerKey !== null && { AnswerKey: input.AnswerKey }),
+    ...(input.AutoGranted !== undefined && input.AutoGranted !== null && { AutoGranted: input.AutoGranted }),
+    ...(input.AutoGrantedValue !== undefined &&
+      input.AutoGrantedValue !== null && { AutoGrantedValue: input.AutoGrantedValue }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Keywords !== undefined && input.Keywords !== null && { Keywords: input.Keywords }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.QualificationTypeStatus !== undefined &&
+      input.QualificationTypeStatus !== null && { QualificationTypeStatus: input.QualificationTypeStatus }),
+    ...(input.RetryDelayInSeconds !== undefined &&
+      input.RetryDelayInSeconds !== null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
+    ...(input.Test !== undefined && input.Test !== null && { Test: input.Test }),
+    ...(input.TestDurationInSeconds !== undefined &&
+      input.TestDurationInSeconds !== null && { TestDurationInSeconds: input.TestDurationInSeconds }),
   };
 };
 
@@ -3364,18 +3355,25 @@ const serializeAws_json1_1CreateWorkerBlockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Reason !== undefined && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
+    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
   };
 };
 
 const serializeAws_json1_1CustomerIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeleteHITRequest = (input: DeleteHITRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
   };
 };
 
@@ -3384,7 +3382,8 @@ const serializeAws_json1_1DeleteQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -3393,8 +3392,8 @@ const serializeAws_json1_1DeleteWorkerBlockRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Reason !== undefined && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
+    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -3403,14 +3402,22 @@ const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Reason !== undefined && { Reason: input.Reason }),
-    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
+    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
   };
 };
 
 const serializeAws_json1_1EventTypeList = (input: (EventType | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetAccountBalanceRequest = (
@@ -3422,20 +3429,21 @@ const serializeAws_json1_1GetAccountBalanceRequest = (
 
 const serializeAws_json1_1GetAssignmentRequest = (input: GetAssignmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
+    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
   };
 };
 
 const serializeAws_json1_1GetFileUploadURLRequest = (input: GetFileUploadURLRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
-    ...(input.QuestionIdentifier !== undefined && { QuestionIdentifier: input.QuestionIdentifier }),
+    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
+    ...(input.QuestionIdentifier !== undefined &&
+      input.QuestionIdentifier !== null && { QuestionIdentifier: input.QuestionIdentifier }),
   };
 };
 
 const serializeAws_json1_1GetHITRequest = (input: GetHITRequest, context: __SerdeContext): any => {
   return {
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
   };
 };
 
@@ -3444,8 +3452,9 @@ const serializeAws_json1_1GetQualificationScoreRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -3454,23 +3463,38 @@ const serializeAws_json1_1GetQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
 const serializeAws_json1_1HITLayoutParameter = (input: HITLayoutParameter, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_json1_1HITLayoutParameterList = (input: HITLayoutParameter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1HITLayoutParameter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1HITLayoutParameter(entry, context);
+    });
 };
 
 const serializeAws_json1_1IntegerList = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListAssignmentsForHITRequest = (
@@ -3478,12 +3502,13 @@ const serializeAws_json1_1ListAssignmentsForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentStatuses !== undefined && {
-      AssignmentStatuses: serializeAws_json1_1AssignmentStatusList(input.AssignmentStatuses, context),
-    }),
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AssignmentStatuses !== undefined &&
+      input.AssignmentStatuses !== null && {
+        AssignmentStatuses: serializeAws_json1_1AssignmentStatusList(input.AssignmentStatuses, context),
+      }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3492,10 +3517,10 @@ const serializeAws_json1_1ListBonusPaymentsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3504,16 +3529,17 @@ const serializeAws_json1_1ListHITsForQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
 const serializeAws_json1_1ListHITsRequest = (input: ListHITsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3522,9 +3548,10 @@ const serializeAws_json1_1ListQualificationRequestsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
   };
 };
 
@@ -3533,11 +3560,13 @@ const serializeAws_json1_1ListQualificationTypesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.MustBeOwnedByCaller !== undefined && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
-    ...(input.MustBeRequestable !== undefined && { MustBeRequestable: input.MustBeRequestable }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Query !== undefined && { Query: input.Query }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.MustBeOwnedByCaller !== undefined &&
+      input.MustBeOwnedByCaller !== null && { MustBeOwnedByCaller: input.MustBeOwnedByCaller }),
+    ...(input.MustBeRequestable !== undefined &&
+      input.MustBeRequestable !== null && { MustBeRequestable: input.MustBeRequestable }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Query !== undefined && input.Query !== null && { Query: input.Query }),
   };
 };
 
@@ -3546,10 +3575,10 @@ const serializeAws_json1_1ListReviewableHITsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
@@ -3558,21 +3587,24 @@ const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.PolicyLevels !== undefined && {
-      PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(input.PolicyLevels, context),
-    }),
-    ...(input.RetrieveActions !== undefined && { RetrieveActions: input.RetrieveActions }),
-    ...(input.RetrieveResults !== undefined && { RetrieveResults: input.RetrieveResults }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.PolicyLevels !== undefined &&
+      input.PolicyLevels !== null && {
+        PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(input.PolicyLevels, context),
+      }),
+    ...(input.RetrieveActions !== undefined &&
+      input.RetrieveActions !== null && { RetrieveActions: input.RetrieveActions }),
+    ...(input.RetrieveResults !== undefined &&
+      input.RetrieveResults !== null && { RetrieveResults: input.RetrieveResults }),
   };
 };
 
 const serializeAws_json1_1ListWorkerBlocksRequest = (input: ListWorkerBlocksRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -3581,22 +3613,30 @@ const serializeAws_json1_1ListWorkersWithQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
 const serializeAws_json1_1Locale = (input: Locale, context: __SerdeContext): any => {
   return {
-    ...(input.Country !== undefined && { Country: input.Country }),
-    ...(input.Subdivision !== undefined && { Subdivision: input.Subdivision }),
+    ...(input.Country !== undefined && input.Country !== null && { Country: input.Country }),
+    ...(input.Subdivision !== undefined && input.Subdivision !== null && { Subdivision: input.Subdivision }),
   };
 };
 
 const serializeAws_json1_1LocaleList = (input: Locale[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1Locale(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1Locale(entry, context);
+    });
 };
 
 const serializeAws_json1_1NotificationSpecification = (
@@ -3604,44 +3644,63 @@ const serializeAws_json1_1NotificationSpecification = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Destination !== undefined && { Destination: input.Destination }),
-    ...(input.EventTypes !== undefined && { EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context) }),
-    ...(input.Transport !== undefined && { Transport: input.Transport }),
-    ...(input.Version !== undefined && { Version: input.Version }),
+    ...(input.Destination !== undefined && input.Destination !== null && { Destination: input.Destination }),
+    ...(input.EventTypes !== undefined &&
+      input.EventTypes !== null && { EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context) }),
+    ...(input.Transport !== undefined && input.Transport !== null && { Transport: input.Transport }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
 const serializeAws_json1_1NotifyWorkersRequest = (input: NotifyWorkersRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MessageText !== undefined && { MessageText: input.MessageText }),
-    ...(input.Subject !== undefined && { Subject: input.Subject }),
-    ...(input.WorkerIds !== undefined && { WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context) }),
+    ...(input.MessageText !== undefined && input.MessageText !== null && { MessageText: input.MessageText }),
+    ...(input.Subject !== undefined && input.Subject !== null && { Subject: input.Subject }),
+    ...(input.WorkerIds !== undefined &&
+      input.WorkerIds !== null && { WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context) }),
   };
 };
 
 const serializeAws_json1_1ParameterMapEntry = (input: ParameterMapEntry, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1StringList(input.Values, context) }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1ParameterMapEntryList = (input: ParameterMapEntry[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1ParameterMapEntry(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ParameterMapEntry(entry, context);
+    });
 };
 
 const serializeAws_json1_1PolicyParameter = (input: PolicyParameter, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.MapEntries !== undefined && {
-      MapEntries: serializeAws_json1_1ParameterMapEntryList(input.MapEntries, context),
-    }),
-    ...(input.Values !== undefined && { Values: serializeAws_json1_1StringList(input.Values, context) }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.MapEntries !== undefined &&
+      input.MapEntries !== null && {
+        MapEntries: serializeAws_json1_1ParameterMapEntryList(input.MapEntries, context),
+      }),
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_json1_1StringList(input.Values, context) }),
   };
 };
 
 const serializeAws_json1_1PolicyParameterList = (input: PolicyParameter[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1PolicyParameter(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1PolicyParameter(entry, context);
+    });
 };
 
 const serializeAws_json1_1QualificationRequirement = (
@@ -3649,16 +3708,17 @@ const serializeAws_json1_1QualificationRequirement = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ActionsGuarded !== undefined && { ActionsGuarded: input.ActionsGuarded }),
-    ...(input.Comparator !== undefined && { Comparator: input.Comparator }),
-    ...(input.IntegerValues !== undefined && {
-      IntegerValues: serializeAws_json1_1IntegerList(input.IntegerValues, context),
-    }),
-    ...(input.LocaleValues !== undefined && {
-      LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context),
-    }),
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.RequiredToPreview !== undefined && { RequiredToPreview: input.RequiredToPreview }),
+    ...(input.ActionsGuarded !== undefined &&
+      input.ActionsGuarded !== null && { ActionsGuarded: input.ActionsGuarded }),
+    ...(input.Comparator !== undefined && input.Comparator !== null && { Comparator: input.Comparator }),
+    ...(input.IntegerValues !== undefined &&
+      input.IntegerValues !== null && { IntegerValues: serializeAws_json1_1IntegerList(input.IntegerValues, context) }),
+    ...(input.LocaleValues !== undefined &&
+      input.LocaleValues !== null && { LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context) }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.RequiredToPreview !== undefined &&
+      input.RequiredToPreview !== null && { RequiredToPreview: input.RequiredToPreview }),
   };
 };
 
@@ -3666,13 +3726,21 @@ const serializeAws_json1_1QualificationRequirementList = (
   input: QualificationRequirement[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_json1_1QualificationRequirement(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1QualificationRequirement(entry, context);
+    });
 };
 
 const serializeAws_json1_1RejectAssignmentRequest = (input: RejectAssignmentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
-    ...(input.RequesterFeedback !== undefined && { RequesterFeedback: input.RequesterFeedback }),
+    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
+    ...(input.RequesterFeedback !== undefined &&
+      input.RequesterFeedback !== null && { RequesterFeedback: input.RequesterFeedback }),
   };
 };
 
@@ -3681,17 +3749,17 @@ const serializeAws_json1_1RejectQualificationRequestRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.QualificationRequestId !== undefined && { QualificationRequestId: input.QualificationRequestId }),
-    ...(input.Reason !== undefined && { Reason: input.Reason }),
+    ...(input.QualificationRequestId !== undefined &&
+      input.QualificationRequestId !== null && { QualificationRequestId: input.QualificationRequestId }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
   };
 };
 
 const serializeAws_json1_1ReviewPolicy = (input: ReviewPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Parameters !== undefined && {
-      Parameters: serializeAws_json1_1PolicyParameterList(input.Parameters, context),
-    }),
-    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+    ...(input.Parameters !== undefined &&
+      input.Parameters !== null && { Parameters: serializeAws_json1_1PolicyParameterList(input.Parameters, context) }),
+    ...(input.PolicyName !== undefined && input.PolicyName !== null && { PolicyName: input.PolicyName }),
   };
 };
 
@@ -3699,16 +3767,24 @@ const serializeAws_json1_1ReviewPolicyLevelList = (
   input: (ReviewPolicyLevel | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1SendBonusRequest = (input: SendBonusRequest, context: __SerdeContext): any => {
   return {
-    ...(input.AssignmentId !== undefined && { AssignmentId: input.AssignmentId }),
-    ...(input.BonusAmount !== undefined && { BonusAmount: input.BonusAmount }),
-    ...(input.Reason !== undefined && { Reason: input.Reason }),
-    ...(input.UniqueRequestToken !== undefined && { UniqueRequestToken: input.UniqueRequestToken }),
-    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId }),
+    ...(input.AssignmentId !== undefined && input.AssignmentId !== null && { AssignmentId: input.AssignmentId }),
+    ...(input.BonusAmount !== undefined && input.BonusAmount !== null && { BonusAmount: input.BonusAmount }),
+    ...(input.Reason !== undefined && input.Reason !== null && { Reason: input.Reason }),
+    ...(input.UniqueRequestToken !== undefined &&
+      input.UniqueRequestToken !== null && { UniqueRequestToken: input.UniqueRequestToken }),
+    ...(input.WorkerId !== undefined && input.WorkerId !== null && { WorkerId: input.WorkerId }),
   };
 };
 
@@ -3717,15 +3793,23 @@ const serializeAws_json1_1SendTestEventNotificationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
-    }),
-    ...(input.TestEventType !== undefined && { TestEventType: input.TestEventType }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && {
+        Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
+      }),
+    ...(input.TestEventType !== undefined && input.TestEventType !== null && { TestEventType: input.TestEventType }),
   };
 };
 
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1UpdateExpirationForHITRequest = (
@@ -3733,8 +3817,9 @@ const serializeAws_json1_1UpdateExpirationForHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ExpireAt !== undefined && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.ExpireAt !== undefined &&
+      input.ExpireAt !== null && { ExpireAt: Math.round(input.ExpireAt.getTime() / 1000) }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
   };
 };
 
@@ -3743,8 +3828,8 @@ const serializeAws_json1_1UpdateHITReviewStatusRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
-    ...(input.Revert !== undefined && { Revert: input.Revert }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.Revert !== undefined && input.Revert !== null && { Revert: input.Revert }),
   };
 };
 
@@ -3753,8 +3838,8 @@ const serializeAws_json1_1UpdateHITTypeOfHITRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.HITId !== undefined && { HITId: input.HITId }),
-    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
+    ...(input.HITId !== undefined && input.HITId !== null && { HITId: input.HITId }),
+    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
   };
 };
 
@@ -3763,11 +3848,12 @@ const serializeAws_json1_1UpdateNotificationSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Active !== undefined && { Active: input.Active }),
-    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
-    ...(input.Notification !== undefined && {
-      Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
-    }),
+    ...(input.Active !== undefined && input.Active !== null && { Active: input.Active }),
+    ...(input.HITTypeId !== undefined && input.HITTypeId !== null && { HITTypeId: input.HITTypeId }),
+    ...(input.Notification !== undefined &&
+      input.Notification !== null && {
+        Notification: serializeAws_json1_1NotificationSpecification(input.Notification, context),
+      }),
   };
 };
 
@@ -3776,15 +3862,20 @@ const serializeAws_json1_1UpdateQualificationTypeRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AnswerKey !== undefined && { AnswerKey: input.AnswerKey }),
-    ...(input.AutoGranted !== undefined && { AutoGranted: input.AutoGranted }),
-    ...(input.AutoGrantedValue !== undefined && { AutoGrantedValue: input.AutoGrantedValue }),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.QualificationTypeId !== undefined && { QualificationTypeId: input.QualificationTypeId }),
-    ...(input.QualificationTypeStatus !== undefined && { QualificationTypeStatus: input.QualificationTypeStatus }),
-    ...(input.RetryDelayInSeconds !== undefined && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
-    ...(input.Test !== undefined && { Test: input.Test }),
-    ...(input.TestDurationInSeconds !== undefined && { TestDurationInSeconds: input.TestDurationInSeconds }),
+    ...(input.AnswerKey !== undefined && input.AnswerKey !== null && { AnswerKey: input.AnswerKey }),
+    ...(input.AutoGranted !== undefined && input.AutoGranted !== null && { AutoGranted: input.AutoGranted }),
+    ...(input.AutoGrantedValue !== undefined &&
+      input.AutoGrantedValue !== null && { AutoGrantedValue: input.AutoGrantedValue }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.QualificationTypeId !== undefined &&
+      input.QualificationTypeId !== null && { QualificationTypeId: input.QualificationTypeId }),
+    ...(input.QualificationTypeStatus !== undefined &&
+      input.QualificationTypeStatus !== null && { QualificationTypeStatus: input.QualificationTypeStatus }),
+    ...(input.RetryDelayInSeconds !== undefined &&
+      input.RetryDelayInSeconds !== null && { RetryDelayInSeconds: input.RetryDelayInSeconds }),
+    ...(input.Test !== undefined && input.Test !== null && { Test: input.Test }),
+    ...(input.TestDurationInSeconds !== undefined &&
+      input.TestDurationInSeconds !== null && { TestDurationInSeconds: input.TestDurationInSeconds }),
   };
 };
 
@@ -3842,7 +3933,14 @@ const deserializeAws_json1_1Assignment = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1AssignmentList = (output: any, context: __SerdeContext): Assignment[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Assignment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Assignment(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AssociateQualificationWithWorkerResponse = (
@@ -3866,7 +3964,14 @@ const deserializeAws_json1_1BonusPayment = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1BonusPaymentList = (output: any, context: __SerdeContext): BonusPayment[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1BonusPayment(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BonusPayment(entry, context);
+    });
 };
 
 const deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse = (
@@ -4059,11 +4164,25 @@ const deserializeAws_json1_1HIT = (output: any, context: __SerdeContext): HIT =>
 };
 
 const deserializeAws_json1_1HITList = (output: any, context: __SerdeContext): HIT[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1HIT(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HIT(entry, context);
+    });
 };
 
 const deserializeAws_json1_1IntegerList = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ListAssignmentsForHITResponse = (
@@ -4223,7 +4342,14 @@ const deserializeAws_json1_1Locale = (output: any, context: __SerdeContext): Loc
 };
 
 const deserializeAws_json1_1LocaleList = (output: any, context: __SerdeContext): Locale[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Locale(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Locale(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NotifyWorkersFailureStatus = (
@@ -4247,7 +4373,14 @@ const deserializeAws_json1_1NotifyWorkersFailureStatusList = (
   output: any,
   context: __SerdeContext
 ): NotifyWorkersFailureStatus[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1NotifyWorkersFailureStatus(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1NotifyWorkersFailureStatus(entry, context);
+    });
 };
 
 const deserializeAws_json1_1NotifyWorkersResponse = (output: any, context: __SerdeContext): NotifyWorkersResponse => {
@@ -4270,7 +4403,14 @@ const deserializeAws_json1_1ParameterMapEntry = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1ParameterMapEntryList = (output: any, context: __SerdeContext): ParameterMapEntry[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ParameterMapEntry(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ParameterMapEntry(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PolicyParameter = (output: any, context: __SerdeContext): PolicyParameter => {
@@ -4288,7 +4428,14 @@ const deserializeAws_json1_1PolicyParameter = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1PolicyParameterList = (output: any, context: __SerdeContext): PolicyParameter[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1PolicyParameter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PolicyParameter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContext): Qualification => {
@@ -4312,7 +4459,14 @@ const deserializeAws_json1_1Qualification = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1QualificationList = (output: any, context: __SerdeContext): Qualification[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Qualification(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Qualification(entry, context);
+    });
 };
 
 const deserializeAws_json1_1QualificationRequest = (output: any, context: __SerdeContext): QualificationRequest => {
@@ -4339,7 +4493,14 @@ const deserializeAws_json1_1QualificationRequestList = (
   output: any,
   context: __SerdeContext
 ): QualificationRequest[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1QualificationRequest(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QualificationRequest(entry, context);
+    });
 };
 
 const deserializeAws_json1_1QualificationRequirement = (
@@ -4373,7 +4534,14 @@ const deserializeAws_json1_1QualificationRequirementList = (
   output: any,
   context: __SerdeContext
 ): QualificationRequirement[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1QualificationRequirement(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QualificationRequirement(entry, context);
+    });
 };
 
 const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeContext): QualificationType => {
@@ -4412,7 +4580,14 @@ const deserializeAws_json1_1QualificationType = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1QualificationTypeList = (output: any, context: __SerdeContext): QualificationType[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1QualificationType(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QualificationType(entry, context);
+    });
 };
 
 const deserializeAws_json1_1RejectAssignmentResponse = (
@@ -4454,7 +4629,14 @@ const deserializeAws_json1_1ReviewActionDetail = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ReviewActionDetailList = (output: any, context: __SerdeContext): ReviewActionDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ReviewActionDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReviewActionDetail(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ReviewPolicy = (output: any, context: __SerdeContext): ReviewPolicy => {
@@ -4492,7 +4674,14 @@ const deserializeAws_json1_1ReviewResultDetail = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ReviewResultDetailList = (output: any, context: __SerdeContext): ReviewResultDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ReviewResultDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReviewResultDetail(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SendBonusResponse = (output: any, context: __SerdeContext): SendBonusResponse => {
@@ -4515,7 +4704,14 @@ const deserializeAws_json1_1ServiceFault = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1UpdateExpirationForHITResponse = (
@@ -4566,7 +4762,14 @@ const deserializeAws_json1_1WorkerBlock = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1WorkerBlockList = (output: any, context: __SerdeContext): WorkerBlock[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1WorkerBlock(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1WorkerBlock(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -4619,3 +4822,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

@@ -467,7 +467,7 @@ export const serializeAws_restXmlCreateCachePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/cache-policy";
   let body: any;
@@ -495,7 +495,7 @@ export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront";
   let body: any;
@@ -526,7 +526,7 @@ export const serializeAws_restXmlCreateDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/distribution";
   let body: any;
@@ -554,7 +554,7 @@ export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/distribution";
   const query: any = {
@@ -586,7 +586,7 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/field-level-encryption";
   let body: any;
@@ -614,7 +614,7 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/field-level-encryption-profile";
   let body: any;
@@ -642,7 +642,7 @@ export const serializeAws_restXmlCreateInvalidationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
@@ -679,7 +679,7 @@ export const serializeAws_restXmlCreateKeyGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/key-group";
   let body: any;
@@ -707,7 +707,7 @@ export const serializeAws_restXmlCreateMonitoringSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
   if (input.DistributionId !== undefined) {
@@ -744,7 +744,7 @@ export const serializeAws_restXmlCreateOriginRequestPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/origin-request-policy";
   let body: any;
@@ -772,7 +772,7 @@ export const serializeAws_restXmlCreatePublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/public-key";
   let body: any;
@@ -800,7 +800,7 @@ export const serializeAws_restXmlCreateRealtimeLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/realtime-log-config";
   let body: any;
@@ -849,7 +849,7 @@ export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/streaming-distribution";
   let body: any;
@@ -877,7 +877,7 @@ export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = as
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/streaming-distribution";
   const query: any = {
@@ -912,7 +912,6 @@ export const serializeAws_restXmlDeleteCachePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/cache-policy/{Id}";
@@ -943,7 +942,6 @@ export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront/{Id}";
@@ -974,7 +972,6 @@ export const serializeAws_restXmlDeleteDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/distribution/{Id}";
@@ -1005,7 +1002,6 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/field-level-encryption/{Id}";
@@ -1036,7 +1032,6 @@ export const serializeAws_restXmlDeleteFieldLevelEncryptionProfileCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/field-level-encryption-profile/{Id}";
@@ -1067,7 +1062,6 @@ export const serializeAws_restXmlDeleteKeyGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/key-group/{Id}";
@@ -1097,9 +1091,7 @@ export const serializeAws_restXmlDeleteMonitoringSubscriptionCommand = async (
   input: DeleteMonitoringSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -1128,7 +1120,6 @@ export const serializeAws_restXmlDeleteOriginRequestPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/origin-request-policy/{Id}";
@@ -1159,7 +1150,6 @@ export const serializeAws_restXmlDeletePublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/public-key/{Id}";
@@ -1190,7 +1180,7 @@ export const serializeAws_restXmlDeleteRealtimeLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/delete-realtime-log-config";
   let body: any;
@@ -1223,7 +1213,6 @@ export const serializeAws_restXmlDeleteStreamingDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/streaming-distribution/{Id}";
@@ -1253,9 +1242,7 @@ export const serializeAws_restXmlGetCachePolicyCommand = async (
   input: GetCachePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/cache-policy/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1283,9 +1270,7 @@ export const serializeAws_restXmlGetCachePolicyConfigCommand = async (
   input: GetCachePolicyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/cache-policy/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1313,9 +1298,7 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand = asyn
   input: GetCloudFrontOriginAccessIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1343,9 +1326,7 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand 
   input: GetCloudFrontOriginAccessIdentityConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1373,9 +1354,7 @@ export const serializeAws_restXmlGetDistributionCommand = async (
   input: GetDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1403,9 +1382,7 @@ export const serializeAws_restXmlGetDistributionConfigCommand = async (
   input: GetDistributionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1433,9 +1410,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionCommand = async (
   input: GetFieldLevelEncryptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/field-level-encryption/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1463,9 +1438,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionConfigCommand = async (
   input: GetFieldLevelEncryptionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/field-level-encryption/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1493,9 +1466,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionProfileCommand = async (
   input: GetFieldLevelEncryptionProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/field-level-encryption-profile/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1523,9 +1494,7 @@ export const serializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommand = a
   input: GetFieldLevelEncryptionProfileConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/field-level-encryption-profile/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1553,9 +1522,7 @@ export const serializeAws_restXmlGetInvalidationCommand = async (
   input: GetInvalidationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distribution/{DistributionId}/invalidation/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1592,9 +1559,7 @@ export const serializeAws_restXmlGetKeyGroupCommand = async (
   input: GetKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/key-group/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1622,9 +1587,7 @@ export const serializeAws_restXmlGetKeyGroupConfigCommand = async (
   input: GetKeyGroupConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/key-group/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1652,9 +1615,7 @@ export const serializeAws_restXmlGetMonitoringSubscriptionCommand = async (
   input: GetMonitoringSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distributions/{DistributionId}/monitoring-subscription";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -1682,9 +1643,7 @@ export const serializeAws_restXmlGetOriginRequestPolicyCommand = async (
   input: GetOriginRequestPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/origin-request-policy/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1712,9 +1671,7 @@ export const serializeAws_restXmlGetOriginRequestPolicyConfigCommand = async (
   input: GetOriginRequestPolicyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/origin-request-policy/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1742,9 +1699,7 @@ export const serializeAws_restXmlGetPublicKeyCommand = async (
   input: GetPublicKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/public-key/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1772,9 +1727,7 @@ export const serializeAws_restXmlGetPublicKeyConfigCommand = async (
   input: GetPublicKeyConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/public-key/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1803,7 +1756,7 @@ export const serializeAws_restXmlGetRealtimeLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/get-realtime-log-config";
   let body: any;
@@ -1835,9 +1788,7 @@ export const serializeAws_restXmlGetStreamingDistributionCommand = async (
   input: GetStreamingDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/streaming-distribution/{Id}";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1865,9 +1816,7 @@ export const serializeAws_restXmlGetStreamingDistributionConfigCommand = async (
   input: GetStreamingDistributionConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/streaming-distribution/{Id}/config";
   if (input.Id !== undefined) {
     const labelValue: string = input.Id;
@@ -1895,9 +1844,7 @@ export const serializeAws_restXmlListCachePoliciesCommand = async (
   input: ListCachePoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/cache-policy";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -1922,9 +1869,7 @@ export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = a
   input: ListCloudFrontOriginAccessIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -1948,9 +1893,7 @@ export const serializeAws_restXmlListDistributionsCommand = async (
   input: ListDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distribution";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -1974,9 +1917,7 @@ export const serializeAws_restXmlListDistributionsByCachePolicyIdCommand = async
   input: ListDistributionsByCachePolicyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}";
   if (input.CachePolicyId !== undefined) {
     const labelValue: string = input.CachePolicyId;
@@ -2009,9 +1950,7 @@ export const serializeAws_restXmlListDistributionsByKeyGroupCommand = async (
   input: ListDistributionsByKeyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distributionsByKeyGroupId/{KeyGroupId}";
   if (input.KeyGroupId !== undefined) {
     const labelValue: string = input.KeyGroupId;
@@ -2044,9 +1983,7 @@ export const serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand
   input: ListDistributionsByOriginRequestPolicyIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distributionsByOriginRequestPolicyId/{OriginRequestPolicyId}";
   if (input.OriginRequestPolicyId !== undefined) {
     const labelValue: string = input.OriginRequestPolicyId;
@@ -2080,7 +2017,7 @@ export const serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/distributionsByRealtimeLogConfig";
   let body: any;
@@ -2124,9 +2061,7 @@ export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   input: ListDistributionsByWebACLIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distributionsByWebACLId/{WebACLId}";
   if (input.WebACLId !== undefined) {
     const labelValue: string = input.WebACLId;
@@ -2159,9 +2094,7 @@ export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async 
   input: ListFieldLevelEncryptionConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/field-level-encryption";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -2185,9 +2118,7 @@ export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async
   input: ListFieldLevelEncryptionProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/field-level-encryption-profile";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -2211,9 +2142,7 @@ export const serializeAws_restXmlListInvalidationsCommand = async (
   input: ListInvalidationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/distribution/{DistributionId}/invalidation";
   if (input.DistributionId !== undefined) {
     const labelValue: string = input.DistributionId;
@@ -2246,9 +2175,7 @@ export const serializeAws_restXmlListKeyGroupsCommand = async (
   input: ListKeyGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/key-group";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -2272,9 +2199,7 @@ export const serializeAws_restXmlListOriginRequestPoliciesCommand = async (
   input: ListOriginRequestPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/origin-request-policy";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2299,9 +2224,7 @@ export const serializeAws_restXmlListPublicKeysCommand = async (
   input: ListPublicKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/public-key";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2325,9 +2248,7 @@ export const serializeAws_restXmlListRealtimeLogConfigsCommand = async (
   input: ListRealtimeLogConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/realtime-log-config";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2351,9 +2272,7 @@ export const serializeAws_restXmlListStreamingDistributionsCommand = async (
   input: ListStreamingDistributionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/streaming-distribution";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
@@ -2377,9 +2296,7 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2020-05-31/tagging";
   const query: any = {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
@@ -2403,7 +2320,7 @@ export const serializeAws_restXmlTagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/tagging";
   const query: any = {
@@ -2436,7 +2353,7 @@ export const serializeAws_restXmlUntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/tagging";
   const query: any = {
@@ -2469,7 +2386,7 @@ export const serializeAws_restXmlUpdateCachePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/cache-policy/{Id}";
@@ -2507,7 +2424,7 @@ export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = a
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
@@ -2548,7 +2465,7 @@ export const serializeAws_restXmlUpdateDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/distribution/{Id}/config";
@@ -2586,7 +2503,7 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionConfigCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/field-level-encryption/{Id}/config";
@@ -2624,7 +2541,7 @@ export const serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/field-level-encryption-profile/{Id}/config";
@@ -2662,7 +2579,7 @@ export const serializeAws_restXmlUpdateKeyGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/key-group/{Id}";
@@ -2700,7 +2617,7 @@ export const serializeAws_restXmlUpdateOriginRequestPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/origin-request-policy/{Id}";
@@ -2738,7 +2655,7 @@ export const serializeAws_restXmlUpdatePublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/public-key/{Id}/config";
@@ -2776,7 +2693,7 @@ export const serializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
   };
   let resolvedPath = "/2020-05-31/realtime-log-config";
   let body: any;
@@ -2829,7 +2746,7 @@ export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/xml",
+    "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
   };
   let resolvedPath = "/2020-05-31/streaming-distribution/{Id}/config";
@@ -11975,11 +11892,11 @@ const deserializeAws_restXmlTrustedSignerDoesNotExistResponse = async (
 
 const serializeAws_restXmlAliases = (input: Aliases, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Aliases");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlAliasList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -11991,19 +11908,24 @@ const serializeAws_restXmlAliases = (input: Aliases, context: __SerdeContext): a
 };
 
 const serializeAws_restXmlAliasList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("CNAME");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("CNAME");
+    });
 };
 
 const serializeAws_restXmlAllowedMethods = (input: AllowedMethods, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("AllowedMethods");
-  if (input.CachedMethods !== undefined) {
+  if (input.CachedMethods !== undefined && input.CachedMethods !== null) {
     const node = serializeAws_restXmlCachedMethods(input.CachedMethods, context).withName("CachedMethods");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlMethodsList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12011,7 +11933,7 @@ const serializeAws_restXmlAllowedMethods = (input: AllowedMethods, context: __Se
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12019,91 +11941,96 @@ const serializeAws_restXmlAllowedMethods = (input: AllowedMethods, context: __Se
 };
 
 const serializeAws_restXmlAwsAccountNumberList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("AwsAccountNumber");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("AwsAccountNumber");
+    });
 };
 
 const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CacheBehavior");
-  if (input.ForwardedValues !== undefined) {
+  if (input.ForwardedValues !== undefined && input.ForwardedValues !== null) {
     const node = serializeAws_restXmlForwardedValues(input.ForwardedValues, context).withName("ForwardedValues");
     bodyNode.addChildNode(node);
   }
-  if (input.PathPattern !== undefined) {
+  if (input.PathPattern !== undefined && input.PathPattern !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.PathPattern)).withName("PathPattern");
     bodyNode.addChildNode(node);
   }
-  if (input.AllowedMethods !== undefined) {
+  if (input.AllowedMethods !== undefined && input.AllowedMethods !== null) {
     const node = serializeAws_restXmlAllowedMethods(input.AllowedMethods, context).withName("AllowedMethods");
     bodyNode.addChildNode(node);
   }
-  if (input.DefaultTTL !== undefined) {
+  if (input.DefaultTTL !== undefined && input.DefaultTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.DefaultTTL))).withName("DefaultTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.FieldLevelEncryptionId !== undefined) {
+  if (input.FieldLevelEncryptionId !== undefined && input.FieldLevelEncryptionId !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.FieldLevelEncryptionId))
       .withName("FieldLevelEncryptionId");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginRequestPolicyId !== undefined) {
+  if (input.OriginRequestPolicyId !== undefined && input.OriginRequestPolicyId !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.OriginRequestPolicyId))
       .withName("OriginRequestPolicyId");
     bodyNode.addChildNode(node);
   }
-  if (input.TrustedSigners !== undefined) {
+  if (input.TrustedSigners !== undefined && input.TrustedSigners !== null) {
     const node = serializeAws_restXmlTrustedSigners(input.TrustedSigners, context).withName("TrustedSigners");
     bodyNode.addChildNode(node);
   }
-  if (input.TrustedKeyGroups !== undefined) {
+  if (input.TrustedKeyGroups !== undefined && input.TrustedKeyGroups !== null) {
     const node = serializeAws_restXmlTrustedKeyGroups(input.TrustedKeyGroups, context).withName("TrustedKeyGroups");
     bodyNode.addChildNode(node);
   }
-  if (input.RealtimeLogConfigArn !== undefined) {
+  if (input.RealtimeLogConfigArn !== undefined && input.RealtimeLogConfigArn !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.RealtimeLogConfigArn))
       .withName("RealtimeLogConfigArn");
     bodyNode.addChildNode(node);
   }
-  if (input.TargetOriginId !== undefined) {
+  if (input.TargetOriginId !== undefined && input.TargetOriginId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.TargetOriginId)).withName("TargetOriginId");
     bodyNode.addChildNode(node);
   }
-  if (input.LambdaFunctionAssociations !== undefined) {
+  if (input.LambdaFunctionAssociations !== undefined && input.LambdaFunctionAssociations !== null) {
     const node = serializeAws_restXmlLambdaFunctionAssociations(input.LambdaFunctionAssociations, context).withName(
       "LambdaFunctionAssociations"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.Compress !== undefined) {
+  if (input.Compress !== undefined && input.Compress !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Compress))).withName("Compress");
     bodyNode.addChildNode(node);
   }
-  if (input.CachePolicyId !== undefined) {
+  if (input.CachePolicyId !== undefined && input.CachePolicyId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CachePolicyId)).withName("CachePolicyId");
     bodyNode.addChildNode(node);
   }
-  if (input.MaxTTL !== undefined) {
+  if (input.MaxTTL !== undefined && input.MaxTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MaxTTL))).withName("MaxTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.SmoothStreaming !== undefined) {
+  if (input.SmoothStreaming !== undefined && input.SmoothStreaming !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.SmoothStreaming)))
       .withName("SmoothStreaming");
     bodyNode.addChildNode(node);
   }
-  if (input.ViewerProtocolPolicy !== undefined) {
+  if (input.ViewerProtocolPolicy !== undefined && input.ViewerProtocolPolicy !== null) {
     const node = new __XmlNode("ViewerProtocolPolicy")
       .addChildNode(new __XmlText(input.ViewerProtocolPolicy))
       .withName("ViewerProtocolPolicy");
     bodyNode.addChildNode(node);
   }
-  if (input.MinTTL !== undefined) {
+  if (input.MinTTL !== undefined && input.MinTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MinTTL))).withName("MinTTL");
     bodyNode.addChildNode(node);
   }
@@ -12111,15 +12038,20 @@ const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __Serd
 };
 
 const serializeAws_restXmlCacheBehaviorList = (input: CacheBehavior[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlCacheBehavior(entry, context);
-    return node.withName("CacheBehavior");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlCacheBehavior(entry, context);
+      return node.withName("CacheBehavior");
+    });
 };
 
 const serializeAws_restXmlCacheBehaviors = (input: CacheBehaviors, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CacheBehaviors");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlCacheBehaviorList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12127,7 +12059,7 @@ const serializeAws_restXmlCacheBehaviors = (input: CacheBehaviors, context: __Se
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12136,7 +12068,7 @@ const serializeAws_restXmlCacheBehaviors = (input: CacheBehaviors, context: __Se
 
 const serializeAws_restXmlCachedMethods = (input: CachedMethods, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CachedMethods");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlMethodsList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12144,7 +12076,7 @@ const serializeAws_restXmlCachedMethods = (input: CachedMethods, context: __Serd
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12153,27 +12085,30 @@ const serializeAws_restXmlCachedMethods = (input: CachedMethods, context: __Serd
 
 const serializeAws_restXmlCachePolicyConfig = (input: CachePolicyConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CachePolicyConfig");
-  if (input.MinTTL !== undefined) {
+  if (input.MinTTL !== undefined && input.MinTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MinTTL))).withName("MinTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.MaxTTL !== undefined) {
+  if (input.MaxTTL !== undefined && input.MaxTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MaxTTL))).withName("MaxTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
     bodyNode.addChildNode(node);
   }
-  if (input.DefaultTTL !== undefined) {
+  if (input.DefaultTTL !== undefined && input.DefaultTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.DefaultTTL))).withName("DefaultTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.ParametersInCacheKeyAndForwardedToOrigin !== undefined) {
+  if (
+    input.ParametersInCacheKeyAndForwardedToOrigin !== undefined &&
+    input.ParametersInCacheKeyAndForwardedToOrigin !== null
+  ) {
     const node = serializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin(
       input.ParametersInCacheKeyAndForwardedToOrigin,
       context
@@ -12188,11 +12123,11 @@ const serializeAws_restXmlCachePolicyCookiesConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("CachePolicyCookiesConfig");
-  if (input.Cookies !== undefined) {
+  if (input.Cookies !== undefined && input.Cookies !== null) {
     const node = serializeAws_restXmlCookieNames(input.Cookies, context).withName("Cookies");
     bodyNode.addChildNode(node);
   }
-  if (input.CookieBehavior !== undefined) {
+  if (input.CookieBehavior !== undefined && input.CookieBehavior !== null) {
     const node = new __XmlNode("CachePolicyCookieBehavior")
       .addChildNode(new __XmlText(input.CookieBehavior))
       .withName("CookieBehavior");
@@ -12206,11 +12141,11 @@ const serializeAws_restXmlCachePolicyHeadersConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("CachePolicyHeadersConfig");
-  if (input.Headers !== undefined) {
+  if (input.Headers !== undefined && input.Headers !== null) {
     const node = serializeAws_restXmlHeaders(input.Headers, context).withName("Headers");
     bodyNode.addChildNode(node);
   }
-  if (input.HeaderBehavior !== undefined) {
+  if (input.HeaderBehavior !== undefined && input.HeaderBehavior !== null) {
     const node = new __XmlNode("CachePolicyHeaderBehavior")
       .addChildNode(new __XmlText(input.HeaderBehavior))
       .withName("HeaderBehavior");
@@ -12224,13 +12159,13 @@ const serializeAws_restXmlCachePolicyQueryStringsConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("CachePolicyQueryStringsConfig");
-  if (input.QueryStringBehavior !== undefined) {
+  if (input.QueryStringBehavior !== undefined && input.QueryStringBehavior !== null) {
     const node = new __XmlNode("CachePolicyQueryStringBehavior")
       .addChildNode(new __XmlText(input.QueryStringBehavior))
       .withName("QueryStringBehavior");
     bodyNode.addChildNode(node);
   }
-  if (input.QueryStrings !== undefined) {
+  if (input.QueryStrings !== undefined && input.QueryStrings !== null) {
     const node = serializeAws_restXmlQueryStringNames(input.QueryStrings, context).withName("QueryStrings");
     bodyNode.addChildNode(node);
   }
@@ -12242,11 +12177,11 @@ const serializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("CloudFrontOriginAccessIdentityConfig");
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
@@ -12255,15 +12190,15 @@ const serializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
 
 const serializeAws_restXmlContentTypeProfile = (input: ContentTypeProfile, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ContentTypeProfile");
-  if (input.ProfileId !== undefined) {
+  if (input.ProfileId !== undefined && input.ProfileId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.ProfileId)).withName("ProfileId");
     bodyNode.addChildNode(node);
   }
-  if (input.ContentType !== undefined) {
+  if (input.ContentType !== undefined && input.ContentType !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.ContentType)).withName("ContentType");
     bodyNode.addChildNode(node);
   }
-  if (input.Format !== undefined) {
+  if (input.Format !== undefined && input.Format !== null) {
     const node = new __XmlNode("Format").addChildNode(new __XmlText(input.Format)).withName("Format");
     bodyNode.addChildNode(node);
   }
@@ -12275,13 +12210,13 @@ const serializeAws_restXmlContentTypeProfileConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("ContentTypeProfileConfig");
-  if (input.ContentTypeProfiles !== undefined) {
+  if (input.ContentTypeProfiles !== undefined && input.ContentTypeProfiles !== null) {
     const node = serializeAws_restXmlContentTypeProfiles(input.ContentTypeProfiles, context).withName(
       "ContentTypeProfiles"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.ForwardWhenContentTypeIsUnknown !== undefined) {
+  if (input.ForwardWhenContentTypeIsUnknown !== undefined && input.ForwardWhenContentTypeIsUnknown !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.ForwardWhenContentTypeIsUnknown)))
       .withName("ForwardWhenContentTypeIsUnknown");
@@ -12291,15 +12226,20 @@ const serializeAws_restXmlContentTypeProfileConfig = (
 };
 
 const serializeAws_restXmlContentTypeProfileList = (input: ContentTypeProfile[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlContentTypeProfile(entry, context);
-    return node.withName("ContentTypeProfile");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlContentTypeProfile(entry, context);
+      return node.withName("ContentTypeProfile");
+    });
 };
 
 const serializeAws_restXmlContentTypeProfiles = (input: ContentTypeProfiles, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ContentTypeProfiles");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlContentTypeProfileList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12307,7 +12247,7 @@ const serializeAws_restXmlContentTypeProfiles = (input: ContentTypeProfiles, con
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12315,19 +12255,24 @@ const serializeAws_restXmlContentTypeProfiles = (input: ContentTypeProfiles, con
 };
 
 const serializeAws_restXmlCookieNameList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Name");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Name");
+    });
 };
 
 const serializeAws_restXmlCookieNames = (input: CookieNames, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CookieNames");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlCookieNameList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12340,11 +12285,11 @@ const serializeAws_restXmlCookieNames = (input: CookieNames, context: __SerdeCon
 
 const serializeAws_restXmlCookiePreference = (input: CookiePreference, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CookiePreference");
-  if (input.Forward !== undefined) {
+  if (input.Forward !== undefined && input.Forward !== null) {
     const node = new __XmlNode("ItemSelection").addChildNode(new __XmlText(input.Forward)).withName("Forward");
     bodyNode.addChildNode(node);
   }
-  if (input.WhitelistedNames !== undefined) {
+  if (input.WhitelistedNames !== undefined && input.WhitelistedNames !== null) {
     const node = serializeAws_restXmlCookieNames(input.WhitelistedNames, context).withName("WhitelistedNames");
     bodyNode.addChildNode(node);
   }
@@ -12353,21 +12298,21 @@ const serializeAws_restXmlCookiePreference = (input: CookiePreference, context: 
 
 const serializeAws_restXmlCustomErrorResponse = (input: CustomErrorResponse, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomErrorResponse");
-  if (input.ResponseCode !== undefined) {
+  if (input.ResponseCode !== undefined && input.ResponseCode !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.ResponseCode)).withName("ResponseCode");
     bodyNode.addChildNode(node);
   }
-  if (input.ErrorCachingMinTTL !== undefined) {
+  if (input.ErrorCachingMinTTL !== undefined && input.ErrorCachingMinTTL !== null) {
     const node = new __XmlNode("long")
       .addChildNode(new __XmlText(String(input.ErrorCachingMinTTL)))
       .withName("ErrorCachingMinTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.ErrorCode !== undefined) {
+  if (input.ErrorCode !== undefined && input.ErrorCode !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.ErrorCode))).withName("ErrorCode");
     bodyNode.addChildNode(node);
   }
-  if (input.ResponsePagePath !== undefined) {
+  if (input.ResponsePagePath !== undefined && input.ResponsePagePath !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.ResponsePagePath))
       .withName("ResponsePagePath");
@@ -12377,19 +12322,24 @@ const serializeAws_restXmlCustomErrorResponse = (input: CustomErrorResponse, con
 };
 
 const serializeAws_restXmlCustomErrorResponseList = (input: CustomErrorResponse[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlCustomErrorResponse(entry, context);
-    return node.withName("CustomErrorResponse");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlCustomErrorResponse(entry, context);
+      return node.withName("CustomErrorResponse");
+    });
 };
 
 const serializeAws_restXmlCustomErrorResponses = (input: CustomErrorResponses, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomErrorResponses");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlCustomErrorResponseList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12402,11 +12352,11 @@ const serializeAws_restXmlCustomErrorResponses = (input: CustomErrorResponses, c
 
 const serializeAws_restXmlCustomHeaders = (input: CustomHeaders, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomHeaders");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlOriginCustomHeadersList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12419,35 +12369,35 @@ const serializeAws_restXmlCustomHeaders = (input: CustomHeaders, context: __Serd
 
 const serializeAws_restXmlCustomOriginConfig = (input: CustomOriginConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("CustomOriginConfig");
-  if (input.OriginKeepaliveTimeout !== undefined) {
+  if (input.OriginKeepaliveTimeout !== undefined && input.OriginKeepaliveTimeout !== null) {
     const node = new __XmlNode("integer")
       .addChildNode(new __XmlText(String(input.OriginKeepaliveTimeout)))
       .withName("OriginKeepaliveTimeout");
     bodyNode.addChildNode(node);
   }
-  if (input.HTTPPort !== undefined) {
+  if (input.HTTPPort !== undefined && input.HTTPPort !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.HTTPPort))).withName("HTTPPort");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginProtocolPolicy !== undefined) {
+  if (input.OriginProtocolPolicy !== undefined && input.OriginProtocolPolicy !== null) {
     const node = new __XmlNode("OriginProtocolPolicy")
       .addChildNode(new __XmlText(input.OriginProtocolPolicy))
       .withName("OriginProtocolPolicy");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginReadTimeout !== undefined) {
+  if (input.OriginReadTimeout !== undefined && input.OriginReadTimeout !== null) {
     const node = new __XmlNode("integer")
       .addChildNode(new __XmlText(String(input.OriginReadTimeout)))
       .withName("OriginReadTimeout");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginSslProtocols !== undefined) {
+  if (input.OriginSslProtocols !== undefined && input.OriginSslProtocols !== null) {
     const node = serializeAws_restXmlOriginSslProtocols(input.OriginSslProtocols, context).withName(
       "OriginSslProtocols"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.HTTPSPort !== undefined) {
+  if (input.HTTPSPort !== undefined && input.HTTPSPort !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.HTTPSPort))).withName("HTTPSPort");
     bodyNode.addChildNode(node);
   }
@@ -12456,77 +12406,77 @@ const serializeAws_restXmlCustomOriginConfig = (input: CustomOriginConfig, conte
 
 const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("DefaultCacheBehavior");
-  if (input.Compress !== undefined) {
+  if (input.Compress !== undefined && input.Compress !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Compress))).withName("Compress");
     bodyNode.addChildNode(node);
   }
-  if (input.ViewerProtocolPolicy !== undefined) {
+  if (input.ViewerProtocolPolicy !== undefined && input.ViewerProtocolPolicy !== null) {
     const node = new __XmlNode("ViewerProtocolPolicy")
       .addChildNode(new __XmlText(input.ViewerProtocolPolicy))
       .withName("ViewerProtocolPolicy");
     bodyNode.addChildNode(node);
   }
-  if (input.TargetOriginId !== undefined) {
+  if (input.TargetOriginId !== undefined && input.TargetOriginId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.TargetOriginId)).withName("TargetOriginId");
     bodyNode.addChildNode(node);
   }
-  if (input.FieldLevelEncryptionId !== undefined) {
+  if (input.FieldLevelEncryptionId !== undefined && input.FieldLevelEncryptionId !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.FieldLevelEncryptionId))
       .withName("FieldLevelEncryptionId");
     bodyNode.addChildNode(node);
   }
-  if (input.CachePolicyId !== undefined) {
+  if (input.CachePolicyId !== undefined && input.CachePolicyId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CachePolicyId)).withName("CachePolicyId");
     bodyNode.addChildNode(node);
   }
-  if (input.MaxTTL !== undefined) {
+  if (input.MaxTTL !== undefined && input.MaxTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MaxTTL))).withName("MaxTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.MinTTL !== undefined) {
+  if (input.MinTTL !== undefined && input.MinTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.MinTTL))).withName("MinTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.TrustedKeyGroups !== undefined) {
+  if (input.TrustedKeyGroups !== undefined && input.TrustedKeyGroups !== null) {
     const node = serializeAws_restXmlTrustedKeyGroups(input.TrustedKeyGroups, context).withName("TrustedKeyGroups");
     bodyNode.addChildNode(node);
   }
-  if (input.SmoothStreaming !== undefined) {
+  if (input.SmoothStreaming !== undefined && input.SmoothStreaming !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.SmoothStreaming)))
       .withName("SmoothStreaming");
     bodyNode.addChildNode(node);
   }
-  if (input.AllowedMethods !== undefined) {
+  if (input.AllowedMethods !== undefined && input.AllowedMethods !== null) {
     const node = serializeAws_restXmlAllowedMethods(input.AllowedMethods, context).withName("AllowedMethods");
     bodyNode.addChildNode(node);
   }
-  if (input.ForwardedValues !== undefined) {
+  if (input.ForwardedValues !== undefined && input.ForwardedValues !== null) {
     const node = serializeAws_restXmlForwardedValues(input.ForwardedValues, context).withName("ForwardedValues");
     bodyNode.addChildNode(node);
   }
-  if (input.DefaultTTL !== undefined) {
+  if (input.DefaultTTL !== undefined && input.DefaultTTL !== null) {
     const node = new __XmlNode("long").addChildNode(new __XmlText(String(input.DefaultTTL))).withName("DefaultTTL");
     bodyNode.addChildNode(node);
   }
-  if (input.TrustedSigners !== undefined) {
+  if (input.TrustedSigners !== undefined && input.TrustedSigners !== null) {
     const node = serializeAws_restXmlTrustedSigners(input.TrustedSigners, context).withName("TrustedSigners");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginRequestPolicyId !== undefined) {
+  if (input.OriginRequestPolicyId !== undefined && input.OriginRequestPolicyId !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.OriginRequestPolicyId))
       .withName("OriginRequestPolicyId");
     bodyNode.addChildNode(node);
   }
-  if (input.LambdaFunctionAssociations !== undefined) {
+  if (input.LambdaFunctionAssociations !== undefined && input.LambdaFunctionAssociations !== null) {
     const node = serializeAws_restXmlLambdaFunctionAssociations(input.LambdaFunctionAssociations, context).withName(
       "LambdaFunctionAssociations"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.RealtimeLogConfigArn !== undefined) {
+  if (input.RealtimeLogConfigArn !== undefined && input.RealtimeLogConfigArn !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.RealtimeLogConfigArn))
       .withName("RealtimeLogConfigArn");
@@ -12537,79 +12487,79 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
 
 const serializeAws_restXmlDistributionConfig = (input: DistributionConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("DistributionConfig");
-  if (input.WebACLId !== undefined) {
+  if (input.WebACLId !== undefined && input.WebACLId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.WebACLId)).withName("WebACLId");
     bodyNode.addChildNode(node);
   }
-  if (input.Aliases !== undefined) {
+  if (input.Aliases !== undefined && input.Aliases !== null) {
     const node = serializeAws_restXmlAliases(input.Aliases, context).withName("Aliases");
     bodyNode.addChildNode(node);
   }
-  if (input.DefaultRootObject !== undefined) {
+  if (input.DefaultRootObject !== undefined && input.DefaultRootObject !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.DefaultRootObject))
       .withName("DefaultRootObject");
     bodyNode.addChildNode(node);
   }
-  if (input.ViewerCertificate !== undefined) {
+  if (input.ViewerCertificate !== undefined && input.ViewerCertificate !== null) {
     const node = serializeAws_restXmlViewerCertificate(input.ViewerCertificate, context).withName("ViewerCertificate");
     bodyNode.addChildNode(node);
   }
-  if (input.DefaultCacheBehavior !== undefined) {
+  if (input.DefaultCacheBehavior !== undefined && input.DefaultCacheBehavior !== null) {
     const node = serializeAws_restXmlDefaultCacheBehavior(input.DefaultCacheBehavior, context).withName(
       "DefaultCacheBehavior"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
-  if (input.IsIPV6Enabled !== undefined) {
+  if (input.IsIPV6Enabled !== undefined && input.IsIPV6Enabled !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.IsIPV6Enabled)))
       .withName("IsIPV6Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.Logging !== undefined) {
+  if (input.Logging !== undefined && input.Logging !== null) {
     const node = serializeAws_restXmlLoggingConfig(input.Logging, context).withName("Logging");
     bodyNode.addChildNode(node);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("CommentType").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.Origins !== undefined) {
+  if (input.Origins !== undefined && input.Origins !== null) {
     const node = serializeAws_restXmlOrigins(input.Origins, context).withName("Origins");
     bodyNode.addChildNode(node);
   }
-  if (input.CustomErrorResponses !== undefined) {
+  if (input.CustomErrorResponses !== undefined && input.CustomErrorResponses !== null) {
     const node = serializeAws_restXmlCustomErrorResponses(input.CustomErrorResponses, context).withName(
       "CustomErrorResponses"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.Restrictions !== undefined) {
+  if (input.Restrictions !== undefined && input.Restrictions !== null) {
     const node = serializeAws_restXmlRestrictions(input.Restrictions, context).withName("Restrictions");
     bodyNode.addChildNode(node);
   }
-  if (input.CacheBehaviors !== undefined) {
+  if (input.CacheBehaviors !== undefined && input.CacheBehaviors !== null) {
     const node = serializeAws_restXmlCacheBehaviors(input.CacheBehaviors, context).withName("CacheBehaviors");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginGroups !== undefined) {
+  if (input.OriginGroups !== undefined && input.OriginGroups !== null) {
     const node = serializeAws_restXmlOriginGroups(input.OriginGroups, context).withName("OriginGroups");
     bodyNode.addChildNode(node);
   }
-  if (input.HttpVersion !== undefined) {
+  if (input.HttpVersion !== undefined && input.HttpVersion !== null) {
     const node = new __XmlNode("HttpVersion").addChildNode(new __XmlText(input.HttpVersion)).withName("HttpVersion");
     bodyNode.addChildNode(node);
   }
-  if (input.PriceClass !== undefined) {
+  if (input.PriceClass !== undefined && input.PriceClass !== null) {
     const node = new __XmlNode("PriceClass").addChildNode(new __XmlText(input.PriceClass)).withName("PriceClass");
     bodyNode.addChildNode(node);
   }
@@ -12621,11 +12571,11 @@ const serializeAws_restXmlDistributionConfigWithTags = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("DistributionConfigWithTags");
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const node = serializeAws_restXmlTags(input.Tags, context).withName("Tags");
     bodyNode.addChildNode(node);
   }
-  if (input.DistributionConfig !== undefined) {
+  if (input.DistributionConfig !== undefined && input.DistributionConfig !== null) {
     const node = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context).withName(
       "DistributionConfig"
     );
@@ -12636,11 +12586,11 @@ const serializeAws_restXmlDistributionConfigWithTags = (
 
 const serializeAws_restXmlEncryptionEntities = (input: EncryptionEntities, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("EncryptionEntities");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlEncryptionEntityList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12653,15 +12603,15 @@ const serializeAws_restXmlEncryptionEntities = (input: EncryptionEntities, conte
 
 const serializeAws_restXmlEncryptionEntity = (input: EncryptionEntity, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("EncryptionEntity");
-  if (input.PublicKeyId !== undefined) {
+  if (input.PublicKeyId !== undefined && input.PublicKeyId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.PublicKeyId)).withName("PublicKeyId");
     bodyNode.addChildNode(node);
   }
-  if (input.ProviderId !== undefined) {
+  if (input.ProviderId !== undefined && input.ProviderId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.ProviderId)).withName("ProviderId");
     bodyNode.addChildNode(node);
   }
-  if (input.FieldPatterns !== undefined) {
+  if (input.FieldPatterns !== undefined && input.FieldPatterns !== null) {
     const node = serializeAws_restXmlFieldPatterns(input.FieldPatterns, context).withName("FieldPatterns");
     bodyNode.addChildNode(node);
   }
@@ -12669,19 +12619,24 @@ const serializeAws_restXmlEncryptionEntity = (input: EncryptionEntity, context: 
 };
 
 const serializeAws_restXmlEncryptionEntityList = (input: EncryptionEntity[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlEncryptionEntity(entry, context);
-    return node.withName("EncryptionEntity");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlEncryptionEntity(entry, context);
+      return node.withName("EncryptionEntity");
+    });
 };
 
 const serializeAws_restXmlEndPoint = (input: EndPoint, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("EndPoint");
-  if (input.StreamType !== undefined) {
+  if (input.StreamType !== undefined && input.StreamType !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.StreamType)).withName("StreamType");
     bodyNode.addChildNode(node);
   }
-  if (input.KinesisStreamConfig !== undefined) {
+  if (input.KinesisStreamConfig !== undefined && input.KinesisStreamConfig !== null) {
     const node = serializeAws_restXmlKinesisStreamConfig(input.KinesisStreamConfig, context).withName(
       "KinesisStreamConfig"
     );
@@ -12691,10 +12646,15 @@ const serializeAws_restXmlEndPoint = (input: EndPoint, context: __SerdeContext):
 };
 
 const serializeAws_restXmlEndPointList = (input: EndPoint[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlEndPoint(entry, context);
-    return node.withName("member");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlEndPoint(entry, context);
+      return node.withName("member");
+    });
 };
 
 const serializeAws_restXmlFieldLevelEncryptionConfig = (
@@ -12702,23 +12662,23 @@ const serializeAws_restXmlFieldLevelEncryptionConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("FieldLevelEncryptionConfig");
-  if (input.QueryArgProfileConfig !== undefined) {
+  if (input.QueryArgProfileConfig !== undefined && input.QueryArgProfileConfig !== null) {
     const node = serializeAws_restXmlQueryArgProfileConfig(input.QueryArgProfileConfig, context).withName(
       "QueryArgProfileConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.ContentTypeProfileConfig !== undefined) {
+  if (input.ContentTypeProfileConfig !== undefined && input.ContentTypeProfileConfig !== null) {
     const node = serializeAws_restXmlContentTypeProfileConfig(input.ContentTypeProfileConfig, context).withName(
       "ContentTypeProfileConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
@@ -12730,21 +12690,21 @@ const serializeAws_restXmlFieldLevelEncryptionProfileConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("FieldLevelEncryptionProfileConfig");
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.EncryptionEntities !== undefined) {
+  if (input.EncryptionEntities !== undefined && input.EncryptionEntities !== null) {
     const node = serializeAws_restXmlEncryptionEntities(input.EncryptionEntities, context).withName(
       "EncryptionEntities"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
     bodyNode.addChildNode(node);
   }
@@ -12752,22 +12712,32 @@ const serializeAws_restXmlFieldLevelEncryptionProfileConfig = (
 };
 
 const serializeAws_restXmlFieldList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Field");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Field");
+    });
 };
 
 const serializeAws_restXmlFieldPatternList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("FieldPattern");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("FieldPattern");
+    });
 };
 
 const serializeAws_restXmlFieldPatterns = (input: FieldPatterns, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("FieldPatterns");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlFieldPatternList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12775,7 +12745,7 @@ const serializeAws_restXmlFieldPatterns = (input: FieldPatterns, context: __Serd
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12784,23 +12754,23 @@ const serializeAws_restXmlFieldPatterns = (input: FieldPatterns, context: __Serd
 
 const serializeAws_restXmlForwardedValues = (input: ForwardedValues, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ForwardedValues");
-  if (input.QueryString !== undefined) {
+  if (input.QueryString !== undefined && input.QueryString !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.QueryString)))
       .withName("QueryString");
     bodyNode.addChildNode(node);
   }
-  if (input.QueryStringCacheKeys !== undefined) {
+  if (input.QueryStringCacheKeys !== undefined && input.QueryStringCacheKeys !== null) {
     const node = serializeAws_restXmlQueryStringCacheKeys(input.QueryStringCacheKeys, context).withName(
       "QueryStringCacheKeys"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.Headers !== undefined) {
+  if (input.Headers !== undefined && input.Headers !== null) {
     const node = serializeAws_restXmlHeaders(input.Headers, context).withName("Headers");
     bodyNode.addChildNode(node);
   }
-  if (input.Cookies !== undefined) {
+  if (input.Cookies !== undefined && input.Cookies !== null) {
     const node = serializeAws_restXmlCookiePreference(input.Cookies, context).withName("Cookies");
     bodyNode.addChildNode(node);
   }
@@ -12809,13 +12779,13 @@ const serializeAws_restXmlForwardedValues = (input: ForwardedValues, context: __
 
 const serializeAws_restXmlGeoRestriction = (input: GeoRestriction, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("GeoRestriction");
-  if (input.RestrictionType !== undefined) {
+  if (input.RestrictionType !== undefined && input.RestrictionType !== null) {
     const node = new __XmlNode("GeoRestrictionType")
       .addChildNode(new __XmlText(input.RestrictionType))
       .withName("RestrictionType");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlLocationList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12823,7 +12793,7 @@ const serializeAws_restXmlGeoRestriction = (input: GeoRestriction, context: __Se
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12831,19 +12801,24 @@ const serializeAws_restXmlGeoRestriction = (input: GeoRestriction, context: __Se
 };
 
 const serializeAws_restXmlHeaderList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Name");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Name");
+    });
 };
 
 const serializeAws_restXmlHeaders = (input: Headers, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Headers");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlHeaderList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12856,11 +12831,11 @@ const serializeAws_restXmlHeaders = (input: Headers, context: __SerdeContext): a
 
 const serializeAws_restXmlInvalidationBatch = (input: InvalidationBatch, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("InvalidationBatch");
-  if (input.Paths !== undefined) {
+  if (input.Paths !== undefined && input.Paths !== null) {
     const node = serializeAws_restXmlPaths(input.Paths, context).withName("Paths");
     bodyNode.addChildNode(node);
   }
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
@@ -12869,7 +12844,7 @@ const serializeAws_restXmlInvalidationBatch = (input: InvalidationBatch, context
 
 const serializeAws_restXmlKeyGroupConfig = (input: KeyGroupConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("KeyGroupConfig");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlPublicKeyIdList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12877,11 +12852,11 @@ const serializeAws_restXmlKeyGroupConfig = (input: KeyGroupConfig, context: __Se
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
     bodyNode.addChildNode(node);
   }
@@ -12890,11 +12865,11 @@ const serializeAws_restXmlKeyGroupConfig = (input: KeyGroupConfig, context: __Se
 
 const serializeAws_restXmlKinesisStreamConfig = (input: KinesisStreamConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("KinesisStreamConfig");
-  if (input.RoleARN !== undefined) {
+  if (input.RoleARN !== undefined && input.RoleARN !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.RoleARN)).withName("RoleARN");
     bodyNode.addChildNode(node);
   }
-  if (input.StreamARN !== undefined) {
+  if (input.StreamARN !== undefined && input.StreamARN !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.StreamARN)).withName("StreamARN");
     bodyNode.addChildNode(node);
   }
@@ -12906,17 +12881,17 @@ const serializeAws_restXmlLambdaFunctionAssociation = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("LambdaFunctionAssociation");
-  if (input.LambdaFunctionARN !== undefined) {
+  if (input.LambdaFunctionARN !== undefined && input.LambdaFunctionARN !== null) {
     const node = new __XmlNode("LambdaFunctionARN")
       .addChildNode(new __XmlText(input.LambdaFunctionARN))
       .withName("LambdaFunctionARN");
     bodyNode.addChildNode(node);
   }
-  if (input.EventType !== undefined) {
+  if (input.EventType !== undefined && input.EventType !== null) {
     const node = new __XmlNode("EventType").addChildNode(new __XmlText(input.EventType)).withName("EventType");
     bodyNode.addChildNode(node);
   }
-  if (input.IncludeBody !== undefined) {
+  if (input.IncludeBody !== undefined && input.IncludeBody !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.IncludeBody)))
       .withName("IncludeBody");
@@ -12929,10 +12904,15 @@ const serializeAws_restXmlLambdaFunctionAssociationList = (
   input: LambdaFunctionAssociation[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlLambdaFunctionAssociation(entry, context);
-    return node.withName("LambdaFunctionAssociation");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlLambdaFunctionAssociation(entry, context);
+      return node.withName("LambdaFunctionAssociation");
+    });
 };
 
 const serializeAws_restXmlLambdaFunctionAssociations = (
@@ -12940,7 +12920,7 @@ const serializeAws_restXmlLambdaFunctionAssociations = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("LambdaFunctionAssociations");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlLambdaFunctionAssociationList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -12948,7 +12928,7 @@ const serializeAws_restXmlLambdaFunctionAssociations = (
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -12956,27 +12936,32 @@ const serializeAws_restXmlLambdaFunctionAssociations = (
 };
 
 const serializeAws_restXmlLocationList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Location");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Location");
+    });
 };
 
 const serializeAws_restXmlLoggingConfig = (input: LoggingConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("LoggingConfig");
-  if (input.Prefix !== undefined) {
+  if (input.Prefix !== undefined && input.Prefix !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
   }
-  if (input.Bucket !== undefined) {
+  if (input.Bucket !== undefined && input.Bucket !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.IncludeCookies !== undefined) {
+  if (input.IncludeCookies !== undefined && input.IncludeCookies !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.IncludeCookies)))
       .withName("IncludeCookies");
@@ -12986,15 +12971,20 @@ const serializeAws_restXmlLoggingConfig = (input: LoggingConfig, context: __Serd
 };
 
 const serializeAws_restXmlMethodsList = (input: (Method | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("Method").addChildNode(new __XmlText(entry));
-    return node.withName("Method");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("Method").addChildNode(new __XmlText(entry));
+      return node.withName("Method");
+    });
 };
 
 const serializeAws_restXmlMonitoringSubscription = (input: MonitoringSubscription, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("MonitoringSubscription");
-  if (input.RealtimeMetricsSubscriptionConfig !== undefined) {
+  if (input.RealtimeMetricsSubscriptionConfig !== undefined && input.RealtimeMetricsSubscriptionConfig !== null) {
     const node = serializeAws_restXmlRealtimeMetricsSubscriptionConfig(
       input.RealtimeMetricsSubscriptionConfig,
       context
@@ -13006,45 +12996,45 @@ const serializeAws_restXmlMonitoringSubscription = (input: MonitoringSubscriptio
 
 const serializeAws_restXmlOrigin = (input: Origin, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Origin");
-  if (input.Id !== undefined) {
+  if (input.Id !== undefined && input.Id !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Id)).withName("Id");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginPath !== undefined) {
+  if (input.OriginPath !== undefined && input.OriginPath !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.OriginPath)).withName("OriginPath");
     bodyNode.addChildNode(node);
   }
-  if (input.CustomHeaders !== undefined) {
+  if (input.CustomHeaders !== undefined && input.CustomHeaders !== null) {
     const node = serializeAws_restXmlCustomHeaders(input.CustomHeaders, context).withName("CustomHeaders");
     bodyNode.addChildNode(node);
   }
-  if (input.CustomOriginConfig !== undefined) {
+  if (input.CustomOriginConfig !== undefined && input.CustomOriginConfig !== null) {
     const node = serializeAws_restXmlCustomOriginConfig(input.CustomOriginConfig, context).withName(
       "CustomOriginConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.S3OriginConfig !== undefined) {
+  if (input.S3OriginConfig !== undefined && input.S3OriginConfig !== null) {
     const node = serializeAws_restXmlS3OriginConfig(input.S3OriginConfig, context).withName("S3OriginConfig");
     bodyNode.addChildNode(node);
   }
-  if (input.ConnectionAttempts !== undefined) {
+  if (input.ConnectionAttempts !== undefined && input.ConnectionAttempts !== null) {
     const node = new __XmlNode("integer")
       .addChildNode(new __XmlText(String(input.ConnectionAttempts)))
       .withName("ConnectionAttempts");
     bodyNode.addChildNode(node);
   }
-  if (input.ConnectionTimeout !== undefined) {
+  if (input.ConnectionTimeout !== undefined && input.ConnectionTimeout !== null) {
     const node = new __XmlNode("integer")
       .addChildNode(new __XmlText(String(input.ConnectionTimeout)))
       .withName("ConnectionTimeout");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginShield !== undefined) {
+  if (input.OriginShield !== undefined && input.OriginShield !== null) {
     const node = serializeAws_restXmlOriginShield(input.OriginShield, context).withName("OriginShield");
     bodyNode.addChildNode(node);
   }
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.DomainName)).withName("DomainName");
     bodyNode.addChildNode(node);
   }
@@ -13053,11 +13043,11 @@ const serializeAws_restXmlOrigin = (input: Origin, context: __SerdeContext): any
 
 const serializeAws_restXmlOriginCustomHeader = (input: OriginCustomHeader, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginCustomHeader");
-  if (input.HeaderValue !== undefined) {
+  if (input.HeaderValue !== undefined && input.HeaderValue !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.HeaderValue)).withName("HeaderValue");
     bodyNode.addChildNode(node);
   }
-  if (input.HeaderName !== undefined) {
+  if (input.HeaderName !== undefined && input.HeaderName !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.HeaderName)).withName("HeaderName");
     bodyNode.addChildNode(node);
   }
@@ -13065,25 +13055,30 @@ const serializeAws_restXmlOriginCustomHeader = (input: OriginCustomHeader, conte
 };
 
 const serializeAws_restXmlOriginCustomHeadersList = (input: OriginCustomHeader[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlOriginCustomHeader(entry, context);
-    return node.withName("OriginCustomHeader");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlOriginCustomHeader(entry, context);
+      return node.withName("OriginCustomHeader");
+    });
 };
 
 const serializeAws_restXmlOriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroup");
-  if (input.FailoverCriteria !== undefined) {
+  if (input.FailoverCriteria !== undefined && input.FailoverCriteria !== null) {
     const node = serializeAws_restXmlOriginGroupFailoverCriteria(input.FailoverCriteria, context).withName(
       "FailoverCriteria"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.Members !== undefined) {
+  if (input.Members !== undefined && input.Members !== null) {
     const node = serializeAws_restXmlOriginGroupMembers(input.Members, context).withName("Members");
     bodyNode.addChildNode(node);
   }
-  if (input.Id !== undefined) {
+  if (input.Id !== undefined && input.Id !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Id)).withName("Id");
     bodyNode.addChildNode(node);
   }
@@ -13095,7 +13090,7 @@ const serializeAws_restXmlOriginGroupFailoverCriteria = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("OriginGroupFailoverCriteria");
-  if (input.StatusCodes !== undefined) {
+  if (input.StatusCodes !== undefined && input.StatusCodes !== null) {
     const node = serializeAws_restXmlStatusCodes(input.StatusCodes, context).withName("StatusCodes");
     bodyNode.addChildNode(node);
   }
@@ -13103,15 +13098,20 @@ const serializeAws_restXmlOriginGroupFailoverCriteria = (
 };
 
 const serializeAws_restXmlOriginGroupList = (input: OriginGroup[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlOriginGroup(entry, context);
-    return node.withName("OriginGroup");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlOriginGroup(entry, context);
+      return node.withName("OriginGroup");
+    });
 };
 
 const serializeAws_restXmlOriginGroupMember = (input: OriginGroupMember, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroupMember");
-  if (input.OriginId !== undefined) {
+  if (input.OriginId !== undefined && input.OriginId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.OriginId)).withName("OriginId");
     bodyNode.addChildNode(node);
   }
@@ -13119,19 +13119,24 @@ const serializeAws_restXmlOriginGroupMember = (input: OriginGroupMember, context
 };
 
 const serializeAws_restXmlOriginGroupMemberList = (input: OriginGroupMember[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlOriginGroupMember(entry, context);
-    return node.withName("OriginGroupMember");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlOriginGroupMember(entry, context);
+      return node.withName("OriginGroupMember");
+    });
 };
 
 const serializeAws_restXmlOriginGroupMembers = (input: OriginGroupMembers, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroupMembers");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlOriginGroupMemberList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13144,11 +13149,11 @@ const serializeAws_restXmlOriginGroupMembers = (input: OriginGroupMembers, conte
 
 const serializeAws_restXmlOriginGroups = (input: OriginGroups, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginGroups");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlOriginGroupList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13160,10 +13165,15 @@ const serializeAws_restXmlOriginGroups = (input: OriginGroups, context: __SerdeC
 };
 
 const serializeAws_restXmlOriginList = (input: Origin[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlOrigin(entry, context);
-    return node.withName("Origin");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlOrigin(entry, context);
+      return node.withName("Origin");
+    });
 };
 
 const serializeAws_restXmlOriginRequestPolicyConfig = (
@@ -13171,29 +13181,29 @@ const serializeAws_restXmlOriginRequestPolicyConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyConfig");
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.CookiesConfig !== undefined) {
+  if (input.CookiesConfig !== undefined && input.CookiesConfig !== null) {
     const node = serializeAws_restXmlOriginRequestPolicyCookiesConfig(input.CookiesConfig, context).withName(
       "CookiesConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.HeadersConfig !== undefined) {
+  if (input.HeadersConfig !== undefined && input.HeadersConfig !== null) {
     const node = serializeAws_restXmlOriginRequestPolicyHeadersConfig(input.HeadersConfig, context).withName(
       "HeadersConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.QueryStringsConfig !== undefined) {
+  if (input.QueryStringsConfig !== undefined && input.QueryStringsConfig !== null) {
     const node = serializeAws_restXmlOriginRequestPolicyQueryStringsConfig(input.QueryStringsConfig, context).withName(
       "QueryStringsConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
     bodyNode.addChildNode(node);
   }
@@ -13205,11 +13215,11 @@ const serializeAws_restXmlOriginRequestPolicyCookiesConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyCookiesConfig");
-  if (input.Cookies !== undefined) {
+  if (input.Cookies !== undefined && input.Cookies !== null) {
     const node = serializeAws_restXmlCookieNames(input.Cookies, context).withName("Cookies");
     bodyNode.addChildNode(node);
   }
-  if (input.CookieBehavior !== undefined) {
+  if (input.CookieBehavior !== undefined && input.CookieBehavior !== null) {
     const node = new __XmlNode("OriginRequestPolicyCookieBehavior")
       .addChildNode(new __XmlText(input.CookieBehavior))
       .withName("CookieBehavior");
@@ -13223,13 +13233,13 @@ const serializeAws_restXmlOriginRequestPolicyHeadersConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyHeadersConfig");
-  if (input.HeaderBehavior !== undefined) {
+  if (input.HeaderBehavior !== undefined && input.HeaderBehavior !== null) {
     const node = new __XmlNode("OriginRequestPolicyHeaderBehavior")
       .addChildNode(new __XmlText(input.HeaderBehavior))
       .withName("HeaderBehavior");
     bodyNode.addChildNode(node);
   }
-  if (input.Headers !== undefined) {
+  if (input.Headers !== undefined && input.Headers !== null) {
     const node = serializeAws_restXmlHeaders(input.Headers, context).withName("Headers");
     bodyNode.addChildNode(node);
   }
@@ -13241,13 +13251,13 @@ const serializeAws_restXmlOriginRequestPolicyQueryStringsConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("OriginRequestPolicyQueryStringsConfig");
-  if (input.QueryStringBehavior !== undefined) {
+  if (input.QueryStringBehavior !== undefined && input.QueryStringBehavior !== null) {
     const node = new __XmlNode("OriginRequestPolicyQueryStringBehavior")
       .addChildNode(new __XmlText(input.QueryStringBehavior))
       .withName("QueryStringBehavior");
     bodyNode.addChildNode(node);
   }
-  if (input.QueryStrings !== undefined) {
+  if (input.QueryStrings !== undefined && input.QueryStrings !== null) {
     const node = serializeAws_restXmlQueryStringNames(input.QueryStrings, context).withName("QueryStrings");
     bodyNode.addChildNode(node);
   }
@@ -13256,11 +13266,11 @@ const serializeAws_restXmlOriginRequestPolicyQueryStringsConfig = (
 
 const serializeAws_restXmlOrigins = (input: Origins, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Origins");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlOriginList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13273,13 +13283,13 @@ const serializeAws_restXmlOrigins = (input: Origins, context: __SerdeContext): a
 
 const serializeAws_restXmlOriginShield = (input: OriginShield, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginShield");
-  if (input.OriginShieldRegion !== undefined) {
+  if (input.OriginShieldRegion !== undefined && input.OriginShieldRegion !== null) {
     const node = new __XmlNode("OriginShieldRegion")
       .addChildNode(new __XmlText(input.OriginShieldRegion))
       .withName("OriginShieldRegion");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
@@ -13288,11 +13298,11 @@ const serializeAws_restXmlOriginShield = (input: OriginShield, context: __SerdeC
 
 const serializeAws_restXmlOriginSslProtocols = (input: OriginSslProtocols, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("OriginSslProtocols");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlSslProtocolsList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13308,29 +13318,29 @@ const serializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("ParametersInCacheKeyAndForwardedToOrigin");
-  if (input.QueryStringsConfig !== undefined) {
+  if (input.QueryStringsConfig !== undefined && input.QueryStringsConfig !== null) {
     const node = serializeAws_restXmlCachePolicyQueryStringsConfig(input.QueryStringsConfig, context).withName(
       "QueryStringsConfig"
     );
     bodyNode.addChildNode(node);
   }
-  if (input.EnableAcceptEncodingBrotli !== undefined) {
+  if (input.EnableAcceptEncodingBrotli !== undefined && input.EnableAcceptEncodingBrotli !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.EnableAcceptEncodingBrotli)))
       .withName("EnableAcceptEncodingBrotli");
     bodyNode.addChildNode(node);
   }
-  if (input.HeadersConfig !== undefined) {
+  if (input.HeadersConfig !== undefined && input.HeadersConfig !== null) {
     const node = serializeAws_restXmlCachePolicyHeadersConfig(input.HeadersConfig, context).withName("HeadersConfig");
     bodyNode.addChildNode(node);
   }
-  if (input.EnableAcceptEncodingGzip !== undefined) {
+  if (input.EnableAcceptEncodingGzip !== undefined && input.EnableAcceptEncodingGzip !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.EnableAcceptEncodingGzip)))
       .withName("EnableAcceptEncodingGzip");
     bodyNode.addChildNode(node);
   }
-  if (input.CookiesConfig !== undefined) {
+  if (input.CookiesConfig !== undefined && input.CookiesConfig !== null) {
     const node = serializeAws_restXmlCachePolicyCookiesConfig(input.CookiesConfig, context).withName("CookiesConfig");
     bodyNode.addChildNode(node);
   }
@@ -13338,19 +13348,24 @@ const serializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
 };
 
 const serializeAws_restXmlPathList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Path");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Path");
+    });
 };
 
 const serializeAws_restXmlPaths = (input: Paths, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Paths");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlPathList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13363,19 +13378,19 @@ const serializeAws_restXmlPaths = (input: Paths, context: __SerdeContext): any =
 
 const serializeAws_restXmlPublicKeyConfig = (input: PublicKeyConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("PublicKeyConfig");
-  if (input.Name !== undefined) {
+  if (input.Name !== undefined && input.Name !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
     bodyNode.addChildNode(node);
   }
-  if (input.EncodedKey !== undefined) {
+  if (input.EncodedKey !== undefined && input.EncodedKey !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.EncodedKey)).withName("EncodedKey");
     bodyNode.addChildNode(node);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
@@ -13383,19 +13398,24 @@ const serializeAws_restXmlPublicKeyConfig = (input: PublicKeyConfig, context: __
 };
 
 const serializeAws_restXmlPublicKeyIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("PublicKey");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("PublicKey");
+    });
 };
 
 const serializeAws_restXmlQueryArgProfile = (input: QueryArgProfile, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryArgProfile");
-  if (input.QueryArg !== undefined) {
+  if (input.QueryArg !== undefined && input.QueryArg !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.QueryArg)).withName("QueryArg");
     bodyNode.addChildNode(node);
   }
-  if (input.ProfileId !== undefined) {
+  if (input.ProfileId !== undefined && input.ProfileId !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.ProfileId)).withName("ProfileId");
     bodyNode.addChildNode(node);
   }
@@ -13404,13 +13424,13 @@ const serializeAws_restXmlQueryArgProfile = (input: QueryArgProfile, context: __
 
 const serializeAws_restXmlQueryArgProfileConfig = (input: QueryArgProfileConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryArgProfileConfig");
-  if (input.ForwardWhenQueryArgProfileIsUnknown !== undefined) {
+  if (input.ForwardWhenQueryArgProfileIsUnknown !== undefined && input.ForwardWhenQueryArgProfileIsUnknown !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.ForwardWhenQueryArgProfileIsUnknown)))
       .withName("ForwardWhenQueryArgProfileIsUnknown");
     bodyNode.addChildNode(node);
   }
-  if (input.QueryArgProfiles !== undefined) {
+  if (input.QueryArgProfiles !== undefined && input.QueryArgProfiles !== null) {
     const node = serializeAws_restXmlQueryArgProfiles(input.QueryArgProfiles, context).withName("QueryArgProfiles");
     bodyNode.addChildNode(node);
   }
@@ -13418,15 +13438,20 @@ const serializeAws_restXmlQueryArgProfileConfig = (input: QueryArgProfileConfig,
 };
 
 const serializeAws_restXmlQueryArgProfileList = (input: QueryArgProfile[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlQueryArgProfile(entry, context);
-    return node.withName("QueryArgProfile");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlQueryArgProfile(entry, context);
+      return node.withName("QueryArgProfile");
+    });
 };
 
 const serializeAws_restXmlQueryArgProfiles = (input: QueryArgProfiles, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryArgProfiles");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlQueryArgProfileList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13434,7 +13459,7 @@ const serializeAws_restXmlQueryArgProfiles = (input: QueryArgProfiles, context: 
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -13443,7 +13468,7 @@ const serializeAws_restXmlQueryArgProfiles = (input: QueryArgProfiles, context: 
 
 const serializeAws_restXmlQueryStringCacheKeys = (input: QueryStringCacheKeys, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryStringCacheKeys");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlQueryStringCacheKeysList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13451,7 +13476,7 @@ const serializeAws_restXmlQueryStringCacheKeys = (input: QueryStringCacheKeys, c
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
@@ -13459,19 +13484,24 @@ const serializeAws_restXmlQueryStringCacheKeys = (input: QueryStringCacheKeys, c
 };
 
 const serializeAws_restXmlQueryStringCacheKeysList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Name");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Name");
+    });
 };
 
 const serializeAws_restXmlQueryStringNames = (input: QueryStringNames, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("QueryStringNames");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlQueryStringNamesList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13483,10 +13513,15 @@ const serializeAws_restXmlQueryStringNames = (input: QueryStringNames, context: 
 };
 
 const serializeAws_restXmlQueryStringNamesList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("Name");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Name");
+    });
 };
 
 const serializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
@@ -13494,7 +13529,7 @@ const serializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("RealtimeMetricsSubscriptionConfig");
-  if (input.RealtimeMetricsSubscriptionStatus !== undefined) {
+  if (input.RealtimeMetricsSubscriptionStatus !== undefined && input.RealtimeMetricsSubscriptionStatus !== null) {
     const node = new __XmlNode("RealtimeMetricsSubscriptionStatus")
       .addChildNode(new __XmlText(input.RealtimeMetricsSubscriptionStatus))
       .withName("RealtimeMetricsSubscriptionStatus");
@@ -13505,7 +13540,7 @@ const serializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
 
 const serializeAws_restXmlRestrictions = (input: Restrictions, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Restrictions");
-  if (input.GeoRestriction !== undefined) {
+  if (input.GeoRestriction !== undefined && input.GeoRestriction !== null) {
     const node = serializeAws_restXmlGeoRestriction(input.GeoRestriction, context).withName("GeoRestriction");
     bodyNode.addChildNode(node);
   }
@@ -13514,11 +13549,11 @@ const serializeAws_restXmlRestrictions = (input: Restrictions, context: __SerdeC
 
 const serializeAws_restXmlS3Origin = (input: S3Origin, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3Origin");
-  if (input.DomainName !== undefined) {
+  if (input.DomainName !== undefined && input.DomainName !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.DomainName)).withName("DomainName");
     bodyNode.addChildNode(node);
   }
-  if (input.OriginAccessIdentity !== undefined) {
+  if (input.OriginAccessIdentity !== undefined && input.OriginAccessIdentity !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.OriginAccessIdentity))
       .withName("OriginAccessIdentity");
@@ -13529,7 +13564,7 @@ const serializeAws_restXmlS3Origin = (input: S3Origin, context: __SerdeContext):
 
 const serializeAws_restXmlS3OriginConfig = (input: S3OriginConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3OriginConfig");
-  if (input.OriginAccessIdentity !== undefined) {
+  if (input.OriginAccessIdentity !== undefined && input.OriginAccessIdentity !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.OriginAccessIdentity))
       .withName("OriginAccessIdentity");
@@ -13539,26 +13574,36 @@ const serializeAws_restXmlS3OriginConfig = (input: S3OriginConfig, context: __Se
 };
 
 const serializeAws_restXmlSslProtocolsList = (input: (SslProtocol | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("SslProtocol").addChildNode(new __XmlText(entry));
-    return node.withName("SslProtocol");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("SslProtocol").addChildNode(new __XmlText(entry));
+      return node.withName("SslProtocol");
+    });
 };
 
 const serializeAws_restXmlStatusCodeList = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(entry)));
-    return node.withName("StatusCode");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("integer").addChildNode(new __XmlText(String(entry)));
+      return node.withName("StatusCode");
+    });
 };
 
 const serializeAws_restXmlStatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StatusCodes");
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlStatusCodeList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13574,35 +13619,35 @@ const serializeAws_restXmlStreamingDistributionConfig = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("StreamingDistributionConfig");
-  if (input.Logging !== undefined) {
+  if (input.Logging !== undefined && input.Logging !== null) {
     const node = serializeAws_restXmlStreamingLoggingConfig(input.Logging, context).withName("Logging");
     bodyNode.addChildNode(node);
   }
-  if (input.Comment !== undefined) {
+  if (input.Comment !== undefined && input.Comment !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
     bodyNode.addChildNode(node);
   }
-  if (input.PriceClass !== undefined) {
+  if (input.PriceClass !== undefined && input.PriceClass !== null) {
     const node = new __XmlNode("PriceClass").addChildNode(new __XmlText(input.PriceClass)).withName("PriceClass");
     bodyNode.addChildNode(node);
   }
-  if (input.S3Origin !== undefined) {
+  if (input.S3Origin !== undefined && input.S3Origin !== null) {
     const node = serializeAws_restXmlS3Origin(input.S3Origin, context).withName("S3Origin");
     bodyNode.addChildNode(node);
   }
-  if (input.TrustedSigners !== undefined) {
+  if (input.TrustedSigners !== undefined && input.TrustedSigners !== null) {
     const node = serializeAws_restXmlTrustedSigners(input.TrustedSigners, context).withName("TrustedSigners");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.CallerReference !== undefined) {
+  if (input.CallerReference !== undefined && input.CallerReference !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.CallerReference)).withName("CallerReference");
     bodyNode.addChildNode(node);
   }
-  if (input.Aliases !== undefined) {
+  if (input.Aliases !== undefined && input.Aliases !== null) {
     const node = serializeAws_restXmlAliases(input.Aliases, context).withName("Aliases");
     bodyNode.addChildNode(node);
   }
@@ -13614,11 +13659,11 @@ const serializeAws_restXmlStreamingDistributionConfigWithTags = (
   context: __SerdeContext
 ): any => {
   const bodyNode = new __XmlNode("StreamingDistributionConfigWithTags");
-  if (input.Tags !== undefined) {
+  if (input.Tags !== undefined && input.Tags !== null) {
     const node = serializeAws_restXmlTags(input.Tags, context).withName("Tags");
     bodyNode.addChildNode(node);
   }
-  if (input.StreamingDistributionConfig !== undefined) {
+  if (input.StreamingDistributionConfig !== undefined && input.StreamingDistributionConfig !== null) {
     const node = serializeAws_restXmlStreamingDistributionConfig(input.StreamingDistributionConfig, context).withName(
       "StreamingDistributionConfig"
     );
@@ -13629,15 +13674,15 @@ const serializeAws_restXmlStreamingDistributionConfigWithTags = (
 
 const serializeAws_restXmlStreamingLoggingConfig = (input: StreamingLoggingConfig, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("StreamingLoggingConfig");
-  if (input.Bucket !== undefined) {
+  if (input.Bucket !== undefined && input.Bucket !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.Prefix !== undefined) {
+  if (input.Prefix !== undefined && input.Prefix !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Prefix)).withName("Prefix");
     bodyNode.addChildNode(node);
   }
@@ -13646,11 +13691,11 @@ const serializeAws_restXmlStreamingLoggingConfig = (input: StreamingLoggingConfi
 
 const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Tag");
-  if (input.Value !== undefined) {
+  if (input.Value !== undefined && input.Value !== null) {
     const node = new __XmlNode("TagValue").addChildNode(new __XmlText(input.Value)).withName("Value");
     bodyNode.addChildNode(node);
   }
-  if (input.Key !== undefined) {
+  if (input.Key !== undefined && input.Key !== null) {
     const node = new __XmlNode("TagKey").addChildNode(new __XmlText(input.Key)).withName("Key");
     bodyNode.addChildNode(node);
   }
@@ -13658,15 +13703,20 @@ const serializeAws_restXmlTag = (input: Tag, context: __SerdeContext): any => {
 };
 
 const serializeAws_restXmlTagKeyList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("TagKey").addChildNode(new __XmlText(entry));
-    return node.withName("Key");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("TagKey").addChildNode(new __XmlText(entry));
+      return node.withName("Key");
+    });
 };
 
 const serializeAws_restXmlTagKeys = (input: TagKeys, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("TagKeys");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlTagKeyList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13678,15 +13728,20 @@ const serializeAws_restXmlTagKeys = (input: TagKeys, context: __SerdeContext): a
 };
 
 const serializeAws_restXmlTagList = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = serializeAws_restXmlTag(entry, context);
-    return node.withName("Tag");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlTag(entry, context);
+      return node.withName("Tag");
+    });
 };
 
 const serializeAws_restXmlTags = (input: Tags, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Tags");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlTagList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13698,15 +13753,20 @@ const serializeAws_restXmlTags = (input: Tags, context: __SerdeContext): any => 
 };
 
 const serializeAws_restXmlTrustedKeyGroupIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
-    return node.withName("KeyGroup");
-  });
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("KeyGroup");
+    });
 };
 
 const serializeAws_restXmlTrustedKeyGroups = (input: TrustedKeyGroups, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("TrustedKeyGroups");
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlTrustedKeyGroupIdList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13714,11 +13774,11 @@ const serializeAws_restXmlTrustedKeyGroups = (input: TrustedKeyGroups, context: 
     });
     bodyNode.addChildNode(containerNode);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
@@ -13727,15 +13787,15 @@ const serializeAws_restXmlTrustedKeyGroups = (input: TrustedKeyGroups, context: 
 
 const serializeAws_restXmlTrustedSigners = (input: TrustedSigners, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("TrustedSigners");
-  if (input.Enabled !== undefined) {
+  if (input.Enabled !== undefined && input.Enabled !== null) {
     const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Enabled))).withName("Enabled");
     bodyNode.addChildNode(node);
   }
-  if (input.Quantity !== undefined) {
+  if (input.Quantity !== undefined && input.Quantity !== null) {
     const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
     bodyNode.addChildNode(node);
   }
-  if (input.Items !== undefined) {
+  if (input.Items !== undefined && input.Items !== null) {
     const nodes = serializeAws_restXmlAwsAccountNumberList(input.Items, context);
     const containerNode = new __XmlNode("Items");
     nodes.map((node: any) => {
@@ -13748,43 +13808,43 @@ const serializeAws_restXmlTrustedSigners = (input: TrustedSigners, context: __Se
 
 const serializeAws_restXmlViewerCertificate = (input: ViewerCertificate, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ViewerCertificate");
-  if (input.IAMCertificateId !== undefined) {
+  if (input.IAMCertificateId !== undefined && input.IAMCertificateId !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.IAMCertificateId))
       .withName("IAMCertificateId");
     bodyNode.addChildNode(node);
   }
-  if (input.MinimumProtocolVersion !== undefined) {
+  if (input.MinimumProtocolVersion !== undefined && input.MinimumProtocolVersion !== null) {
     const node = new __XmlNode("MinimumProtocolVersion")
       .addChildNode(new __XmlText(input.MinimumProtocolVersion))
       .withName("MinimumProtocolVersion");
     bodyNode.addChildNode(node);
   }
-  if (input.CloudFrontDefaultCertificate !== undefined) {
+  if (input.CloudFrontDefaultCertificate !== undefined && input.CloudFrontDefaultCertificate !== null) {
     const node = new __XmlNode("boolean")
       .addChildNode(new __XmlText(String(input.CloudFrontDefaultCertificate)))
       .withName("CloudFrontDefaultCertificate");
     bodyNode.addChildNode(node);
   }
-  if (input.SSLSupportMethod !== undefined) {
+  if (input.SSLSupportMethod !== undefined && input.SSLSupportMethod !== null) {
     const node = new __XmlNode("SSLSupportMethod")
       .addChildNode(new __XmlText(input.SSLSupportMethod))
       .withName("SSLSupportMethod");
     bodyNode.addChildNode(node);
   }
-  if (input.ACMCertificateArn !== undefined) {
+  if (input.ACMCertificateArn !== undefined && input.ACMCertificateArn !== null) {
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.ACMCertificateArn))
       .withName("ACMCertificateArn");
     bodyNode.addChildNode(node);
   }
-  if (input.CertificateSource !== undefined) {
+  if (input.CertificateSource !== undefined && input.CertificateSource !== null) {
     const node = new __XmlNode("CertificateSource")
       .addChildNode(new __XmlText(input.CertificateSource))
       .withName("CertificateSource");
     bodyNode.addChildNode(node);
   }
-  if (input.Certificate !== undefined) {
+  if (input.Certificate !== undefined && input.Certificate !== null) {
     const node = new __XmlNode("string").addChildNode(new __XmlText(input.Certificate)).withName("Certificate");
     bodyNode.addChildNode(node);
   }
@@ -13868,11 +13928,25 @@ const deserializeAws_restXmlAliasICPRecordal = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlAliasICPRecordals = (output: any, context: __SerdeContext): AliasICPRecordal[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlAliasICPRecordal(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlAliasICPRecordal(entry, context);
+    });
 };
 
 const deserializeAws_restXmlAliasList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeContext): AllowedMethods => {
@@ -13897,7 +13971,14 @@ const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlAwsAccountNumberList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
@@ -13978,7 +14059,14 @@ const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlCacheBehaviorList = (output: any, context: __SerdeContext): CacheBehavior[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlCacheBehavior(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlCacheBehavior(entry, context);
+    });
 };
 
 const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors => {
@@ -14163,7 +14251,14 @@ const deserializeAws_restXmlCachePolicySummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlCachePolicySummaryList = (output: any, context: __SerdeContext): CachePolicySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlCachePolicySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlCachePolicySummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlCloudFrontOriginAccessIdentity = (
@@ -14271,9 +14366,14 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList = (
   output: any,
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentitySummary[] => {
-  return (output || []).map((entry: any) =>
-    deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary(entry, context)
-  );
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlContentTypeProfile = (output: any, context: __SerdeContext): ContentTypeProfile => {
@@ -14312,7 +14412,14 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
 };
 
 const deserializeAws_restXmlContentTypeProfileList = (output: any, context: __SerdeContext): ContentTypeProfile[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlContentTypeProfile(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlContentTypeProfile(entry, context);
+    });
 };
 
 const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __SerdeContext): ContentTypeProfiles => {
@@ -14336,7 +14443,14 @@ const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlCookieNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext): CookieNames => {
@@ -14393,7 +14507,14 @@ const deserializeAws_restXmlCustomErrorResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlCustomErrorResponseList = (output: any, context: __SerdeContext): CustomErrorResponse[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlCustomErrorResponse(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlCustomErrorResponse(entry, context);
+    });
 };
 
 const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __SerdeContext): CustomErrorResponses => {
@@ -14705,7 +14826,14 @@ const deserializeAws_restXmlDistributionIdList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlDistributionIdListSummary = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeContext): DistributionList => {
@@ -14837,7 +14965,14 @@ const deserializeAws_restXmlDistributionSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlDistributionSummaryList = (output: any, context: __SerdeContext): DistributionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlDistributionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlDistributionSummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeContext): EncryptionEntities => {
@@ -14879,7 +15014,14 @@ const deserializeAws_restXmlEncryptionEntity = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlEncryptionEntityList = (output: any, context: __SerdeContext): EncryptionEntity[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlEncryptionEntity(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlEncryptionEntity(entry, context);
+    });
 };
 
 const deserializeAws_restXmlEndPoint = (output: any, context: __SerdeContext): EndPoint => {
@@ -14897,7 +15039,14 @@ const deserializeAws_restXmlEndPoint = (output: any, context: __SerdeContext): E
 };
 
 const deserializeAws_restXmlEndPointList = (output: any, context: __SerdeContext): EndPoint[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlEndPoint(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlEndPoint(entry, context);
+    });
 };
 
 const deserializeAws_restXmlFieldLevelEncryption = (output: any, context: __SerdeContext): FieldLevelEncryption => {
@@ -15096,7 +15245,14 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummaryList = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionProfileSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlFieldLevelEncryptionProfileSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlFieldLevelEncryptionProfileSummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlFieldLevelEncryptionSummary = (
@@ -15138,15 +15294,36 @@ const deserializeAws_restXmlFieldLevelEncryptionSummaryList = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlFieldLevelEncryptionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlFieldLevelEncryptionSummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlFieldList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlFieldPatternList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContext): FieldPatterns => {
@@ -15213,7 +15390,14 @@ const deserializeAws_restXmlGeoRestriction = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlHeaderList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): Headers => {
@@ -15324,7 +15508,14 @@ const deserializeAws_restXmlInvalidationSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlInvalidationSummaryList = (output: any, context: __SerdeContext): InvalidationSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlInvalidationSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlInvalidationSummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlKeyGroup = (output: any, context: __SerdeContext): KeyGroup => {
@@ -15408,11 +15599,25 @@ const deserializeAws_restXmlKeyGroupSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlKeyGroupSummaryList = (output: any, context: __SerdeContext): KeyGroupSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlKeyGroupSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlKeyGroupSummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlKeyPairIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlKeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
@@ -15447,7 +15652,14 @@ const deserializeAws_restXmlKGKeyPairIds = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlKGKeyPairIdsList = (output: any, context: __SerdeContext): KGKeyPairIds[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlKGKeyPairIds(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlKGKeyPairIds(entry, context);
+    });
 };
 
 const deserializeAws_restXmlKinesisStreamConfig = (output: any, context: __SerdeContext): KinesisStreamConfig => {
@@ -15489,7 +15701,14 @@ const deserializeAws_restXmlLambdaFunctionAssociationList = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionAssociation[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlLambdaFunctionAssociation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlLambdaFunctionAssociation(entry, context);
+    });
 };
 
 const deserializeAws_restXmlLambdaFunctionAssociations = (
@@ -15516,7 +15735,14 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
 };
 
 const deserializeAws_restXmlLocationList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlLoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
@@ -15542,7 +15768,14 @@ const deserializeAws_restXmlLoggingConfig = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlMethodsList = (output: any, context: __SerdeContext): (Method | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlMonitoringSubscription = (output: any, context: __SerdeContext): MonitoringSubscription => {
@@ -15615,7 +15848,14 @@ const deserializeAws_restXmlOriginCustomHeader = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlOriginCustomHeadersList = (output: any, context: __SerdeContext): OriginCustomHeader[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlOriginCustomHeader(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlOriginCustomHeader(entry, context);
+    });
 };
 
 const deserializeAws_restXmlOriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
@@ -15650,7 +15890,14 @@ const deserializeAws_restXmlOriginGroupFailoverCriteria = (
 };
 
 const deserializeAws_restXmlOriginGroupList = (output: any, context: __SerdeContext): OriginGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlOriginGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlOriginGroup(entry, context);
+    });
 };
 
 const deserializeAws_restXmlOriginGroupMember = (output: any, context: __SerdeContext): OriginGroupMember => {
@@ -15664,7 +15911,14 @@ const deserializeAws_restXmlOriginGroupMember = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlOriginGroupMemberList = (output: any, context: __SerdeContext): OriginGroupMember[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlOriginGroupMember(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlOriginGroupMember(entry, context);
+    });
 };
 
 const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeContext): OriginGroupMembers => {
@@ -15708,7 +15962,14 @@ const deserializeAws_restXmlOriginGroups = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlOriginList = (output: any, context: __SerdeContext): Origin[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlOrigin(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlOrigin(entry, context);
+    });
 };
 
 const deserializeAws_restXmlOriginRequestPolicy = (output: any, context: __SerdeContext): OriginRequestPolicy => {
@@ -15867,7 +16128,14 @@ const deserializeAws_restXmlOriginRequestPolicySummaryList = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlOriginRequestPolicySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlOriginRequestPolicySummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Origins => {
@@ -15954,7 +16222,14 @@ const deserializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
 };
 
 const deserializeAws_restXmlPathList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Paths => {
@@ -16015,7 +16290,14 @@ const deserializeAws_restXmlPublicKeyConfig = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlPublicKeyIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContext): PublicKeyList => {
@@ -16073,7 +16355,14 @@ const deserializeAws_restXmlPublicKeySummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlPublicKeySummaryList = (output: any, context: __SerdeContext): PublicKeySummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlPublicKeySummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlPublicKeySummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlQueryArgProfile = (output: any, context: __SerdeContext): QueryArgProfile => {
@@ -16105,7 +16394,14 @@ const deserializeAws_restXmlQueryArgProfileConfig = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlQueryArgProfileList = (output: any, context: __SerdeContext): QueryArgProfile[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlQueryArgProfile(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlQueryArgProfile(entry, context);
+    });
 };
 
 const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProfiles => {
@@ -16149,7 +16445,14 @@ const deserializeAws_restXmlQueryStringCacheKeys = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlQueryStringCacheKeysList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlQueryStringNames = (output: any, context: __SerdeContext): QueryStringNames => {
@@ -16173,7 +16476,14 @@ const deserializeAws_restXmlQueryStringNames = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlQueryStringNamesList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlRealtimeLogConfig = (output: any, context: __SerdeContext): RealtimeLogConfig => {
@@ -16212,7 +16522,14 @@ const deserializeAws_restXmlRealtimeLogConfig = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlRealtimeLogConfigList = (output: any, context: __SerdeContext): RealtimeLogConfig[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlRealtimeLogConfig(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlRealtimeLogConfig(entry, context);
+    });
 };
 
 const deserializeAws_restXmlRealtimeLogConfigs = (output: any, context: __SerdeContext): RealtimeLogConfigs => {
@@ -16309,15 +16626,36 @@ const deserializeAws_restXmlSigner = (output: any, context: __SerdeContext): Sig
 };
 
 const deserializeAws_restXmlSignerList = (output: any, context: __SerdeContext): Signer[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlSigner(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlSigner(entry, context);
+    });
 };
 
 const deserializeAws_restXmlSslProtocolsList = (output: any, context: __SerdeContext): (SslProtocol | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlStatusCodeList = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => parseInt(entry));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return parseInt(entry);
+    });
 };
 
 const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
@@ -16514,7 +16852,14 @@ const deserializeAws_restXmlStreamingDistributionSummaryList = (
   output: any,
   context: __SerdeContext
 ): StreamingDistributionSummary[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlStreamingDistributionSummary(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlStreamingDistributionSummary(entry, context);
+    });
 };
 
 const deserializeAws_restXmlStreamingLoggingConfig = (output: any, context: __SerdeContext): StreamingLoggingConfig => {
@@ -16550,7 +16895,14 @@ const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_restXmlTagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restXmlTag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlTag(entry, context);
+    });
 };
 
 const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags => {
@@ -16567,7 +16919,14 @@ const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags 
 };
 
 const deserializeAws_restXmlTrustedKeyGroupIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restXmlTrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGroups => {
@@ -16672,6 +17031,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

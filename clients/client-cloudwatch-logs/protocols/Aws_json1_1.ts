@@ -193,7 +193,7 @@ export const serializeAws_json1_1AssociateKmsKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.AssociateKmsKey",
   };
   let body: any;
@@ -206,7 +206,7 @@ export const serializeAws_json1_1CancelExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.CancelExportTask",
   };
   let body: any;
@@ -219,7 +219,7 @@ export const serializeAws_json1_1CreateExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.CreateExportTask",
   };
   let body: any;
@@ -232,7 +232,7 @@ export const serializeAws_json1_1CreateLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.CreateLogGroup",
   };
   let body: any;
@@ -245,7 +245,7 @@ export const serializeAws_json1_1CreateLogStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.CreateLogStream",
   };
   let body: any;
@@ -258,7 +258,7 @@ export const serializeAws_json1_1DeleteDestinationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteDestination",
   };
   let body: any;
@@ -271,7 +271,7 @@ export const serializeAws_json1_1DeleteLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteLogGroup",
   };
   let body: any;
@@ -284,7 +284,7 @@ export const serializeAws_json1_1DeleteLogStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteLogStream",
   };
   let body: any;
@@ -297,7 +297,7 @@ export const serializeAws_json1_1DeleteMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteMetricFilter",
   };
   let body: any;
@@ -310,7 +310,7 @@ export const serializeAws_json1_1DeleteQueryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteQueryDefinition",
   };
   let body: any;
@@ -323,7 +323,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteResourcePolicy",
   };
   let body: any;
@@ -336,7 +336,7 @@ export const serializeAws_json1_1DeleteRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteRetentionPolicy",
   };
   let body: any;
@@ -349,7 +349,7 @@ export const serializeAws_json1_1DeleteSubscriptionFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DeleteSubscriptionFilter",
   };
   let body: any;
@@ -362,7 +362,7 @@ export const serializeAws_json1_1DescribeDestinationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeDestinations",
   };
   let body: any;
@@ -375,7 +375,7 @@ export const serializeAws_json1_1DescribeExportTasksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeExportTasks",
   };
   let body: any;
@@ -388,7 +388,7 @@ export const serializeAws_json1_1DescribeLogGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeLogGroups",
   };
   let body: any;
@@ -401,7 +401,7 @@ export const serializeAws_json1_1DescribeLogStreamsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeLogStreams",
   };
   let body: any;
@@ -414,7 +414,7 @@ export const serializeAws_json1_1DescribeMetricFiltersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeMetricFilters",
   };
   let body: any;
@@ -427,7 +427,7 @@ export const serializeAws_json1_1DescribeQueriesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeQueries",
   };
   let body: any;
@@ -440,7 +440,7 @@ export const serializeAws_json1_1DescribeQueryDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeQueryDefinitions",
   };
   let body: any;
@@ -453,7 +453,7 @@ export const serializeAws_json1_1DescribeResourcePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeResourcePolicies",
   };
   let body: any;
@@ -466,7 +466,7 @@ export const serializeAws_json1_1DescribeSubscriptionFiltersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DescribeSubscriptionFilters",
   };
   let body: any;
@@ -479,7 +479,7 @@ export const serializeAws_json1_1DisassociateKmsKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.DisassociateKmsKey",
   };
   let body: any;
@@ -492,7 +492,7 @@ export const serializeAws_json1_1FilterLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.FilterLogEvents",
   };
   let body: any;
@@ -505,7 +505,7 @@ export const serializeAws_json1_1GetLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.GetLogEvents",
   };
   let body: any;
@@ -518,7 +518,7 @@ export const serializeAws_json1_1GetLogGroupFieldsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.GetLogGroupFields",
   };
   let body: any;
@@ -531,7 +531,7 @@ export const serializeAws_json1_1GetLogRecordCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.GetLogRecord",
   };
   let body: any;
@@ -544,7 +544,7 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.GetQueryResults",
   };
   let body: any;
@@ -557,7 +557,7 @@ export const serializeAws_json1_1ListTagsLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.ListTagsLogGroup",
   };
   let body: any;
@@ -570,7 +570,7 @@ export const serializeAws_json1_1PutDestinationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutDestination",
   };
   let body: any;
@@ -583,7 +583,7 @@ export const serializeAws_json1_1PutDestinationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutDestinationPolicy",
   };
   let body: any;
@@ -596,7 +596,7 @@ export const serializeAws_json1_1PutLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutLogEvents",
   };
   let body: any;
@@ -609,7 +609,7 @@ export const serializeAws_json1_1PutMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutMetricFilter",
   };
   let body: any;
@@ -622,7 +622,7 @@ export const serializeAws_json1_1PutQueryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutQueryDefinition",
   };
   let body: any;
@@ -635,7 +635,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutResourcePolicy",
   };
   let body: any;
@@ -648,7 +648,7 @@ export const serializeAws_json1_1PutRetentionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutRetentionPolicy",
   };
   let body: any;
@@ -661,7 +661,7 @@ export const serializeAws_json1_1PutSubscriptionFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.PutSubscriptionFilter",
   };
   let body: any;
@@ -674,7 +674,7 @@ export const serializeAws_json1_1StartQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.StartQuery",
   };
   let body: any;
@@ -687,7 +687,7 @@ export const serializeAws_json1_1StopQueryCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.StopQuery",
   };
   let body: any;
@@ -700,7 +700,7 @@ export const serializeAws_json1_1TagLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.TagLogGroup",
   };
   let body: any;
@@ -713,7 +713,7 @@ export const serializeAws_json1_1TestMetricFilterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.TestMetricFilter",
   };
   let body: any;
@@ -726,7 +726,7 @@ export const serializeAws_json1_1UntagLogGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Logs_20140328.UntagLogGroup",
   };
   let body: any;
@@ -758,8 +758,7 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -834,8 +833,7 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOperationException":
     case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
@@ -913,8 +911,7 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1005,8 +1002,7 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1089,8 +1085,7 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1165,8 +1160,7 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1241,8 +1235,7 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1317,8 +1310,7 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1393,8 +1385,7 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1472,8 +1463,7 @@ const deserializeAws_json1_1DeleteQueryDefinitionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1540,8 +1530,7 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1608,8 +1597,7 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1684,8 +1672,7 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1763,8 +1750,7 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1826,8 +1812,7 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1889,8 +1874,7 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -1952,8 +1936,7 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2023,8 +2006,7 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2094,8 +2076,7 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2165,8 +2146,7 @@ const deserializeAws_json1_1DescribeQueryDefinitionsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2228,8 +2208,7 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2291,8 +2270,7 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2359,8 +2337,7 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2438,8 +2415,7 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2509,8 +2485,7 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2580,8 +2555,7 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2659,8 +2633,7 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2738,8 +2711,7 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2809,8 +2781,7 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
@@ -2872,8 +2843,7 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -2940,8 +2910,7 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3011,8 +2980,7 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DataAlreadyAcceptedException":
     case "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException":
@@ -3103,8 +3071,7 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3190,8 +3157,7 @@ const deserializeAws_json1_1PutQueryDefinitionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3261,8 +3227,7 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3329,8 +3294,7 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3405,8 +3369,7 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3492,8 +3455,7 @@ const deserializeAws_json1_1StartQueryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3579,8 +3541,7 @@ const deserializeAws_json1_1StopQueryCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3647,8 +3608,7 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3710,8 +3670,7 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
@@ -3770,8 +3729,7 @@ const deserializeAws_json1_1UntagLogGroupCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
@@ -3965,41 +3923,43 @@ const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
 
 const serializeAws_json1_1AssociateKmsKeyRequest = (input: AssociateKmsKeyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
 const serializeAws_json1_1CancelExportTaskRequest = (input: CancelExportTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.taskId !== undefined && { taskId: input.taskId }),
+    ...(input.taskId !== undefined && input.taskId !== null && { taskId: input.taskId }),
   };
 };
 
 const serializeAws_json1_1CreateExportTaskRequest = (input: CreateExportTaskRequest, context: __SerdeContext): any => {
   return {
-    ...(input.destination !== undefined && { destination: input.destination }),
-    ...(input.destinationPrefix !== undefined && { destinationPrefix: input.destinationPrefix }),
-    ...(input.from !== undefined && { from: input.from }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
-    ...(input.taskName !== undefined && { taskName: input.taskName }),
-    ...(input.to !== undefined && { to: input.to }),
+    ...(input.destination !== undefined && input.destination !== null && { destination: input.destination }),
+    ...(input.destinationPrefix !== undefined &&
+      input.destinationPrefix !== null && { destinationPrefix: input.destinationPrefix }),
+    ...(input.from !== undefined && input.from !== null && { from: input.from }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined &&
+      input.logStreamNamePrefix !== null && { logStreamNamePrefix: input.logStreamNamePrefix }),
+    ...(input.taskName !== undefined && input.taskName !== null && { taskName: input.taskName }),
+    ...(input.to !== undefined && input.to !== null && { to: input.to }),
   };
 };
 
 const serializeAws_json1_1CreateLogGroupRequest = (input: CreateLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1CreateLogStreamRequest = (input: CreateLogStreamRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && input.logStreamName !== null && { logStreamName: input.logStreamName }),
   };
 };
 
@@ -4008,20 +3968,21 @@ const serializeAws_json1_1DeleteDestinationRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.destinationName !== undefined && { destinationName: input.destinationName }),
+    ...(input.destinationName !== undefined &&
+      input.destinationName !== null && { destinationName: input.destinationName }),
   };
 };
 
 const serializeAws_json1_1DeleteLogGroupRequest = (input: DeleteLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
 const serializeAws_json1_1DeleteLogStreamRequest = (input: DeleteLogStreamRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && input.logStreamName !== null && { logStreamName: input.logStreamName }),
   };
 };
 
@@ -4030,8 +3991,8 @@ const serializeAws_json1_1DeleteMetricFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.filterName !== undefined && input.filterName !== null && { filterName: input.filterName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -4040,7 +4001,8 @@ const serializeAws_json1_1DeleteQueryDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.queryDefinitionId !== undefined && { queryDefinitionId: input.queryDefinitionId }),
+    ...(input.queryDefinitionId !== undefined &&
+      input.queryDefinitionId !== null && { queryDefinitionId: input.queryDefinitionId }),
   };
 };
 
@@ -4049,7 +4011,7 @@ const serializeAws_json1_1DeleteResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.policyName !== undefined && { policyName: input.policyName }),
+    ...(input.policyName !== undefined && input.policyName !== null && { policyName: input.policyName }),
   };
 };
 
@@ -4058,7 +4020,7 @@ const serializeAws_json1_1DeleteRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -4067,8 +4029,8 @@ const serializeAws_json1_1DeleteSubscriptionFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.filterName !== undefined && input.filterName !== null && { filterName: input.filterName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
@@ -4077,9 +4039,10 @@ const serializeAws_json1_1DescribeDestinationsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.DestinationNamePrefix !== undefined && { DestinationNamePrefix: input.DestinationNamePrefix }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.DestinationNamePrefix !== undefined &&
+      input.DestinationNamePrefix !== null && { DestinationNamePrefix: input.DestinationNamePrefix }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -4088,10 +4051,10 @@ const serializeAws_json1_1DescribeExportTasksRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.statusCode !== undefined && { statusCode: input.statusCode }),
-    ...(input.taskId !== undefined && { taskId: input.taskId }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.statusCode !== undefined && input.statusCode !== null && { statusCode: input.statusCode }),
+    ...(input.taskId !== undefined && input.taskId !== null && { taskId: input.taskId }),
   };
 };
 
@@ -4100,9 +4063,10 @@ const serializeAws_json1_1DescribeLogGroupsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupNamePrefix !== undefined && { logGroupNamePrefix: input.logGroupNamePrefix }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupNamePrefix !== undefined &&
+      input.logGroupNamePrefix !== null && { logGroupNamePrefix: input.logGroupNamePrefix }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -4111,12 +4075,13 @@ const serializeAws_json1_1DescribeLogStreamsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.descending !== undefined && { descending: input.descending }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.orderBy !== undefined && { orderBy: input.orderBy }),
+    ...(input.descending !== undefined && input.descending !== null && { descending: input.descending }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined &&
+      input.logStreamNamePrefix !== null && { logStreamNamePrefix: input.logStreamNamePrefix }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.orderBy !== undefined && input.orderBy !== null && { orderBy: input.orderBy }),
   };
 };
 
@@ -4125,21 +4090,23 @@ const serializeAws_json1_1DescribeMetricFiltersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterNamePrefix !== undefined && { filterNamePrefix: input.filterNamePrefix }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.metricName !== undefined && { metricName: input.metricName }),
-    ...(input.metricNamespace !== undefined && { metricNamespace: input.metricNamespace }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filterNamePrefix !== undefined &&
+      input.filterNamePrefix !== null && { filterNamePrefix: input.filterNamePrefix }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
+    ...(input.metricNamespace !== undefined &&
+      input.metricNamespace !== null && { metricNamespace: input.metricNamespace }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
 const serializeAws_json1_1DescribeQueriesRequest = (input: DescribeQueriesRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.status !== undefined && { status: input.status }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.status !== undefined && input.status !== null && { status: input.status }),
   };
 };
 
@@ -4148,11 +4115,10 @@ const serializeAws_json1_1DescribeQueryDefinitionsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.queryDefinitionNamePrefix !== undefined && {
-      queryDefinitionNamePrefix: input.queryDefinitionNamePrefix,
-    }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.queryDefinitionNamePrefix !== undefined &&
+      input.queryDefinitionNamePrefix !== null && { queryDefinitionNamePrefix: input.queryDefinitionNamePrefix }),
   };
 };
 
@@ -4161,8 +4127,8 @@ const serializeAws_json1_1DescribeResourcePoliciesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -4171,10 +4137,11 @@ const serializeAws_json1_1DescribeSubscriptionFiltersRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.filterNamePrefix !== undefined && { filterNamePrefix: input.filterNamePrefix }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.filterNamePrefix !== undefined &&
+      input.filterNamePrefix !== null && { filterNamePrefix: input.filterNamePrefix }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -4183,35 +4150,37 @@ const serializeAws_json1_1DisassociateKmsKeyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
 const serializeAws_json1_1FilterLogEventsRequest = (input: FilterLogEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime !== undefined && { endTime: input.endTime }),
-    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
-    ...(input.interleaved !== undefined && { interleaved: input.interleaved }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamNamePrefix !== undefined && { logStreamNamePrefix: input.logStreamNamePrefix }),
-    ...(input.logStreamNames !== undefined && {
-      logStreamNames: serializeAws_json1_1InputLogStreamNames(input.logStreamNames, context),
-    }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.startTime !== undefined && { startTime: input.startTime }),
+    ...(input.endTime !== undefined && input.endTime !== null && { endTime: input.endTime }),
+    ...(input.filterPattern !== undefined && input.filterPattern !== null && { filterPattern: input.filterPattern }),
+    ...(input.interleaved !== undefined && input.interleaved !== null && { interleaved: input.interleaved }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamNamePrefix !== undefined &&
+      input.logStreamNamePrefix !== null && { logStreamNamePrefix: input.logStreamNamePrefix }),
+    ...(input.logStreamNames !== undefined &&
+      input.logStreamNames !== null && {
+        logStreamNames: serializeAws_json1_1InputLogStreamNames(input.logStreamNames, context),
+      }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.startTime !== undefined && input.startTime !== null && { startTime: input.startTime }),
   };
 };
 
 const serializeAws_json1_1GetLogEventsRequest = (input: GetLogEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime !== undefined && { endTime: input.endTime }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.startFromHead !== undefined && { startFromHead: input.startFromHead }),
-    ...(input.startTime !== undefined && { startTime: input.startTime }),
+    ...(input.endTime !== undefined && input.endTime !== null && { endTime: input.endTime }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && input.logStreamName !== null && { logStreamName: input.logStreamName }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.startFromHead !== undefined && input.startFromHead !== null && { startFromHead: input.startFromHead }),
+    ...(input.startTime !== undefined && input.startTime !== null && { startTime: input.startTime }),
   };
 };
 
@@ -4220,59 +4189,89 @@ const serializeAws_json1_1GetLogGroupFieldsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.time !== undefined && { time: input.time }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.time !== undefined && input.time !== null && { time: input.time }),
   };
 };
 
 const serializeAws_json1_1GetLogRecordRequest = (input: GetLogRecordRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logRecordPointer !== undefined && { logRecordPointer: input.logRecordPointer }),
+    ...(input.logRecordPointer !== undefined &&
+      input.logRecordPointer !== null && { logRecordPointer: input.logRecordPointer }),
   };
 };
 
 const serializeAws_json1_1GetQueryResultsRequest = (input: GetQueryResultsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.queryId !== undefined && { queryId: input.queryId }),
+    ...(input.queryId !== undefined && input.queryId !== null && { queryId: input.queryId }),
   };
 };
 
 const serializeAws_json1_1InputLogEvent = (input: InputLogEvent, context: __SerdeContext): any => {
   return {
-    ...(input.message !== undefined && { message: input.message }),
-    ...(input.timestamp !== undefined && { timestamp: input.timestamp }),
+    ...(input.message !== undefined && input.message !== null && { message: input.message }),
+    ...(input.timestamp !== undefined && input.timestamp !== null && { timestamp: input.timestamp }),
   };
 };
 
 const serializeAws_json1_1InputLogEvents = (input: InputLogEvent[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1InputLogEvent(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1InputLogEvent(entry, context);
+    });
 };
 
 const serializeAws_json1_1InputLogStreamNames = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ListTagsLogGroupRequest = (input: ListTagsLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
   };
 };
 
 const serializeAws_json1_1LogGroupNames = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1MetricTransformation = (input: MetricTransformation, context: __SerdeContext): any => {
   return {
-    ...(input.defaultValue !== undefined && { defaultValue: input.defaultValue }),
-    ...(input.metricName !== undefined && { metricName: input.metricName }),
-    ...(input.metricNamespace !== undefined && { metricNamespace: input.metricNamespace }),
-    ...(input.metricValue !== undefined && { metricValue: input.metricValue }),
+    ...(input.defaultValue !== undefined && input.defaultValue !== null && { defaultValue: input.defaultValue }),
+    ...(input.metricName !== undefined && input.metricName !== null && { metricName: input.metricName }),
+    ...(input.metricNamespace !== undefined &&
+      input.metricNamespace !== null && { metricNamespace: input.metricNamespace }),
+    ...(input.metricValue !== undefined && input.metricValue !== null && { metricValue: input.metricValue }),
   };
 };
 
 const serializeAws_json1_1MetricTransformations = (input: MetricTransformation[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_json1_1MetricTransformation(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1MetricTransformation(entry, context);
+    });
 };
 
 const serializeAws_json1_1PutDestinationPolicyRequest = (
@@ -4280,36 +4279,40 @@ const serializeAws_json1_1PutDestinationPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.accessPolicy !== undefined && { accessPolicy: input.accessPolicy }),
-    ...(input.destinationName !== undefined && { destinationName: input.destinationName }),
+    ...(input.accessPolicy !== undefined && input.accessPolicy !== null && { accessPolicy: input.accessPolicy }),
+    ...(input.destinationName !== undefined &&
+      input.destinationName !== null && { destinationName: input.destinationName }),
   };
 };
 
 const serializeAws_json1_1PutDestinationRequest = (input: PutDestinationRequest, context: __SerdeContext): any => {
   return {
-    ...(input.destinationName !== undefined && { destinationName: input.destinationName }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
-    ...(input.targetArn !== undefined && { targetArn: input.targetArn }),
+    ...(input.destinationName !== undefined &&
+      input.destinationName !== null && { destinationName: input.destinationName }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+    ...(input.targetArn !== undefined && input.targetArn !== null && { targetArn: input.targetArn }),
   };
 };
 
 const serializeAws_json1_1PutLogEventsRequest = (input: PutLogEventsRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logEvents !== undefined && { logEvents: serializeAws_json1_1InputLogEvents(input.logEvents, context) }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logStreamName !== undefined && { logStreamName: input.logStreamName }),
-    ...(input.sequenceToken !== undefined && { sequenceToken: input.sequenceToken }),
+    ...(input.logEvents !== undefined &&
+      input.logEvents !== null && { logEvents: serializeAws_json1_1InputLogEvents(input.logEvents, context) }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logStreamName !== undefined && input.logStreamName !== null && { logStreamName: input.logStreamName }),
+    ...(input.sequenceToken !== undefined && input.sequenceToken !== null && { sequenceToken: input.sequenceToken }),
   };
 };
 
 const serializeAws_json1_1PutMetricFilterRequest = (input: PutMetricFilterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.metricTransformations !== undefined && {
-      metricTransformations: serializeAws_json1_1MetricTransformations(input.metricTransformations, context),
-    }),
+    ...(input.filterName !== undefined && input.filterName !== null && { filterName: input.filterName }),
+    ...(input.filterPattern !== undefined && input.filterPattern !== null && { filterPattern: input.filterPattern }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.metricTransformations !== undefined &&
+      input.metricTransformations !== null && {
+        metricTransformations: serializeAws_json1_1MetricTransformations(input.metricTransformations, context),
+      }),
   };
 };
 
@@ -4318,12 +4321,14 @@ const serializeAws_json1_1PutQueryDefinitionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupNames !== undefined && {
-      logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
-    }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.queryDefinitionId !== undefined && { queryDefinitionId: input.queryDefinitionId }),
-    ...(input.queryString !== undefined && { queryString: input.queryString }),
+    ...(input.logGroupNames !== undefined &&
+      input.logGroupNames !== null && {
+        logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
+      }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.queryDefinitionId !== undefined &&
+      input.queryDefinitionId !== null && { queryDefinitionId: input.queryDefinitionId }),
+    ...(input.queryString !== undefined && input.queryString !== null && { queryString: input.queryString }),
   };
 };
 
@@ -4332,8 +4337,9 @@ const serializeAws_json1_1PutResourcePolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.policyDocument !== undefined && { policyDocument: input.policyDocument }),
-    ...(input.policyName !== undefined && { policyName: input.policyName }),
+    ...(input.policyDocument !== undefined &&
+      input.policyDocument !== null && { policyDocument: input.policyDocument }),
+    ...(input.policyName !== undefined && input.policyName !== null && { policyName: input.policyName }),
   };
 };
 
@@ -4342,8 +4348,9 @@ const serializeAws_json1_1PutRetentionPolicyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.retentionInDays !== undefined && { retentionInDays: input.retentionInDays }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.retentionInDays !== undefined &&
+      input.retentionInDays !== null && { retentionInDays: input.retentionInDays }),
   };
 };
 
@@ -4352,72 +4359,91 @@ const serializeAws_json1_1PutSubscriptionFilterRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.destinationArn !== undefined && { destinationArn: input.destinationArn }),
-    ...(input.distribution !== undefined && { distribution: input.distribution }),
-    ...(input.filterName !== undefined && { filterName: input.filterName }),
-    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.destinationArn !== undefined &&
+      input.destinationArn !== null && { destinationArn: input.destinationArn }),
+    ...(input.distribution !== undefined && input.distribution !== null && { distribution: input.distribution }),
+    ...(input.filterName !== undefined && input.filterName !== null && { filterName: input.filterName }),
+    ...(input.filterPattern !== undefined && input.filterPattern !== null && { filterPattern: input.filterPattern }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   };
 };
 
 const serializeAws_json1_1StartQueryRequest = (input: StartQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.endTime !== undefined && { endTime: input.endTime }),
-    ...(input.limit !== undefined && { limit: input.limit }),
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.logGroupNames !== undefined && {
-      logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
-    }),
-    ...(input.queryString !== undefined && { queryString: input.queryString }),
-    ...(input.startTime !== undefined && { startTime: input.startTime }),
+    ...(input.endTime !== undefined && input.endTime !== null && { endTime: input.endTime }),
+    ...(input.limit !== undefined && input.limit !== null && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.logGroupNames !== undefined &&
+      input.logGroupNames !== null && {
+        logGroupNames: serializeAws_json1_1LogGroupNames(input.logGroupNames, context),
+      }),
+    ...(input.queryString !== undefined && input.queryString !== null && { queryString: input.queryString }),
+    ...(input.startTime !== undefined && input.startTime !== null && { startTime: input.startTime }),
   };
 };
 
 const serializeAws_json1_1StopQueryRequest = (input: StopQueryRequest, context: __SerdeContext): any => {
   return {
-    ...(input.queryId !== undefined && { queryId: input.queryId }),
+    ...(input.queryId !== undefined && input.queryId !== null && { queryId: input.queryId }),
   };
 };
 
 const serializeAws_json1_1TagList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TagLogGroupRequest = (input: TagLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1Tags(input.tags, context) }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
 };
 
 const serializeAws_json1_1Tags = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_json1_1TestEventMessages = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TestMetricFilterRequest = (input: TestMetricFilterRequest, context: __SerdeContext): any => {
   return {
-    ...(input.filterPattern !== undefined && { filterPattern: input.filterPattern }),
-    ...(input.logEventMessages !== undefined && {
-      logEventMessages: serializeAws_json1_1TestEventMessages(input.logEventMessages, context),
-    }),
+    ...(input.filterPattern !== undefined && input.filterPattern !== null && { filterPattern: input.filterPattern }),
+    ...(input.logEventMessages !== undefined &&
+      input.logEventMessages !== null && {
+        logEventMessages: serializeAws_json1_1TestEventMessages(input.logEventMessages, context),
+      }),
   };
 };
 
 const serializeAws_json1_1UntagLogGroupRequest = (input: UntagLogGroupRequest, context: __SerdeContext): any => {
   return {
-    ...(input.logGroupName !== undefined && { logGroupName: input.logGroupName }),
-    ...(input.tags !== undefined && { tags: serializeAws_json1_1TagList(input.tags, context) }),
+    ...(input.logGroupName !== undefined && input.logGroupName !== null && { logGroupName: input.logGroupName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1TagList(input.tags, context) }),
   };
 };
 
@@ -4582,7 +4608,14 @@ const deserializeAws_json1_1Destination = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1Destinations = (output: any, context: __SerdeContext): Destination[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Destination(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Destination(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ExportTask = (output: any, context: __SerdeContext): ExportTask => {
@@ -4620,7 +4653,14 @@ const deserializeAws_json1_1ExportTaskExecutionInfo = (
 };
 
 const deserializeAws_json1_1ExportTasks = (output: any, context: __SerdeContext): ExportTask[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ExportTask(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExportTask(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ExportTaskStatus = (output: any, context: __SerdeContext): ExportTaskStatus => {
@@ -4631,13 +4671,15 @@ const deserializeAws_json1_1ExportTaskStatus = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ExtractedValues = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1FilteredLogEvent = (output: any, context: __SerdeContext): FilteredLogEvent => {
@@ -4653,7 +4695,14 @@ const deserializeAws_json1_1FilteredLogEvent = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1FilteredLogEvents = (output: any, context: __SerdeContext): FilteredLogEvent[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1FilteredLogEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FilteredLogEvent(entry, context);
+    });
 };
 
 const deserializeAws_json1_1FilterLogEventsResponse = (
@@ -4797,25 +4846,48 @@ const deserializeAws_json1_1LogGroupField = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1LogGroupFieldList = (output: any, context: __SerdeContext): LogGroupField[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LogGroupField(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LogGroupField(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LogGroupNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1LogGroups = (output: any, context: __SerdeContext): LogGroup[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LogGroup(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LogGroup(entry, context);
+    });
 };
 
 const deserializeAws_json1_1LogRecord = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1LogStream = (output: any, context: __SerdeContext): LogStream => {
@@ -4845,7 +4917,14 @@ const deserializeAws_json1_1LogStream = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1LogStreams = (output: any, context: __SerdeContext): LogStream[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1LogStream(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LogStream(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MalformedQueryException = (
@@ -4876,7 +4955,14 @@ const deserializeAws_json1_1MetricFilter = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1MetricFilterMatches = (output: any, context: __SerdeContext): MetricFilterMatchRecord[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricFilterMatchRecord(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricFilterMatchRecord(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MetricFilterMatchRecord = (
@@ -4894,7 +4980,14 @@ const deserializeAws_json1_1MetricFilterMatchRecord = (
 };
 
 const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContext): MetricFilter[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricFilter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricFilter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1MetricTransformation = (output: any, context: __SerdeContext): MetricTransformation => {
@@ -4908,7 +5001,14 @@ const deserializeAws_json1_1MetricTransformation = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1MetricTransformations = (output: any, context: __SerdeContext): MetricTransformation[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1MetricTransformation(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MetricTransformation(entry, context);
+    });
 };
 
 const deserializeAws_json1_1OperationAbortedException = (
@@ -4930,7 +5030,14 @@ const deserializeAws_json1_1OutputLogEvent = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1OutputLogEvents = (output: any, context: __SerdeContext): OutputLogEvent[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1OutputLogEvent(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1OutputLogEvent(entry, context);
+    });
 };
 
 const deserializeAws_json1_1PutDestinationResponse = (output: any, context: __SerdeContext): PutDestinationResponse => {
@@ -5018,7 +5125,14 @@ const deserializeAws_json1_1QueryDefinition = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1QueryDefinitionList = (output: any, context: __SerdeContext): QueryDefinition[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1QueryDefinition(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QueryDefinition(entry, context);
+    });
 };
 
 const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
@@ -5032,11 +5146,25 @@ const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1QueryInfoList = (output: any, context: __SerdeContext): QueryInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1QueryInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1QueryInfo(entry, context);
+    });
 };
 
 const deserializeAws_json1_1QueryResults = (output: any, context: __SerdeContext): ResultField[][] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResultRows(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResultRows(entry, context);
+    });
 };
 
 const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeContext): QueryStatistics => {
@@ -5085,7 +5213,14 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 };
 
 const deserializeAws_json1_1ResourcePolicies = (output: any, context: __SerdeContext): ResourcePolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResourcePolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourcePolicy(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
@@ -5106,7 +5241,14 @@ const deserializeAws_json1_1ResultField = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ResultRows = (output: any, context: __SerdeContext): ResultField[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ResultField(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResultField(entry, context);
+    });
 };
 
 const deserializeAws_json1_1SearchedLogStream = (output: any, context: __SerdeContext): SearchedLogStream => {
@@ -5121,7 +5263,14 @@ const deserializeAws_json1_1SearchedLogStream = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1SearchedLogStreams = (output: any, context: __SerdeContext): SearchedLogStream[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SearchedLogStream(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SearchedLogStream(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (
@@ -5160,17 +5309,26 @@ const deserializeAws_json1_1SubscriptionFilter = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1SubscriptionFilters = (output: any, context: __SerdeContext): SubscriptionFilter[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1SubscriptionFilter(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1SubscriptionFilter(entry, context);
+    });
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1TestMetricFilterResponse = (
@@ -5244,3 +5402,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

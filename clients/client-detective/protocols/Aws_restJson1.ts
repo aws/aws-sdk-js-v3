@@ -41,12 +41,12 @@ export const serializeAws_restJson1AcceptInvitationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/invitation";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -64,12 +64,10 @@ export const serializeAws_restJson1CreateGraphCommand = async (
   input: CreateGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/graph";
   let body: any;
-  body = "{}";
+  body = "";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -87,14 +85,15 @@ export const serializeAws_restJson1CreateMembersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graph/members";
   let body: any;
   body = JSON.stringify({
-    ...(input.Accounts !== undefined && { Accounts: serializeAws_restJson1AccountList(input.Accounts, context) }),
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
-    ...(input.Message !== undefined && { Message: input.Message }),
+    ...(input.Accounts !== undefined &&
+      input.Accounts !== null && { Accounts: serializeAws_restJson1AccountList(input.Accounts, context) }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
+    ...(input.Message !== undefined && input.Message !== null && { Message: input.Message }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -113,12 +112,12 @@ export const serializeAws_restJson1DeleteGraphCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graph/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -137,15 +136,14 @@ export const serializeAws_restJson1DeleteMembersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graph/members/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context),
-    }),
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -164,12 +162,12 @@ export const serializeAws_restJson1DisassociateMembershipCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/membership/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -188,15 +186,14 @@ export const serializeAws_restJson1GetMembersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graph/members/get";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountIds !== undefined && {
-      AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context),
-    }),
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.AccountIds !== undefined &&
+      input.AccountIds !== null && { AccountIds: serializeAws_restJson1AccountIdList(input.AccountIds, context) }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -215,13 +212,13 @@ export const serializeAws_restJson1ListGraphsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graphs/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -240,13 +237,13 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/invitations/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -265,14 +262,14 @@ export const serializeAws_restJson1ListMembersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graph/members/list";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -291,12 +288,12 @@ export const serializeAws_restJson1RejectInvitationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/invitation/removal";
   let body: any;
   body = JSON.stringify({
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -315,13 +312,13 @@ export const serializeAws_restJson1StartMonitoringMemberCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/graph/member/monitoringstate";
   let body: any;
   body = JSON.stringify({
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.GraphArn !== undefined && input.GraphArn !== null && { GraphArn: input.GraphArn }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1318,21 +1315,42 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1Account = (input: Account, context: __SerdeContext): any => {
   return {
-    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
-    ...(input.EmailAddress !== undefined && { EmailAddress: input.EmailAddress }),
+    ...(input.AccountId !== undefined && input.AccountId !== null && { AccountId: input.AccountId }),
+    ...(input.EmailAddress !== undefined && input.EmailAddress !== null && { EmailAddress: input.EmailAddress }),
   };
 };
 
 const serializeAws_restJson1AccountIdList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1AccountList = (input: Account[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Account(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Account(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AccountIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
@@ -1346,7 +1364,14 @@ const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Gr
 };
 
 const deserializeAws_restJson1GraphList = (output: any, context: __SerdeContext): Graph[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Graph(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Graph(entry, context);
+    });
 };
 
 const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeContext): MemberDetail => {
@@ -1378,7 +1403,14 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1MemberDetailList = (output: any, context: __SerdeContext): MemberDetail[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MemberDetail(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MemberDetail(entry, context);
+    });
 };
 
 const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
@@ -1389,7 +1421,14 @@ const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1UnprocessedAccountList = (output: any, context: __SerdeContext): UnprocessedAccount[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UnprocessedAccount(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnprocessedAccount(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1412,6 +1451,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

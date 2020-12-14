@@ -49,9 +49,7 @@ export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
   input: DeletePlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -79,9 +77,7 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
   input: GetPlaybackConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/playbackConfiguration/{Name}";
   if (input.Name !== undefined) {
     const labelValue: string = input.Name;
@@ -109,9 +105,7 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   input: ListPlaybackConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/playbackConfigurations";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
@@ -135,9 +129,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -166,36 +158,50 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/playbackConfiguration";
   let body: any;
   body = JSON.stringify({
-    ...(input.AdDecisionServerUrl !== undefined && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
-    ...(input.AvailSuppression !== undefined && {
-      AvailSuppression: serializeAws_restJson1AvailSuppression(input.AvailSuppression, context),
-    }),
-    ...(input.Bumper !== undefined && { Bumper: serializeAws_restJson1Bumper(input.Bumper, context) }),
-    ...(input.CdnConfiguration !== undefined && {
-      CdnConfiguration: serializeAws_restJson1CdnConfiguration(input.CdnConfiguration, context),
-    }),
-    ...(input.DashConfiguration !== undefined && {
-      DashConfiguration: serializeAws_restJson1DashConfigurationForPut(input.DashConfiguration, context),
-    }),
-    ...(input.LivePreRollConfiguration !== undefined && {
-      LivePreRollConfiguration: serializeAws_restJson1LivePreRollConfiguration(input.LivePreRollConfiguration, context),
-    }),
-    ...(input.ManifestProcessingRules !== undefined && {
-      ManifestProcessingRules: serializeAws_restJson1ManifestProcessingRules(input.ManifestProcessingRules, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.PersonalizationThresholdSeconds !== undefined && {
-      PersonalizationThresholdSeconds: input.PersonalizationThresholdSeconds,
-    }),
-    ...(input.SlateAdUrl !== undefined && { SlateAdUrl: input.SlateAdUrl }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
-    ...(input.TranscodeProfileName !== undefined && { TranscodeProfileName: input.TranscodeProfileName }),
-    ...(input.VideoContentSourceUrl !== undefined && { VideoContentSourceUrl: input.VideoContentSourceUrl }),
+    ...(input.AdDecisionServerUrl !== undefined &&
+      input.AdDecisionServerUrl !== null && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
+    ...(input.AvailSuppression !== undefined &&
+      input.AvailSuppression !== null && {
+        AvailSuppression: serializeAws_restJson1AvailSuppression(input.AvailSuppression, context),
+      }),
+    ...(input.Bumper !== undefined &&
+      input.Bumper !== null && { Bumper: serializeAws_restJson1Bumper(input.Bumper, context) }),
+    ...(input.CdnConfiguration !== undefined &&
+      input.CdnConfiguration !== null && {
+        CdnConfiguration: serializeAws_restJson1CdnConfiguration(input.CdnConfiguration, context),
+      }),
+    ...(input.DashConfiguration !== undefined &&
+      input.DashConfiguration !== null && {
+        DashConfiguration: serializeAws_restJson1DashConfigurationForPut(input.DashConfiguration, context),
+      }),
+    ...(input.LivePreRollConfiguration !== undefined &&
+      input.LivePreRollConfiguration !== null && {
+        LivePreRollConfiguration: serializeAws_restJson1LivePreRollConfiguration(
+          input.LivePreRollConfiguration,
+          context
+        ),
+      }),
+    ...(input.ManifestProcessingRules !== undefined &&
+      input.ManifestProcessingRules !== null && {
+        ManifestProcessingRules: serializeAws_restJson1ManifestProcessingRules(input.ManifestProcessingRules, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.PersonalizationThresholdSeconds !== undefined &&
+      input.PersonalizationThresholdSeconds !== null && {
+        PersonalizationThresholdSeconds: input.PersonalizationThresholdSeconds,
+      }),
+    ...(input.SlateAdUrl !== undefined && input.SlateAdUrl !== null && { SlateAdUrl: input.SlateAdUrl }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.TranscodeProfileName !== undefined &&
+      input.TranscodeProfileName !== null && { TranscodeProfileName: input.TranscodeProfileName }),
+    ...(input.VideoContentSourceUrl !== undefined &&
+      input.VideoContentSourceUrl !== null && { VideoContentSourceUrl: input.VideoContentSourceUrl }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -214,7 +220,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
@@ -228,7 +234,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -246,9 +253,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -779,39 +784,43 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
 };
 
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1AdMarkerPassthrough = (input: AdMarkerPassthrough, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1AvailSuppression = (input: AvailSuppression, context: __SerdeContext): any => {
   return {
-    ...(input.Mode !== undefined && { Mode: input.Mode }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1Bumper = (input: Bumper, context: __SerdeContext): any => {
   return {
-    ...(input.EndUrl !== undefined && { EndUrl: input.EndUrl }),
-    ...(input.StartUrl !== undefined && { StartUrl: input.StartUrl }),
+    ...(input.EndUrl !== undefined && input.EndUrl !== null && { EndUrl: input.EndUrl }),
+    ...(input.StartUrl !== undefined && input.StartUrl !== null && { StartUrl: input.StartUrl }),
   };
 };
 
 const serializeAws_restJson1CdnConfiguration = (input: CdnConfiguration, context: __SerdeContext): any => {
   return {
-    ...(input.AdSegmentUrlPrefix !== undefined && { AdSegmentUrlPrefix: input.AdSegmentUrlPrefix }),
-    ...(input.ContentSegmentUrlPrefix !== undefined && { ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix }),
+    ...(input.AdSegmentUrlPrefix !== undefined &&
+      input.AdSegmentUrlPrefix !== null && { AdSegmentUrlPrefix: input.AdSegmentUrlPrefix }),
+    ...(input.ContentSegmentUrlPrefix !== undefined &&
+      input.ContentSegmentUrlPrefix !== null && { ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix }),
   };
 };
 
@@ -820,8 +829,9 @@ const serializeAws_restJson1DashConfigurationForPut = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MpdLocation !== undefined && { MpdLocation: input.MpdLocation }),
-    ...(input.OriginManifestType !== undefined && { OriginManifestType: input.OriginManifestType }),
+    ...(input.MpdLocation !== undefined && input.MpdLocation !== null && { MpdLocation: input.MpdLocation }),
+    ...(input.OriginManifestType !== undefined &&
+      input.OriginManifestType !== null && { OriginManifestType: input.OriginManifestType }),
   };
 };
 
@@ -830,8 +840,10 @@ const serializeAws_restJson1LivePreRollConfiguration = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdDecisionServerUrl !== undefined && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
-    ...(input.MaxDurationSeconds !== undefined && { MaxDurationSeconds: input.MaxDurationSeconds }),
+    ...(input.AdDecisionServerUrl !== undefined &&
+      input.AdDecisionServerUrl !== null && { AdDecisionServerUrl: input.AdDecisionServerUrl }),
+    ...(input.MaxDurationSeconds !== undefined &&
+      input.MaxDurationSeconds !== null && { MaxDurationSeconds: input.MaxDurationSeconds }),
   };
 };
 
@@ -840,9 +852,10 @@ const serializeAws_restJson1ManifestProcessingRules = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.AdMarkerPassthrough !== undefined && {
-      AdMarkerPassthrough: serializeAws_restJson1AdMarkerPassthrough(input.AdMarkerPassthrough, context),
-    }),
+    ...(input.AdMarkerPassthrough !== undefined &&
+      input.AdMarkerPassthrough !== null && {
+        AdMarkerPassthrough: serializeAws_restJson1AdMarkerPassthrough(input.AdMarkerPassthrough, context),
+      }),
   };
 };
 
@@ -850,17 +863,26 @@ const deserializeAws_restJson1__listOfPlaybackConfigurations = (
   output: any,
   context: __SerdeContext
 ): PlaybackConfiguration[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1PlaybackConfiguration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PlaybackConfiguration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1AdMarkerPassthrough = (output: any, context: __SerdeContext): AdMarkerPassthrough => {
@@ -1030,6 +1052,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

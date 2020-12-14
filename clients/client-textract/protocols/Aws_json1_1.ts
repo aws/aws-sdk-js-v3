@@ -77,7 +77,7 @@ export const serializeAws_json1_1AnalyzeDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Textract.AnalyzeDocument",
   };
   let body: any;
@@ -90,7 +90,7 @@ export const serializeAws_json1_1DetectDocumentTextCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Textract.DetectDocumentText",
   };
   let body: any;
@@ -103,7 +103,7 @@ export const serializeAws_json1_1GetDocumentAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Textract.GetDocumentAnalysis",
   };
   let body: any;
@@ -116,7 +116,7 @@ export const serializeAws_json1_1GetDocumentTextDetectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Textract.GetDocumentTextDetection",
   };
   let body: any;
@@ -129,7 +129,7 @@ export const serializeAws_json1_1StartDocumentAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Textract.StartDocumentAnalysis",
   };
   let body: any;
@@ -142,7 +142,7 @@ export const serializeAws_json1_1StartDocumentTextDetectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "Textract.StartDocumentTextDetection",
   };
   let body: any;
@@ -177,8 +177,7 @@ const deserializeAws_json1_1AnalyzeDocumentCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
@@ -304,8 +303,7 @@ const deserializeAws_json1_1DetectDocumentTextCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
@@ -423,8 +421,7 @@ const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
@@ -526,8 +523,7 @@ const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
@@ -629,8 +625,7 @@ const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
@@ -772,8 +767,7 @@ const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.textract#AccessDeniedException":
@@ -1100,13 +1094,14 @@ const deserializeAws_json1_1UnsupportedDocumentExceptionResponse = async (
 
 const serializeAws_json1_1AnalyzeDocumentRequest = (input: AnalyzeDocumentRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Document !== undefined && { Document: serializeAws_json1_1Document(input.Document, context) }),
-    ...(input.FeatureTypes !== undefined && {
-      FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context),
-    }),
-    ...(input.HumanLoopConfig !== undefined && {
-      HumanLoopConfig: serializeAws_json1_1HumanLoopConfig(input.HumanLoopConfig, context),
-    }),
+    ...(input.Document !== undefined &&
+      input.Document !== null && { Document: serializeAws_json1_1Document(input.Document, context) }),
+    ...(input.FeatureTypes !== undefined &&
+      input.FeatureTypes !== null && { FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context) }),
+    ...(input.HumanLoopConfig !== undefined &&
+      input.HumanLoopConfig !== null && {
+        HumanLoopConfig: serializeAws_json1_1HumanLoopConfig(input.HumanLoopConfig, context),
+      }),
   };
 };
 
@@ -1114,7 +1109,14 @@ const serializeAws_json1_1ContentClassifiers = (
   input: (ContentClassifier | string)[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DetectDocumentTextRequest = (
@@ -1122,25 +1124,35 @@ const serializeAws_json1_1DetectDocumentTextRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Document !== undefined && { Document: serializeAws_json1_1Document(input.Document, context) }),
+    ...(input.Document !== undefined &&
+      input.Document !== null && { Document: serializeAws_json1_1Document(input.Document, context) }),
   };
 };
 
 const serializeAws_json1_1Document = (input: Document, context: __SerdeContext): any => {
   return {
-    ...(input.Bytes !== undefined && { Bytes: context.base64Encoder(input.Bytes) }),
-    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
+    ...(input.Bytes !== undefined && input.Bytes !== null && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.S3Object !== undefined &&
+      input.S3Object !== null && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 
 const serializeAws_json1_1DocumentLocation = (input: DocumentLocation, context: __SerdeContext): any => {
   return {
-    ...(input.S3Object !== undefined && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
+    ...(input.S3Object !== undefined &&
+      input.S3Object !== null && { S3Object: serializeAws_json1_1S3Object(input.S3Object, context) }),
   };
 };
 
 const serializeAws_json1_1FeatureTypes = (input: (FeatureType | string)[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1GetDocumentAnalysisRequest = (
@@ -1148,9 +1160,9 @@ const serializeAws_json1_1GetDocumentAnalysisRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1159,49 +1171,52 @@ const serializeAws_json1_1GetDocumentTextDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1HumanLoopConfig = (input: HumanLoopConfig, context: __SerdeContext): any => {
   return {
-    ...(input.DataAttributes !== undefined && {
-      DataAttributes: serializeAws_json1_1HumanLoopDataAttributes(input.DataAttributes, context),
-    }),
-    ...(input.FlowDefinitionArn !== undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
-    ...(input.HumanLoopName !== undefined && { HumanLoopName: input.HumanLoopName }),
+    ...(input.DataAttributes !== undefined &&
+      input.DataAttributes !== null && {
+        DataAttributes: serializeAws_json1_1HumanLoopDataAttributes(input.DataAttributes, context),
+      }),
+    ...(input.FlowDefinitionArn !== undefined &&
+      input.FlowDefinitionArn !== null && { FlowDefinitionArn: input.FlowDefinitionArn }),
+    ...(input.HumanLoopName !== undefined && input.HumanLoopName !== null && { HumanLoopName: input.HumanLoopName }),
   };
 };
 
 const serializeAws_json1_1HumanLoopDataAttributes = (input: HumanLoopDataAttributes, context: __SerdeContext): any => {
   return {
-    ...(input.ContentClassifiers !== undefined && {
-      ContentClassifiers: serializeAws_json1_1ContentClassifiers(input.ContentClassifiers, context),
-    }),
+    ...(input.ContentClassifiers !== undefined &&
+      input.ContentClassifiers !== null && {
+        ContentClassifiers: serializeAws_json1_1ContentClassifiers(input.ContentClassifiers, context),
+      }),
   };
 };
 
 const serializeAws_json1_1NotificationChannel = (input: NotificationChannel, context: __SerdeContext): any => {
   return {
-    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
-    ...(input.SNSTopicArn !== undefined && { SNSTopicArn: input.SNSTopicArn }),
+    ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+    ...(input.SNSTopicArn !== undefined && input.SNSTopicArn !== null && { SNSTopicArn: input.SNSTopicArn }),
   };
 };
 
 const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
   return {
-    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
-    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
+    ...(input.S3Bucket !== undefined && input.S3Bucket !== null && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Prefix !== undefined && input.S3Prefix !== null && { S3Prefix: input.S3Prefix }),
   };
 };
 
 const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
   return {
-    ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.Version !== undefined && { Version: input.Version }),
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Version !== undefined && input.Version !== null && { Version: input.Version }),
   };
 };
 
@@ -1210,21 +1225,22 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation !== undefined && {
-      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
-    }),
-    ...(input.FeatureTypes !== undefined && {
-      FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context),
-    }),
-    ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
-    ...(input.KMSKeyId !== undefined && { KMSKeyId: input.KMSKeyId }),
-    ...(input.NotificationChannel !== undefined && {
-      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.OutputConfig !== undefined && {
-      OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context),
-    }),
+    ...(input.ClientRequestToken !== undefined &&
+      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.DocumentLocation !== undefined &&
+      input.DocumentLocation !== null && {
+        DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
+      }),
+    ...(input.FeatureTypes !== undefined &&
+      input.FeatureTypes !== null && { FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context) }),
+    ...(input.JobTag !== undefined && input.JobTag !== null && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId !== undefined && input.KMSKeyId !== null && { KMSKeyId: input.KMSKeyId }),
+    ...(input.NotificationChannel !== undefined &&
+      input.NotificationChannel !== null && {
+        NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+      }),
+    ...(input.OutputConfig !== undefined &&
+      input.OutputConfig !== null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
   };
 };
 
@@ -1233,18 +1249,20 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.ClientRequestToken !== undefined && { ClientRequestToken: input.ClientRequestToken }),
-    ...(input.DocumentLocation !== undefined && {
-      DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
-    }),
-    ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
-    ...(input.KMSKeyId !== undefined && { KMSKeyId: input.KMSKeyId }),
-    ...(input.NotificationChannel !== undefined && {
-      NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
-    }),
-    ...(input.OutputConfig !== undefined && {
-      OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context),
-    }),
+    ...(input.ClientRequestToken !== undefined &&
+      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.DocumentLocation !== undefined &&
+      input.DocumentLocation !== null && {
+        DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
+      }),
+    ...(input.JobTag !== undefined && input.JobTag !== null && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId !== undefined && input.KMSKeyId !== null && { KMSKeyId: input.KMSKeyId }),
+    ...(input.NotificationChannel !== undefined &&
+      input.NotificationChannel !== null && {
+        NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+      }),
+    ...(input.OutputConfig !== undefined &&
+      input.OutputConfig !== null && { OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context) }),
   };
 };
 
@@ -1316,7 +1334,14 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
 };
 
 const deserializeAws_json1_1BlockList = (output: any, context: __SerdeContext): Block[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Block(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Block(entry, context);
+    });
 };
 
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
@@ -1365,7 +1390,14 @@ const deserializeAws_json1_1DocumentTooLargeException = (
 };
 
 const deserializeAws_json1_1EntityTypes = (output: any, context: __SerdeContext): (EntityType | string)[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
@@ -1456,7 +1488,14 @@ const deserializeAws_json1_1HumanLoopActivationOutput = (
 };
 
 const deserializeAws_json1_1HumanLoopActivationReasons = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1HumanLoopQuotaExceededException = (
@@ -1483,7 +1522,14 @@ const deserializeAws_json1_1IdempotentParameterMismatchException = (
 };
 
 const deserializeAws_json1_1IdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
@@ -1535,7 +1581,14 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1Pages = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
@@ -1546,7 +1599,14 @@ const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Poin
 };
 
 const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Point[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Point(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Point(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
@@ -1568,7 +1628,14 @@ const deserializeAws_json1_1Relationship = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1RelationshipList = (output: any, context: __SerdeContext): Relationship[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Relationship(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Relationship(entry, context);
+    });
 };
 
 const deserializeAws_json1_1StartDocumentAnalysisResponse = (
@@ -1617,7 +1684,14 @@ const deserializeAws_json1_1Warning = (output: any, context: __SerdeContext): Wa
 };
 
 const deserializeAws_json1_1Warnings = (output: any, context: __SerdeContext): Warning[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Warning(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Warning(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -1670,3 +1744,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

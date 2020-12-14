@@ -143,7 +143,7 @@ export const serializeAws_restJson1BatchAssociateScramSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
@@ -157,9 +157,10 @@ export const serializeAws_restJson1BatchAssociateScramSecretCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SecretArnList !== undefined && {
-      secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
-    }),
+    ...(input.SecretArnList !== undefined &&
+      input.SecretArnList !== null && {
+        secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -178,7 +179,7 @@ export const serializeAws_restJson1BatchDisassociateScramSecretCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
@@ -192,9 +193,10 @@ export const serializeAws_restJson1BatchDisassociateScramSecretCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SecretArnList !== undefined && {
-      secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
-    }),
+    ...(input.SecretArnList !== undefined &&
+      input.SecretArnList !== null && {
+        secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -213,34 +215,41 @@ export const serializeAws_restJson1CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters";
   let body: any;
   body = JSON.stringify({
-    ...(input.BrokerNodeGroupInfo !== undefined && {
-      brokerNodeGroupInfo: serializeAws_restJson1BrokerNodeGroupInfo(input.BrokerNodeGroupInfo, context),
-    }),
-    ...(input.ClientAuthentication !== undefined && {
-      clientAuthentication: serializeAws_restJson1ClientAuthentication(input.ClientAuthentication, context),
-    }),
-    ...(input.ClusterName !== undefined && { clusterName: input.ClusterName }),
-    ...(input.ConfigurationInfo !== undefined && {
-      configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.EncryptionInfo !== undefined && {
-      encryptionInfo: serializeAws_restJson1EncryptionInfo(input.EncryptionInfo, context),
-    }),
-    ...(input.EnhancedMonitoring !== undefined && { enhancedMonitoring: input.EnhancedMonitoring }),
-    ...(input.KafkaVersion !== undefined && { kafkaVersion: input.KafkaVersion }),
-    ...(input.LoggingInfo !== undefined && {
-      loggingInfo: serializeAws_restJson1LoggingInfo(input.LoggingInfo, context),
-    }),
-    ...(input.NumberOfBrokerNodes !== undefined && { numberOfBrokerNodes: input.NumberOfBrokerNodes }),
-    ...(input.OpenMonitoring !== undefined && {
-      openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
-    }),
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.BrokerNodeGroupInfo !== undefined &&
+      input.BrokerNodeGroupInfo !== null && {
+        brokerNodeGroupInfo: serializeAws_restJson1BrokerNodeGroupInfo(input.BrokerNodeGroupInfo, context),
+      }),
+    ...(input.ClientAuthentication !== undefined &&
+      input.ClientAuthentication !== null && {
+        clientAuthentication: serializeAws_restJson1ClientAuthentication(input.ClientAuthentication, context),
+      }),
+    ...(input.ClusterName !== undefined && input.ClusterName !== null && { clusterName: input.ClusterName }),
+    ...(input.ConfigurationInfo !== undefined &&
+      input.ConfigurationInfo !== null && {
+        configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
+      }),
+    ...(input.EncryptionInfo !== undefined &&
+      input.EncryptionInfo !== null && {
+        encryptionInfo: serializeAws_restJson1EncryptionInfo(input.EncryptionInfo, context),
+      }),
+    ...(input.EnhancedMonitoring !== undefined &&
+      input.EnhancedMonitoring !== null && { enhancedMonitoring: input.EnhancedMonitoring }),
+    ...(input.KafkaVersion !== undefined && input.KafkaVersion !== null && { kafkaVersion: input.KafkaVersion }),
+    ...(input.LoggingInfo !== undefined &&
+      input.LoggingInfo !== null && { loggingInfo: serializeAws_restJson1LoggingInfo(input.LoggingInfo, context) }),
+    ...(input.NumberOfBrokerNodes !== undefined &&
+      input.NumberOfBrokerNodes !== null && { numberOfBrokerNodes: input.NumberOfBrokerNodes }),
+    ...(input.OpenMonitoring !== undefined &&
+      input.OpenMonitoring !== null && {
+        openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
+      }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -259,17 +268,19 @@ export const serializeAws_restJson1CreateConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/configurations";
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.KafkaVersions !== undefined && {
-      kafkaVersions: serializeAws_restJson1__listOf__string(input.KafkaVersions, context),
-    }),
-    ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.ServerProperties !== undefined && { serverProperties: context.base64Encoder(input.ServerProperties) }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.KafkaVersions !== undefined &&
+      input.KafkaVersions !== null && {
+        kafkaVersions: serializeAws_restJson1__listOf__string(input.KafkaVersions, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
+    ...(input.ServerProperties !== undefined &&
+      input.ServerProperties !== null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -287,9 +298,7 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters/{ClusterArn}";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -321,9 +330,7 @@ export const serializeAws_restJson1DeleteConfigurationCommand = async (
   input: DeleteConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -351,9 +358,7 @@ export const serializeAws_restJson1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters/{ClusterArn}";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -381,9 +386,7 @@ export const serializeAws_restJson1DescribeClusterOperationCommand = async (
   input: DescribeClusterOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/operations/{ClusterOperationArn}";
   if (input.ClusterOperationArn !== undefined) {
     const labelValue: string = input.ClusterOperationArn;
@@ -411,9 +414,7 @@ export const serializeAws_restJson1DescribeConfigurationCommand = async (
   input: DescribeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -441,9 +442,7 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
   input: DescribeConfigurationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/configurations/{Arn}/revisions/{Revision}";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -480,9 +479,7 @@ export const serializeAws_restJson1GetBootstrapBrokersCommand = async (
   input: GetBootstrapBrokersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters/{ClusterArn}/bootstrap-brokers";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -510,9 +507,7 @@ export const serializeAws_restJson1GetCompatibleKafkaVersionsCommand = async (
   input: GetCompatibleKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/compatible-kafka-versions";
   const query: any = {
     ...(input.ClusterArn !== undefined && { clusterArn: input.ClusterArn }),
@@ -535,9 +530,7 @@ export const serializeAws_restJson1ListClusterOperationsCommand = async (
   input: ListClusterOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters/{ClusterArn}/operations";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -570,9 +563,7 @@ export const serializeAws_restJson1ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters";
   const query: any = {
     ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
@@ -597,9 +588,7 @@ export const serializeAws_restJson1ListConfigurationRevisionsCommand = async (
   input: ListConfigurationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/configurations/{Arn}/revisions";
   if (input.Arn !== undefined) {
     const labelValue: string = input.Arn;
@@ -632,9 +621,7 @@ export const serializeAws_restJson1ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/configurations";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -658,9 +645,7 @@ export const serializeAws_restJson1ListKafkaVersionsCommand = async (
   input: ListKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/kafka-versions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -684,9 +669,7 @@ export const serializeAws_restJson1ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -719,9 +702,7 @@ export const serializeAws_restJson1ListScramSecretsCommand = async (
   input: ListScramSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
@@ -754,9 +735,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -785,7 +764,7 @@ export const serializeAws_restJson1RebootBrokerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/reboot-broker";
   if (input.ClusterArn !== undefined) {
@@ -799,9 +778,8 @@ export const serializeAws_restJson1RebootBrokerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BrokerIds !== undefined && {
-      brokerIds: serializeAws_restJson1__listOf__string(input.BrokerIds, context),
-    }),
+    ...(input.BrokerIds !== undefined &&
+      input.BrokerIds !== null && { brokerIds: serializeAws_restJson1__listOf__string(input.BrokerIds, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -820,7 +798,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
@@ -834,7 +812,8 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -852,9 +831,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/v1/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: string = input.ResourceArn;
@@ -887,7 +864,7 @@ export const serializeAws_restJson1UpdateBrokerCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/count";
   if (input.ClusterArn !== undefined) {
@@ -901,10 +878,10 @@ export const serializeAws_restJson1UpdateBrokerCountCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetNumberOfBrokerNodes !== undefined && {
-      targetNumberOfBrokerNodes: input.TargetNumberOfBrokerNodes,
-    }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
+    ...(input.TargetNumberOfBrokerNodes !== undefined &&
+      input.TargetNumberOfBrokerNodes !== null && { targetNumberOfBrokerNodes: input.TargetNumberOfBrokerNodes }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -923,7 +900,7 @@ export const serializeAws_restJson1UpdateBrokerStorageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes/storage";
   if (input.ClusterArn !== undefined) {
@@ -937,13 +914,15 @@ export const serializeAws_restJson1UpdateBrokerStorageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetBrokerEBSVolumeInfo !== undefined && {
-      targetBrokerEBSVolumeInfo: serializeAws_restJson1__listOfBrokerEBSVolumeInfo(
-        input.TargetBrokerEBSVolumeInfo,
-        context
-      ),
-    }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
+    ...(input.TargetBrokerEBSVolumeInfo !== undefined &&
+      input.TargetBrokerEBSVolumeInfo !== null && {
+        targetBrokerEBSVolumeInfo: serializeAws_restJson1__listOfBrokerEBSVolumeInfo(
+          input.TargetBrokerEBSVolumeInfo,
+          context
+        ),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -962,7 +941,7 @@ export const serializeAws_restJson1UpdateClusterConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/configuration";
   if (input.ClusterArn !== undefined) {
@@ -976,10 +955,12 @@ export const serializeAws_restJson1UpdateClusterConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationInfo !== undefined && {
-      configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
+    ...(input.ConfigurationInfo !== undefined &&
+      input.ConfigurationInfo !== null && {
+        configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
+      }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -998,7 +979,7 @@ export const serializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/version";
   if (input.ClusterArn !== undefined) {
@@ -1012,11 +993,14 @@ export const serializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ConfigurationInfo !== undefined && {
-      configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
-    }),
-    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
-    ...(input.TargetKafkaVersion !== undefined && { targetKafkaVersion: input.TargetKafkaVersion }),
+    ...(input.ConfigurationInfo !== undefined &&
+      input.ConfigurationInfo !== null && {
+        configurationInfo: serializeAws_restJson1ConfigurationInfo(input.ConfigurationInfo, context),
+      }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
+    ...(input.TargetKafkaVersion !== undefined &&
+      input.TargetKafkaVersion !== null && { targetKafkaVersion: input.TargetKafkaVersion }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1035,7 +1019,7 @@ export const serializeAws_restJson1UpdateConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/configurations/{Arn}";
   if (input.Arn !== undefined) {
@@ -1049,8 +1033,9 @@ export const serializeAws_restJson1UpdateConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Description !== undefined && { description: input.Description }),
-    ...(input.ServerProperties !== undefined && { serverProperties: context.base64Encoder(input.ServerProperties) }),
+    ...(input.Description !== undefined && input.Description !== null && { description: input.Description }),
+    ...(input.ServerProperties !== undefined &&
+      input.ServerProperties !== null && { serverProperties: context.base64Encoder(input.ServerProperties) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -1069,7 +1054,7 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/monitoring";
   if (input.ClusterArn !== undefined) {
@@ -1083,14 +1068,16 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.CurrentVersion !== undefined && { currentVersion: input.CurrentVersion }),
-    ...(input.EnhancedMonitoring !== undefined && { enhancedMonitoring: input.EnhancedMonitoring }),
-    ...(input.LoggingInfo !== undefined && {
-      loggingInfo: serializeAws_restJson1LoggingInfo(input.LoggingInfo, context),
-    }),
-    ...(input.OpenMonitoring !== undefined && {
-      openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
-    }),
+    ...(input.CurrentVersion !== undefined &&
+      input.CurrentVersion !== null && { currentVersion: input.CurrentVersion }),
+    ...(input.EnhancedMonitoring !== undefined &&
+      input.EnhancedMonitoring !== null && { enhancedMonitoring: input.EnhancedMonitoring }),
+    ...(input.LoggingInfo !== undefined &&
+      input.LoggingInfo !== null && { loggingInfo: serializeAws_restJson1LoggingInfo(input.LoggingInfo, context) }),
+    ...(input.OpenMonitoring !== undefined &&
+      input.OpenMonitoring !== null && {
+        openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4016,260 +4003,369 @@ const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
 };
 
 const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1__listOfBrokerEBSVolumeInfo = (
   input: BrokerEBSVolumeInfo[],
   context: __SerdeContext
 ): any => {
-  return input.map((entry) => serializeAws_restJson1BrokerEBSVolumeInfo(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BrokerEBSVolumeInfo(entry, context);
+    });
 };
 
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
-  return Object.entries(input).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(input).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const serializeAws_restJson1BrokerEBSVolumeInfo = (input: BrokerEBSVolumeInfo, context: __SerdeContext): any => {
   return {
-    ...(input.KafkaBrokerNodeId !== undefined && { kafkaBrokerNodeId: input.KafkaBrokerNodeId }),
-    ...(input.VolumeSizeGB !== undefined && { volumeSizeGB: input.VolumeSizeGB }),
+    ...(input.KafkaBrokerNodeId !== undefined &&
+      input.KafkaBrokerNodeId !== null && { kafkaBrokerNodeId: input.KafkaBrokerNodeId }),
+    ...(input.VolumeSizeGB !== undefined && input.VolumeSizeGB !== null && { volumeSizeGB: input.VolumeSizeGB }),
   };
 };
 
 const serializeAws_restJson1BrokerLogs = (input: BrokerLogs, context: __SerdeContext): any => {
   return {
-    ...(input.CloudWatchLogs !== undefined && {
-      cloudWatchLogs: serializeAws_restJson1CloudWatchLogs(input.CloudWatchLogs, context),
-    }),
-    ...(input.Firehose !== undefined && { firehose: serializeAws_restJson1Firehose(input.Firehose, context) }),
-    ...(input.S3 !== undefined && { s3: serializeAws_restJson1S3(input.S3, context) }),
+    ...(input.CloudWatchLogs !== undefined &&
+      input.CloudWatchLogs !== null && {
+        cloudWatchLogs: serializeAws_restJson1CloudWatchLogs(input.CloudWatchLogs, context),
+      }),
+    ...(input.Firehose !== undefined &&
+      input.Firehose !== null && { firehose: serializeAws_restJson1Firehose(input.Firehose, context) }),
+    ...(input.S3 !== undefined && input.S3 !== null && { s3: serializeAws_restJson1S3(input.S3, context) }),
   };
 };
 
 const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, context: __SerdeContext): any => {
   return {
-    ...(input.BrokerAZDistribution !== undefined && { brokerAZDistribution: input.BrokerAZDistribution }),
-    ...(input.ClientSubnets !== undefined && {
-      clientSubnets: serializeAws_restJson1__listOf__string(input.ClientSubnets, context),
-    }),
-    ...(input.InstanceType !== undefined && { instanceType: input.InstanceType }),
-    ...(input.SecurityGroups !== undefined && {
-      securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
-    }),
-    ...(input.StorageInfo !== undefined && {
-      storageInfo: serializeAws_restJson1StorageInfo(input.StorageInfo, context),
-    }),
+    ...(input.BrokerAZDistribution !== undefined &&
+      input.BrokerAZDistribution !== null && { brokerAZDistribution: input.BrokerAZDistribution }),
+    ...(input.ClientSubnets !== undefined &&
+      input.ClientSubnets !== null && {
+        clientSubnets: serializeAws_restJson1__listOf__string(input.ClientSubnets, context),
+      }),
+    ...(input.InstanceType !== undefined && input.InstanceType !== null && { instanceType: input.InstanceType }),
+    ...(input.SecurityGroups !== undefined &&
+      input.SecurityGroups !== null && {
+        securityGroups: serializeAws_restJson1__listOf__string(input.SecurityGroups, context),
+      }),
+    ...(input.StorageInfo !== undefined &&
+      input.StorageInfo !== null && { storageInfo: serializeAws_restJson1StorageInfo(input.StorageInfo, context) }),
   };
 };
 
 const serializeAws_restJson1ClientAuthentication = (input: ClientAuthentication, context: __SerdeContext): any => {
   return {
-    ...(input.Sasl !== undefined && { sasl: serializeAws_restJson1Sasl(input.Sasl, context) }),
-    ...(input.Tls !== undefined && { tls: serializeAws_restJson1Tls(input.Tls, context) }),
+    ...(input.Sasl !== undefined && input.Sasl !== null && { sasl: serializeAws_restJson1Sasl(input.Sasl, context) }),
+    ...(input.Tls !== undefined && input.Tls !== null && { tls: serializeAws_restJson1Tls(input.Tls, context) }),
   };
 };
 
 const serializeAws_restJson1CloudWatchLogs = (input: CloudWatchLogs, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
-    ...(input.LogGroup !== undefined && { logGroup: input.LogGroup }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
+    ...(input.LogGroup !== undefined && input.LogGroup !== null && { logGroup: input.LogGroup }),
   };
 };
 
 const serializeAws_restJson1ConfigurationInfo = (input: ConfigurationInfo, context: __SerdeContext): any => {
   return {
-    ...(input.Arn !== undefined && { arn: input.Arn }),
-    ...(input.Revision !== undefined && { revision: input.Revision }),
+    ...(input.Arn !== undefined && input.Arn !== null && { arn: input.Arn }),
+    ...(input.Revision !== undefined && input.Revision !== null && { revision: input.Revision }),
   };
 };
 
 const serializeAws_restJson1EBSStorageInfo = (input: EBSStorageInfo, context: __SerdeContext): any => {
   return {
-    ...(input.VolumeSize !== undefined && { volumeSize: input.VolumeSize }),
+    ...(input.VolumeSize !== undefined && input.VolumeSize !== null && { volumeSize: input.VolumeSize }),
   };
 };
 
 const serializeAws_restJson1EncryptionAtRest = (input: EncryptionAtRest, context: __SerdeContext): any => {
   return {
-    ...(input.DataVolumeKMSKeyId !== undefined && { dataVolumeKMSKeyId: input.DataVolumeKMSKeyId }),
+    ...(input.DataVolumeKMSKeyId !== undefined &&
+      input.DataVolumeKMSKeyId !== null && { dataVolumeKMSKeyId: input.DataVolumeKMSKeyId }),
   };
 };
 
 const serializeAws_restJson1EncryptionInfo = (input: EncryptionInfo, context: __SerdeContext): any => {
   return {
-    ...(input.EncryptionAtRest !== undefined && {
-      encryptionAtRest: serializeAws_restJson1EncryptionAtRest(input.EncryptionAtRest, context),
-    }),
-    ...(input.EncryptionInTransit !== undefined && {
-      encryptionInTransit: serializeAws_restJson1EncryptionInTransit(input.EncryptionInTransit, context),
-    }),
+    ...(input.EncryptionAtRest !== undefined &&
+      input.EncryptionAtRest !== null && {
+        encryptionAtRest: serializeAws_restJson1EncryptionAtRest(input.EncryptionAtRest, context),
+      }),
+    ...(input.EncryptionInTransit !== undefined &&
+      input.EncryptionInTransit !== null && {
+        encryptionInTransit: serializeAws_restJson1EncryptionInTransit(input.EncryptionInTransit, context),
+      }),
   };
 };
 
 const serializeAws_restJson1EncryptionInTransit = (input: EncryptionInTransit, context: __SerdeContext): any => {
   return {
-    ...(input.ClientBroker !== undefined && { clientBroker: input.ClientBroker }),
-    ...(input.InCluster !== undefined && { inCluster: input.InCluster }),
+    ...(input.ClientBroker !== undefined && input.ClientBroker !== null && { clientBroker: input.ClientBroker }),
+    ...(input.InCluster !== undefined && input.InCluster !== null && { inCluster: input.InCluster }),
   };
 };
 
 const serializeAws_restJson1Firehose = (input: Firehose, context: __SerdeContext): any => {
   return {
-    ...(input.DeliveryStream !== undefined && { deliveryStream: input.DeliveryStream }),
-    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
+    ...(input.DeliveryStream !== undefined &&
+      input.DeliveryStream !== null && { deliveryStream: input.DeliveryStream }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1JmxExporterInfo = (input: JmxExporterInfo, context: __SerdeContext): any => {
   return {
-    ...(input.EnabledInBroker !== undefined && { enabledInBroker: input.EnabledInBroker }),
+    ...(input.EnabledInBroker !== undefined &&
+      input.EnabledInBroker !== null && { enabledInBroker: input.EnabledInBroker }),
   };
 };
 
 const serializeAws_restJson1LoggingInfo = (input: LoggingInfo, context: __SerdeContext): any => {
   return {
-    ...(input.BrokerLogs !== undefined && { brokerLogs: serializeAws_restJson1BrokerLogs(input.BrokerLogs, context) }),
+    ...(input.BrokerLogs !== undefined &&
+      input.BrokerLogs !== null && { brokerLogs: serializeAws_restJson1BrokerLogs(input.BrokerLogs, context) }),
   };
 };
 
 const serializeAws_restJson1NodeExporterInfo = (input: NodeExporterInfo, context: __SerdeContext): any => {
   return {
-    ...(input.EnabledInBroker !== undefined && { enabledInBroker: input.EnabledInBroker }),
+    ...(input.EnabledInBroker !== undefined &&
+      input.EnabledInBroker !== null && { enabledInBroker: input.EnabledInBroker }),
   };
 };
 
 const serializeAws_restJson1OpenMonitoringInfo = (input: OpenMonitoringInfo, context: __SerdeContext): any => {
   return {
-    ...(input.Prometheus !== undefined && {
-      prometheus: serializeAws_restJson1PrometheusInfo(input.Prometheus, context),
-    }),
+    ...(input.Prometheus !== undefined &&
+      input.Prometheus !== null && { prometheus: serializeAws_restJson1PrometheusInfo(input.Prometheus, context) }),
   };
 };
 
 const serializeAws_restJson1PrometheusInfo = (input: PrometheusInfo, context: __SerdeContext): any => {
   return {
-    ...(input.JmxExporter !== undefined && {
-      jmxExporter: serializeAws_restJson1JmxExporterInfo(input.JmxExporter, context),
-    }),
-    ...(input.NodeExporter !== undefined && {
-      nodeExporter: serializeAws_restJson1NodeExporterInfo(input.NodeExporter, context),
-    }),
+    ...(input.JmxExporter !== undefined &&
+      input.JmxExporter !== null && { jmxExporter: serializeAws_restJson1JmxExporterInfo(input.JmxExporter, context) }),
+    ...(input.NodeExporter !== undefined &&
+      input.NodeExporter !== null && {
+        nodeExporter: serializeAws_restJson1NodeExporterInfo(input.NodeExporter, context),
+      }),
   };
 };
 
 const serializeAws_restJson1S3 = (input: S3, context: __SerdeContext): any => {
   return {
-    ...(input.Bucket !== undefined && { bucket: input.Bucket }),
-    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
-    ...(input.Prefix !== undefined && { prefix: input.Prefix }),
+    ...(input.Bucket !== undefined && input.Bucket !== null && { bucket: input.Bucket }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
+    ...(input.Prefix !== undefined && input.Prefix !== null && { prefix: input.Prefix }),
   };
 };
 
 const serializeAws_restJson1Sasl = (input: Sasl, context: __SerdeContext): any => {
   return {
-    ...(input.Scram !== undefined && { scram: serializeAws_restJson1Scram(input.Scram, context) }),
+    ...(input.Scram !== undefined &&
+      input.Scram !== null && { scram: serializeAws_restJson1Scram(input.Scram, context) }),
   };
 };
 
 const serializeAws_restJson1Scram = (input: Scram, context: __SerdeContext): any => {
   return {
-    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
   };
 };
 
 const serializeAws_restJson1StorageInfo = (input: StorageInfo, context: __SerdeContext): any => {
   return {
-    ...(input.EbsStorageInfo !== undefined && {
-      ebsStorageInfo: serializeAws_restJson1EBSStorageInfo(input.EbsStorageInfo, context),
-    }),
+    ...(input.EbsStorageInfo !== undefined &&
+      input.EbsStorageInfo !== null && {
+        ebsStorageInfo: serializeAws_restJson1EBSStorageInfo(input.EbsStorageInfo, context),
+      }),
   };
 };
 
 const serializeAws_restJson1Tls = (input: Tls, context: __SerdeContext): any => {
   return {
-    ...(input.CertificateAuthorityArnList !== undefined && {
-      certificateAuthorityArnList: serializeAws_restJson1__listOf__string(input.CertificateAuthorityArnList, context),
-    }),
+    ...(input.CertificateAuthorityArnList !== undefined &&
+      input.CertificateAuthorityArnList !== null && {
+        certificateAuthorityArnList: serializeAws_restJson1__listOf__string(input.CertificateAuthorityArnList, context),
+      }),
   };
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1__listOfBrokerEBSVolumeInfo = (
   output: any,
   context: __SerdeContext
 ): BrokerEBSVolumeInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1BrokerEBSVolumeInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BrokerEBSVolumeInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfClusterInfo = (output: any, context: __SerdeContext): ClusterInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ClusterInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClusterInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfClusterOperationInfo = (
   output: any,
   context: __SerdeContext
 ): ClusterOperationInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ClusterOperationInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClusterOperationInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfClusterOperationStep = (
   output: any,
   context: __SerdeContext
 ): ClusterOperationStep[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ClusterOperationStep(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ClusterOperationStep(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfCompatibleKafkaVersion = (
   output: any,
   context: __SerdeContext
 ): CompatibleKafkaVersion[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1CompatibleKafkaVersion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CompatibleKafkaVersion(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfConfiguration = (output: any, context: __SerdeContext): Configuration[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Configuration(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Configuration(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfConfigurationRevision = (
   output: any,
   context: __SerdeContext
 ): ConfigurationRevision[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1ConfigurationRevision(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConfigurationRevision(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfKafkaVersion = (output: any, context: __SerdeContext): KafkaVersion[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1KafkaVersion(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1KafkaVersion(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfNodeInfo = (output: any, context: __SerdeContext): NodeInfo[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1NodeInfo(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1NodeInfo(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__listOfUnprocessedScramSecret = (
   output: any,
   context: __SerdeContext
 ): UnprocessedScramSecret[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1UnprocessedScramSecret(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnprocessedScramSecret(entry, context);
+    });
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
-  return Object.entries(output).reduce(
-    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
       ...acc,
       [key]: value,
-    }),
-    {}
-  );
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
@@ -4781,6 +4877,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

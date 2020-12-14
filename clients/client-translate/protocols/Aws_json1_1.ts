@@ -96,7 +96,7 @@ export const serializeAws_json1_1CreateParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.CreateParallelData",
   };
   let body: any;
@@ -109,7 +109,7 @@ export const serializeAws_json1_1DeleteParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.DeleteParallelData",
   };
   let body: any;
@@ -122,7 +122,7 @@ export const serializeAws_json1_1DeleteTerminologyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.DeleteTerminology",
   };
   let body: any;
@@ -135,7 +135,7 @@ export const serializeAws_json1_1DescribeTextTranslationJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.DescribeTextTranslationJob",
   };
   let body: any;
@@ -148,7 +148,7 @@ export const serializeAws_json1_1GetParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.GetParallelData",
   };
   let body: any;
@@ -161,7 +161,7 @@ export const serializeAws_json1_1GetTerminologyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.GetTerminology",
   };
   let body: any;
@@ -174,7 +174,7 @@ export const serializeAws_json1_1ImportTerminologyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.ImportTerminology",
   };
   let body: any;
@@ -187,7 +187,7 @@ export const serializeAws_json1_1ListParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.ListParallelData",
   };
   let body: any;
@@ -200,7 +200,7 @@ export const serializeAws_json1_1ListTerminologiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.ListTerminologies",
   };
   let body: any;
@@ -213,7 +213,7 @@ export const serializeAws_json1_1ListTextTranslationJobsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.ListTextTranslationJobs",
   };
   let body: any;
@@ -226,7 +226,7 @@ export const serializeAws_json1_1StartTextTranslationJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.StartTextTranslationJob",
   };
   let body: any;
@@ -239,7 +239,7 @@ export const serializeAws_json1_1StopTextTranslationJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.StopTextTranslationJob",
   };
   let body: any;
@@ -252,7 +252,7 @@ export const serializeAws_json1_1TranslateTextCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.TranslateText",
   };
   let body: any;
@@ -265,7 +265,7 @@ export const serializeAws_json1_1UpdateParallelDataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
-    "Content-Type": "application/x-amz-json-1.1",
+    "content-type": "application/x-amz-json-1.1",
     "X-Amz-Target": "AWSShineFrontendService_20170701.UpdateParallelData",
   };
   let body: any;
@@ -300,8 +300,7 @@ const deserializeAws_json1_1CreateParallelDataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.translate#ConflictException":
@@ -395,8 +394,7 @@ const deserializeAws_json1_1DeleteParallelDataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.translate#ConcurrentModificationException":
@@ -471,8 +469,7 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -550,8 +547,7 @@ const deserializeAws_json1_1DescribeTextTranslationJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -621,8 +617,7 @@ const deserializeAws_json1_1GetParallelDataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -700,8 +695,7 @@ const deserializeAws_json1_1GetTerminologyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -779,8 +773,7 @@ const deserializeAws_json1_1ImportTerminologyCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -858,8 +851,7 @@ const deserializeAws_json1_1ListParallelDataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -929,8 +921,7 @@ const deserializeAws_json1_1ListTerminologiesCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -1000,8 +991,7 @@ const deserializeAws_json1_1ListTextTranslationJobsCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -1079,8 +1069,7 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -1166,8 +1155,7 @@ const deserializeAws_json1_1StopTextTranslationJobCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.translate#InternalServerException":
@@ -1237,8 +1225,7 @@ const deserializeAws_json1_1TranslateTextCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DetectedLanguageLowConfidenceException":
     case "com.amazonaws.translate#DetectedLanguageLowConfidenceException":
@@ -1348,8 +1335,7 @@ const deserializeAws_json1_1UpdateParallelDataCommandError = async (
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
   let errorCode: string = "UnknownError";
-  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
-  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.translate#ConcurrentModificationException":
@@ -1633,14 +1619,16 @@ const serializeAws_json1_1CreateParallelDataRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.EncryptionKey !== undefined && {
-      EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
-    }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParallelDataConfig !== undefined && {
-      ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EncryptionKey !== undefined &&
+      input.EncryptionKey !== null && {
+        EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+      }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParallelDataConfig !== undefined &&
+      input.ParallelDataConfig !== null && {
+        ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
+      }),
   };
 };
 
@@ -1649,7 +1637,7 @@ const serializeAws_json1_1DeleteParallelDataRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -1658,7 +1646,7 @@ const serializeAws_json1_1DeleteTerminologyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
@@ -1667,27 +1655,28 @@ const serializeAws_json1_1DescribeTextTranslationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1EncryptionKey = (input: EncryptionKey, context: __SerdeContext): any => {
   return {
-    ...(input.Id !== undefined && { Id: input.Id }),
-    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
+    ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
   };
 };
 
 const serializeAws_json1_1GetParallelDataRequest = (input: GetParallelDataRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
   };
 };
 
 const serializeAws_json1_1GetTerminologyRequest = (input: GetTerminologyRequest, context: __SerdeContext): any => {
   return {
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.TerminologyDataFormat !== undefined && { TerminologyDataFormat: input.TerminologyDataFormat }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.TerminologyDataFormat !== undefined &&
+      input.TerminologyDataFormat !== null && { TerminologyDataFormat: input.TerminologyDataFormat }),
   };
 };
 
@@ -1696,29 +1685,31 @@ const serializeAws_json1_1ImportTerminologyRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.EncryptionKey !== undefined && {
-      EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
-    }),
-    ...(input.MergeStrategy !== undefined && { MergeStrategy: input.MergeStrategy }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.TerminologyData !== undefined && {
-      TerminologyData: serializeAws_json1_1TerminologyData(input.TerminologyData, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.EncryptionKey !== undefined &&
+      input.EncryptionKey !== null && {
+        EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+      }),
+    ...(input.MergeStrategy !== undefined && input.MergeStrategy !== null && { MergeStrategy: input.MergeStrategy }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.TerminologyData !== undefined &&
+      input.TerminologyData !== null && {
+        TerminologyData: serializeAws_json1_1TerminologyData(input.TerminologyData, context),
+      }),
   };
 };
 
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
-    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
+    ...(input.ContentType !== undefined && input.ContentType !== null && { ContentType: input.ContentType }),
+    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_1ListParallelDataRequest = (input: ListParallelDataRequest, context: __SerdeContext): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1727,8 +1718,8 @@ const serializeAws_json1_1ListTerminologiesRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
@@ -1737,27 +1728,35 @@ const serializeAws_json1_1ListTextTranslationJobsRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.Filter !== undefined && { Filter: serializeAws_json1_1TextTranslationJobFilter(input.Filter, context) }),
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Filter !== undefined &&
+      input.Filter !== null && { Filter: serializeAws_json1_1TextTranslationJobFilter(input.Filter, context) }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   };
 };
 
 const serializeAws_json1_1OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
+    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_1ParallelDataConfig = (input: ParallelDataConfig, context: __SerdeContext): any => {
   return {
-    ...(input.Format !== undefined && { Format: input.Format }),
-    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
+    ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
   };
 };
 
 const serializeAws_json1_1ResourceNameList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1StartTextTranslationJobRequest = (
@@ -1766,24 +1765,31 @@ const serializeAws_json1_1StartTextTranslationJobRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
-    ...(input.InputDataConfig !== undefined && {
-      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
-    }),
-    ...(input.JobName !== undefined && { JobName: input.JobName }),
-    ...(input.OutputDataConfig !== undefined && {
-      OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
-    }),
-    ...(input.ParallelDataNames !== undefined && {
-      ParallelDataNames: serializeAws_json1_1ResourceNameList(input.ParallelDataNames, context),
-    }),
-    ...(input.SourceLanguageCode !== undefined && { SourceLanguageCode: input.SourceLanguageCode }),
-    ...(input.TargetLanguageCodes !== undefined && {
-      TargetLanguageCodes: serializeAws_json1_1TargetLanguageCodeStringList(input.TargetLanguageCodes, context),
-    }),
-    ...(input.TerminologyNames !== undefined && {
-      TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
-    }),
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.InputDataConfig !== undefined &&
+      input.InputDataConfig !== null && {
+        InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+      }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.OutputDataConfig !== undefined &&
+      input.OutputDataConfig !== null && {
+        OutputDataConfig: serializeAws_json1_1OutputDataConfig(input.OutputDataConfig, context),
+      }),
+    ...(input.ParallelDataNames !== undefined &&
+      input.ParallelDataNames !== null && {
+        ParallelDataNames: serializeAws_json1_1ResourceNameList(input.ParallelDataNames, context),
+      }),
+    ...(input.SourceLanguageCode !== undefined &&
+      input.SourceLanguageCode !== null && { SourceLanguageCode: input.SourceLanguageCode }),
+    ...(input.TargetLanguageCodes !== undefined &&
+      input.TargetLanguageCodes !== null && {
+        TargetLanguageCodes: serializeAws_json1_1TargetLanguageCodeStringList(input.TargetLanguageCodes, context),
+      }),
+    ...(input.TerminologyNames !== undefined &&
+      input.TerminologyNames !== null && {
+        TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
+      }),
   };
 };
 
@@ -1792,18 +1798,25 @@ const serializeAws_json1_1StopTextTranslationJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
   };
 };
 
 const serializeAws_json1_1TargetLanguageCodeStringList = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_json1_1TerminologyData = (input: TerminologyData, context: __SerdeContext): any => {
   return {
-    ...(input.File !== undefined && { File: context.base64Encoder(input.File) }),
-    ...(input.Format !== undefined && { Format: input.Format }),
+    ...(input.File !== undefined && input.File !== null && { File: context.base64Encoder(input.File) }),
+    ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
   };
 };
 
@@ -1812,25 +1825,30 @@ const serializeAws_json1_1TextTranslationJobFilter = (
   context: __SerdeContext
 ): any => {
   return {
-    ...(input.JobName !== undefined && { JobName: input.JobName }),
-    ...(input.JobStatus !== undefined && { JobStatus: input.JobStatus }),
-    ...(input.SubmittedAfterTime !== undefined && {
-      SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000),
-    }),
-    ...(input.SubmittedBeforeTime !== undefined && {
-      SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000),
-    }),
+    ...(input.JobName !== undefined && input.JobName !== null && { JobName: input.JobName }),
+    ...(input.JobStatus !== undefined && input.JobStatus !== null && { JobStatus: input.JobStatus }),
+    ...(input.SubmittedAfterTime !== undefined &&
+      input.SubmittedAfterTime !== null && {
+        SubmittedAfterTime: Math.round(input.SubmittedAfterTime.getTime() / 1000),
+      }),
+    ...(input.SubmittedBeforeTime !== undefined &&
+      input.SubmittedBeforeTime !== null && {
+        SubmittedBeforeTime: Math.round(input.SubmittedBeforeTime.getTime() / 1000),
+      }),
   };
 };
 
 const serializeAws_json1_1TranslateTextRequest = (input: TranslateTextRequest, context: __SerdeContext): any => {
   return {
-    ...(input.SourceLanguageCode !== undefined && { SourceLanguageCode: input.SourceLanguageCode }),
-    ...(input.TargetLanguageCode !== undefined && { TargetLanguageCode: input.TargetLanguageCode }),
-    ...(input.TerminologyNames !== undefined && {
-      TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
-    }),
-    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.SourceLanguageCode !== undefined &&
+      input.SourceLanguageCode !== null && { SourceLanguageCode: input.SourceLanguageCode }),
+    ...(input.TargetLanguageCode !== undefined &&
+      input.TargetLanguageCode !== null && { TargetLanguageCode: input.TargetLanguageCode }),
+    ...(input.TerminologyNames !== undefined &&
+      input.TerminologyNames !== null && {
+        TerminologyNames: serializeAws_json1_1ResourceNameList(input.TerminologyNames, context),
+      }),
+    ...(input.Text !== undefined && input.Text !== null && { Text: input.Text }),
   };
 };
 
@@ -1840,11 +1858,12 @@ const serializeAws_json1_1UpdateParallelDataRequest = (
 ): any => {
   return {
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.Description !== undefined && { Description: input.Description }),
-    ...(input.Name !== undefined && { Name: input.Name }),
-    ...(input.ParallelDataConfig !== undefined && {
-      ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
-    }),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ParallelDataConfig !== undefined &&
+      input.ParallelDataConfig !== null && {
+        ParallelDataConfig: serializeAws_json1_1ParallelDataConfig(input.ParallelDataConfig, context),
+      }),
   };
 };
 
@@ -1859,7 +1878,14 @@ const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1AppliedTerminologyList = (output: any, context: __SerdeContext): AppliedTerminology[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1AppliedTerminology(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1AppliedTerminology(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
@@ -2037,7 +2063,14 @@ const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -2169,11 +2202,25 @@ const deserializeAws_json1_1ParallelDataPropertiesList = (
   output: any,
   context: __SerdeContext
 ): ParallelDataProperties[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1ParallelDataProperties(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ParallelDataProperties(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ResourceNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -2215,7 +2262,14 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
 };
 
 const deserializeAws_json1_1TargetLanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_json1_1Term = (output: any, context: __SerdeContext): Term => {
@@ -2270,11 +2324,25 @@ const deserializeAws_json1_1TerminologyPropertiesList = (
   output: any,
   context: __SerdeContext
 ): TerminologyProperties[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TerminologyProperties(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TerminologyProperties(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TermList = (output: any, context: __SerdeContext): Term[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1Term(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Term(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededException = (
@@ -2340,7 +2408,14 @@ const deserializeAws_json1_1TextTranslationJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): TextTranslationJobProperties[] => {
-  return (output || []).map((entry: any) => deserializeAws_json1_1TextTranslationJobProperties(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TextTranslationJobProperties(entry, context);
+    });
 };
 
 const deserializeAws_json1_1TooManyRequestsException = (
@@ -2456,3 +2531,36 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
     }
     return {};
   });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

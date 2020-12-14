@@ -116,18 +116,20 @@ export const serializeAws_restJson1CreateAccessPointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/access-points";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
-    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.PosixUser !== undefined && { PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context) }),
-    ...(input.RootDirectory !== undefined && {
-      RootDirectory: serializeAws_restJson1RootDirectory(input.RootDirectory, context),
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
+    ...(input.PosixUser !== undefined &&
+      input.PosixUser !== null && { PosixUser: serializeAws_restJson1PosixUser(input.PosixUser, context) }),
+    ...(input.RootDirectory !== undefined &&
+      input.RootDirectory !== null && {
+        RootDirectory: serializeAws_restJson1RootDirectory(input.RootDirectory, context),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -146,20 +148,23 @@ export const serializeAws_restJson1CreateFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/file-systems";
   let body: any;
   body = JSON.stringify({
     CreationToken: input.CreationToken ?? generateIdempotencyToken(),
-    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
-    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
-    ...(input.PerformanceMode !== undefined && { PerformanceMode: input.PerformanceMode }),
-    ...(input.ProvisionedThroughputInMibps !== undefined && {
-      ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
-    }),
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
-    ...(input.ThroughputMode !== undefined && { ThroughputMode: input.ThroughputMode }),
+    ...(input.Encrypted !== undefined && input.Encrypted !== null && { Encrypted: input.Encrypted }),
+    ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PerformanceMode !== undefined &&
+      input.PerformanceMode !== null && { PerformanceMode: input.PerformanceMode }),
+    ...(input.ProvisionedThroughputInMibps !== undefined &&
+      input.ProvisionedThroughputInMibps !== null && {
+        ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.ThroughputMode !== undefined &&
+      input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -178,17 +183,18 @@ export const serializeAws_restJson1CreateMountTargetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/mount-targets";
   let body: any;
   body = JSON.stringify({
-    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
-    ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress }),
-    ...(input.SecurityGroups !== undefined && {
-      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-    }),
-    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
+    ...(input.IpAddress !== undefined && input.IpAddress !== null && { IpAddress: input.IpAddress }),
+    ...(input.SecurityGroups !== undefined &&
+      input.SecurityGroups !== null && {
+        SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
+      }),
+    ...(input.SubnetId !== undefined && input.SubnetId !== null && { SubnetId: input.SubnetId }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -207,7 +213,7 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/create-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
@@ -221,7 +227,7 @@ export const serializeAws_restJson1CreateTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -239,9 +245,7 @@ export const serializeAws_restJson1DeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/access-points/{AccessPointId}";
   if (input.AccessPointId !== undefined) {
     const labelValue: string = input.AccessPointId;
@@ -269,9 +273,7 @@ export const serializeAws_restJson1DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
@@ -299,9 +301,7 @@ export const serializeAws_restJson1DeleteFileSystemPolicyCommand = async (
   input: DeleteFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
@@ -329,9 +329,7 @@ export const serializeAws_restJson1DeleteMountTargetCommand = async (
   input: DeleteMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
@@ -360,7 +358,7 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/delete-tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
@@ -374,7 +372,8 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.TagKeys !== undefined && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeys(input.TagKeys, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -392,9 +391,7 @@ export const serializeAws_restJson1DescribeAccessPointsCommand = async (
   input: DescribeAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/access-points";
   const query: any = {
     ...(input.AccessPointId !== undefined && { AccessPointId: input.AccessPointId }),
@@ -420,9 +417,7 @@ export const serializeAws_restJson1DescribeBackupPolicyCommand = async (
   input: DescribeBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
@@ -450,9 +445,7 @@ export const serializeAws_restJson1DescribeFileSystemPolicyCommand = async (
   input: DescribeFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
@@ -480,9 +473,7 @@ export const serializeAws_restJson1DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/file-systems";
   const query: any = {
     ...(input.CreationToken !== undefined && { CreationToken: input.CreationToken }),
@@ -508,9 +499,7 @@ export const serializeAws_restJson1DescribeLifecycleConfigurationCommand = async
   input: DescribeLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
@@ -538,9 +527,7 @@ export const serializeAws_restJson1DescribeMountTargetsCommand = async (
   input: DescribeMountTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/mount-targets";
   const query: any = {
     ...(input.MountTargetId !== undefined && { MountTargetId: input.MountTargetId }),
@@ -567,9 +554,7 @@ export const serializeAws_restJson1DescribeMountTargetSecurityGroupsCommand = as
   input: DescribeMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
     const labelValue: string = input.MountTargetId;
@@ -597,9 +582,7 @@ export const serializeAws_restJson1DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/tags/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
     const labelValue: string = input.FileSystemId;
@@ -632,9 +615,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
@@ -668,7 +649,7 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
   if (input.MountTargetId !== undefined) {
@@ -682,9 +663,10 @@ export const serializeAws_restJson1ModifyMountTargetSecurityGroupsCommand = asyn
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.SecurityGroups !== undefined && {
-      SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
-    }),
+    ...(input.SecurityGroups !== undefined &&
+      input.SecurityGroups !== null && {
+        SecurityGroups: serializeAws_restJson1SecurityGroups(input.SecurityGroups, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -703,7 +685,7 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
   if (input.FileSystemId !== undefined) {
@@ -717,9 +699,8 @@ export const serializeAws_restJson1PutBackupPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BackupPolicy !== undefined && {
-      BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context),
-    }),
+    ...(input.BackupPolicy !== undefined &&
+      input.BackupPolicy !== null && { BackupPolicy: serializeAws_restJson1BackupPolicy(input.BackupPolicy, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -738,7 +719,7 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/policy";
   if (input.FileSystemId !== undefined) {
@@ -752,10 +733,11 @@ export const serializeAws_restJson1PutFileSystemPolicyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.BypassPolicyLockoutSafetyCheck !== undefined && {
-      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
-    }),
-    ...(input.Policy !== undefined && { Policy: input.Policy }),
+    ...(input.BypassPolicyLockoutSafetyCheck !== undefined &&
+      input.BypassPolicyLockoutSafetyCheck !== null && {
+        BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck,
+      }),
+    ...(input.Policy !== undefined && input.Policy !== null && { Policy: input.Policy }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -774,7 +756,7 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
   if (input.FileSystemId !== undefined) {
@@ -788,9 +770,10 @@ export const serializeAws_restJson1PutLifecycleConfigurationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.LifecyclePolicies !== undefined && {
-      LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
-    }),
+    ...(input.LifecyclePolicies !== undefined &&
+      input.LifecyclePolicies !== null && {
+        LifecyclePolicies: serializeAws_restJson1LifecyclePolicies(input.LifecyclePolicies, context),
+      }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -809,7 +792,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
@@ -823,7 +806,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.Tags !== undefined && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -841,9 +824,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "Content-Type": "",
-  };
+  const headers: any = {};
   let resolvedPath = "/2015-02-01/resource-tags/{ResourceId}";
   if (input.ResourceId !== undefined) {
     const labelValue: string = input.ResourceId;
@@ -876,7 +857,7 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "content-type": "application/json",
   };
   let resolvedPath = "/2015-02-01/file-systems/{FileSystemId}";
   if (input.FileSystemId !== undefined) {
@@ -890,10 +871,12 @@ export const serializeAws_restJson1UpdateFileSystemCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.ProvisionedThroughputInMibps !== undefined && {
-      ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
-    }),
-    ...(input.ThroughputMode !== undefined && { ThroughputMode: input.ThroughputMode }),
+    ...(input.ProvisionedThroughputInMibps !== undefined &&
+      input.ProvisionedThroughputInMibps !== null && {
+        ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps,
+      }),
+    ...(input.ThroughputMode !== undefined &&
+      input.ThroughputMode !== null && { ThroughputMode: input.ThroughputMode }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -3743,68 +3726,104 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
 
 const serializeAws_restJson1BackupPolicy = (input: BackupPolicy, context: __SerdeContext): any => {
   return {
-    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.Status !== undefined && input.Status !== null && { Status: input.Status }),
   };
 };
 
 const serializeAws_restJson1CreationInfo = (input: CreationInfo, context: __SerdeContext): any => {
   return {
-    ...(input.OwnerGid !== undefined && { OwnerGid: input.OwnerGid }),
-    ...(input.OwnerUid !== undefined && { OwnerUid: input.OwnerUid }),
-    ...(input.Permissions !== undefined && { Permissions: input.Permissions }),
+    ...(input.OwnerGid !== undefined && input.OwnerGid !== null && { OwnerGid: input.OwnerGid }),
+    ...(input.OwnerUid !== undefined && input.OwnerUid !== null && { OwnerUid: input.OwnerUid }),
+    ...(input.Permissions !== undefined && input.Permissions !== null && { Permissions: input.Permissions }),
   };
 };
 
 const serializeAws_restJson1LifecyclePolicies = (input: LifecyclePolicy[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1LifecyclePolicy(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1LifecyclePolicy(entry, context);
+    });
 };
 
 const serializeAws_restJson1LifecyclePolicy = (input: LifecyclePolicy, context: __SerdeContext): any => {
   return {
-    ...(input.TransitionToIA !== undefined && { TransitionToIA: input.TransitionToIA }),
+    ...(input.TransitionToIA !== undefined &&
+      input.TransitionToIA !== null && { TransitionToIA: input.TransitionToIA }),
   };
 };
 
 const serializeAws_restJson1PosixUser = (input: PosixUser, context: __SerdeContext): any => {
   return {
-    ...(input.Gid !== undefined && { Gid: input.Gid }),
-    ...(input.SecondaryGids !== undefined && {
-      SecondaryGids: serializeAws_restJson1SecondaryGids(input.SecondaryGids, context),
-    }),
-    ...(input.Uid !== undefined && { Uid: input.Uid }),
+    ...(input.Gid !== undefined && input.Gid !== null && { Gid: input.Gid }),
+    ...(input.SecondaryGids !== undefined &&
+      input.SecondaryGids !== null && {
+        SecondaryGids: serializeAws_restJson1SecondaryGids(input.SecondaryGids, context),
+      }),
+    ...(input.Uid !== undefined && input.Uid !== null && { Uid: input.Uid }),
   };
 };
 
 const serializeAws_restJson1RootDirectory = (input: RootDirectory, context: __SerdeContext): any => {
   return {
-    ...(input.CreationInfo !== undefined && {
-      CreationInfo: serializeAws_restJson1CreationInfo(input.CreationInfo, context),
-    }),
-    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.CreationInfo !== undefined &&
+      input.CreationInfo !== null && { CreationInfo: serializeAws_restJson1CreationInfo(input.CreationInfo, context) }),
+    ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
   };
 };
 
 const serializeAws_restJson1SecondaryGids = (input: number[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1SecurityGroups = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
-    ...(input.Key !== undefined && { Key: input.Key }),
-    ...(input.Value !== undefined && { Value: input.Value }),
+    ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
 const serializeAws_restJson1TagKeys = (input: string[], context: __SerdeContext): any => {
-  return input.map((entry) => entry);
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1Tags = (input: Tag[], context: __SerdeContext): any => {
-  return input.map((entry) => serializeAws_restJson1Tag(entry, context));
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AccessPointDescription = (
@@ -3841,7 +3860,14 @@ const deserializeAws_restJson1AccessPointDescriptions = (
   output: any,
   context: __SerdeContext
 ): AccessPointDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1AccessPointDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AccessPointDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeContext): BackupPolicy => {
@@ -3902,7 +3928,14 @@ const deserializeAws_restJson1FileSystemDescriptions = (
   output: any,
   context: __SerdeContext
 ): FileSystemDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1FileSystemDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FileSystemDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize => {
@@ -3919,7 +3952,14 @@ const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __SerdeContext): LifecyclePolicy[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1LifecyclePolicy(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LifecyclePolicy(entry, context);
+    });
 };
 
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
@@ -3962,7 +4002,14 @@ const deserializeAws_restJson1MountTargetDescriptions = (
   output: any,
   context: __SerdeContext
 ): MountTargetDescription[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1MountTargetDescription(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MountTargetDescription(entry, context);
+    });
 };
 
 const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
@@ -3987,11 +4034,25 @@ const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1SecondaryGids = (output: any, context: __SerdeContext): number[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => entry);
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -4002,7 +4063,14 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || []).map((entry: any) => deserializeAws_restJson1Tag(entry, context));
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -4025,6 +4093,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 
 const isSerializableHeaderValue = (value: any): boolean =>
   value !== undefined &&
+  value !== null &&
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
