@@ -110,15 +110,15 @@ describe("loggerMiddleware", () => {
         commandName,
         input: mockInputLog,
         output: mockOutputLog,
-        retry: {
-          attempts: $metadata.attempts,
-          totalDelay: $metadata.totalRetryDelay,
-        },
         metadata: {
           statusCode: mockResponse.response.statusCode,
           requestId: mockResponse.response.headers["x-amzn-requestid"],
           extendedRequestId: mockResponse.response.headers["x-amz-id-2"],
           cfId: mockResponse.response.headers["x-amz-cf-id"],
+          retry: {
+            attempts: $metadata.attempts,
+            totalDelay: $metadata.totalRetryDelay,
+          },
         },
       });
     });
@@ -154,15 +154,15 @@ describe("loggerMiddleware", () => {
       expect(logger.info).toHaveBeenCalledWith({
         input: mockArgs.input,
         output: outputWithoutMetadata,
-        retry: {
-          attempts: $metadata.attempts,
-          totalDelay: $metadata.totalRetryDelay,
-        },
         metadata: {
           statusCode: customResponse.response.statusCode,
           requestId: requestIdBackup,
           extendedRequestId: undefined,
           cfId: undefined,
+          retry: {
+            attempts: $metadata.attempts,
+            totalDelay: $metadata.totalRetryDelay,
+          },
         },
       });
     });

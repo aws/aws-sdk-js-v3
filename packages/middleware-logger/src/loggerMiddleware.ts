@@ -32,15 +32,15 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
       commandName,
       input: inputFilterSensitiveLog(args.input),
       output: outputFilterSensitiveLog(outputWithoutMetadata),
-      retry: {
-        attempts: $metadata.attempts,
-        totalDelay: $metadata.totalRetryDelay,
-      },
       metadata: {
         statusCode: httpResponse.statusCode,
         requestId: httpResponse.headers["x-amzn-requestid"] ?? httpResponse.headers["x-amzn-request-id"],
         extendedRequestId: httpResponse.headers["x-amz-id-2"],
         cfId: httpResponse.headers["x-amz-cf-id"],
+        retry: {
+          attempts: $metadata.attempts,
+          totalDelay: $metadata.totalRetryDelay,
+        },
       },
     });
   }
