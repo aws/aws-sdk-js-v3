@@ -35,7 +35,8 @@ export async function* paginateGetDeployments(
   input: GetDeploymentsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDeploymentsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.position
+  let token: typeof input.position | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDeploymentsCommandOutput;
   while (hasNext) {

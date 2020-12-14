@@ -35,7 +35,8 @@ export async function* paginateDescribeDBProxyTargetGroups(
   input: DescribeDBProxyTargetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBProxyTargetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBProxyTargetGroupsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,8 @@ export async function* paginateListAccessPolicies(
   input: ListAccessPoliciesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccessPoliciesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccessPoliciesCommandOutput;
   while (hasNext) {

@@ -35,7 +35,8 @@ export async function* paginateDescribeReplicationInstances(
   input: DescribeReplicationInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReplicationInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReplicationInstancesCommandOutput;
   while (hasNext) {

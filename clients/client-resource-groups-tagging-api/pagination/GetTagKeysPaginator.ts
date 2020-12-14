@@ -31,7 +31,8 @@ export async function* paginateGetTagKeys(
   input: GetTagKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTagKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.PaginationToken
+  let token: typeof input.PaginationToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTagKeysCommandOutput;
   while (hasNext) {

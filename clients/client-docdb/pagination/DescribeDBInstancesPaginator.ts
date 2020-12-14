@@ -35,7 +35,8 @@ export async function* paginateDescribeDBInstances(
   input: DescribeDBInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBInstancesCommandOutput;
   while (hasNext) {

@@ -31,7 +31,8 @@ export async function* paginateListBrokers(
   input: ListBrokersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBrokersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBrokersCommandOutput;
   while (hasNext) {

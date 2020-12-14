@@ -35,7 +35,8 @@ export async function* paginateListAccountRoles(
   input: ListAccountRolesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccountRolesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccountRolesCommandOutput;
   while (hasNext) {

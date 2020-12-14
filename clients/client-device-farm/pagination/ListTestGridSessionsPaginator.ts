@@ -35,7 +35,8 @@ export async function* paginateListTestGridSessions(
   input: ListTestGridSessionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTestGridSessionsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTestGridSessionsCommandOutput;
   while (hasNext) {

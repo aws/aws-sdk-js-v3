@@ -35,7 +35,8 @@ export async function* paginateListHealthChecks(
   input: ListHealthChecksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHealthChecksCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHealthChecksCommandOutput;
   while (hasNext) {

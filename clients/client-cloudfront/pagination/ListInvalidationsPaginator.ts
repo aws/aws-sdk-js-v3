@@ -35,7 +35,8 @@ export async function* paginateListInvalidations(
   input: ListInvalidationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInvalidationsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInvalidationsCommandOutput;
   while (hasNext) {

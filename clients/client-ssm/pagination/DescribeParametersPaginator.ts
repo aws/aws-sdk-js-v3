@@ -35,7 +35,8 @@ export async function* paginateDescribeParameters(
   input: DescribeParametersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeParametersCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeParametersCommandOutput;
   while (hasNext) {

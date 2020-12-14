@@ -35,7 +35,8 @@ export async function* paginateGetBotAliases(
   input: GetBotAliasesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBotAliasesCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.nextToken
+  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBotAliasesCommandOutput;
   while (hasNext) {

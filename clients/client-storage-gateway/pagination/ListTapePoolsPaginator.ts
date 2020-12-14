@@ -35,7 +35,8 @@ export async function* paginateListTapePools(
   input: ListTapePoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTapePoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.Marker
+  let token: typeof input.Marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTapePoolsCommandOutput;
   while (hasNext) {

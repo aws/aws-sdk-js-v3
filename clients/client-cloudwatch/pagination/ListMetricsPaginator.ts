@@ -31,7 +31,8 @@ export async function* paginateListMetrics(
   input: ListMetricsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMetricsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.NextToken
+  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMetricsCommandOutput;
   while (hasNext) {

@@ -35,7 +35,8 @@ export async function* paginateQueryObjects(
   input: QueryObjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<QueryObjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  // ToDo: replace with actual type instead of typeof input.marker
+  let token: typeof input.marker | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: QueryObjectsCommandOutput;
   while (hasNext) {
