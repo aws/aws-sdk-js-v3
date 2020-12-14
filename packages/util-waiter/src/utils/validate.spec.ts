@@ -1,14 +1,15 @@
-import { WaiterOptions } from "../waiter";
+import { ResolvedWaiterOptions } from "../waiter";
 import { validateWaiterOptions } from "./validate";
 
 describe(validateWaiterOptions.name, () => {
-  let waiterOptions: WaiterOptions;
+  let waiterOptions: ResolvedWaiterOptions<any>;
 
   beforeEach(() => {
     waiterOptions = {
       maxWaitTime: 120,
       minDelay: 20,
       maxDelay: 120,
+      client: "client",
     };
   });
 
