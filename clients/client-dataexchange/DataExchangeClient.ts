@@ -63,6 +63,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
+  Provider,
   RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
@@ -73,6 +74,7 @@ import {
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -171,11 +173,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -216,6 +213,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
 export type DataExchangeClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -224,8 +227,8 @@ export type DataExchangeClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   EndpointsInputConfig &
   AwsAuthInputConfig &
   RetryInputConfig &
-  UserAgentInputConfig &
-  HostHeaderInputConfig;
+  HostHeaderInputConfig &
+  UserAgentInputConfig;
 
 export type DataExchangeClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -233,8 +236,8 @@ export type DataExchangeClientResolvedConfig = __SmithyResolvedConfiguration<__H
   EndpointsResolvedConfig &
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
-  UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+  HostHeaderResolvedConfig &
+  UserAgentResolvedConfig;
 
 /**
  * <p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p><p>As a subscriber, you can view and access the data sets that you have an entitlement to through a subscription. You can use the APIS to download or copy your entitled data sets to Amazon S3 for use across a variety of AWS analytics and machine learning services.</p><p>As a provider, you can create and manage your data sets that you would like to publish to a product. Being able to package and provide your data sets into products requires a few steps to determine eligibility. For more information, visit the AWS Data Exchange User Guide.</p><p>A data set is a collection of data that can be changed or updated over time. Data sets can be updated using revisions, which represent a new version or incremental change to a data set.  A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data that can be stored as an Amazon S3 object. The asset can be a structured data file, an image file, or some other data file. Jobs are asynchronous import or export operations used to create or copy assets.</p>
@@ -256,16 +259,16 @@ export class DataExchangeClient extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveUserAgentConfig(_config_4);
-    let _config_6 = resolveHostHeaderConfig(_config_5);
+    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 
   destroy(): void {

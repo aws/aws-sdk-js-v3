@@ -301,6 +301,7 @@ import {
   StreamCollector as __StreamCollector,
   StreamHasher as __StreamHasher,
   UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -538,11 +539,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -606,6 +602,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    */
   useArnRegion?: boolean | Provider<boolean>;
   /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * The function that provides necessary utilities for generating and parsing event stream
    */
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
@@ -617,9 +619,9 @@ export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   EndpointsInputConfig &
   AwsAuthInputConfig &
   RetryInputConfig &
-  UserAgentInputConfig &
   HostHeaderInputConfig &
   BucketEndpointInputConfig &
+  UserAgentInputConfig &
   EventStreamSerdeInputConfig;
 
 export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
@@ -628,9 +630,9 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   EndpointsResolvedConfig &
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
-  UserAgentResolvedConfig &
   HostHeaderResolvedConfig &
   BucketEndpointResolvedConfig &
+  UserAgentResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -653,21 +655,21 @@ export class S3Client extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveUserAgentConfig(_config_4);
-    let _config_6 = resolveHostHeaderConfig(_config_5);
-    let _config_7 = resolveBucketEndpointConfig(_config_6);
+    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_6 = resolveBucketEndpointConfig(_config_5);
+    let _config_7 = resolveUserAgentConfig(_config_6);
     let _config_8 = resolveEventStreamSerdeConfig(_config_7);
     super(_config_8);
     this.config = _config_8;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
     this.middlewareStack.use(getUseRegionalEndpointPlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 
   destroy(): void {

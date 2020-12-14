@@ -25,7 +25,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidAsyncFunction("Credentialis missing") as any,
-  defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
+  defaultUserAgentProvider: defaultUserAgent({
+    serviceId: ClientSharedValues.serviceId,
+    clientVersion: packageInfo.version,
+  }),
   eventStreamSerdeProvider,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   md5: Md5,

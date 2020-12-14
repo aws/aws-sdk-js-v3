@@ -147,6 +147,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
+  Provider,
   RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
@@ -157,6 +158,7 @@ import {
   Provider as __Provider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -273,11 +275,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   utf8Encoder?: __Encoder;
 
   /**
-   * The string that will be used to populate default value in 'User-Agent' header
-   */
-  defaultUserAgent?: string;
-
-  /**
    * The runtime environment
    */
   runtime?: string;
@@ -318,6 +315,12 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Fetch related hostname, signing name or signing region with given region.
    */
   regionInfoProvider?: RegionInfoProvider;
+
+  /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
 export type SSOAdminClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -326,8 +329,8 @@ export type SSOAdminClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   EndpointsInputConfig &
   AwsAuthInputConfig &
   RetryInputConfig &
-  UserAgentInputConfig &
-  HostHeaderInputConfig;
+  HostHeaderInputConfig &
+  UserAgentInputConfig;
 
 export type SSOAdminClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -335,8 +338,8 @@ export type SSOAdminClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   EndpointsResolvedConfig &
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
-  UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+  HostHeaderResolvedConfig &
+  UserAgentResolvedConfig;
 
 export class SSOAdminClient extends __Client<
   __HttpHandlerOptions,
@@ -355,16 +358,16 @@ export class SSOAdminClient extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveUserAgentConfig(_config_4);
-    let _config_6 = resolveHostHeaderConfig(_config_5);
+    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 
   destroy(): void {
