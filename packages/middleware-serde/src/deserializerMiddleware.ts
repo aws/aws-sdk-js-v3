@@ -16,21 +16,8 @@ export const deserializerMiddleware = <Input extends object, Output extends obje
 ): DeserializeHandler<Input, Output> => async (
   args: DeserializeHandlerArguments<Input>
 ): Promise<DeserializeHandlerOutput<Output>> => {
-  const { logger, outputFilterSensitiveLog } = context;
-
   const { response } = await next(args);
-
   const parsed = await deserializer(response, options);
-
-  // Log parsed after $metadata is removed in https://github.com/aws/aws-sdk-js-v3/issues/1490
-  const { $metadata, ...outputWithoutMetadata } = parsed;
-
-  if (typeof logger?.info === "function") {
-    logger.info({
-      output: outputFilterSensitiveLog(outputWithoutMetadata),
-    });
-  }
-
   return {
     response,
     output: parsed as Output,
