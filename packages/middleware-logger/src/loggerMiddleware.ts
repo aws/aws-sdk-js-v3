@@ -16,7 +16,7 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
 ): InitializeHandler<any, Output> => async (
   args: InitializeHandlerArguments<any>
 ): Promise<InitializeHandlerOutput<Output>> => {
-  const { clientName, commandName, logger } = context;
+  const { clientName, commandName, inputFilterSensitiveLog, logger } = context;
 
   const response = await next(args);
 
@@ -30,6 +30,7 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
     logger.info({
       clientName,
       commandName,
+      input: inputFilterSensitiveLog(args.input),
       metadata: {
         statusCode: httpResponse.statusCode,
         requestId: httpResponse.headers["x-amzn-requestid"] ?? httpResponse.headers["x-amzn-request-id"],

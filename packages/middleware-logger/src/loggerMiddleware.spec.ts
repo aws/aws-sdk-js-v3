@@ -65,27 +65,34 @@ describe("loggerMiddleware", () => {
   });
 
   describe("logs if context.logger has info function", () => {
-    it("success case with clientName, commandName, metadata", async () => {
+    it("success case with clientName, commandName, input, metadata", async () => {
       mockNext.mockResolvedValueOnce(mockResponse);
+
       const logger = ({ info: jest.fn() } as unknown) as Logger;
       const clientName = "mockClientName";
       const commandName = "mockCommandName";
+
+      const mockInputLog = { inputKey: "inputKey", inputSensitiveKey: "SENSITIVE_VALUE" };
+      const inputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockInputLog);
 
       const context = {
         logger,
         clientName,
         commandName,
+        inputFilterSensitiveLog,
       };
 
       const response = await loggerMiddleware()(mockNext, context)(mockArgs);
       expect(mockNext).toHaveBeenCalledTimes(1);
       expect(response).toStrictEqual(mockResponse);
 
+      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(inputFilterSensitiveLog).toHaveBeenCalledWith(mockArgs.input);
       expect(logger.info).toHaveBeenCalledTimes(1);
-
       expect(logger.info).toHaveBeenCalledWith({
         clientName,
         commandName,
+        input: mockInputLog,
         metadata: {
           statusCode: mockResponse.response.statusCode,
           requestId: mockResponse.response.headers["x-amzn-requestid"],
@@ -108,9 +115,11 @@ describe("loggerMiddleware", () => {
       };
       mockNext.mockResolvedValueOnce(customResponse);
       const logger = ({ info: jest.fn() } as unknown) as Logger;
+      const inputFilterSensitiveLog = jest.fn().mockImplementationOnce((input) => input);
 
       const context = {
         logger,
+        inputFilterSensitiveLog,
       };
 
       const response = await loggerMiddleware()(mockNext, context)(mockArgs);
@@ -120,6 +129,7 @@ describe("loggerMiddleware", () => {
       expect(logger.info).toHaveBeenCalledTimes(1);
 
       expect(logger.info).toHaveBeenCalledWith({
+        input: mockArgs.input,
         metadata: {
           statusCode: customResponse.response.statusCode,
           requestId: requestIdBackup,
