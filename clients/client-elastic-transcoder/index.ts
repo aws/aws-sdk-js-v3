@@ -15,6 +15,7 @@ export * from "./pagination/ListPipelinesPaginator";
 export * from "./commands/ListPresetsCommand";
 export * from "./pagination/ListPresetsPaginator";
 export * from "./commands/ReadJobCommand";
+export * from "./waiters/waitForJobComplete";
 export * from "./commands/ReadPipelineCommand";
 export * from "./commands/ReadPresetCommand";
 export * from "./commands/TestRoleCommand";

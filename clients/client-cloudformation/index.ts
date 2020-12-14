@@ -28,6 +28,7 @@ export * from "./commands/DescribeStackSetCommand";
 export * from "./commands/DescribeStackSetOperationCommand";
 export * from "./commands/DescribeTypeCommand";
 export * from "./commands/DescribeTypeRegistrationCommand";
+export * from "./waiters/waitForTypeRegistrationComplete";
 export * from "./commands/DetectStackDriftCommand";
 export * from "./commands/DetectStackResourceDriftCommand";
 export * from "./commands/DetectStackSetDriftCommand";

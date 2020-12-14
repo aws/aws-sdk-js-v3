@@ -15,6 +15,8 @@ export * from "./commands/DescribeProjectsCommand";
 export * from "./pagination/DescribeProjectsPaginator";
 export * from "./commands/DescribeProjectVersionsCommand";
 export * from "./pagination/DescribeProjectVersionsPaginator";
+export * from "./waiters/waitForProjectVersionRunning";
+export * from "./waiters/waitForProjectVersionTrainingCompleted";
 export * from "./commands/DescribeStreamProcessorCommand";
 export * from "./commands/DetectCustomLabelsCommand";
 export * from "./commands/DetectFacesCommand";

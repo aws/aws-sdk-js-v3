@@ -117,6 +117,8 @@ export * from "./commands/DescribeModelPackageGroupCommand";
 export * from "./commands/DescribeModelQualityJobDefinitionCommand";
 export * from "./commands/DescribeMonitoringScheduleCommand";
 export * from "./commands/DescribeNotebookInstanceCommand";
+export * from "./waiters/waitForNotebookInstanceInService";
+export * from "./waiters/waitForNotebookInstanceStopped";
 export * from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
 export * from "./commands/DescribePipelineCommand";
 export * from "./commands/DescribePipelineDefinitionForExecutionCommand";

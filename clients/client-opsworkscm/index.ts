@@ -11,6 +11,7 @@ export * from "./pagination/DescribeBackupsPaginator";
 export * from "./commands/DescribeEventsCommand";
 export * from "./pagination/DescribeEventsPaginator";
 export * from "./commands/DescribeNodeAssociationStatusCommand";
+export * from "./waiters/waitForNodeAssociated";
 export * from "./commands/DescribeServersCommand";
 export * from "./pagination/DescribeServersPaginator";
 export * from "./commands/DisassociateNodeCommand";

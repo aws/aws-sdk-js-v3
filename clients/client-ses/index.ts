@@ -31,6 +31,7 @@ export * from "./commands/GetIdentityMailFromDomainAttributesCommand";
 export * from "./commands/GetIdentityNotificationAttributesCommand";
 export * from "./commands/GetIdentityPoliciesCommand";
 export * from "./commands/GetIdentityVerificationAttributesCommand";
+export * from "./waiters/waitForIdentityExists";
 export * from "./commands/GetSendQuotaCommand";
 export * from "./commands/GetSendStatisticsCommand";
 export * from "./commands/GetTemplateCommand";

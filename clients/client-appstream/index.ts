@@ -22,6 +22,8 @@ export * from "./commands/DeleteUsageReportSubscriptionCommand";
 export * from "./commands/DeleteUserCommand";
 export * from "./commands/DescribeDirectoryConfigsCommand";
 export * from "./commands/DescribeFleetsCommand";
+export * from "./waiters/waitForFleetStarted";
+export * from "./waiters/waitForFleetStopped";
 export * from "./commands/DescribeImageBuildersCommand";
 export * from "./commands/DescribeImagePermissionsCommand";
 export * from "./pagination/DescribeImagePermissionsPaginator";

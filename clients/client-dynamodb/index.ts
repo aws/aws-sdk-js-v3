@@ -19,6 +19,8 @@ export * from "./commands/DescribeGlobalTableSettingsCommand";
 export * from "./commands/DescribeKinesisStreamingDestinationCommand";
 export * from "./commands/DescribeLimitsCommand";
 export * from "./commands/DescribeTableCommand";
+export * from "./waiters/waitForTableExists";
+export * from "./waiters/waitForTableNotExists";
 export * from "./commands/DescribeTableReplicaAutoScalingCommand";
 export * from "./commands/DescribeTimeToLiveCommand";
 export * from "./commands/DisableKinesisStreamingDestinationCommand";

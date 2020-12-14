@@ -89,6 +89,7 @@ export * from "./pagination/DescribeSessionsPaginator";
 export * from "./commands/GetAutomationExecutionCommand";
 export * from "./commands/GetCalendarStateCommand";
 export * from "./commands/GetCommandInvocationCommand";
+export * from "./waiters/waitForCommandExecuted";
 export * from "./commands/GetConnectionStatusCommand";
 export * from "./commands/GetDefaultPatchBaselineCommand";
 export * from "./commands/GetDeployablePatchSnapshotForInstanceCommand";

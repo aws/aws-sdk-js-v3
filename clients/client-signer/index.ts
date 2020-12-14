@@ -3,6 +3,7 @@ export * from "./Signer";
 export * from "./commands/AddProfilePermissionCommand";
 export * from "./commands/CancelSigningProfileCommand";
 export * from "./commands/DescribeSigningJobCommand";
+export * from "./waiters/waitForSuccessfulSigningJob";
 export * from "./commands/GetSigningPlatformCommand";
 export * from "./commands/GetSigningProfileCommand";
 export * from "./commands/ListProfilePermissionsCommand";
