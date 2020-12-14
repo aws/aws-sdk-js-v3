@@ -4,7 +4,13 @@ import { SdkError } from "@aws-sdk/smithy-client";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
-import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
+import {
+  DEFAULT_RETRY_DELAY_BASE,
+  INITIAL_RETRY_TOKENS,
+  INVOCATION_ID_HEADER,
+  REQUEST_HEADER,
+  THROTTLING_RETRY_DELAY_BASE,
+} from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
@@ -108,13 +114,13 @@ export class StandardRetryStrategy implements RetryStrategy {
 
     const { request } = args;
     if (HttpRequest.isInstance(request)) {
-      request.headers["amz-sdk-invocation-id"] = v4();
+      request.headers[INVOCATION_ID_HEADER] = v4();
     }
 
     while (true) {
       try {
         if (HttpRequest.isInstance(request)) {
-          request.headers["amz-sdk-request"] = `attempt=${attempts + 1}; max=${maxAttempts}`;
+          request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
         }
         const { response, output } = await next(args);
 
