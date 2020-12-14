@@ -31,7 +31,7 @@ export async function* paginateQuery(
   input: QueryCommandInput,
   ...additionalArguments: any
 ): Paginator<QueryCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.ExclusiveStartKey | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: QueryCommandOutput;
   while (hasNext) {

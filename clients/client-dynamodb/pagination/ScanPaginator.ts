@@ -31,7 +31,7 @@ export async function* paginateScan(
   input: ScanCommandInput,
   ...additionalArguments: any
 ): Paginator<ScanCommandOutput> {
-  let token: string | undefined = config.startingToken || undefined;
+  let token: typeof input.ExclusiveStartKey | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ScanCommandOutput;
   while (hasNext) {
