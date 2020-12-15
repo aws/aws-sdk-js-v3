@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/querystring-builder",
-  "version": "1.0.0-rc.10",
+  "version": "3.0.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -18,11 +18,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-uri-escape": "1.0.0-rc.8",
+    "@aws-sdk/util-uri-escape": "3.0.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "1.0.0-rc.10",
+    "@aws-sdk/types": "3.0.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.1.2"

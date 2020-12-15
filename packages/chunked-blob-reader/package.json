@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/chunked-blob-reader",
-  "version": "1.0.0-rc.8",
+  "version": "3.0.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
