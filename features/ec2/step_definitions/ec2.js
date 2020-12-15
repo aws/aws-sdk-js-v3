@@ -1,38 +1,15 @@
-const { EC2 } = require("../../../clients/client-ec2");
+const { EC2, waitForVolumeAvailable } = require("../../../clients/client-ec2");
 const { Before, Given, Then } = require("cucumber");
 
-/**
- * Waits for the volumeAvailable state by periodically calling the underlying
- * EC2.describeVolumes() operation every 5 seconds (at most 40 times)
- */
-const waitForVolumeAvailable = (ec2, volumeId, callback) => {
-  const maxAttempts = 40;
-  let currentAttempt = 0;
-  const delay = 5000;
-
-  const checkForVolumeAvailable = () => {
-    currentAttempt++;
-    ec2.describeVolumes({ VolumeIds: [volumeId] }, (err, data) => {
-      if (currentAttempt > maxAttempts) {
-        callback(new Error("waitForVolumeAvailable: max attempts exceeded"));
-      } else if (data && data.Volumes) {
-        if (data.Volumes[0].State === "available") {
-          callback();
-        } else if (data.Volumes[0].State === "deleted") {
-          callback(new Error(`VolumeId ${data.Volumes[i].VolumeId} is in failure state`));
-        } else {
-          setTimeout(function () {
-            checkForVolumeAvailable();
-          }, delay);
-        }
-      } else {
-        setTimeout(function () {
-          checkForVolumeAvailable();
-        }, delay);
-      }
-    });
-  };
-  checkForVolumeAvailable();
+const waitForVolumeAvailableCallback = (ec2, volumeId, callback) => {
+  waitForVolumeAvailable({ client: ec2 }, { VolumeIds: [volumeId] }).then(
+    function (data) {
+      callback();
+    },
+    function (err) {
+      callback(err);
+    }
+  );
 };
 
 Before({ tags: "@ec2" }, function (scenario, callback) {
@@ -82,7 +59,7 @@ Given("I attempt to copy an encrypted snapshot across regions", function (callba
     }
     volId = data.VolumeId;
 
-    waitForVolumeAvailable(srcEc2, volId, function (err) {
+    waitForVolumeAvailableCallback(srcEc2, volId, function (err) {
       if (err) {
         teardown();
         return callback(err);
