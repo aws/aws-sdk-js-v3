@@ -11,8 +11,6 @@ export const defaultUserAgent = ({
   serviceId,
   clientVersion,
 }: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
-  // TODO: remove this post GA and version changed to 3.x.x
-  clientVersion = clientVersion.replace(/^1\./, "3.");
   const parsedUA = window?.navigator?.userAgent ? parse(window.navigator.userAgent) : undefined;
   const sections: UserAgent = [
     // sdk-metadata

@@ -18,8 +18,6 @@ export const defaultUserAgent = ({
   serviceId,
   clientVersion,
 }: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
-  // TODO: remove this post GA and version changed to 3.x.x
-  clientVersion = clientVersion.replace(/^1\./, "3.");
   const sections: UserAgent = [
     // sdk-metadata
     ["aws-sdk-js", clientVersion],
