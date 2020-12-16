@@ -213,7 +213,7 @@ describe("defaultStrategy", () => {
 
       const maxAttempts = 3;
       const error = await mockFailedOperation(maxAttempts);
-      expect(error.$metadata.totalRetryDelay).toEqual(FIRST_DELAY + SECOND_DELAY);
+      expect(error.$metadata?.totalRetryDelay).toEqual(FIRST_DELAY + SECOND_DELAY);
 
       expect(defaultDelayDecider as jest.Mock).toHaveBeenCalledTimes(maxAttempts - 1);
       expect(setTimeout).toHaveBeenCalledTimes(maxAttempts - 1);
@@ -310,8 +310,8 @@ describe("defaultStrategy", () => {
       });
 
       expect(response).toStrictEqual(mockResponse);
-      expect(output.$metadata.attempts).toBe(1);
-      expect(output.$metadata.totalRetryDelay).toBe(0);
+      expect(output.$metadata?.attempts).toBe(1);
+      expect(output.$metadata?.totalRetryDelay).toBe(0);
       expect(defaultRetryDecider as jest.Mock).not.toHaveBeenCalled();
       expect(defaultDelayDecider as jest.Mock).not.toHaveBeenCalled();
     });

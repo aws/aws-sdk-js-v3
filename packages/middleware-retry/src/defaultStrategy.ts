@@ -118,8 +118,8 @@ export class StandardRetryStrategy implements RetryStrategy {
         const { response, output } = await next(args);
 
         this.retryQuota.releaseRetryTokens(retryTokenAmount);
-        output.$metadata.attempts = attempts + 1;
-        output.$metadata.totalRetryDelay = totalDelay;
+        output.$metadata!.attempts = attempts + 1;
+        output.$metadata!.totalRetryDelay = totalDelay;
 
         return { response, output };
       } catch (err) {
@@ -140,8 +140,8 @@ export class StandardRetryStrategy implements RetryStrategy {
           err.$metadata = {};
         }
 
-        err.$metadata.attempts = attempts;
-        err.$metadata.totalRetryDelay = totalDelay;
+        err.$metadata!.attempts = attempts;
+        err.$metadata!.totalRetryDelay = totalDelay;
         throw err;
       }
     }
