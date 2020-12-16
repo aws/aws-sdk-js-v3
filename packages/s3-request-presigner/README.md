@@ -1,6 +1,6 @@
 # @aws-sdk/s3-request-presigner
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-request-presigner/rc.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-request-presigner/latest.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-request-presigner/rc.svg)](https://www.npmjs.com/package/@aws-sdk/s3-request-presigner)
 
 This package provides a presigner based on signature V4 that will attempt to

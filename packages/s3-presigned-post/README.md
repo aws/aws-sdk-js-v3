@@ -1,6 +1,6 @@
 # @aws-sdk/s3-resigned-post
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-presigned-post/rc.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-presigned-post/latest.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-presigned-post/rc.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
 
 This package provide a function generating URL and fields. Users without AWS credentials can use the URL and fields to

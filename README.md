@@ -1,19 +1,17 @@
-# AWS SDK for JavaScript v3 RC
+# AWS SDK for JavaScript v3
 
 ![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMmtFajZWQmNUbEhidnBKN1VncjRrNVI3d0JUcFpGWUd3STh4T3N3Rnljc1BMaEIrYm9HU2t4YTV1RlE1YmlnUG9XM3luY0Ftc2tBc0xTeVFJMkVOa24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IlBDMDl6UEROK1dlU1h1OWciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 [![codecov](https://codecov.io/gh/aws/aws-sdk-js-v3/branch/master/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-js-v3)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=aws/aws-sdk-js-v3)](https://dependabot.com)
 
-The **AWS SDK for JavaScript v3 RC** is a rewrite of V2 with some great new features. As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/), but has been written in TypeScript and adds several frequently requested features, like modularized packages.
+The **AWS SDK for JavaScript v3** is a rewrite of v2 with some great new features.
+As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/),
+but has a [modular architecture](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/) with a separate package for each service.
+It also includes many frequently requested features, such as a [first-class TypeScript support](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
+and a [new middleware stack](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 
-Many aspects of the SDK have been refactored and cleaned up, in addition to generating service client packages instead of hydrating services at SDK runtime. The v3 RC is your chance to influence the direction of the new AWS SDK for JavaScript. Tell us what you like, tell us what you don’t like by [opening an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose). Your feedback matters to us.
-
-## Production Readiness
-
-This project is a Release Candidate (RC). We want feedback from you. We will avoid breaking changes unless absolutely necessary.
-
-The new AWS SDK for JavaScript will also be able to run alongside the version 2.x SDK in the same package to allow partial migration to the new product. As we get close to general availability for version 3, we’ll share a more detailed plan on how we’ll support the 2.x line.
+For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/).
 
 ## Getting started
 
@@ -80,7 +78,7 @@ It is also possible to import both versions of the Lambda client by changing the
 
 ### API changes
 
-We’ve made several public API changes to improve consistency, make the SDK easier to use, and remove deprecated or confusing APIs. The following are some of the big changes included in the new AWS SDK for JavaScript v3 rc.
+We’ve made several public API changes to improve consistency, make the SDK easier to use, and remove deprecated or confusing APIs. The following are some of the big changes included in the new AWS SDK for JavaScript v3.
 
 #### Configuration
 
@@ -90,7 +88,7 @@ However, these configurations would first be merged automatically into a copy of
 Also, calling `AWS.config.update({/* params */})` only updated configuration for service clients instantiated after the update call was made, not any existing clients.
 
 This behavior was a frequent source of confusion, and made it difficult to add configuration to the global object that only affects a subset of service clients in a forward-compatible way.
-In v3 rc, there is no longer a global configuration managed by the SDK.
+In v3, there is no longer a global configuration managed by the SDK.
 Configuration must be passed to each service client that is instantiated.
 It is still possible to share the same configuration across multiple clients but that configuration will not be automatically merged with a global state.
 
@@ -152,26 +150,25 @@ All clients have been published to NPM and can be installed as described above. 
    yarn pack .
    ```
 
-   `yarn pack` will create an archive file in the client package folder, e.g. `aws-sdk-client-dynamodb-v1.0.0-rc.1.tgz`.
+   `yarn pack` will create an archive file in the client package folder, e.g. `aws-sdk-client-dynamodb-v3.0.0.tgz`.
 
 1. Change directory to the project you are working on and move the archive to the location to store the vendor packages:
 
    ```
-   mv path/to/aws-sdk-js-v3/clients/client-dynamodb/aws-sdk-client-dynamodb-v1.0.0-rc.1.tgz ./path/to/vendors/folder
+   mv path/to/aws-sdk-js-v3/clients/client-dynamodb/aws-sdk-client-dynamodb-v3.0.0.tgz ./path/to/vendors/folder
    ```
 
 1. Install the package to your project:
 
    ```
-   yarn add ./path/to/vendors/folder/aws-sdk-client-dynamodb-v1.0.0-rc.1.tgz
+   yarn add ./path/to/vendors/folder/aws-sdk-client-dynamodb-v3.0.0.tgz
    ```
 
 ### Giving feedback and contributing
 
 You can provide feedback to us in several ways. Both positive and negative feedback is appreciated.
-While the SDK is in RC, you may encounter bugs while using it.
 If you do, please feel free to [open an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose) on our GitHub repository.
-Our GitHub issues page also includes work we know still needs to be done before exiting the RC state.
+Our GitHub issues page also includes work we know still needs to be done to reach full feature parity with v2 SDK.
 
 #### Feedback
 
@@ -180,11 +177,11 @@ This is the preferred mechanism to give feedback so that other customers can eng
 Issues you open will be evaluated, and included in our roadmap for the GA launch.
 
 **Gitter channel**. For informal discussion or general feedback, you may join the [Gitter chat](https://gitter.im/aws/aws-sdk-js-v3).
-The Gitter channel is also a great place to get help with v3 RC from other developers. JS SDK team doesn't
+The Gitter channel is also a great place to get help with v3 from other developers. JS SDK team doesn't
 track the discussion daily, so feel free to open a GitHub issue if your question is not answered there.
 
 #### Contributing
 
-You can open pull requests for fixes or additions to the new AWS SDK for JavaScript v3 RC.
+You can open pull requests for fixes or additions to the new AWS SDK for JavaScript v3.
 All pull requests must be submitted under the Apache 2.0 license and will be reviewed by an SDK team member prior to merging.
 Accompanying unit tests are appreciated. See [Contributing](CONTRIBUTING.md) for more information.
