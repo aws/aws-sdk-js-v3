@@ -59,14 +59,6 @@ export class ListNamedShadowsForThingCommand extends $Command<
       inputFilterSensitiveLog: ListNamedShadowsForThingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListNamedShadowsForThingResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

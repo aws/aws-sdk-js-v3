@@ -59,14 +59,6 @@ export class DeregisterCertificateCommand extends $Command<
       inputFilterSensitiveLog: DeregisterCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterCertificateResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

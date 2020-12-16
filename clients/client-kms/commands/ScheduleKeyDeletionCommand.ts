@@ -80,14 +80,6 @@ export class ScheduleKeyDeletionCommand extends $Command<
       inputFilterSensitiveLog: ScheduleKeyDeletionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ScheduleKeyDeletionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

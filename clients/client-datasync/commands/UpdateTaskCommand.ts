@@ -59,14 +59,6 @@ export class UpdateTaskCommand extends $Command<
       inputFilterSensitiveLog: UpdateTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

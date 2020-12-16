@@ -142,14 +142,6 @@ export class DescribeFleetPortSettingsCommand extends $Command<
       inputFilterSensitiveLog: DescribeFleetPortSettingsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFleetPortSettingsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

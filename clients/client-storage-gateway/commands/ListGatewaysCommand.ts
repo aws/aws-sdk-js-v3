@@ -68,14 +68,6 @@ export class ListGatewaysCommand extends $Command<
       inputFilterSensitiveLog: ListGatewaysInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListGatewaysOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

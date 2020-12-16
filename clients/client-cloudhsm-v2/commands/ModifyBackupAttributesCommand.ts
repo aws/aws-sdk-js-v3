@@ -59,14 +59,6 @@ export class ModifyBackupAttributesCommand extends $Command<
       inputFilterSensitiveLog: ModifyBackupAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyBackupAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

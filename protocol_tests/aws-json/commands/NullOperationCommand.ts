@@ -56,14 +56,6 @@ export class NullOperationCommand extends $Command<
       inputFilterSensitiveLog: NullOperationInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: NullOperationInputOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

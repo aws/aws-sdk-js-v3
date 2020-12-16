@@ -59,14 +59,6 @@ export class GetDeviceDefinitionVersionCommand extends $Command<
       inputFilterSensitiveLog: GetDeviceDefinitionVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDeviceDefinitionVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

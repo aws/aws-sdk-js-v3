@@ -72,14 +72,6 @@ export class DetectEntitiesV2Command extends $Command<
       inputFilterSensitiveLog: DetectEntitiesV2Request.filterSensitiveLog,
       outputFilterSensitiveLog: DetectEntitiesV2Response.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

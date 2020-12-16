@@ -66,14 +66,6 @@ export class GetCelebrityInfoCommand extends $Command<
       inputFilterSensitiveLog: GetCelebrityInfoRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCelebrityInfoResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

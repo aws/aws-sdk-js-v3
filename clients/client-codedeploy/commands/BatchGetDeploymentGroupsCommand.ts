@@ -59,14 +59,6 @@ export class BatchGetDeploymentGroupsCommand extends $Command<
       inputFilterSensitiveLog: BatchGetDeploymentGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetDeploymentGroupsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

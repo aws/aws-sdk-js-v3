@@ -59,14 +59,6 @@ export class GetSegmentVersionsCommand extends $Command<
       inputFilterSensitiveLog: GetSegmentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSegmentVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

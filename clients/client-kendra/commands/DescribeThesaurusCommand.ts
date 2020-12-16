@@ -59,14 +59,6 @@ export class DescribeThesaurusCommand extends $Command<
       inputFilterSensitiveLog: DescribeThesaurusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeThesaurusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

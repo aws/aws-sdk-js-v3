@@ -59,14 +59,6 @@ export class ListThingTypesCommand extends $Command<
       inputFilterSensitiveLog: ListThingTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThingTypesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -87,14 +87,6 @@ export class GetObjectAclCommand extends $Command<
       inputFilterSensitiveLog: GetObjectAclRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectAclOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

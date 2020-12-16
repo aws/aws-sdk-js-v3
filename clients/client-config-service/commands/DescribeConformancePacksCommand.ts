@@ -59,14 +59,6 @@ export class DescribeConformancePacksCommand extends $Command<
       inputFilterSensitiveLog: DescribeConformancePacksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConformancePacksResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

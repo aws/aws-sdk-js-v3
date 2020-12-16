@@ -59,14 +59,6 @@ export class DeleteNetworkProfileCommand extends $Command<
       inputFilterSensitiveLog: DeleteNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteNetworkProfileResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

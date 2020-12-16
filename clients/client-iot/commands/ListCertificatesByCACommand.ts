@@ -59,14 +59,6 @@ export class ListCertificatesByCACommand extends $Command<
       inputFilterSensitiveLog: ListCertificatesByCARequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCertificatesByCAResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

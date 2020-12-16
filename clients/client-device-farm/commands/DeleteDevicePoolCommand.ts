@@ -60,14 +60,6 @@ export class DeleteDevicePoolCommand extends $Command<
       inputFilterSensitiveLog: DeleteDevicePoolRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDevicePoolResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

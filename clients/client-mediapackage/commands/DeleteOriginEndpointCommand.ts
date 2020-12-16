@@ -59,14 +59,6 @@ export class DeleteOriginEndpointCommand extends $Command<
       inputFilterSensitiveLog: DeleteOriginEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteOriginEndpointResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

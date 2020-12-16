@@ -59,14 +59,6 @@ export class DeleteArchiveCommand extends $Command<
       inputFilterSensitiveLog: DeleteArchiveRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteArchiveResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

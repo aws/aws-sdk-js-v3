@@ -100,14 +100,6 @@ export class GetReservationCoverageCommand extends $Command<
       inputFilterSensitiveLog: GetReservationCoverageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetReservationCoverageResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -69,14 +69,6 @@ export class DescribeHapgCommand extends $Command<
       inputFilterSensitiveLog: DescribeHapgRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHapgResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

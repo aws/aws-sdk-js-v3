@@ -59,14 +59,6 @@ export class GetReplicationRunsCommand extends $Command<
       inputFilterSensitiveLog: GetReplicationRunsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetReplicationRunsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

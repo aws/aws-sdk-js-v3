@@ -64,14 +64,6 @@ export class UpdateDeviceStateCommand extends $Command<
       inputFilterSensitiveLog: UpdateDeviceStateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDeviceStateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DeregisterRobotCommand extends $Command<
       inputFilterSensitiveLog: DeregisterRobotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterRobotResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

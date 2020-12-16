@@ -70,14 +70,6 @@ export class ExportServerEngineAttributeCommand extends $Command<
       inputFilterSensitiveLog: ExportServerEngineAttributeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportServerEngineAttributeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

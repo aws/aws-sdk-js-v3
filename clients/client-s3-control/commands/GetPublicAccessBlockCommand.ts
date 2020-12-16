@@ -76,14 +76,6 @@ export class GetPublicAccessBlockCommand extends $Command<
       inputFilterSensitiveLog: GetPublicAccessBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPublicAccessBlockOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

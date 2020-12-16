@@ -62,14 +62,6 @@ export class ImportMigrationTaskCommand extends $Command<
       inputFilterSensitiveLog: ImportMigrationTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportMigrationTaskResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

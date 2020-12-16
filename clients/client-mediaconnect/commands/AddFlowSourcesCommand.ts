@@ -59,14 +59,6 @@ export class AddFlowSourcesCommand extends $Command<
       inputFilterSensitiveLog: AddFlowSourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFlowSourcesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

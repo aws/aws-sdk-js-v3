@@ -63,14 +63,6 @@ export class DescribeInstanceAssociationsStatusCommand extends $Command<
       inputFilterSensitiveLog: DescribeInstanceAssociationsStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInstanceAssociationsStatusResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

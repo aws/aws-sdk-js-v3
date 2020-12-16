@@ -61,14 +61,6 @@ export class ListAccountAliasesCommand extends $Command<
       inputFilterSensitiveLog: ListAccountAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountAliasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

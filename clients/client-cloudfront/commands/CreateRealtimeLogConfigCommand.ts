@@ -62,14 +62,6 @@ export class CreateRealtimeLogConfigCommand extends $Command<
       inputFilterSensitiveLog: CreateRealtimeLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRealtimeLogConfigResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

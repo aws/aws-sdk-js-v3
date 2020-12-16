@@ -60,14 +60,6 @@ export class AssociateDiscoveredResourceCommand extends $Command<
       inputFilterSensitiveLog: AssociateDiscoveredResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateDiscoveredResourceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

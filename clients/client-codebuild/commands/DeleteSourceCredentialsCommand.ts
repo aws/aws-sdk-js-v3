@@ -59,14 +59,6 @@ export class DeleteSourceCredentialsCommand extends $Command<
       inputFilterSensitiveLog: DeleteSourceCredentialsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSourceCredentialsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

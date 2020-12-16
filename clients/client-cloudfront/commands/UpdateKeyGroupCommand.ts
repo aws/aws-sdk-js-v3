@@ -76,14 +76,6 @@ export class UpdateKeyGroupCommand extends $Command<
       inputFilterSensitiveLog: UpdateKeyGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateKeyGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

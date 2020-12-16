@@ -62,14 +62,6 @@ export class GetObjectRetentionCommand extends $Command<
       inputFilterSensitiveLog: GetObjectRetentionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectRetentionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

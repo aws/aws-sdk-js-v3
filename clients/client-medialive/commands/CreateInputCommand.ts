@@ -59,14 +59,6 @@ export class CreateInputCommand extends $Command<
       inputFilterSensitiveLog: CreateInputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInputResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

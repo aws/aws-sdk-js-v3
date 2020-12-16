@@ -63,14 +63,6 @@ export class DescribeRemediationConfigurationsCommand extends $Command<
       inputFilterSensitiveLog: DescribeRemediationConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRemediationConfigurationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

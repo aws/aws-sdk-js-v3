@@ -61,14 +61,6 @@ export class DeregisterAccountCommand extends $Command<
       inputFilterSensitiveLog: DeregisterAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterAccountResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

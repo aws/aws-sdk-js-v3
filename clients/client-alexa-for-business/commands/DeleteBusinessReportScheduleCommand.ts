@@ -60,14 +60,6 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
       inputFilterSensitiveLog: DeleteBusinessReportScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBusinessReportScheduleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

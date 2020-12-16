@@ -59,14 +59,6 @@ export class GetDataSetCommand extends $Command<
       inputFilterSensitiveLog: GetDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

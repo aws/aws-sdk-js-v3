@@ -94,14 +94,6 @@ export class UpdateAliasCommand extends $Command<
       inputFilterSensitiveLog: UpdateAliasInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAliasOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

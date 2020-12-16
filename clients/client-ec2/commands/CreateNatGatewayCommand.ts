@@ -64,14 +64,6 @@ export class CreateNatGatewayCommand extends $Command<
       inputFilterSensitiveLog: CreateNatGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNatGatewayResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

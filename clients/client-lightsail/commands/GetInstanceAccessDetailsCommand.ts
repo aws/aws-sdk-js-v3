@@ -63,14 +63,6 @@ export class GetInstanceAccessDetailsCommand extends $Command<
       inputFilterSensitiveLog: GetInstanceAccessDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInstanceAccessDetailsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

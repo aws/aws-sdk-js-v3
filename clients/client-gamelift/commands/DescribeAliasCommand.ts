@@ -94,14 +94,6 @@ export class DescribeAliasCommand extends $Command<
       inputFilterSensitiveLog: DescribeAliasInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAliasOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

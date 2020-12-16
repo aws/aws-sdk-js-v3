@@ -63,14 +63,6 @@ export class DescribeIdentityCommand extends $Command<
       inputFilterSensitiveLog: DescribeIdentityInput.filterSensitiveLog,
       outputFilterSensitiveLog: IdentityDescription.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class ListDatasetsCommand extends $Command<
       inputFilterSensitiveLog: ListDatasetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDatasetsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

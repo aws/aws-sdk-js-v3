@@ -70,14 +70,6 @@ export class EnableEbsEncryptionByDefaultCommand extends $Command<
       inputFilterSensitiveLog: EnableEbsEncryptionByDefaultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableEbsEncryptionByDefaultResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

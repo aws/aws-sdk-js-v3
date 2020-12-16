@@ -62,14 +62,6 @@ export class DescribeStateMachineCommand extends $Command<
       inputFilterSensitiveLog: DescribeStateMachineInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStateMachineOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

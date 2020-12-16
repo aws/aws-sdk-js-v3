@@ -59,14 +59,6 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
       inputFilterSensitiveLog: UpdateThingRuntimeConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateThingRuntimeConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class GetMemberCommand extends $Command<
       inputFilterSensitiveLog: GetMemberInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMemberOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

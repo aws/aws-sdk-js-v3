@@ -73,14 +73,6 @@ export class DiscoverInputSchemaCommand extends $Command<
       inputFilterSensitiveLog: DiscoverInputSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DiscoverInputSchemaResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class AssociateSkillWithSkillGroupCommand extends $Command<
       inputFilterSensitiveLog: AssociateSkillWithSkillGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSkillWithSkillGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

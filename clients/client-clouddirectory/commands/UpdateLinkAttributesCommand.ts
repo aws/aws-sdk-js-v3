@@ -59,14 +59,6 @@ export class UpdateLinkAttributesCommand extends $Command<
       inputFilterSensitiveLog: UpdateLinkAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateLinkAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

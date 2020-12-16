@@ -60,14 +60,6 @@ export class AssociateProductWithPortfolioCommand extends $Command<
       inputFilterSensitiveLog: AssociateProductWithPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateProductWithPortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

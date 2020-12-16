@@ -60,14 +60,6 @@ export class DeleteBGPPeerCommand extends $Command<
       inputFilterSensitiveLog: DeleteBGPPeerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBGPPeerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -71,14 +71,6 @@ export class DescribeClusterSnapshotsCommand extends $Command<
       inputFilterSensitiveLog: DescribeClusterSnapshotsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: SnapshotMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

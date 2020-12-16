@@ -60,14 +60,6 @@ export class GetAWSOrganizationsAccessStatusCommand extends $Command<
       inputFilterSensitiveLog: GetAWSOrganizationsAccessStatusInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetAWSOrganizationsAccessStatusOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

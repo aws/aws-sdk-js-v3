@@ -59,14 +59,6 @@ export class DescribeScheduleCommand extends $Command<
       inputFilterSensitiveLog: DescribeScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScheduleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

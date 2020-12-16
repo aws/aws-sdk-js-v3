@@ -66,14 +66,6 @@ export class ModifyVpcTenancyCommand extends $Command<
       inputFilterSensitiveLog: ModifyVpcTenancyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyVpcTenancyResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

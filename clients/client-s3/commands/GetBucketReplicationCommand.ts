@@ -95,14 +95,6 @@ export class GetBucketReplicationCommand extends $Command<
       inputFilterSensitiveLog: GetBucketReplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketReplicationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

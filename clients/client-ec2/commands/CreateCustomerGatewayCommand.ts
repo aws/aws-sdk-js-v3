@@ -94,14 +94,6 @@ export class CreateCustomerGatewayCommand extends $Command<
       inputFilterSensitiveLog: CreateCustomerGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCustomerGatewayResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

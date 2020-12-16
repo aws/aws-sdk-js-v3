@@ -59,14 +59,6 @@ export class GetQueueCommand extends $Command<
       inputFilterSensitiveLog: GetQueueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQueueResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

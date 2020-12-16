@@ -59,14 +59,6 @@ export class ListGraphqlApisCommand extends $Command<
       inputFilterSensitiveLog: ListGraphqlApisRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListGraphqlApisResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

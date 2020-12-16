@@ -64,14 +64,6 @@ export class ModifyRuleCommand extends $Command<
       inputFilterSensitiveLog: ModifyRuleInput.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyRuleOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

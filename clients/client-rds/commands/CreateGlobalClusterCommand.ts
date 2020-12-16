@@ -75,14 +75,6 @@ export class CreateGlobalClusterCommand extends $Command<
       inputFilterSensitiveLog: CreateGlobalClusterMessage.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGlobalClusterResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

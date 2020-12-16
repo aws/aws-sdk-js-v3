@@ -59,14 +59,6 @@ export class ListDetectorsCommand extends $Command<
       inputFilterSensitiveLog: ListDetectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDetectorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

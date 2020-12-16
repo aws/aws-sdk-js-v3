@@ -59,14 +59,6 @@ export class UpdateVirtualNodeCommand extends $Command<
       inputFilterSensitiveLog: UpdateVirtualNodeInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVirtualNodeOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

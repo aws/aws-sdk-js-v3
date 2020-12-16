@@ -59,14 +59,6 @@ export class DescribeProductAsAdminCommand extends $Command<
       inputFilterSensitiveLog: DescribeProductAsAdminInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProductAsAdminOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

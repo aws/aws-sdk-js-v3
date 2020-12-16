@@ -61,14 +61,6 @@ export class DescribeFileSystemAliasesCommand extends $Command<
       inputFilterSensitiveLog: DescribeFileSystemAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeFileSystemAliasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
       inputFilterSensitiveLog: TerminateClientVpnConnectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TerminateClientVpnConnectionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

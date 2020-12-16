@@ -61,14 +61,6 @@ export class ListCodeReviewsCommand extends $Command<
       inputFilterSensitiveLog: ListCodeReviewsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCodeReviewsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

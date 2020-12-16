@@ -59,14 +59,6 @@ export class GetMeetingCommand extends $Command<
       inputFilterSensitiveLog: GetMeetingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMeetingResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

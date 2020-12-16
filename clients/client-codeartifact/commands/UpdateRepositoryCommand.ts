@@ -61,14 +61,6 @@ export class UpdateRepositoryCommand extends $Command<
       inputFilterSensitiveLog: UpdateRepositoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRepositoryResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

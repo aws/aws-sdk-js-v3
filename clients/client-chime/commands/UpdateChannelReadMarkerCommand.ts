@@ -59,14 +59,6 @@ export class UpdateChannelReadMarkerCommand extends $Command<
       inputFilterSensitiveLog: UpdateChannelReadMarkerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateChannelReadMarkerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

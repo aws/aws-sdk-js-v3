@@ -59,14 +59,6 @@ export class AttachNetworkInterfaceCommand extends $Command<
       inputFilterSensitiveLog: AttachNetworkInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AttachNetworkInterfaceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

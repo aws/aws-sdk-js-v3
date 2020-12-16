@@ -59,14 +59,6 @@ export class GetUsageForecastCommand extends $Command<
       inputFilterSensitiveLog: GetUsageForecastRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUsageForecastResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

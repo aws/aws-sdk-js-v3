@@ -60,14 +60,6 @@ export class DescribeEndpointConfigCommand extends $Command<
       inputFilterSensitiveLog: DescribeEndpointConfigInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEndpointConfigOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

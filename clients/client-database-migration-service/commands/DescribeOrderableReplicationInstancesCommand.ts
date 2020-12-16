@@ -68,14 +68,6 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command<
       inputFilterSensitiveLog: DescribeOrderableReplicationInstancesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeOrderableReplicationInstancesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

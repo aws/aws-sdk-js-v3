@@ -68,14 +68,6 @@ export class CreateCustomRoutingAcceleratorCommand extends $Command<
       inputFilterSensitiveLog: CreateCustomRoutingAcceleratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCustomRoutingAcceleratorResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

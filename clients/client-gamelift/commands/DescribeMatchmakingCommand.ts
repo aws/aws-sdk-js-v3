@@ -113,14 +113,6 @@ export class DescribeMatchmakingCommand extends $Command<
       inputFilterSensitiveLog: DescribeMatchmakingInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMatchmakingOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

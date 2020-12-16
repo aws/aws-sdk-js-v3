@@ -59,14 +59,6 @@ export class DeleteManagedEndpointCommand extends $Command<
       inputFilterSensitiveLog: DeleteManagedEndpointRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteManagedEndpointResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

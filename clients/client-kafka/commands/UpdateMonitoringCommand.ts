@@ -59,14 +59,6 @@ export class UpdateMonitoringCommand extends $Command<
       inputFilterSensitiveLog: UpdateMonitoringRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMonitoringResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

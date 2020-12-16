@@ -59,14 +59,6 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DeleteAppValidationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAppValidationConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

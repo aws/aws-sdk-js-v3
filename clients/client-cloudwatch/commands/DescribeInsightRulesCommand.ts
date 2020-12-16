@@ -62,14 +62,6 @@ export class DescribeInsightRulesCommand extends $Command<
       inputFilterSensitiveLog: DescribeInsightRulesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInsightRulesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

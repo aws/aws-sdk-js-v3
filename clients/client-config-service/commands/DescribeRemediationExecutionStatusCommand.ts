@@ -64,14 +64,6 @@ export class DescribeRemediationExecutionStatusCommand extends $Command<
       inputFilterSensitiveLog: DescribeRemediationExecutionStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRemediationExecutionStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CreateUsagePlanKeyCommand extends $Command<
       inputFilterSensitiveLog: CreateUsagePlanKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UsagePlanKey.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

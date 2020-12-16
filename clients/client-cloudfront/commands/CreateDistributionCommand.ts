@@ -71,14 +71,6 @@ export class CreateDistributionCommand extends $Command<
       inputFilterSensitiveLog: CreateDistributionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDistributionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

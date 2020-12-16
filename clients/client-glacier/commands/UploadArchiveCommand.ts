@@ -92,14 +92,6 @@ export class UploadArchiveCommand extends $Command<
       inputFilterSensitiveLog: UploadArchiveInput.filterSensitiveLog,
       outputFilterSensitiveLog: ArchiveCreationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

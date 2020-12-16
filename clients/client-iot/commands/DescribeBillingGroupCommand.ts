@@ -59,14 +59,6 @@ export class DescribeBillingGroupCommand extends $Command<
       inputFilterSensitiveLog: DescribeBillingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBillingGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

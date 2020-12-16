@@ -66,14 +66,6 @@ export class UpdateHITTypeOfHITCommand extends $Command<
       inputFilterSensitiveLog: UpdateHITTypeOfHITRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateHITTypeOfHITResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateProxySessionCommand extends $Command<
       inputFilterSensitiveLog: UpdateProxySessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProxySessionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

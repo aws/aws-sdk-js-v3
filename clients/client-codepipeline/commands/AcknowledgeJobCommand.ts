@@ -60,14 +60,6 @@ export class AcknowledgeJobCommand extends $Command<
       inputFilterSensitiveLog: AcknowledgeJobInput.filterSensitiveLog,
       outputFilterSensitiveLog: AcknowledgeJobOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class UpdateDistributionBundleCommand extends $Command<
       inputFilterSensitiveLog: UpdateDistributionBundleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDistributionBundleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -86,14 +86,6 @@ export class GetSecretValueCommand extends $Command<
       inputFilterSensitiveLog: GetSecretValueRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSecretValueResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

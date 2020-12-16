@@ -65,14 +65,6 @@ export class CreatePortalCommand extends $Command<
       inputFilterSensitiveLog: CreatePortalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePortalResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class CreateWorkspacesCommand extends $Command<
       inputFilterSensitiveLog: CreateWorkspacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkspacesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

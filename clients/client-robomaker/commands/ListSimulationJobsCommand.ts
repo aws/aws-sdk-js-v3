@@ -60,14 +60,6 @@ export class ListSimulationJobsCommand extends $Command<
       inputFilterSensitiveLog: ListSimulationJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSimulationJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

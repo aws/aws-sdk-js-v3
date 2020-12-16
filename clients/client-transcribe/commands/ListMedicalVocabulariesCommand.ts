@@ -60,14 +60,6 @@ export class ListMedicalVocabulariesCommand extends $Command<
       inputFilterSensitiveLog: ListMedicalVocabulariesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListMedicalVocabulariesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

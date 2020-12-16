@@ -103,14 +103,6 @@ export class ImportKeyMaterialCommand extends $Command<
       inputFilterSensitiveLog: ImportKeyMaterialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportKeyMaterialResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

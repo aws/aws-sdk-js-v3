@@ -59,14 +59,6 @@ export class StopTriggerCommand extends $Command<
       inputFilterSensitiveLog: StopTriggerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopTriggerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

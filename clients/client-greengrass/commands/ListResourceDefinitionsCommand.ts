@@ -59,14 +59,6 @@ export class ListResourceDefinitionsCommand extends $Command<
       inputFilterSensitiveLog: ListResourceDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResourceDefinitionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

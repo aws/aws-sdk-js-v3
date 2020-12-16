@@ -53,14 +53,6 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
       inputFilterSensitiveLog: GetTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTableResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeVpcPeeringConnectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVpcPeeringConnectionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

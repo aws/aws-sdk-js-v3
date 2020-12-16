@@ -60,14 +60,6 @@ export class DeleteEmailIdentityCommand extends $Command<
       inputFilterSensitiveLog: DeleteEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEmailIdentityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

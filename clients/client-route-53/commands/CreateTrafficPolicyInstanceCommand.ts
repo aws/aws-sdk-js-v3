@@ -64,14 +64,6 @@ export class CreateTrafficPolicyInstanceCommand extends $Command<
       inputFilterSensitiveLog: CreateTrafficPolicyInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTrafficPolicyInstanceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

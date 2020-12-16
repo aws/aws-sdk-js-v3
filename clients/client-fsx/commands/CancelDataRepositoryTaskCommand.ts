@@ -71,14 +71,6 @@ export class CancelDataRepositoryTaskCommand extends $Command<
       inputFilterSensitiveLog: CancelDataRepositoryTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelDataRepositoryTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

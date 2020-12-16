@@ -59,14 +59,6 @@ export class ListProfileObjectTypesCommand extends $Command<
       inputFilterSensitiveLog: ListProfileObjectTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProfileObjectTypesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

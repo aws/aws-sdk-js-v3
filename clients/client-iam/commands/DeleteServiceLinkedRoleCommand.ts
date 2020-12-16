@@ -73,14 +73,6 @@ export class DeleteServiceLinkedRoleCommand extends $Command<
       inputFilterSensitiveLog: DeleteServiceLinkedRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteServiceLinkedRoleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

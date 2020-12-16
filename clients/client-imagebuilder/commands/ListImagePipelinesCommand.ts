@@ -59,14 +59,6 @@ export class ListImagePipelinesCommand extends $Command<
       inputFilterSensitiveLog: ListImagePipelinesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListImagePipelinesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

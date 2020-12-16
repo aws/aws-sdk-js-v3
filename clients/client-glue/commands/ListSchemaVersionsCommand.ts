@@ -59,14 +59,6 @@ export class ListSchemaVersionsCommand extends $Command<
       inputFilterSensitiveLog: ListSchemaVersionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListSchemaVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -75,14 +75,6 @@ export class GetEventSelectorsCommand extends $Command<
       inputFilterSensitiveLog: GetEventSelectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEventSelectorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

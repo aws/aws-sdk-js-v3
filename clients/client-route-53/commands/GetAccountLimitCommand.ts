@@ -68,14 +68,6 @@ export class GetAccountLimitCommand extends $Command<
       inputFilterSensitiveLog: GetAccountLimitRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccountLimitResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

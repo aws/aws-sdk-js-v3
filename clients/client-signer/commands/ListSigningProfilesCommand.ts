@@ -66,14 +66,6 @@ export class ListSigningProfilesCommand extends $Command<
       inputFilterSensitiveLog: ListSigningProfilesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSigningProfilesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -132,14 +132,6 @@ export class PostContentCommand extends $Command<
       inputFilterSensitiveLog: PostContentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PostContentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

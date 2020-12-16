@@ -59,14 +59,6 @@ export class GetTrafficPolicyInstanceCountCommand extends $Command<
       inputFilterSensitiveLog: GetTrafficPolicyInstanceCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTrafficPolicyInstanceCountResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

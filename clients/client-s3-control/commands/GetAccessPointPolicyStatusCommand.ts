@@ -61,14 +61,6 @@ export class GetAccessPointPolicyStatusCommand extends $Command<
       inputFilterSensitiveLog: GetAccessPointPolicyStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAccessPointPolicyStatusResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class CreateNodegroupCommand extends $Command<
       inputFilterSensitiveLog: CreateNodegroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNodegroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

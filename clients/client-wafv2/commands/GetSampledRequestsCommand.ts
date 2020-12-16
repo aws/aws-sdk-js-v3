@@ -66,14 +66,6 @@ export class GetSampledRequestsCommand extends $Command<
       inputFilterSensitiveLog: GetSampledRequestsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSampledRequestsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

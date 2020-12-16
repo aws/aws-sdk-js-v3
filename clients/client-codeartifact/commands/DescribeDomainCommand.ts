@@ -65,14 +65,6 @@ export class DescribeDomainCommand extends $Command<
       inputFilterSensitiveLog: DescribeDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDomainResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -61,14 +61,6 @@ export class UpdateClusterCommand extends $Command<
       inputFilterSensitiveLog: UpdateClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateClusterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

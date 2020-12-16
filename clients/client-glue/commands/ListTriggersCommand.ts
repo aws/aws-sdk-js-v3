@@ -63,14 +63,6 @@ export class ListTriggersCommand extends $Command<
       inputFilterSensitiveLog: ListTriggersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTriggersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

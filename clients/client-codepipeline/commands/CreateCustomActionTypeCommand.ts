@@ -60,14 +60,6 @@ export class CreateCustomActionTypeCommand extends $Command<
       inputFilterSensitiveLog: CreateCustomActionTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCustomActionTypeOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

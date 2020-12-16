@@ -78,14 +78,6 @@ export class GetIdentityVerificationAttributesCommand extends $Command<
       inputFilterSensitiveLog: GetIdentityVerificationAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdentityVerificationAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

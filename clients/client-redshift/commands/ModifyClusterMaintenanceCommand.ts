@@ -59,14 +59,6 @@ export class ModifyClusterMaintenanceCommand extends $Command<
       inputFilterSensitiveLog: ModifyClusterMaintenanceMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyClusterMaintenanceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

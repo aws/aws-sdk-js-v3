@@ -55,14 +55,6 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
       inputFilterSensitiveLog: GetStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStreamResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

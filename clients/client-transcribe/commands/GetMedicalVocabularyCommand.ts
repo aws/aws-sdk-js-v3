@@ -59,14 +59,6 @@ export class GetMedicalVocabularyCommand extends $Command<
       inputFilterSensitiveLog: GetMedicalVocabularyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMedicalVocabularyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

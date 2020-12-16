@@ -59,14 +59,6 @@ export class BatchDescribeMergeConflictsCommand extends $Command<
       inputFilterSensitiveLog: BatchDescribeMergeConflictsInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDescribeMergeConflictsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetObjectInformationCommand extends $Command<
       inputFilterSensitiveLog: GetObjectInformationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectInformationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class CreateInvalidationCommand extends $Command<
       inputFilterSensitiveLog: CreateInvalidationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateInvalidationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

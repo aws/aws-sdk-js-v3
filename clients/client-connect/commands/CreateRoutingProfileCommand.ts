@@ -59,14 +59,6 @@ export class CreateRoutingProfileCommand extends $Command<
       inputFilterSensitiveLog: CreateRoutingProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRoutingProfileResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

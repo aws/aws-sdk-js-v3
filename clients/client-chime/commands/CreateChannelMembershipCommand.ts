@@ -86,14 +86,6 @@ export class CreateChannelMembershipCommand extends $Command<
       inputFilterSensitiveLog: CreateChannelMembershipRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateChannelMembershipResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

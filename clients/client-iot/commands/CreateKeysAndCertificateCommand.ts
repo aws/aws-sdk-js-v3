@@ -64,14 +64,6 @@ export class CreateKeysAndCertificateCommand extends $Command<
       inputFilterSensitiveLog: CreateKeysAndCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateKeysAndCertificateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

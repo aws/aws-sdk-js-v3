@@ -59,14 +59,6 @@ export class GetDiskSnapshotCommand extends $Command<
       inputFilterSensitiveLog: GetDiskSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDiskSnapshotResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

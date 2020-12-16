@@ -59,14 +59,6 @@ export class DeleteRecipeVersionCommand extends $Command<
       inputFilterSensitiveLog: DeleteRecipeVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRecipeVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

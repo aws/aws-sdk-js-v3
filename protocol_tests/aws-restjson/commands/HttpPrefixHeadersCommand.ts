@@ -59,14 +59,6 @@ export class HttpPrefixHeadersCommand extends $Command<
       inputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: HttpPrefixHeadersInputOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

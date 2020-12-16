@@ -59,14 +59,6 @@ export class GetGcmChannelCommand extends $Command<
       inputFilterSensitiveLog: GetGcmChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGcmChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

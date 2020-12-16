@@ -80,14 +80,6 @@ export class StartChatContactCommand extends $Command<
       inputFilterSensitiveLog: StartChatContactRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartChatContactResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

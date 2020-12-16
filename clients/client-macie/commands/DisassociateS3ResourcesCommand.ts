@@ -62,14 +62,6 @@ export class DisassociateS3ResourcesCommand extends $Command<
       inputFilterSensitiveLog: DisassociateS3ResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateS3ResourcesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

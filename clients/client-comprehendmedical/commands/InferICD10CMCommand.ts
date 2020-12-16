@@ -66,14 +66,6 @@ export class InferICD10CMCommand extends $Command<
       inputFilterSensitiveLog: InferICD10CMRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InferICD10CMResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

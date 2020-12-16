@@ -71,14 +71,6 @@ export class StartExportTaskCommand extends $Command<
       inputFilterSensitiveLog: StartExportTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartExportTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -65,14 +65,6 @@ export class DescribeUserPoolDomainCommand extends $Command<
       inputFilterSensitiveLog: DescribeUserPoolDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserPoolDomainResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

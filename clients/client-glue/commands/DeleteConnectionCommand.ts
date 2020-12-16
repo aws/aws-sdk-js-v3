@@ -59,14 +59,6 @@ export class DeleteConnectionCommand extends $Command<
       inputFilterSensitiveLog: DeleteConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteConnectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class CreateResolverQueryLogConfigCommand extends $Command<
       inputFilterSensitiveLog: CreateResolverQueryLogConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResolverQueryLogConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

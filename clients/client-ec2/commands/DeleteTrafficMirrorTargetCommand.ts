@@ -60,14 +60,6 @@ export class DeleteTrafficMirrorTargetCommand extends $Command<
       inputFilterSensitiveLog: DeleteTrafficMirrorTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrafficMirrorTargetResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

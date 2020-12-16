@@ -65,14 +65,6 @@ export class DescribeRiskConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DescribeRiskConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRiskConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

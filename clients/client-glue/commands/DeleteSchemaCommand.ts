@@ -59,14 +59,6 @@ export class DeleteSchemaCommand extends $Command<
       inputFilterSensitiveLog: DeleteSchemaInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSchemaResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

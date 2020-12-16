@@ -63,14 +63,6 @@ export class ListEntitiesDetectionV2JobsCommand extends $Command<
       inputFilterSensitiveLog: ListEntitiesDetectionV2JobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEntitiesDetectionV2JobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -64,14 +64,6 @@ export class DisassociateVpcCidrBlockCommand extends $Command<
       inputFilterSensitiveLog: DisassociateVpcCidrBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateVpcCidrBlockResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

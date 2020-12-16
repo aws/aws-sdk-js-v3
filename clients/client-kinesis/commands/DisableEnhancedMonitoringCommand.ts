@@ -59,14 +59,6 @@ export class DisableEnhancedMonitoringCommand extends $Command<
       inputFilterSensitiveLog: DisableEnhancedMonitoringInput.filterSensitiveLog,
       outputFilterSensitiveLog: EnhancedMonitoringOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

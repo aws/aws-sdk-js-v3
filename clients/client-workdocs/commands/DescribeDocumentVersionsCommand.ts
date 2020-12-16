@@ -60,14 +60,6 @@ export class DescribeDocumentVersionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeDocumentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDocumentVersionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -52,14 +52,6 @@ export class GetRunCommand extends $Command<GetRunCommandInput, GetRunCommandOut
       inputFilterSensitiveLog: GetRunRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRunResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

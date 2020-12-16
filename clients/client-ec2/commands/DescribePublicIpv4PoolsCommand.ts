@@ -59,14 +59,6 @@ export class DescribePublicIpv4PoolsCommand extends $Command<
       inputFilterSensitiveLog: DescribePublicIpv4PoolsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePublicIpv4PoolsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

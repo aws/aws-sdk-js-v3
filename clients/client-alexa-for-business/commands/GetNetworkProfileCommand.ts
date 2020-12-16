@@ -59,14 +59,6 @@ export class GetNetworkProfileCommand extends $Command<
       inputFilterSensitiveLog: GetNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetNetworkProfileResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

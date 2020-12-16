@@ -61,14 +61,6 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
       inputFilterSensitiveLog: DescribeRecommendationFeedbackRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRecommendationFeedbackResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

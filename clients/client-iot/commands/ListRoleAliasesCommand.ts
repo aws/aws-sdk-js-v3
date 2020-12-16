@@ -59,14 +59,6 @@ export class ListRoleAliasesCommand extends $Command<
       inputFilterSensitiveLog: ListRoleAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRoleAliasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

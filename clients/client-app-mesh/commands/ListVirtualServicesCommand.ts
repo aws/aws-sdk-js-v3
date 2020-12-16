@@ -59,14 +59,6 @@ export class ListVirtualServicesCommand extends $Command<
       inputFilterSensitiveLog: ListVirtualServicesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListVirtualServicesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

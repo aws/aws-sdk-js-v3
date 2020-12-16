@@ -68,14 +68,6 @@ export class AllocateAddressCommand extends $Command<
       inputFilterSensitiveLog: AllocateAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AllocateAddressResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

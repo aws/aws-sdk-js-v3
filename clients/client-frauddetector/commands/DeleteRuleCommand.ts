@@ -60,14 +60,6 @@ export class DeleteRuleCommand extends $Command<
       inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRuleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

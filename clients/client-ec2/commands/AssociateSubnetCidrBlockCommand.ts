@@ -60,14 +60,6 @@ export class AssociateSubnetCidrBlockCommand extends $Command<
       inputFilterSensitiveLog: AssociateSubnetCidrBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSubnetCidrBlockResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -65,14 +65,6 @@ export class GetSigningCertificateCommand extends $Command<
       inputFilterSensitiveLog: GetSigningCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSigningCertificateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

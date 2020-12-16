@@ -59,14 +59,6 @@ export class DescribeEnvironmentsCommand extends $Command<
       inputFilterSensitiveLog: DescribeEnvironmentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEnvironmentsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

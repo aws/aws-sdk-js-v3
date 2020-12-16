@@ -60,14 +60,6 @@ export class DescribeWorkspaceBundlesCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorkspaceBundlesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkspaceBundlesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

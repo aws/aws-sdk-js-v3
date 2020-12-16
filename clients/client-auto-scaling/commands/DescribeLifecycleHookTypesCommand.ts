@@ -68,14 +68,6 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: DescribeLifecycleHookTypesAnswer.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

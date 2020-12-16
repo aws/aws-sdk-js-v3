@@ -59,14 +59,6 @@ export class GetGroupCommand extends $Command<
       inputFilterSensitiveLog: GetGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

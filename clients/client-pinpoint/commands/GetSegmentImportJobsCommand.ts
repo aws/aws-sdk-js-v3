@@ -59,14 +59,6 @@ export class GetSegmentImportJobsCommand extends $Command<
       inputFilterSensitiveLog: GetSegmentImportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSegmentImportJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

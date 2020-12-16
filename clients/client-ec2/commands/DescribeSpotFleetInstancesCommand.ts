@@ -59,14 +59,6 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
       inputFilterSensitiveLog: DescribeSpotFleetInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSpotFleetInstancesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

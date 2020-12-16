@@ -66,14 +66,6 @@ export class DescribeVpcEndpointServicesCommand extends $Command<
       inputFilterSensitiveLog: DescribeVpcEndpointServicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeVpcEndpointServicesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

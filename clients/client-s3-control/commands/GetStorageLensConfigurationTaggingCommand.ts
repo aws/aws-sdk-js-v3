@@ -73,14 +73,6 @@ export class GetStorageLensConfigurationTaggingCommand extends $Command<
       inputFilterSensitiveLog: GetStorageLensConfigurationTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStorageLensConfigurationTaggingResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

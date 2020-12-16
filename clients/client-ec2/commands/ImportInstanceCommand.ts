@@ -60,14 +60,6 @@ export class ImportInstanceCommand extends $Command<
       inputFilterSensitiveLog: ImportInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportInstanceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

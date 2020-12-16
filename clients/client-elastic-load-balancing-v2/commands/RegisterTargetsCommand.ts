@@ -74,14 +74,6 @@ export class RegisterTargetsCommand extends $Command<
       inputFilterSensitiveLog: RegisterTargetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterTargetsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -61,14 +61,6 @@ export class ListTagsForVaultCommand extends $Command<
       inputFilterSensitiveLog: ListTagsForVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsForVaultOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

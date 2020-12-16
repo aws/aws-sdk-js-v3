@@ -66,14 +66,6 @@ export class ListDeliveryStreamsCommand extends $Command<
       inputFilterSensitiveLog: ListDeliveryStreamsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListDeliveryStreamsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

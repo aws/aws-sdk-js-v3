@@ -60,14 +60,6 @@ export class DescribeDataSetPermissionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeDataSetPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDataSetPermissionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

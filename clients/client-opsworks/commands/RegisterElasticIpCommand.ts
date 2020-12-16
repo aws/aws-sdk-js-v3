@@ -66,14 +66,6 @@ export class RegisterElasticIpCommand extends $Command<
       inputFilterSensitiveLog: RegisterElasticIpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterElasticIpResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

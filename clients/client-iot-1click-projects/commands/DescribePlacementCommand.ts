@@ -63,14 +63,6 @@ export class DescribePlacementCommand extends $Command<
       inputFilterSensitiveLog: DescribePlacementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePlacementResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

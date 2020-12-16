@@ -59,14 +59,6 @@ export class GetSystemInstanceCommand extends $Command<
       inputFilterSensitiveLog: GetSystemInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSystemInstanceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

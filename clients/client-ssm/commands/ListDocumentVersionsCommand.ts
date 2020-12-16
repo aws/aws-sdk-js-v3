@@ -59,14 +59,6 @@ export class ListDocumentVersionsCommand extends $Command<
       inputFilterSensitiveLog: ListDocumentVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDocumentVersionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

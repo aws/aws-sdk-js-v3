@@ -59,14 +59,6 @@ export class DescribeClusterTracksCommand extends $Command<
       inputFilterSensitiveLog: DescribeClusterTracksMessage.filterSensitiveLog,
       outputFilterSensitiveLog: TrackListMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -93,14 +93,6 @@ export class CreateTransformJobCommand extends $Command<
       inputFilterSensitiveLog: CreateTransformJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTransformJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetMissionProfileCommand extends $Command<
       inputFilterSensitiveLog: GetMissionProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMissionProfileResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

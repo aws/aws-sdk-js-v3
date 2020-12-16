@@ -65,14 +65,6 @@ export class DescribeSnapshotsCommand extends $Command<
       inputFilterSensitiveLog: DescribeSnapshotsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSnapshotsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

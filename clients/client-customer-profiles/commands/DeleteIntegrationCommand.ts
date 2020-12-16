@@ -59,14 +59,6 @@ export class DeleteIntegrationCommand extends $Command<
       inputFilterSensitiveLog: DeleteIntegrationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIntegrationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

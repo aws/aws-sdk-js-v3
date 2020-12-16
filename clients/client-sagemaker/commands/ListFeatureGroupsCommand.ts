@@ -59,14 +59,6 @@ export class ListFeatureGroupsCommand extends $Command<
       inputFilterSensitiveLog: ListFeatureGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFeatureGroupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

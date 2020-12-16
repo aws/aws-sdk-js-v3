@@ -59,14 +59,6 @@ export class UpdateApnsChannelCommand extends $Command<
       inputFilterSensitiveLog: UpdateApnsChannelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateApnsChannelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -66,14 +66,6 @@ export class AdminRespondToAuthChallengeCommand extends $Command<
       inputFilterSensitiveLog: AdminRespondToAuthChallengeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminRespondToAuthChallengeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

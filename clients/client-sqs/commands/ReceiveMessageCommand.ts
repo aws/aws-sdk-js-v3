@@ -96,14 +96,6 @@ export class ReceiveMessageCommand extends $Command<
       inputFilterSensitiveLog: ReceiveMessageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReceiveMessageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

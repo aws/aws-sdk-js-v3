@@ -59,14 +59,6 @@ export class UpdateBackendAPICommand extends $Command<
       inputFilterSensitiveLog: UpdateBackendAPIRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateBackendAPIResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

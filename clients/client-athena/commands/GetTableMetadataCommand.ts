@@ -59,14 +59,6 @@ export class GetTableMetadataCommand extends $Command<
       inputFilterSensitiveLog: GetTableMetadataInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTableMetadataOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

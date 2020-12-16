@@ -65,14 +65,6 @@ export class CloseTunnelCommand extends $Command<
       inputFilterSensitiveLog: CloseTunnelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CloseTunnelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

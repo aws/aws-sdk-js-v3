@@ -60,14 +60,6 @@ export class ListPrincipalsCommand extends $Command<
       inputFilterSensitiveLog: ListPrincipalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPrincipalsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

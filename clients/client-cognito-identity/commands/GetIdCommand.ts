@@ -54,14 +54,6 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
       inputFilterSensitiveLog: GetIdInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetIdResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class ListBackupSelectionsCommand extends $Command<
       inputFilterSensitiveLog: ListBackupSelectionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBackupSelectionsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

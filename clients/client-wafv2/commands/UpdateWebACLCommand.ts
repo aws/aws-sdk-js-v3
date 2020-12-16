@@ -63,14 +63,6 @@ export class UpdateWebACLCommand extends $Command<
       inputFilterSensitiveLog: UpdateWebACLRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWebACLResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

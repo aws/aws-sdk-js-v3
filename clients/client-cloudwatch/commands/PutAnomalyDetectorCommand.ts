@@ -61,14 +61,6 @@ export class PutAnomalyDetectorCommand extends $Command<
       inputFilterSensitiveLog: PutAnomalyDetectorInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutAnomalyDetectorOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

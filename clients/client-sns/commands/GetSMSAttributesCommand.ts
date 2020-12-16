@@ -60,14 +60,6 @@ export class GetSMSAttributesCommand extends $Command<
       inputFilterSensitiveLog: GetSMSAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetSMSAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

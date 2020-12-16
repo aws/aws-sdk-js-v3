@@ -64,14 +64,6 @@ export class ListServerNeighborsCommand extends $Command<
       inputFilterSensitiveLog: ListServerNeighborsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListServerNeighborsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

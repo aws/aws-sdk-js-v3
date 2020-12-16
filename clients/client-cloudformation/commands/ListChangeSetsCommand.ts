@@ -61,14 +61,6 @@ export class ListChangeSetsCommand extends $Command<
       inputFilterSensitiveLog: ListChangeSetsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListChangeSetsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

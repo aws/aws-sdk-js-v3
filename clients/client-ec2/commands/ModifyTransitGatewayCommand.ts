@@ -59,14 +59,6 @@ export class ModifyTransitGatewayCommand extends $Command<
       inputFilterSensitiveLog: ModifyTransitGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyTransitGatewayResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

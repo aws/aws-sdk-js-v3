@@ -55,14 +55,6 @@ export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasComm
       inputFilterSensitiveLog: GetAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AliasConfiguration.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

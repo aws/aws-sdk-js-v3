@@ -59,14 +59,6 @@ export class DisassociateMemberCommand extends $Command<
       inputFilterSensitiveLog: DisassociateMemberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateMemberResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

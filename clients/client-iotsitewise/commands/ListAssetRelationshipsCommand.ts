@@ -61,14 +61,6 @@ export class ListAssetRelationshipsCommand extends $Command<
       inputFilterSensitiveLog: ListAssetRelationshipsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssetRelationshipsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

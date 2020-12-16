@@ -69,14 +69,6 @@ export class GetQueryResultsCommand extends $Command<
       inputFilterSensitiveLog: GetQueryResultsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetQueryResultsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

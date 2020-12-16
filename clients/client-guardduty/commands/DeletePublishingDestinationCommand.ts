@@ -59,14 +59,6 @@ export class DeletePublishingDestinationCommand extends $Command<
       inputFilterSensitiveLog: DeletePublishingDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePublishingDestinationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

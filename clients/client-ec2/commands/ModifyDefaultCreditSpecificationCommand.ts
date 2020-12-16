@@ -72,14 +72,6 @@ export class ModifyDefaultCreditSpecificationCommand extends $Command<
       inputFilterSensitiveLog: ModifyDefaultCreditSpecificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyDefaultCreditSpecificationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class BatchGetNamedQueryCommand extends $Command<
       inputFilterSensitiveLog: BatchGetNamedQueryInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchGetNamedQueryOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

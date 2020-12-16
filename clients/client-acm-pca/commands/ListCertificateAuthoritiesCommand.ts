@@ -59,14 +59,6 @@ export class ListCertificateAuthoritiesCommand extends $Command<
       inputFilterSensitiveLog: ListCertificateAuthoritiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCertificateAuthoritiesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

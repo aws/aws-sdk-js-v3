@@ -67,14 +67,6 @@ export class IssueCertificateCommand extends $Command<
       inputFilterSensitiveLog: IssueCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: IssueCertificateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

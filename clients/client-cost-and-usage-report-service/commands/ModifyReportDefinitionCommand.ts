@@ -63,14 +63,6 @@ export class ModifyReportDefinitionCommand extends $Command<
       inputFilterSensitiveLog: ModifyReportDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyReportDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

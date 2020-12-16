@@ -59,14 +59,6 @@ export class ListPromptsCommand extends $Command<
       inputFilterSensitiveLog: ListPromptsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPromptsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

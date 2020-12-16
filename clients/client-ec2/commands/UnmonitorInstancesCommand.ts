@@ -61,14 +61,6 @@ export class UnmonitorInstancesCommand extends $Command<
       inputFilterSensitiveLog: UnmonitorInstancesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UnmonitorInstancesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

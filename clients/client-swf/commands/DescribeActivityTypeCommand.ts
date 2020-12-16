@@ -97,14 +97,6 @@ export class DescribeActivityTypeCommand extends $Command<
       inputFilterSensitiveLog: DescribeActivityTypeInput.filterSensitiveLog,
       outputFilterSensitiveLog: ActivityTypeDetail.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

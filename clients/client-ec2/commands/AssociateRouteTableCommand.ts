@@ -65,14 +65,6 @@ export class AssociateRouteTableCommand extends $Command<
       inputFilterSensitiveLog: AssociateRouteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateRouteTableResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

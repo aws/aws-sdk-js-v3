@@ -118,14 +118,6 @@ export class DescribeGameServerGroupCommand extends $Command<
       inputFilterSensitiveLog: DescribeGameServerGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameServerGroupOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

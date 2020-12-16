@@ -60,14 +60,6 @@ export class GetTopicAttributesCommand extends $Command<
       inputFilterSensitiveLog: GetTopicAttributesInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetTopicAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

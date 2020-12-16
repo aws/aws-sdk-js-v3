@@ -52,14 +52,6 @@ export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOut
       inputFilterSensitiveLog: GetApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApiResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

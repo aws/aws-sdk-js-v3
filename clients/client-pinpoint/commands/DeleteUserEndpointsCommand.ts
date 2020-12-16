@@ -59,14 +59,6 @@ export class DeleteUserEndpointsCommand extends $Command<
       inputFilterSensitiveLog: DeleteUserEndpointsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserEndpointsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

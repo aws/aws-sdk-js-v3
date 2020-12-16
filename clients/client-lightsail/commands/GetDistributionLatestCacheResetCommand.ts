@@ -60,14 +60,6 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
       inputFilterSensitiveLog: GetDistributionLatestCacheResetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDistributionLatestCacheResetResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

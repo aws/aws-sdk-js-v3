@@ -85,14 +85,6 @@ export class ConnectCustomKeyStoreCommand extends $Command<
       inputFilterSensitiveLog: ConnectCustomKeyStoreRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ConnectCustomKeyStoreResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

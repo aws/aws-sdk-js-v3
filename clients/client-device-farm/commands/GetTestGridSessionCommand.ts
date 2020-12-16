@@ -68,14 +68,6 @@ export class GetTestGridSessionCommand extends $Command<
       inputFilterSensitiveLog: GetTestGridSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTestGridSessionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

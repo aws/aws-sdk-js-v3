@@ -68,14 +68,6 @@ export class NotifyWorkersCommand extends $Command<
       inputFilterSensitiveLog: NotifyWorkersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: NotifyWorkersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -110,14 +110,6 @@ export class UpdateXssMatchSetCommand extends $Command<
       inputFilterSensitiveLog: UpdateXssMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateXssMatchSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

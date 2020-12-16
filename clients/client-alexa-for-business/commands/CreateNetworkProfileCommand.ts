@@ -59,14 +59,6 @@ export class CreateNetworkProfileCommand extends $Command<
       inputFilterSensitiveLog: CreateNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNetworkProfileResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

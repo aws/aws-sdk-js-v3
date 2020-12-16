@@ -60,14 +60,6 @@ export class PutThirdPartyJobFailureResultCommand extends $Command<
       inputFilterSensitiveLog: PutThirdPartyJobFailureResultInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

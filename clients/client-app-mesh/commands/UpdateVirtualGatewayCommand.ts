@@ -59,14 +59,6 @@ export class UpdateVirtualGatewayCommand extends $Command<
       inputFilterSensitiveLog: UpdateVirtualGatewayInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVirtualGatewayOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

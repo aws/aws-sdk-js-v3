@@ -59,14 +59,6 @@ export class DeleteContactListCommand extends $Command<
       inputFilterSensitiveLog: DeleteContactListRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteContactListResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

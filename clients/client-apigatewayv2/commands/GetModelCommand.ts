@@ -59,14 +59,6 @@ export class GetModelCommand extends $Command<
       inputFilterSensitiveLog: GetModelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetModelResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

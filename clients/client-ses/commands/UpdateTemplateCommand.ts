@@ -62,14 +62,6 @@ export class UpdateTemplateCommand extends $Command<
       inputFilterSensitiveLog: UpdateTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

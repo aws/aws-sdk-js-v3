@@ -59,14 +59,6 @@ export class SearchDashboardsCommand extends $Command<
       inputFilterSensitiveLog: SearchDashboardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchDashboardsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

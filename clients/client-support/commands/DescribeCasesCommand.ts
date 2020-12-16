@@ -89,14 +89,6 @@ export class DescribeCasesCommand extends $Command<
       inputFilterSensitiveLog: DescribeCasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

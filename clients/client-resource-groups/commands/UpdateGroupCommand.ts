@@ -60,14 +60,6 @@ export class UpdateGroupCommand extends $Command<
       inputFilterSensitiveLog: UpdateGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGroupOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

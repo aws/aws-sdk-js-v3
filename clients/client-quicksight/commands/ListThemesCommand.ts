@@ -59,14 +59,6 @@ export class ListThemesCommand extends $Command<
       inputFilterSensitiveLog: ListThemesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThemesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

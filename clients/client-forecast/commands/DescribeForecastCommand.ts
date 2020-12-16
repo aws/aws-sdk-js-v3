@@ -87,14 +87,6 @@ export class DescribeForecastCommand extends $Command<
       inputFilterSensitiveLog: DescribeForecastRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeForecastResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

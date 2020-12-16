@@ -59,14 +59,6 @@ export class ListBuildBatchesCommand extends $Command<
       inputFilterSensitiveLog: ListBuildBatchesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListBuildBatchesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class CreatePublicDnsNamespaceCommand extends $Command<
       inputFilterSensitiveLog: CreatePublicDnsNamespaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePublicDnsNamespaceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

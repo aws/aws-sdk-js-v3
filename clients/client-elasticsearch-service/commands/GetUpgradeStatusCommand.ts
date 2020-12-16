@@ -63,14 +63,6 @@ export class GetUpgradeStatusCommand extends $Command<
       inputFilterSensitiveLog: GetUpgradeStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUpgradeStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

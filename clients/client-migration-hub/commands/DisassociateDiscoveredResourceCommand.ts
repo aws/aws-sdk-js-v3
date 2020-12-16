@@ -60,14 +60,6 @@ export class DisassociateDiscoveredResourceCommand extends $Command<
       inputFilterSensitiveLog: DisassociateDiscoveredResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateDiscoveredResourceResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

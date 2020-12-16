@@ -59,14 +59,6 @@ export class UpdateAssociationStatusCommand extends $Command<
       inputFilterSensitiveLog: UpdateAssociationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAssociationStatusResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

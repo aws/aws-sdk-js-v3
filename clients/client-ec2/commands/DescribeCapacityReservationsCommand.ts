@@ -60,14 +60,6 @@ export class DescribeCapacityReservationsCommand extends $Command<
       inputFilterSensitiveLog: DescribeCapacityReservationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCapacityReservationsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

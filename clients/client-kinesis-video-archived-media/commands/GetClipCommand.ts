@@ -105,14 +105,6 @@ export class GetClipCommand extends $Command<
       inputFilterSensitiveLog: GetClipInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetClipOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

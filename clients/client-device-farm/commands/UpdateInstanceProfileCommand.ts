@@ -59,14 +59,6 @@ export class UpdateInstanceProfileCommand extends $Command<
       inputFilterSensitiveLog: UpdateInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInstanceProfileResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

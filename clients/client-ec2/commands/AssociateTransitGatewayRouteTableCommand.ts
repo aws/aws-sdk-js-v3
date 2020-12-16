@@ -60,14 +60,6 @@ export class AssociateTransitGatewayRouteTableCommand extends $Command<
       inputFilterSensitiveLog: AssociateTransitGatewayRouteTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateTransitGatewayRouteTableResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

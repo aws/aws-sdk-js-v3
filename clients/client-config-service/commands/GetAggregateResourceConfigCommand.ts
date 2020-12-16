@@ -59,14 +59,6 @@ export class GetAggregateResourceConfigCommand extends $Command<
       inputFilterSensitiveLog: GetAggregateResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAggregateResourceConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

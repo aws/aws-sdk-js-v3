@@ -62,14 +62,6 @@ export class RebootRelationalDatabaseCommand extends $Command<
       inputFilterSensitiveLog: RebootRelationalDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RebootRelationalDatabaseResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

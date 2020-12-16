@@ -60,14 +60,6 @@ export class CreateVocabularyCommand extends $Command<
       inputFilterSensitiveLog: CreateVocabularyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVocabularyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

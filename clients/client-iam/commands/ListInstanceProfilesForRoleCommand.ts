@@ -64,14 +64,6 @@ export class ListInstanceProfilesForRoleCommand extends $Command<
       inputFilterSensitiveLog: ListInstanceProfilesForRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInstanceProfilesForRoleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

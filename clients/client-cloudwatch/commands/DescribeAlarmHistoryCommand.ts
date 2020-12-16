@@ -61,14 +61,6 @@ export class DescribeAlarmHistoryCommand extends $Command<
       inputFilterSensitiveLog: DescribeAlarmHistoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAlarmHistoryOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

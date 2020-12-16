@@ -59,14 +59,6 @@ export class CreateDevicePoolCommand extends $Command<
       inputFilterSensitiveLog: CreateDevicePoolRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDevicePoolResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class DeleteInlinePolicyFromPermissionSetCommand extends $Command<
       inputFilterSensitiveLog: DeleteInlinePolicyFromPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInlinePolicyFromPermissionSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

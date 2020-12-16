@@ -59,14 +59,6 @@ export class UpdateSipRuleCommand extends $Command<
       inputFilterSensitiveLog: UpdateSipRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSipRuleResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

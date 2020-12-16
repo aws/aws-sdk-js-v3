@@ -61,14 +61,6 @@ export class SignUpCommand extends $Command<
       inputFilterSensitiveLog: SignUpRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SignUpResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

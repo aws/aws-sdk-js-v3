@@ -77,14 +77,6 @@ export class AssociateEnclaveCertificateIamRoleCommand extends $Command<
       inputFilterSensitiveLog: AssociateEnclaveCertificateIamRoleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateEnclaveCertificateIamRoleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

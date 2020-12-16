@@ -63,14 +63,6 @@ export class ReloadTablesCommand extends $Command<
       inputFilterSensitiveLog: ReloadTablesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ReloadTablesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

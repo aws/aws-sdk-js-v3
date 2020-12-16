@@ -59,14 +59,6 @@ export class UpdateRouteCommand extends $Command<
       inputFilterSensitiveLog: UpdateRouteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRouteResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

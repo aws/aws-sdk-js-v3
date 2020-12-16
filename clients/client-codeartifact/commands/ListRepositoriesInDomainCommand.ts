@@ -66,14 +66,6 @@ export class ListRepositoriesInDomainCommand extends $Command<
       inputFilterSensitiveLog: ListRepositoriesInDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRepositoriesInDomainResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

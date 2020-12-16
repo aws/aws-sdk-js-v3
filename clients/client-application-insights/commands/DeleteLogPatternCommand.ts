@@ -63,14 +63,6 @@ export class DeleteLogPatternCommand extends $Command<
       inputFilterSensitiveLog: DeleteLogPatternRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLogPatternResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

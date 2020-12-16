@@ -64,14 +64,6 @@ export class GetExecutionHistoryCommand extends $Command<
       inputFilterSensitiveLog: GetExecutionHistoryInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetExecutionHistoryOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

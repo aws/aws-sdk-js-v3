@@ -59,14 +59,6 @@ export class CreateFieldLevelEncryptionProfileCommand extends $Command<
       inputFilterSensitiveLog: CreateFieldLevelEncryptionProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFieldLevelEncryptionProfileResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -83,14 +83,6 @@ export class AssociateAddressCommand extends $Command<
       inputFilterSensitiveLog: AssociateAddressRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateAddressResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

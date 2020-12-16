@@ -64,14 +64,6 @@ export class GetEntitlementsCommand extends $Command<
       inputFilterSensitiveLog: GetEntitlementsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEntitlementsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

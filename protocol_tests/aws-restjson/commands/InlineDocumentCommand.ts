@@ -59,14 +59,6 @@ export class InlineDocumentCommand extends $Command<
       inputFilterSensitiveLog: InlineDocumentInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: InlineDocumentInputOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

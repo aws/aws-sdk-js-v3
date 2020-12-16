@@ -63,14 +63,6 @@ export class ListModelExplainabilityJobDefinitionsCommand extends $Command<
       inputFilterSensitiveLog: ListModelExplainabilityJobDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListModelExplainabilityJobDefinitionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

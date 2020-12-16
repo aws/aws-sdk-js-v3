@@ -59,14 +59,6 @@ export class ListScramSecretsCommand extends $Command<
       inputFilterSensitiveLog: ListScramSecretsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListScramSecretsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

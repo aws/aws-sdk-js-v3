@@ -64,14 +64,6 @@ export class SuspendContactRecordingCommand extends $Command<
       inputFilterSensitiveLog: SuspendContactRecordingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SuspendContactRecordingResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

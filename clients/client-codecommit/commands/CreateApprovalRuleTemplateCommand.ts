@@ -63,14 +63,6 @@ export class CreateApprovalRuleTemplateCommand extends $Command<
       inputFilterSensitiveLog: CreateApprovalRuleTemplateInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApprovalRuleTemplateOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

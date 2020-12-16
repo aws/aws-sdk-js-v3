@@ -72,14 +72,6 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command<
       inputFilterSensitiveLog: CreateConfigurationSetEventDestinationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateConfigurationSetEventDestinationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

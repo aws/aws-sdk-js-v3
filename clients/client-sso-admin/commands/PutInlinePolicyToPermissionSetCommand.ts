@@ -64,14 +64,6 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
       inputFilterSensitiveLog: PutInlinePolicyToPermissionSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutInlinePolicyToPermissionSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

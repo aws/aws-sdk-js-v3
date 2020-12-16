@@ -63,14 +63,6 @@ export class PutAttributesCommand extends $Command<
       inputFilterSensitiveLog: PutAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

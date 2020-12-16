@@ -62,14 +62,6 @@ export class DeleteVariableCommand extends $Command<
       inputFilterSensitiveLog: DeleteVariableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVariableResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

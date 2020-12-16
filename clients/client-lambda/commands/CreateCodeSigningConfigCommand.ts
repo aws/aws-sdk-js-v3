@@ -61,14 +61,6 @@ export class CreateCodeSigningConfigCommand extends $Command<
       inputFilterSensitiveLog: CreateCodeSigningConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCodeSigningConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

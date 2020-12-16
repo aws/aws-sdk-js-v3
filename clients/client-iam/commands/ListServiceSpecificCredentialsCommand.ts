@@ -64,14 +64,6 @@ export class ListServiceSpecificCredentialsCommand extends $Command<
       inputFilterSensitiveLog: ListServiceSpecificCredentialsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListServiceSpecificCredentialsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

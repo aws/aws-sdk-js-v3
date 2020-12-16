@@ -65,14 +65,6 @@ export class ListUserImportJobsCommand extends $Command<
       inputFilterSensitiveLog: ListUserImportJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListUserImportJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

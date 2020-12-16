@@ -59,14 +59,6 @@ export class ListWorldsCommand extends $Command<
       inputFilterSensitiveLog: ListWorldsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWorldsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

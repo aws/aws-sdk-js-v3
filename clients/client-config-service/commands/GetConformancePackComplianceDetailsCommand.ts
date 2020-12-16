@@ -63,14 +63,6 @@ export class GetConformancePackComplianceDetailsCommand extends $Command<
       inputFilterSensitiveLog: GetConformancePackComplianceDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetConformancePackComplianceDetailsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

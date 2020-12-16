@@ -59,14 +59,6 @@ export class UpdateRuleVersionCommand extends $Command<
       inputFilterSensitiveLog: UpdateRuleVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuleVersionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

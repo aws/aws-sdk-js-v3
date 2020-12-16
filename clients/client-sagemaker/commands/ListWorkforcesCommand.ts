@@ -60,14 +60,6 @@ export class ListWorkforcesCommand extends $Command<
       inputFilterSensitiveLog: ListWorkforcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWorkforcesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

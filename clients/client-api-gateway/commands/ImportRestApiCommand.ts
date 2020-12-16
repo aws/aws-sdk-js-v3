@@ -59,14 +59,6 @@ export class ImportRestApiCommand extends $Command<
       inputFilterSensitiveLog: ImportRestApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestApi.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

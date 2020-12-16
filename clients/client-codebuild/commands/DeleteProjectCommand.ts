@@ -60,14 +60,6 @@ export class DeleteProjectCommand extends $Command<
       inputFilterSensitiveLog: DeleteProjectInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProjectOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

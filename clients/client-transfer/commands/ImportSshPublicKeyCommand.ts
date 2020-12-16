@@ -64,14 +64,6 @@ export class ImportSshPublicKeyCommand extends $Command<
       inputFilterSensitiveLog: ImportSshPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportSshPublicKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

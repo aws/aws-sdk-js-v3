@@ -59,14 +59,6 @@ export class DisableMacieCommand extends $Command<
       inputFilterSensitiveLog: DisableMacieRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableMacieResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

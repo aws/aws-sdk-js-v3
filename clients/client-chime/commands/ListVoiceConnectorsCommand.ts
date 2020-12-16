@@ -59,14 +59,6 @@ export class ListVoiceConnectorsCommand extends $Command<
       inputFilterSensitiveLog: ListVoiceConnectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListVoiceConnectorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

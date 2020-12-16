@@ -63,14 +63,6 @@ export class SelectResourceConfigCommand extends $Command<
       inputFilterSensitiveLog: SelectResourceConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SelectResourceConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

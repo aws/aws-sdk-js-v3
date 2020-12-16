@@ -62,14 +62,6 @@ export class UpdateFirewallDeleteProtectionCommand extends $Command<
       inputFilterSensitiveLog: UpdateFirewallDeleteProtectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFirewallDeleteProtectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

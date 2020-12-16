@@ -59,14 +59,6 @@ export class DeleteVirtualServiceCommand extends $Command<
       inputFilterSensitiveLog: DeleteVirtualServiceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVirtualServiceOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -73,14 +73,6 @@ export class BatchMeterUsageCommand extends $Command<
       inputFilterSensitiveLog: BatchMeterUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchMeterUsageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

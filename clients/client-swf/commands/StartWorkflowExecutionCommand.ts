@@ -124,14 +124,6 @@ export class StartWorkflowExecutionCommand extends $Command<
       inputFilterSensitiveLog: StartWorkflowExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: Run.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

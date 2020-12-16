@@ -80,14 +80,6 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
       inputFilterSensitiveLog: PutPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

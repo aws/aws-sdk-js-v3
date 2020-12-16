@@ -63,14 +63,6 @@ export class DeleteSessionCommand extends $Command<
       inputFilterSensitiveLog: DeleteSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteSessionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

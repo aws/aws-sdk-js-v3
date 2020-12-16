@@ -91,14 +91,6 @@ export class UpdateRuleGroupCommand extends $Command<
       inputFilterSensitiveLog: UpdateRuleGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRuleGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

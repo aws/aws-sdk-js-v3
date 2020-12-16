@@ -61,14 +61,6 @@ export class ListFileSharesCommand extends $Command<
       inputFilterSensitiveLog: ListFileSharesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListFileSharesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

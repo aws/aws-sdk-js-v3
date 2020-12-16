@@ -59,14 +59,6 @@ export class CreatePresetCommand extends $Command<
       inputFilterSensitiveLog: CreatePresetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePresetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

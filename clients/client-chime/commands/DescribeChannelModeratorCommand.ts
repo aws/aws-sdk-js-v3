@@ -59,14 +59,6 @@ export class DescribeChannelModeratorCommand extends $Command<
       inputFilterSensitiveLog: DescribeChannelModeratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeChannelModeratorResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

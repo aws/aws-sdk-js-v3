@@ -69,14 +69,6 @@ export class CreateRelationalDatabaseFromSnapshotCommand extends $Command<
       inputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateRelationalDatabaseFromSnapshotResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -62,14 +62,6 @@ export class ResetDistributionCacheCommand extends $Command<
       inputFilterSensitiveLog: ResetDistributionCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResetDistributionCacheResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

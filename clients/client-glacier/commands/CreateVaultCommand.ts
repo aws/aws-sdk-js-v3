@@ -82,14 +82,6 @@ export class CreateVaultCommand extends $Command<
       inputFilterSensitiveLog: CreateVaultInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateVaultOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

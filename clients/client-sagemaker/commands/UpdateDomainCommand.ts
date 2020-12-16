@@ -59,14 +59,6 @@ export class UpdateDomainCommand extends $Command<
       inputFilterSensitiveLog: UpdateDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDomainResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

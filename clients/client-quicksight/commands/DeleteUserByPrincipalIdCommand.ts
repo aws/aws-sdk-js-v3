@@ -59,14 +59,6 @@ export class DeleteUserByPrincipalIdCommand extends $Command<
       inputFilterSensitiveLog: DeleteUserByPrincipalIdRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteUserByPrincipalIdResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

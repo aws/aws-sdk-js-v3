@@ -106,14 +106,6 @@ export class DeleteMatchmakingConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DeleteMatchmakingConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMatchmakingConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

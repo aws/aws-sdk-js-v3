@@ -101,14 +101,6 @@ export class ListBucketMetricsConfigurationsCommand extends $Command<
       inputFilterSensitiveLog: ListBucketMetricsConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBucketMetricsConfigurationsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

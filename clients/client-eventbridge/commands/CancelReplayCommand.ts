@@ -59,14 +59,6 @@ export class CancelReplayCommand extends $Command<
       inputFilterSensitiveLog: CancelReplayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelReplayResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

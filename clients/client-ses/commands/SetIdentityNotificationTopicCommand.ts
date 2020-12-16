@@ -67,14 +67,6 @@ export class SetIdentityNotificationTopicCommand extends $Command<
       inputFilterSensitiveLog: SetIdentityNotificationTopicRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SetIdentityNotificationTopicResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

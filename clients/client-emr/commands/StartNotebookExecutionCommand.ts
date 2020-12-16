@@ -59,14 +59,6 @@ export class StartNotebookExecutionCommand extends $Command<
       inputFilterSensitiveLog: StartNotebookExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartNotebookExecutionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

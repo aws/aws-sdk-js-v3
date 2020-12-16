@@ -118,14 +118,6 @@ export class StartMatchBackfillCommand extends $Command<
       inputFilterSensitiveLog: StartMatchBackfillInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartMatchBackfillOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

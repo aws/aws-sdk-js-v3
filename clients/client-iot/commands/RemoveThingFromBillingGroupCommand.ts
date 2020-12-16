@@ -59,14 +59,6 @@ export class RemoveThingFromBillingGroupCommand extends $Command<
       inputFilterSensitiveLog: RemoveThingFromBillingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveThingFromBillingGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

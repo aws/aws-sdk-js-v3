@@ -61,14 +61,6 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
       inputFilterSensitiveLog: ReportTaskRunnerHeartbeatInput.filterSensitiveLog,
       outputFilterSensitiveLog: ReportTaskRunnerHeartbeatOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

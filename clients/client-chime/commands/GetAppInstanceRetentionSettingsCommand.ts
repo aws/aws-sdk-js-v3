@@ -59,14 +59,6 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
       inputFilterSensitiveLog: GetAppInstanceRetentionSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppInstanceRetentionSettingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

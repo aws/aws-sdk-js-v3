@@ -65,14 +65,6 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
       inputFilterSensitiveLog: StreamingTraitsRequireLengthInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: StreamingTraitsRequireLengthInputOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

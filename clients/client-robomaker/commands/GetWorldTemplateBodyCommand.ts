@@ -59,14 +59,6 @@ export class GetWorldTemplateBodyCommand extends $Command<
       inputFilterSensitiveLog: GetWorldTemplateBodyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetWorldTemplateBodyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

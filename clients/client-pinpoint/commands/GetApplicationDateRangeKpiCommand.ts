@@ -59,14 +59,6 @@ export class GetApplicationDateRangeKpiCommand extends $Command<
       inputFilterSensitiveLog: GetApplicationDateRangeKpiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApplicationDateRangeKpiResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

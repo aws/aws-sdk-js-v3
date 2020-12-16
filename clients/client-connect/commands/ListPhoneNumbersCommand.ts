@@ -61,14 +61,6 @@ export class ListPhoneNumbersCommand extends $Command<
       inputFilterSensitiveLog: ListPhoneNumbersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPhoneNumbersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

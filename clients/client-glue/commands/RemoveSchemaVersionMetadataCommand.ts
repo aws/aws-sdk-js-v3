@@ -59,14 +59,6 @@ export class RemoveSchemaVersionMetadataCommand extends $Command<
       inputFilterSensitiveLog: RemoveSchemaVersionMetadataInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveSchemaVersionMetadataResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

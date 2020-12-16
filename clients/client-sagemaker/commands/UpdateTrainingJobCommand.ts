@@ -59,14 +59,6 @@ export class UpdateTrainingJobCommand extends $Command<
       inputFilterSensitiveLog: UpdateTrainingJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrainingJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

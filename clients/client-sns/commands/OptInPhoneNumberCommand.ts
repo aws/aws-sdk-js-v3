@@ -61,14 +61,6 @@ export class OptInPhoneNumberCommand extends $Command<
       inputFilterSensitiveLog: OptInPhoneNumberInput.filterSensitiveLog,
       outputFilterSensitiveLog: OptInPhoneNumberResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

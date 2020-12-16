@@ -60,14 +60,6 @@ export class UpdateRecipeJobCommand extends $Command<
       inputFilterSensitiveLog: UpdateRecipeJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRecipeJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

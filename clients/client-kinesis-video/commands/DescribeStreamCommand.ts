@@ -60,14 +60,6 @@ export class DescribeStreamCommand extends $Command<
       inputFilterSensitiveLog: DescribeStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStreamOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

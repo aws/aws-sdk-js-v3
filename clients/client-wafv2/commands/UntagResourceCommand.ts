@@ -62,14 +62,6 @@ export class UntagResourceCommand extends $Command<
       inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

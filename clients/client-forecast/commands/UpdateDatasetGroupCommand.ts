@@ -64,14 +64,6 @@ export class UpdateDatasetGroupCommand extends $Command<
       inputFilterSensitiveLog: UpdateDatasetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDatasetGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

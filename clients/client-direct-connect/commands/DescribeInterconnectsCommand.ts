@@ -59,14 +59,6 @@ export class DescribeInterconnectsCommand extends $Command<
       inputFilterSensitiveLog: DescribeInterconnectsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Interconnects.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

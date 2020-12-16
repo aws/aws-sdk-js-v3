@@ -59,14 +59,6 @@ export class ListContactListsCommand extends $Command<
       inputFilterSensitiveLog: ListContactListsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListContactListsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

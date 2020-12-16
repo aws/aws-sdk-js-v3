@@ -60,14 +60,6 @@ export class CreateModelVersionCommand extends $Command<
       inputFilterSensitiveLog: CreateModelVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateModelVersionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

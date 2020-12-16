@@ -59,14 +59,6 @@ export class GetMetricPolicyCommand extends $Command<
       inputFilterSensitiveLog: GetMetricPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetMetricPolicyOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

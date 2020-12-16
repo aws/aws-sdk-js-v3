@@ -63,14 +63,6 @@ export class ListPredictorsCommand extends $Command<
       inputFilterSensitiveLog: ListPredictorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPredictorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class GetKeyPolicyCommand extends $Command<
       inputFilterSensitiveLog: GetKeyPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetKeyPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

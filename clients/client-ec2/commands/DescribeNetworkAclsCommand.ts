@@ -61,14 +61,6 @@ export class DescribeNetworkAclsCommand extends $Command<
       inputFilterSensitiveLog: DescribeNetworkAclsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNetworkAclsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

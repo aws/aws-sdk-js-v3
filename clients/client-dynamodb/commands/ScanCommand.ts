@@ -76,14 +76,6 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
       inputFilterSensitiveLog: ScanInput.filterSensitiveLog,
       outputFilterSensitiveLog: ScanOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

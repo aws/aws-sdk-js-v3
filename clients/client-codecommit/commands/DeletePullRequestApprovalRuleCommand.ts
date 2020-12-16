@@ -61,14 +61,6 @@ export class DeletePullRequestApprovalRuleCommand extends $Command<
       inputFilterSensitiveLog: DeletePullRequestApprovalRuleInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePullRequestApprovalRuleOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

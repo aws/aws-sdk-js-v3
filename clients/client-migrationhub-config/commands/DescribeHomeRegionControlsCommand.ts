@@ -64,14 +64,6 @@ export class DescribeHomeRegionControlsCommand extends $Command<
       inputFilterSensitiveLog: DescribeHomeRegionControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeHomeRegionControlsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

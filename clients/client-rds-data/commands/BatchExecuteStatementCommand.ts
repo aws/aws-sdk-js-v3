@@ -67,14 +67,6 @@ export class BatchExecuteStatementCommand extends $Command<
       inputFilterSensitiveLog: BatchExecuteStatementRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchExecuteStatementResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

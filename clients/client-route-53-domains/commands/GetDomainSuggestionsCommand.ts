@@ -59,14 +59,6 @@ export class GetDomainSuggestionsCommand extends $Command<
       inputFilterSensitiveLog: GetDomainSuggestionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainSuggestionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

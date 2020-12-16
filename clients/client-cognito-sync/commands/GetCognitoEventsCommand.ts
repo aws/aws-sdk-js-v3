@@ -60,14 +60,6 @@ export class GetCognitoEventsCommand extends $Command<
       inputFilterSensitiveLog: GetCognitoEventsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCognitoEventsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

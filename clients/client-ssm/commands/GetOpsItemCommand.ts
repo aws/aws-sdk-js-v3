@@ -66,14 +66,6 @@ export class GetOpsItemCommand extends $Command<
       inputFilterSensitiveLog: GetOpsItemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOpsItemResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

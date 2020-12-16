@@ -59,14 +59,6 @@ export class AssociateTagOptionWithResourceCommand extends $Command<
       inputFilterSensitiveLog: AssociateTagOptionWithResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateTagOptionWithResourceOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetEnabledStandardsCommand extends $Command<
       inputFilterSensitiveLog: GetEnabledStandardsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEnabledStandardsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

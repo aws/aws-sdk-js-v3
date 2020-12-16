@@ -59,14 +59,6 @@ export class StartAuditMitigationActionsTaskCommand extends $Command<
       inputFilterSensitiveLog: StartAuditMitigationActionsTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartAuditMitigationActionsTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

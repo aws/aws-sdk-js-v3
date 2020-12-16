@@ -68,14 +68,6 @@ export class TagStreamCommand extends $Command<
       inputFilterSensitiveLog: TagStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: TagStreamOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

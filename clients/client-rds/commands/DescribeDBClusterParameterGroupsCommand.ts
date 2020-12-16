@@ -70,14 +70,6 @@ export class DescribeDBClusterParameterGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeDBClusterParameterGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBClusterParameterGroupsMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

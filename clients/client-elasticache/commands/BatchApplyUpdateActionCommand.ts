@@ -59,14 +59,6 @@ export class BatchApplyUpdateActionCommand extends $Command<
       inputFilterSensitiveLog: BatchApplyUpdateActionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateActionResultsMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

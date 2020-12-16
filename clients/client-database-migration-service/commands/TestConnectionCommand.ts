@@ -63,14 +63,6 @@ export class TestConnectionCommand extends $Command<
       inputFilterSensitiveLog: TestConnectionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: TestConnectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

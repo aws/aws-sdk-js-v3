@@ -59,14 +59,6 @@ export class ListBranchesCommand extends $Command<
       inputFilterSensitiveLog: ListBranchesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListBranchesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

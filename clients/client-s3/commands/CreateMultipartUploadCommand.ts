@@ -324,14 +324,6 @@ export class CreateMultipartUploadCommand extends $Command<
       inputFilterSensitiveLog: CreateMultipartUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateMultipartUploadOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

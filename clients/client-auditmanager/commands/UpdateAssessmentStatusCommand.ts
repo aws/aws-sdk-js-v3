@@ -61,14 +61,6 @@ export class UpdateAssessmentStatusCommand extends $Command<
       inputFilterSensitiveLog: UpdateAssessmentStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAssessmentStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

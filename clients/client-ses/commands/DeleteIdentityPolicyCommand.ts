@@ -70,14 +70,6 @@ export class DeleteIdentityPolicyCommand extends $Command<
       inputFilterSensitiveLog: DeleteIdentityPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIdentityPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

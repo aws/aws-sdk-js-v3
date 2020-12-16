@@ -60,14 +60,6 @@ export class CreateIntegrationAssociationCommand extends $Command<
       inputFilterSensitiveLog: CreateIntegrationAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIntegrationAssociationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

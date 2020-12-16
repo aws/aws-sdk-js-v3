@@ -64,14 +64,6 @@ export class DeleteBatchPredictionCommand extends $Command<
       inputFilterSensitiveLog: DeleteBatchPredictionInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBatchPredictionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DescribePatchGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribePatchGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePatchGroupsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

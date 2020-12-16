@@ -59,14 +59,6 @@ export class CreatePackagingConfigurationCommand extends $Command<
       inputFilterSensitiveLog: CreatePackagingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePackagingConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

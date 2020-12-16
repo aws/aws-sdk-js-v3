@@ -65,14 +65,6 @@ export class DeleteDocumentClassifierCommand extends $Command<
       inputFilterSensitiveLog: DeleteDocumentClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDocumentClassifierResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

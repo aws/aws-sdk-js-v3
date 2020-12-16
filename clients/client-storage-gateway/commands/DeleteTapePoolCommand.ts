@@ -61,14 +61,6 @@ export class DeleteTapePoolCommand extends $Command<
       inputFilterSensitiveLog: DeleteTapePoolInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTapePoolOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

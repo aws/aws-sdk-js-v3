@@ -65,14 +65,6 @@ export class CreateTrafficMirrorSessionCommand extends $Command<
       inputFilterSensitiveLog: CreateTrafficMirrorSessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTrafficMirrorSessionResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

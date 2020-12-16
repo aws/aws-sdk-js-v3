@@ -59,14 +59,6 @@ export class SetV2LoggingLevelCommand extends $Command<
       inputFilterSensitiveLog: SetV2LoggingLevelRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class DeleteAccountCustomizationCommand extends $Command<
       inputFilterSensitiveLog: DeleteAccountCustomizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAccountCustomizationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

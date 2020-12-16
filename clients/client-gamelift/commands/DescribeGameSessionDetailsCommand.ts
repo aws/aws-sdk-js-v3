@@ -120,14 +120,6 @@ export class DescribeGameSessionDetailsCommand extends $Command<
       inputFilterSensitiveLog: DescribeGameSessionDetailsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeGameSessionDetailsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class ListResolverRuleAssociationsCommand extends $Command<
       inputFilterSensitiveLog: ListResolverRuleAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListResolverRuleAssociationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

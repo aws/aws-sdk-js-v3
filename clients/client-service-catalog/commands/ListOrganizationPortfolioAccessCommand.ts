@@ -62,14 +62,6 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
       inputFilterSensitiveLog: ListOrganizationPortfolioAccessInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListOrganizationPortfolioAccessOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

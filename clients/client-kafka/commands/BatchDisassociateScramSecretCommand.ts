@@ -59,14 +59,6 @@ export class BatchDisassociateScramSecretCommand extends $Command<
       inputFilterSensitiveLog: BatchDisassociateScramSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchDisassociateScramSecretResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

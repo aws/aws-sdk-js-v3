@@ -59,14 +59,6 @@ export class ListProgressUpdateStreamsCommand extends $Command<
       inputFilterSensitiveLog: ListProgressUpdateStreamsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProgressUpdateStreamsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

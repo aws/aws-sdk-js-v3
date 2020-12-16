@@ -59,14 +59,6 @@ export class ListAssociatedStacksCommand extends $Command<
       inputFilterSensitiveLog: ListAssociatedStacksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssociatedStacksResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

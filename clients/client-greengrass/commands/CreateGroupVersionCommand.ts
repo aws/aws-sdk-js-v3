@@ -59,14 +59,6 @@ export class CreateGroupVersionCommand extends $Command<
       inputFilterSensitiveLog: CreateGroupVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateGroupVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -62,14 +62,6 @@ export class ListRuleGroupsCommand extends $Command<
       inputFilterSensitiveLog: ListRuleGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRuleGroupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

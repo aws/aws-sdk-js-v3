@@ -62,14 +62,6 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
       inputFilterSensitiveLog: DescribeConfigurationAggregatorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConfigurationAggregatorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

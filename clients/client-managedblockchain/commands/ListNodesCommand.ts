@@ -63,14 +63,6 @@ export class ListNodesCommand extends $Command<
       inputFilterSensitiveLog: ListNodesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListNodesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

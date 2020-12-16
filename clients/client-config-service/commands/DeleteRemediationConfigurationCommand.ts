@@ -59,14 +59,6 @@ export class DeleteRemediationConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DeleteRemediationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRemediationConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

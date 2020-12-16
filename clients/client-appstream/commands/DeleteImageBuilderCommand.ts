@@ -59,14 +59,6 @@ export class DeleteImageBuilderCommand extends $Command<
       inputFilterSensitiveLog: DeleteImageBuilderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteImageBuilderResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

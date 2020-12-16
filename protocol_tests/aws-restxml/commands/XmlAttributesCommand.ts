@@ -59,14 +59,6 @@ export class XmlAttributesCommand extends $Command<
       inputFilterSensitiveLog: XmlAttributesInputOutput.filterSensitiveLog,
       outputFilterSensitiveLog: XmlAttributesInputOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

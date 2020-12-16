@@ -63,14 +63,6 @@ export class DescribeComponentCommand extends $Command<
       inputFilterSensitiveLog: DescribeComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeComponentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

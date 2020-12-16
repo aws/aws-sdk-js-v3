@@ -64,14 +64,6 @@ export class GetEventTypesCommand extends $Command<
       inputFilterSensitiveLog: GetEventTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEventTypesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

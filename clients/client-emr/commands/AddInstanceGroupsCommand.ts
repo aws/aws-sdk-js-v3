@@ -59,14 +59,6 @@ export class AddInstanceGroupsCommand extends $Command<
       inputFilterSensitiveLog: AddInstanceGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddInstanceGroupsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

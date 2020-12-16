@@ -66,14 +66,6 @@ export class GetBotAliasCommand extends $Command<
       inputFilterSensitiveLog: GetBotAliasRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBotAliasResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

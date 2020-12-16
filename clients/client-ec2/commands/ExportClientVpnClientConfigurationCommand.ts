@@ -65,14 +65,6 @@ export class ExportClientVpnClientConfigurationCommand extends $Command<
       inputFilterSensitiveLog: ExportClientVpnClientConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ExportClientVpnClientConfigurationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

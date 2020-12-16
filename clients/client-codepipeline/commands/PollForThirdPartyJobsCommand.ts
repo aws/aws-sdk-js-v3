@@ -65,14 +65,6 @@ export class PollForThirdPartyJobsCommand extends $Command<
       inputFilterSensitiveLog: PollForThirdPartyJobsInput.filterSensitiveLog,
       outputFilterSensitiveLog: PollForThirdPartyJobsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

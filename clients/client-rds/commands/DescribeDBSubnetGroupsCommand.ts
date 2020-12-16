@@ -62,14 +62,6 @@ export class DescribeDBSubnetGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeDBSubnetGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBSubnetGroupMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

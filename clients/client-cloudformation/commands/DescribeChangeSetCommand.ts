@@ -61,14 +61,6 @@ export class DescribeChangeSetCommand extends $Command<
       inputFilterSensitiveLog: DescribeChangeSetInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeChangeSetOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

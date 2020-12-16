@@ -64,14 +64,6 @@ export class InvokeAsyncCommand extends $Command<
       inputFilterSensitiveLog: InvokeAsyncRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InvokeAsyncResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

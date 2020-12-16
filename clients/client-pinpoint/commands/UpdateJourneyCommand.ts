@@ -59,14 +59,6 @@ export class UpdateJourneyCommand extends $Command<
       inputFilterSensitiveLog: UpdateJourneyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateJourneyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

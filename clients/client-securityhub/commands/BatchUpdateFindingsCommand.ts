@@ -117,14 +117,6 @@ export class BatchUpdateFindingsCommand extends $Command<
       inputFilterSensitiveLog: BatchUpdateFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchUpdateFindingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

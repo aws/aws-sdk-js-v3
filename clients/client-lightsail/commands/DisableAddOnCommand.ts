@@ -59,14 +59,6 @@ export class DisableAddOnCommand extends $Command<
       inputFilterSensitiveLog: DisableAddOnRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableAddOnResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

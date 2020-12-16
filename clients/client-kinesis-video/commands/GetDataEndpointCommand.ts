@@ -70,14 +70,6 @@ export class GetDataEndpointCommand extends $Command<
       inputFilterSensitiveLog: GetDataEndpointInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataEndpointOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

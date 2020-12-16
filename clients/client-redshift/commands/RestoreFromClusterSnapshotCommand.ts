@@ -70,14 +70,6 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
       inputFilterSensitiveLog: RestoreFromClusterSnapshotMessage.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreFromClusterSnapshotResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

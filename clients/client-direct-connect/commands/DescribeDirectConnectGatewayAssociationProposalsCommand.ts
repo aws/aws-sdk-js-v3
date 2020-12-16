@@ -66,14 +66,6 @@ export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Co
       inputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDirectConnectGatewayAssociationProposalsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -123,14 +123,6 @@ export class CreateTrainingJobCommand extends $Command<
       inputFilterSensitiveLog: CreateTrainingJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTrainingJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -92,14 +92,6 @@ export class CreateIPSetCommand extends $Command<
       inputFilterSensitiveLog: CreateIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateIPSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

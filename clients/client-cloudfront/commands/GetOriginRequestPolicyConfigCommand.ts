@@ -65,14 +65,6 @@ export class GetOriginRequestPolicyConfigCommand extends $Command<
       inputFilterSensitiveLog: GetOriginRequestPolicyConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOriginRequestPolicyConfigResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

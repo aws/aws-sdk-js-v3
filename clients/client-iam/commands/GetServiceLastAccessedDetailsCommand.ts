@@ -110,14 +110,6 @@ export class GetServiceLastAccessedDetailsCommand extends $Command<
       inputFilterSensitiveLog: GetServiceLastAccessedDetailsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetServiceLastAccessedDetailsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

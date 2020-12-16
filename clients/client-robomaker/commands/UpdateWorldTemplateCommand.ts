@@ -59,14 +59,6 @@ export class UpdateWorldTemplateCommand extends $Command<
       inputFilterSensitiveLog: UpdateWorldTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorldTemplateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

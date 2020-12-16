@@ -59,14 +59,6 @@ export class ImportComponentCommand extends $Command<
       inputFilterSensitiveLog: ImportComponentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ImportComponentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

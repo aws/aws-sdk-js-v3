@@ -142,14 +142,6 @@ export class DescribeRuntimeConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DescribeRuntimeConfigurationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRuntimeConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

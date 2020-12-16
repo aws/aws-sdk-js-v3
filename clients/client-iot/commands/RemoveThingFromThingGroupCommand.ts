@@ -64,14 +64,6 @@ export class RemoveThingFromThingGroupCommand extends $Command<
       inputFilterSensitiveLog: RemoveThingFromThingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveThingFromThingGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -62,14 +62,6 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
       inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
       outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

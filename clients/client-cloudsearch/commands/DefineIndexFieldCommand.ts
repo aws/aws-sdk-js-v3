@@ -59,14 +59,6 @@ export class DefineIndexFieldCommand extends $Command<
       inputFilterSensitiveLog: DefineIndexFieldRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DefineIndexFieldResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

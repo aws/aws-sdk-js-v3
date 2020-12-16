@@ -67,14 +67,6 @@ export class GetCostAndUsageWithResourcesCommand extends $Command<
       inputFilterSensitiveLog: GetCostAndUsageWithResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCostAndUsageWithResourcesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class UploadSSHPublicKeyCommand extends $Command<
       inputFilterSensitiveLog: UploadSSHPublicKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadSSHPublicKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

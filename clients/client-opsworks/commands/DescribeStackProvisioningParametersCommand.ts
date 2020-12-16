@@ -68,14 +68,6 @@ export class DescribeStackProvisioningParametersCommand extends $Command<
       inputFilterSensitiveLog: DescribeStackProvisioningParametersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStackProvisioningParametersResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DeleteMultiplexProgramCommand extends $Command<
       inputFilterSensitiveLog: DeleteMultiplexProgramRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteMultiplexProgramResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

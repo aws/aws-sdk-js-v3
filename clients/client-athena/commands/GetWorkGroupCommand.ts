@@ -59,14 +59,6 @@ export class GetWorkGroupCommand extends $Command<
       inputFilterSensitiveLog: GetWorkGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetWorkGroupOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

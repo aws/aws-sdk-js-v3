@@ -60,14 +60,6 @@ export class UpdateFirewallDescriptionCommand extends $Command<
       inputFilterSensitiveLog: UpdateFirewallDescriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateFirewallDescriptionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

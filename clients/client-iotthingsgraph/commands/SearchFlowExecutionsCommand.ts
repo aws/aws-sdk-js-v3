@@ -59,14 +59,6 @@ export class SearchFlowExecutionsCommand extends $Command<
       inputFilterSensitiveLog: SearchFlowExecutionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchFlowExecutionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

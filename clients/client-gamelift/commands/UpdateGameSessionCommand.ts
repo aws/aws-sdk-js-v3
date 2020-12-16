@@ -116,14 +116,6 @@ export class UpdateGameSessionCommand extends $Command<
       inputFilterSensitiveLog: UpdateGameSessionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateGameSessionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

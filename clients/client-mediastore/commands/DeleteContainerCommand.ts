@@ -61,14 +61,6 @@ export class DeleteContainerCommand extends $Command<
       inputFilterSensitiveLog: DeleteContainerInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteContainerOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

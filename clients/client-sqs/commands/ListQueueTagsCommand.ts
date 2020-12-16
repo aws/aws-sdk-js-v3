@@ -62,14 +62,6 @@ export class ListQueueTagsCommand extends $Command<
       inputFilterSensitiveLog: ListQueueTagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListQueueTagsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

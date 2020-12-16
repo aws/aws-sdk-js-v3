@@ -52,14 +52,6 @@ export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommand
       inputFilterSensitiveLog: GetJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

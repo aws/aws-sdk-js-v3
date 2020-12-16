@@ -59,14 +59,6 @@ export class PostCommentForComparedCommitCommand extends $Command<
       inputFilterSensitiveLog: PostCommentForComparedCommitInput.filterSensitiveLog,
       outputFilterSensitiveLog: PostCommentForComparedCommitOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

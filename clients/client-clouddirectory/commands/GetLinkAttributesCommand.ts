@@ -59,14 +59,6 @@ export class GetLinkAttributesCommand extends $Command<
       inputFilterSensitiveLog: GetLinkAttributesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLinkAttributesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

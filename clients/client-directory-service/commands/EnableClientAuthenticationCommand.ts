@@ -59,14 +59,6 @@ export class EnableClientAuthenticationCommand extends $Command<
       inputFilterSensitiveLog: EnableClientAuthenticationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableClientAuthenticationResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

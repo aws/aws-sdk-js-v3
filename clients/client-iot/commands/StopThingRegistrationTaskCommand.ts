@@ -59,14 +59,6 @@ export class StopThingRegistrationTaskCommand extends $Command<
       inputFilterSensitiveLog: StopThingRegistrationTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopThingRegistrationTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

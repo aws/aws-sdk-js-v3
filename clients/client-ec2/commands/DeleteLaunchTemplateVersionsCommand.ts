@@ -62,14 +62,6 @@ export class DeleteLaunchTemplateVersionsCommand extends $Command<
       inputFilterSensitiveLog: DeleteLaunchTemplateVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteLaunchTemplateVersionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

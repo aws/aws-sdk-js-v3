@@ -59,14 +59,6 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeDBProxyTargetGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDBProxyTargetGroupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

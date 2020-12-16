@@ -59,14 +59,6 @@ export class PutTelemetryRecordsCommand extends $Command<
       inputFilterSensitiveLog: PutTelemetryRecordsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutTelemetryRecordsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

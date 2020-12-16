@@ -59,14 +59,6 @@ export class PutImageScanningConfigurationCommand extends $Command<
       inputFilterSensitiveLog: PutImageScanningConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutImageScanningConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

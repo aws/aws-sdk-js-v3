@@ -61,14 +61,6 @@ export class DescribeWorkspacesCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorkspacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkspacesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

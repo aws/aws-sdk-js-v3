@@ -60,14 +60,6 @@ export class DisableLoggingCommand extends $Command<
       inputFilterSensitiveLog: DisableLoggingMessage.filterSensitiveLog,
       outputFilterSensitiveLog: LoggingStatus.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

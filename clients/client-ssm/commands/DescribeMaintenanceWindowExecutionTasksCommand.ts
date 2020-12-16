@@ -66,14 +66,6 @@ export class DescribeMaintenanceWindowExecutionTasksCommand extends $Command<
       inputFilterSensitiveLog: DescribeMaintenanceWindowExecutionTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMaintenanceWindowExecutionTasksResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

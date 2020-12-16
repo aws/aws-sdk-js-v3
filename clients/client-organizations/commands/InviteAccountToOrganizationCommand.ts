@@ -84,14 +84,6 @@ export class InviteAccountToOrganizationCommand extends $Command<
       inputFilterSensitiveLog: InviteAccountToOrganizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InviteAccountToOrganizationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

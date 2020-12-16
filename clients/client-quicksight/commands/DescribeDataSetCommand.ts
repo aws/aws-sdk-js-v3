@@ -59,14 +59,6 @@ export class DescribeDataSetCommand extends $Command<
       inputFilterSensitiveLog: DescribeDataSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDataSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

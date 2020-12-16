@@ -108,14 +108,6 @@ export class UpdateSqlInjectionMatchSetCommand extends $Command<
       inputFilterSensitiveLog: UpdateSqlInjectionMatchSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSqlInjectionMatchSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -112,14 +112,6 @@ export class GetSessionTokenCommand extends $Command<
       inputFilterSensitiveLog: GetSessionTokenRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSessionTokenResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

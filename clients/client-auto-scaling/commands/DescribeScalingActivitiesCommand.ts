@@ -59,14 +59,6 @@ export class DescribeScalingActivitiesCommand extends $Command<
       inputFilterSensitiveLog: DescribeScalingActivitiesType.filterSensitiveLog,
       outputFilterSensitiveLog: ActivitiesType.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -57,14 +57,6 @@ export class StopQueryCommand extends $Command<
       inputFilterSensitiveLog: StopQueryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopQueryResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

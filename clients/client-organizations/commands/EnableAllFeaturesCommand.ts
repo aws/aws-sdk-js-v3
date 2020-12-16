@@ -84,14 +84,6 @@ export class EnableAllFeaturesCommand extends $Command<
       inputFilterSensitiveLog: EnableAllFeaturesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableAllFeaturesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

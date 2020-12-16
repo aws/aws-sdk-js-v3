@@ -63,14 +63,6 @@ export class DescribeLoadBalancersCommand extends $Command<
       inputFilterSensitiveLog: DescribeAccessPointsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAccessPointsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

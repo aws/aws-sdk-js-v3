@@ -63,14 +63,6 @@ export class CreateApplicationVersionCommand extends $Command<
       inputFilterSensitiveLog: CreateApplicationVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateApplicationVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
       inputFilterSensitiveLog: DescribeLoadBasedAutoScalingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLoadBasedAutoScalingResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -78,14 +78,6 @@ export class GetBucketOwnershipControlsCommand extends $Command<
       inputFilterSensitiveLog: GetBucketOwnershipControlsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketOwnershipControlsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

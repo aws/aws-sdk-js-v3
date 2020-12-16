@@ -59,14 +59,6 @@ export class DescribeCoipPoolsCommand extends $Command<
       inputFilterSensitiveLog: DescribeCoipPoolsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeCoipPoolsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

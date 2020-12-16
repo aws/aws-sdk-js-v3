@@ -78,14 +78,6 @@ export class ModifyDBParameterGroupCommand extends $Command<
       inputFilterSensitiveLog: ModifyDBParameterGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DBParameterGroupNameMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

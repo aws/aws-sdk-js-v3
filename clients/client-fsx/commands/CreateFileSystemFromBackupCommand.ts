@@ -94,14 +94,6 @@ export class CreateFileSystemFromBackupCommand extends $Command<
       inputFilterSensitiveLog: CreateFileSystemFromBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFileSystemFromBackupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

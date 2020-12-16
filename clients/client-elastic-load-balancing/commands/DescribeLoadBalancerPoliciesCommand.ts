@@ -67,14 +67,6 @@ export class DescribeLoadBalancerPoliciesCommand extends $Command<
       inputFilterSensitiveLog: DescribeLoadBalancerPoliciesInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLoadBalancerPoliciesOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

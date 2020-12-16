@@ -61,14 +61,6 @@ export class DescribeAcceleratorsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAcceleratorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAcceleratorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

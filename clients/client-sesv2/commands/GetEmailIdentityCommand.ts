@@ -61,14 +61,6 @@ export class GetEmailIdentityCommand extends $Command<
       inputFilterSensitiveLog: GetEmailIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEmailIdentityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

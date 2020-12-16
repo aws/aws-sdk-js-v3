@@ -60,14 +60,6 @@ export class DisableImportFindingsForProductCommand extends $Command<
       inputFilterSensitiveLog: DisableImportFindingsForProductRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableImportFindingsForProductResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

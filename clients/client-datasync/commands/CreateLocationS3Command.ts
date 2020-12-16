@@ -65,14 +65,6 @@ export class CreateLocationS3Command extends $Command<
       inputFilterSensitiveLog: CreateLocationS3Request.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLocationS3Response.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

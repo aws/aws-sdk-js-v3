@@ -56,14 +56,6 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
       inputFilterSensitiveLog: ListRolesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRolesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

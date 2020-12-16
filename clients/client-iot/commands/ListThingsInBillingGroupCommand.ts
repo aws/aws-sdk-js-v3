@@ -59,14 +59,6 @@ export class ListThingsInBillingGroupCommand extends $Command<
       inputFilterSensitiveLog: ListThingsInBillingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThingsInBillingGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

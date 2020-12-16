@@ -65,14 +65,6 @@ export class CreateBGPPeerCommand extends $Command<
       inputFilterSensitiveLog: CreateBGPPeerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBGPPeerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

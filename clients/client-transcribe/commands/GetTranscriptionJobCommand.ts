@@ -63,14 +63,6 @@ export class GetTranscriptionJobCommand extends $Command<
       inputFilterSensitiveLog: GetTranscriptionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTranscriptionJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

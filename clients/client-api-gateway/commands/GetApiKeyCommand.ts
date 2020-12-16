@@ -59,14 +59,6 @@ export class GetApiKeyCommand extends $Command<
       inputFilterSensitiveLog: GetApiKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ApiKey.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -64,14 +64,6 @@ export class DescribeWorkforceCommand extends $Command<
       inputFilterSensitiveLog: DescribeWorkforceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWorkforceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

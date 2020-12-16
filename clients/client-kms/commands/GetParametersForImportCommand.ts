@@ -75,14 +75,6 @@ export class GetParametersForImportCommand extends $Command<
       inputFilterSensitiveLog: GetParametersForImportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetParametersForImportResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

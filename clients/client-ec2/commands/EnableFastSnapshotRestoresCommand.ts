@@ -64,14 +64,6 @@ export class EnableFastSnapshotRestoresCommand extends $Command<
       inputFilterSensitiveLog: EnableFastSnapshotRestoresRequest.filterSensitiveLog,
       outputFilterSensitiveLog: EnableFastSnapshotRestoresResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

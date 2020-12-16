@@ -61,14 +61,6 @@ export class DisassociateConnectorCommand extends $Command<
       inputFilterSensitiveLog: DisassociateConnectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateConnectorResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

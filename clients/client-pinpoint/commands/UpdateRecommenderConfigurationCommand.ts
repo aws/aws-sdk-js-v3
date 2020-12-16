@@ -59,14 +59,6 @@ export class UpdateRecommenderConfigurationCommand extends $Command<
       inputFilterSensitiveLog: UpdateRecommenderConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRecommenderConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

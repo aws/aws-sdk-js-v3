@@ -61,14 +61,6 @@ export class GetEvidenceByEvidenceFolderCommand extends $Command<
       inputFilterSensitiveLog: GetEvidenceByEvidenceFolderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEvidenceByEvidenceFolderResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

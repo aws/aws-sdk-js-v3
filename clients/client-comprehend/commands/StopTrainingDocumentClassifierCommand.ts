@@ -64,14 +64,6 @@ export class StopTrainingDocumentClassifierCommand extends $Command<
       inputFilterSensitiveLog: StopTrainingDocumentClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopTrainingDocumentClassifierResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

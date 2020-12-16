@@ -59,14 +59,6 @@ export class AddFlowOutputsCommand extends $Command<
       inputFilterSensitiveLog: AddFlowOutputsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddFlowOutputsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

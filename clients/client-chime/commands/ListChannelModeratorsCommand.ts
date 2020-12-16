@@ -59,14 +59,6 @@ export class ListChannelModeratorsCommand extends $Command<
       inputFilterSensitiveLog: ListChannelModeratorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListChannelModeratorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class RemoveAttributesFromFindingsCommand extends $Command<
       inputFilterSensitiveLog: RemoveAttributesFromFindingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveAttributesFromFindingsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

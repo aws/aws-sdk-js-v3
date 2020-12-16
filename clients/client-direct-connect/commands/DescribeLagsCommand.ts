@@ -59,14 +59,6 @@ export class DescribeLagsCommand extends $Command<
       inputFilterSensitiveLog: DescribeLagsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Lags.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

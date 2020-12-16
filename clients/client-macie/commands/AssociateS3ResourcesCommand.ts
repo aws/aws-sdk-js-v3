@@ -63,14 +63,6 @@ export class AssociateS3ResourcesCommand extends $Command<
       inputFilterSensitiveLog: AssociateS3ResourcesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateS3ResourcesResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

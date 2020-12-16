@@ -64,14 +64,6 @@ export class GetObjectLockConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetObjectLockConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetObjectLockConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

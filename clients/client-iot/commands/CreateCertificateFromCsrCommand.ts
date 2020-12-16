@@ -93,14 +93,6 @@ export class CreateCertificateFromCsrCommand extends $Command<
       inputFilterSensitiveLog: CreateCertificateFromCsrRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateCertificateFromCsrResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

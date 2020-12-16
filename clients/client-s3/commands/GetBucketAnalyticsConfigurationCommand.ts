@@ -90,14 +90,6 @@ export class GetBucketAnalyticsConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetBucketAnalyticsConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketAnalyticsConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

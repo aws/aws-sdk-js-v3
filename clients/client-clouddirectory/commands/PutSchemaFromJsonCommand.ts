@@ -59,14 +59,6 @@ export class PutSchemaFromJsonCommand extends $Command<
       inputFilterSensitiveLog: PutSchemaFromJsonRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSchemaFromJsonResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

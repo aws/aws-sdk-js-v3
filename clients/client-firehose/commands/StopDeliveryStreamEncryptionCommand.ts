@@ -78,14 +78,6 @@ export class StopDeliveryStreamEncryptionCommand extends $Command<
       inputFilterSensitiveLog: StopDeliveryStreamEncryptionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopDeliveryStreamEncryptionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

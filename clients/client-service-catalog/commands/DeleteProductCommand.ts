@@ -61,14 +61,6 @@ export class DeleteProductCommand extends $Command<
       inputFilterSensitiveLog: DeleteProductInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProductOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

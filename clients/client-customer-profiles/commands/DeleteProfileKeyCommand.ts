@@ -59,14 +59,6 @@ export class DeleteProfileKeyCommand extends $Command<
       inputFilterSensitiveLog: DeleteProfileKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteProfileKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

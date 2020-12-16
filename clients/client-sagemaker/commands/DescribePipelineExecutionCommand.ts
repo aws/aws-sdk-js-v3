@@ -59,14 +59,6 @@ export class DescribePipelineExecutionCommand extends $Command<
       inputFilterSensitiveLog: DescribePipelineExecutionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePipelineExecutionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

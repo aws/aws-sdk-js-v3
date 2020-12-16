@@ -59,14 +59,6 @@ export class DeleteTransitGatewayRouteCommand extends $Command<
       inputFilterSensitiveLog: DeleteTransitGatewayRouteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTransitGatewayRouteResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

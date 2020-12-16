@@ -61,14 +61,6 @@ export class RestoreBackupCommand extends $Command<
       inputFilterSensitiveLog: RestoreBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreBackupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class GetUsageTotalsCommand extends $Command<
       inputFilterSensitiveLog: GetUsageTotalsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUsageTotalsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -72,14 +72,6 @@ export class ListEndpointsByPlatformApplicationCommand extends $Command<
       inputFilterSensitiveLog: ListEndpointsByPlatformApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListEndpointsByPlatformApplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

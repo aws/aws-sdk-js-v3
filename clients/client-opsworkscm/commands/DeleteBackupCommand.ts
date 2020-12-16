@@ -66,14 +66,6 @@ export class DeleteBackupCommand extends $Command<
       inputFilterSensitiveLog: DeleteBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteBackupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

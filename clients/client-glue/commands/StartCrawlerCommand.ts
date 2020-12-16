@@ -61,14 +61,6 @@ export class StartCrawlerCommand extends $Command<
       inputFilterSensitiveLog: StartCrawlerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartCrawlerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

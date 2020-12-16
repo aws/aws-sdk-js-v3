@@ -59,14 +59,6 @@ export class GetHealthCheckCommand extends $Command<
       inputFilterSensitiveLog: GetHealthCheckRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHealthCheckResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

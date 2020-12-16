@@ -64,14 +64,6 @@ export class ClaimDevicesByClaimCodeCommand extends $Command<
       inputFilterSensitiveLog: ClaimDevicesByClaimCodeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ClaimDevicesByClaimCodeResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

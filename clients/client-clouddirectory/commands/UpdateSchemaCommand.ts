@@ -60,14 +60,6 @@ export class UpdateSchemaCommand extends $Command<
       inputFilterSensitiveLog: UpdateSchemaRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSchemaResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

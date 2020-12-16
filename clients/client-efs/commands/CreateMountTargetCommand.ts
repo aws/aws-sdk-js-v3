@@ -185,14 +185,6 @@ export class CreateMountTargetCommand extends $Command<
       inputFilterSensitiveLog: CreateMountTargetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: MountTargetDescription.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -66,14 +66,6 @@ export class CreatePolicyVersionCommand extends $Command<
       inputFilterSensitiveLog: CreatePolicyVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePolicyVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

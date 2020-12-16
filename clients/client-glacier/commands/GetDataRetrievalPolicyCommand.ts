@@ -61,14 +61,6 @@ export class GetDataRetrievalPolicyCommand extends $Command<
       inputFilterSensitiveLog: GetDataRetrievalPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetDataRetrievalPolicyOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

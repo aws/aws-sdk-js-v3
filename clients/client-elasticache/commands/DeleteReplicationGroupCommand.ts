@@ -67,14 +67,6 @@ export class DeleteReplicationGroupCommand extends $Command<
       inputFilterSensitiveLog: DeleteReplicationGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReplicationGroupResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

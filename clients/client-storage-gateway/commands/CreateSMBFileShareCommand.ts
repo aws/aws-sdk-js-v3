@@ -74,14 +74,6 @@ export class CreateSMBFileShareCommand extends $Command<
       inputFilterSensitiveLog: CreateSMBFileShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSMBFileShareOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

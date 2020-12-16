@@ -61,14 +61,6 @@ export class DeleteEventTypeCommand extends $Command<
       inputFilterSensitiveLog: DeleteEventTypeRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEventTypeResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

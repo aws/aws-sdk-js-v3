@@ -61,14 +61,6 @@ export class ListWebhooksCommand extends $Command<
       inputFilterSensitiveLog: ListWebhooksInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListWebhooksOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

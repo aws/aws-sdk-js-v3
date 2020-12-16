@@ -59,14 +59,6 @@ export class GetDirectoryCommand extends $Command<
       inputFilterSensitiveLog: GetDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDirectoryResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

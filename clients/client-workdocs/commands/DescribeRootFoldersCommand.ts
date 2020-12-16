@@ -67,14 +67,6 @@ export class DescribeRootFoldersCommand extends $Command<
       inputFilterSensitiveLog: DescribeRootFoldersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeRootFoldersResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

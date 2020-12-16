@@ -60,14 +60,6 @@ export class StartPipelineExecutionCommand extends $Command<
       inputFilterSensitiveLog: StartPipelineExecutionInput.filterSensitiveLog,
       outputFilterSensitiveLog: StartPipelineExecutionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

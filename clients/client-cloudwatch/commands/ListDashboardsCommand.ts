@@ -67,14 +67,6 @@ export class ListDashboardsCommand extends $Command<
       inputFilterSensitiveLog: ListDashboardsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListDashboardsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class DescribeLayersCommand extends $Command<
       inputFilterSensitiveLog: DescribeLayersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLayersResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

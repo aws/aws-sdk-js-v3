@@ -59,14 +59,6 @@ export class BatchCreateVariableCommand extends $Command<
       inputFilterSensitiveLog: BatchCreateVariableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchCreateVariableResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

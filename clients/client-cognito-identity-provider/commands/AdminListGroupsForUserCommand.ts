@@ -66,14 +66,6 @@ export class AdminListGroupsForUserCommand extends $Command<
       inputFilterSensitiveLog: AdminListGroupsForUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminListGroupsForUserResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

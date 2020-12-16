@@ -59,14 +59,6 @@ export class DescribeIpv6PoolsCommand extends $Command<
       inputFilterSensitiveLog: DescribeIpv6PoolsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeIpv6PoolsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -75,14 +75,6 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeClusterParameterGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ClusterParameterGroupsMessage.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

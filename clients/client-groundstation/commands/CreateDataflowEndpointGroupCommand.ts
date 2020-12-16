@@ -63,14 +63,6 @@ export class CreateDataflowEndpointGroupCommand extends $Command<
       inputFilterSensitiveLog: CreateDataflowEndpointGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DataflowEndpointGroupIdResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

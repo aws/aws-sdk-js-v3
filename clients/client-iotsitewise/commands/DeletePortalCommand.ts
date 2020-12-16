@@ -59,14 +59,6 @@ export class DeletePortalCommand extends $Command<
       inputFilterSensitiveLog: DeletePortalRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeletePortalResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

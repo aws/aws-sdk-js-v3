@@ -68,14 +68,6 @@ export class UpdateNotificationRuleCommand extends $Command<
       inputFilterSensitiveLog: UpdateNotificationRuleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNotificationRuleResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

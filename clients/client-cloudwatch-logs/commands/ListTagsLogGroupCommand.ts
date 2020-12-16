@@ -59,14 +59,6 @@ export class ListTagsLogGroupCommand extends $Command<
       inputFilterSensitiveLog: ListTagsLogGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsLogGroupResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

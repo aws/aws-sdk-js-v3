@@ -60,14 +60,6 @@ export class GetJobBookmarkCommand extends $Command<
       inputFilterSensitiveLog: GetJobBookmarkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJobBookmarkResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

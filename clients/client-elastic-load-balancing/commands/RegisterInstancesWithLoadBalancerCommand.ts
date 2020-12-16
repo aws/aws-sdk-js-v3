@@ -81,14 +81,6 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
       inputFilterSensitiveLog: RegisterEndPointsInput.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterEndPointsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateResourceDefinitionCommand extends $Command<
       inputFilterSensitiveLog: UpdateResourceDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateResourceDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

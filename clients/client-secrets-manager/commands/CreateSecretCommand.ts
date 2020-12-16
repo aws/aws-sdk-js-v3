@@ -146,14 +146,6 @@ export class CreateSecretCommand extends $Command<
       inputFilterSensitiveLog: CreateSecretRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateSecretResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

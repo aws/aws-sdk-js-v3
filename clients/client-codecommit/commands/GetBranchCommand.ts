@@ -56,14 +56,6 @@ export class GetBranchCommand extends $Command<
       inputFilterSensitiveLog: GetBranchInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetBranchOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

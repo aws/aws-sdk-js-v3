@@ -59,14 +59,6 @@ export class DeleteInstanceProfileCommand extends $Command<
       inputFilterSensitiveLog: DeleteInstanceProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteInstanceProfileResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

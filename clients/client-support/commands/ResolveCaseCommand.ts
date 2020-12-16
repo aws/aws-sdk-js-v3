@@ -74,14 +74,6 @@ export class ResolveCaseCommand extends $Command<
       inputFilterSensitiveLog: ResolveCaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ResolveCaseResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

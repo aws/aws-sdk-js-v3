@@ -59,14 +59,6 @@ export class CreateTableCommand extends $Command<
       inputFilterSensitiveLog: CreateTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTableResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

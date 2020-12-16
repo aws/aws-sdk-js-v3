@@ -90,14 +90,6 @@ export class GetFaceSearchCommand extends $Command<
       inputFilterSensitiveLog: GetFaceSearchRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFaceSearchResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

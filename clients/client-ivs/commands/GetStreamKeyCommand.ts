@@ -59,14 +59,6 @@ export class GetStreamKeyCommand extends $Command<
       inputFilterSensitiveLog: GetStreamKeyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetStreamKeyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

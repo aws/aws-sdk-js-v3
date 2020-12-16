@@ -59,14 +59,6 @@ export class ListProvisioningTemplatesCommand extends $Command<
       inputFilterSensitiveLog: ListProvisioningTemplatesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisioningTemplatesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

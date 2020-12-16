@@ -59,14 +59,6 @@ export class CreateBackendCommand extends $Command<
       inputFilterSensitiveLog: CreateBackendRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBackendResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

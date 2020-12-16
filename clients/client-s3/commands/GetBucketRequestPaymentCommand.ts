@@ -71,14 +71,6 @@ export class GetBucketRequestPaymentCommand extends $Command<
       inputFilterSensitiveLog: GetBucketRequestPaymentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketRequestPaymentOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

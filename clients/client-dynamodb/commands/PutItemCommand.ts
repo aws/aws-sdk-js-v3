@@ -119,14 +119,6 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
       inputFilterSensitiveLog: PutItemInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutItemOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

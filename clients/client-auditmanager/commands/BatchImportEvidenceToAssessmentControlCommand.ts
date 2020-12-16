@@ -65,14 +65,6 @@ export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
       inputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlRequest.filterSensitiveLog,
       outputFilterSensitiveLog: BatchImportEvidenceToAssessmentControlResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class ListAuditTasksCommand extends $Command<
       inputFilterSensitiveLog: ListAuditTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAuditTasksResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

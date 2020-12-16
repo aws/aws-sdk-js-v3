@@ -59,14 +59,6 @@ export class DescribeUserHierarchyStructureCommand extends $Command<
       inputFilterSensitiveLog: DescribeUserHierarchyStructureRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeUserHierarchyStructureResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

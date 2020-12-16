@@ -60,14 +60,6 @@ export class UpdateCodeSigningConfigCommand extends $Command<
       inputFilterSensitiveLog: UpdateCodeSigningConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateCodeSigningConfigResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

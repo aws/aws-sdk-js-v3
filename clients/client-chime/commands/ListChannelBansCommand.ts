@@ -59,14 +59,6 @@ export class ListChannelBansCommand extends $Command<
       inputFilterSensitiveLog: ListChannelBansRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListChannelBansResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

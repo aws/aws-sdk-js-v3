@@ -60,14 +60,6 @@ export class AddCacheCommand extends $Command<
       inputFilterSensitiveLog: AddCacheInput.filterSensitiveLog,
       outputFilterSensitiveLog: AddCacheOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

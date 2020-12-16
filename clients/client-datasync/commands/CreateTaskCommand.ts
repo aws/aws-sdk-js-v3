@@ -70,14 +70,6 @@ export class CreateTaskCommand extends $Command<
       inputFilterSensitiveLog: CreateTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateTaskResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

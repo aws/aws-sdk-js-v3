@@ -65,14 +65,6 @@ export class GetInsightSelectorsCommand extends $Command<
       inputFilterSensitiveLog: GetInsightSelectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInsightSelectorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

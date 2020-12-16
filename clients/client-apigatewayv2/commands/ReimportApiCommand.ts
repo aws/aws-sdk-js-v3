@@ -59,14 +59,6 @@ export class ReimportApiCommand extends $Command<
       inputFilterSensitiveLog: ReimportApiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReimportApiResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -79,14 +79,6 @@ export class PutObjectLockConfigurationCommand extends $Command<
       inputFilterSensitiveLog: PutObjectLockConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutObjectLockConfigurationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

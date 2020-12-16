@@ -62,14 +62,6 @@ export class DescribeConnectorsCommand extends $Command<
       inputFilterSensitiveLog: DescribeConnectorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConnectorsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

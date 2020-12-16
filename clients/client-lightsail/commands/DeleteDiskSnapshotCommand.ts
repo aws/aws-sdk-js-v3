@@ -67,14 +67,6 @@ export class DeleteDiskSnapshotCommand extends $Command<
       inputFilterSensitiveLog: DeleteDiskSnapshotRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDiskSnapshotResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

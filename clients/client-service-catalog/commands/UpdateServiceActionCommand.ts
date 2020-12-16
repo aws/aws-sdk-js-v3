@@ -59,14 +59,6 @@ export class UpdateServiceActionCommand extends $Command<
       inputFilterSensitiveLog: UpdateServiceActionInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateServiceActionOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

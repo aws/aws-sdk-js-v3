@@ -132,14 +132,6 @@ export class TransactWriteItemsCommand extends $Command<
       inputFilterSensitiveLog: TransactWriteItemsInput.filterSensitiveLog,
       outputFilterSensitiveLog: TransactWriteItemsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

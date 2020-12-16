@@ -56,14 +56,6 @@ export class GetSdkTypesCommand extends $Command<
       inputFilterSensitiveLog: GetSdkTypesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SdkTypes.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class GetAuthorizerCommand extends $Command<
       inputFilterSensitiveLog: GetAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Authorizer.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

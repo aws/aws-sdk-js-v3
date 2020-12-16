@@ -59,14 +59,6 @@ export class DeleteAssociationCommand extends $Command<
       inputFilterSensitiveLog: DeleteAssociationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAssociationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

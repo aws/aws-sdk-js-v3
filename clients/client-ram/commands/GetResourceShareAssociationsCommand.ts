@@ -59,14 +59,6 @@ export class GetResourceShareAssociationsCommand extends $Command<
       inputFilterSensitiveLog: GetResourceShareAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetResourceShareAssociationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

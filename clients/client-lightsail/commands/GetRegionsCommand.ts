@@ -61,14 +61,6 @@ export class GetRegionsCommand extends $Command<
       inputFilterSensitiveLog: GetRegionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegionsResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

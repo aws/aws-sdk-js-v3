@@ -59,14 +59,6 @@ export class UpdateSubnetChangeProtectionCommand extends $Command<
       inputFilterSensitiveLog: UpdateSubnetChangeProtectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSubnetChangeProtectionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

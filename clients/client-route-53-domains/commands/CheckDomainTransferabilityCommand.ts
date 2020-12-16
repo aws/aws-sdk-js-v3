@@ -59,14 +59,6 @@ export class CheckDomainTransferabilityCommand extends $Command<
       inputFilterSensitiveLog: CheckDomainTransferabilityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CheckDomainTransferabilityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

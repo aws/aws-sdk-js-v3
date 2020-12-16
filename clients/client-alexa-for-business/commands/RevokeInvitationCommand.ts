@@ -59,14 +59,6 @@ export class RevokeInvitationCommand extends $Command<
       inputFilterSensitiveLog: RevokeInvitationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RevokeInvitationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

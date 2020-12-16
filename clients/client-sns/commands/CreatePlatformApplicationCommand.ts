@@ -97,14 +97,6 @@ export class CreatePlatformApplicationCommand extends $Command<
       inputFilterSensitiveLog: CreatePlatformApplicationInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePlatformApplicationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

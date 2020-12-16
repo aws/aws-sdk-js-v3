@@ -59,14 +59,6 @@ export class DeleteCommentContentCommand extends $Command<
       inputFilterSensitiveLog: DeleteCommentContentInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCommentContentOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

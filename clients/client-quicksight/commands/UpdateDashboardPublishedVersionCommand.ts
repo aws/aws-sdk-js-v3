@@ -59,14 +59,6 @@ export class UpdateDashboardPublishedVersionCommand extends $Command<
       inputFilterSensitiveLog: UpdateDashboardPublishedVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDashboardPublishedVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

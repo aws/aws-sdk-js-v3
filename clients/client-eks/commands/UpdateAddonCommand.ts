@@ -59,14 +59,6 @@ export class UpdateAddonCommand extends $Command<
       inputFilterSensitiveLog: UpdateAddonRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAddonResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

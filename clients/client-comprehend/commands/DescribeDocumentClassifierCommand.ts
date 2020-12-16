@@ -59,14 +59,6 @@ export class DescribeDocumentClassifierCommand extends $Command<
       inputFilterSensitiveLog: DescribeDocumentClassifierRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDocumentClassifierResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

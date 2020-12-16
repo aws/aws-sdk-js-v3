@@ -59,14 +59,6 @@ export class AssociatePrincipalWithPortfolioCommand extends $Command<
       inputFilterSensitiveLog: AssociatePrincipalWithPortfolioInput.filterSensitiveLog,
       outputFilterSensitiveLog: AssociatePrincipalWithPortfolioOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

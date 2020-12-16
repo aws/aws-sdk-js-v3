@@ -54,14 +54,6 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
       inputFilterSensitiveLog: ListStepsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListStepsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

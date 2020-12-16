@@ -59,14 +59,6 @@ export class DeleteRecommenderConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DeleteRecommenderConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRecommenderConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

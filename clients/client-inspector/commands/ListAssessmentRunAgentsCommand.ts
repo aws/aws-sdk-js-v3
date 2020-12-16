@@ -60,14 +60,6 @@ export class ListAssessmentRunAgentsCommand extends $Command<
       inputFilterSensitiveLog: ListAssessmentRunAgentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAssessmentRunAgentsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class GetPhoneNumberCommand extends $Command<
       inputFilterSensitiveLog: GetPhoneNumberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetPhoneNumberResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

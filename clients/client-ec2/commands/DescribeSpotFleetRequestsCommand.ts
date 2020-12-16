@@ -60,14 +60,6 @@ export class DescribeSpotFleetRequestsCommand extends $Command<
       inputFilterSensitiveLog: DescribeSpotFleetRequestsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSpotFleetRequestsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

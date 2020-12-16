@@ -70,14 +70,6 @@ export class CreateEvaluationCommand extends $Command<
       inputFilterSensitiveLog: CreateEvaluationInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEvaluationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

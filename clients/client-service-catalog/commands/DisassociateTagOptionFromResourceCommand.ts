@@ -59,14 +59,6 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
       inputFilterSensitiveLog: DisassociateTagOptionFromResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateTagOptionFromResourceOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

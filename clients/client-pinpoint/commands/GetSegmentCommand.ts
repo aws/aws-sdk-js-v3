@@ -59,14 +59,6 @@ export class GetSegmentCommand extends $Command<
       inputFilterSensitiveLog: GetSegmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetSegmentResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

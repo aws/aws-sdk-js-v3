@@ -59,14 +59,6 @@ export class AssociateResourceSharePermissionCommand extends $Command<
       inputFilterSensitiveLog: AssociateResourceSharePermissionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateResourceSharePermissionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

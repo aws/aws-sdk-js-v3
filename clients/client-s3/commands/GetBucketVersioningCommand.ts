@@ -85,14 +85,6 @@ export class GetBucketVersioningCommand extends $Command<
       inputFilterSensitiveLog: GetBucketVersioningRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBucketVersioningOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

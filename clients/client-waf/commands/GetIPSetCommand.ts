@@ -60,14 +60,6 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
       inputFilterSensitiveLog: GetIPSetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIPSetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -65,14 +65,6 @@ export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
       inputFilterSensitiveLog: DescribeDefaultEncryptionConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDefaultEncryptionConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

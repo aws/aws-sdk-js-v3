@@ -62,14 +62,6 @@ export class CreateApplicationCommand extends $Command<
       inputFilterSensitiveLog: CreateApplicationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Application.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -63,14 +63,6 @@ export class DisableSnapshotCopyCommand extends $Command<
       inputFilterSensitiveLog: DisableSnapshotCopyMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DisableSnapshotCopyResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

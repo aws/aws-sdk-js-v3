@@ -79,14 +79,6 @@ export class DeleteServiceCommand extends $Command<
       inputFilterSensitiveLog: DeleteServiceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteServiceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

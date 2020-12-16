@@ -61,14 +61,6 @@ export class DeleteIdentityCommand extends $Command<
       inputFilterSensitiveLog: DeleteIdentityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteIdentityResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

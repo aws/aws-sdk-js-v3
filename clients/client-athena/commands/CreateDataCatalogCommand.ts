@@ -60,14 +60,6 @@ export class CreateDataCatalogCommand extends $Command<
       inputFilterSensitiveLog: CreateDataCatalogInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataCatalogOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

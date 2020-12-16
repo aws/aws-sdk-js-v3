@@ -65,14 +65,6 @@ export class DescribeNodeAssociationStatusCommand extends $Command<
       inputFilterSensitiveLog: DescribeNodeAssociationStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNodeAssociationStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

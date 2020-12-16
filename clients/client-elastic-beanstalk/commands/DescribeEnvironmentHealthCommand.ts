@@ -61,14 +61,6 @@ export class DescribeEnvironmentHealthCommand extends $Command<
       inputFilterSensitiveLog: DescribeEnvironmentHealthRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeEnvironmentHealthResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

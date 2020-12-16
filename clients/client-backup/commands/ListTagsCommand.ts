@@ -60,14 +60,6 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
       inputFilterSensitiveLog: ListTagsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListTagsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

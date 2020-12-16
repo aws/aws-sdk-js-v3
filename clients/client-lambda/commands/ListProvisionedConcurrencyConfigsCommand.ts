@@ -63,14 +63,6 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command<
       inputFilterSensitiveLog: ListProvisionedConcurrencyConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListProvisionedConcurrencyConfigsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

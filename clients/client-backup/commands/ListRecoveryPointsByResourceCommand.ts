@@ -60,14 +60,6 @@ export class ListRecoveryPointsByResourceCommand extends $Command<
       inputFilterSensitiveLog: ListRecoveryPointsByResourceInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRecoveryPointsByResourceOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -79,14 +79,6 @@ export class SearchFacesCommand extends $Command<
       inputFilterSensitiveLog: SearchFacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchFacesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

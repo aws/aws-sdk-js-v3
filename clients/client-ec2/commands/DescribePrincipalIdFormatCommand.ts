@@ -76,14 +76,6 @@ export class DescribePrincipalIdFormatCommand extends $Command<
       inputFilterSensitiveLog: DescribePrincipalIdFormatRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePrincipalIdFormatResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

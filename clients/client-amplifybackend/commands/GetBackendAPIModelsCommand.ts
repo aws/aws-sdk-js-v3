@@ -59,14 +59,6 @@ export class GetBackendAPIModelsCommand extends $Command<
       inputFilterSensitiveLog: GetBackendAPIModelsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetBackendAPIModelsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

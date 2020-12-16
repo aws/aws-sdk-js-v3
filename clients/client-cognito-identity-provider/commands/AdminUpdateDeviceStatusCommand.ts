@@ -66,14 +66,6 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
       inputFilterSensitiveLog: AdminUpdateDeviceStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminUpdateDeviceStatusResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

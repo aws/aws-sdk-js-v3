@@ -87,14 +87,6 @@ export class PutScalingPolicyCommand extends $Command<
       inputFilterSensitiveLog: PutScalingPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutScalingPolicyResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

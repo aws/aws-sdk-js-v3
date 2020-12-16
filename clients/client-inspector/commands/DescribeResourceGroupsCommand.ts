@@ -60,14 +60,6 @@ export class DescribeResourceGroupsCommand extends $Command<
       inputFilterSensitiveLog: DescribeResourceGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeResourceGroupsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

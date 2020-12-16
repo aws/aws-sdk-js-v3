@@ -59,14 +59,6 @@ export class StopPiiEntitiesDetectionJobCommand extends $Command<
       inputFilterSensitiveLog: StopPiiEntitiesDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopPiiEntitiesDetectionJobResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

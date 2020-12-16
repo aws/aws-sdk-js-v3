@@ -63,14 +63,6 @@ export class ReadPipelineCommand extends $Command<
       inputFilterSensitiveLog: ReadPipelineRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ReadPipelineResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

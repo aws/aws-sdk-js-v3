@@ -61,14 +61,6 @@ export class PutSkillAuthorizationCommand extends $Command<
       inputFilterSensitiveLog: PutSkillAuthorizationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutSkillAuthorizationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -60,14 +60,6 @@ export class DeleteGlobalNetworkCommand extends $Command<
       inputFilterSensitiveLog: DeleteGlobalNetworkRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteGlobalNetworkResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

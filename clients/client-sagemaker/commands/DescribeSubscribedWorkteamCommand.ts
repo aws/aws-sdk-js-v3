@@ -60,14 +60,6 @@ export class DescribeSubscribedWorkteamCommand extends $Command<
       inputFilterSensitiveLog: DescribeSubscribedWorkteamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeSubscribedWorkteamResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -66,14 +66,6 @@ export class UpdateSMBSecurityStrategyCommand extends $Command<
       inputFilterSensitiveLog: UpdateSMBSecurityStrategyInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSMBSecurityStrategyOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

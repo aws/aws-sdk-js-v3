@@ -67,14 +67,6 @@ export class AssociateTransitGatewayConnectPeerCommand extends $Command<
       inputFilterSensitiveLog: AssociateTransitGatewayConnectPeerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateTransitGatewayConnectPeerResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -67,14 +67,6 @@ export class DisassociateFileSystemAliasesCommand extends $Command<
       inputFilterSensitiveLog: DisassociateFileSystemAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateFileSystemAliasesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

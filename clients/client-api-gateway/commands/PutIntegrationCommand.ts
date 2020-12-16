@@ -59,14 +59,6 @@ export class PutIntegrationCommand extends $Command<
       inputFilterSensitiveLog: PutIntegrationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: Integration.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

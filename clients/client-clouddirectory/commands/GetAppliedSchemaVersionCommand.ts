@@ -59,14 +59,6 @@ export class GetAppliedSchemaVersionCommand extends $Command<
       inputFilterSensitiveLog: GetAppliedSchemaVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppliedSchemaVersionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

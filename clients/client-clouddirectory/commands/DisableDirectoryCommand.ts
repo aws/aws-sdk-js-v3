@@ -60,14 +60,6 @@ export class DisableDirectoryCommand extends $Command<
       inputFilterSensitiveLog: DisableDirectoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisableDirectoryResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

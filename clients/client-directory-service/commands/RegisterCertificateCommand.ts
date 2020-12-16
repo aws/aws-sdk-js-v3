@@ -59,14 +59,6 @@ export class RegisterCertificateCommand extends $Command<
       inputFilterSensitiveLog: RegisterCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterCertificateResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class UpdateProductCommand extends $Command<
       inputFilterSensitiveLog: UpdateProductInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProductOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

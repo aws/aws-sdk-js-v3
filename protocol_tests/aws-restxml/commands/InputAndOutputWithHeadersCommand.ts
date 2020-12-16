@@ -60,14 +60,6 @@ export class InputAndOutputWithHeadersCommand extends $Command<
       inputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
       outputFilterSensitiveLog: InputAndOutputWithHeadersIO.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

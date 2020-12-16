@@ -59,14 +59,6 @@ export class DescribeAnalysisPermissionsCommand extends $Command<
       inputFilterSensitiveLog: DescribeAnalysisPermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAnalysisPermissionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

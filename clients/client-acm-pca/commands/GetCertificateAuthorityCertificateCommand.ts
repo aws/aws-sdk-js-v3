@@ -66,14 +66,6 @@ export class GetCertificateAuthorityCertificateCommand extends $Command<
       inputFilterSensitiveLog: GetCertificateAuthorityCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCertificateAuthorityCertificateResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

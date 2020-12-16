@@ -64,14 +64,6 @@ export class DeleteEvaluationCommand extends $Command<
       inputFilterSensitiveLog: DeleteEvaluationInput.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteEvaluationOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

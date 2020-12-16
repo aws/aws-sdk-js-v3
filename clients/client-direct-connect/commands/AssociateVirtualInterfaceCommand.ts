@@ -68,14 +68,6 @@ export class AssociateVirtualInterfaceCommand extends $Command<
       inputFilterSensitiveLog: AssociateVirtualInterfaceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: VirtualInterface.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

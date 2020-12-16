@@ -60,14 +60,6 @@ export class AssociateHealthCheckCommand extends $Command<
       inputFilterSensitiveLog: AssociateHealthCheckRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateHealthCheckResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

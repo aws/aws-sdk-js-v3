@@ -64,14 +64,6 @@ export class SendBounceCommand extends $Command<
       inputFilterSensitiveLog: SendBounceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendBounceResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

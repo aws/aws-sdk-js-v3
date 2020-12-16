@@ -61,14 +61,6 @@ export class UpdateAuditSuppressionCommand extends $Command<
       inputFilterSensitiveLog: UpdateAuditSuppressionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAuditSuppressionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

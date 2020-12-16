@@ -62,14 +62,6 @@ export class ListNotebookExecutionsCommand extends $Command<
       inputFilterSensitiveLog: ListNotebookExecutionsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListNotebookExecutionsOutput.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

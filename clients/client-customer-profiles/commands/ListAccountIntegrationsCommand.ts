@@ -59,14 +59,6 @@ export class ListAccountIntegrationsCommand extends $Command<
       inputFilterSensitiveLog: ListAccountIntegrationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAccountIntegrationsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

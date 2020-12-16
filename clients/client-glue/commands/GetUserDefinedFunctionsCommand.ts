@@ -59,14 +59,6 @@ export class GetUserDefinedFunctionsCommand extends $Command<
       inputFilterSensitiveLog: GetUserDefinedFunctionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetUserDefinedFunctionsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

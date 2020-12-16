@@ -64,14 +64,6 @@ export class ListPHIDetectionJobsCommand extends $Command<
       inputFilterSensitiveLog: ListPHIDetectionJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPHIDetectionJobsResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -68,14 +68,6 @@ export class CreateAcceleratorCommand extends $Command<
       inputFilterSensitiveLog: CreateAcceleratorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAcceleratorResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

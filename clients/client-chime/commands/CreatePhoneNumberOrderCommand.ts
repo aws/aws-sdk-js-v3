@@ -61,14 +61,6 @@ export class CreatePhoneNumberOrderCommand extends $Command<
       inputFilterSensitiveLog: CreatePhoneNumberOrderRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreatePhoneNumberOrderResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -59,14 +59,6 @@ export class DeleteRoomSkillParameterCommand extends $Command<
       inputFilterSensitiveLog: DeleteRoomSkillParameterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteRoomSkillParameterResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

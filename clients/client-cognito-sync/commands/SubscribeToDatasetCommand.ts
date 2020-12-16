@@ -60,14 +60,6 @@ export class SubscribeToDatasetCommand extends $Command<
       inputFilterSensitiveLog: SubscribeToDatasetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SubscribeToDatasetResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

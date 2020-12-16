@@ -68,14 +68,6 @@ export class ListAttachedRolePoliciesCommand extends $Command<
       inputFilterSensitiveLog: ListAttachedRolePoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAttachedRolePoliciesResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

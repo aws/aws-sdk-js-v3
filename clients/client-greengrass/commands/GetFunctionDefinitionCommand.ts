@@ -59,14 +59,6 @@ export class GetFunctionDefinitionCommand extends $Command<
       inputFilterSensitiveLog: GetFunctionDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFunctionDefinitionResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

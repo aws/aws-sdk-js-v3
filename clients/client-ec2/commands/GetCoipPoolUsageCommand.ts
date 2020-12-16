@@ -59,14 +59,6 @@ export class GetCoipPoolUsageCommand extends $Command<
       inputFilterSensitiveLog: GetCoipPoolUsageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCoipPoolUsageResult.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

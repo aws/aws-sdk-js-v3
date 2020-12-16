@@ -64,14 +64,6 @@ export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
       inputFilterSensitiveLog: GetVoiceConnectorLoggingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetVoiceConnectorLoggingConfigurationResponse.filterSensitiveLog,
     };
-
-    if (typeof logger.info === "function") {
-      logger.info({
-        clientName,
-        commandName,
-      });
-    }
-
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
