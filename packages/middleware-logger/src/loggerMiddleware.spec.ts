@@ -116,8 +116,8 @@ describe("loggerMiddleware", () => {
           extendedRequestId: mockResponse.response.headers["x-amz-id-2"],
           cfId: mockResponse.response.headers["x-amz-cf-id"],
           retry: {
-            attempts: $metadata.attempts,
-            totalDelay: $metadata.totalRetryDelay,
+            attempts: $metadata?.attempts,
+            totalDelay: $metadata?.totalRetryDelay,
           },
         },
       });
@@ -160,8 +160,8 @@ describe("loggerMiddleware", () => {
           extendedRequestId: undefined,
           cfId: undefined,
           retry: {
-            attempts: $metadata.attempts,
-            totalDelay: $metadata.totalRetryDelay,
+            attempts: $metadata?.attempts,
+            totalDelay: $metadata?.totalRetryDelay,
           },
         },
       });

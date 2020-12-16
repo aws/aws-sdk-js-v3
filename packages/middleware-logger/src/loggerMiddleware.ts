@@ -38,8 +38,8 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
         extendedRequestId: httpResponse.headers["x-amz-id-2"],
         cfId: httpResponse.headers["x-amz-cf-id"],
         retry: {
-          attempts: $metadata.attempts,
-          totalDelay: $metadata.totalRetryDelay,
+          attempts: $metadata?.attempts,
+          totalDelay: $metadata?.totalRetryDelay,
         },
       },
     });
