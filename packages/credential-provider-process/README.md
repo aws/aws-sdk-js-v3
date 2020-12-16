@@ -1,6 +1,6 @@
 # @aws-sdk/credential-provider-process
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-process/rc.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-process/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-process.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-process)
 
 ## AWS Credential Provider for Node.JS - Shared Configuration Files

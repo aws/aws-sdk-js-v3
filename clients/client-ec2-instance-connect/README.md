@@ -1,6 +1,6 @@
 # @aws-sdk/client-ec2-instance-connect
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ec2-instance-connect/rc.svg)](https://www.npmjs.com/package/@aws-sdk/client-ec2-instance-connect)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-ec2-instance-connect/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-ec2-instance-connect)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-ec2-instance-connect.svg)](https://www.npmjs.com/package/@aws-sdk/client-ec2-instance-connect)
 
 For SDK usage, please step to [SDK readme](https://github.com/aws/aws-sdk-js-v3).

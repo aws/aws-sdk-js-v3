@@ -1,6 +1,6 @@
 # @aws-sdk/credential-provider-imds
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-imds/rc.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-imds)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-provider-imds/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-imds)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-provider-imds.svg)](https://www.npmjs.com/package/@aws-sdk/credential-provider-imds)
 
 ## AWS Credential Provider for Node.JS - Instance and Container Metadata
