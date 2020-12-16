@@ -5,9 +5,13 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=aws/aws-sdk-js-v3)](https://dependabot.com)
 
-The **AWS SDK for JavaScript v3** is a rewrite of V2 with some great new features. As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/), but has been written in TypeScript and adds several frequently requested features, like modularized packages.
+The **AWS SDK for JavaScript v3** is a rewrite of v2 with some great new features.
+As with version 2, it enables you to easily work with [Amazon Web Services](https://aws.amazon.com/),
+but has a [modular architecture](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/) with a separate package for each service.
+It also includes many frequently requested features, such as a [first-class TypeScript support](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
+and a [new middleware stack](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 
-Many aspects of the SDK have been refactored and cleaned up, in addition to generating service client packages instead of hydrating services at SDK runtime. The v3 is your chance to influence the direction of the new AWS SDK for JavaScript. Tell us what you like, tell us what you don’t like by [opening an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose). Your feedback matters to us.
+For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/)
 
 ## Getting started
 
