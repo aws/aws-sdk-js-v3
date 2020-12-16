@@ -11,7 +11,7 @@ but has a [modular architecture](https://aws.amazon.com/blogs/developer/modular-
 It also includes many frequently requested features, such as a [first-class TypeScript support](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
 and a [new middleware stack](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 
-For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/)
+For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/).
 
 ## Getting started
 
