@@ -47,10 +47,10 @@ Feature: Working with Buckets
 
   Scenario: Access bucket following 307 redirects
     Given I am using the S3 "us-east-1" region with signatureVersion "s3"
-    When I create a bucket with the location constraint "EU"
-    Then the bucket should exist
-    Then the bucket should have a location constraint of "EU"
-    Then I delete the bucket
+    When I create a bucket with the location constraint "eu-west-1"
+    Then the bucket should exist in region "eu-west-1"
+    Then the bucket should have a location constraint of "eu-west-1"
+    Then I delete the bucket in region "eu-west-1"
 
   Scenario: Working with bucket names that contain '.'
     When I create a bucket with a DNS compatible name that contains a dot
