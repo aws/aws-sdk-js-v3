@@ -52,6 +52,7 @@ describe("userAgentMiddleware", () => {
       { ua: ["$prefix/&name", "1.0.0"], expected: "$prefix/&name/1.0.0" },
       { ua: ["name(or not)", "1.0.0"], expected: "name_or_not_/1.0.0" },
       { ua: ["name", "1.0.0(test_version)"], expected: "name/1.0.0_test_version" },
+      { ua: ["api/Service", "1.0.0"], expected: "api/service/1.0.0" },
     ];
     for (const { ua, expected } of cases) {
       it(`should sanitize user agent ${ua} to ${expected}`, async () => {
