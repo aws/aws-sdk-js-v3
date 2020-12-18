@@ -1,9 +1,10 @@
-import { AbortController, Client } from "@aws-sdk/types";
+import { Client, SmithyConfiguration } from "@aws-sdk/smithy-client";
+import { AbortController, HttpHandlerOptions, MetadataBearer } from "@aws-sdk/types";
 
 /**
  * @internal
  */
-export type SmithyClient = Client<any, any, any>;
+export type SmithyClient = Client<HttpHandlerOptions, any, MetadataBearer, SmithyConfiguration<HttpHandlerOptions>>;
 export interface WaiterConfiguration<Client extends SmithyClient> {
   /**
    * Required service client
