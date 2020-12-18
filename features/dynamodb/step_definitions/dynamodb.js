@@ -1,65 +1,28 @@
 const jmespath = require("jmespath");
-const { DynamoDB } = require("../../../clients/client-dynamodb");
+const { DynamoDB, waitForTableExists, waitForTableNotExists } = require("../../../clients/client-dynamodb");
 
-/**
- * Waits for the tableExists state by periodically calling the underlying
- * DynamoDB.describeTable() operation every 5 seconds (at most 25 times).
- */
-function waitForTableExists(world, callback) {
-  const params = {
-    TableName: world.tableName,
-  };
-
-  const maxAttempts = 25;
-  const delay = 5000;
-  let currentAttempt = 0;
-
-  const checkForTableExists = () => {
-    currentAttempt++;
-    world.service.describeTable(params, function (err, data) {
-      if (currentAttempt > maxAttempts) {
-        callback(new Error("waitForTableExists: max attempts exceeded"));
-      } else if (data && data.Table && data.Table.TableStatus === "ACTIVE") {
-        callback();
-      } else {
-        setTimeout(function () {
-          checkForTableExists();
-        }, delay);
-      }
-    });
-  };
-  checkForTableExists();
+function waitForTableExistsCallback(world, callback) {
+  waitForTableExists({ client: world.service }, { TableName: world.tableName }).then(
+    function (data) {
+      callback();
+    },
+    function (err) {
+      callback(err);
+    }
+  );
 }
 
-/**
- * Waits for the tableNotExists state by periodically calling the underlying
- * DynamoDB.describeTable() operation every 5 seconds (at most 25 times).
- */
-function waitForTableNotExists(world, callback) {
-  const params = {
-    TableName: world.tableName,
-  };
-
-  const maxAttempts = 25;
-  const delay = 5000;
-  let currentAttempt = 0;
-
-  const checkForTableNotExists = () => {
-    currentAttempt++;
-    world.service.describeTable(params, function (err, data) {
-      if (currentAttempt > maxAttempts) {
-        callback(new Error("waitForTableNotExists: max attempts exceeded"));
-      } else if (err && err.name === "ResourceNotFoundException") {
-        callback();
-      } else {
-        setTimeout(function () {
-          checkForTableNotExists();
-        }, delay);
-      }
-    });
-  };
-  checkForTableNotExists();
+function waitForTableNotExistsWithCallback(world, callback) {
+  waitForTableNotExists({ client: world.service }, { TableName: world.tableName }).then(
+    function (data) {
+      callback();
+    },
+    function (err) {
+      callback(err);
+    }
+  );
 }
+
 const { Before, Given, Then, When } = require("cucumber");
 
 Before({ tags: "@dynamodb" }, function (scenario, next) {
@@ -82,7 +45,7 @@ function createTable(world, callback) {
       callback(err);
       return;
     }
-    waitForTableExists(world, callback);
+    waitForTableExistsCallback(world, callback);
   });
 }
 
@@ -154,11 +117,11 @@ When("I delete the table", function (next) {
 });
 
 Then("the table should eventually exist", function (callback) {
-  waitForTableExists(this, callback);
+  waitForTableExistsCallback(this, callback);
 });
 
 Then("the table should eventually not exist", function (callback) {
-  waitForTableNotExists(this, callback);
+  waitForTableNotExistsWithCallback(this, callback);
 });
 
 Given("my first request is corrupted with CRC checking (ON|OFF)", function (toggle, callback) {

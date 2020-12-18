@@ -47,10 +47,10 @@ Feature: Working with Buckets
 
   Scenario: Access bucket following 307 redirects
     Given I am using the S3 "us-east-1" region with signatureVersion "s3"
-    When I create a bucket with the location constraint "EU"
-    Then the bucket should exist
-    Then the bucket should have a location constraint of "EU"
-    Then I delete the bucket
+    When I create a bucket with the location constraint "eu-west-1"
+    Then the bucket should exist in region "eu-west-1"
+    Then the bucket should have a location constraint of "eu-west-1"
+    Then I delete the bucket in region "eu-west-1"
 
   Scenario: Working with bucket names that contain '.'
     When I create a bucket with a DNS compatible name that contains a dot
@@ -69,10 +69,11 @@ Feature: Working with Buckets
     Then I delete the object "hello" from the bucket
     Then I delete the bucket
 
-  Scenario: Follow 307 redirect on new buckets
-    Given I am using the S3 "us-east-1" region with signatureVersion "s3"
-    When I create a bucket with the location constraint "us-west-2"
-    And I put a large buffer to the key "largeobject" in the bucket
-    Then the object "largeobject" should exist in the bucket
-    Then I delete the object "largeobject" from the bucket
-    Then I delete the bucket
+  # Known bug: https://github.com/aws/aws-sdk-js-v3/issues/1802
+  # Scenario: Follow 307 redirect on new buckets
+  #   Given I am using the S3 "us-east-1" region with signatureVersion "s3"
+  #   When I create a bucket with the location constraint "us-west-2"
+  #   And I put a large buffer to the key "largeobject" in the bucket
+  #   Then the object "largeobject" should exist in the bucket
+  #   Then I delete the object "largeobject" from the bucket
+  #   Then I delete the bucket

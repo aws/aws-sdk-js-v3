@@ -31,14 +31,13 @@ When("I create a bucket with the location constraint {string}", function (locati
     if (err) {
       return callback(err);
     }
-    this.waitForBucketExists(
-      this.s3,
-      {
-        Bucket: bucket,
-      },
-      callback
-    );
+    callback();
   });
+});
+
+Then("the bucket should exist in region {string}", function (location, next) {
+  // Bug: https://github.com/aws/aws-sdk-js-v3/issues/1799
+  this.waitForBucketExists(new S3({ region: location }), { Bucket: this.bucket }, next);
 });
 
 Then("the bucket should have a location constraint of {string}", function (loc, callback) {
@@ -53,6 +52,11 @@ Then("the bucket should have a location constraint of {string}", function (loc, 
       callback();
     }
   );
+});
+
+When("I delete the bucket in region {string}", function (location, callback) {
+  // Bug: https://github.com/aws/aws-sdk-js-v3/issues/1799
+  this.request(new S3({ region: location }), "deleteBucket", { Bucket: this.bucket }, callback);
 });
 
 When("I put a transition lifecycle configuration on the bucket with prefix {string}", function (prefix, callback) {

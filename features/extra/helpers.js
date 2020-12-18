@@ -1,3 +1,8 @@
+const {
+  waitForBucketExists: bucketExists,
+  waitForBucketNotExists: bucketNotExists,
+} = require("../../clients/client-s3");
+
 module.exports = {
   assert: require("./assertions").assert,
 
@@ -189,55 +194,25 @@ module.exports = {
     return buffer;
   },
 
-  /**
-   * Waits for the bucketExists state by periodically calling the underlying S3.headBucket() operation
-   * every 5 seconds (at most 20 times).
-   */
   waitForBucketExists: function (s3client, params, callback) {
-    const maxAttempts = 20;
-    let currentAttempt = 0;
-    const delay = 5000;
-
-    const checkForBucketExists = () => {
-      currentAttempt++;
-      s3client.headBucket(params, function (err, data) {
-        if (currentAttempt > maxAttempts) {
-          callback(new Error("waitForBucketExists: max attempts exceeded"));
-        } else if (data) {
-          callback();
-        } else {
-          setTimeout(function () {
-            checkForBucketExists();
-          }, delay);
-        }
-      });
-    };
-    checkForBucketExists();
+    bucketExists({ client: s3client }, params).then(
+      function (data) {
+        callback();
+      },
+      function (err) {
+        callback(err);
+      }
+    );
   },
 
-  /**
-   * Waits for the bucketNotExists state by periodically calling the underlying S3.headBucket() operation
-   * every 5 seconds (at most 20 times).
-   */
   waitForBucketNotExists: function (s3client, params, callback) {
-    const maxAttempts = 20;
-    let currentAttempt = 0;
-    const delay = 5000;
-
-    const checkForBucketNotExists = () => {
-      currentAttempt++;
-      s3client.headBucket(params, function (err, data) {
-        if (currentAttempt > maxAttempts) {
-          callback(new Error("waitForBucketNotExists: max attempts exceeded"));
-        } else if (err && err.name === "NotFound") {
-          callback();
-        } else {
-          setTimeout(function () {
-            checkForBucketNotExists();
-          }, delay);
-        }
-      });
-    };
-    checkForBucketNotExists();
+    bucketNotExists({ client: s3client }, params).then(
+      function (data) {
+        callback();
+      },
+      function (err) {
+        callback(err);
+      }
+    );
   },
 };
