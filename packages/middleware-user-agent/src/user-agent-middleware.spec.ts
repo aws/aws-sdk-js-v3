@@ -13,7 +13,7 @@ describe("userAgentMiddleware", () => {
 
   it("should collect user agent pair from default, custom-supplied, and handler context", async () => {
     const middleware = userAgentMiddleware({
-      defaultUserAgent: async () => [
+      defaultUserAgentProvider: async () => [
         ["default_agent", "1.0.0"],
         ["aws-sdk-js", "1.0.0"],
       ],
@@ -35,7 +35,7 @@ describe("userAgentMiddleware", () => {
 
   it(`should not set ${USER_AGENT} header in browser`, async () => {
     const middleware = userAgentMiddleware({
-      defaultUserAgent: async () => [["aws-sdk-js", "1.0.0"]],
+      defaultUserAgentProvider: async () => [["aws-sdk-js", "1.0.0"]],
       runtime: "browser",
     });
     const handler = middleware(mockNextHandler, {});
@@ -57,7 +57,7 @@ describe("userAgentMiddleware", () => {
     for (const { ua, expected } of cases) {
       it(`should sanitize user agent ${ua} to ${expected}`, async () => {
         const middleware = userAgentMiddleware({
-          defaultUserAgent: async () => [ua],
+          defaultUserAgentProvider: async () => [ua],
           runtime: "browser",
         });
         const handler = middleware(mockNextHandler, {});

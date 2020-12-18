@@ -52,8 +52,8 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
-                + "`x-amz-user-agent` header");
-        writer.write("defaultUserAgent?: Provider<__UserAgent>;\n");
+                + "`x-amz-user-agent` header\n@internal");
+        writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");
     }
 
     @Override
@@ -66,24 +66,24 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         switch (target) {
             case NODE:
                 return MapUtils.of(
-                        "defaultUserAgent", writer -> {
+                        "defaultUserAgentProvider", writer -> {
                             writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.dependency);
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName);
                             writer.addDefaultImport("packageInfo", "./package.json");
-                            writer.write("defaultUserAgent: defaultUserAgent({serviceId: ClientSharedValues.serviceId,"
-                                    + " clientVersion: packageInfo.version}),");
+                            writer.write("defaultUserAgentProvider: defaultUserAgent({serviceId: "
+                                    + "ClientSharedValues.serviceId, clientVersion: packageInfo.version}),");
                         }
                 );
             case BROWSER:
                 return MapUtils.of(
-                        "defaultUserAgent", writer -> {
+                        "defaultUserAgentProvider", writer -> {
                             writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.dependency);
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.packageName);
                             writer.addDefaultImport("packageInfo", "./package.json");
-                            writer.write("defaultUserAgent: defaultUserAgent({serviceId: ClientSharedValues.serviceId,"
-                                    + " clientVersion: packageInfo.version}),");
+                            writer.write("defaultUserAgentProvider: defaultUserAgent({serviceId: "
+                                    + "ClientSharedValues.serviceId, clientVersion: packageInfo.version}),");
                         }
                 );
             default:

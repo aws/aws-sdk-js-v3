@@ -6,11 +6,11 @@ export interface UserAgentInputConfig {
   customUserAgent?: string | UserAgent;
 }
 interface PreviouslyResolved {
-  defaultUserAgent: Provider<UserAgent>;
+  defaultUserAgentProvider: Provider<UserAgent>;
   runtime: string;
 }
 export interface UserAgentResolvedConfig {
-  defaultUserAgent: Provider<UserAgent>;
+  defaultUserAgentProvider: Provider<UserAgent>;
   customUserAgent?: UserAgent;
   runtime: string;
 }
