@@ -46,10 +46,14 @@ describe("getSigningKey", () => {
   });
 
   describe("caching", () => {
-    it("should return the same promise when called with the same date, region, service, and credentials", async () => {
-      const promise1 = await getSigningKey(Sha256, credentials, shortDate, region, service);
-      const promise2 = await getSigningKey(Sha256, credentials, shortDate, region, service);
-      expect(promise1).toBe(promise2);
+    it("should return the same signing key when called with the same date, region, service, and credentials", async () => {
+      const mockSha256Constructor = jest.fn().mockImplementation((args) => {
+        return new Sha256(args);
+      });
+      const key1 = await getSigningKey(mockSha256Constructor, credentials, shortDate, region, service);
+      const key2 = await getSigningKey(mockSha256Constructor, credentials, shortDate, region, service);
+      expect(key1).toBe(key2);
+      expect(mockSha256Constructor).toHaveBeenCalledTimes(6);
     });
 
     it("should cache a maximum of 50 entries", async () => {
@@ -63,10 +67,10 @@ describe("getSigningKey", () => {
       await getSigningKey(Sha256, credentials, shortDate, `us-foo-50`, service);
 
       // the second oldest member should still be in cache
-      expect(keys[1]).toBe(await getSigningKey(Sha256, credentials, shortDate, `us-foo-1`, service));
+      await expect(getSigningKey(Sha256, credentials, shortDate, `us-foo-1`, service)).resolves.toStrictEqual(keys[1]);
 
       // the oldest member should not be in the cache
-      expect(keys[0]).not.toBe(await getSigningKey(Sha256, credentials, shortDate, `us-foo-0`, service));
+      await expect(getSigningKey(Sha256, credentials, shortDate, `us-foo-0`, service)).resolves.not.toBe(keys[0]);
     });
   });
 });
