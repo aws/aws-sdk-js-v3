@@ -26,7 +26,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyChecksumGenerator,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider,
-  defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
+  defaultUserAgentProvider: defaultUserAgent({
+    serviceId: ClientSharedValues.serviceId,
+    clientVersion: packageInfo.version,
+  }),
   maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
   region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
   requestHandler: new NodeHttpHandler(),

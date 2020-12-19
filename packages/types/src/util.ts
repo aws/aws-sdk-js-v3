@@ -1,5 +1,10 @@
 import { Endpoint } from "./http";
-import { FinalizeHandler, FinalizeHandlerArguments, FinalizeHandlerOutput } from "./middleware";
+import {
+  FinalizeHandler,
+  FinalizeHandlerArguments,
+  FinalizeHandlerOutput,
+  HandlerExecutionContext,
+} from "./middleware";
 import { MetadataBearer } from "./response";
 
 /**
@@ -54,6 +59,10 @@ export interface BodyLengthCalculator {
  */
 export interface RetryStrategy {
   /**
+   * The retry mode describing how the retry strategy control the traffic flow.
+   */
+  mode?: string;
+  /**
    * the retry behavior the will invoke the next handler and handle the retry accordingly.
    * This function should also update the $metadata from the response accordingly.
    * @see {@link ResponseMetadata}
@@ -92,3 +101,15 @@ export interface RegionInfo {
 export interface RegionInfoProvider {
   (region: string, options?: any): Promise<RegionInfo | undefined>;
 }
+
+/**
+ * A tuple that represents an API name and optional version
+ * of a library built using the AWS SDK.
+ */
+export type UserAgentPair = [name: string, version?: string];
+
+/**
+ * User agent data that to be put into the request's user
+ * agent.
+ */
+export type UserAgent = UserAgentPair[];

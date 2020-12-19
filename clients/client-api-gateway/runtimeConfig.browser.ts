@@ -22,7 +22,10 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidAsyncFunction("Credentialis missing") as any,
-  defaultUserAgent: defaultUserAgent(packageInfo.name, packageInfo.version),
+  defaultUserAgentProvider: defaultUserAgent({
+    serviceId: ClientSharedValues.serviceId,
+    clientVersion: packageInfo.version,
+  }),
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidAsyncFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),

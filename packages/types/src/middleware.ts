@@ -1,4 +1,5 @@
 import { Logger } from "./logger";
+import { UserAgent } from "./util";
 
 export interface InitializeHandlerArguments<Input extends object> {
   /**
@@ -371,6 +372,13 @@ export interface HandlerExecutionContext {
    * operation.
    */
   logger?: Logger;
+
+  /**
+   * Additional user agent that inferred by middleware. It can be used to save
+   * the internal user agent sections without overriding the `customUserAgent`
+   * config in clients.
+   */
+  userAgent?: UserAgent;
 
   [key: string]: any;
 }

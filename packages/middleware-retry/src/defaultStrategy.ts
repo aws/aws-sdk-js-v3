@@ -74,6 +74,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
   private retryQuota: RetryQuota;
+  public readonly mode = DEFAULT_RETRY_MODE;
 
   constructor(private readonly maxAttemptsProvider: Provider<number>, options?: StandardRetryStrategyOptions) {
     this.retryDecider = options?.retryDecider ?? defaultRetryDecider;
