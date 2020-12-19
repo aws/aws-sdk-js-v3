@@ -9,7 +9,6 @@ import {
 } from "@aws-sdk/types";
 
 import { INVOCATION_ID_HEADER, REQUEST_HEADER } from "./constants";
-import { retryMiddlewareOptions } from "./retryMiddleware";
 
 export const omitRetryHeadersMiddleware = () => <Output extends MetadataBearer = MetadataBearer>(
   next: FinalizeHandler<any, Output>
@@ -27,8 +26,8 @@ export const omitRetryHeadersMiddleware = () => <Output extends MetadataBearer =
 export const omitRetryHeadersMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "omitRetryHeadersMiddleware",
   tags: ["RETRY", "HEADERS", "OMIT_RETRY_HEADERS"],
-  relation: "after",
-  toMiddleware: retryMiddlewareOptions.name!,
+  relation: "before",
+  toMiddleware: "awsAuthMiddleware",
 };
 
 export const getOmitRetryHeadersPlugin = (options: unknown): Pluggable<any, any> => ({
