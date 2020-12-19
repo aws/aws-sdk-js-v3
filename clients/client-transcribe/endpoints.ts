@@ -199,5 +199,5 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         };
       }
   }
-  return Promise.resolve(regionInfo);
+  return Promise.resolve({ signingService: "transcribe", ...regionInfo });
 };

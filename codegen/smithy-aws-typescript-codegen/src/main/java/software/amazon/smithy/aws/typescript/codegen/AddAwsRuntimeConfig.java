@@ -113,7 +113,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap();
         if (target.equals(LanguageTarget.SHARED)) {
             String serviceId = service.getTrait(ServiceTrait.class)
-                    .map(ServiceTrait::getArnNamespace)
+                    .map(ServiceTrait::getSdkId)
                     .orElse(null);
             if (serviceId != null) {
                 runtimeConfigs.put("serviceId", writer -> {

@@ -60,6 +60,8 @@ export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & Previous
           //update client's singing region and signing service config if they are resolved.
           //signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
           input.signingRegion = input.signingRegion || signingRegion || region;
+          //signing name resolving order:
+          //user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
           input.signingName = input.signingName || signingService || input.serviceId;
 
           return new SignatureV4({

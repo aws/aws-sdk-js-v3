@@ -119,5 +119,5 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         };
       }
   }
-  return Promise.resolve(regionInfo);
+  return Promise.resolve({ signingService: "cloud9", ...regionInfo });
 };
