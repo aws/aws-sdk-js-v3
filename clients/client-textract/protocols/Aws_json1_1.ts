@@ -1696,7 +1696,6 @@ const deserializeAws_json1_1Warnings = (output: any, context: __SerdeContext): W
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 

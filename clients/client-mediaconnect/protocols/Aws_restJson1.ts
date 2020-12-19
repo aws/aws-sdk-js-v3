@@ -4274,7 +4274,6 @@ const deserializeAws_restJson1VpcInterfaceAttachment = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 

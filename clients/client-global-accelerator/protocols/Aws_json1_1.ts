@@ -6741,7 +6741,6 @@ const deserializeAws_json1_1WithdrawByoipCidrResponse = (
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 

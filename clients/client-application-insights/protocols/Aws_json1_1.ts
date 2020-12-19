@@ -3616,7 +3616,6 @@ const deserializeAws_json1_1WorkloadMetaData = (output: any, context: __SerdeCon
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 

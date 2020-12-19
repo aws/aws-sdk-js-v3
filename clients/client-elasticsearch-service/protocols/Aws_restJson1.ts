@@ -6451,7 +6451,6 @@ const deserializeAws_restJson1ZoneAwarenessConfig = (output: any, context: __Ser
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 

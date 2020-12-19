@@ -1331,7 +1331,6 @@ const deserializeAws_restJson1Value = (output: any, context: __SerdeContext): Va
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 
