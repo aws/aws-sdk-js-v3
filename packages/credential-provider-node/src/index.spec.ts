@@ -395,5 +395,26 @@ describe("defaultProvider", () => {
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
+
+    it("should consult the process provider if no credentials are found in the ini provider", async () => {
+      const creds = {
+        accessKeyId: "foo",
+        secretAccessKey: "bar",
+      };
+
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+      (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+
+      process.env[ENV_PROFILE] = "foo";
+      expect(await defaultProvider()()).toEqual(creds);
+      expect((fromEnv() as any).mock.calls.length).toBe(0);
+      expect((fromIni() as any).mock.calls.length).toBe(1);
+      expect((fromProcess() as any).mock.calls.length).toBe(1);
+      expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
+      expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+    });
   });
 });
