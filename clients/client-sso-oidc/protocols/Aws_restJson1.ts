@@ -734,7 +734,9 @@ const serializeAws_restJson1Scopes = (input: string[], context: __SerdeContext):
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  requestId: output.headers["x-amzn-requestid"],
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  extendedRequestId: output.headers["x-amz-id-2"],
+  cfId: output.headers["x-amz-cf-id"],
 });
 
 // Collect low-level response body stream to Uint8Array.
