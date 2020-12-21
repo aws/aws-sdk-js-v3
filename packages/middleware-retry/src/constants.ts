@@ -37,3 +37,13 @@ export const TIMEOUT_RETRY_COST = 10;
  * if an SDK operation invocation succeeds without requiring a retry request.
  */
 export const NO_RETRY_INCREMENT = 1;
+
+/**
+ * Header name for SDK invocation ID
+ */
+export const INVOCATION_ID_HEADER = "amz-sdk-invocation-id";
+
+/**
+ * Header name for request retry information.
+ */
+export const REQUEST_HEADER = "amz-sdk-request";

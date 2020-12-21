@@ -13,3 +13,4 @@ software.amazon.smithy.aws.typescript.codegen.AddEventStreamHandlingDependency
 software.amazon.smithy.aws.typescript.codegen.AddHttp2Dependency
 software.amazon.smithy.aws.typescript.codegen.AddTranscribeStreamingDependency
 software.amazon.smithy.aws.typescript.codegen.AddUserAgentDependency
+software.amazon.smithy.aws.typescript.codegen.AddOmitRetryHeadersDependency
