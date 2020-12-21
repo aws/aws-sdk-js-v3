@@ -1034,7 +1034,6 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 

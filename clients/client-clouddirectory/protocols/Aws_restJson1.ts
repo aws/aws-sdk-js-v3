@@ -12718,7 +12718,6 @@ const deserializeAws_restJson1TypedLinkSpecifierList = (output: any, context: __
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
-  httpHeaders: output.headers,
   requestId: output.headers["x-amzn-requestid"],
 });
 
