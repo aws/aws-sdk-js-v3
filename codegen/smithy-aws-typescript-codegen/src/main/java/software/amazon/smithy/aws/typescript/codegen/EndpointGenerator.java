@@ -53,7 +53,7 @@ final class EndpointGenerator implements Runnable {
         this.writer = writer;
         serviceTrait = service.getTrait(ServiceTrait.class)
                 .orElseThrow(() -> new CodegenException("No service trait found on " + service.getId()));
-        endpointPrefix = getEndpointPrefix(serviceTrait);
+        endpointPrefix = serviceTrait.getEndpointPrefix();
         endpointData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoints.json")).expectObjectNode();
         validateVersion();
         loadPartitions();
@@ -65,13 +65,6 @@ final class EndpointGenerator implements Runnable {
         if (version != VERSION) {
             throw new CodegenException("Invalid endpoints.json version. Expected version 3, found " +  version);
         }
-    }
-
-    // Get service's endpoint prefix from a known list. If not found, fallback to ArnNamespace
-    private String getEndpointPrefix(ServiceTrait serviceTrait) {
-        ObjectNode endpointPrefixData = Node.parse(IoUtils.readUtf8Resource(getClass(), "endpoint-prefix.json"))
-                .expectObjectNode();
-        return endpointPrefixData.getStringMemberOrDefault(serviceTrait.getSdkId(), serviceTrait.getArnNamespace());
     }
 
     private void loadPartitions() {
