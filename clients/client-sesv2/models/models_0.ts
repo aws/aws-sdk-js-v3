@@ -23,6 +23,11 @@ export enum ReviewStatus {
  */
 export interface ReviewDetails {
   /**
+   * <p>The associated support center case ID (if any).</p>
+   */
+  CaseId?: string;
+
+  /**
    * <p>The status of the latest review of your account. The status can be one of the
    *             following:</p>
    *         <ul>
@@ -49,11 +54,6 @@ export interface ReviewDetails {
    *          </ul>
    */
   Status?: ReviewStatus | string;
-
-  /**
-   * <p>The associated support center case ID (if any).</p>
-   */
-  CaseId?: string;
 }
 
 export namespace ReviewDetails {
@@ -66,6 +66,18 @@ export namespace ReviewDetails {
  * <p>An object that contains information about your account details.</p>
  */
 export interface AccountDetails {
+  /**
+   * <p>Additional email addresses where updates are sent about your account review
+   *             process.</p>
+   */
+  AdditionalContactEmailAddresses?: string[];
+
+  /**
+   * <p>The language you would prefer for the case. The contact language can be one of
+   *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
+   */
+  ContactLanguage?: ContactLanguage | string;
+
   /**
    * <p>The type of email your account is sending. The mail type can be one of the
    *             following:</p>
@@ -85,16 +97,9 @@ export interface AccountDetails {
   MailType?: MailType | string;
 
   /**
-   * <p>The URL of your website. This information helps us better understand the type of
-   *             content that you plan to send.</p>
+   * <p>Information about the review of the latest details you submitted.</p>
    */
-  WebsiteURL?: string;
-
-  /**
-   * <p>The language you would prefer for the case. The contact language can be one of
-   *                 <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
-   */
-  ContactLanguage?: ContactLanguage | string;
+  ReviewDetails?: ReviewDetails;
 
   /**
    * <p>A description of the types of email that you plan to send.</p>
@@ -102,23 +107,18 @@ export interface AccountDetails {
   UseCaseDescription?: string;
 
   /**
-   * <p>Additional email addresses where updates are sent about your account review
-   *             process.</p>
+   * <p>The URL of your website. This information helps us better understand the type of
+   *             content that you plan to send.</p>
    */
-  AdditionalContactEmailAddresses?: string[];
-
-  /**
-   * <p>Information about the review of the latest details you submitted.</p>
-   */
-  ReviewDetails?: ReviewDetails;
+  WebsiteURL?: string;
 }
 
 export namespace AccountDetails {
   export const filterSensitiveLog = (obj: AccountDetails): any => ({
     ...obj,
-    ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
-    ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
     ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
+    ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
+    ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
   });
 }
 
@@ -179,9 +179,10 @@ export enum BehaviorOnMxFailure {
  */
 export interface BlacklistEntry {
   /**
-   * <p>The name of the blacklist that the IP address appears on.</p>
+   * <p>Additional information about the blacklisting event, as provided by the blacklist
+   *             maintainer.</p>
    */
-  RblName?: string;
+  Description?: string;
 
   /**
    * <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
@@ -189,10 +190,9 @@ export interface BlacklistEntry {
   ListingTime?: Date;
 
   /**
-   * <p>Additional information about the blacklisting event, as provided by the blacklist
-   *             maintainer.</p>
+   * <p>The name of the blacklist that the IP address appears on.</p>
    */
-  Description?: string;
+  RblName?: string;
 }
 
 export namespace BlacklistEntry {
@@ -207,17 +207,17 @@ export namespace BlacklistEntry {
  */
 export interface Content {
   /**
-   * <p>The content of the message itself.</p>
-   */
-  Data: string | undefined;
-
-  /**
    * <p>The character set for the content. Because of the constraints of the SMTP protocol,
    *             Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of the ASCII
    *             range, you have to specify a character set. For example, you could specify
    *                 <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
    */
   Charset?: string;
+
+  /**
+   * <p>The content of the message itself.</p>
+   */
+  Data: string | undefined;
 }
 
 export namespace Content {
@@ -232,17 +232,17 @@ export namespace Content {
 export interface Body {
   /**
    * <p>An object that represents the version of the message that is displayed in email
-   *             clients that don't support HTML, or clients where the recipient has disabled HTML
-   *             rendering.</p>
-   */
-  Text?: Content;
-
-  /**
-   * <p>An object that represents the version of the message that is displayed in email
    *             clients that support HTML. HTML messages can include formatted text, hyperlinks, images,
    *             and more. </p>
    */
   Html?: Content;
+
+  /**
+   * <p>An object that represents the version of the message that is displayed in email
+   *             clients that don't support HTML, or clients where the recipient has disabled HTML
+   *             rendering.</p>
+   */
+  Text?: Content;
 }
 
 export namespace Body {
@@ -259,13 +259,6 @@ export namespace Body {
  */
 export interface Template {
   /**
-   * <p>The name of the template. You will refer to this name when you send email using the
-   *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
-   *         </p>
-   */
-  TemplateName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    */
   TemplateArn?: string;
@@ -276,6 +269,13 @@ export interface Template {
    *             The corresponding value defines the value to use for that variable.</p>
    */
   TemplateData?: string;
+
+  /**
+   * <p>The name of the template. You will refer to this name when you send email using the
+   *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.
+   *         </p>
+   */
+  TemplateName?: string;
 }
 
 export namespace Template {
@@ -306,10 +306,10 @@ export namespace BulkEmailContent {
  */
 export interface Destination {
   /**
-   * <p>An array that contains the email addresses of the "To" recipients for the
-   *             email.</p>
+   * <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients
+   *             for the email.</p>
    */
-  ToAddresses?: string[];
+  BccAddresses?: string[];
 
   /**
    * <p>An array that contains the email addresses of the "CC" (carbon copy) recipients for
@@ -318,10 +318,10 @@ export interface Destination {
   CcAddresses?: string[];
 
   /**
-   * <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients
-   *             for the email.</p>
+   * <p>An array that contains the email addresses of the "To" recipients for the
+   *             email.</p>
    */
-  BccAddresses?: string[];
+  ToAddresses?: string[];
 }
 
 export namespace Destination {
@@ -427,18 +427,18 @@ export interface BulkEmailEntry {
   Destination: Destination | undefined;
 
   /**
+   * <p>The <code>ReplacementEmailContent</code> associated with a
+   *             <code>BulkEmailEntry</code>.</p>
+   */
+  ReplacementEmailContent?: ReplacementEmailContent;
+
+  /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to
    *             characteristics of the email that you define, so that you can publish email sending
    *             events.</p>
    */
   ReplacementTags?: MessageTag[];
-
-  /**
-   * <p>The <code>ReplacementEmailContent</code> associated with a
-   *             <code>BulkEmailEntry</code>.</p>
-   */
-  ReplacementEmailContent?: ReplacementEmailContent;
 }
 
 export namespace BulkEmailEntry {
@@ -469,6 +469,18 @@ export enum BulkEmailStatus {
  *                 <code>BulkEmailEntry</code>.</p>
  */
 export interface BulkEmailEntryResult {
+  /**
+   * <p>A description of an error that prevented a message being sent using the
+   *                 <code>SendBulkTemplatedEmail</code> operation.</p>
+   */
+  Error?: string;
+
+  /**
+   * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
+   *             operation.</p>
+   */
+  MessageId?: string;
+
   /**
    * <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
@@ -533,18 +545,6 @@ export interface BulkEmailEntryResult {
    *          </ul>
    */
   Status?: BulkEmailStatus | string;
-
-  /**
-   * <p>A description of an error that prevented a message being sent using the
-   *                 <code>SendBulkTemplatedEmail</code> operation.</p>
-   */
-  Error?: string;
-
-  /**
-   * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
-   *             operation.</p>
-   */
-  MessageId?: string;
 }
 
 export namespace BulkEmailEntryResult {
@@ -564,6 +564,22 @@ export enum DimensionValueSource {
  *             to Amazon CloudWatch.</p>
  */
 export interface CloudWatchDimensionConfiguration {
+  /**
+   * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
+   *             value of the dimension when you send an email. This value has to meet the following
+   *             criteria:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>It can contain no more than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  DefaultDimensionValue: string | undefined;
+
   /**
    * <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to
    *             meet the following criteria:</p>
@@ -588,22 +604,6 @@ export interface CloudWatchDimensionConfiguration {
    *             choose <code>linkTags</code>.</p>
    */
   DimensionValueSource: DimensionValueSource | string | undefined;
-
-  /**
-   * <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the
-   *             value of the dimension when you send an email. This value has to meet the following
-   *             criteria:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>It can contain no more than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  DefaultDimensionValue: string | undefined;
 }
 
 export namespace CloudWatchDimensionConfiguration {
@@ -670,15 +670,15 @@ export enum SubscriptionStatus {
  */
 export interface TopicPreference {
   /**
-   * <p>The name of the topic.</p>
-   */
-  TopicName: string | undefined;
-
-  /**
    * <p>The contact's subscription status to a topic which is either <code>OPT_IN</code> or
    *                 <code>OPT_OUT</code>.</p>
    */
   SubscriptionStatus: SubscriptionStatus | string | undefined;
+
+  /**
+   * <p>The name of the topic.</p>
+   */
+  TopicName: string | undefined;
 }
 
 export namespace TopicPreference {
@@ -697,9 +697,9 @@ export interface Contact {
   EmailAddress?: string;
 
   /**
-   * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+   * <p>A timestamp noting the last time the contact's information was updated.</p>
    */
-  TopicPreferences?: TopicPreference[];
+  LastUpdatedTimestamp?: Date;
 
   /**
    * <p>The default topic preferences applied to the contact.</p>
@@ -707,15 +707,15 @@ export interface Contact {
   TopicDefaultPreferences?: TopicPreference[];
 
   /**
+   * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
+   */
+  TopicPreferences?: TopicPreference[];
+
+  /**
    * <p>A boolean value status noting if the contact is unsubscribed from all contact list
    *             topics.</p>
    */
   UnsubscribeAll?: boolean;
-
-  /**
-   * <p>A timestamp noting the last time the contact's information was updated.</p>
-   */
-  LastUpdatedTimestamp?: Date;
 }
 
 export namespace Contact {
@@ -756,11 +756,6 @@ export enum ContactListImportAction {
  */
 export interface ContactListDestination {
   /**
-   * <p>The name of the contact list.</p>
-   */
-  ContactListName: string | undefined;
-
-  /**
    * <p>>The type of action that you want to perform on the addresses. Acceptable
    *             values:</p>
    *         <ul>
@@ -774,6 +769,11 @@ export interface ContactListDestination {
    *          </ul>
    */
   ContactListImportAction: ContactListImportAction | string | undefined;
+
+  /**
+   * <p>The name of the contact list.</p>
+   */
+  ContactListName: string | undefined;
 }
 
 export namespace ContactListDestination {
@@ -792,18 +792,18 @@ export enum TlsPolicy {
  */
 export interface DeliveryOptions {
   /**
+   * <p>The name of the dedicated IP pool that you want to associate with the configuration
+   *             set.</p>
+   */
+  SendingPoolName?: string;
+
+  /**
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
   TlsPolicy?: TlsPolicy | string;
-
-  /**
-   * <p>The name of the dedicated IP pool that you want to associate with the configuration
-   *             set.</p>
-   */
-  SendingPoolName?: string;
 }
 
 export namespace DeliveryOptions {
@@ -818,18 +818,18 @@ export namespace DeliveryOptions {
  */
 export interface ReputationOptions {
   /**
-   * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
-   *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
-   *             configuration set.</p>
-   */
-  ReputationMetricsEnabled?: boolean;
-
-  /**
    * <p>The date and time (in Unix time) when the reputation metrics were last given a fresh
    *             start. When your account is given a fresh start, your reputation metrics are calculated
    *             starting from the date of the fresh start.</p>
    */
   LastFreshStart?: Date;
+
+  /**
+   * <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration
+   *             set. If <code>false</code>, tracking of reputation metrics is disabled for the
+   *             configuration set.</p>
+   */
+  ReputationMetricsEnabled?: boolean;
 }
 
 export namespace ReputationOptions {
@@ -983,12 +983,6 @@ export interface CreateConfigurationSetRequest {
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>An object that defines the open and click tracking options for emails that you send
-   *             using the configuration set.</p>
-   */
-  TrackingOptions?: TrackingOptions;
-
-  /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
    *             using the configuration set.</p>
    */
@@ -1007,16 +1001,22 @@ export interface CreateConfigurationSetRequest {
   SendingOptions?: SendingOptions;
 
   /**
+   * <p>An object that contains information about the suppression list preferences for your
+   *             account.</p>
+   */
+  SuppressionOptions?: SuppressionOptions;
+
+  /**
    * <p>An array of objects that define the tags (keys and values) that you want to associate
    *             with the configuration set.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>An object that contains information about the suppression list preferences for your
-   *             account.</p>
+   * <p>An object that defines the open and click tracking options for emails that you send
+   *             using the configuration set.</p>
    */
-  SuppressionOptions?: SuppressionOptions;
+  TrackingOptions?: TrackingOptions;
 }
 
 export namespace CreateConfigurationSetRequest {
@@ -1088,16 +1088,16 @@ export namespace TooManyRequestsException {
  */
 export interface KinesisFirehoseDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email
-   *             events to the Amazon Kinesis Data Firehose stream.</p>
-   */
-  IamRoleArn: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email
    *             events to.</p>
    */
   DeliveryStreamArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email
+   *             events to the Amazon Kinesis Data Firehose stream.</p>
+   */
+  IamRoleArn: string | undefined;
 }
 
 export namespace KinesisFirehoseDestination {
@@ -1166,6 +1166,12 @@ export namespace SnsDestination {
  */
 export interface EventDestinationDefinition {
   /**
+   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
+   *             monitor and gain insights on your email sending metrics.</p>
+   */
+  CloudWatchDestination?: CloudWatchDestination;
+
+  /**
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
    *             enabled, the specified event types are sent to the destinations in this
    *                 <code>EventDestinationDefinition</code>.</p>
@@ -1175,28 +1181,16 @@ export interface EventDestinationDefinition {
   Enabled?: boolean;
 
   /**
-   * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
-   *             this <code>EventDestinationDefinition</code>.</p>
-   */
-  MatchingEventTypes?: (EventType | string)[];
-
-  /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
-   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
-   *             monitor and gain insights on your email sending metrics.</p>
+   * <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in
+   *             this <code>EventDestinationDefinition</code>.</p>
    */
-  CloudWatchDestination?: CloudWatchDestination;
-
-  /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
-   */
-  SnsDestination?: SnsDestination;
+  MatchingEventTypes?: (EventType | string)[];
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -1205,6 +1199,12 @@ export interface EventDestinationDefinition {
    *                 Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
    */
   PinpointDestination?: PinpointDestination;
+
+  /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
 }
 
 export namespace EventDestinationDefinition {
@@ -1223,14 +1223,14 @@ export interface CreateConfigurationSetEventDestinationRequest {
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>A name that identifies the event destination within the configuration set.</p>
-   */
-  EventDestinationName: string | undefined;
-
-  /**
    * <p>An object that defines the event destination.</p>
    */
   EventDestination: EventDestinationDefinition | undefined;
+
+  /**
+   * <p>A name that identifies the event destination within the configuration set.</p>
+   */
+  EventDestinationName: string | undefined;
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
@@ -1253,6 +1253,11 @@ export namespace CreateConfigurationSetEventDestinationResponse {
 
 export interface CreateContactRequest {
   /**
+   * <p>The attribute data attached to a contact.</p>
+   */
+  AttributesData?: string;
+
+  /**
    * <p>The name of the contact list to which the contact should be added.</p>
    */
   ContactListName: string | undefined;
@@ -1272,11 +1277,6 @@ export interface CreateContactRequest {
    *             topics.</p>
    */
   UnsubscribeAll?: boolean;
-
-  /**
-   * <p>The attribute data attached to a contact.</p>
-   */
-  AttributesData?: string;
 }
 
 export namespace CreateContactRequest {
@@ -1299,14 +1299,10 @@ export namespace CreateContactResponse {
  */
 export interface Topic {
   /**
-   * <p>The name of the topic.</p>
+   * <p>The default subscription status to be applied to a contact if the contact has not
+   *             noted their preference for subscribing to a topic.</p>
    */
-  TopicName: string | undefined;
-
-  /**
-   * <p>The name of the topic the contact will see.</p>
-   */
-  DisplayName: string | undefined;
+  DefaultSubscriptionStatus: SubscriptionStatus | string | undefined;
 
   /**
    * <p>A description of what the topic is about, which the contact will see.</p>
@@ -1314,10 +1310,14 @@ export interface Topic {
   Description?: string;
 
   /**
-   * <p>The default subscription status to be applied to a contact if the contact has not
-   *             noted their preference for subscribing to a topic.</p>
+   * <p>The name of the topic the contact will see.</p>
    */
-  DefaultSubscriptionStatus: SubscriptionStatus | string | undefined;
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The name of the topic.</p>
+   */
+  TopicName: string | undefined;
 }
 
 export namespace Topic {
@@ -1333,12 +1333,6 @@ export interface CreateContactListRequest {
   ContactListName: string | undefined;
 
   /**
-   * <p>An interest group, theme, or label within a list. A contact list can have multiple
-   *             topics.</p>
-   */
-  Topics?: Topic[];
-
-  /**
    * <p>A description of what the contact list is about.</p>
    */
   Description?: string;
@@ -1347,6 +1341,12 @@ export interface CreateContactListRequest {
    * <p>The tags associated with a contact list.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>An interest group, theme, or label within a list. A contact list can have multiple
+   *             topics.</p>
+   */
+  Topics?: Topic[];
 }
 
 export namespace CreateContactListRequest {
@@ -1368,9 +1368,10 @@ export namespace CreateContactListResponse {
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
   /**
-   * <p>The name of the custom verification email template.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName: string | undefined;
+  FailureRedirectionURL: string | undefined;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
@@ -1378,9 +1379,10 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   FromEmailAddress: string | undefined;
 
   /**
-   * <p>The subject line of the custom verification email.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
    */
-  TemplateSubject: string | undefined;
+  SuccessRedirectionURL: string | undefined;
 
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
@@ -1391,16 +1393,14 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   TemplateContent: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is successfully verified.</p>
+   * <p>The name of the custom verification email template.</p>
    */
-  SuccessRedirectionURL: string | undefined;
+  TemplateName: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The subject line of the custom verification email.</p>
    */
-  FailureRedirectionURL: string | undefined;
+  TemplateSubject: string | undefined;
 }
 
 export namespace CreateCustomVerificationEmailTemplateRequest {
@@ -1504,17 +1504,17 @@ export namespace RawMessage {
  */
 export interface Message {
   /**
+   * <p>The body of the message. You can specify an HTML version of the message, a text-only
+   *             version of the message, or both.</p>
+   */
+  Body: Body | undefined;
+
+  /**
    * <p>The subject line of the email. The subject line can only contain 7-bit ASCII
    *             characters. However, you can specify non-ASCII characters in the subject line by using
    *             encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.</p>
    */
   Subject: Content | undefined;
-
-  /**
-   * <p>The body of the message. You can specify an HTML version of the message, a text-only
-   *             version of the message, or both.</p>
-   */
-  Body: Body | undefined;
 }
 
 export namespace Message {
@@ -1531,11 +1531,6 @@ export namespace Message {
  *             include attachments and custom headers.</p>
  */
 export interface EmailContent {
-  /**
-   * <p>The simple email message. The message consists of a subject and a message body.</p>
-   */
-  Simple?: Message;
-
   /**
    * <p>The raw email message. The message has to meet the following criteria:</p>
    *         <ul>
@@ -1571,6 +1566,11 @@ export interface EmailContent {
   Raw?: RawMessage;
 
   /**
+   * <p>The simple email message. The message consists of a subject and a message body.</p>
+   */
+  Simple?: Message;
+
+  /**
    * <p>The template to use for the email message.</p>
    */
   Template?: Template;
@@ -1593,10 +1593,9 @@ export namespace EmailContent {
  */
 export interface CreateDeliverabilityTestReportRequest {
   /**
-   * <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the
-   *             results.</p>
+   * <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
    */
-  ReportName?: string;
+  Content: EmailContent | undefined;
 
   /**
    * <p>The email address that the predictive inbox placement test email was sent from.</p>
@@ -1604,9 +1603,10 @@ export interface CreateDeliverabilityTestReportRequest {
   FromEmailAddress: string | undefined;
 
   /**
-   * <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
+   * <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the
+   *             results.</p>
    */
-  Content: EmailContent | undefined;
+  ReportName?: string;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that you want to associate
@@ -1631,17 +1631,17 @@ export enum DeliverabilityTestStatus {
  */
 export interface CreateDeliverabilityTestReportResponse {
   /**
-   * <p>A unique string that identifies the predictive inbox placement test.</p>
-   */
-  ReportId: string | undefined;
-
-  /**
    * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
    *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
    *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
    *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
    */
   DeliverabilityTestStatus: DeliverabilityTestStatus | string | undefined;
+
+  /**
+   * <p>A unique string that identifies the predictive inbox placement test.</p>
+   */
+  ReportId: string | undefined;
 }
 
 export namespace CreateDeliverabilityTestReportResponse {
@@ -1702,17 +1702,17 @@ export namespace SendingPausedException {
  */
 export interface DkimSigningAttributes {
   /**
-   * <p>A string that's used to identify a public key in the DNS configuration for a
-   *             domain.</p>
-   */
-  DomainSigningSelector: string | undefined;
-
-  /**
    * <p>A private key that's used to generate a DKIM signature.</p>
    *         <p>The private key must use 1024-bit RSA encryption, and must be encoded using base64
    *             encoding.</p>
    */
   DomainSigningPrivateKey: string | undefined;
+
+  /**
+   * <p>A string that's used to identify a public key in the DNS configuration for a
+   *             domain.</p>
+   */
+  DomainSigningSelector: string | undefined;
 }
 
 export namespace DkimSigningAttributes {
@@ -1728,6 +1728,16 @@ export namespace DkimSigningAttributes {
  */
 export interface CreateEmailIdentityRequest {
   /**
+   * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
+   *             Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method,
+   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                 DKIM</a>.</p>
+   *         <p>You can only specify this object if the email identity is a domain, as opposed to an
+   *             address.</p>
+   */
+  DkimSigningAttributes?: DkimSigningAttributes;
+
+  /**
    * <p>The email address or domain that you want to verify.</p>
    */
   EmailIdentity: string | undefined;
@@ -1737,16 +1747,6 @@ export interface CreateEmailIdentityRequest {
    *             with the email identity.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
-   *             Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method,
-   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                 DKIM</a>.</p>
-   *         <p>You can only specify this object if the email identity is a domain, as opposed to an
-   *             address.</p>
-   */
-  DkimSigningAttributes?: DkimSigningAttributes;
 }
 
 export namespace CreateEmailIdentityRequest {
@@ -1783,6 +1783,24 @@ export enum DkimStatus {
  *             the process of creating the identity</p>
  */
 export interface DkimAttributes {
+  /**
+   * <p>A string that indicates how DKIM was configured for the identity. There are two
+   *             possible values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AWS_SES</code> – Indicates that DKIM was configured for the
+   *                     identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>EXTERNAL</code> – Indicates that DKIM was configured for the
+   *                     identity by using Bring Your Own DKIM (BYODKIM).</p>
+   *             </li>
+   *          </ul>
+   */
+  SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
+
   /**
    * <p>If the value is <code>true</code>, then the messages that you send from the identity
    *             are signed using DKIM. If the value is <code>false</code>, then the messages that you
@@ -1837,24 +1855,6 @@ export interface DkimAttributes {
    *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
    */
   Tokens?: string[];
-
-  /**
-   * <p>A string that indicates how DKIM was configured for the identity. There are two
-   *             possible values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>AWS_SES</code> – Indicates that DKIM was configured for the
-   *                     identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>EXTERNAL</code> – Indicates that DKIM was configured for the
-   *                     identity by using Bring Your Own DKIM (BYODKIM).</p>
-   *             </li>
-   *          </ul>
-   */
-  SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
 }
 
 export namespace DkimAttributes {
@@ -1876,6 +1876,11 @@ export enum IdentityType {
  */
 export interface CreateEmailIdentityResponse {
   /**
+   * <p>An object that contains information about the DKIM attributes for the identity.</p>
+   */
+  DkimAttributes?: DkimAttributes;
+
+  /**
    * <p>The email identity type.</p>
    */
   IdentityType?: IdentityType | string;
@@ -1886,11 +1891,6 @@ export interface CreateEmailIdentityResponse {
    *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
    */
   VerifiedForSendingStatus?: boolean;
-
-  /**
-   * <p>An object that contains information about the DKIM attributes for the identity.</p>
-   */
-  DkimAttributes?: DkimAttributes;
 }
 
 export namespace CreateEmailIdentityResponse {
@@ -1911,19 +1911,19 @@ export interface CreateEmailIdentityPolicyRequest {
   EmailIdentity: string | undefined;
 
   /**
+   * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
+   *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  Policy: string | undefined;
+
+  /**
    * <p>The name of the policy.</p>
    *
    *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
    *             characters, dashes, and underscores.</p>
    */
   PolicyName: string | undefined;
-
-  /**
-   * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
-   *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  Policy: string | undefined;
 }
 
 export namespace CreateEmailIdentityPolicyRequest {
@@ -1950,6 +1950,11 @@ export namespace CreateEmailIdentityPolicyResponse {
  */
 export interface EmailTemplateContent {
   /**
+   * <p>The HTML body of the email.</p>
+   */
+  Html?: string;
+
+  /**
    * <p>The subject line of the email.</p>
    */
   Subject?: string;
@@ -1959,11 +1964,6 @@ export interface EmailTemplateContent {
    *             HTML.</p>
    */
   Text?: string;
-
-  /**
-   * <p>The HTML body of the email.</p>
-   */
-  Html?: string;
 }
 
 export namespace EmailTemplateContent {
@@ -1978,15 +1978,15 @@ export namespace EmailTemplateContent {
  */
 export interface CreateEmailTemplateRequest {
   /**
-   * <p>The name of the template you want to create.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>The content of the email template, composed of a subject line, an HTML part, and a
    *             text-only part.</p>
    */
   TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>The name of the template you want to create.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace CreateEmailTemplateRequest {
@@ -2017,15 +2017,15 @@ export enum DataFormat {
  */
 export interface ImportDataSource {
   /**
+   * <p>The data format of the import job's data source.</p>
+   */
+  DataFormat: DataFormat | string | undefined;
+
+  /**
    * <p>An Amazon S3 URL in the format
    *                 s3://<i><bucket_name></i>/<i><object></i>.</p>
    */
   S3Url: string | undefined;
-
-  /**
-   * <p>The data format of the import job's data source.</p>
-   */
-  DataFormat: DataFormat | string | undefined;
 }
 
 export namespace ImportDataSource {
@@ -2070,14 +2070,14 @@ export namespace SuppressionListDestination {
  */
 export interface ImportDestination {
   /**
-   * <p>An object that contains the action of the import job towards suppression list.</p>
-   */
-  SuppressionListDestination?: SuppressionListDestination;
-
-  /**
    * <p>An object that contains the action of the import job towards a contact list.</p>
    */
   ContactListDestination?: ContactListDestination;
+
+  /**
+   * <p>An object that contains the action of the import job towards suppression list.</p>
+   */
+  SuppressionListDestination?: SuppressionListDestination;
 }
 
 export namespace ImportDestination {
@@ -2092,14 +2092,14 @@ export namespace ImportDestination {
  */
 export interface CreateImportJobRequest {
   /**
-   * <p>The destination for the import job.</p>
-   */
-  ImportDestination: ImportDestination | undefined;
-
-  /**
    * <p>The data source for the import job.</p>
    */
   ImportDataSource: ImportDataSource | undefined;
+
+  /**
+   * <p>The destination for the import job.</p>
+   */
+  ImportDestination: ImportDestination | undefined;
 }
 
 export namespace CreateImportJobRequest {
@@ -2130,19 +2130,15 @@ export namespace CreateImportJobResponse {
  */
 export interface CustomVerificationEmailTemplateMetadata {
   /**
-   * <p>The name of the custom verification email template.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName?: string;
+  FailureRedirectionURL?: string;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
-
-  /**
-   * <p>The subject line of the custom verification email.</p>
-   */
-  TemplateSubject?: string;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
@@ -2151,10 +2147,14 @@ export interface CustomVerificationEmailTemplateMetadata {
   SuccessRedirectionURL?: string;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The name of the custom verification email template.</p>
    */
-  FailureRedirectionURL?: string;
+  TemplateName?: string;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject?: string;
 }
 
 export namespace CustomVerificationEmailTemplateMetadata {
@@ -2169,9 +2169,10 @@ export namespace CustomVerificationEmailTemplateMetadata {
  */
 export interface DomainIspPlacement {
   /**
-   * <p>The name of the email provider that the inbox placement data applies to.</p>
+   * <p>The percentage of messages that were sent from the selected domain to the specified
+   *             email provider that arrived in recipients' inboxes.</p>
    */
-  IspName?: string;
+  InboxPercentage?: number;
 
   /**
    * <p>The total number of messages that were sent from the selected domain to the specified
@@ -2180,22 +2181,21 @@ export interface DomainIspPlacement {
   InboxRawCount?: number;
 
   /**
-   * <p>The total number of messages that were sent from the selected domain to the specified
-   *             email provider that arrived in recipients' spam or junk mail folders.</p>
+   * <p>The name of the email provider that the inbox placement data applies to.</p>
    */
-  SpamRawCount?: number;
-
-  /**
-   * <p>The percentage of messages that were sent from the selected domain to the specified
-   *             email provider that arrived in recipients' inboxes.</p>
-   */
-  InboxPercentage?: number;
+  IspName?: string;
 
   /**
    * <p>The percentage of messages that were sent from the selected domain to the specified
    *             email provider that arrived in recipients' spam or junk mail folders.</p>
    */
   SpamPercentage?: number;
+
+  /**
+   * <p>The total number of messages that were sent from the selected domain to the specified
+   *             email provider that arrived in recipients' spam or junk mail folders.</p>
+   */
+  SpamRawCount?: number;
 }
 
 export namespace DomainIspPlacement {
@@ -2215,12 +2215,6 @@ export interface VolumeStatistics {
   InboxRawCount?: number;
 
   /**
-   * <p>The total number of emails that arrived in recipients' spam or junk mail
-   *             folders.</p>
-   */
-  SpamRawCount?: number;
-
-  /**
    * <p>An estimate of the percentage of emails sent from the current domain that will arrive
    *             in recipients' inboxes.</p>
    */
@@ -2231,6 +2225,12 @@ export interface VolumeStatistics {
    *             in recipients' spam or junk mail folders.</p>
    */
   ProjectedSpam?: number;
+
+  /**
+   * <p>The total number of emails that arrived in recipients' spam or junk mail
+   *             folders.</p>
+   */
+  SpamRawCount?: number;
 }
 
 export namespace VolumeStatistics {
@@ -2245,6 +2245,12 @@ export namespace VolumeStatistics {
  */
 export interface DailyVolume {
   /**
+   * <p>An object that contains inbox placement metrics for a specified day in the analysis
+   *             period, broken out by the recipient's email provider.</p>
+   */
+  DomainIspPlacements?: DomainIspPlacement[];
+
+  /**
    * <p>The date that the DailyVolume metrics apply to, in Unix time.</p>
    */
   StartDate?: Date;
@@ -2254,12 +2260,6 @@ export interface DailyVolume {
    *             period.</p>
    */
   VolumeStatistics?: VolumeStatistics;
-
-  /**
-   * <p>An object that contains inbox placement metrics for a specified day in the analysis
-   *             period, broken out by the recipient's email provider.</p>
-   */
-  DomainIspPlacements?: DomainIspPlacement[];
 }
 
 export namespace DailyVolume {
@@ -2287,6 +2287,17 @@ export interface DedicatedIp {
   Ip: string | undefined;
 
   /**
+   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
+   */
+  PoolName?: string;
+
+  /**
+   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
+   *             the address has completed the warm-up process and is ready for use.</p>
+   */
+  WarmupPercentage: number | undefined;
+
+  /**
    * <p>The warm-up status of a dedicated IP address. The status can have one of the following
    *             values:</p>
    *         <ul>
@@ -2303,17 +2314,6 @@ export interface DedicatedIp {
    *          </ul>
    */
   WarmupStatus: WarmupStatus | string | undefined;
-
-  /**
-   * <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1,
-   *             the address has completed the warm-up process and is ready for use.</p>
-   */
-  WarmupPercentage: number | undefined;
-
-  /**
-   * <p>The name of the dedicated IP pool that the IP address is associated with.</p>
-   */
-  PoolName?: string;
 }
 
 export namespace DedicatedIp {
@@ -2624,6 +2624,24 @@ export enum DeliverabilityDashboardAccountStatus {
  */
 export interface DeliverabilityTestReport {
   /**
+   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
+   *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
+   *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
+   *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
+   */
+  DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
+
+  /**
+   * <p>The sender address that you specified for the predictive inbox placement test.</p>
+   */
+  FromEmailAddress?: string;
+
+  /**
    * <p>A unique string that identifies the predictive inbox placement test.</p>
    */
   ReportId?: string;
@@ -2637,24 +2655,6 @@ export interface DeliverabilityTestReport {
    * <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
    */
   Subject?: string;
-
-  /**
-   * <p>The sender address that you specified for the predictive inbox placement test.</p>
-   */
-  FromEmailAddress?: string;
-
-  /**
-   * <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
-   */
-  CreateDate?: Date;
-
-  /**
-   * <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test
-   *             is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the
-   *             test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use
-   *             the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
-   */
-  DeliverabilityTestStatus?: DeliverabilityTestStatus | string;
 }
 
 export namespace DeliverabilityTestReport {
@@ -2677,25 +2677,16 @@ export interface DomainDeliverabilityCampaign {
   CampaignId?: string;
 
   /**
-   * <p>The URL of an image that contains a snapshot of the email message that was
-   *             sent.</p>
+   * <p>The percentage of email messages that were deleted by recipients, without being opened
+   *             first. Due to technical limitations, this value only includes recipients who opened the
+   *             message by using an email client that supports images.</p>
    */
-  ImageUrl?: string;
+  DeleteRate?: number;
 
   /**
-   * <p>The subject line, or title, of the email message.</p>
+   * <p>The major email providers who handled the email message.</p>
    */
-  Subject?: string;
-
-  /**
-   * <p>The verified email address that the email message was sent from.</p>
-   */
-  FromAddress?: string;
-
-  /**
-   * <p>The IP addresses that were used to send the email message.</p>
-   */
-  SendingIps?: string[];
+  Esps?: string[];
 
   /**
    * <p>The first time, in Unix time format, when the email message was delivered to any
@@ -2705,11 +2696,15 @@ export interface DomainDeliverabilityCampaign {
   FirstSeenDateTime?: Date;
 
   /**
-   * <p>The last time, in Unix time format, when the email message was delivered to any
-   *             recipient's inbox. This value can help you determine how long it took for a campaign to
-   *             deliver an email message.</p>
+   * <p>The verified email address that the email message was sent from.</p>
    */
-  LastSeenDateTime?: Date;
+  FromAddress?: string;
+
+  /**
+   * <p>The URL of an image that contains a snapshot of the email message that was
+   *             sent.</p>
+   */
+  ImageUrl?: string;
 
   /**
    * <p>The number of email messages that were delivered to recipients’ inboxes.</p>
@@ -2717,24 +2712,16 @@ export interface DomainDeliverabilityCampaign {
   InboxCount?: number;
 
   /**
-   * <p>The number of email messages that were delivered to recipients' spam or junk mail
-   *             folders.</p>
+   * <p>The last time, in Unix time format, when the email message was delivered to any
+   *             recipient's inbox. This value can help you determine how long it took for a campaign to
+   *             deliver an email message.</p>
    */
-  SpamCount?: number;
+  LastSeenDateTime?: Date;
 
   /**
-   * <p>The percentage of email messages that were opened by recipients. Due to technical
-   *             limitations, this value only includes recipients who opened the message by using an
-   *             email client that supports images.</p>
+   * <p>The projected number of recipients that the email message was sent to.</p>
    */
-  ReadRate?: number;
-
-  /**
-   * <p>The percentage of email messages that were deleted by recipients, without being opened
-   *             first. Due to technical limitations, this value only includes recipients who opened the
-   *             message by using an email client that supports images.</p>
-   */
-  DeleteRate?: number;
+  ProjectedVolume?: number;
 
   /**
    * <p>The percentage of email messages that were opened and then deleted by recipients. Due
@@ -2744,14 +2731,27 @@ export interface DomainDeliverabilityCampaign {
   ReadDeleteRate?: number;
 
   /**
-   * <p>The projected number of recipients that the email message was sent to.</p>
+   * <p>The percentage of email messages that were opened by recipients. Due to technical
+   *             limitations, this value only includes recipients who opened the message by using an
+   *             email client that supports images.</p>
    */
-  ProjectedVolume?: number;
+  ReadRate?: number;
 
   /**
-   * <p>The major email providers who handled the email message.</p>
+   * <p>The IP addresses that were used to send the email message.</p>
    */
-  Esps?: string[];
+  SendingIps?: string[];
+
+  /**
+   * <p>The number of email messages that were delivered to recipients' spam or junk mail
+   *             folders.</p>
+   */
+  SpamCount?: number;
+
+  /**
+   * <p>The subject line, or title, of the email message.</p>
+   */
+  Subject?: string;
 }
 
 export namespace DomainDeliverabilityCampaign {
@@ -2798,16 +2798,16 @@ export interface DomainDeliverabilityTrackingOption {
   Domain?: string;
 
   /**
-   * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
-   *             domain.</p>
-   */
-  SubscriptionStartDate?: Date;
-
-  /**
    * <p>An object that contains information about the inbox placement data settings for the
    *             domain.</p>
    */
   InboxPlacementTrackingOption?: InboxPlacementTrackingOption;
+
+  /**
+   * <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the
+   *             domain.</p>
+   */
+  SubscriptionStartDate?: Date;
 }
 
 export namespace DomainDeliverabilityTrackingOption {
@@ -2821,14 +2821,14 @@ export namespace DomainDeliverabilityTrackingOption {
  */
 export interface EmailTemplateMetadata {
   /**
-   * <p>The name of the template.</p>
-   */
-  TemplateName?: string;
-
-  /**
    * <p>The time and date the template was created.</p>
    */
   CreatedTimestamp?: Date;
+
+  /**
+   * <p>The name of the template.</p>
+   */
+  TemplateName?: string;
 }
 
 export namespace EmailTemplateMetadata {
@@ -2846,9 +2846,10 @@ export namespace EmailTemplateMetadata {
  */
 export interface EventDestination {
   /**
-   * <p>A name that identifies the event destination.</p>
+   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
+   *             monitor and gain insights on your email sending metrics.</p>
    */
-  Name: string | undefined;
+  CloudWatchDestination?: CloudWatchDestination;
 
   /**
    * <p>If <code>true</code>, the event destination is enabled. When the event destination is
@@ -2860,27 +2861,20 @@ export interface EventDestination {
   Enabled?: boolean;
 
   /**
-   * <p>The types of events that Amazon SES sends to the specified event destinations.</p>
-   */
-  MatchingEventTypes: (EventType | string)[] | undefined;
-
-  /**
    * <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to
    *             stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
    */
   KinesisFirehoseDestination?: KinesisFirehoseDestination;
 
   /**
-   * <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to
-   *             monitor and gain insights on your email sending metrics.</p>
+   * <p>The types of events that Amazon SES sends to the specified event destinations.</p>
    */
-  CloudWatchDestination?: CloudWatchDestination;
+  MatchingEventTypes: (EventType | string)[] | undefined;
 
   /**
-   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
-   *             send notification when certain email events occur.</p>
+   * <p>A name that identifies the event destination.</p>
    */
-  SnsDestination?: SnsDestination;
+  Name: string | undefined;
 
   /**
    * <p>An object that defines an Amazon Pinpoint project destination for email events. You can send
@@ -2889,6 +2883,12 @@ export interface EventDestination {
    *                 Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
    */
   PinpointDestination?: PinpointDestination;
+
+  /**
+   * <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to
+   *             send notification when certain email events occur.</p>
+   */
+  SnsDestination?: SnsDestination;
 }
 
 export namespace EventDestination {
@@ -2902,15 +2902,15 @@ export namespace EventDestination {
  */
 export interface FailureInfo {
   /**
+   * <p>A message about why the import job failed.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
    * <p>An Amazon S3 presigned URL that contains all the failed records and related
    *             information.</p>
    */
   FailedRecordsS3Url?: string;
-
-  /**
-   * <p>A message about why the import job failed.</p>
-   */
-  ErrorMessage?: string;
 }
 
 export namespace FailureInfo {
@@ -3008,6 +3008,11 @@ export interface GetAccountResponse {
   DedicatedIpAutoWarmupEnabled?: boolean;
 
   /**
+   * <p>An object that defines your account details.</p>
+   */
+  Details?: AccountDetails;
+
+  /**
    * <p>The reputation status of your Amazon SES account. The status can be one of the
    *             following:</p>
    *         <ul>
@@ -3048,27 +3053,22 @@ export interface GetAccountResponse {
   ProductionAccessEnabled?: boolean;
 
   /**
-   * <p>An object that contains information about the per-day and per-second sending limits
-   *             for your Amazon SES account in the current AWS Region.</p>
-   */
-  SendQuota?: SendQuota;
-
-  /**
    * <p>Indicates whether or not email sending is enabled for your Amazon SES account in the
    *             current AWS Region.</p>
    */
   SendingEnabled?: boolean;
 
   /**
+   * <p>An object that contains information about the per-day and per-second sending limits
+   *             for your Amazon SES account in the current AWS Region.</p>
+   */
+  SendQuota?: SendQuota;
+
+  /**
    * <p>An object that contains information about the email address suppression preferences
    *             for your account in the current AWS Region.</p>
    */
   SuppressionAttributes?: SuppressionAttributes;
-
-  /**
-   * <p>An object that defines your account details.</p>
-   */
-  Details?: AccountDetails;
 }
 
 export namespace GetAccountResponse {
@@ -3141,12 +3141,6 @@ export interface GetConfigurationSetResponse {
   ConfigurationSetName?: string;
 
   /**
-   * <p>An object that defines the open and click tracking options for emails that you send
-   *             using the configuration set.</p>
-   */
-  TrackingOptions?: TrackingOptions;
-
-  /**
    * <p>An object that defines the dedicated IP pool that is used to send emails that you send
    *             using the configuration set.</p>
    */
@@ -3165,16 +3159,22 @@ export interface GetConfigurationSetResponse {
   SendingOptions?: SendingOptions;
 
   /**
+   * <p>An object that contains information about the suppression list preferences for your
+   *             account.</p>
+   */
+  SuppressionOptions?: SuppressionOptions;
+
+  /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
    *             the configuration set.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>An object that contains information about the suppression list preferences for your
-   *             account.</p>
+   * <p>An object that defines the open and click tracking options for emails that you send
+   *             using the configuration set.</p>
    */
-  SuppressionOptions?: SuppressionOptions;
+  TrackingOptions?: TrackingOptions;
 }
 
 export namespace GetConfigurationSetResponse {
@@ -3237,35 +3237,14 @@ export namespace GetContactRequest {
 
 export interface GetContactResponse {
   /**
-   * <p>The name of the contact list to which the contact belongs.</p>
-   */
-  ContactListName?: string;
-
-  /**
-   * <p>The contact's email addres.</p>
-   */
-  EmailAddress?: string;
-
-  /**
-   * <p>The contact's preference for being opted-in to or opted-out of a topic.></p>
-   */
-  TopicPreferences?: TopicPreference[];
-
-  /**
-   * <p>The default topic preferences applied to the contact.</p>
-   */
-  TopicDefaultPreferences?: TopicPreference[];
-
-  /**
-   * <p>A boolean value status noting if the contact is unsubscribed from all contact list
-   *             topics.</p>
-   */
-  UnsubscribeAll?: boolean;
-
-  /**
    * <p>The attribute data attached to a contact.</p>
    */
   AttributesData?: string;
+
+  /**
+   * <p>The name of the contact list to which the contact belongs.</p>
+   */
+  ContactListName?: string;
 
   /**
    * <p>A timestamp noting when the contact was created.</p>
@@ -3273,9 +3252,30 @@ export interface GetContactResponse {
   CreatedTimestamp?: Date;
 
   /**
+   * <p>The contact's email addres.</p>
+   */
+  EmailAddress?: string;
+
+  /**
    * <p>A timestamp noting the last time the contact's information was updated.</p>
    */
   LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The default topic preferences applied to the contact.</p>
+   */
+  TopicDefaultPreferences?: TopicPreference[];
+
+  /**
+   * <p>The contact's preference for being opted-in to or opted-out of a topic.></p>
+   */
+  TopicPreferences?: TopicPreference[];
+
+  /**
+   * <p>A boolean value status noting if the contact is unsubscribed from all contact list
+   *             topics.</p>
+   */
+  UnsubscribeAll?: boolean;
 }
 
 export namespace GetContactResponse {
@@ -3304,20 +3304,14 @@ export interface GetContactListResponse {
   ContactListName?: string;
 
   /**
-   * <p>An interest group, theme, or label within a list. A contact list can have multiple
-   *             topics.</p>
+   * <p>A timestamp noting when the contact list was created.</p>
    */
-  Topics?: Topic[];
+  CreatedTimestamp?: Date;
 
   /**
    * <p>A description of what the contact list is about.</p>
    */
   Description?: string;
-
-  /**
-   * <p>A timestamp noting when the contact list was created.</p>
-   */
-  CreatedTimestamp?: Date;
 
   /**
    * <p>A timestamp noting the last time the contact list was updated.</p>
@@ -3328,6 +3322,12 @@ export interface GetContactListResponse {
    * <p>The tags associated with a contact list.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>An interest group, theme, or label within a list. A contact list can have multiple
+   *             topics.</p>
+   */
+  Topics?: Topic[];
 }
 
 export namespace GetContactListResponse {
@@ -3358,24 +3358,15 @@ export namespace GetCustomVerificationEmailTemplateRequest {
  */
 export interface GetCustomVerificationEmailTemplateResponse {
   /**
-   * <p>The name of the custom verification email template.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName?: string;
+  FailureRedirectionURL?: string;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
-
-  /**
-   * <p>The subject line of the custom verification email.</p>
-   */
-  TemplateSubject?: string;
-
-  /**
-   * <p>The content of the custom verification email.</p>
-   */
-  TemplateContent?: string;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
@@ -3384,10 +3375,19 @@ export interface GetCustomVerificationEmailTemplateResponse {
   SuccessRedirectionURL?: string;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The content of the custom verification email.</p>
    */
-  FailureRedirectionURL?: string;
+  TemplateContent?: string;
+
+  /**
+   * <p>The name of the custom verification email template.</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject?: string;
 }
 
 export namespace GetCustomVerificationEmailTemplateResponse {
@@ -3434,11 +3434,6 @@ export namespace GetDedicatedIpResponse {
  */
 export interface GetDedicatedIpsRequest {
   /**
-   * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
-   */
-  PoolName?: string;
-
-  /**
    * <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the
    *             position of the dedicated IP pool in the list of IP pools.</p>
    */
@@ -3451,6 +3446,11 @@ export interface GetDedicatedIpsRequest {
    *             additional results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>The name of the IP pool that the dedicated IP address is associated with.</p>
+   */
+  PoolName?: string;
 }
 
 export namespace GetDedicatedIpsRequest {
@@ -3505,20 +3505,6 @@ export namespace GetDeliverabilityDashboardOptionsRequest {
  */
 export interface GetDeliverabilityDashboardOptionsResponse {
   /**
-   * <p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>,
-   *             the dashboard is enabled.</p>
-   */
-  DashboardEnabled: boolean | undefined;
-
-  /**
-   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
-   *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
-   *             current calendar month. This value is null if you have an active subscription that isn’t
-   *             due to expire at the end of the month.</p>
-   */
-  SubscriptionExpiryDate?: Date;
-
-  /**
    * <p>The current status of your Deliverability dashboard subscription. If this value is
    *                 <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end
    *             of the current calendar month.</p>
@@ -3533,11 +3519,25 @@ export interface GetDeliverabilityDashboardOptionsResponse {
   ActiveSubscribedDomains?: DomainDeliverabilityTrackingOption[];
 
   /**
+   * <p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>,
+   *             the dashboard is enabled.</p>
+   */
+  DashboardEnabled: boolean | undefined;
+
+  /**
    * <p>An array of objects, one for each verified domain that you use to send email and
    *             currently has an active Deliverability dashboard subscription that's scheduled to expire at the
    *             end of the current calendar month.</p>
    */
   PendingExpirationSubscribedDomains?: DomainDeliverabilityTrackingOption[];
+
+  /**
+   * <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard
+   *             is scheduled to expire, if your subscription is scheduled to expire at the end of the
+   *             current calendar month. This value is null if you have an active subscription that isn’t
+   *             due to expire at the end of the month.</p>
+   */
+  SubscriptionExpiryDate?: Date;
 }
 
 export namespace GetDeliverabilityDashboardOptionsResponse {
@@ -3567,15 +3567,15 @@ export namespace GetDeliverabilityTestReportRequest {
  */
 export interface PlacementStatistics {
   /**
+   * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
+   *             (DKIM) during the predictive inbox placement test.</p>
+   */
+  DkimPercentage?: number;
+
+  /**
    * <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
    */
   InboxPercentage?: number;
-
-  /**
-   * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
-   *             the predictive inbox placement test.</p>
-   */
-  SpamPercentage?: number;
 
   /**
    * <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the
@@ -3584,16 +3584,16 @@ export interface PlacementStatistics {
   MissingPercentage?: number;
 
   /**
+   * <p>The percentage of emails that arrived in recipients' spam or junk mail folders during
+   *             the predictive inbox placement test.</p>
+   */
+  SpamPercentage?: number;
+
+  /**
    * <p>The percentage of emails that were authenticated by using Sender Policy Framework
    *             (SPF) during the predictive inbox placement test.</p>
    */
   SpfPercentage?: number;
-
-  /**
-   * <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail
-   *             (DKIM) during the predictive inbox placement test.</p>
-   */
-  DkimPercentage?: number;
 }
 
 export namespace PlacementStatistics {
@@ -3634,13 +3634,6 @@ export interface GetDeliverabilityTestReportResponse {
   DeliverabilityTestReport: DeliverabilityTestReport | undefined;
 
   /**
-   * <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were
-   *             delivered to recipients' inboxes, how many were sent to recipients' spam folders, and
-   *             how many weren't delivered.</p>
-   */
-  OverallPlacement: PlacementStatistics | undefined;
-
-  /**
    * <p>An object that describes how the test email was handled by several email providers,
    *             including Gmail, Hotmail, Yahoo, AOL, and others.</p>
    */
@@ -3651,6 +3644,13 @@ export interface GetDeliverabilityTestReportResponse {
    *             predictive inbox placement test.</p>
    */
   Message?: string;
+
+  /**
+   * <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were
+   *             delivered to recipients' inboxes, how many were sent to recipients' spam folders, and
+   *             how many weren't delivered.</p>
+   */
+  OverallPlacement: PlacementStatistics | undefined;
 
   /**
    * <p>An array of objects that define the tags (keys and values) that are associated with
@@ -3713,17 +3713,17 @@ export interface GetDomainStatisticsReportRequest {
   Domain: string | undefined;
 
   /**
-   * <p>The first day (in Unix time) that you want to obtain domain deliverability metrics
-   *             for.</p>
-   */
-  StartDate: Date | undefined;
-
-  /**
    * <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for.
    *             The <code>EndDate</code> that you specify has to be less than or equal to 30 days after
    *             the <code>StartDate</code>.</p>
    */
   EndDate: Date | undefined;
+
+  /**
+   * <p>The first day (in Unix time) that you want to obtain domain deliverability metrics
+   *             for.</p>
+   */
+  StartDate: Date | undefined;
 }
 
 export namespace GetDomainStatisticsReportRequest {
@@ -3738,10 +3738,10 @@ export namespace GetDomainStatisticsReportRequest {
  */
 export interface OverallVolume {
   /**
-   * <p>An object that contains information about the numbers of messages that arrived in
-   *             recipients' inboxes and junk mail folders.</p>
+   * <p>An object that contains inbox and junk mail placement metrics for individual email
+   *             providers.</p>
    */
-  VolumeStatistics?: VolumeStatistics;
+  DomainIspPlacements?: DomainIspPlacement[];
 
   /**
    * <p>The percentage of emails that were sent from the domain that were read by their
@@ -3750,10 +3750,10 @@ export interface OverallVolume {
   ReadRatePercent?: number;
 
   /**
-   * <p>An object that contains inbox and junk mail placement metrics for individual email
-   *             providers.</p>
+   * <p>An object that contains information about the numbers of messages that arrived in
+   *             recipients' inboxes and junk mail folders.</p>
    */
-  DomainIspPlacements?: DomainIspPlacement[];
+  VolumeStatistics?: VolumeStatistics;
 }
 
 export namespace OverallVolume {
@@ -3768,18 +3768,18 @@ export namespace OverallVolume {
  */
 export interface GetDomainStatisticsReportResponse {
   /**
-   * <p>An object that contains deliverability metrics for the domain that you specified. The
-   *             data in this object is a summary of all of the data that was collected from the
-   *                 <code>StartDate</code> to the <code>EndDate</code>.</p>
-   */
-  OverallVolume: OverallVolume | undefined;
-
-  /**
    * <p>An object that contains deliverability metrics for the domain that you specified. This
    *             object contains data for each day, starting on the <code>StartDate</code> and ending on
    *             the <code>EndDate</code>.</p>
    */
   DailyVolumes: DailyVolume[] | undefined;
+
+  /**
+   * <p>An object that contains deliverability metrics for the domain that you specified. The
+   *             data in this object is a summary of all of the data that was collected from the
+   *                 <code>StartDate</code> to the <code>EndDate</code>.</p>
+   */
+  OverallVolume: OverallVolume | undefined;
 }
 
 export namespace GetDomainStatisticsReportResponse {
@@ -3816,6 +3816,19 @@ export enum MailFromDomainStatus {
  */
 export interface MailFromAttributes {
   /**
+   * <p>The action that you want to take if the required MX record can't be found when you
+   *             send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
+   *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
+   *             value to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
+   *             email.</p>
+   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *             states.</p>
+   */
+  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
+
+  /**
    * <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
    */
   MailFromDomain: string | undefined;
@@ -3846,19 +3859,6 @@ export interface MailFromAttributes {
    *          </ul>
    */
   MailFromDomainStatus: MailFromDomainStatus | string | undefined;
-
-  /**
-   * <p>The action that you want to take if the required MX record can't be found when you
-   *             send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
-   *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
-   *             value to <code>RejectMessage</code>, the Amazon SES API v2 returns a
-   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
-   *             email.</p>
-   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
-   *             states.</p>
-   */
-  BehaviorOnMxFailure: BehaviorOnMxFailure | string | undefined;
 }
 
 export namespace MailFromAttributes {
@@ -3872,9 +3872,9 @@ export namespace MailFromAttributes {
  */
 export interface GetEmailIdentityResponse {
   /**
-   * <p>The email identity type.</p>
+   * <p>An object that contains information about the DKIM attributes for the identity.</p>
    */
-  IdentityType?: IdentityType | string;
+  DkimAttributes?: DkimAttributes;
 
   /**
    * <p>The feedback forwarding configuration for the identity.</p>
@@ -3889,16 +3889,9 @@ export interface GetEmailIdentityResponse {
   FeedbackForwardingStatus?: boolean;
 
   /**
-   * <p>Specifies whether or not the identity is verified. You can only send email from
-   *             verified email addresses or domains. For more information about verifying identities,
-   *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   * <p>The email identity type.</p>
    */
-  VerifiedForSendingStatus?: boolean;
-
-  /**
-   * <p>An object that contains information about the DKIM attributes for the identity.</p>
-   */
-  DkimAttributes?: DkimAttributes;
+  IdentityType?: IdentityType | string;
 
   /**
    * <p>An object that contains information about the Mail-From attributes for the email
@@ -3916,6 +3909,13 @@ export interface GetEmailIdentityResponse {
    *             the email identity.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies whether or not the identity is verified. You can only send email from
+   *             verified email addresses or domains. For more information about verifying identities,
+   *             see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
+   */
+  VerifiedForSendingStatus?: boolean;
 }
 
 export namespace GetEmailIdentityResponse {
@@ -3978,15 +3978,15 @@ export namespace GetEmailTemplateRequest {
  */
 export interface GetEmailTemplateResponse {
   /**
-   * <p>The name of the template you want to retrieve.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>The content of the email template, composed of a subject line, an HTML part, and a
    *             text-only part.</p>
    */
   TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>The name of the template you want to retrieve.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace GetEmailTemplateResponse {
@@ -4025,29 +4025,9 @@ export enum JobStatus {
  */
 export interface GetImportJobResponse {
   /**
-   * <p>A string that represents the import job ID.</p>
+   * <p>The time stamp of when the import job was completed.</p>
    */
-  JobId?: string;
-
-  /**
-   * <p>The destination of the import job.</p>
-   */
-  ImportDestination?: ImportDestination;
-
-  /**
-   * <p>The data source of the import job.</p>
-   */
-  ImportDataSource?: ImportDataSource;
-
-  /**
-   * <p>The failure details about an import job.</p>
-   */
-  FailureInfo?: FailureInfo;
-
-  /**
-   * <p>The status of the import job.</p>
-   */
-  JobStatus?: JobStatus | string;
+  CompletedTimestamp?: Date;
 
   /**
    * <p>The time stamp of when the import job was created.</p>
@@ -4055,20 +4035,40 @@ export interface GetImportJobResponse {
   CreatedTimestamp?: Date;
 
   /**
-   * <p>The time stamp of when the import job was completed.</p>
+   * <p>The number of records that failed processing because of invalid input or other
+   *             reasons.</p>
    */
-  CompletedTimestamp?: Date;
+  FailedRecordsCount?: number;
+
+  /**
+   * <p>The failure details about an import job.</p>
+   */
+  FailureInfo?: FailureInfo;
+
+  /**
+   * <p>The data source of the import job.</p>
+   */
+  ImportDataSource?: ImportDataSource;
+
+  /**
+   * <p>The destination of the import job.</p>
+   */
+  ImportDestination?: ImportDestination;
+
+  /**
+   * <p>A string that represents the import job ID.</p>
+   */
+  JobId?: string;
+
+  /**
+   * <p>The status of the import job.</p>
+   */
+  JobStatus?: JobStatus | string;
 
   /**
    * <p>The current number of records processed.</p>
    */
   ProcessedRecordsCount?: number;
-
-  /**
-   * <p>The number of records that failed processing because of invalid input or other
-   *             reasons.</p>
-   */
-  FailedRecordsCount?: number;
 }
 
 export namespace GetImportJobResponse {
@@ -4100,16 +4100,16 @@ export namespace GetSuppressedDestinationRequest {
  */
 export interface SuppressedDestinationAttributes {
   /**
-   * <p>The unique identifier of the email message that caused the email address to be added
-   *             to the suppression list for your account.</p>
-   */
-  MessageId?: string;
-
-  /**
    * <p>A unique identifier that's generated when an email address is added to the suppression
    *             list for your account.</p>
    */
   FeedbackId?: string;
+
+  /**
+   * <p>The unique identifier of the email message that caused the email address to be added
+   *             to the suppression list for your account.</p>
+   */
+  MessageId?: string;
 }
 
 export namespace SuppressedDestinationAttributes {
@@ -4124,14 +4124,15 @@ export namespace SuppressedDestinationAttributes {
  */
 export interface SuppressedDestination {
   /**
+   * <p>An optional value that can contain additional information about the reasons that the
+   *             address was added to the suppression list for your account.</p>
+   */
+  Attributes?: SuppressedDestinationAttributes;
+
+  /**
    * <p>The email address that is on the suppression list for your account.</p>
    */
   EmailAddress: string | undefined;
-
-  /**
-   * <p>The reason that the address was added to the suppression list for your account.</p>
-   */
-  Reason: SuppressionListReason | string | undefined;
 
   /**
    * <p>The date and time when the suppressed destination was last updated, shown in Unix time
@@ -4140,10 +4141,9 @@ export interface SuppressedDestination {
   LastUpdateTime: Date | undefined;
 
   /**
-   * <p>An optional value that can contain additional information about the reasons that the
-   *             address was added to the suppression list for your account.</p>
+   * <p>The reason that the address was added to the suppression list for your account.</p>
    */
-  Attributes?: SuppressedDestinationAttributes;
+  Reason: SuppressionListReason | string | undefined;
 }
 
 export namespace SuppressedDestination {
@@ -4173,6 +4173,11 @@ export namespace GetSuppressedDestinationResponse {
  */
 export interface IdentityInfo {
   /**
+   * <p>The address or domain of the identity.</p>
+   */
+  IdentityName?: string;
+
+  /**
    * <p>The email identity type. The identity type can be one of the following:</p>
    *         <ul>
    *             <li>
@@ -4191,11 +4196,6 @@ export interface IdentityInfo {
    *          </ul>
    */
   IdentityType?: IdentityType | string;
-
-  /**
-   * <p>The address or domain of the identity.</p>
-   */
-  IdentityName?: string;
 
   /**
    * <p>Indicates whether or not you can send email from the identity.</p>
@@ -4222,9 +4222,9 @@ export enum ImportDestinationType {
  */
 export interface ImportJobSummary {
   /**
-   * <p>A string that represents the import job ID.</p>
+   * <p>The date and time when the import job was created.</p>
    */
-  JobId?: string;
+  CreatedTimestamp?: Date;
 
   /**
    * <p>An object that contains details about the resource destination the import job is going
@@ -4233,14 +4233,14 @@ export interface ImportJobSummary {
   ImportDestination?: ImportDestination;
 
   /**
+   * <p>A string that represents the import job ID.</p>
+   */
+  JobId?: string;
+
+  /**
    * <p>The status of the import job.</p>
    */
   JobStatus?: JobStatus | string;
-
-  /**
-   * <p>The date and time when the import job was created.</p>
-   */
-  CreatedTimestamp?: Date;
 }
 
 export namespace ImportJobSummary {
@@ -4317,6 +4317,14 @@ export namespace ListConfigurationSetsResponse {
 
 export interface ListContactListsRequest {
   /**
+   * <p>A string token indicating that there might be additional contact lists available to be
+   *             listed. Use the token provided in the Response to use in the subsequent call to
+   *             ListContactLists with the same parameters to retrieve the next page of contact
+   *             lists.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Maximum number of contact lists to return at once. Use this parameter to paginate
    *             results. If additional contact lists exist beyond the specified limit, the
    *                 <code>NextToken</code> element is sent in the response. Use the
@@ -4324,14 +4332,6 @@ export interface ListContactListsRequest {
    *             lists.</p>
    */
   PageSize?: number;
-
-  /**
-   * <p>A string token indicating that there might be additional contact lists available to be
-   *             listed. Use the token provided in the Response to use in the subsequent call to
-   *             ListContactLists with the same parameters to retrieve the next page of contact
-   *             lists.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListContactListsRequest {
@@ -4416,6 +4416,13 @@ export interface ListContactsRequest {
   Filter?: ListContactsFilter;
 
   /**
+   * <p>A string token indicating that there might be additional contacts available to be
+   *             listed. Use the token provided in the Response to use in the subsequent call to
+   *             ListContacts with the same parameters to retrieve the next page of contacts.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The number of contacts that may be returned at once, which is dependent on if there
    *             are more or less contacts than the value of the PageSize. Use this parameter to
    *             paginate results. If additional contacts exist beyond the specified limit, the
@@ -4424,13 +4431,6 @@ export interface ListContactsRequest {
    *             contacts.</p>
    */
   PageSize?: number;
-
-  /**
-   * <p>A string token indicating that there might be additional contacts available to be
-   *             listed. Use the token provided in the Response to use in the subsequent call to
-   *             ListContacts with the same parameters to retrieve the next page of contacts.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListContactsRequest {
@@ -4619,22 +4619,11 @@ export namespace ListDeliverabilityTestReportsResponse {
  */
 export interface ListDomainDeliverabilityCampaignsRequest {
   /**
-   * <p>The first day, in Unix time format, that you want to obtain deliverability data
-   *             for.</p>
-   */
-  StartDate: Date | undefined;
-
-  /**
    * <p>The last day, in Unix time format, that you want to obtain deliverability data for.
    *             This value has to be less than or equal to 30 days after the value of the
    *                 <code>StartDate</code> parameter.</p>
    */
   EndDate: Date | undefined;
-
-  /**
-   * <p>The domain to obtain deliverability data for.</p>
-   */
-  SubscribedDomain: string | undefined;
 
   /**
    * <p>A token that’s returned from a previous call to the
@@ -4651,6 +4640,17 @@ export interface ListDomainDeliverabilityCampaignsRequest {
    *             results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>The first day, in Unix time format, that you want to obtain deliverability data
+   *             for.</p>
+   */
+  StartDate: Date | undefined;
+
+  /**
+   * <p>The domain to obtain deliverability data for.</p>
+   */
+  SubscribedDomain: string | undefined;
 }
 
 export namespace ListDomainDeliverabilityCampaignsRequest {
@@ -4771,17 +4771,17 @@ export namespace ListEmailTemplatesRequest {
  */
 export interface ListEmailTemplatesResponse {
   /**
-   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
-   *             account.</p>
-   */
-  TemplatesMetadata?: EmailTemplateMetadata[];
-
-  /**
    * <p>A token indicating that there are additional email templates available to be listed.
    *             Pass this token to a subsequent <code>ListEmailTemplates</code> call to retrieve the
    *             next 10 email templates.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
+   *             account.</p>
+   */
+  TemplatesMetadata?: EmailTemplateMetadata[];
 }
 
 export namespace ListEmailTemplatesResponse {
@@ -4876,18 +4876,6 @@ export namespace ListManagementOptions {
  */
 export interface ListSuppressedDestinationsRequest {
   /**
-   * <p>The factors that caused the email address to be added to .</p>
-   */
-  Reasons?: (SuppressionListReason | string)[];
-
-  /**
-   * <p>Used to filter the list of suppressed email destinations so that it only includes
-   *             addresses that were added to the list after a specific date. The date that you specify
-   *             should be in Unix time format.</p>
-   */
-  StartDate?: Date;
-
-  /**
    * <p>Used to filter the list of suppressed email destinations so that it only includes
    *             addresses that were added to the list before a specific date. The date that you specify
    *             should be in Unix time format.</p>
@@ -4908,6 +4896,18 @@ export interface ListSuppressedDestinationsRequest {
    *             results.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p>The factors that caused the email address to be added to .</p>
+   */
+  Reasons?: (SuppressionListReason | string)[];
+
+  /**
+   * <p>Used to filter the list of suppressed email destinations so that it only includes
+   *             addresses that were added to the list after a specific date. The date that you specify
+   *             should be in Unix time format.</p>
+   */
+  StartDate?: Date;
 }
 
 export namespace ListSuppressedDestinationsRequest {
@@ -4926,15 +4926,15 @@ export interface SuppressedDestinationSummary {
   EmailAddress: string | undefined;
 
   /**
-   * <p>The reason that the address was added to the suppression list for your account.</p>
-   */
-  Reason: SuppressionListReason | string | undefined;
-
-  /**
    * <p>The date and time when the suppressed destination was last updated, shown in Unix time
    *             format.</p>
    */
   LastUpdateTime: Date | undefined;
+
+  /**
+   * <p>The reason that the address was added to the suppression list for your account.</p>
+   */
+  Reason: SuppressionListReason | string | undefined;
 }
 
 export namespace SuppressedDestinationSummary {
@@ -4948,18 +4948,18 @@ export namespace SuppressedDestinationSummary {
  */
 export interface ListSuppressedDestinationsResponse {
   /**
-   * <p>A list of summaries, each containing a summary for a suppressed email
-   *             destination.</p>
-   */
-  SuppressedDestinationSummaries?: SuppressedDestinationSummary[];
-
-  /**
    * <p>A token that indicates that there are additional email addresses on the suppression
    *             list for your account. To view additional suppressed addresses, issue another request to
    *                 <code>ListSuppressedDestinations</code>, and pass this token in the
    *                 <code>NextToken</code> parameter.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of summaries, each containing a summary for a suppressed email
+   *             destination.</p>
+   */
+  SuppressedDestinationSummaries?: SuppressedDestinationSummary[];
 }
 
 export namespace ListSuppressedDestinationsResponse {
@@ -5033,15 +5033,10 @@ export namespace PutAccountDedicatedIpWarmupAttributesResponse {
  */
 export interface PutAccountDetailsRequest {
   /**
-   * <p>The type of email your account will send.</p>
+   * <p>Additional email addresses that you would like to be notified regarding Amazon SES
+   *             matters.</p>
    */
-  MailType: MailType | string | undefined;
-
-  /**
-   * <p>The URL of your website. This information helps us better understand the type of
-   *             content that you plan to send.</p>
-   */
-  WebsiteURL: string | undefined;
+  AdditionalContactEmailAddresses?: string[];
 
   /**
    * <p>The language you would prefer to be contacted with.</p>
@@ -5049,15 +5044,9 @@ export interface PutAccountDetailsRequest {
   ContactLanguage?: ContactLanguage | string;
 
   /**
-   * <p>A description of the types of email that you plan to send.</p>
+   * <p>The type of email your account will send.</p>
    */
-  UseCaseDescription: string | undefined;
-
-  /**
-   * <p>Additional email addresses that you would like to be notified regarding Amazon SES
-   *             matters.</p>
-   */
-  AdditionalContactEmailAddresses?: string[];
+  MailType: MailType | string | undefined;
 
   /**
    * <p>Indicates whether or not your account should have production access in the current
@@ -5072,14 +5061,25 @@ export interface PutAccountDetailsRequest {
    *             maximum sending rate for your account vary based on your specific use case.</p>
    */
   ProductionAccessEnabled?: boolean;
+
+  /**
+   * <p>A description of the types of email that you plan to send.</p>
+   */
+  UseCaseDescription: string | undefined;
+
+  /**
+   * <p>The URL of your website. This information helps us better understand the type of
+   *             content that you plan to send.</p>
+   */
+  WebsiteURL: string | undefined;
 }
 
 export namespace PutAccountDetailsRequest {
   export const filterSensitiveLog = (obj: PutAccountDetailsRequest): any => ({
     ...obj,
-    ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
-    ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
     ...(obj.AdditionalContactEmailAddresses && { AdditionalContactEmailAddresses: SENSITIVE_STRING }),
+    ...(obj.UseCaseDescription && { UseCaseDescription: SENSITIVE_STRING }),
+    ...(obj.WebsiteURL && { WebsiteURL: SENSITIVE_STRING }),
   });
 }
 
@@ -5183,18 +5183,18 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
   ConfigurationSetName: string | undefined;
 
   /**
+   * <p>The name of the dedicated IP pool that you want to associate with the configuration
+   *             set.</p>
+   */
+  SendingPoolName?: string;
+
+  /**
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
   TlsPolicy?: TlsPolicy | string;
-
-  /**
-   * <p>The name of the dedicated IP pool that you want to associate with the configuration
-   *             set.</p>
-   */
-  SendingPoolName?: string;
 }
 
 export namespace PutConfigurationSetDeliveryOptionsRequest {
@@ -5379,16 +5379,16 @@ export namespace PutConfigurationSetTrackingOptionsResponse {
  */
 export interface PutDedicatedIpInPoolRequest {
   /**
-   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
-   *             has to be a dedicated IP address that's associated with your AWS account.</p>
-   */
-  Ip: string | undefined;
-
-  /**
    * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
    *             specify an IP pool that already exists.</p>
    */
   DestinationPoolName: string | undefined;
+
+  /**
+   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
+   *             has to be a dedicated IP address that's associated with your AWS account.</p>
+   */
+  Ip: string | undefined;
 }
 
 export namespace PutDedicatedIpInPoolRequest {
@@ -5530,6 +5530,13 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
   EmailIdentity: string | undefined;
 
   /**
+   * <p>An object that contains information about the private key and selector that you want
+   *             to use to configure DKIM for the identity. This object is only required if you want to
+   *             configure Bring Your Own DKIM (BYODKIM) for the identity.</p>
+   */
+  SigningAttributes?: DkimSigningAttributes;
+
+  /**
    * <p>The method that you want to use to configure DKIM for the identity. There are two
    *             possible values:</p>
    *         <ul>
@@ -5546,13 +5553,6 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
    *          </ul>
    */
   SigningAttributesOrigin: DkimSigningAttributesOrigin | string | undefined;
-
-  /**
-   * <p>An object that contains information about the private key and selector that you want
-   *             to use to configure DKIM for the identity. This object is only required if you want to
-   *             configure Bring Your Own DKIM (BYODKIM) for the identity.</p>
-   */
-  SigningAttributes?: DkimSigningAttributes;
 }
 
 export namespace PutEmailIdentityDkimSigningAttributesRequest {
@@ -5638,12 +5638,6 @@ export namespace PutEmailIdentityDkimSigningAttributesResponse {
  */
 export interface PutEmailIdentityFeedbackAttributesRequest {
   /**
-   * <p>The email identity that you want to configure bounce and complaint feedback forwarding
-   *             for.</p>
-   */
-  EmailIdentity: string | undefined;
-
-  /**
    * <p>Sets the feedback forwarding configuration for the identity.</p>
    *         <p>If the value is <code>true</code>, you receive email notifications when bounce or
    *             complaint events occur. These notifications are sent to the address that you specified
@@ -5654,6 +5648,12 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
    *             occur (even if this setting is disabled).</p>
    */
   EmailForwardingEnabled?: boolean;
+
+  /**
+   * <p>The email identity that you want to configure bounce and complaint feedback forwarding
+   *             for.</p>
+   */
+  EmailIdentity: string | undefined;
 }
 
 export namespace PutEmailIdentityFeedbackAttributesRequest {
@@ -5679,6 +5679,19 @@ export namespace PutEmailIdentityFeedbackAttributesResponse {
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
   /**
+   * <p>The action that you want to take if the required MX record isn't found when you send
+   *             an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
+   *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
+   *             value to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
+   *             email.</p>
+   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
+   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
+   *             states.</p>
+   */
+  BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
+
+  /**
    * <p>The verified email identity that you want to set up the custom MAIL FROM domain
    *             for.</p>
    */
@@ -5701,19 +5714,6 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *          </ul>
    */
   MailFromDomain?: string;
-
-  /**
-   * <p>The action that you want to take if the required MX record isn't found when you send
-   *             an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
-   *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
-   *             value to <code>RejectMessage</code>, the Amazon SES API v2 returns a
-   *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
-   *             email.</p>
-   *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>
-   *             states.</p>
-   */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure | string;
 }
 
 export namespace PutEmailIdentityMailFromAttributesRequest {
@@ -5776,6 +5776,50 @@ export namespace PutSuppressedDestinationResponse {
  */
 export interface SendBulkEmailRequest {
   /**
+   * <p>The list of bulk email entry objects.</p>
+   */
+  BulkEmailEntries: BulkEmailEntry[] | undefined;
+
+  /**
+   * <p>The name of the configuration set that you want to use when sending the email.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>An object that contains the body of the message. You can specify a template
+   *             message.</p>
+   */
+  DefaultContent: BulkEmailContent | undefined;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events.</p>
+   */
+  DefaultEmailTags?: MessageTag[];
+
+  /**
+   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   */
+  FeedbackForwardingEmailAddress?: string;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
+   *             parameter.</p>
+   *         <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use feedback@example.com, then you would specify the
+   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  FeedbackForwardingEmailAddressIdentityArn?: string;
+
+  /**
    * <p>The email address that you want to use as the "From" address for the email. The
    *             address that you specify has to be verified.</p>
    */
@@ -5801,50 +5845,6 @@ export interface SendBulkEmailRequest {
    *             message, each Reply-to address receives the reply.</p>
    */
   ReplyToAddresses?: string[];
-
-  /**
-   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
-   */
-  FeedbackForwardingEmailAddress?: string;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
-   *             parameter.</p>
-   *         <p>For example, if the owner of example.com (which has ARN
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
-   *             authorizes you to use feedback@example.com, then you would specify the
-   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
-   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  FeedbackForwardingEmailAddressIdentityArn?: string;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events.</p>
-   */
-  DefaultEmailTags?: MessageTag[];
-
-  /**
-   * <p>An object that contains the body of the message. You can specify a template
-   *             message.</p>
-   */
-  DefaultContent: BulkEmailContent | undefined;
-
-  /**
-   * <p>The list of bulk email entry objects.</p>
-   */
-  BulkEmailEntries: BulkEmailEntry[] | undefined;
-
-  /**
-   * <p>The name of the configuration set that you want to use when sending the email.</p>
-   */
-  ConfigurationSetName?: string;
 }
 
 export namespace SendBulkEmailRequest {
@@ -5875,6 +5875,11 @@ export namespace SendBulkEmailResponse {
  */
 export interface SendCustomVerificationEmailRequest {
   /**
+   * <p>Name of a configuration set to use when sending the verification email.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
    * <p>The email address to verify.</p>
    */
   EmailAddress: string | undefined;
@@ -5884,11 +5889,6 @@ export interface SendCustomVerificationEmailRequest {
    *             verification email.</p>
    */
   TemplateName: string | undefined;
-
-  /**
-   * <p>Name of a configuration set to use when sending the verification email.</p>
-   */
-  ConfigurationSetName?: string;
 }
 
 export namespace SendCustomVerificationEmailRequest {
@@ -5921,6 +5921,50 @@ export namespace SendCustomVerificationEmailResponse {
  */
 export interface SendEmailRequest {
   /**
+   * <p>The name of the configuration set that you want to use when sending the email.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>An object that contains the body of the message. You can send either a Simple message
+   *             Raw message or a template Message.</p>
+   */
+  Content: EmailContent | undefined;
+
+  /**
+   * <p>An object that contains the recipients of the email message.</p>
+   */
+  Destination?: Destination;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
+   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
+   *             email that you define, so that you can publish email sending events. </p>
+   */
+  EmailTags?: MessageTag[];
+
+  /**
+   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
+   */
+  FeedbackForwardingEmailAddress?: string;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
+   *             parameter.</p>
+   *         <p>For example, if the owner of example.com (which has ARN
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
+   *             authorizes you to use feedback@example.com, then you would specify the
+   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
+   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
+   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  FeedbackForwardingEmailAddressIdentityArn?: string;
+
+  /**
    * <p>The email address that you want to use as the "From" address for the email. The
    *             address that you specify has to be verified.
    *             </p>
@@ -5946,60 +5990,16 @@ export interface SendEmailRequest {
   FromEmailAddressIdentityArn?: string;
 
   /**
-   * <p>An object that contains the recipients of the email message.</p>
+   * <p>An object used to specify a list or topic to which an email belongs, which will be
+   *             used when a contact chooses to unsubscribe.</p>
    */
-  Destination?: Destination;
+  ListManagementOptions?: ListManagementOptions;
 
   /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    */
   ReplyToAddresses?: string[];
-
-  /**
-   * <p>The address that you want bounce and complaint notifications to be sent to.</p>
-   */
-  FeedbackForwardingEmailAddress?: string;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>FeedbackForwardingEmailAddress</code>
-   *             parameter.</p>
-   *         <p>For example, if the owner of example.com (which has ARN
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that
-   *             authorizes you to use feedback@example.com, then you would specify the
-   *                 <code>FeedbackForwardingEmailAddressIdentityArn</code> to be
-   *             arn:aws:ses:us-east-1:123456789012:identity/example.com, and the
-   *                 <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  FeedbackForwardingEmailAddressIdentityArn?: string;
-
-  /**
-   * <p>An object that contains the body of the message. You can send either a Simple message
-   *             Raw message or a template Message.</p>
-   */
-  Content: EmailContent | undefined;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
-   *             using the <code>SendEmail</code> operation. Tags correspond to characteristics of the
-   *             email that you define, so that you can publish email sending events. </p>
-   */
-  EmailTags?: MessageTag[];
-
-  /**
-   * <p>The name of the configuration set that you want to use when sending the email.</p>
-   */
-  ConfigurationSetName?: string;
-
-  /**
-   * <p>An object used to specify a list or topic to which an email belongs, which will be
-   *             used when a contact chooses to unsubscribe.</p>
-   */
-  ListManagementOptions?: ListManagementOptions;
 }
 
 export namespace SendEmailRequest {
@@ -6067,16 +6067,16 @@ export namespace TagResourceResponse {
  */
 export interface TestRenderEmailTemplateRequest {
   /**
-   * <p>The name of the template that you want to render.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
    *             replacement tags in the email template.</p>
    */
   TemplateData: string | undefined;
+
+  /**
+   * <p>The name of the template that you want to render.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace TestRenderEmailTemplateRequest {
@@ -6148,14 +6148,14 @@ export interface UpdateConfigurationSetEventDestinationRequest {
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>The name of the event destination that you want to modify.</p>
-   */
-  EventDestinationName: string | undefined;
-
-  /**
    * <p>An object that defines the event destination.</p>
    */
   EventDestination: EventDestinationDefinition | undefined;
+
+  /**
+   * <p>The name of the event destination that you want to modify.</p>
+   */
+  EventDestinationName: string | undefined;
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
@@ -6178,6 +6178,11 @@ export namespace UpdateConfigurationSetEventDestinationResponse {
 
 export interface UpdateContactRequest {
   /**
+   * <p>The attribute data attached to a contact.</p>
+   */
+  AttributesData?: string;
+
+  /**
    * <p>The name of the contact list.</p>
    */
   ContactListName: string | undefined;
@@ -6197,11 +6202,6 @@ export interface UpdateContactRequest {
    *             topics.</p>
    */
   UnsubscribeAll?: boolean;
-
-  /**
-   * <p>The attribute data attached to a contact.</p>
-   */
-  AttributesData?: string;
 }
 
 export namespace UpdateContactRequest {
@@ -6225,15 +6225,15 @@ export interface UpdateContactListRequest {
   ContactListName: string | undefined;
 
   /**
+   * <p>A description of what the contact list is about.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>An interest group, theme, or label within a list. A contact list can have multiple
    *             topics.</p>
    */
   Topics?: Topic[];
-
-  /**
-   * <p>A description of what the contact list is about.</p>
-   */
-  Description?: string;
 }
 
 export namespace UpdateContactListRequest {
@@ -6255,9 +6255,10 @@ export namespace UpdateContactListResponse {
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
   /**
-   * <p>The name of the custom verification email template that you want to update.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName: string | undefined;
+  FailureRedirectionURL: string | undefined;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
@@ -6265,9 +6266,10 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   FromEmailAddress: string | undefined;
 
   /**
-   * <p>The subject line of the custom verification email.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
    */
-  TemplateSubject: string | undefined;
+  SuccessRedirectionURL: string | undefined;
 
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
@@ -6278,16 +6280,14 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   TemplateContent: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is successfully verified.</p>
+   * <p>The name of the custom verification email template that you want to update.</p>
    */
-  SuccessRedirectionURL: string | undefined;
+  TemplateName: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The subject line of the custom verification email.</p>
    */
-  FailureRedirectionURL: string | undefined;
+  TemplateSubject: string | undefined;
 }
 
 export namespace UpdateCustomVerificationEmailTemplateRequest {
@@ -6320,19 +6320,19 @@ export interface UpdateEmailIdentityPolicyRequest {
   EmailIdentity: string | undefined;
 
   /**
+   * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
+   *         <p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  Policy: string | undefined;
+
+  /**
    * <p>The name of the policy.</p>
    *
    *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
    *             characters, dashes, and underscores.</p>
    */
   PolicyName: string | undefined;
-
-  /**
-   * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
-   *         <p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  Policy: string | undefined;
 }
 
 export namespace UpdateEmailIdentityPolicyRequest {
@@ -6359,15 +6359,15 @@ export namespace UpdateEmailIdentityPolicyResponse {
  */
 export interface UpdateEmailTemplateRequest {
   /**
-   * <p>The name of the template you want to update.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>The content of the email template, composed of a subject line, an HTML part, and a
    *             text-only part.</p>
    */
   TemplateContent: EmailTemplateContent | undefined;
+
+  /**
+   * <p>The name of the template you want to update.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace UpdateEmailTemplateRequest {

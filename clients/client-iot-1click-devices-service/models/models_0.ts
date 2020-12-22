@@ -30,14 +30,14 @@ export interface DeviceDescription {
   RemainingLife?: number;
 
   /**
-   * <p>The type of the device, such as "button".</p>
-   */
-  Type?: string;
-
-  /**
    * <p>The tags currently associated with the AWS IoT 1-Click device.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The type of the device, such as "button".</p>
+   */
+  Type?: string;
 }
 
 export namespace DeviceDescription {

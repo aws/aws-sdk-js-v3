@@ -112,19 +112,6 @@ export namespace InternalServerErrorException {
  */
 export interface ListTagsForResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListTagsForResource</code> request where <code>limit</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of tag results returned by <code>ListTagsForResource</code> in
    *          paginated output. When this parameter is used, <code>ListTagsForResource</code> returns
    *          only <code>limit</code> results in a single page along with a <code>nextToken</code>
@@ -135,6 +122,19 @@ export interface ListTagsForResourceInput {
    *          results and a <code>nextToken</code> value if applicable.</p>
    */
   limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListTagsForResource</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace ListTagsForResourceInput {
@@ -174,17 +174,17 @@ export namespace TagRef {
  */
 export interface ListTagsForResourceOutput {
   /**
-   * <p>The tags for the resource.</p>
-   */
-  tags: TagRef[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListTagsForResource</code>
    *          request. When the results of a <code>ListTagsForResource</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The tags for the resource.</p>
+   */
+  tags: TagRef[] | undefined;
 }
 
 export namespace ListTagsForResourceOutput {
@@ -303,6 +303,12 @@ export namespace MeshSpec {
  */
 export interface CreateMeshInput {
   /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   */
+  clientToken?: string;
+
+  /**
    * <p>The name to use for the service mesh.</p>
    */
   meshName: string | undefined;
@@ -319,12 +325,6 @@ export interface CreateMeshInput {
    *             a maximum length of 256 characters.</p>
    */
   tags?: TagRef[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
-   */
-  clientToken?: string;
 }
 
 export namespace CreateMeshInput {
@@ -341,16 +341,6 @@ export interface ResourceMetadata {
    * <p>The full Amazon Resource Name (ARN) for the resource.</p>
    */
   arn: string | undefined;
-
-  /**
-   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
-   */
-  version: number | undefined;
-
-  /**
-   * <p>The unique identifier for the resource.</p>
-   */
-  uid: string | undefined;
 
   /**
    * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
@@ -373,6 +363,16 @@ export interface ResourceMetadata {
    *                the ID of the mesh owner or of another account that the mesh is shared with. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   resourceOwner: string | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   */
+  uid: string | undefined;
+
+  /**
+   * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
+   */
+  version: number | undefined;
 }
 
 export namespace ResourceMetadata {
@@ -413,14 +413,14 @@ export interface MeshData {
   meshName: string | undefined;
 
   /**
-   * <p>The associated specification for the service mesh.</p>
-   */
-  spec: MeshSpec | undefined;
-
-  /**
    * <p>The associated metadata for the service mesh.</p>
    */
   metadata: ResourceMetadata | undefined;
+
+  /**
+   * <p>The associated specification for the service mesh.</p>
+   */
+  spec: MeshSpec | undefined;
 
   /**
    * <p>The status of the service mesh.</p>
@@ -557,18 +557,6 @@ export namespace DescribeMeshOutput {
  */
 export interface ListMeshesInput {
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListMeshes</code> request where <code>limit</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous
-   *          results that returned the <code>nextToken</code> value.</p>
-   *          <note>
-   *             <p>This token should be treated as an opaque identifier that is used only to
-   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListMeshes</code> in paginated output.
    *          When you use this parameter, <code>ListMeshes</code> returns only <code>limit</code>
    *          results in a single page along with a <code>nextToken</code> response element. You can see
@@ -579,6 +567,18 @@ export interface ListMeshesInput {
    *             <code>nextToken</code> value if applicable.</p>
    */
   limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListMeshes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is used only to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *         </note>
+   */
+  nextToken?: string;
 }
 
 export namespace ListMeshesInput {
@@ -591,6 +591,21 @@ export namespace ListMeshesInput {
  * <p>An object that represents a service mesh returned by a list operation.</p>
  */
 export interface MeshRef {
+  /**
+   * <p>The full Amazon Resource Name (ARN) of the service mesh.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+
   /**
    * <p>The name of the service mesh.</p>
    */
@@ -609,24 +624,9 @@ export interface MeshRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) of the service mesh.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
   version: number | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
 }
 
 export namespace MeshRef {
@@ -664,6 +664,12 @@ export namespace ListMeshesOutput {
  */
 export interface UpdateMeshInput {
   /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   */
+  clientToken?: string;
+
+  /**
    * <p>The name of the service mesh to update.</p>
    */
   meshName: string | undefined;
@@ -672,12 +678,6 @@ export interface UpdateMeshInput {
    * <p>The service mesh specification to apply.</p>
    */
   spec?: MeshSpec;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
-   */
-  clientToken?: string;
 }
 
 export namespace UpdateMeshInput {
@@ -881,15 +881,27 @@ export enum VirtualGatewayPortProtocol {
  */
 export interface VirtualGatewayHealthCheckPolicy {
   /**
-   * <p>The amount of time to wait when receiving a response from the health check, in
-   *          milliseconds.</p>
+   * <p>The number of consecutive successful health checks that must occur before declaring the
+   *          listener healthy.</p>
    */
-  timeoutMillis: number | undefined;
+  healthyThreshold: number | undefined;
 
   /**
    * <p>The time period in milliseconds between each health check execution.</p>
    */
   intervalMillis: number | undefined;
+
+  /**
+   * <p>The destination path for the health check request. This value is only used if the
+   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The destination port for the health check request. This port must match the port defined
+   *          in the <a>PortMapping</a> for the listener.</p>
+   */
+  port?: number;
 
   /**
    * <p>The protocol for the health check request. If you specify <code>grpc</code>, then your
@@ -899,22 +911,10 @@ export interface VirtualGatewayHealthCheckPolicy {
   protocol: VirtualGatewayPortProtocol | string | undefined;
 
   /**
-   * <p>The destination port for the health check request. This port must match the port defined
-   *          in the <a>PortMapping</a> for the listener.</p>
+   * <p>The amount of time to wait when receiving a response from the health check, in
+   *          milliseconds.</p>
    */
-  port?: number;
-
-  /**
-   * <p>The destination path for the health check request. This value is only used if the
-   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
-   */
-  path?: string;
-
-  /**
-   * <p>The number of consecutive successful health checks that must occur before declaring the
-   *          listener healthy.</p>
-   */
-  healthyThreshold: number | undefined;
+  timeoutMillis: number | undefined;
 
   /**
    * <p>The number of consecutive failed health checks that must occur before declaring a
@@ -1052,6 +1052,11 @@ export enum VirtualGatewayListenerTlsMode {
  */
 export interface VirtualGatewayListenerTls {
   /**
+   * <p>An object that represents a Transport Layer Security (TLS) certificate.</p>
+   */
+  certificate: VirtualGatewayListenerTlsCertificate | undefined;
+
+  /**
    * <p>Specify one of the following modes.</p>
    *          <ul>
    *             <li>
@@ -1072,11 +1077,6 @@ export interface VirtualGatewayListenerTls {
    *          </ul>
    */
   mode: VirtualGatewayListenerTlsMode | string | undefined;
-
-  /**
-   * <p>An object that represents a Transport Layer Security (TLS) certificate.</p>
-   */
-  certificate: VirtualGatewayListenerTlsCertificate | undefined;
 }
 
 export namespace VirtualGatewayListenerTls {
@@ -1219,14 +1219,22 @@ export namespace VirtualGatewaySpec {
 
 export interface CreateVirtualGatewayInput {
   /**
-   * <p>The name to use for the virtual gateway.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualGatewayName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh to create the virtual gateway in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 
   /**
    * <p>The virtual gateway specification to apply.</p>
@@ -1242,17 +1250,9 @@ export interface CreateVirtualGatewayInput {
   tags?: TagRef[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the virtual gateway.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualGatewayName: string | undefined;
 }
 
 export namespace CreateVirtualGatewayInput {
@@ -1294,9 +1294,9 @@ export interface VirtualGatewayData {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual gateway.</p>
+   * <p>An object that represents metadata for a resource.</p>
    */
-  virtualGatewayName: string | undefined;
+  metadata: ResourceMetadata | undefined;
 
   /**
    * <p>The specifications of the virtual gateway.</p>
@@ -1304,14 +1304,14 @@ export interface VirtualGatewayData {
   spec: VirtualGatewaySpec | undefined;
 
   /**
-   * <p>An object that represents metadata for a resource.</p>
-   */
-  metadata: ResourceMetadata | undefined;
-
-  /**
    * <p>The current status of the virtual gateway.</p>
    */
   status: VirtualGatewayStatus | undefined;
+
+  /**
+   * <p>The name of the virtual gateway.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace VirtualGatewayData {
@@ -1337,11 +1337,6 @@ export namespace CreateVirtualGatewayOutput {
 
 export interface DeleteVirtualGatewayInput {
   /**
-   * <p>The name of the virtual gateway to delete.</p>
-   */
-  virtualGatewayName: string | undefined;
-
-  /**
    * <p>The name of the service mesh to delete the virtual gateway from.</p>
    */
   meshName: string | undefined;
@@ -1351,6 +1346,11 @@ export interface DeleteVirtualGatewayInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual gateway to delete.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace DeleteVirtualGatewayInput {
@@ -1375,11 +1375,6 @@ export namespace DeleteVirtualGatewayOutput {
 
 export interface DescribeVirtualGatewayInput {
   /**
-   * <p>The name of the virtual gateway to describe.</p>
-   */
-  virtualGatewayName: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the gateway route resides in.</p>
    */
   meshName: string | undefined;
@@ -1389,6 +1384,11 @@ export interface DescribeVirtualGatewayInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual gateway to describe.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace DescribeVirtualGatewayInput {
@@ -1480,14 +1480,14 @@ export namespace GrpcGatewayRouteMatch {
  */
 export interface GrpcGatewayRoute {
   /**
-   * <p>An object that represents the criteria for determining a request match.</p>
-   */
-  match: GrpcGatewayRouteMatch | undefined;
-
-  /**
    * <p>An object that represents the action to take if a match is determined.</p>
    */
   action: GrpcGatewayRouteAction | undefined;
+
+  /**
+   * <p>An object that represents the criteria for determining a request match.</p>
+   */
+  match: GrpcGatewayRouteMatch | undefined;
 }
 
 export namespace GrpcGatewayRoute {
@@ -1538,14 +1538,14 @@ export namespace HttpGatewayRouteMatch {
  */
 export interface HttpGatewayRoute {
   /**
-   * <p>An object that represents the criteria for determining a request match.</p>
-   */
-  match: HttpGatewayRouteMatch | undefined;
-
-  /**
    * <p>An object that represents the action to take if a match is determined.</p>
    */
   action: HttpGatewayRouteAction | undefined;
+
+  /**
+   * <p>An object that represents the criteria for determining a request match.</p>
+   */
+  match: HttpGatewayRouteMatch | undefined;
 }
 
 export namespace HttpGatewayRoute {
@@ -1560,9 +1560,9 @@ export namespace HttpGatewayRoute {
  */
 export interface GatewayRouteSpec {
   /**
-   * <p>An object that represents the specification of an HTTP gateway route.</p>
+   * <p>An object that represents the specification of a gRPC gateway route.</p>
    */
-  httpRoute?: HttpGatewayRoute;
+  grpcRoute?: GrpcGatewayRoute;
 
   /**
    * <p>An object that represents the specification of an HTTP/2 gateway route.</p>
@@ -1570,9 +1570,9 @@ export interface GatewayRouteSpec {
   http2Route?: HttpGatewayRoute;
 
   /**
-   * <p>An object that represents the specification of a gRPC gateway route.</p>
+   * <p>An object that represents the specification of an HTTP gateway route.</p>
    */
-  grpcRoute?: GrpcGatewayRoute;
+  httpRoute?: HttpGatewayRoute;
 }
 
 export namespace GatewayRouteSpec {
@@ -1582,6 +1582,12 @@ export namespace GatewayRouteSpec {
 }
 
 export interface CreateGatewayRouteInput {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   */
+  clientToken?: string;
+
   /**
    * <p>The name to use for the gateway route.</p>
    */
@@ -1593,11 +1599,11 @@ export interface CreateGatewayRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual gateway to associate the gateway route with. If the virtual
-   *          gateway is in a shared mesh, then you must be the owner of the virtual gateway
-   *          resource.</p>
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
-  virtualGatewayName: string | undefined;
+  meshOwner?: string;
 
   /**
    * <p>The gateway route specification to apply.</p>
@@ -1613,17 +1619,11 @@ export interface CreateGatewayRouteInput {
   tags?: TagRef[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual gateway to associate the gateway route with. If the virtual
+   *          gateway is in a shared mesh, then you must be the owner of the virtual gateway
+   *          resource.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualGatewayName: string | undefined;
 }
 
 export namespace CreateGatewayRouteInput {
@@ -1659,24 +1659,14 @@ export namespace GatewayRouteStatus {
  */
 export interface GatewayRouteData {
   /**
-   * <p>The name of the service mesh that the resource resides in. </p>
-   */
-  meshName: string | undefined;
-
-  /**
    * <p>The name of the gateway route.</p>
    */
   gatewayRouteName: string | undefined;
 
   /**
-   * <p>The virtual gateway that the gateway route is associated with.</p>
+   * <p>The name of the service mesh that the resource resides in. </p>
    */
-  virtualGatewayName: string | undefined;
-
-  /**
-   * <p>The specifications of the gateway route.</p>
-   */
-  spec: GatewayRouteSpec | undefined;
+  meshName: string | undefined;
 
   /**
    * <p>An object that represents metadata for a resource.</p>
@@ -1684,9 +1674,19 @@ export interface GatewayRouteData {
   metadata: ResourceMetadata | undefined;
 
   /**
+   * <p>The specifications of the gateway route.</p>
+   */
+  spec: GatewayRouteSpec | undefined;
+
+  /**
    * <p>The status of the gateway route.</p>
    */
   status: GatewayRouteStatus | undefined;
+
+  /**
+   * <p>The virtual gateway that the gateway route is associated with.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace GatewayRouteData {
@@ -1720,15 +1720,15 @@ export interface DeleteGatewayRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual gateway to delete the route from.</p>
-   */
-  virtualGatewayName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual gateway to delete the route from.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace DeleteGatewayRouteInput {
@@ -1762,15 +1762,15 @@ export interface DescribeGatewayRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual gateway that the gateway route is associated with.</p>
-   */
-  virtualGatewayName: string | undefined;
-
-  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual gateway that the gateway route is associated with.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace DescribeGatewayRouteInput {
@@ -1794,24 +1794,6 @@ export namespace DescribeGatewayRouteOutput {
 
 export interface ListGatewayRoutesInput {
   /**
-   * <p>The name of the service mesh to list gateway routes in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
-   * <p>The name of the virtual gateway to list gateway routes in.</p>
-   */
-  virtualGatewayName: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListGatewayRoutes</code> request where <code>limit</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous
-   *          results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListGatewayRoutes</code> in paginated
    *          output. When you use this parameter, <code>ListGatewayRoutes</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -1824,10 +1806,28 @@ export interface ListGatewayRoutesInput {
   limit?: number;
 
   /**
+   * <p>The name of the service mesh to list gateway routes in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListGatewayRoutes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of the virtual gateway to list gateway routes in.</p>
+   */
+  virtualGatewayName: string | undefined;
 }
 
 export namespace ListGatewayRoutesInput {
@@ -1841,9 +1841,14 @@ export namespace ListGatewayRoutesInput {
  */
 export interface GatewayRouteRef {
   /**
-   * <p>The name of the service mesh that the resource resides in. </p>
+   * <p>The full Amazon Resource Name (ARN) for the gateway route.</p>
    */
-  meshName: string | undefined;
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
 
   /**
    * <p>The name of the gateway route.</p>
@@ -1851,9 +1856,14 @@ export interface GatewayRouteRef {
   gatewayRouteName: string | undefined;
 
   /**
-   * <p>The virtual gateway that the gateway route is associated with.</p>
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
    */
-  virtualGatewayName: string | undefined;
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The name of the service mesh that the resource resides in. </p>
+   */
+  meshName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -1868,24 +1878,14 @@ export interface GatewayRouteRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) for the gateway route.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
   version: number | undefined;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The virtual gateway that the gateway route is associated with.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
+  virtualGatewayName: string | undefined;
 }
 
 export namespace GatewayRouteRef {
@@ -1918,6 +1918,12 @@ export namespace ListGatewayRoutesOutput {
 
 export interface UpdateGatewayRouteInput {
   /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   */
+  clientToken?: string;
+
+  /**
    * <p>The name of the gateway route to update.</p>
    */
   gatewayRouteName: string | undefined;
@@ -1928,9 +1934,10 @@ export interface UpdateGatewayRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual gateway that the gateway route is associated with.</p>
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
-  virtualGatewayName: string | undefined;
+  meshOwner?: string;
 
   /**
    * <p>The new gateway route specification to apply. This overwrites the existing data.</p>
@@ -1938,16 +1945,9 @@ export interface UpdateGatewayRouteInput {
   spec: GatewayRouteSpec | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual gateway that the gateway route is associated with.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualGatewayName: string | undefined;
 }
 
 export namespace UpdateGatewayRouteInput {
@@ -1971,19 +1971,6 @@ export namespace UpdateGatewayRouteOutput {
 
 export interface ListVirtualGatewaysInput {
   /**
-   * <p>The name of the service mesh to list virtual gateways in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualGateways</code> request where <code>limit</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListVirtualGateways</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualGateways</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -1996,10 +1983,23 @@ export interface ListVirtualGatewaysInput {
   limit?: number;
 
   /**
+   * <p>The name of the service mesh to list virtual gateways in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualGateways</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVirtualGatewaysInput {
@@ -2013,14 +2013,24 @@ export namespace ListVirtualGatewaysInput {
  */
 export interface VirtualGatewayRef {
   /**
+   * <p>The full Amazon Resource Name (ARN) for the resource.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
    * <p>The name of the service mesh that the resource resides in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  virtualGatewayName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -2035,24 +2045,14 @@ export interface VirtualGatewayRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
   version: number | undefined;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The name of the resource.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
+  virtualGatewayName: string | undefined;
 }
 
 export namespace VirtualGatewayRef {
@@ -2063,17 +2063,17 @@ export namespace VirtualGatewayRef {
 
 export interface ListVirtualGatewaysOutput {
   /**
-   * <p>The list of existing virtual gateways for the specified service mesh.</p>
-   */
-  virtualGateways: VirtualGatewayRef[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualGateways</code>
    *          request. When the results of a <code>ListVirtualGateways</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of existing virtual gateways for the specified service mesh.</p>
+   */
+  virtualGateways: VirtualGatewayRef[] | undefined;
 }
 
 export namespace ListVirtualGatewaysOutput {
@@ -2084,14 +2084,21 @@ export namespace ListVirtualGatewaysOutput {
 
 export interface UpdateVirtualGatewayInput {
   /**
-   * <p>The name of the virtual gateway to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualGatewayName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh that the virtual gateway resides in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 
   /**
    * <p>The new virtual gateway specification to apply. This overwrites the existing
@@ -2100,16 +2107,9 @@ export interface UpdateVirtualGatewayInput {
   spec: VirtualGatewaySpec | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual gateway to update.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualGatewayName: string | undefined;
 }
 
 export namespace UpdateVirtualGatewayInput {
@@ -2304,14 +2304,14 @@ export namespace BackendDefaults {
  */
 export interface VirtualServiceBackend {
   /**
-   * <p>The name of the virtual service that is acting as a virtual node backend.</p>
-   */
-  virtualServiceName: string | undefined;
-
-  /**
    * <p>A reference to an object that represents the client policy for a backend.</p>
    */
   clientPolicy?: ClientPolicy;
+
+  /**
+   * <p>The name of the virtual service that is acting as a virtual node backend.</p>
+   */
+  virtualServiceName: string | undefined;
 }
 
 export namespace VirtualServiceBackend {
@@ -2370,15 +2370,27 @@ export enum PortProtocol {
  */
 export interface HealthCheckPolicy {
   /**
-   * <p>The amount of time to wait when receiving a response from the health check, in
-   *          milliseconds.</p>
+   * <p>The number of consecutive successful health checks that must occur before declaring
+   *          listener healthy.</p>
    */
-  timeoutMillis: number | undefined;
+  healthyThreshold: number | undefined;
 
   /**
    * <p>The time period in milliseconds between each health check execution.</p>
    */
   intervalMillis: number | undefined;
+
+  /**
+   * <p>The destination path for the health check request. This value is only used if the
+   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
+   */
+  path?: string;
+
+  /**
+   * <p>The destination port for the health check request. This port must match the port defined
+   *          in the <a>PortMapping</a> for the listener.</p>
+   */
+  port?: number;
 
   /**
    * <p>The protocol for the health check request. If you specify <code>grpc</code>, then your
@@ -2388,22 +2400,10 @@ export interface HealthCheckPolicy {
   protocol: PortProtocol | string | undefined;
 
   /**
-   * <p>The destination port for the health check request. This port must match the port defined
-   *          in the <a>PortMapping</a> for the listener.</p>
+   * <p>The amount of time to wait when receiving a response from the health check, in
+   *          milliseconds.</p>
    */
-  port?: number;
-
-  /**
-   * <p>The destination path for the health check request. This value is only used if the
-   *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
-   */
-  path?: string;
-
-  /**
-   * <p>The number of consecutive successful health checks that must occur before declaring
-   *          listener healthy.</p>
-   */
-  healthyThreshold: number | undefined;
+  timeoutMillis: number | undefined;
 
   /**
    * <p>The number of consecutive failed health checks that must occur before declaring a
@@ -2449,14 +2449,14 @@ export enum DurationUnit {
  */
 export interface Duration {
   /**
-   * <p>A number of time units.</p>
-   */
-  value?: number;
-
-  /**
    * <p>A unit of time.</p>
    */
   unit?: DurationUnit | string;
+
+  /**
+   * <p>A number of time units.</p>
+   */
+  value?: number;
 }
 
 export namespace Duration {
@@ -2470,14 +2470,14 @@ export namespace Duration {
  */
 export interface GrpcTimeout {
   /**
-   * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.</p>
-   */
-  perRequest?: Duration;
-
-  /**
    * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
    */
   idle?: Duration;
+
+  /**
+   * <p>An object that represents a per request timeout. The default value is 15 seconds. If you set a higher timeout, then make sure that the higher value is set for each App Mesh resource in a conversation. For example, if a virtual node backend uses a virtual router provider to route to another virtual node, then the timeout should be greater than 15 seconds for the source and destination virtual node and the route.</p>
+   */
+  perRequest?: Duration;
 }
 
 export namespace GrpcTimeout {
@@ -2493,12 +2493,12 @@ export interface HttpTimeout {
   /**
    * <p>An object that represents a duration of time.</p>
    */
-  perRequest?: Duration;
+  idle?: Duration;
 
   /**
    * <p>An object that represents a duration of time.</p>
    */
-  idle?: Duration;
+  perRequest?: Duration;
 }
 
 export namespace HttpTimeout {
@@ -2713,6 +2713,11 @@ export enum ListenerTlsMode {
  */
 export interface ListenerTls {
   /**
+   * <p>A reference to an object that represents a listener's TLS certificate.</p>
+   */
+  certificate: ListenerTlsCertificate | undefined;
+
+  /**
    * <p>Specify one of the following modes.</p>
    *          <ul>
    *             <li>
@@ -2733,11 +2738,6 @@ export interface ListenerTls {
    *          </ul>
    */
   mode: ListenerTlsMode | string | undefined;
-
-  /**
-   * <p>A reference to an object that represents a listener's TLS certificate.</p>
-   */
-  certificate: ListenerTlsCertificate | undefined;
 }
 
 export namespace ListenerTls {
@@ -2752,31 +2752,31 @@ export namespace ListenerTls {
  */
 export interface Listener {
   /**
-   * <p>The port mapping information for the listener.</p>
-   */
-  portMapping: PortMapping | undefined;
-
-  /**
-   * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for a listener.</p>
-   */
-  tls?: ListenerTls;
-
-  /**
    * <p>The health check information for the listener.</p>
    */
   healthCheck?: HealthCheckPolicy;
 
   /**
+   * <p>The port mapping information for the listener.</p>
+   */
+  portMapping: PortMapping | undefined;
+
+  /**
    * <p>An object that represents timeouts for different protocols.</p>
    */
   timeout?: ListenerTimeout;
+
+  /**
+   * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for a listener.</p>
+   */
+  tls?: ListenerTls;
 }
 
 export namespace Listener {
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
-    ...(obj.tls && { tls: ListenerTls.filterSensitiveLog(obj.tls) }),
     ...(obj.timeout && { timeout: ListenerTimeout.filterSensitiveLog(obj.timeout) }),
+    ...(obj.tls && { tls: ListenerTls.filterSensitiveLog(obj.tls) }),
   });
 }
 
@@ -2827,6 +2827,13 @@ export namespace AwsCloudMapInstanceAttribute {
  */
 export interface AwsCloudMapServiceDiscovery {
   /**
+   * <p>A string map that contains attributes with values that you can use to filter instances
+   *          by any custom attribute that you specified when you registered the instance. Only instances
+   *          that match all of the specified key/value pairs will be returned.</p>
+   */
+  attributes?: AwsCloudMapInstanceAttribute[];
+
+  /**
    * <p>The name of the AWS Cloud Map namespace to use.</p>
    */
   namespaceName: string | undefined;
@@ -2835,13 +2842,6 @@ export interface AwsCloudMapServiceDiscovery {
    * <p>The name of the AWS Cloud Map service to use.</p>
    */
   serviceName: string | undefined;
-
-  /**
-   * <p>A string map that contains attributes with values that you can use to filter instances
-   *          by any custom attribute that you specified when you registered the instance. Only instances
-   *          that match all of the specified key/value pairs will be returned.</p>
-   */
-  attributes?: AwsCloudMapInstanceAttribute[];
 }
 
 export namespace AwsCloudMapServiceDiscovery {
@@ -2925,11 +2925,14 @@ export namespace ServiceDiscovery {
  */
 export interface VirtualNodeSpec {
   /**
-   * <p>The service discovery information for the virtual node. If your virtual node does not
-   *          expect ingress traffic, you can omit this parameter. If you specify a
-   *          <code>listener</code>, then you must specify service discovery information.</p>
+   * <p>A reference to an object that represents the defaults for backends.</p>
    */
-  serviceDiscovery?: ServiceDiscovery;
+  backendDefaults?: BackendDefaults;
+
+  /**
+   * <p>The backends that the virtual node is expected to send outbound traffic to.</p>
+   */
+  backends?: Backend[];
 
   /**
    * <p>The listener that the virtual node is expected to receive inbound traffic from. You can
@@ -2938,29 +2941,26 @@ export interface VirtualNodeSpec {
   listeners?: Listener[];
 
   /**
-   * <p>The backends that the virtual node is expected to send outbound traffic to.</p>
-   */
-  backends?: Backend[];
-
-  /**
-   * <p>A reference to an object that represents the defaults for backends.</p>
-   */
-  backendDefaults?: BackendDefaults;
-
-  /**
    * <p>The inbound and outbound access logging information for the virtual node.</p>
    */
   logging?: Logging;
+
+  /**
+   * <p>The service discovery information for the virtual node. If your virtual node does not
+   *          expect ingress traffic, you can omit this parameter. If you specify a
+   *          <code>listener</code>, then you must specify service discovery information.</p>
+   */
+  serviceDiscovery?: ServiceDiscovery;
 }
 
 export namespace VirtualNodeSpec {
   export const filterSensitiveLog = (obj: VirtualNodeSpec): any => ({
     ...obj,
-    ...(obj.serviceDiscovery && { serviceDiscovery: ServiceDiscovery.filterSensitiveLog(obj.serviceDiscovery) }),
-    ...(obj.listeners && { listeners: obj.listeners.map((item) => Listener.filterSensitiveLog(item)) }),
-    ...(obj.backends && { backends: obj.backends.map((item) => Backend.filterSensitiveLog(item)) }),
     ...(obj.backendDefaults && { backendDefaults: BackendDefaults.filterSensitiveLog(obj.backendDefaults) }),
+    ...(obj.backends && { backends: obj.backends.map((item) => Backend.filterSensitiveLog(item)) }),
+    ...(obj.listeners && { listeners: obj.listeners.map((item) => Listener.filterSensitiveLog(item)) }),
     ...(obj.logging && { logging: Logging.filterSensitiveLog(obj.logging) }),
+    ...(obj.serviceDiscovery && { serviceDiscovery: ServiceDiscovery.filterSensitiveLog(obj.serviceDiscovery) }),
   });
 }
 
@@ -2969,14 +2969,22 @@ export namespace VirtualNodeSpec {
  */
 export interface CreateVirtualNodeInput {
   /**
-   * <p>The name to use for the virtual node.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualNodeName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh to create the virtual node in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 
   /**
    * <p>The virtual node specification to apply.</p>
@@ -2992,17 +3000,9 @@ export interface CreateVirtualNodeInput {
   tags?: TagRef[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the virtual node.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualNodeName: string | undefined;
 }
 
 export namespace CreateVirtualNodeInput {
@@ -3044,9 +3044,9 @@ export interface VirtualNodeData {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual node.</p>
+   * <p>The associated metadata for the virtual node.</p>
    */
-  virtualNodeName: string | undefined;
+  metadata: ResourceMetadata | undefined;
 
   /**
    * <p>The specifications of the virtual node.</p>
@@ -3054,14 +3054,14 @@ export interface VirtualNodeData {
   spec: VirtualNodeSpec | undefined;
 
   /**
-   * <p>The associated metadata for the virtual node.</p>
-   */
-  metadata: ResourceMetadata | undefined;
-
-  /**
    * <p>The current status for the virtual node.</p>
    */
   status: VirtualNodeStatus | undefined;
+
+  /**
+   * <p>The name of the virtual node.</p>
+   */
+  virtualNodeName: string | undefined;
 }
 
 export namespace VirtualNodeData {
@@ -3093,11 +3093,6 @@ export namespace CreateVirtualNodeOutput {
  */
 export interface DeleteVirtualNodeInput {
   /**
-   * <p>The name of the virtual node to delete.</p>
-   */
-  virtualNodeName: string | undefined;
-
-  /**
    * <p>The name of the service mesh to delete the virtual node in.</p>
    */
   meshName: string | undefined;
@@ -3107,6 +3102,11 @@ export interface DeleteVirtualNodeInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual node to delete.</p>
+   */
+  virtualNodeName: string | undefined;
 }
 
 export namespace DeleteVirtualNodeInput {
@@ -3137,11 +3137,6 @@ export namespace DeleteVirtualNodeOutput {
  */
 export interface DescribeVirtualNodeInput {
   /**
-   * <p>The name of the virtual node to describe.</p>
-   */
-  virtualNodeName: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
    */
   meshName: string | undefined;
@@ -3151,6 +3146,11 @@ export interface DescribeVirtualNodeInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual node to describe.</p>
+   */
+  virtualNodeName: string | undefined;
 }
 
 export namespace DescribeVirtualNodeInput {
@@ -3181,19 +3181,6 @@ export namespace DescribeVirtualNodeOutput {
  */
 export interface ListVirtualNodesInput {
   /**
-   * <p>The name of the service mesh to list virtual nodes in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualNodes</code> request where <code>limit</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous
-   *          results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListVirtualNodes</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualNodes</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -3206,10 +3193,23 @@ export interface ListVirtualNodesInput {
   limit?: number;
 
   /**
+   * <p>The name of the service mesh to list virtual nodes in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualNodes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVirtualNodesInput {
@@ -3223,14 +3223,24 @@ export namespace ListVirtualNodesInput {
  */
 export interface VirtualNodeRef {
   /**
+   * <p>The full Amazon Resource Name (ARN) for the virtual node.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The name of the virtual node.</p>
-   */
-  virtualNodeName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -3245,24 +3255,14 @@ export interface VirtualNodeRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) for the virtual node.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
   version: number | undefined;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The name of the virtual node.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
+  virtualNodeName: string | undefined;
 }
 
 export namespace VirtualNodeRef {
@@ -3276,17 +3276,17 @@ export namespace VirtualNodeRef {
  */
 export interface ListVirtualNodesOutput {
   /**
-   * <p>The list of existing virtual nodes for the specified service mesh.</p>
-   */
-  virtualNodes: VirtualNodeRef[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualNodes</code>
    *          request. When the results of a <code>ListVirtualNodes</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of existing virtual nodes for the specified service mesh.</p>
+   */
+  virtualNodes: VirtualNodeRef[] | undefined;
 }
 
 export namespace ListVirtualNodesOutput {
@@ -3300,9 +3300,10 @@ export namespace ListVirtualNodesOutput {
  */
 export interface UpdateVirtualNodeInput {
   /**
-   * <p>The name of the virtual node to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualNodeName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh that the virtual node resides in.</p>
@@ -3310,21 +3311,20 @@ export interface UpdateVirtualNodeInput {
   meshName: string | undefined;
 
   /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+
+  /**
    * <p>The new virtual node specification to apply. This overwrites the existing data.</p>
    */
   spec: VirtualNodeSpec | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual node to update.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualNodeName: string | undefined;
 }
 
 export namespace UpdateVirtualNodeInput {
@@ -3389,14 +3389,22 @@ export namespace VirtualRouterSpec {
  */
 export interface CreateVirtualRouterInput {
   /**
-   * <p>The name to use for the virtual router.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualRouterName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh to create the virtual router in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 
   /**
    * <p>The virtual router specification to apply.</p>
@@ -3412,17 +3420,9 @@ export interface CreateVirtualRouterInput {
   tags?: TagRef[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the virtual router.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualRouterName: string | undefined;
 }
 
 export namespace CreateVirtualRouterInput {
@@ -3463,9 +3463,9 @@ export interface VirtualRouterData {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual router.</p>
+   * <p>The associated metadata for the virtual router.</p>
    */
-  virtualRouterName: string | undefined;
+  metadata: ResourceMetadata | undefined;
 
   /**
    * <p>The specifications of the virtual router.</p>
@@ -3473,14 +3473,14 @@ export interface VirtualRouterData {
   spec: VirtualRouterSpec | undefined;
 
   /**
-   * <p>The associated metadata for the virtual router.</p>
-   */
-  metadata: ResourceMetadata | undefined;
-
-  /**
    * <p>The current status of the virtual router.</p>
    */
   status: VirtualRouterStatus | undefined;
+
+  /**
+   * <p>The name of the virtual router.</p>
+   */
+  virtualRouterName: string | undefined;
 }
 
 export namespace VirtualRouterData {
@@ -3510,11 +3510,6 @@ export namespace CreateVirtualRouterOutput {
  */
 export interface DeleteVirtualRouterInput {
   /**
-   * <p>The name of the virtual router to delete.</p>
-   */
-  virtualRouterName: string | undefined;
-
-  /**
    * <p>The name of the service mesh to delete the virtual router in.</p>
    */
   meshName: string | undefined;
@@ -3524,6 +3519,11 @@ export interface DeleteVirtualRouterInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual router to delete.</p>
+   */
+  virtualRouterName: string | undefined;
 }
 
 export namespace DeleteVirtualRouterInput {
@@ -3553,11 +3553,6 @@ export namespace DeleteVirtualRouterOutput {
  */
 export interface DescribeVirtualRouterInput {
   /**
-   * <p>The name of the virtual router to describe.</p>
-   */
-  virtualRouterName: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
    */
   meshName: string | undefined;
@@ -3567,6 +3562,11 @@ export interface DescribeVirtualRouterInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual router to describe.</p>
+   */
+  virtualRouterName: string | undefined;
 }
 
 export namespace DescribeVirtualRouterInput {
@@ -3596,19 +3596,6 @@ export namespace DescribeVirtualRouterOutput {
  */
 export interface ListVirtualRoutersInput {
   /**
-   * <p>The name of the service mesh to list virtual routers in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualRouters</code> request where <code>limit</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListVirtualRouters</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualRouters</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -3621,10 +3608,23 @@ export interface ListVirtualRoutersInput {
   limit?: number;
 
   /**
+   * <p>The name of the service mesh to list virtual routers in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualRouters</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVirtualRoutersInput {
@@ -3638,14 +3638,24 @@ export namespace ListVirtualRoutersInput {
  */
 export interface VirtualRouterRef {
   /**
+   * <p>The full Amazon Resource Name (ARN) for the virtual router.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The name of the virtual router.</p>
-   */
-  virtualRouterName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -3660,24 +3670,14 @@ export interface VirtualRouterRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) for the virtual router.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
   version: number | undefined;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The name of the virtual router.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
+  virtualRouterName: string | undefined;
 }
 
 export namespace VirtualRouterRef {
@@ -3691,17 +3691,17 @@ export namespace VirtualRouterRef {
  */
 export interface ListVirtualRoutersOutput {
   /**
-   * <p>The list of existing virtual routers for the specified service mesh.</p>
-   */
-  virtualRouters: VirtualRouterRef[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualRouters</code>
    *          request. When the results of a <code>ListVirtualRouters</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of existing virtual routers for the specified service mesh.</p>
+   */
+  virtualRouters: VirtualRouterRef[] | undefined;
 }
 
 export namespace ListVirtualRoutersOutput {
@@ -3755,14 +3755,14 @@ export namespace GrpcRouteAction {
  */
 export interface MatchRange {
   /**
-   * <p>The start of the range.</p>
-   */
-  start: number | undefined;
-
-  /**
    * <p>The end of the range.</p>
    */
   end: number | undefined;
+
+  /**
+   * <p>The start of the range.</p>
+   */
+  start: number | undefined;
 }
 
 export namespace MatchRange {
@@ -3885,11 +3885,6 @@ export namespace GrpcRouteMetadataMatchMethod {
  */
 export interface GrpcRouteMetadata {
   /**
-   * <p>The name of the route.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
    */
   invert?: boolean;
@@ -3898,6 +3893,11 @@ export interface GrpcRouteMetadata {
    * <p>An object that represents the data to match from the request.</p>
    */
   match?: GrpcRouteMetadataMatchMethod;
+
+  /**
+   * <p>The name of the route.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace GrpcRouteMetadata {
@@ -3912,9 +3912,9 @@ export namespace GrpcRouteMetadata {
  */
 export interface GrpcRouteMatch {
   /**
-   * <p>The fully qualified domain name for the service to match from the request.</p>
+   * <p>An object that represents the data to match from the request.</p>
    */
-  serviceName?: string;
+  metadata?: GrpcRouteMetadata[];
 
   /**
    * <p>The method name to match from the request. If you specify a name, you must also specify
@@ -3923,9 +3923,9 @@ export interface GrpcRouteMatch {
   methodName?: string;
 
   /**
-   * <p>An object that represents the data to match from the request.</p>
+   * <p>The fully qualified domain name for the service to match from the request.</p>
    */
-  metadata?: GrpcRouteMetadata[];
+  serviceName?: string;
 }
 
 export namespace GrpcRouteMatch {
@@ -3952,14 +3952,9 @@ export enum TcpRetryPolicyEvent {
  */
 export interface GrpcRetryPolicy {
   /**
-   * <p>An object that represents a duration of time.</p>
+   * <p>Specify at least one of the valid values.</p>
    */
-  perRetryTimeout: Duration | undefined;
-
-  /**
-   * <p>The maximum number of retry attempts.</p>
-   */
-  maxRetries: number | undefined;
+  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
 
   /**
    * <p>Specify at least one of the following values.</p>
@@ -3988,14 +3983,19 @@ export interface GrpcRetryPolicy {
   httpRetryEvents?: string[];
 
   /**
+   * <p>The maximum number of retry attempts.</p>
+   */
+  maxRetries: number | undefined;
+
+  /**
+   * <p>An object that represents a duration of time.</p>
+   */
+  perRetryTimeout: Duration | undefined;
+
+  /**
    * <p>Specify a valid value.</p>
    */
   tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
-
-  /**
-   * <p>Specify at least one of the valid values.</p>
-   */
-  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
 }
 
 export namespace GrpcRetryPolicy {
@@ -4166,11 +4166,6 @@ export namespace HeaderMatchMethod {
  */
 export interface HttpRouteHeader {
   /**
-   * <p>A name for the HTTP header in the client request that will be matched on.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
    */
   invert?: boolean;
@@ -4179,6 +4174,11 @@ export interface HttpRouteHeader {
    * <p>The <code>HeaderMatchMethod</code> object.</p>
    */
   match?: HeaderMatchMethod;
+
+  /**
+   * <p>A name for the HTTP header in the client request that will be matched on.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace HttpRouteHeader {
@@ -4211,6 +4211,16 @@ export enum HttpScheme {
  */
 export interface HttpRouteMatch {
   /**
+   * <p>An object that represents the client request headers to match on.</p>
+   */
+  headers?: HttpRouteHeader[];
+
+  /**
+   * <p>The client request method to match on. Specify only one.</p>
+   */
+  method?: HttpMethod | string;
+
+  /**
    * <p>Specifies the path to match requests with. This parameter must always start with
    *             <code>/</code>, which by itself matches all requests to the virtual service name. You
    *          can also match for path-based routing of requests. For example, if your virtual service
@@ -4221,19 +4231,9 @@ export interface HttpRouteMatch {
   prefix: string | undefined;
 
   /**
-   * <p>The client request method to match on. Specify only one.</p>
-   */
-  method?: HttpMethod | string;
-
-  /**
    * <p>The client request scheme to match on. Specify only one.</p>
    */
   scheme?: HttpScheme | string;
-
-  /**
-   * <p>An object that represents the client request headers to match on.</p>
-   */
-  headers?: HttpRouteHeader[];
 }
 
 export namespace HttpRouteMatch {
@@ -4247,16 +4247,6 @@ export namespace HttpRouteMatch {
  * <p>An object that represents a retry policy. Specify at least one value for at least one of the types of <code>RetryEvents</code>, a value for <code>maxRetries</code>, and a value for <code>perRetryTimeout</code>.</p>
  */
 export interface HttpRetryPolicy {
-  /**
-   * <p>An object that represents a duration of time.</p>
-   */
-  perRetryTimeout: Duration | undefined;
-
-  /**
-   * <p>The maximum number of retry attempts.</p>
-   */
-  maxRetries: number | undefined;
-
   /**
    * <p>Specify at least one of the following values.</p>
    *          <ul>
@@ -4284,6 +4274,16 @@ export interface HttpRetryPolicy {
   httpRetryEvents?: string[];
 
   /**
+   * <p>The maximum number of retry attempts.</p>
+   */
+  maxRetries: number | undefined;
+
+  /**
+   * <p>An object that represents a duration of time.</p>
+   */
+  perRetryTimeout: Duration | undefined;
+
+  /**
    * <p>Specify a valid value.</p>
    */
   tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
@@ -4300,14 +4300,14 @@ export namespace HttpRetryPolicy {
  */
 export interface HttpRoute {
   /**
-   * <p>An object that represents the criteria for determining a request match.</p>
-   */
-  match: HttpRouteMatch | undefined;
-
-  /**
    * <p>An object that represents the action to take if a match is determined.</p>
    */
   action: HttpRouteAction | undefined;
+
+  /**
+   * <p>An object that represents the criteria for determining a request match.</p>
+   */
+  match: HttpRouteMatch | undefined;
 
   /**
    * <p>An object that represents a retry policy.</p>
@@ -4368,20 +4368,9 @@ export namespace TcpRoute {
  */
 export interface RouteSpec {
   /**
-   * <p>The priority for the route. Routes are matched based on the specified value, where 0 is
-   *          the highest priority.</p>
+   * <p>An object that represents the specification of a gRPC route.</p>
    */
-  priority?: number;
-
-  /**
-   * <p>An object that represents the specification of an HTTP route.</p>
-   */
-  httpRoute?: HttpRoute;
-
-  /**
-   * <p>An object that represents the specification of a TCP route.</p>
-   */
-  tcpRoute?: TcpRoute;
+  grpcRoute?: GrpcRoute;
 
   /**
    * <p>An object that represents the specification of an HTTP/2 route.</p>
@@ -4389,9 +4378,20 @@ export interface RouteSpec {
   http2Route?: HttpRoute;
 
   /**
-   * <p>An object that represents the specification of a gRPC route.</p>
+   * <p>An object that represents the specification of an HTTP route.</p>
    */
-  grpcRoute?: GrpcRoute;
+  httpRoute?: HttpRoute;
+
+  /**
+   * <p>The priority for the route. Routes are matched based on the specified value, where 0 is
+   *          the highest priority.</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>An object that represents the specification of a TCP route.</p>
+   */
+  tcpRoute?: TcpRoute;
 }
 
 export namespace RouteSpec {
@@ -4405,9 +4405,10 @@ export namespace RouteSpec {
  */
 export interface CreateRouteInput {
   /**
-   * <p>The name to use for the route.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  routeName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh to create the route in.</p>
@@ -4415,10 +4416,16 @@ export interface CreateRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual router in which to create the route. If the virtual router is in
-   *          a shared mesh, then you must be the owner of the virtual router resource.</p>
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
-  virtualRouterName: string | undefined;
+  meshOwner?: string;
+
+  /**
+   * <p>The name to use for the route.</p>
+   */
+  routeName: string | undefined;
 
   /**
    * <p>The route specification to apply.</p>
@@ -4434,17 +4441,10 @@ export interface CreateRouteInput {
   tags?: TagRef[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual router in which to create the route. If the virtual router is in
+   *          a shared mesh, then you must be the owner of the virtual router resource.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualRouterName: string | undefined;
 }
 
 export namespace CreateRouteInput {
@@ -4485,9 +4485,9 @@ export interface RouteData {
   meshName: string | undefined;
 
   /**
-   * <p>The virtual router that the route is associated with.</p>
+   * <p>The associated metadata for the route.</p>
    */
-  virtualRouterName: string | undefined;
+  metadata: ResourceMetadata | undefined;
 
   /**
    * <p>The name of the route.</p>
@@ -4500,14 +4500,14 @@ export interface RouteData {
   spec: RouteSpec | undefined;
 
   /**
-   * <p>The associated metadata for the route.</p>
-   */
-  metadata: ResourceMetadata | undefined;
-
-  /**
    * <p>The status of the route.</p>
    */
   status: RouteStatus | undefined;
+
+  /**
+   * <p>The virtual router that the route is associated with.</p>
+   */
+  virtualRouterName: string | undefined;
 }
 
 export namespace RouteData {
@@ -4537,25 +4537,25 @@ export namespace CreateRouteOutput {
  */
 export interface DeleteRouteInput {
   /**
-   * <p>The name of the route to delete.</p>
-   */
-  routeName: string | undefined;
-
-  /**
    * <p>The name of the service mesh to delete the route in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The name of the virtual router to delete the route in.</p>
-   */
-  virtualRouterName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the route to delete.</p>
+   */
+  routeName: string | undefined;
+
+  /**
+   * <p>The name of the virtual router to delete the route in.</p>
+   */
+  virtualRouterName: string | undefined;
 }
 
 export namespace DeleteRouteInput {
@@ -4585,11 +4585,6 @@ export namespace DeleteRouteOutput {
  */
 export interface DescribeRouteInput {
   /**
-   * <p>The name of the route to describe.</p>
-   */
-  routeName: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the route resides in.</p>
    */
   meshName: string | undefined;
@@ -4599,6 +4594,11 @@ export interface DescribeRouteInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the route to describe.</p>
+   */
+  routeName: string | undefined;
 
   /**
    * <p>The name of the virtual router that the route is associated with.</p>
@@ -4633,24 +4633,6 @@ export namespace DescribeRouteOutput {
  */
 export interface ListRoutesInput {
   /**
-   * <p>The name of the service mesh to list routes in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
-   * <p>The name of the virtual router to list routes in.</p>
-   */
-  virtualRouterName: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListRoutes</code> request where <code>limit</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous
-   *          results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListRoutes</code> in paginated output.
    *          When you use this parameter, <code>ListRoutes</code> returns only <code>limit</code>
    *          results in a single page along with a <code>nextToken</code> response element. You can see
@@ -4663,10 +4645,28 @@ export interface ListRoutesInput {
   limit?: number;
 
   /**
+   * <p>The name of the service mesh to list routes in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListRoutes</code> request where <code>limit</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous
+   *          results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of the virtual router to list routes in.</p>
+   */
+  virtualRouterName: string | undefined;
 }
 
 export namespace ListRoutesInput {
@@ -4680,19 +4680,24 @@ export namespace ListRoutesInput {
  */
 export interface RouteRef {
   /**
+   * <p>The full Amazon Resource Name (ARN) for the route.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
    * <p>The name of the service mesh that the route resides in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The virtual router that the route is associated with.</p>
-   */
-  virtualRouterName: string | undefined;
-
-  /**
-   * <p>The name of the route.</p>
-   */
-  routeName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -4707,9 +4712,9 @@ export interface RouteRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) for the route.</p>
+   * <p>The name of the route.</p>
    */
-  arn: string | undefined;
+  routeName: string | undefined;
 
   /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
@@ -4717,14 +4722,9 @@ export interface RouteRef {
   version: number | undefined;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The virtual router that the route is associated with.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
+  virtualRouterName: string | undefined;
 }
 
 export namespace RouteRef {
@@ -4738,17 +4738,17 @@ export namespace RouteRef {
  */
 export interface ListRoutesOutput {
   /**
-   * <p>The list of existing routes for the specified service mesh and virtual router.</p>
-   */
-  routes: RouteRef[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRoutes</code> request.
    *          When the results of a <code>ListRoutes</code> request exceed <code>limit</code>, you can
    *          use this value to retrieve the next page of results. This value is <code>null</code> when
    *          there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of existing routes for the specified service mesh and virtual router.</p>
+   */
+  routes: RouteRef[] | undefined;
 }
 
 export namespace ListRoutesOutput {
@@ -4762,9 +4762,10 @@ export namespace ListRoutesOutput {
  */
 export interface UpdateRouteInput {
   /**
-   * <p>The name of the route to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  routeName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh that the route resides in.</p>
@@ -4772,9 +4773,15 @@ export interface UpdateRouteInput {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual router that the route is associated with.</p>
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
-  virtualRouterName: string | undefined;
+  meshOwner?: string;
+
+  /**
+   * <p>The name of the route to update.</p>
+   */
+  routeName: string | undefined;
 
   /**
    * <p>The new route specification to apply. This overwrites the existing data.</p>
@@ -4782,16 +4789,9 @@ export interface UpdateRouteInput {
   spec: RouteSpec | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual router that the route is associated with.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualRouterName: string | undefined;
 }
 
 export namespace UpdateRouteInput {
@@ -4821,9 +4821,10 @@ export namespace UpdateRouteOutput {
  */
 export interface UpdateVirtualRouterInput {
   /**
-   * <p>The name of the virtual router to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualRouterName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh that the virtual router resides in.</p>
@@ -4831,21 +4832,20 @@ export interface UpdateVirtualRouterInput {
   meshName: string | undefined;
 
   /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
+
+  /**
    * <p>The new virtual router specification to apply. This overwrites the existing data.</p>
    */
   spec: VirtualRouterSpec | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual router to update.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualRouterName: string | undefined;
 }
 
 export namespace UpdateVirtualRouterInput {
@@ -4979,14 +4979,22 @@ export namespace VirtualServiceSpec {
  */
 export interface CreateVirtualServiceInput {
   /**
-   * <p>The name to use for the virtual service.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualServiceName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh to create the virtual service in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
+   *                the account that you specify must share the mesh with your account before you can create
+   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 
   /**
    * <p>The virtual service specification to apply.</p>
@@ -5002,17 +5010,9 @@ export interface CreateVirtualServiceInput {
   tags?: TagRef[];
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name to use for the virtual service.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then
-   *                the account that you specify must share the mesh with your account before you can create
-   *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualServiceName: string | undefined;
 }
 
 export namespace CreateVirtualServiceInput {
@@ -5054,9 +5054,9 @@ export interface VirtualServiceData {
   meshName: string | undefined;
 
   /**
-   * <p>The name of the virtual service.</p>
+   * <p>An object that represents metadata for a resource.</p>
    */
-  virtualServiceName: string | undefined;
+  metadata: ResourceMetadata | undefined;
 
   /**
    * <p>The specifications of the virtual service.</p>
@@ -5064,14 +5064,14 @@ export interface VirtualServiceData {
   spec: VirtualServiceSpec | undefined;
 
   /**
-   * <p>An object that represents metadata for a resource.</p>
-   */
-  metadata: ResourceMetadata | undefined;
-
-  /**
    * <p>The current status of the virtual service.</p>
    */
   status: VirtualServiceStatus | undefined;
+
+  /**
+   * <p>The name of the virtual service.</p>
+   */
+  virtualServiceName: string | undefined;
 }
 
 export namespace VirtualServiceData {
@@ -5103,11 +5103,6 @@ export namespace CreateVirtualServiceOutput {
  */
 export interface DeleteVirtualServiceInput {
   /**
-   * <p>The name of the virtual service to delete.</p>
-   */
-  virtualServiceName: string | undefined;
-
-  /**
    * <p>The name of the service mesh to delete the virtual service in.</p>
    */
   meshName: string | undefined;
@@ -5117,6 +5112,11 @@ export interface DeleteVirtualServiceInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual service to delete.</p>
+   */
+  virtualServiceName: string | undefined;
 }
 
 export namespace DeleteVirtualServiceInput {
@@ -5147,11 +5147,6 @@ export namespace DeleteVirtualServiceOutput {
  */
 export interface DescribeVirtualServiceInput {
   /**
-   * <p>The name of the virtual service to describe.</p>
-   */
-  virtualServiceName: string | undefined;
-
-  /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
   meshName: string | undefined;
@@ -5161,6 +5156,11 @@ export interface DescribeVirtualServiceInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The name of the virtual service to describe.</p>
+   */
+  virtualServiceName: string | undefined;
 }
 
 export namespace DescribeVirtualServiceInput {
@@ -5191,19 +5191,6 @@ export namespace DescribeVirtualServiceOutput {
  */
 export interface ListVirtualServicesInput {
   /**
-   * <p>The name of the service mesh to list virtual services in.</p>
-   */
-  meshName: string | undefined;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>ListVirtualServices</code> request where <code>limit</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results returned by <code>ListVirtualServices</code> in paginated
    *          output. When you use this parameter, <code>ListVirtualServices</code> returns only
    *             <code>limit</code> results in a single page along with a <code>nextToken</code> response
@@ -5216,10 +5203,23 @@ export interface ListVirtualServicesInput {
   limit?: number;
 
   /**
+   * <p>The name of the service mesh to list virtual services in.</p>
+   */
+  meshName: string | undefined;
+
+  /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    */
   meshOwner?: string;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>ListVirtualServices</code> request where <code>limit</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListVirtualServicesInput {
@@ -5233,14 +5233,24 @@ export namespace ListVirtualServicesInput {
  */
 export interface VirtualServiceRef {
   /**
+   * <p>The full Amazon Resource Name (ARN) for the virtual service.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
   meshName: string | undefined;
-
-  /**
-   * <p>The name of the virtual service.</p>
-   */
-  virtualServiceName: string | undefined;
 
   /**
    * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
@@ -5255,24 +5265,14 @@ export interface VirtualServiceRef {
   resourceOwner: string | undefined;
 
   /**
-   * <p>The full Amazon Resource Name (ARN) for the virtual service.</p>
-   */
-  arn: string | undefined;
-
-  /**
    * <p>The version of the resource. Resources are created at version 1, and this version is incremented each time that they're updated.</p>
    */
   version: number | undefined;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The name of the virtual service.</p>
    */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was last updated.</p>
-   */
-  lastUpdatedAt: Date | undefined;
+  virtualServiceName: string | undefined;
 }
 
 export namespace VirtualServiceRef {
@@ -5286,17 +5286,17 @@ export namespace VirtualServiceRef {
  */
 export interface ListVirtualServicesOutput {
   /**
-   * <p>The list of existing virtual services for the specified service mesh.</p>
-   */
-  virtualServices: VirtualServiceRef[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListVirtualServices</code>
    *          request. When the results of a <code>ListVirtualServices</code> request exceed
    *             <code>limit</code>, you can use this value to retrieve the next page of results. This
    *          value is <code>null</code> when there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of existing virtual services for the specified service mesh.</p>
+   */
+  virtualServices: VirtualServiceRef[] | undefined;
 }
 
 export namespace ListVirtualServicesOutput {
@@ -5310,14 +5310,21 @@ export namespace ListVirtualServicesOutput {
  */
 export interface UpdateVirtualServiceInput {
   /**
-   * <p>The name of the virtual service to update.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    */
-  virtualServiceName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The name of the service mesh that the virtual service resides in.</p>
    */
   meshName: string | undefined;
+
+  /**
+   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
+   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
+   */
+  meshOwner?: string;
 
   /**
    * <p>The new virtual service specification to apply. This overwrites the existing
@@ -5326,16 +5333,9 @@ export interface UpdateVirtualServiceInput {
   spec: VirtualServiceSpec | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
+   * <p>The name of the virtual service to update.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The AWS IAM account ID of the service mesh owner. If the account ID is not your own, then it's
-   *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
-   */
-  meshOwner?: string;
+  virtualServiceName: string | undefined;
 }
 
 export namespace UpdateVirtualServiceInput {

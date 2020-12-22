@@ -207,6 +207,11 @@ export namespace EncryptionConfig {
  */
 export interface KinesisVideoStreamConfig {
   /**
+   * <p>The encryption configuration.</p>
+   */
+  EncryptionConfig: EncryptionConfig | undefined;
+
+  /**
    * <p>The prefix of the video stream.</p>
    */
   Prefix: string | undefined;
@@ -217,11 +222,6 @@ export interface KinesisVideoStreamConfig {
    *          <p>The default value is 0, indicating that the stream does not persist data.</p>
    */
   RetentionPeriodHours: number | undefined;
-
-  /**
-   * <p>The encryption configuration.</p>
-   */
-  EncryptionConfig: EncryptionConfig | undefined;
 }
 
 export namespace KinesisVideoStreamConfig {
@@ -273,19 +273,9 @@ export interface InstanceStorageConfig {
   AssociationId?: string;
 
   /**
-   * <p>A valid storage type.</p>
+   * <p>The configuration of the Kinesis Firehose delivery stream.</p>
    */
-  StorageType: StorageType | string | undefined;
-
-  /**
-   * <p>The S3 configuration.</p>
-   */
-  S3Config?: S3Config;
-
-  /**
-   * <p>The configuration of the Kinesis video stream.</p>
-   */
-  KinesisVideoStreamConfig?: KinesisVideoStreamConfig;
+  KinesisFirehoseConfig?: KinesisFirehoseConfig;
 
   /**
    * <p>The configuration of the Kinesis data stream.</p>
@@ -293,9 +283,19 @@ export interface InstanceStorageConfig {
   KinesisStreamConfig?: KinesisStreamConfig;
 
   /**
-   * <p>The configuration of the Kinesis Firehose delivery stream.</p>
+   * <p>The configuration of the Kinesis video stream.</p>
    */
-  KinesisFirehoseConfig?: KinesisFirehoseConfig;
+  KinesisVideoStreamConfig?: KinesisVideoStreamConfig;
+
+  /**
+   * <p>The S3 configuration.</p>
+   */
+  S3Config?: S3Config;
+
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageType: StorageType | string | undefined;
 }
 
 export namespace InstanceStorageConfig {
@@ -342,15 +342,15 @@ export namespace AssociateInstanceStorageConfigResponse {
 
 export interface AssociateLambdaFunctionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the Lambda function being associated. Maximum number of characters allowed is
    *    140.</p>
    */
   FunctionArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace AssociateLambdaFunctionRequest {
@@ -364,14 +364,14 @@ export namespace AssociateLambdaFunctionRequest {
  */
 export interface LexBot {
   /**
-   * <p>The name of the Amazon Lex bot.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Region the Amazon Lex bot was created in.</p>
    */
   LexRegion?: string;
+
+  /**
+   * <p>The name of the Amazon Lex bot.</p>
+   */
+  Name?: string;
 }
 
 export namespace LexBot {
@@ -409,15 +409,15 @@ export enum Channel {
  */
 export interface RoutingProfileQueueReference {
   /**
-   * <p>The identifier of the queue.</p>
-   */
-  QueueId: string | undefined;
-
-  /**
    * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
    *    profile.</p>
    */
   Channel: Channel | string | undefined;
+
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  QueueId: string | undefined;
 }
 
 export namespace RoutingProfileQueueReference {
@@ -432,9 +432,11 @@ export namespace RoutingProfileQueueReference {
  */
 export interface RoutingProfileQueueConfig {
   /**
-   * <p>Contains information about a queue resource.</p>
+   * <p>The delay, in seconds, a contact should be in the queue before they are routed to an
+   *    available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
+   *     delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
-  QueueReference: RoutingProfileQueueReference | undefined;
+  Delay: number | undefined;
 
   /**
    * <p>The order in which contacts are to be handled for the queue. For more information, see
@@ -444,11 +446,9 @@ export interface RoutingProfileQueueConfig {
   Priority: number | undefined;
 
   /**
-   * <p>The delay, in seconds, a contact should be in the queue before they are routed to an
-   *    available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
-   *     delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>Contains information about a queue resource.</p>
    */
-  Delay: number | undefined;
+  QueueReference: RoutingProfileQueueReference | undefined;
 }
 
 export namespace RoutingProfileQueueConfig {
@@ -464,14 +464,14 @@ export interface AssociateRoutingProfileQueuesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
    * <p>The queues to associate with this routing profile.</p>
    */
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
 }
 
 export namespace AssociateRoutingProfileQueuesRequest {
@@ -525,6 +525,16 @@ export enum ContactFlowType {
 
 export interface CreateContactFlowRequest {
   /**
+   * <p>The content of the contact flow. </p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The description of the contact flow. </p>
+   */
+  Description?: string;
+
+  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
@@ -535,25 +545,15 @@ export interface CreateContactFlowRequest {
   Name: string | undefined;
 
   /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
   Type: ContactFlowType | string | undefined;
-
-  /**
-   * <p>The description of the contact flow. </p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The content of the contact flow. </p>
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>One or more tags.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace CreateContactFlowRequest {
@@ -564,14 +564,14 @@ export namespace CreateContactFlowRequest {
 
 export interface CreateContactFlowResponse {
   /**
-   * <p>The identifier of the contact flow.</p>
-   */
-  ContactFlowId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the contact flow.</p>
    */
   ContactFlowArn?: string;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  ContactFlowId?: string;
 }
 
 export namespace CreateContactFlowResponse {
@@ -660,24 +660,24 @@ export interface CreateInstanceRequest {
   ClientToken?: string;
 
   /**
-   * <p>The type of identity management for your Amazon Connect users.</p>
-   */
-  IdentityManagementType: DirectoryType | string | undefined;
-
-  /**
-   * <p>The name for your instance.</p>
-   */
-  InstanceAlias?: string;
-
-  /**
    * <p>The identifier for the directory.</p>
    */
   DirectoryId?: string;
 
   /**
+   * <p>The type of identity management for your Amazon Connect users.</p>
+   */
+  IdentityManagementType: DirectoryType | string | undefined;
+
+  /**
    * <p>Whether your contact center handles incoming contacts.</p>
    */
   InboundCallsEnabled: boolean | undefined;
+
+  /**
+   * <p>The name for your instance.</p>
+   */
+  InstanceAlias?: string;
 
   /**
    * <p>Whether your contact center allows outbound calls.</p>
@@ -694,14 +694,14 @@ export namespace CreateInstanceRequest {
 
 export interface CreateInstanceResponse {
   /**
-   * <p>The identifier for the instance.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the instance.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier for the instance.</p>
+   */
+  Id?: string;
 }
 
 export namespace CreateInstanceResponse {
@@ -726,24 +726,24 @@ export interface CreateIntegrationAssociationRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The type of information to be ingested.</p>
-   */
-  IntegrationType: IntegrationType | string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the integration.</p>
    */
   IntegrationArn: string | undefined;
 
   /**
-   * <p>The URL for the external application.</p>
+   * <p>The type of information to be ingested.</p>
    */
-  SourceApplicationUrl: string | undefined;
+  IntegrationType: IntegrationType | string | undefined;
 
   /**
    * <p>The name of the external application.</p>
    */
   SourceApplicationName: string | undefined;
+
+  /**
+   * <p>The URL for the external application.</p>
+   */
+  SourceApplicationUrl: string | undefined;
 
   /**
    * <p>The type of the data source.</p>
@@ -759,14 +759,14 @@ export namespace CreateIntegrationAssociationRequest {
 
 export interface CreateIntegrationAssociationResponse {
   /**
-   * <p>The identifier for the association.</p>
-   */
-  IntegrationAssociationId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the association.</p>
    */
   IntegrationAssociationArn?: string;
+
+  /**
+   * <p>The identifier for the association.</p>
+   */
+  IntegrationAssociationId?: string;
 }
 
 export namespace CreateIntegrationAssociationResponse {
@@ -799,14 +799,9 @@ export namespace MediaConcurrency {
 
 export interface CreateRoutingProfileRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>The default outbound queue for the routing profile.</p>
    */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name of the routing profile. Must not be more than 127 characters.</p>
-   */
-  Name: string | undefined;
+  DefaultOutboundQueueId: string | undefined;
 
   /**
    * <p>Description of the routing profile. Must not be more than 250 characters.</p>
@@ -814,21 +809,26 @@ export interface CreateRoutingProfileRequest {
   Description: string | undefined;
 
   /**
-   * <p>The default outbound queue for the routing profile.</p>
+   * <p>The identifier of the Amazon Connect instance.</p>
    */
-  DefaultOutboundQueueId: string | undefined;
-
-  /**
-   * <p>The inbound queues associated with the routing profile. If no queue is added, the agent can
-   *    only make outbound calls.</p>
-   */
-  QueueConfigs?: RoutingProfileQueueConfig[];
+  InstanceId: string | undefined;
 
   /**
    * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
    *    profile.</p>
    */
   MediaConcurrencies: MediaConcurrency[] | undefined;
+
+  /**
+   * <p>The name of the routing profile. Must not be more than 127 characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The inbound queues associated with the routing profile. If no queue is added, the agent can
+   *    only make outbound calls.</p>
+   */
+  QueueConfigs?: RoutingProfileQueueConfig[];
 
   /**
    * <p>One or more tags.</p>
@@ -890,14 +890,14 @@ export namespace CreateUseCaseRequest {
 
 export interface CreateUseCaseResponse {
   /**
-   * <p>The identifier of the use case.</p>
-   */
-  UseCaseId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the use case.</p>
    */
   UseCaseArn?: string;
+
+  /**
+   * <p>The identifier of the use case.</p>
+   */
+  UseCaseId?: string;
 }
 
 export namespace CreateUseCaseResponse {
@@ -911,6 +911,12 @@ export namespace CreateUseCaseResponse {
  */
 export interface UserIdentityInfo {
   /**
+   * <p>The email address. If you are using SAML for identity management and include this parameter,
+   *    an error is returned.</p>
+   */
+  Email?: string;
+
+  /**
    * <p>The first name. This is required if you are using Amazon Connect or SAML for identity
    *    management.</p>
    */
@@ -921,12 +927,6 @@ export interface UserIdentityInfo {
    *    management.</p>
    */
   LastName?: string;
-
-  /**
-   * <p>The email address. If you are using SAML for identity management and include this parameter,
-   *    an error is returned.</p>
-   */
-  Email?: string;
 }
 
 export namespace UserIdentityInfo {
@@ -945,9 +945,9 @@ export enum PhoneType {
  */
 export interface UserPhoneConfig {
   /**
-   * <p>The phone type.</p>
+   * <p>The After Call Work (ACW) timeout setting, in seconds.</p>
    */
-  PhoneType: PhoneType | string | undefined;
+  AfterContactWorkTimeLimit?: number;
 
   /**
    * <p>The Auto accept setting.</p>
@@ -955,14 +955,14 @@ export interface UserPhoneConfig {
   AutoAccept?: boolean;
 
   /**
-   * <p>The After Call Work (ACW) timeout setting, in seconds.</p>
-   */
-  AfterContactWorkTimeLimit?: number;
-
-  /**
    * <p>The phone number for the user's desk phone.</p>
    */
   DeskPhoneNumber?: string;
+
+  /**
+   * <p>The phone type.</p>
+   */
+  PhoneType: PhoneType | string | undefined;
 }
 
 export namespace UserPhoneConfig {
@@ -972,29 +972,6 @@ export namespace UserPhoneConfig {
 }
 
 export interface CreateUserRequest {
-  /**
-   * <p>The user name for the account. For instances not using SAML for identity management, the
-   *    user name can include up to 20 characters. If you are using SAML for identity management, the
-   *    user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>The password for the user account. A password is required if you are using Amazon Connect for
-   *    identity management. Otherwise, it is an error to include a password.</p>
-   */
-  Password?: string;
-
-  /**
-   * <p>The information about the identity of the user.</p>
-   */
-  IdentityInfo?: UserIdentityInfo;
-
-  /**
-   * <p>The phone settings for the user.</p>
-   */
-  PhoneConfig: UserPhoneConfig | undefined;
-
   /**
    * <p>The identifier of the user account in the directory used for identity management. If Amazon Connect
    *    cannot access the directory, you can specify this identifier to authenticate users. If you
@@ -1007,19 +984,14 @@ export interface CreateUserRequest {
   DirectoryUserId?: string;
 
   /**
-   * <p>The identifier of the security profile for the user.</p>
-   */
-  SecurityProfileIds: string[] | undefined;
-
-  /**
-   * <p>The identifier of the routing profile for the user.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
    * <p>The identifier of the hierarchy group for the user.</p>
    */
   HierarchyGroupId?: string;
+
+  /**
+   * <p>The information about the identity of the user.</p>
+   */
+  IdentityInfo?: UserIdentityInfo;
 
   /**
    * <p>The identifier of the Amazon Connect instance.</p>
@@ -1027,9 +999,37 @@ export interface CreateUserRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The password for the user account. A password is required if you are using Amazon Connect for
+   *    identity management. Otherwise, it is an error to include a password.</p>
+   */
+  Password?: string;
+
+  /**
+   * <p>The phone settings for the user.</p>
+   */
+  PhoneConfig: UserPhoneConfig | undefined;
+
+  /**
+   * <p>The identifier of the routing profile for the user.</p>
+   */
+  RoutingProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the security profile for the user.</p>
+   */
+  SecurityProfileIds: string[] | undefined;
+
+  /**
    * <p>One or more tags.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The user name for the account. For instances not using SAML for identity management, the
+   *    user name can include up to 20 characters. If you are using SAML for identity management, the
+   *    user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
+   */
+  Username: string | undefined;
 }
 
 export namespace CreateUserRequest {
@@ -1040,14 +1040,14 @@ export namespace CreateUserRequest {
 
 export interface CreateUserResponse {
   /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the user account.</p>
    */
   UserArn?: string;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  UserId?: string;
 }
 
 export namespace CreateUserResponse {
@@ -1058,6 +1058,11 @@ export namespace CreateUserResponse {
 
 export interface CreateUserHierarchyGroupRequest {
   /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
    * <p>The name of the user hierarchy group. Must not be more than 100 characters.</p>
    */
   Name: string | undefined;
@@ -1067,11 +1072,6 @@ export interface CreateUserHierarchyGroupRequest {
    *    the parent group ID is null.</p>
    */
   ParentGroupId?: string;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
 }
 
 export namespace CreateUserHierarchyGroupRequest {
@@ -1082,14 +1082,14 @@ export namespace CreateUserHierarchyGroupRequest {
 
 export interface CreateUserHierarchyGroupResponse {
   /**
-   * <p>The identifier of the hierarchy group.</p>
-   */
-  HierarchyGroupId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the hierarchy group. </p>
    */
   HierarchyGroupArn?: string;
+
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   */
+  HierarchyGroupId?: string;
 }
 
 export namespace CreateUserHierarchyGroupResponse {
@@ -1206,14 +1206,14 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   $fault: "client";
   Message?: string;
   /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
    * <p>The identifier for the resource.</p>
    */
   ResourceId?: string;
+
+  /**
+   * <p>The type of resource.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace ResourceInUseException {
@@ -1239,14 +1239,14 @@ export namespace ContactFlowNotPublishedException {
 
 export interface DescribeContactFlowRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace DescribeContactFlowRequest {
@@ -1265,6 +1265,16 @@ export interface ContactFlow {
   Arn?: string;
 
   /**
+   * <p>The content of the contact flow.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>The description of the contact flow.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The identifier of the contact flow.</p>
    */
   Id?: string;
@@ -1275,25 +1285,15 @@ export interface ContactFlow {
   Name?: string;
 
   /**
+   * <p>One or more tags.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
    */
   Type?: ContactFlowType | string;
-
-  /**
-   * <p>The description of the contact flow.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The content of the contact flow.</p>
-   */
-  Content?: string;
-
-  /**
-   * <p>One or more tags.</p>
-   */
-  Tags?: { [key: string]: string };
 }
 
 export namespace ContactFlow {
@@ -1355,24 +1355,9 @@ export namespace InstanceStatusReason {
  */
 export interface Instance {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the instance.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The identity management type.</p>
-   */
-  IdentityManagementType?: DirectoryType | string;
-
-  /**
-   * <p>The alias of instance.</p>
-   */
-  InstanceAlias?: string;
 
   /**
    * <p>When the instance was created.</p>
@@ -1380,19 +1365,14 @@ export interface Instance {
   CreatedTime?: Date;
 
   /**
-   * <p>The service role of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance.</p>
    */
-  ServiceRole?: string;
+  Id?: string;
 
   /**
-   * <p>The state of the instance.</p>
+   * <p>The identity management type.</p>
    */
-  InstanceStatus?: InstanceStatus | string;
-
-  /**
-   * <p>Relevant details why the instance was not successfully created. </p>
-   */
-  StatusReason?: InstanceStatusReason;
+  IdentityManagementType?: DirectoryType | string;
 
   /**
    * <p>Whether inbound calls are enabled.</p>
@@ -1400,9 +1380,29 @@ export interface Instance {
   InboundCallsEnabled?: boolean;
 
   /**
+   * <p>The alias of instance.</p>
+   */
+  InstanceAlias?: string;
+
+  /**
+   * <p>The state of the instance.</p>
+   */
+  InstanceStatus?: InstanceStatus | string;
+
+  /**
    * <p>Whether outbound calls are enabled.</p>
    */
   OutboundCallsEnabled?: boolean;
+
+  /**
+   * <p>The service role of the instance.</p>
+   */
+  ServiceRole?: string;
+
+  /**
+   * <p>Relevant details why the instance was not successfully created. </p>
+   */
+  StatusReason?: InstanceStatusReason;
 }
 
 export namespace Instance {
@@ -1438,14 +1438,14 @@ export enum InstanceAttributeType {
 
 export interface DescribeInstanceAttributeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The type of attribute.</p>
    */
   AttributeType: InstanceAttributeType | string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace DescribeInstanceAttributeRequest {
@@ -1490,14 +1490,14 @@ export namespace DescribeInstanceAttributeResponse {
 
 export interface DescribeInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>A valid resource type.</p>
@@ -1547,9 +1547,25 @@ export namespace DescribeRoutingProfileRequest {
  */
 export interface RoutingProfile {
   /**
+   * <p>The identifier of the default outbound queue for this routing profile.</p>
+   */
+  DefaultOutboundQueueId?: string;
+
+  /**
+   * <p>The description of the routing profile.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId?: string;
+
+  /**
+   * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
+   *    profile.</p>
+   */
+  MediaConcurrencies?: MediaConcurrency[];
 
   /**
    * <p>The name of the routing profile.</p>
@@ -1565,22 +1581,6 @@ export interface RoutingProfile {
    * <p>The identifier of the routing profile.</p>
    */
   RoutingProfileId?: string;
-
-  /**
-   * <p>The description of the routing profile.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing
-   *    profile.</p>
-   */
-  MediaConcurrencies?: MediaConcurrency[];
-
-  /**
-   * <p>The identifier of the default outbound queue for this routing profile.</p>
-   */
-  DefaultOutboundQueueId?: string;
 
   /**
    * <p>One or more tags.</p>
@@ -1609,14 +1609,14 @@ export namespace DescribeRoutingProfileResponse {
 
 export interface DescribeUserRequest {
   /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
 }
 
 export namespace DescribeUserRequest {
@@ -1630,19 +1630,24 @@ export namespace DescribeUserRequest {
  */
 export interface User {
   /**
-   * <p>The identifier of the user account.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the user account.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The user name assigned to the user account.</p>
+   * <p>The identifier of the user account in the directory used for identity management.</p>
    */
-  Username?: string;
+  DirectoryUserId?: string;
+
+  /**
+   * <p>The identifier of the hierarchy group for the user.</p>
+   */
+  HierarchyGroupId?: string;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  Id?: string;
 
   /**
    * <p>Information about the user identity.</p>
@@ -1655,9 +1660,9 @@ export interface User {
   PhoneConfig?: UserPhoneConfig;
 
   /**
-   * <p>The identifier of the user account in the directory used for identity management.</p>
+   * <p>The identifier of the routing profile for the user.</p>
    */
-  DirectoryUserId?: string;
+  RoutingProfileId?: string;
 
   /**
    * <p>The identifiers of the security profiles for the user.</p>
@@ -1665,19 +1670,14 @@ export interface User {
   SecurityProfileIds?: string[];
 
   /**
-   * <p>The identifier of the routing profile for the user.</p>
-   */
-  RoutingProfileId?: string;
-
-  /**
-   * <p>The identifier of the hierarchy group for the user.</p>
-   */
-  HierarchyGroupId?: string;
-
-  /**
    * <p>The tags.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The user name assigned to the user account.</p>
+   */
+  Username?: string;
 }
 
 export namespace User {
@@ -1722,14 +1722,14 @@ export namespace DescribeUserHierarchyGroupRequest {
  */
 export interface HierarchyGroupSummary {
   /**
-   * <p>The identifier of the hierarchy group.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the hierarchy group.</p>
@@ -1748,19 +1748,9 @@ export namespace HierarchyGroupSummary {
  */
 export interface HierarchyPath {
   /**
-   * <p>Information about level one.</p>
+   * <p>Information about level five.</p>
    */
-  LevelOne?: HierarchyGroupSummary;
-
-  /**
-   * <p>Information about level two.</p>
-   */
-  LevelTwo?: HierarchyGroupSummary;
-
-  /**
-   * <p>Information about level three.</p>
-   */
-  LevelThree?: HierarchyGroupSummary;
+  LevelFive?: HierarchyGroupSummary;
 
   /**
    * <p>Information about level four.</p>
@@ -1768,9 +1758,19 @@ export interface HierarchyPath {
   LevelFour?: HierarchyGroupSummary;
 
   /**
-   * <p>Information about level five.</p>
+   * <p>Information about level one.</p>
    */
-  LevelFive?: HierarchyGroupSummary;
+  LevelOne?: HierarchyGroupSummary;
+
+  /**
+   * <p>Information about level three.</p>
+   */
+  LevelThree?: HierarchyGroupSummary;
+
+  /**
+   * <p>Information about level two.</p>
+   */
+  LevelTwo?: HierarchyGroupSummary;
 }
 
 export namespace HierarchyPath {
@@ -1784,19 +1784,19 @@ export namespace HierarchyPath {
  */
 export interface HierarchyGroup {
   /**
-   * <p>The identifier of the hierarchy group.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the hierarchy group.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The name of the hierarchy group.</p>
+   * <p>Information about the levels in the hierarchy group.</p>
    */
-  Name?: string;
+  HierarchyPath?: HierarchyPath;
+
+  /**
+   * <p>The identifier of the hierarchy group.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The identifier of the level in the hierarchy group.</p>
@@ -1804,9 +1804,9 @@ export interface HierarchyGroup {
   LevelId?: string;
 
   /**
-   * <p>Information about the levels in the hierarchy group.</p>
+   * <p>The name of the hierarchy group.</p>
    */
-  HierarchyPath?: HierarchyPath;
+  Name?: string;
 }
 
 export namespace HierarchyGroup {
@@ -1846,14 +1846,14 @@ export namespace DescribeUserHierarchyStructureRequest {
  */
 export interface HierarchyLevel {
   /**
-   * <p>The identifier of the hierarchy level.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the hierarchy level.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the hierarchy level.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the hierarchy level.</p>
@@ -1872,19 +1872,9 @@ export namespace HierarchyLevel {
  */
 export interface HierarchyStructure {
   /**
-   * <p>Information about level one.</p>
+   * <p>Information about level five.</p>
    */
-  LevelOne?: HierarchyLevel;
-
-  /**
-   * <p>Information about level two.</p>
-   */
-  LevelTwo?: HierarchyLevel;
-
-  /**
-   * <p>Information about level three.</p>
-   */
-  LevelThree?: HierarchyLevel;
+  LevelFive?: HierarchyLevel;
 
   /**
    * <p>Information about level four.</p>
@@ -1892,9 +1882,19 @@ export interface HierarchyStructure {
   LevelFour?: HierarchyLevel;
 
   /**
-   * <p>Information about level five.</p>
+   * <p>Information about level one.</p>
    */
-  LevelFive?: HierarchyLevel;
+  LevelOne?: HierarchyLevel;
+
+  /**
+   * <p>Information about level three.</p>
+   */
+  LevelThree?: HierarchyLevel;
+
+  /**
+   * <p>Information about level two.</p>
+   */
+  LevelTwo?: HierarchyLevel;
 }
 
 export namespace HierarchyStructure {
@@ -1936,14 +1936,14 @@ export namespace DisassociateApprovedOriginRequest {
 
 export interface DisassociateInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>A valid resource type.</p>
@@ -1959,14 +1959,14 @@ export namespace DisassociateInstanceStorageConfigRequest {
 
 export interface DisassociateLambdaFunctionRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance..</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function being disassociated.</p>
    */
   FunctionArn: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance..</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace DisassociateLambdaFunctionRequest {
@@ -1977,14 +1977,14 @@ export namespace DisassociateLambdaFunctionRequest {
 
 export interface DisassociateLexBotRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The name of the Amazon Lex bot. Maximum character limit of 50.</p>
    */
   BotName: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>The Region in which the Amazon Lex bot has been created.</p>
@@ -2005,14 +2005,14 @@ export interface DisassociateRoutingProfileQueuesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
    * <p>The queues to disassociate from this routing profile.</p>
    */
   QueueReferences: RoutingProfileQueueReference[] | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
 }
 
 export namespace DisassociateRoutingProfileQueuesRequest {
@@ -2023,14 +2023,14 @@ export namespace DisassociateRoutingProfileQueuesRequest {
 
 export interface DisassociateSecurityKeyRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace DisassociateSecurityKeyRequest {
@@ -2041,14 +2041,14 @@ export namespace DisassociateSecurityKeyRequest {
 
 export interface GetContactAttributesRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the initial contact.</p>
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace GetContactAttributesRequest {
@@ -2119,15 +2119,15 @@ export namespace CurrentMetric {
  */
 export interface Filters {
   /**
+   * <p>The channel to use to filter the metrics.</p>
+   */
+  Channels?: (Channel | string)[];
+
+  /**
    * <p>The queues to use to filter the metrics. You can specify up to 100 queues per
    *    request.</p>
    */
   Queues?: string[];
-
-  /**
-   * <p>The channel to use to filter the metrics.</p>
-   */
-  Channels?: (Channel | string)[];
 }
 
 export namespace Filters {
@@ -2142,28 +2142,6 @@ export enum Grouping {
 }
 
 export interface GetCurrentMetricDataRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
-   *    retrieved only for the resources associated with the queues or channels included in the filter.
-   *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
-   */
-  Filters: Filters | undefined;
-
-  /**
-   * <p>The grouping applied to the metrics returned. For example, when grouped by
-   *     <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all
-   *    queues. If you group by <code>CHANNEL</code>, you should include a Channels filter.
-   *    VOICE, CHAT, and TASK channels are supported.</p>
-   *          <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
-   *    returned.</p>
-   */
-  Groupings?: (Grouping | string)[];
-
   /**
    * <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics
    *    are available. For a description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
@@ -2263,17 +2241,39 @@ export interface GetCurrentMetricDataRequest {
   CurrentMetrics: CurrentMetric[] | undefined;
 
   /**
+   * <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is
+   *    retrieved only for the resources associated with the queues or channels included in the filter.
+   *    You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
+   */
+  Filters: Filters | undefined;
+
+  /**
+   * <p>The grouping applied to the metrics returned. For example, when grouped by
+   *     <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all
+   *    queues. If you group by <code>CHANNEL</code>, you should include a Channels filter.
+   *    VOICE, CHAT, and TASK channels are supported.</p>
+   *          <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
+   *    returned.</p>
+   */
+  Groupings?: (Grouping | string)[];
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
    *    the token must use the same request parameters as the request that generated the token.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace GetCurrentMetricDataRequest {
@@ -2308,14 +2308,14 @@ export namespace CurrentMetricData {
  */
 export interface QueueReference {
   /**
-   * <p>The identifier of the queue.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the queue.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  Id?: string;
 }
 
 export namespace QueueReference {
@@ -2329,14 +2329,14 @@ export namespace QueueReference {
  */
 export interface Dimensions {
   /**
-   * <p>Information about the queue for which metrics are returned.</p>
-   */
-  Queue?: QueueReference;
-
-  /**
    * <p>The channel used for grouping and filters.</p>
    */
   Channel?: Channel | string;
+
+  /**
+   * <p>Information about the queue for which metrics are returned.</p>
+   */
+  Queue?: QueueReference;
 }
 
 export namespace Dimensions {
@@ -2350,14 +2350,14 @@ export namespace Dimensions {
  */
 export interface CurrentMetricResult {
   /**
-   * <p>The dimensions for the metrics.</p>
-   */
-  Dimensions?: Dimensions;
-
-  /**
    * <p>The set of metrics.</p>
    */
   Collections?: CurrentMetricData[];
+
+  /**
+   * <p>The dimensions for the metrics.</p>
+   */
+  Dimensions?: Dimensions;
 }
 
 export namespace CurrentMetricResult {
@@ -2368,11 +2368,9 @@ export namespace CurrentMetricResult {
 
 export interface GetCurrentMetricDataResponse {
   /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
-   *    the token must use the same request parameters as the request that generated the token.</p>
+   * <p>The time at which the metrics were retrieved and cached for pagination.</p>
    */
-  NextToken?: string;
+  DataSnapshotTime?: Date;
 
   /**
    * <p>Information about the real-time metrics.</p>
@@ -2380,9 +2378,11 @@ export interface GetCurrentMetricDataResponse {
   MetricResults?: CurrentMetricResult[];
 
   /**
-   * <p>The time at which the metrics were retrieved and cached for pagination.</p>
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
+   *    the token must use the same request parameters as the request that generated the token.</p>
    */
-  DataSnapshotTime?: Date;
+  NextToken?: string;
 }
 
 export namespace GetCurrentMetricDataResponse {
@@ -2537,14 +2537,14 @@ export interface HistoricalMetric {
   Name?: HistoricalMetricName | string;
 
   /**
-   * <p>The threshold for the metric, used with service level metrics.</p>
-   */
-  Threshold?: Threshold;
-
-  /**
    * <p>The statistic for the metric.</p>
    */
   Statistic?: Statistic | string;
+
+  /**
+   * <p>The threshold for the metric, used with service level metrics.</p>
+   */
+  Threshold?: Threshold;
 
   /**
    * <p>The unit for the metric.</p>
@@ -2559,20 +2559,6 @@ export namespace HistoricalMetric {
 }
 
 export interface GetMetricDataRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the
-   *    retrieval of historical metrics data. The time must be specified using a multiple of 5 minutes,
-   *    such as 10:05, 10:10, 10:15.</p>
-   *          <p>The start time cannot be earlier than 24 hours before the time of the request. Historical
-   *    metrics are available only for 24 hours.</p>
-   */
-  StartTime: Date | undefined;
-
   /**
    * <p>The timestamp, in UNIX Epoch time format, at which to end the reporting interval for the
    *    retrieval of historical metrics data. The time must be specified using an interval of 5 minutes,
@@ -2734,15 +2720,29 @@ export interface GetMetricDataRequest {
   HistoricalMetrics: HistoricalMetric[] | undefined;
 
   /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The timestamp, in UNIX Epoch time format, at which to start the reporting interval for the
+   *    retrieval of historical metrics data. The time must be specified using a multiple of 5 minutes,
+   *    such as 10:05, 10:10, 10:15.</p>
+   *          <p>The start time cannot be earlier than 24 hours before the time of the request. Historical
+   *    metrics are available only for 24 hours.</p>
    */
-  MaxResults?: number;
+  StartTime: Date | undefined;
 }
 
 export namespace GetMetricDataRequest {
@@ -2777,14 +2777,14 @@ export namespace HistoricalMetricData {
  */
 export interface HistoricalMetricResult {
   /**
-   * <p>The dimension for the metrics.</p>
-   */
-  Dimensions?: Dimensions;
-
-  /**
    * <p>The set of metrics.</p>
    */
   Collections?: HistoricalMetricData[];
+
+  /**
+   * <p>The dimension for the metrics.</p>
+   */
+  Dimensions?: Dimensions;
 }
 
 export namespace HistoricalMetricResult {
@@ -2795,17 +2795,17 @@ export namespace HistoricalMetricResult {
 
 export interface GetMetricDataResponse {
   /**
+   * <p>Information about the historical metrics.</p>
+   *          <p>If no grouping is specified, a summary of metric data is returned.</p>
+   */
+  MetricResults?: HistoricalMetricResult[];
+
+  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
    *    the token must use the same request parameters as the request that generated the token.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Information about the historical metrics.</p>
-   *          <p>If no grouping is specified, a summary of metric data is returned.</p>
-   */
-  MetricResults?: HistoricalMetricResult[];
 }
 
 export namespace GetMetricDataResponse {
@@ -2821,15 +2821,15 @@ export interface ListApprovedOriginsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListApprovedOriginsRequest {
@@ -2840,14 +2840,14 @@ export namespace ListApprovedOriginsRequest {
 
 export interface ListApprovedOriginsResponse {
   /**
-   * <p>The approved origins.</p>
-   */
-  Origins?: string[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The approved origins.</p>
+   */
+  Origins?: string[];
 }
 
 export namespace ListApprovedOriginsResponse {
@@ -2858,25 +2858,25 @@ export namespace ListApprovedOriginsResponse {
 
 export interface ListContactFlowsRequest {
   /**
+   * <p>The type of contact flow.</p>
+   */
+  ContactFlowTypes?: (ContactFlowType | string)[];
+
+  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
 
   /**
-   * <p>The type of contact flow.</p>
+   * <p>The maximimum number of results to return per page.</p>
    */
-  ContactFlowTypes?: (ContactFlowType | string)[];
+  MaxResults?: number;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListContactFlowsRequest {
@@ -2892,24 +2892,24 @@ export namespace ListContactFlowsRequest {
  */
 export interface ContactFlowSummary {
   /**
-   * <p>The identifier of the contact flow.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the contact flow.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The name of the contact flow.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The type of contact flow.</p>
    */
   ContactFlowType?: ContactFlowType | string;
+
+  /**
+   * <p>The identifier of the contact flow.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the contact flow.</p>
+   */
+  Name?: string;
 }
 
 export namespace ContactFlowSummary {
@@ -2943,15 +2943,15 @@ export interface ListHoursOfOperationsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListHoursOfOperationsRequest {
@@ -2965,14 +2965,14 @@ export namespace ListHoursOfOperationsRequest {
  */
 export interface HoursOfOperationSummary {
   /**
-   * <p>The identifier of the hours of operation.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the hours of operation.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the hours of operation.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the hours of operation.</p>
@@ -3011,15 +3011,15 @@ export interface ListInstanceAttributesRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListInstanceAttributesRequest {
@@ -3048,15 +3048,15 @@ export namespace ListInstanceAttributesResponse {
 
 export interface ListInstancesRequest {
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListInstancesRequest {
@@ -3070,24 +3070,9 @@ export namespace ListInstancesRequest {
  */
 export interface InstanceSummary {
   /**
-   * <p>The identifier of the instance.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the instance.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The identity management type of the instance.</p>
-   */
-  IdentityManagementType?: DirectoryType | string;
-
-  /**
-   * <p>The alias of the instance.</p>
-   */
-  InstanceAlias?: string;
 
   /**
    * <p>When the instance was created.</p>
@@ -3095,14 +3080,14 @@ export interface InstanceSummary {
   CreatedTime?: Date;
 
   /**
-   * <p>The service role of the instance.</p>
+   * <p>The identifier of the instance.</p>
    */
-  ServiceRole?: string;
+  Id?: string;
 
   /**
-   * <p>The state of the instance.</p>
+   * <p>The identity management type of the instance.</p>
    */
-  InstanceStatus?: InstanceStatus | string;
+  IdentityManagementType?: DirectoryType | string;
 
   /**
    * <p>Whether inbound calls are enabled.</p>
@@ -3110,9 +3095,24 @@ export interface InstanceSummary {
   InboundCallsEnabled?: boolean;
 
   /**
+   * <p>The alias of the instance.</p>
+   */
+  InstanceAlias?: string;
+
+  /**
+   * <p>The state of the instance.</p>
+   */
+  InstanceStatus?: InstanceStatus | string;
+
+  /**
    * <p>Whether outbound calls are enabled.</p>
    */
   OutboundCallsEnabled?: boolean;
+
+  /**
+   * <p>The service role of the instance.</p>
+   */
+  ServiceRole?: string;
 }
 
 export namespace InstanceSummary {
@@ -3150,9 +3150,9 @@ export interface ListInstanceStorageConfigsRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>A valid resource type.</p>
+   * <p>The maximimum number of results to return per page.</p>
    */
-  ResourceType: InstanceStorageResourceType | string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -3161,9 +3161,9 @@ export interface ListInstanceStorageConfigsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>A valid resource type.</p>
    */
-  MaxResults?: number;
+  ResourceType: InstanceStorageResourceType | string | undefined;
 }
 
 export namespace ListInstanceStorageConfigsRequest {
@@ -3174,14 +3174,14 @@ export namespace ListInstanceStorageConfigsRequest {
 
 export interface ListInstanceStorageConfigsResponse {
   /**
-   * <p>A valid storage type.</p>
-   */
-  StorageConfigs?: InstanceStorageConfig[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageConfigs?: InstanceStorageConfig[];
 }
 
 export namespace ListInstanceStorageConfigsResponse {
@@ -3197,15 +3197,15 @@ export interface ListIntegrationAssociationsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListIntegrationAssociationsRequest {
@@ -3219,24 +3219,9 @@ export namespace ListIntegrationAssociationsRequest {
  */
 export interface IntegrationAssociationSummary {
   /**
-   * <p>The identifier for the AppIntegration association.</p>
-   */
-  IntegrationAssociationId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
-   */
-  IntegrationAssociationArn?: string;
-
-  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId?: string;
-
-  /**
-   * <p>The integration type.</p>
-   */
-  IntegrationType?: IntegrationType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
@@ -3244,14 +3229,29 @@ export interface IntegrationAssociationSummary {
   IntegrationArn?: string;
 
   /**
-   * <p>The URL for the external application.</p>
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
    */
-  SourceApplicationUrl?: string;
+  IntegrationAssociationArn?: string;
+
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   */
+  IntegrationAssociationId?: string;
+
+  /**
+   * <p>The integration type.</p>
+   */
+  IntegrationType?: IntegrationType | string;
 
   /**
    * <p>The user-provided, friendly name for the external application.</p>
    */
   SourceApplicationName?: string;
+
+  /**
+   * <p>The URL for the external application.</p>
+   */
+  SourceApplicationUrl?: string;
 
   /**
    * <p>The name of the source.</p>
@@ -3290,15 +3290,15 @@ export interface ListLambdaFunctionsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListLambdaFunctionsRequest {
@@ -3332,15 +3332,15 @@ export interface ListLexBotsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListLexBotsRequest {
@@ -3619,14 +3619,9 @@ export interface ListPhoneNumbersRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The type of phone number.</p>
+   * <p>The maximimum number of results to return per page.</p>
    */
-  PhoneNumberTypes?: (PhoneNumberType | string)[];
-
-  /**
-   * <p>The ISO country code.</p>
-   */
-  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+  MaxResults?: number;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -3635,9 +3630,14 @@ export interface ListPhoneNumbersRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The ISO country code.</p>
    */
-  MaxResults?: number;
+  PhoneNumberCountryCodes?: (PhoneNumberCountryCode | string)[];
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberTypes?: (PhoneNumberType | string)[];
 }
 
 export namespace ListPhoneNumbersRequest {
@@ -3651,14 +3651,14 @@ export namespace ListPhoneNumbersRequest {
  */
 export interface PhoneNumberSummary {
   /**
-   * <p>The identifier of the phone number.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the phone number.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the phone number.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The phone number.</p>
@@ -3666,14 +3666,14 @@ export interface PhoneNumberSummary {
   PhoneNumber?: string;
 
   /**
-   * <p>The type of phone number.</p>
-   */
-  PhoneNumberType?: PhoneNumberType | string;
-
-  /**
    * <p>The ISO country code.</p>
    */
   PhoneNumberCountryCode?: PhoneNumberCountryCode | string;
+
+  /**
+   * <p>The type of phone number.</p>
+   */
+  PhoneNumberType?: PhoneNumberType | string;
 }
 
 export namespace PhoneNumberSummary {
@@ -3684,14 +3684,14 @@ export namespace PhoneNumberSummary {
 
 export interface ListPhoneNumbersResponse {
   /**
-   * <p>Information about the phone numbers.</p>
-   */
-  PhoneNumberSummaryList?: PhoneNumberSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the phone numbers.</p>
+   */
+  PhoneNumberSummaryList?: PhoneNumberSummary[];
 }
 
 export namespace ListPhoneNumbersResponse {
@@ -3707,15 +3707,15 @@ export interface ListPromptsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListPromptsRequest {
@@ -3729,14 +3729,14 @@ export namespace ListPromptsRequest {
  */
 export interface PromptSummary {
   /**
-   * <p>The identifier of the prompt.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the prompt.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the prompt.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the prompt.</p>
@@ -3752,14 +3752,14 @@ export namespace PromptSummary {
 
 export interface ListPromptsResponse {
   /**
-   * <p>Information about the prompts.</p>
-   */
-  PromptSummaryList?: PromptSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the prompts.</p>
+   */
+  PromptSummaryList?: PromptSummary[];
 }
 
 export namespace ListPromptsResponse {
@@ -3780,9 +3780,9 @@ export interface ListQueuesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The type of queue.</p>
+   * <p>The maximimum number of results to return per page.</p>
    */
-  QueueTypes?: (QueueType | string)[];
+  MaxResults?: number;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -3791,9 +3791,9 @@ export interface ListQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The type of queue.</p>
    */
-  MaxResults?: number;
+  QueueTypes?: (QueueType | string)[];
 }
 
 export namespace ListQueuesRequest {
@@ -3807,14 +3807,14 @@ export namespace ListQueuesRequest {
  */
 export interface QueueSummary {
   /**
-   * <p>The identifier of the queue.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the queue.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the queue.</p>
@@ -3835,14 +3835,14 @@ export namespace QueueSummary {
 
 export interface ListQueuesResponse {
   /**
-   * <p>Information about the queues.</p>
-   */
-  QueueSummaryList?: QueueSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the queues.</p>
+   */
+  QueueSummaryList?: QueueSummary[];
 }
 
 export namespace ListQueuesResponse {
@@ -3858,9 +3858,9 @@ export interface ListRoutingProfileQueuesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the routing profile.</p>
+   * <p>The maximimum number of results to return per page.</p>
    */
-  RoutingProfileId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
@@ -3869,9 +3869,9 @@ export interface ListRoutingProfileQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximimum number of results to return per page.</p>
+   * <p>The identifier of the routing profile.</p>
    */
-  MaxResults?: number;
+  RoutingProfileId: string | undefined;
 }
 
 export namespace ListRoutingProfileQueuesRequest {
@@ -3885,26 +3885,9 @@ export namespace ListRoutingProfileQueuesRequest {
  */
 export interface RoutingProfileQueueConfigSummary {
   /**
-   * <p>The identifier of the queue.</p>
+   * <p>The channels this queue supports.</p>
    */
-  QueueId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the queue.</p>
-   */
-  QueueArn: string | undefined;
-
-  /**
-   * <p>The name of the queue.</p>
-   */
-  QueueName: string | undefined;
-
-  /**
-   * <p>The order in which contacts are to be handled for the queue. For more information, see
-   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
-   *     delay</a>.</p>
-   */
-  Priority: number | undefined;
+  Channel: Channel | string | undefined;
 
   /**
    * <p>The delay, in seconds, that a contact should be in the queue before they are routed to an
@@ -3914,9 +3897,26 @@ export interface RoutingProfileQueueConfigSummary {
   Delay: number | undefined;
 
   /**
-   * <p>The channels this queue supports.</p>
+   * <p>The order in which contacts are to be handled for the queue. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and
+   *     delay</a>.</p>
    */
-  Channel: Channel | string | undefined;
+  Priority: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the queue.</p>
+   */
+  QueueArn: string | undefined;
+
+  /**
+   * <p>The identifier of the queue.</p>
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The name of the queue.</p>
+   */
+  QueueName: string | undefined;
 }
 
 export namespace RoutingProfileQueueConfigSummary {
@@ -3950,15 +3950,15 @@ export interface ListRoutingProfilesRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListRoutingProfilesRequest {
@@ -3972,14 +3972,14 @@ export namespace ListRoutingProfilesRequest {
  */
 export interface RoutingProfileSummary {
   /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the routing profile.</p>
@@ -3995,14 +3995,14 @@ export namespace RoutingProfileSummary {
 
 export interface ListRoutingProfilesResponse {
   /**
-   * <p>Information about the routing profiles.</p>
-   */
-  RoutingProfileSummaryList?: RoutingProfileSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the routing profiles.</p>
+   */
+  RoutingProfileSummaryList?: RoutingProfileSummary[];
 }
 
 export namespace ListRoutingProfilesResponse {
@@ -4018,15 +4018,15 @@ export interface ListSecurityKeysRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListSecurityKeysRequest {
@@ -4045,14 +4045,14 @@ export interface SecurityKey {
   AssociationId?: string;
 
   /**
-   * <p>The key of the security key.</p>
-   */
-  Key?: string;
-
-  /**
    * <p>When the security key was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The key of the security key.</p>
+   */
+  Key?: string;
 }
 
 export namespace SecurityKey {
@@ -4063,14 +4063,14 @@ export namespace SecurityKey {
 
 export interface ListSecurityKeysResponse {
   /**
-   * <p>The security keys.</p>
-   */
-  SecurityKeys?: SecurityKey[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The security keys.</p>
+   */
+  SecurityKeys?: SecurityKey[];
 }
 
 export namespace ListSecurityKeysResponse {
@@ -4086,15 +4086,15 @@ export interface ListSecurityProfilesRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListSecurityProfilesRequest {
@@ -4108,14 +4108,14 @@ export namespace ListSecurityProfilesRequest {
  */
 export interface SecurityProfileSummary {
   /**
-   * <p>The identifier of the security profile.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the security profile.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the security profile.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The name of the security profile.</p>
@@ -4131,14 +4131,14 @@ export namespace SecurityProfileSummary {
 
 export interface ListSecurityProfilesResponse {
   /**
-   * <p>Information about the security profiles.</p>
-   */
-  SecurityProfileSummaryList?: SecurityProfileSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the security profiles.</p>
+   */
+  SecurityProfileSummaryList?: SecurityProfileSummary[];
 }
 
 export namespace ListSecurityProfilesResponse {
@@ -4189,15 +4189,15 @@ export interface ListUseCasesRequest {
   IntegrationAssociationId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListUseCasesRequest {
@@ -4211,14 +4211,14 @@ export namespace ListUseCasesRequest {
  */
 export interface UseCase {
   /**
-   * <p>The identifier for the use case.</p>
-   */
-  UseCaseId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the use case.</p>
    */
   UseCaseArn?: string;
+
+  /**
+   * <p>The identifier for the use case.</p>
+   */
+  UseCaseId?: string;
 
   /**
    * <p>The type of use case to associate to the AppIntegration association. Each AppIntegration
@@ -4235,14 +4235,14 @@ export namespace UseCase {
 
 export interface ListUseCasesResponse {
   /**
-   * <p>The use cases.</p>
-   */
-  UseCaseSummaryList?: UseCase[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The use cases.</p>
+   */
+  UseCaseSummaryList?: UseCase[];
 }
 
 export namespace ListUseCasesResponse {
@@ -4258,15 +4258,15 @@ export interface ListUserHierarchyGroupsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListUserHierarchyGroupsRequest {
@@ -4277,14 +4277,14 @@ export namespace ListUserHierarchyGroupsRequest {
 
 export interface ListUserHierarchyGroupsResponse {
   /**
-   * <p>Information about the hierarchy groups.</p>
-   */
-  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the hierarchy groups.</p>
+   */
+  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
 }
 
 export namespace ListUserHierarchyGroupsResponse {
@@ -4300,15 +4300,15 @@ export interface ListUsersRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p>The maximimum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximimum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListUsersRequest {
@@ -4322,14 +4322,14 @@ export namespace ListUsersRequest {
  */
 export interface UserSummary {
   /**
-   * <p>The identifier of the user account.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the user account.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  Id?: string;
 
   /**
    * <p>The Amazon Connect user name of the user account.</p>
@@ -4345,14 +4345,14 @@ export namespace UserSummary {
 
 export interface ListUsersResponse {
   /**
-   * <p>Information about the users.</p>
-   */
-  UserSummaryList?: UserSummary[];
-
-  /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the users.</p>
+   */
+  UserSummaryList?: UserSummary[];
 }
 
 export namespace ListUsersResponse {
@@ -4363,11 +4363,6 @@ export namespace ListUsersResponse {
 
 export interface ResumeContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
@@ -4377,6 +4372,11 @@ export interface ResumeContactRecordingRequest {
    *    first interaction with the contact center.</p>
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace ResumeContactRecordingRequest {
@@ -4398,14 +4398,14 @@ export namespace ResumeContactRecordingResponse {
  */
 export interface ChatMessage {
   /**
-   * <p>The type of the content. Supported types are text/plain.</p>
-   */
-  ContentType: string | undefined;
-
-  /**
    * <p>The content of the chat message.</p>
    */
   Content: string | undefined;
+
+  /**
+   * <p>The type of the content. Supported types are text/plain.</p>
+   */
+  ContentType: string | undefined;
 }
 
 export namespace ChatMessage {
@@ -4432,9 +4432,18 @@ export namespace ParticipantDetails {
 
 export interface StartChatContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes, and can be accessed in contact flows just like any other contact attributes. </p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  InstanceId: string | undefined;
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request.</p>
+   */
+  ClientToken?: string;
 
   /**
    * <p>The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the
@@ -4448,28 +4457,19 @@ export interface StartChatContactRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes. </p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
-   * <p>Information identifying the participant.</p>
-   */
-  ParticipantDetails: ParticipantDetails | undefined;
-
-  /**
    * <p>The initial message to be sent to the newly created chat.</p>
    */
   InitialMessage?: ChatMessage;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
+   * <p>The identifier of the Amazon Connect instance.</p>
    */
-  ClientToken?: string;
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Information identifying the participant.</p>
+   */
+  ParticipantDetails: ParticipantDetails | undefined;
 }
 
 export namespace StartChatContactRequest {
@@ -4527,11 +4527,6 @@ export namespace VoiceRecordingConfiguration {
 
 export interface StartContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
@@ -4541,6 +4536,11 @@ export interface StartContactRecordingRequest {
    *    first interaction with the contact center.</p>
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>Who is being recorded.</p>
@@ -4600,9 +4600,19 @@ export namespace OutboundContactNotPermittedException {
 
 export interface StartOutboundVoiceContactRequest {
   /**
-   * <p>The phone number of the customer, in E.164 format.</p>
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  DestinationPhoneNumber: string | undefined;
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request. The token is valid for 7 days after creation. If a contact is already started, the
+   *    contact ID is returned. If the contact is disconnected, a new contact is started.</p>
+   */
+  ClientToken?: string;
 
   /**
    * <p>The identifier of the contact flow for the outbound call. To see the ContactFlowId in the
@@ -4616,22 +4626,14 @@ export interface StartOutboundVoiceContactRequest {
   ContactFlowId: string | undefined;
 
   /**
+   * <p>The phone number of the customer, in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request. The token is valid for 7 days after creation. If a contact is already started, the
-   *    contact ID is returned. If the contact is disconnected, a new contact is started.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify
-   *    a source phone number, you must specify a queue.</p>
-   */
-  SourcePhoneNumber?: string;
 
   /**
    * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
@@ -4642,12 +4644,10 @@ export interface StartOutboundVoiceContactRequest {
   QueueId?: string;
 
   /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
+   * <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify
+   *    a source phone number, you must specify a queue.</p>
    */
-  Attributes?: { [key: string]: string };
+  SourcePhoneNumber?: string;
 }
 
 export namespace StartOutboundVoiceContactRequest {
@@ -4679,14 +4679,14 @@ export enum ReferenceType {
  */
 export interface Reference {
   /**
-   * <p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>A valid URL.</p>
    */
   Type: ReferenceType | string | undefined;
+
+  /**
+   * <p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Reference {
@@ -4697,14 +4697,18 @@ export namespace Reference {
 
 export interface StartTaskContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
    */
-  InstanceId: string | undefined;
+  Attributes?: { [key: string]: string };
 
   /**
-   * <p>The identifier of the previous chat, voice, or task contact. </p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request.</p>
    */
-  PreviousContactId?: string;
+  ClientToken?: string;
 
   /**
    * <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the
@@ -4718,12 +4722,15 @@ export interface StartTaskContactRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
+   * <p>A description of the task that is shown to an agent in the Contact Control Panel
+   *    (CCP).</p>
    */
-  Attributes?: { [key: string]: string };
+  Description?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
@@ -4731,21 +4738,14 @@ export interface StartTaskContactRequest {
   Name: string | undefined;
 
   /**
+   * <p>The identifier of the previous chat, voice, or task contact. </p>
+   */
+  PreviousContactId?: string;
+
+  /**
    * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
    */
   References?: { [key: string]: Reference };
-
-  /**
-   * <p>A description of the task that is shown to an agent in the Contact Control Panel
-   *    (CCP).</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
-   */
-  ClientToken?: string;
 }
 
 export namespace StartTaskContactRequest {
@@ -4813,11 +4813,6 @@ export namespace StopContactResponse {
 
 export interface StopContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
@@ -4827,6 +4822,11 @@ export interface StopContactRecordingRequest {
    *    first interaction with the contact center.</p>
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace StopContactRecordingRequest {
@@ -4845,11 +4845,6 @@ export namespace StopContactRecordingResponse {
 
 export interface SuspendContactRecordingRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
@@ -4859,6 +4854,11 @@ export interface SuspendContactRecordingRequest {
    *    first interaction with the contact center.</p>
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace SuspendContactRecordingRequest {
@@ -4913,6 +4913,14 @@ export namespace UntagResourceRequest {
 
 export interface UpdateContactAttributesRequest {
   /**
+   * <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other
+   *    contact attributes.</p>
+   *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   */
+  Attributes: { [key: string]: string } | undefined;
+
+  /**
    * <p>The identifier of the contact. This is the identifier of the contact associated with the
    *    first interaction with the contact center.</p>
    */
@@ -4922,14 +4930,6 @@ export interface UpdateContactAttributesRequest {
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
-
-  /**
-   * <p>The Amazon Connect attributes. These attributes can be accessed in contact flows just like any other
-   *    contact attributes.</p>
-   *          <p>You can have up to 32,768 UTF-8 bytes across all attributes for a contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   */
-  Attributes: { [key: string]: string } | undefined;
 }
 
 export namespace UpdateContactAttributesRequest {
@@ -4948,11 +4948,6 @@ export namespace UpdateContactAttributesResponse {
 
 export interface UpdateContactFlowContentRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
@@ -4963,6 +4958,11 @@ export interface UpdateContactFlowContentRequest {
    *   </p>
    */
   Content: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace UpdateContactFlowContentRequest {
@@ -4973,24 +4973,24 @@ export namespace UpdateContactFlowContentRequest {
 
 export interface UpdateContactFlowNameRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact flow.</p>
    */
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The name of the contact flow.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The description of the contact flow.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the contact flow.</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateContactFlowNameRequest {
@@ -5001,14 +5001,14 @@ export namespace UpdateContactFlowNameRequest {
 
 export interface UpdateInstanceAttributeRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The type of attribute.</p>
    */
   AttributeType: InstanceAttributeType | string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>The value for the attribute. Maximum character limit is 100. </p>
@@ -5024,14 +5024,14 @@ export namespace UpdateInstanceAttributeRequest {
 
 export interface UpdateInstanceStorageConfigRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>
    */
   AssociationId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>A valid resource type.</p>
@@ -5057,14 +5057,14 @@ export interface UpdateRoutingProfileConcurrencyRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
    * <p>The channels agents can handle in the Contact Control Panel (CCP).</p>
    */
   MediaConcurrencies: MediaConcurrency[] | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
 }
 
 export namespace UpdateRoutingProfileConcurrencyRequest {
@@ -5075,6 +5075,11 @@ export namespace UpdateRoutingProfileConcurrencyRequest {
 
 export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
   /**
+   * <p>The identifier for the default outbound queue.</p>
+   */
+  DefaultOutboundQueueId: string | undefined;
+
+  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
@@ -5083,11 +5088,6 @@ export interface UpdateRoutingProfileDefaultOutboundQueueRequest {
    * <p>The identifier of the routing profile.</p>
    */
   RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The identifier for the default outbound queue.</p>
-   */
-  DefaultOutboundQueueId: string | undefined;
 }
 
 export namespace UpdateRoutingProfileDefaultOutboundQueueRequest {
@@ -5098,14 +5098,14 @@ export namespace UpdateRoutingProfileDefaultOutboundQueueRequest {
 
 export interface UpdateRoutingProfileNameRequest {
   /**
+   * <p>The description of the routing profile. Must not be more than 250 characters.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
 
   /**
    * <p>The name of the routing profile. Must not be more than 127 characters.</p>
@@ -5113,9 +5113,9 @@ export interface UpdateRoutingProfileNameRequest {
   Name?: string;
 
   /**
-   * <p>The description of the routing profile. Must not be more than 250 characters.</p>
+   * <p>The identifier of the routing profile.</p>
    */
-  Description?: string;
+  RoutingProfileId: string | undefined;
 }
 
 export namespace UpdateRoutingProfileNameRequest {
@@ -5131,15 +5131,15 @@ export interface UpdateRoutingProfileQueuesRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the routing profile.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
    * <p>The queues to be updated for this routing profile. Queues must first be associated to the
    *    routing profile. You can do this using AssociateRoutingProfileQueues.</p>
    */
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
+
+  /**
+   * <p>The identifier of the routing profile.</p>
+   */
+  RoutingProfileId: string | undefined;
 }
 
 export namespace UpdateRoutingProfileQueuesRequest {
@@ -5155,14 +5155,14 @@ export interface UpdateUserHierarchyRequest {
   HierarchyGroupId?: string;
 
   /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
 }
 
 export namespace UpdateUserHierarchyRequest {
@@ -5173,11 +5173,6 @@ export namespace UpdateUserHierarchyRequest {
 
 export interface UpdateUserHierarchyGroupNameRequest {
   /**
-   * <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The identifier of the hierarchy group.</p>
    */
   HierarchyGroupId: string | undefined;
@@ -5186,6 +5181,11 @@ export interface UpdateUserHierarchyGroupNameRequest {
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace UpdateUserHierarchyGroupNameRequest {
@@ -5215,19 +5215,9 @@ export namespace HierarchyLevelUpdate {
  */
 export interface HierarchyStructureUpdate {
   /**
-   * <p>The update for level one.</p>
+   * <p>The update for level five.</p>
    */
-  LevelOne?: HierarchyLevelUpdate;
-
-  /**
-   * <p>The update for level two.</p>
-   */
-  LevelTwo?: HierarchyLevelUpdate;
-
-  /**
-   * <p>The update for level three.</p>
-   */
-  LevelThree?: HierarchyLevelUpdate;
+  LevelFive?: HierarchyLevelUpdate;
 
   /**
    * <p>The update for level four.</p>
@@ -5235,9 +5225,19 @@ export interface HierarchyStructureUpdate {
   LevelFour?: HierarchyLevelUpdate;
 
   /**
-   * <p>The update for level five.</p>
+   * <p>The update for level one.</p>
    */
-  LevelFive?: HierarchyLevelUpdate;
+  LevelOne?: HierarchyLevelUpdate;
+
+  /**
+   * <p>The update for level three.</p>
+   */
+  LevelThree?: HierarchyLevelUpdate;
+
+  /**
+   * <p>The update for level two.</p>
+   */
+  LevelTwo?: HierarchyLevelUpdate;
 }
 
 export namespace HierarchyStructureUpdate {
@@ -5271,14 +5271,14 @@ export interface UpdateUserIdentityInfoRequest {
   IdentityInfo: UserIdentityInfo | undefined;
 
   /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
    * <p>The identifier of the Amazon Connect instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
 }
 
 export namespace UpdateUserIdentityInfoRequest {
@@ -5289,6 +5289,11 @@ export namespace UpdateUserIdentityInfoRequest {
 
 export interface UpdateUserPhoneConfigRequest {
   /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
    * <p>Information about phone configuration settings for the user.</p>
    */
   PhoneConfig: UserPhoneConfig | undefined;
@@ -5297,11 +5302,6 @@ export interface UpdateUserPhoneConfigRequest {
    * <p>The identifier of the user account.</p>
    */
   UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
 }
 
 export namespace UpdateUserPhoneConfigRequest {
@@ -5312,6 +5312,11 @@ export namespace UpdateUserPhoneConfigRequest {
 
 export interface UpdateUserRoutingProfileRequest {
   /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
    * <p>The identifier of the routing profile for the user.</p>
    */
   RoutingProfileId: string | undefined;
@@ -5320,11 +5325,6 @@ export interface UpdateUserRoutingProfileRequest {
    * <p>The identifier of the user account.</p>
    */
   UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
 }
 
 export namespace UpdateUserRoutingProfileRequest {
@@ -5335,6 +5335,11 @@ export namespace UpdateUserRoutingProfileRequest {
 
 export interface UpdateUserSecurityProfilesRequest {
   /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
    * <p>The identifiers of the security profiles for the user.</p>
    */
   SecurityProfileIds: string[] | undefined;
@@ -5343,11 +5348,6 @@ export interface UpdateUserSecurityProfilesRequest {
    * <p>The identifier of the user account.</p>
    */
   UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
 }
 
 export namespace UpdateUserSecurityProfilesRequest {

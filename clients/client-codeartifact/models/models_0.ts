@@ -34,6 +34,13 @@ export enum HashAlgorithm {
 export interface AssetSummary {
   /**
    * <p>
+   *       The hashes of the asset.
+   *     </p>
+   */
+  hashes?: { [key: string]: string };
+
+  /**
+   * <p>
    *          The name of the asset.
    *        </p>
    */
@@ -45,13 +52,6 @@ export interface AssetSummary {
    *     </p>
    */
   size?: number;
-
-  /**
-   * <p>
-   *       The hashes of the asset.
-   *     </p>
-   */
-  hashes?: { [key: string]: string };
 }
 
 export namespace AssetSummary {
@@ -73,13 +73,6 @@ export interface AssociateExternalConnectionRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *       The name of the repository to which the external connection is added.
-   *     </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -124,6 +117,13 @@ export interface AssociateExternalConnectionRequest {
    *          </ul>
    */
   externalConnection: string | undefined;
+
+  /**
+   * <p>
+   *       The name of the repository to which the external connection is added.
+   *     </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace AssociateExternalConnectionRequest {
@@ -225,16 +225,21 @@ export namespace UpstreamRepositoryInfo {
  */
 export interface RepositoryDescription {
   /**
-   * <p>
-   *         The name of the repository.
-   *        </p>
-   */
-  name?: string;
-
-  /**
    * <p> The 12-digit account number of the AWS account that manages the repository. </p>
    */
   administratorAccount?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the repository. </p>
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       A text description of the repository.
+   *     </p>
+   */
+  description?: string;
 
   /**
    * <p>
@@ -252,16 +257,18 @@ export interface RepositoryDescription {
   domainOwner?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the repository. </p>
+   * <p>
+   *       An array of external connections associated with the repository.
+   *     </p>
    */
-  arn?: string;
+  externalConnections?: RepositoryExternalConnectionInfo[];
 
   /**
    * <p>
-   *       A text description of the repository.
-   *     </p>
+   *         The name of the repository.
+   *        </p>
    */
-  description?: string;
+  name?: string;
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
@@ -269,13 +276,6 @@ export interface RepositoryDescription {
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    */
   upstreams?: UpstreamRepositoryInfo[];
-
-  /**
-   * <p>
-   *       An array of external connections associated with the repository.
-   *     </p>
-   */
-  externalConnections?: RepositoryExternalConnectionInfo[];
 }
 
 export namespace RepositoryDescription {
@@ -469,6 +469,23 @@ export namespace ValidationException {
 export interface CopyPackageVersionsRequest {
   /**
    * <p>
+   *        Set to true to overwrite a package version that already exists in the destination repository.
+   *        If set to false and the package version already exists in the destination repository,
+   *        the package version is returned in the <code>failedVersions</code> field of the response with
+   *        an <code>ALREADY_EXISTS</code> error code.
+   *      </p>
+   */
+  allowOverwrite?: boolean;
+
+  /**
+   * <p>
+   *       The name of the repository into which package versions are copied.
+   *     </p>
+   */
+  destinationRepository: string | undefined;
+
+  /**
+   * <p>
    *         The name of the domain that contains the source and destination repositories.
    *       </p>
    */
@@ -481,20 +498,6 @@ export interface CopyPackageVersionsRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *          The name of the repository that contains the package versions to copy.
-   *        </p>
-   */
-  sourceRepository: string | undefined;
-
-  /**
-   * <p>
-   *       The name of the repository into which package versions are copied.
-   *     </p>
-   */
-  destinationRepository: string | undefined;
 
   /**
    * <p>
@@ -524,6 +527,14 @@ export interface CopyPackageVersionsRequest {
    *          </ul>
    */
   format: PackageFormat | string | undefined;
+
+  /**
+   * <p> Set to true to copy packages from repositories that are upstream from the source
+   *       repository to the destination repository. The default setting is false. For more information,
+   *       see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with
+   *         upstream repositories</a>. </p>
+   */
+  includeFromUpstream?: boolean;
 
   /**
    * <p>
@@ -566,15 +577,10 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *         The versions of the package to copy.
-   *       </p>
-   *          <note>
-   *             <p>
-   *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
-   *       </p>
-   *          </note>
+   *          The name of the repository that contains the package versions to copy.
+   *        </p>
    */
-  versions?: string[];
+  sourceRepository: string | undefined;
 
   /**
    * <p>
@@ -591,21 +597,15 @@ export interface CopyPackageVersionsRequest {
 
   /**
    * <p>
-   *        Set to true to overwrite a package version that already exists in the destination repository.
-   *        If set to false and the package version already exists in the destination repository,
-   *        the package version is returned in the <code>failedVersions</code> field of the response with
-   *        an <code>ALREADY_EXISTS</code> error code.
-   *      </p>
+   *         The versions of the package to copy.
+   *       </p>
+   *          <note>
+   *             <p>
+   *         You must specify <code>versions</code> or <code>versionRevisions</code>. You cannot specify both.
+   *       </p>
+   *          </note>
    */
-  allowOverwrite?: boolean;
-
-  /**
-   * <p> Set to true to copy packages from repositories that are upstream from the source
-   *       repository to the destination repository. The default setting is false. For more information,
-   *       see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with
-   *         upstream repositories</a>. </p>
-   */
-  includeFromUpstream?: boolean;
+  versions?: string[];
 }
 
 export namespace CopyPackageVersionsRequest {
@@ -746,13 +746,6 @@ export namespace SuccessfulPackageVersionInfo {
 export interface CopyPackageVersionsResult {
   /**
    * <p>
-   *       A list of the package versions that were successfully copied to your repository.
-   *     </p>
-   */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
-
-  /**
-   * <p>
    *       A map of package versions that failed to copy and their error codes. The possible error codes are in
    *       the <code>PackageVersionError</code> data type. They are:
    *     </p>
@@ -790,6 +783,13 @@ export interface CopyPackageVersionsResult {
    *          </ul>
    */
   failedVersions?: { [key: string]: PackageVersionError };
+
+  /**
+   * <p>
+   *       A list of the package versions that were successfully copied to your repository.
+   *     </p>
+   */
+  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
 }
 
 export namespace CopyPackageVersionsResult {
@@ -868,6 +868,30 @@ export enum DomainStatus {
  */
 export interface DomainDescription {
   /**
+   * <p> The Amazon Resource Name (ARN) of the domain. </p>
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       The total size of all assets in the domain.
+   *     </p>
+   */
+  assetSizeBytes?: number;
+
+  /**
+   * <p>
+   *       A timestamp that represents the date and time the domain was created.
+   *     </p>
+   */
+  createdTime?: Date;
+
+  /**
+   * <p> The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain. </p>
+   */
+  encryptionKey?: string;
+
+  /**
    * <p>
    *          The name of the domain.
    *        </p>
@@ -880,9 +904,16 @@ export interface DomainDescription {
   owner?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the domain. </p>
+   * <p>
+   *       The number of repositories in the domain.
+   *     </p>
    */
-  arn?: string;
+  repositoryCount?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to store package assets in the domain.</p>
+   */
+  s3BucketArn?: string;
 
   /**
    * <p> The current status of a domain. The valid values are </p>
@@ -900,37 +931,6 @@ export interface DomainDescription {
    *          </ul>
    */
   status?: DomainStatus | string;
-
-  /**
-   * <p>
-   *       A timestamp that represents the date and time the domain was created.
-   *     </p>
-   */
-  createdTime?: Date;
-
-  /**
-   * <p> The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain. </p>
-   */
-  encryptionKey?: string;
-
-  /**
-   * <p>
-   *       The number of repositories in the domain.
-   *     </p>
-   */
-  repositoryCount?: number;
-
-  /**
-   * <p>
-   *       The total size of all assets in the domain.
-   *     </p>
-   */
-  assetSizeBytes?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to store package assets in the domain.</p>
-   */
-  s3BucketArn?: string;
 }
 
 export namespace DomainDescription {
@@ -981,6 +981,13 @@ export namespace UpstreamRepository {
 export interface CreateRepositoryRequest {
   /**
    * <p>
+   *       A description of the created repository.
+   *     </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
    *         The domain that contains the created repository.
    *       </p>
    */
@@ -1000,11 +1007,9 @@ export interface CreateRepositoryRequest {
   repository: string | undefined;
 
   /**
-   * <p>
-   *       A description of the created repository.
-   *     </p>
+   * <p>One or more tag key-value pairs for the repository.</p>
    */
-  description?: string;
+  tags?: Tag[];
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
@@ -1012,11 +1017,6 @@ export interface CreateRepositoryRequest {
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    */
   upstreams?: UpstreamRepository[];
-
-  /**
-   * <p>One or more tag key-value pairs for the repository.</p>
-   */
-  tags?: Tag[];
 }
 
 export namespace CreateRepositoryRequest {
@@ -1117,6 +1117,13 @@ export namespace DeleteDomainPermissionsPolicyRequest {
 export interface ResourcePolicy {
   /**
    * <p>
+   *       The resource policy formatted in JSON.
+   *     </p>
+   */
+  document?: string;
+
+  /**
+   * <p>
    *         The ARN of the resource associated with the resource policy
    *       </p>
    */
@@ -1128,13 +1135,6 @@ export interface ResourcePolicy {
    *       </p>
    */
   revision?: string;
-
-  /**
-   * <p>
-   *       The resource policy formatted in JSON.
-   *     </p>
-   */
-  document?: string;
 }
 
 export namespace ResourcePolicy {
@@ -1176,10 +1176,37 @@ export interface DeletePackageVersionsRequest {
 
   /**
    * <p>
-   *         The name of the repository that contains the package versions to delete.
+   *         The expected status of the package version to delete. Valid values are:
    *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Published</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unfinished</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unlisted</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Disposed</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  repository: string | undefined;
+  expectedStatus?: PackageVersionStatus | string;
 
   /**
    * <p>
@@ -1251,44 +1278,17 @@ export interface DeletePackageVersionsRequest {
 
   /**
    * <p>
+   *         The name of the repository that contains the package versions to delete.
+   *       </p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>
    *         An array of strings that specify the versions of the package to delete.
    *       </p>
    */
   versions: string[] | undefined;
-
-  /**
-   * <p>
-   *         The expected status of the package version to delete. Valid values are:
-   *       </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  expectedStatus?: PackageVersionStatus | string;
 }
 
 export namespace DeletePackageVersionsRequest {
@@ -1298,13 +1298,6 @@ export namespace DeletePackageVersionsRequest {
 }
 
 export interface DeletePackageVersionsResult {
-  /**
-   * <p>
-   *        A list of the package versions that were successfully deleted.
-   *      </p>
-   */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
-
   /**
    * <p>
    *        A <code>PackageVersionError</code> object that contains a map of errors codes for the
@@ -1344,6 +1337,13 @@ export interface DeletePackageVersionsResult {
    *          </ul>
    */
   failedVersions?: { [key: string]: PackageVersionError };
+
+  /**
+   * <p>
+   *        A list of the package versions that were successfully deleted.
+   *      </p>
+   */
+  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
 }
 
 export namespace DeletePackageVersionsResult {
@@ -1413,18 +1413,18 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
 
   /**
    * <p>
-   *       The name of the repository that is associated with the resource policy to be deleted
-   *     </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
    *       The revision of the repository's resource policy to be deleted. This revision is used for optimistic locking, which
    *       prevents others from accidentally overwriting your changes to the repository's resource policy.
    *     </p>
    */
   policyRevision?: string;
+
+  /**
+   * <p>
+   *       The name of the repository that is associated with the resource policy to be deleted
+   *     </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace DeleteRepositoryPermissionsPolicyRequest {
@@ -1504,11 +1504,6 @@ export interface DescribePackageVersionRequest {
   domainOwner?: string;
 
   /**
-   * <p> The name of the repository that contains the package version. </p>
-   */
-  repository: string | undefined;
-
-  /**
    * <p>
    *       A format that specifies the type of the requested package version. The valid values are:
    *     </p>
@@ -1580,6 +1575,11 @@ export interface DescribePackageVersionRequest {
    *     </p>
    */
   packageVersion: string | undefined;
+
+  /**
+   * <p> The name of the repository that contains the package version. </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace DescribePackageVersionRequest {
@@ -1623,6 +1623,16 @@ export namespace LicenseInfo {
 export interface PackageVersionDescription {
   /**
    * <p>
+   *       The name of the package that is displayed. The <code>displayName</code> varies depending
+   *       on the package version's format. For example, if an npm package is named <code>ui</code>,
+   *       is in the namespace <code>vue</code>, and has the format <code>npm</code>, then
+   *       the <code>displayName</code> is <code>@vue/ui</code>.
+   *     </p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>
    *       The format of the package version. The valid package formats are:
    *     </p>
    *          <ul>
@@ -1649,6 +1659,20 @@ export interface PackageVersionDescription {
    *          </ul>
    */
   format?: PackageFormat | string;
+
+  /**
+   * <p>
+   *       The homepage associated with the package.
+   *     </p>
+   */
+  homePage?: string;
+
+  /**
+   * <p>
+   *       Information about licenses associated with the package version.
+   *     </p>
+   */
+  licenses?: LicenseInfo[];
 
   /**
    * <p>
@@ -1691,45 +1715,6 @@ export interface PackageVersionDescription {
 
   /**
    * <p>
-   *       The name of the package that is displayed. The <code>displayName</code> varies depending
-   *       on the package version's format. For example, if an npm package is named <code>ui</code>,
-   *       is in the namespace <code>vue</code>, and has the format <code>npm</code>, then
-   *       the <code>displayName</code> is <code>@vue/ui</code>.
-   *     </p>
-   */
-  displayName?: string;
-
-  /**
-   * <p>
-   *       The version of the package.
-   *     </p>
-   */
-  version?: string;
-
-  /**
-   * <p>
-   *       A summary of the package version. The summary is extracted from the package. The information in and
-   *       detail level of the summary depends on the package version's format.
-   *     </p>
-   */
-  summary?: string;
-
-  /**
-   * <p>
-   *       The homepage associated with the package.
-   *     </p>
-   */
-  homePage?: string;
-
-  /**
-   * <p>
-   *       The repository for the source code in the package version, or the source code used to build it.
-   *     </p>
-   */
-  sourceCodeRepository?: string;
-
-  /**
-   * <p>
    *       A timestamp that contains the date and time the package version was published.
    *     </p>
    */
@@ -1737,17 +1722,17 @@ export interface PackageVersionDescription {
 
   /**
    * <p>
-   *       Information about licenses associated with the package version.
-   *     </p>
-   */
-  licenses?: LicenseInfo[];
-
-  /**
-   * <p>
    *       The revision of the package version.
    *     </p>
    */
   revision?: string;
+
+  /**
+   * <p>
+   *       The repository for the source code in the package version, or the source code used to build it.
+   *     </p>
+   */
+  sourceCodeRepository?: string;
 
   /**
    * <p>
@@ -1782,6 +1767,21 @@ export interface PackageVersionDescription {
    *          </ul>
    */
   status?: PackageVersionStatus | string;
+
+  /**
+   * <p>
+   *       A summary of the package version. The summary is extracted from the package. The information in and
+   *       detail level of the summary depends on the package version's format.
+   *     </p>
+   */
+  summary?: string;
+
+  /**
+   * <p>
+   *       The version of the package.
+   *     </p>
+   */
+  version?: string;
 }
 
 export namespace PackageVersionDescription {
@@ -1869,14 +1869,14 @@ export interface DisassociateExternalConnectionRequest {
   domainOwner?: string;
 
   /**
-   * <p>The name of the repository from which the external connection will be removed. </p>
-   */
-  repository: string | undefined;
-
-  /**
    * <p>The name of the external connection to be removed from the repository. </p>
    */
   externalConnection: string | undefined;
+
+  /**
+   * <p>The name of the repository from which the external connection will be removed. </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace DisassociateExternalConnectionRequest {
@@ -1918,10 +1918,37 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *       The name of the repository that contains the package versions you want to dispose.
+   *       The expected status of the package version to dispose. Valid values are:
    *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Published</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unfinished</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unlisted</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Archived</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Disposed</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
-  repository: string | undefined;
+  expectedStatus?: PackageVersionStatus | string;
 
   /**
    * <p>
@@ -1993,10 +2020,10 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *       The versions of the package you want to dispose.
+   *       The name of the repository that contains the package versions you want to dispose.
    *     </p>
    */
-  versions: string[] | undefined;
+  repository: string | undefined;
 
   /**
    * <p>
@@ -2007,37 +2034,10 @@ export interface DisposePackageVersionsRequest {
 
   /**
    * <p>
-   *       The expected status of the package version to dispose. Valid values are:
+   *       The versions of the package you want to dispose.
    *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Published</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unfinished</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unlisted</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Archived</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Disposed</code>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
-  expectedStatus?: PackageVersionStatus | string;
+  versions: string[] | undefined;
 }
 
 export namespace DisposePackageVersionsRequest {
@@ -2047,13 +2047,6 @@ export namespace DisposePackageVersionsRequest {
 }
 
 export interface DisposePackageVersionsResult {
-  /**
-   * <p>
-   *       A list of the package versions that were successfully disposed.
-   *     </p>
-   */
-  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
-
   /**
    * <p>
    *       A <code>PackageVersionError</code> object that contains a map of errors codes for the
@@ -2093,6 +2086,13 @@ export interface DisposePackageVersionsResult {
    *          </ul>
    */
   failedVersions?: { [key: string]: PackageVersionError };
+
+  /**
+   * <p>
+   *       A list of the package versions that were successfully disposed.
+   *     </p>
+   */
+  successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
 }
 
 export namespace DisposePackageVersionsResult {
@@ -2195,6 +2195,13 @@ export namespace GetDomainPermissionsPolicyResult {
 export interface GetPackageVersionAssetRequest {
   /**
    * <p>
+   *       The name of the requested asset.
+   *     </p>
+   */
+  asset: string | undefined;
+
+  /**
+   * <p>
    *       The domain that contains the repository that contains the package version with the requested asset.
    *     </p>
    */
@@ -2207,13 +2214,6 @@ export interface GetPackageVersionAssetRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *       The repository that contains the package version with the requested asset.
-   *     </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -2292,17 +2292,17 @@ export interface GetPackageVersionAssetRequest {
 
   /**
    * <p>
-   *       The name of the requested asset.
-   *     </p>
-   */
-  asset: string | undefined;
-
-  /**
-   * <p>
    *         The name of the package version revision that contains the requested asset.
    *     </p>
    */
   packageVersionRevision?: string;
+
+  /**
+   * <p>
+   *       The repository that contains the package version with the requested asset.
+   *     </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace GetPackageVersionAssetRequest {
@@ -2360,13 +2360,6 @@ export interface GetPackageVersionReadmeRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *       The repository that contains the package with the requested readme file.
-   *     </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -2442,6 +2435,13 @@ export interface GetPackageVersionReadmeRequest {
    *     </p>
    */
   packageVersion: string | undefined;
+
+  /**
+   * <p>
+   *       The repository that contains the package with the requested readme file.
+   *     </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace GetPackageVersionReadmeRequest {
@@ -2521,6 +2521,13 @@ export interface GetPackageVersionReadmeResult {
 
   /**
    * <p>
+   *       The text of the returned readme file.
+   *     </p>
+   */
+  readme?: string;
+
+  /**
+   * <p>
    *       The version of the package with the requested readme file.
    *     </p>
    */
@@ -2532,13 +2539,6 @@ export interface GetPackageVersionReadmeResult {
    *     </p>
    */
   versionRevision?: string;
-
-  /**
-   * <p>
-   *       The text of the returned readme file.
-   *     </p>
-   */
-  readme?: string;
 }
 
 export namespace GetPackageVersionReadmeResult {
@@ -2562,13 +2562,6 @@ export interface GetRepositoryEndpointRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *          The name of the repository.
-   *      </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -2599,6 +2592,13 @@ export interface GetRepositoryEndpointRequest {
    *          </ul>
    */
   format: PackageFormat | string | undefined;
+
+  /**
+   * <p>
+   *          The name of the repository.
+   *      </p>
+   */
+  repository: string | undefined;
 }
 
 export namespace GetRepositoryEndpointRequest {
@@ -2699,6 +2699,27 @@ export namespace ListDomainsRequest {
 export interface DomainSummary {
   /**
    * <p>
+   *       The ARN of the domain.
+   *     </p>
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       A timestamp that contains the date and time the domain was created.
+   *     </p>
+   */
+  createdTime?: Date;
+
+  /**
+   * <p>
+   *       The key used to encrypt the domain.
+   *     </p>
+   */
+  encryptionKey?: string;
+
+  /**
+   * <p>
    *       The name of the domain.
    *     </p>
    */
@@ -2711,13 +2732,6 @@ export interface DomainSummary {
    *       </p>
    */
   owner?: string;
-
-  /**
-   * <p>
-   *       The ARN of the domain.
-   *     </p>
-   */
-  arn?: string;
 
   /**
    * <p>
@@ -2737,20 +2751,6 @@ export interface DomainSummary {
    *          </ul>
    */
   status?: DomainStatus | string;
-
-  /**
-   * <p>
-   *       A timestamp that contains the date and time the domain was created.
-   *     </p>
-   */
-  createdTime?: Date;
-
-  /**
-   * <p>
-   *       The key used to encrypt the domain.
-   *     </p>
-   */
-  encryptionKey?: string;
 }
 
 export namespace DomainSummary {
@@ -2801,13 +2801,6 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
-   *          The name of the repository from which packages are to be listed.
-   *        </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
    *       The format of the packages. The valid package types are:
    *     </p>
    *          <ul>
@@ -2834,6 +2827,13 @@ export interface ListPackagesRequest {
    *          </ul>
    */
   format?: PackageFormat | string;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>
@@ -2869,6 +2869,13 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *       A prefix used to filter returned packages. Only packages with names that start with
    *       <code>packagePrefix</code> are returned.
    *     </p>
@@ -2877,17 +2884,10 @@ export interface ListPackagesRequest {
 
   /**
    * <p>
-   *         The maximum number of results to return per page.
+   *          The name of the repository from which packages are to be listed.
    *        </p>
    */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
+  repository: string | undefined;
 }
 
 export namespace ListPackagesRequest {
@@ -2984,6 +2984,13 @@ export namespace PackageSummary {
 export interface ListPackagesResult {
   /**
    * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *         The list of returned <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageSummary.html">
    *                <code>PackageSummary</code>
    *             </a>
@@ -2991,13 +2998,6 @@ export interface ListPackagesResult {
    *        </p>
    */
   packages?: PackageSummary[];
-
-  /**
-   * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListPackagesResult {
@@ -3021,13 +3021,6 @@ export interface ListPackageVersionAssetsRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *       The name of the repository that contains the package that contains the returned package version assets.
-   *     </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -3057,6 +3050,13 @@ export interface ListPackageVersionAssetsRequest {
    *          </ul>
    */
   format: PackageFormat | string | undefined;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>
@@ -3092,6 +3092,13 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *          The name of the package that contains the returned package version assets.
    *        </p>
    */
@@ -3106,17 +3113,10 @@ export interface ListPackageVersionAssetsRequest {
 
   /**
    * <p>
-   *         The maximum number of results to return per page.
-   *        </p>
+   *       The name of the repository that contains the package that contains the returned package version assets.
+   *     </p>
    */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
+  repository: string | undefined;
 }
 
 export namespace ListPackageVersionAssetsRequest {
@@ -3126,6 +3126,15 @@ export namespace ListPackageVersionAssetsRequest {
 }
 
 export interface ListPackageVersionAssetsResult {
+  /**
+   * <p>
+   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
+   *                <code>AssetSummary</code>
+   *             </a> objects.
+   *     </p>
+   */
+  assets?: AssetSummary[];
+
   /**
    * <p>
    *       The format of the package that contains the returned package version assets.
@@ -3167,6 +3176,13 @@ export interface ListPackageVersionAssetsResult {
 
   /**
    * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *       The name of the package that contains the returned package version assets.
    *     </p>
    */
@@ -3185,22 +3201,6 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    */
   versionRevision?: string;
-
-  /**
-   * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">
-   *                <code>AssetSummary</code>
-   *             </a> objects.
-   *     </p>
-   */
-  assets?: AssetSummary[];
 }
 
 export namespace ListPackageVersionAssetsResult {
@@ -3224,13 +3224,6 @@ export interface ListPackageVersionDependenciesRequest {
    *       </p>
    */
   domainOwner?: string;
-
-  /**
-   * <p>
-   *       The name of the repository that contains the requested package version.
-   *     </p>
-   */
-  repository: string | undefined;
 
   /**
    * <p>
@@ -3295,6 +3288,13 @@ export interface ListPackageVersionDependenciesRequest {
 
   /**
    * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *       The name of the package versions' package.
    *     </p>
    */
@@ -3309,10 +3309,10 @@ export interface ListPackageVersionDependenciesRequest {
 
   /**
    * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
+   *       The name of the repository that contains the requested package version.
+   *     </p>
    */
-  nextToken?: string;
+  repository: string | undefined;
 }
 
 export namespace ListPackageVersionDependenciesRequest {
@@ -3327,6 +3327,13 @@ export namespace ListPackageVersionDependenciesRequest {
  *       </p>
  */
 export interface PackageDependency {
+  /**
+   * <p> The type of a package dependency. The possible values depend on the package type.
+   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
+   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
+   */
+  dependencyType?: string;
+
   /**
    * <p>
    *       The namespace of the package. The package component that specifies its
@@ -3367,13 +3374,6 @@ export interface PackageDependency {
   package?: string;
 
   /**
-   * <p> The type of a package dependency. The possible values depend on the package type.
-   *       Example types are <code>compile</code>, <code>runtime</code>, and <code>test</code> for Maven
-   *       packages, and <code>dev</code>, <code>prod</code>, and <code>optional</code> for npm packages. </p>
-   */
-  dependencyType?: string;
-
-  /**
    * <p>
    *         The required version, or version range, of the package that this package depends on. The version format
    *         is specific to the package type. For example, the following are possible valid required versions: <code>1.2.3</code>,
@@ -3390,6 +3390,15 @@ export namespace PackageDependency {
 }
 
 export interface ListPackageVersionDependenciesResult {
+  /**
+   * <p>
+   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">
+   *                <code>PackageDependency</code>
+   *             </a> objects.
+   *     </p>
+   */
+  dependencies?: PackageDependency[];
+
   /**
    * <p>
    *       A format that specifies the type of the package that contains the returned dependencies. The valid values are:
@@ -3453,6 +3462,13 @@ export interface ListPackageVersionDependenciesResult {
 
   /**
    * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *       The name of the package that contains the returned package versions dependencies.
    *     </p>
    */
@@ -3471,22 +3487,6 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    */
   versionRevision?: string;
-
-  /**
-   * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDependency.html">
-   *                <code>PackageDependency</code>
-   *             </a> objects.
-   *     </p>
-   */
-  dependencies?: PackageDependency[];
 }
 
 export namespace ListPackageVersionDependenciesResult {
@@ -3517,13 +3517,6 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
-   *          The name of the repository that contains the package.
-   *        </p>
-   */
-  repository: string | undefined;
-
-  /**
-   * <p>
    *       The format of the returned packages. The valid package types are:
    *     </p>
    *          <ul>
@@ -3550,6 +3543,13 @@ export interface ListPackageVersionsRequest {
    *          </ul>
    */
   format: PackageFormat | string | undefined;
+
+  /**
+   * <p>
+   *         The maximum number of results to return per page.
+   *        </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>
@@ -3585,10 +3585,31 @@ export interface ListPackageVersionsRequest {
 
   /**
    * <p>
+   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *       The name of the package for which you want to return a list of package versions.
    *     </p>
    */
   package: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the repository that contains the package.
+   *        </p>
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>
+   *       How to sort the returned list of package versions.
+   *     </p>
+   */
+  sortBy?: PackageVersionSortType | string;
 
   /**
    * <p>
@@ -3623,27 +3644,6 @@ export interface ListPackageVersionsRequest {
    *          </ul>
    */
   status?: PackageVersionStatus | string;
-
-  /**
-   * <p>
-   *       How to sort the returned list of package versions.
-   *     </p>
-   */
-  sortBy?: PackageVersionSortType | string;
-
-  /**
-   * <p>
-   *         The maximum number of results to return per page.
-   *        </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *         The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListPackageVersionsRequest {
@@ -3662,13 +3662,6 @@ export namespace ListPackageVersionsRequest {
  *      </p>
  */
 export interface PackageVersionSummary {
-  /**
-   * <p>
-   *         Information about a package version.
-   *        </p>
-   */
-  version: string | undefined;
-
   /**
    * <p>
    *       The revision associated with a package version.
@@ -3709,6 +3702,13 @@ export interface PackageVersionSummary {
    *          </ul>
    */
   status: PackageVersionStatus | string | undefined;
+
+  /**
+   * <p>
+   *         Information about a package version.
+   *        </p>
+   */
+  version: string | undefined;
 }
 
 export namespace PackageVersionSummary {
@@ -3801,6 +3801,13 @@ export interface ListPackageVersionsResult {
 
   /**
    * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *          The name of the package.
    *        </p>
    */
@@ -3816,13 +3823,6 @@ export interface ListPackageVersionsResult {
    *        </p>
    */
   versions?: PackageVersionSummary[];
-
-  /**
-   * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListPackageVersionsResult {
@@ -3832,12 +3832,6 @@ export namespace ListPackageVersionsResult {
 }
 
 export interface ListRepositoriesRequest {
-  /**
-   * <p> A prefix used to filter returned repositories. Only repositories with names that start
-   *       with <code>repositoryPrefix</code> are returned.</p>
-   */
-  repositoryPrefix?: string;
-
   /**
    * <p>
    *         The maximum number of results to return per page.
@@ -3851,6 +3845,12 @@ export interface ListRepositoriesRequest {
    *        </p>
    */
   nextToken?: string;
+
+  /**
+   * <p> A prefix used to filter returned repositories. Only repositories with names that start
+   *       with <code>repositoryPrefix</code> are returned.</p>
+   */
+  repositoryPrefix?: string;
 }
 
 export namespace ListRepositoriesRequest {
@@ -3869,17 +3869,22 @@ export namespace ListRepositoriesRequest {
 export interface RepositorySummary {
   /**
    * <p>
-   *          The name of the repository.
-   *       </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
    *          The AWS account ID that manages the repository.
    *       </p>
    */
   administratorAccount?: string;
+
+  /**
+   * <p> The ARN of the repository. </p>
+   */
+  arn?: string;
+
+  /**
+   * <p>
+   *       The description of the repository.
+   *     </p>
+   */
+  description?: string;
 
   /**
    * <p>
@@ -3897,16 +3902,11 @@ export interface RepositorySummary {
   domainOwner?: string;
 
   /**
-   * <p> The ARN of the repository. </p>
-   */
-  arn?: string;
-
-  /**
    * <p>
-   *       The description of the repository.
-   *     </p>
+   *          The name of the repository.
+   *       </p>
    */
-  description?: string;
+  name?: string;
 }
 
 export namespace RepositorySummary {
@@ -3918,6 +3918,13 @@ export namespace RepositorySummary {
 export interface ListRepositoriesResult {
   /**
    * <p>
+   *         If there are additional results, this is the token for the next set of results.
+   *        </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *         The returned list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_RepositorySummary.html">
    *                <code>RepositorySummary</code>
    *             </a>
@@ -3925,13 +3932,6 @@ export interface ListRepositoriesResult {
    *        </p>
    */
   repositories?: RepositorySummary[];
-
-  /**
-   * <p>
-   *         If there are additional results, this is the token for the next set of results.
-   *        </p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListRepositoriesResult {
@@ -3941,6 +3941,13 @@ export namespace ListRepositoriesResult {
 }
 
 export interface ListRepositoriesInDomainRequest {
+  /**
+   * <p>
+   *          Filter the list of repositories to only include those that are managed by the AWS account ID.
+   *        </p>
+   */
+  administratorAccount?: string;
+
   /**
    * <p>
    *          The name of the domain that contains the returned list of repositories.
@@ -3958,21 +3965,6 @@ export interface ListRepositoriesInDomainRequest {
 
   /**
    * <p>
-   *          Filter the list of repositories to only include those that are managed by the AWS account ID.
-   *        </p>
-   */
-  administratorAccount?: string;
-
-  /**
-   * <p>
-   *       A prefix used to filter returned repositories. Only repositories with names that start with
-   *       <code>repositoryPrefix</code> are returned.
-   *     </p>
-   */
-  repositoryPrefix?: string;
-
-  /**
-   * <p>
    *         The maximum number of results to return per page.
    *        </p>
    */
@@ -3984,6 +3976,14 @@ export interface ListRepositoriesInDomainRequest {
    *        </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *       A prefix used to filter returned repositories. Only repositories with names that start with
+   *       <code>repositoryPrefix</code> are returned.
+   *     </p>
+   */
+  repositoryPrefix?: string;
 }
 
 export namespace ListRepositoriesInDomainRequest {
@@ -3995,17 +3995,17 @@ export namespace ListRepositoriesInDomainRequest {
 export interface ListRepositoriesInDomainResult {
   /**
    * <p>
-   *        The returned list of repositories.
-   *      </p>
-   */
-  repositories?: RepositorySummary[];
-
-  /**
-   * <p>
    *         If there are additional results, this is the token for the next set of results.
    *        </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *        The returned list of repositories.
+   *      </p>
+   */
+  repositories?: RepositorySummary[];
 }
 
 export namespace ListRepositoriesInDomainResult {
@@ -4057,18 +4057,18 @@ export interface PutDomainPermissionsPolicyRequest {
   domainOwner?: string;
 
   /**
+   * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
+   *       policy on the provided domain. </p>
+   */
+  policyDocument: string | undefined;
+
+  /**
    * <p>
    *         The current revision of the resource policy to be set. This revision is used for optimistic locking, which
    *         prevents others from overwriting your changes to the domain's resource policy.
    *       </p>
    */
   policyRevision?: string;
-
-  /**
-   * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
-   *       policy on the provided domain. </p>
-   */
-  policyDocument: string | undefined;
 }
 
 export namespace PutDomainPermissionsPolicyRequest {
@@ -4107,9 +4107,10 @@ export interface PutRepositoryPermissionsPolicyRequest {
   domainOwner?: string;
 
   /**
-   * <p> The name of the repository to set the resource policy on. </p>
+   * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
+   *       policy on the provided repository. </p>
    */
-  repository: string | undefined;
+  policyDocument: string | undefined;
 
   /**
    * <p>
@@ -4121,10 +4122,9 @@ export interface PutRepositoryPermissionsPolicyRequest {
   policyRevision?: string;
 
   /**
-   * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
-   *       policy on the provided repository. </p>
+   * <p> The name of the repository to set the resource policy on. </p>
    */
-  policyDocument: string | undefined;
+  repository: string | undefined;
 }
 
 export namespace PutRepositoryPermissionsPolicyRequest {
@@ -4215,11 +4215,12 @@ export interface UpdatePackageVersionsStatusRequest {
   domainOwner?: string;
 
   /**
-   * <p>
-   *       The repository that contains the package versions with the status you want to update.
-   *     </p>
+   * <p> The package version’s expected status before it is updated. If
+   *         <code>expectedStatus</code> is provided, the package version's status is updated only if its
+   *       status at the time <code>UpdatePackageVersionsStatus</code> is called matches
+   *         <code>expectedStatus</code>. </p>
    */
-  repository: string | undefined;
+  expectedStatus?: PackageVersionStatus | string;
 
   /**
    * <p>
@@ -4291,10 +4292,17 @@ export interface UpdatePackageVersionsStatusRequest {
 
   /**
    * <p>
-   *       An array of strings that specify the versions of the package with the statuses to update.
+   *       The repository that contains the package versions with the status you want to update.
    *     </p>
    */
-  versions: string[] | undefined;
+  repository: string | undefined;
+
+  /**
+   * <p>
+   *       The status you want to change the package version status to.
+   *     </p>
+   */
+  targetStatus: PackageVersionStatus | string | undefined;
 
   /**
    * <p> A map of package versions and package version revisions. The map <code>key</code> is the
@@ -4304,19 +4312,11 @@ export interface UpdatePackageVersionsStatusRequest {
   versionRevisions?: { [key: string]: string };
 
   /**
-   * <p> The package version’s expected status before it is updated. If
-   *         <code>expectedStatus</code> is provided, the package version's status is updated only if its
-   *       status at the time <code>UpdatePackageVersionsStatus</code> is called matches
-   *         <code>expectedStatus</code>. </p>
-   */
-  expectedStatus?: PackageVersionStatus | string;
-
-  /**
    * <p>
-   *       The status you want to change the package version status to.
+   *       An array of strings that specify the versions of the package with the statuses to update.
    *     </p>
    */
-  targetStatus: PackageVersionStatus | string | undefined;
+  versions: string[] | undefined;
 }
 
 export namespace UpdatePackageVersionsStatusRequest {
@@ -4327,18 +4327,18 @@ export namespace UpdatePackageVersionsStatusRequest {
 
 export interface UpdatePackageVersionsStatusResult {
   /**
+   * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
+   *       with a status that successfully updated. </p>
+   */
+  failedVersions?: { [key: string]: PackageVersionError };
+
+  /**
    * <p>
    *       A list of <code>PackageVersionError</code> objects, one for each package version with
    *       a status that failed to update.
    *     </p>
    */
   successfulVersions?: { [key: string]: SuccessfulPackageVersionInfo };
-
-  /**
-   * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
-   *       with a status that successfully updated. </p>
-   */
-  failedVersions?: { [key: string]: PackageVersionError };
 }
 
 export namespace UpdatePackageVersionsStatusResult {
@@ -4348,6 +4348,13 @@ export namespace UpdatePackageVersionsStatusResult {
 }
 
 export interface UpdateRepositoryRequest {
+  /**
+   * <p>
+   *          An updated repository description.
+   *        </p>
+   */
+  description?: string;
+
   /**
    * <p>
    *          The name of the domain associated with the repository to update.
@@ -4369,13 +4376,6 @@ export interface UpdateRepositoryRequest {
    *        </p>
    */
   repository: string | undefined;
-
-  /**
-   * <p>
-   *          An updated repository description.
-   *        </p>
-   */
-  description?: string;
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories

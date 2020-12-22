@@ -7,9 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface BadRequestException extends __SmithyException, $MetadataBearer {
   name: "BadRequestException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace BadRequestException {
@@ -24,9 +24,9 @@ export namespace BadRequestException {
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace ConflictException {
@@ -63,15 +63,9 @@ export namespace Tag {
 
 export interface CreateEnvironmentEC2Request {
   /**
-   * <p>The name of the environment to create.</p>
-   *          <p>This name is visible to other AWS IAM users in the same AWS account.</p>
+   * <p>The number of minutes until the running instance is shut down after the environment has last been used.</p>
    */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the environment to create.</p>
-   */
-  description?: string;
+  automaticStopTimeMinutes?: number;
 
   /**
    * <p>A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.</p>
@@ -80,19 +74,25 @@ export interface CreateEnvironmentEC2Request {
   clientRequestToken?: string;
 
   /**
+   * <p>The connection type used for connecting to an Amazon EC2 environment.</p>
+   */
+  connectionType?: ConnectionType | string;
+
+  /**
+   * <p>The description of the environment to create.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The type of instance to connect to the environment (for example, <code>t2.micro</code>).</p>
    */
   instanceType: string | undefined;
 
   /**
-   * <p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>
+   * <p>The name of the environment to create.</p>
+   *          <p>This name is visible to other AWS IAM users in the same AWS account.</p>
    */
-  subnetId?: string;
-
-  /**
-   * <p>The number of minutes until the running instance is shut down after the environment has last been used.</p>
-   */
-  automaticStopTimeMinutes?: number;
+  name: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.</p>
@@ -100,14 +100,14 @@ export interface CreateEnvironmentEC2Request {
   ownerArn?: string;
 
   /**
+   * <p>The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.</p>
+   */
+  subnetId?: string;
+
+  /**
    * <p>An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>The connection type used for connecting to an Amazon EC2 environment.</p>
-   */
-  connectionType?: ConnectionType | string;
 }
 
 export namespace CreateEnvironmentEC2Request {
@@ -136,9 +136,9 @@ export namespace CreateEnvironmentEC2Result {
 export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace ForbiddenException {
@@ -153,9 +153,9 @@ export namespace ForbiddenException {
 export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace InternalServerErrorException {
@@ -170,9 +170,9 @@ export namespace InternalServerErrorException {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace LimitExceededException {
@@ -187,9 +187,9 @@ export namespace LimitExceededException {
 export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace NotFoundException {
@@ -204,9 +204,9 @@ export namespace NotFoundException {
 export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
   name: "TooManyRequestsException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace TooManyRequestsException {
@@ -227,11 +227,6 @@ export interface CreateEnvironmentMembershipRequest {
   environmentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
-   */
-  userArn: string | undefined;
-
-  /**
    * <p>The type of environment member permissions you want to associate with this environment member. Available values include:</p>
    *          <ul>
    *             <li>
@@ -245,6 +240,11 @@ export interface CreateEnvironmentMembershipRequest {
    *          </ul>
    */
   permissions: MemberPermissions | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the environment member you want to add.</p>
+   */
+  userArn: string | undefined;
 }
 
 export namespace CreateEnvironmentMembershipRequest {
@@ -263,6 +263,16 @@ export enum Permissions {
  * <p>Information about an environment member for an AWS Cloud9 development environment.</p>
  */
 export interface EnvironmentMember {
+  /**
+   * <p>The ID of the environment for the environment member.</p>
+   */
+  environmentId?: string;
+
+  /**
+   * <p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>
+   */
+  lastAccess?: Date;
+
   /**
    * <p>The type of environment member permissions associated with this environment member. Available values include:</p>
    *          <ul>
@@ -283,24 +293,14 @@ export interface EnvironmentMember {
   permissions?: Permissions | string;
 
   /**
-   * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
-   */
-  userId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the environment member.</p>
    */
   userArn?: string;
 
   /**
-   * <p>The ID of the environment for the environment member.</p>
+   * <p>The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.</p>
    */
-  environmentId?: string;
-
-  /**
-   * <p>The time, expressed in epoch time format, when the environment member last opened the environment.</p>
-   */
-  lastAccess?: Date;
+  userId?: string;
 }
 
 export namespace EnvironmentMember {
@@ -371,14 +371,19 @@ export namespace DeleteEnvironmentMembershipResult {
 
 export interface DescribeEnvironmentMembershipsRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>
-   */
-  userArn?: string;
-
-  /**
    * <p>The ID of the environment to get environment member information about.</p>
    */
   environmentId?: string;
+
+  /**
+   * <p>The maximum number of environment members to get information about.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The type of environment member permissions to get information about. Available values include:</p>
@@ -401,14 +406,9 @@ export interface DescribeEnvironmentMembershipsRequest {
   permissions?: (Permissions | string)[];
 
   /**
-   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+   * <p>The Amazon Resource Name (ARN) of an individual environment member to get information about. If no value is specified, information about all environment members are returned.</p>
    */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of environment members to get information about.</p>
-   */
-  maxResults?: number;
+  userArn?: string;
 }
 
 export namespace DescribeEnvironmentMembershipsRequest {
@@ -461,6 +461,16 @@ export enum EnvironmentLifecycleStatus {
  */
 export interface EnvironmentLifecycle {
   /**
+   * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>
+   */
+  failureResource?: string;
+
+  /**
+   * <p>Any informational message about the lifecycle state of the environment.</p>
+   */
+  reason?: string;
+
+  /**
    * <p>The current creation or deletion lifecycle state of the environment.</p>
    *          <ul>
    *             <li>
@@ -486,16 +496,6 @@ export interface EnvironmentLifecycle {
    *          </ul>
    */
   status?: EnvironmentLifecycleStatus | string;
-
-  /**
-   * <p>Any informational message about the lifecycle state of the environment.</p>
-   */
-  reason?: string;
-
-  /**
-   * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related AWS resource.</p>
-   */
-  failureResource?: string;
 }
 
 export namespace EnvironmentLifecycle {
@@ -514,9 +514,29 @@ export enum EnvironmentType {
  */
 export interface Environment {
   /**
+   * <p>The Amazon Resource Name (ARN) of the environment.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The connection type used for connecting to an Amazon EC2 environment.</p>
+   */
+  connectionType?: ConnectionType | string;
+
+  /**
+   * <p>The description for the environment.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The ID of the environment.</p>
    */
   id?: string;
+
+  /**
+   * <p>The state of the environment in its creation or deletion lifecycle.</p>
+   */
+  lifecycle?: EnvironmentLifecycle;
 
   /**
    * <p>The name of the environment.</p>
@@ -524,9 +544,9 @@ export interface Environment {
   name?: string;
 
   /**
-   * <p>The description for the environment.</p>
+   * <p>The Amazon Resource Name (ARN) of the environment owner.</p>
    */
-  description?: string;
+  ownerArn?: string;
 
   /**
    * <p>The type of environment. Valid values include the following:</p>
@@ -542,26 +562,6 @@ export interface Environment {
    *          </ul>
    */
   type?: EnvironmentType | string;
-
-  /**
-   * <p>The connection type used for connecting to an Amazon EC2 environment.</p>
-   */
-  connectionType?: ConnectionType | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the environment.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the environment owner.</p>
-   */
-  ownerArn?: string;
-
-  /**
-   * <p>The state of the environment in its creation or deletion lifecycle.</p>
-   */
-  lifecycle?: EnvironmentLifecycle;
 }
 
 export namespace Environment {
@@ -610,6 +610,11 @@ export enum EnvironmentStatus {
 
 export interface DescribeEnvironmentStatusResult {
   /**
+   * <p>Any informational message about the status of the environment.</p>
+   */
+  message?: string;
+
+  /**
    * <p>The status of the environment. Available values include:</p>
    *          <ul>
    *             <li>
@@ -643,11 +648,6 @@ export interface DescribeEnvironmentStatusResult {
    *          </ul>
    */
   status?: EnvironmentStatus | string;
-
-  /**
-   * <p>Any informational message about the status of the environment.</p>
-   */
-  message?: string;
 }
 
 export namespace DescribeEnvironmentStatusResult {
@@ -658,14 +658,14 @@ export namespace DescribeEnvironmentStatusResult {
 
 export interface ListEnvironmentsRequest {
   /**
-   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of environments to get identifiers for.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>During a previous call, if there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListEnvironmentsRequest {
@@ -676,14 +676,14 @@ export namespace ListEnvironmentsRequest {
 
 export interface ListEnvironmentsResult {
   /**
-   * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The list of environment identifiers.</p>
    */
   environmentIds?: string[];
+
+  /**
+   * <p>If there are more than 25 items in the list, only the first 25 items are returned, along with a unique string called a <i>next token</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListEnvironmentsResult {
@@ -724,9 +724,9 @@ export namespace ListTagsForResourceResponse {
 export interface ConcurrentAccessException extends __SmithyException, $MetadataBearer {
   name: "ConcurrentAccessException";
   $fault: "client";
-  message?: string;
   className?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace ConcurrentAccessException {
@@ -789,6 +789,11 @@ export namespace UntagResourceResponse {
 
 export interface UpdateEnvironmentRequest {
   /**
+   * <p>Any new or replacement description for the environment.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The ID of the environment to change settings.</p>
    */
   environmentId: string | undefined;
@@ -797,11 +802,6 @@ export interface UpdateEnvironmentRequest {
    * <p>A replacement name for the environment.</p>
    */
   name?: string;
-
-  /**
-   * <p>Any new or replacement description for the environment.</p>
-   */
-  description?: string;
 }
 
 export namespace UpdateEnvironmentRequest {
@@ -826,11 +826,6 @@ export interface UpdateEnvironmentMembershipRequest {
   environmentId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
-   */
-  userArn: string | undefined;
-
-  /**
    * <p>The replacement type of environment member permissions you want to associate with this environment member. Available values include:</p>
    *          <ul>
    *             <li>
@@ -844,6 +839,11 @@ export interface UpdateEnvironmentMembershipRequest {
    *          </ul>
    */
   permissions: MemberPermissions | string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the environment member whose settings you want to change.</p>
+   */
+  userArn: string | undefined;
 }
 
 export namespace UpdateEnvironmentMembershipRequest {

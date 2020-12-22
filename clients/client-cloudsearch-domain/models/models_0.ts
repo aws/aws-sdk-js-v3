@@ -318,14 +318,14 @@ export namespace SearchRequest {
  */
 export interface Bucket {
   /**
-   * <p>The  facet value being counted.</p>
-   */
-  value?: string;
-
-  /**
    * <p>The number of hits that contain the facet value in the specified facet field.</p>
    */
   count?: number;
+
+  /**
+   * <p>The  facet value being counted.</p>
+   */
+  value?: string;
 }
 
 export namespace Bucket {
@@ -355,9 +355,9 @@ export namespace BucketInfo {
  */
 export interface Hit {
   /**
-   * <p>The document ID of a document that matches the search request.</p>
+   * <p>The expressions returned from a document that matches the search request.</p>
    */
-  id?: string;
+  exprs?: { [key: string]: string };
 
   /**
    * <p>The fields returned from a document that matches the search request.</p>
@@ -365,14 +365,14 @@ export interface Hit {
   fields?: { [key: string]: string[] };
 
   /**
-   * <p>The expressions returned from a document that matches the search request.</p>
-   */
-  exprs?: { [key: string]: string };
-
-  /**
    * <p>The highlights returned from a document that matches the search request.</p>
    */
   highlights?: { [key: string]: string };
+
+  /**
+   * <p>The document ID of a document that matches the search request.</p>
+   */
+  id?: string;
 }
 
 export namespace Hit {
@@ -386,24 +386,24 @@ export namespace Hit {
  */
 export interface Hits {
   /**
-   * <p>The total number of documents that match the search request.</p>
-   */
-  found?: number;
-
-  /**
-   * <p>The index of the first matching document.</p>
-   */
-  start?: number;
-
-  /**
    * <p>A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.</p>
    */
   cursor?: string;
 
   /**
+   * <p>The total number of documents that match the search request.</p>
+   */
+  found?: number;
+
+  /**
    * <p>A document that matches the search request.</p>
    */
   hit?: Hit[];
+
+  /**
+   * <p>The index of the first matching document.</p>
+   */
+  start?: number;
 }
 
 export namespace Hits {
@@ -417,10 +417,9 @@ export namespace Hits {
  */
 export interface FieldStats {
   /**
-   * <p>The minimum value found in the specified field in the result set.</p>
-   *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
+   * <p>The number of documents that contain a value in the specified field in the result set.</p>
    */
-  min?: string;
+  count?: number;
 
   /**
    * <p>The maximum value found in the specified field in the result set.</p>
@@ -429,14 +428,26 @@ export interface FieldStats {
   max?: string;
 
   /**
-   * <p>The number of documents that contain a value in the specified field in the result set.</p>
+   * <p>The average of the values found in the specified field in the result set.</p>
+   *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
    */
-  count?: number;
+  mean?: string;
+
+  /**
+   * <p>The minimum value found in the specified field in the result set.</p>
+   *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
+   */
+  min?: string;
 
   /**
    * <p>The number of documents that do not contain a value in the specified field in the result set.</p>
    */
   missing?: number;
+
+  /**
+   * <p>The standard deviation of the values in the specified field in the result set.</p>
+   */
+  stddev?: number;
 
   /**
    * <p>The sum of the field values across the documents in the result set. <code>null</code> for date fields.</p>
@@ -447,17 +458,6 @@ export interface FieldStats {
    * <p>The sum of all field values in the result set squared.</p>
    */
   sumOfSquares?: number;
-
-  /**
-   * <p>The average of the values found in the specified field in the result set.</p>
-   *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
-   */
-  mean?: string;
-
-  /**
-   * <p>The standard deviation of the values in the specified field in the result set.</p>
-   */
-  stddev?: number;
 }
 
 export namespace FieldStats {
@@ -471,14 +471,14 @@ export namespace FieldStats {
  */
 export interface SearchStatus {
   /**
-   * <p>How long it took to process the request, in milliseconds.</p>
-   */
-  timems?: number;
-
-  /**
    * <p>The encrypted resource ID for the request.</p>
    */
   rid?: string;
+
+  /**
+   * <p>How long it took to process the request, in milliseconds.</p>
+   */
+  timems?: number;
 }
 
 export namespace SearchStatus {
@@ -492,9 +492,9 @@ export namespace SearchStatus {
  */
 export interface SearchResponse {
   /**
-   * <p>The status information returned for the search request.</p>
+   * <p>The requested facet information.</p>
    */
-  status?: SearchStatus;
+  facets?: { [key: string]: BucketInfo };
 
   /**
    * <p>The documents that match the search criteria.</p>
@@ -502,14 +502,14 @@ export interface SearchResponse {
   hits?: Hits;
 
   /**
-   * <p>The requested facet information.</p>
-   */
-  facets?: { [key: string]: BucketInfo };
-
-  /**
    * <p>The requested field statistics information.</p>
    */
   stats?: { [key: string]: FieldStats };
+
+  /**
+   * <p>The status information returned for the search request.</p>
+   */
+  status?: SearchStatus;
 }
 
 export namespace SearchResponse {
@@ -528,14 +528,14 @@ export interface SuggestRequest {
   query: string | undefined;
 
   /**
-   * <p>Specifies the name of the suggester to use to find suggested matches.</p>
-   */
-  suggester: string | undefined;
-
-  /**
    * <p>Specifies the maximum number of suggestions to return.</p>
    */
   size?: number;
+
+  /**
+   * <p>Specifies the name of the suggester to use to find suggested matches.</p>
+   */
+  suggester: string | undefined;
 }
 
 export namespace SuggestRequest {
@@ -549,14 +549,14 @@ export namespace SuggestRequest {
  */
 export interface SuggestStatus {
   /**
-   * <p>How long it took to process the request, in milliseconds.</p>
-   */
-  timems?: number;
-
-  /**
    * <p>The encrypted resource ID for the request.</p>
    */
   rid?: string;
+
+  /**
+   * <p>How long it took to process the request, in milliseconds.</p>
+   */
+  timems?: number;
 }
 
 export namespace SuggestStatus {
@@ -570,9 +570,9 @@ export namespace SuggestStatus {
  */
 export interface SuggestionMatch {
   /**
-   * <p>The string that matches the query string specified in the <code>SuggestRequest</code>.</p>
+   * <p>The document ID of the suggested document.</p>
    */
-  suggestion?: string;
+  id?: string;
 
   /**
    * <p>The relevance score of a suggested match.</p>
@@ -580,9 +580,9 @@ export interface SuggestionMatch {
   score?: number;
 
   /**
-   * <p>The document ID of the suggested document.</p>
+   * <p>The string that matches the query string specified in the <code>SuggestRequest</code>.</p>
    */
-  id?: string;
+  suggestion?: string;
 }
 
 export namespace SuggestionMatch {
@@ -596,14 +596,14 @@ export namespace SuggestionMatch {
  */
 export interface SuggestModel {
   /**
-   * <p>The query string specified in the suggest request.</p>
-   */
-  query?: string;
-
-  /**
    * <p>The number of documents that were found to match the query string.</p>
    */
   found?: number;
+
+  /**
+   * <p>The query string specified in the suggest request.</p>
+   */
+  query?: string;
 
   /**
    * <p>The documents that match the query string.</p>
@@ -645,14 +645,14 @@ export interface DocumentServiceException extends __SmithyException, $MetadataBe
   name: "DocumentServiceException";
   $fault: "client";
   /**
-   * <p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>
-   */
-  status?: string;
-
-  /**
    * <p>The description of the errors returned by the document service.</p>
    */
   message?: string;
+
+  /**
+   * <p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>
+   */
+  status?: string;
 }
 
 export namespace DocumentServiceException {
@@ -668,11 +668,6 @@ export type ContentType = "application/json" | "application/xml";
  */
 export interface UploadDocumentsRequest {
   /**
-   * <p>A batch of documents formatted in JSON or HTML.</p>
-   */
-  documents: Readable | ReadableStream | Blob | undefined;
-
-  /**
    * <p>The format of the batch you are uploading. Amazon CloudSearch supports two document batch formats:</p>
    *       <ul>
    *          <li>application/json</li>
@@ -680,6 +675,11 @@ export interface UploadDocumentsRequest {
    *       </ul>
    */
   contentType: ContentType | string | undefined;
+
+  /**
+   * <p>A batch of documents formatted in JSON or HTML.</p>
+   */
+  documents: Readable | ReadableStream | Blob | undefined;
 }
 
 export namespace UploadDocumentsRequest {
@@ -709,11 +709,6 @@ export namespace DocumentServiceWarning {
  */
 export interface UploadDocumentsResponse {
   /**
-   * <p>The status of an <code>UploadDocumentsRequest</code>.</p>
-   */
-  status?: string;
-
-  /**
    * <p>The number of documents that were added to the search domain.</p>
    */
   adds?: number;
@@ -722,6 +717,11 @@ export interface UploadDocumentsResponse {
    * <p>The number of documents that were deleted from the search domain.</p>
    */
   deletes?: number;
+
+  /**
+   * <p>The status of an <code>UploadDocumentsRequest</code>.</p>
+   */
+  status?: string;
 
   /**
    * <p>Any warnings returned by the document service about the documents being uploaded.</p>

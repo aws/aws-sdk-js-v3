@@ -57,16 +57,6 @@ export namespace UntagResourceResponse {
 
 export interface UpdateAuthEventFeedbackRequest {
   /**
-   * <p>The user pool ID.</p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The user pool username.</p>
-   */
-  Username: string | undefined;
-
-  /**
    * <p>The event ID.</p>
    */
   EventId: string | undefined;
@@ -80,13 +70,23 @@ export interface UpdateAuthEventFeedbackRequest {
    * <p>The authentication event feedback value.</p>
    */
   FeedbackValue: FeedbackValueType | string | undefined;
+
+  /**
+   * <p>The user pool username.</p>
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The user pool ID.</p>
+   */
+  UserPoolId: string | undefined;
 }
 
 export namespace UpdateAuthEventFeedbackRequest {
   export const filterSensitiveLog = (obj: UpdateAuthEventFeedbackRequest): any => ({
     ...obj,
-    ...(obj.Username && { Username: SENSITIVE_STRING }),
     ...(obj.FeedbackToken && { FeedbackToken: SENSITIVE_STRING }),
+    ...(obj.Username && { Username: SENSITIVE_STRING }),
   });
 }
 
@@ -138,19 +138,20 @@ export namespace UpdateDeviceStatusResponse {
 
 export interface UpdateGroupRequest {
   /**
+   * <p>A string containing the new description of the group.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The name of the group.</p>
    */
   GroupName: string | undefined;
 
   /**
-   * <p>The user pool ID for the user pool.</p>
+   * <p>The new precedence value for the group. For more information about this parameter, see
+   *             <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
    */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>A string containing the new description of the group.</p>
-   */
-  Description?: string;
+  Precedence?: number;
 
   /**
    * <p>The new role ARN for the group. This is used for setting the
@@ -160,10 +161,9 @@ export interface UpdateGroupRequest {
   RoleArn?: string;
 
   /**
-   * <p>The new precedence value for the group. For more information about this parameter, see
-   *             <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
+   * <p>The user pool ID for the user pool.</p>
    */
-  Precedence?: number;
+  UserPoolId: string | undefined;
 }
 
 export namespace UpdateGroupRequest {
@@ -187,22 +187,6 @@ export namespace UpdateGroupResponse {
 
 export interface UpdateIdentityProviderRequest {
   /**
-   * <p>The user pool ID.</p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The identity provider name.</p>
-   */
-  ProviderName: string | undefined;
-
-  /**
-   * <p>The identity provider details to be updated, such as <code>MetadataURL</code> and
-   *                 <code>MetadataFile</code>.</p>
-   */
-  ProviderDetails?: { [key: string]: string };
-
-  /**
    * <p>The identity provider attribute mapping to be changed.</p>
    */
   AttributeMapping?: { [key: string]: string };
@@ -211,6 +195,22 @@ export interface UpdateIdentityProviderRequest {
    * <p>A list of identity provider identifiers.</p>
    */
   IdpIdentifiers?: string[];
+
+  /**
+   * <p>The identity provider details to be updated, such as <code>MetadataURL</code> and
+   *                 <code>MetadataFile</code>.</p>
+   */
+  ProviderDetails?: { [key: string]: string };
+
+  /**
+   * <p>The identity provider name.</p>
+   */
+  ProviderName: string | undefined;
+
+  /**
+   * <p>The user pool ID.</p>
+   */
+  UserPoolId: string | undefined;
 }
 
 export namespace UpdateIdentityProviderRequest {
@@ -234,11 +234,6 @@ export namespace UpdateIdentityProviderResponse {
 
 export interface UpdateResourceServerRequest {
   /**
-   * <p>The user pool ID for the user pool.</p>
-   */
-  UserPoolId: string | undefined;
-
-  /**
    * <p>The identifier for the resource server.</p>
    */
   Identifier: string | undefined;
@@ -252,6 +247,11 @@ export interface UpdateResourceServerRequest {
    * <p>The scope values to be set for the resource server.</p>
    */
   Scopes?: ResourceServerScopeType[];
+
+  /**
+   * <p>The user pool ID for the user pool.</p>
+   */
+  UserPoolId: string | undefined;
 }
 
 export namespace UpdateResourceServerRequest {
@@ -277,13 +277,6 @@ export namespace UpdateResourceServerResponse {
  * <p>Represents the request to update user attributes.</p>
  */
 export interface UpdateUserAttributesRequest {
-  /**
-   * <p>An array of name-value pairs representing user attributes.</p>
-   *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
-   *             attribute name.</p>
-   */
-  UserAttributes: AttributeType[] | undefined;
-
   /**
    * <p>The access token for the request to update user attributes.</p>
    */
@@ -323,15 +316,22 @@ export interface UpdateUserAttributesRequest {
    *         </note>
    */
   ClientMetadata?: { [key: string]: string };
+
+  /**
+   * <p>An array of name-value pairs representing user attributes.</p>
+   *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
+   *             attribute name.</p>
+   */
+  UserAttributes: AttributeType[] | undefined;
 }
 
 export namespace UpdateUserAttributesRequest {
   export const filterSensitiveLog = (obj: UpdateUserAttributesRequest): any => ({
     ...obj,
+    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
     ...(obj.UserAttributes && {
       UserAttributes: obj.UserAttributes.map((item) => AttributeType.filterSensitiveLog(item)),
     }),
-    ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
   });
 }
 
@@ -358,20 +358,19 @@ export namespace UpdateUserAttributesResponse {
  */
 export interface UpdateUserPoolRequest {
   /**
-   * <p>The user pool ID for the user pool you want to update.</p>
+   * <p>Use this setting to define which verified available method a user can use to recover
+   *             their password when they call <code>ForgotPassword</code>. It allows you to define a
+   *             preferred method when a user has more than one method available. With this setting, SMS
+   *             does not qualify for a valid password recovery mechanism if the user also has SMS MFA
+   *             enabled. In the absence of this setting, Cognito uses the legacy behavior to determine
+   *             the recovery method where SMS is preferred over email.</p>
    */
-  UserPoolId: string | undefined;
+  AccountRecoverySetting?: AccountRecoverySettingType;
 
   /**
-   * <p>A container with the policies you wish to update in a user pool.</p>
+   * <p>The configuration for <code>AdminCreateUser</code> requests.</p>
    */
-  Policies?: UserPoolPolicyType;
-
-  /**
-   * <p>The AWS Lambda configuration information from the request to update the user
-   *             pool.</p>
-   */
-  LambdaConfig?: LambdaConfigType;
+  AdminCreateUserConfig?: AdminCreateUserConfigType;
 
   /**
    * <p>The attributes that are automatically verified when the Amazon Cognito service makes a
@@ -380,9 +379,14 @@ export interface UpdateUserPoolRequest {
   AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
 
   /**
-   * <p>A container with information about the SMS verification message.</p>
+   * <p>Device configuration.</p>
    */
-  SmsVerificationMessage?: string;
+  DeviceConfiguration?: DeviceConfigurationType;
+
+  /**
+   * <p>Email configuration.</p>
+   */
+  EmailConfiguration?: EmailConfigurationType;
 
   /**
    * <p>The contents of the email verification message.</p>
@@ -395,14 +399,10 @@ export interface UpdateUserPoolRequest {
   EmailVerificationSubject?: string;
 
   /**
-   * <p>The template for verification messages.</p>
+   * <p>The AWS Lambda configuration information from the request to update the user
+   *             pool.</p>
    */
-  VerificationMessageTemplate?: VerificationMessageTemplateType;
-
-  /**
-   * <p>The contents of the SMS authentication message.</p>
-   */
-  SmsAuthenticationMessage?: string;
+  LambdaConfig?: LambdaConfigType;
 
   /**
    * <p>Can be one of the following values:</p>
@@ -427,19 +427,35 @@ export interface UpdateUserPoolRequest {
   MfaConfiguration?: UserPoolMfaType | string;
 
   /**
-   * <p>Device configuration.</p>
+   * <p>A container with the policies you wish to update in a user pool.</p>
    */
-  DeviceConfiguration?: DeviceConfigurationType;
+  Policies?: UserPoolPolicyType;
 
   /**
-   * <p>Email configuration.</p>
+   * <p>The contents of the SMS authentication message.</p>
    */
-  EmailConfiguration?: EmailConfigurationType;
+  SmsAuthenticationMessage?: string;
 
   /**
    * <p>SMS configuration.</p>
    */
   SmsConfiguration?: SmsConfigurationType;
+
+  /**
+   * <p>A container with information about the SMS verification message.</p>
+   */
+  SmsVerificationMessage?: string;
+
+  /**
+   * <p>Used to enable advanced security risk detection. Set the key
+   *                 <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
+   */
+  UserPoolAddOns?: UserPoolAddOnsType;
+
+  /**
+   * <p>The user pool ID for the user pool you want to update.</p>
+   */
+  UserPoolId: string | undefined;
 
   /**
    * <p>The tag keys and values to assign to the user pool. A tag is a label that you can use
@@ -449,25 +465,9 @@ export interface UpdateUserPoolRequest {
   UserPoolTags?: { [key: string]: string };
 
   /**
-   * <p>The configuration for <code>AdminCreateUser</code> requests.</p>
+   * <p>The template for verification messages.</p>
    */
-  AdminCreateUserConfig?: AdminCreateUserConfigType;
-
-  /**
-   * <p>Used to enable advanced security risk detection. Set the key
-   *                 <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
-   */
-  UserPoolAddOns?: UserPoolAddOnsType;
-
-  /**
-   * <p>Use this setting to define which verified available method a user can use to recover
-   *             their password when they call <code>ForgotPassword</code>. It allows you to define a
-   *             preferred method when a user has more than one method available. With this setting, SMS
-   *             does not qualify for a valid password recovery mechanism if the user also has SMS MFA
-   *             enabled. In the absence of this setting, Cognito uses the legacy behavior to determine
-   *             the recovery method where SMS is preferred over email.</p>
-   */
-  AccountRecoverySetting?: AccountRecoverySettingType;
+  VerificationMessageTemplate?: VerificationMessageTemplateType;
 }
 
 export namespace UpdateUserPoolRequest {
@@ -493,10 +493,70 @@ export namespace UpdateUserPoolResponse {
  */
 export interface UpdateUserPoolClientRequest {
   /**
-   * <p>The user pool ID for the user pool where you want to update the user pool
-   *             client.</p>
+   * <p>The time limit, after which the access token is no longer valid and cannot be used.</p>
    */
-  UserPoolId: string | undefined;
+  AccessTokenValidity?: number;
+
+  /**
+   * <p>The allowed OAuth flows.</p>
+   *         <p>Set to <code>code</code> to initiate a code grant flow, which provides an
+   *             authorization code as the response. This code can be exchanged for access tokens with
+   *             the token endpoint.</p>
+   *         <p>Set to <code>implicit</code> to specify that the client should get the access token
+   *             (and, optionally, ID token, based on scopes) directly.</p>
+   *         <p>Set to <code>client_credentials</code> to specify that the client should get the
+   *             access token (and, optionally, ID token, based on scopes) from the token endpoint using
+   *             a combination of client and client_secret.</p>
+   */
+  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+
+  /**
+   * <p>Set to true if the client is allowed to follow the OAuth protocol when interacting
+   *             with Cognito user pools.</p>
+   */
+  AllowedOAuthFlowsUserPoolClient?: boolean;
+
+  /**
+   * <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>,
+   *                 <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
+   *             provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created
+   *             in Resource Servers are also supported.</p>
+   */
+  AllowedOAuthScopes?: string[];
+
+  /**
+   * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user
+   *             pool.</p>
+   *         <note>
+   *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1.
+   *                 In regions where Pinpoint is available, Cognito User Pools will
+   *                 support sending events to Amazon Pinpoint projects within that same region.
+   *             </p>
+   *         </note>
+   */
+  AnalyticsConfiguration?: AnalyticsConfigurationType;
+
+  /**
+   * <p>A list of allowed redirect (callback) URLs for the identity providers.</p>
+   *         <p>A redirect URI must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Be an absolute URI.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Be registered with the authorization server.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Not include a fragment component.</p>
+   *             </li>
+   *          </ul>
+   *         <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
+   *                 Redirection Endpoint</a>.</p>
+   *         <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing
+   *             purposes only.</p>
+   *         <p>App callback URLs such as myapp://example are also supported.</p>
+   */
+  CallbackURLs?: string[];
 
   /**
    * <p>The ID of the client associated with the user pool.</p>
@@ -509,35 +569,26 @@ export interface UpdateUserPoolClientRequest {
   ClientName?: string;
 
   /**
-   * <p>The time limit, in days, after which the refresh token is no longer valid and cannot
-   *             be used.</p>
+   * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+   *         <p>A redirect URI must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Be an absolute URI.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Be registered with the authorization server.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Not include a fragment component.</p>
+   *             </li>
+   *          </ul>
+   *         <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
+   *                 Redirection Endpoint</a>.</p>
+   *         <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing
+   *             purposes only.</p>
+   *         <p>App callback URLs such as myapp://example are also supported.</p>
    */
-  RefreshTokenValidity?: number;
-
-  /**
-   * <p>The time limit, after which the access token is no longer valid and cannot be used.</p>
-   */
-  AccessTokenValidity?: number;
-
-  /**
-   * <p>The time limit, after which the ID token is no longer valid and cannot be used.</p>
-   */
-  IdTokenValidity?: number;
-
-  /**
-   * <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
-   */
-  TokenValidityUnits?: TokenValidityUnitsType;
-
-  /**
-   * <p>The read-only attributes of the user pool.</p>
-   */
-  ReadAttributes?: string[];
-
-  /**
-   * <p>The writeable attributes of the user pool.</p>
-   */
-  WriteAttributes?: string[];
+  DefaultRedirectURI?: string;
 
   /**
    * <p>The authentication flows that are supported by the user pool clients. Flow names
@@ -579,98 +630,14 @@ export interface UpdateUserPoolClientRequest {
   ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
 
   /**
-   * <p>A list of provider names for the identity providers that are supported on this
-   *             client.</p>
+   * <p>The time limit, after which the ID token is no longer valid and cannot be used.</p>
    */
-  SupportedIdentityProviders?: string[];
-
-  /**
-   * <p>A list of allowed redirect (callback) URLs for the identity providers.</p>
-   *         <p>A redirect URI must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Be an absolute URI.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Be registered with the authorization server.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Not include a fragment component.</p>
-   *             </li>
-   *          </ul>
-   *         <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
-   *                 Redirection Endpoint</a>.</p>
-   *         <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing
-   *             purposes only.</p>
-   *         <p>App callback URLs such as myapp://example are also supported.</p>
-   */
-  CallbackURLs?: string[];
+  IdTokenValidity?: number;
 
   /**
    * <p>A list of allowed logout URLs for the identity providers.</p>
    */
   LogoutURLs?: string[];
-
-  /**
-   * <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
-   *         <p>A redirect URI must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Be an absolute URI.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Be registered with the authorization server.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Not include a fragment component.</p>
-   *             </li>
-   *          </ul>
-   *         <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 -
-   *                 Redirection Endpoint</a>.</p>
-   *         <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing
-   *             purposes only.</p>
-   *         <p>App callback URLs such as myapp://example are also supported.</p>
-   */
-  DefaultRedirectURI?: string;
-
-  /**
-   * <p>The allowed OAuth flows.</p>
-   *         <p>Set to <code>code</code> to initiate a code grant flow, which provides an
-   *             authorization code as the response. This code can be exchanged for access tokens with
-   *             the token endpoint.</p>
-   *         <p>Set to <code>implicit</code> to specify that the client should get the access token
-   *             (and, optionally, ID token, based on scopes) directly.</p>
-   *         <p>Set to <code>client_credentials</code> to specify that the client should get the
-   *             access token (and, optionally, ID token, based on scopes) from the token endpoint using
-   *             a combination of client and client_secret.</p>
-   */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
-
-  /**
-   * <p>The allowed OAuth scopes. Possible values provided by OAuth are: <code>phone</code>,
-   *                 <code>email</code>, <code>openid</code>, and <code>profile</code>. Possible values
-   *             provided by AWS are: <code>aws.cognito.signin.user.admin</code>. Custom scopes created
-   *             in Resource Servers are also supported.</p>
-   */
-  AllowedOAuthScopes?: string[];
-
-  /**
-   * <p>Set to true if the client is allowed to follow the OAuth protocol when interacting
-   *             with Cognito user pools.</p>
-   */
-  AllowedOAuthFlowsUserPoolClient?: boolean;
-
-  /**
-   * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user
-   *             pool.</p>
-   *         <note>
-   *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1.
-   *                 In regions where Pinpoint is available, Cognito User Pools will
-   *                 support sending events to Amazon Pinpoint projects within that same region.
-   *             </p>
-   *         </note>
-   */
-  AnalyticsConfiguration?: AnalyticsConfigurationType;
 
   /**
    * <p>Use this setting to choose which errors and responses are returned by Cognito APIs
@@ -702,6 +669,39 @@ export interface UpdateUserPoolClientRequest {
    *         </note>
    */
   PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+
+  /**
+   * <p>The read-only attributes of the user pool.</p>
+   */
+  ReadAttributes?: string[];
+
+  /**
+   * <p>The time limit, in days, after which the refresh token is no longer valid and cannot
+   *             be used.</p>
+   */
+  RefreshTokenValidity?: number;
+
+  /**
+   * <p>A list of provider names for the identity providers that are supported on this
+   *             client.</p>
+   */
+  SupportedIdentityProviders?: string[];
+
+  /**
+   * <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
+   */
+  TokenValidityUnits?: TokenValidityUnitsType;
+
+  /**
+   * <p>The user pool ID for the user pool where you want to update the user pool
+   *             client.</p>
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The writeable attributes of the user pool.</p>
+   */
+  WriteAttributes?: string[];
 }
 
 export namespace UpdateUserPoolClientRequest {
@@ -735,6 +735,13 @@ export namespace UpdateUserPoolClientResponse {
  */
 export interface UpdateUserPoolDomainRequest {
   /**
+   * <p>The configuration for a custom domain that hosts the sign-up and sign-in pages for
+   *             your application. Use this object to specify an SSL certificate that is managed by
+   *             ACM.</p>
+   */
+  CustomDomainConfig: CustomDomainConfigType | undefined;
+
+  /**
    * <p>The domain name for the custom domain that hosts the sign-up and sign-in pages for
    *             your application. For example: <code>auth.example.com</code>. </p>
    *         <p>This string can include only lowercase letters, numbers, and hyphens. Do not use a
@@ -747,13 +754,6 @@ export interface UpdateUserPoolDomainRequest {
    *             updating the certificate for.</p>
    */
   UserPoolId: string | undefined;
-
-  /**
-   * <p>The configuration for a custom domain that hosts the sign-up and sign-in pages for
-   *             your application. Use this object to specify an SSL certificate that is managed by
-   *             ACM.</p>
-   */
-  CustomDomainConfig: CustomDomainConfigType | undefined;
 }
 
 export namespace UpdateUserPoolDomainRequest {
@@ -802,6 +802,11 @@ export interface VerifySoftwareTokenRequest {
   AccessToken?: string;
 
   /**
+   * <p>The friendly device name.</p>
+   */
+  FriendlyDeviceName?: string;
+
+  /**
    * <p>The session which should be passed both ways in challenge-response calls to the
    *             service.</p>
    */
@@ -811,11 +816,6 @@ export interface VerifySoftwareTokenRequest {
    * <p>The one time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken"</a>.</p>
    */
   UserCode: string | undefined;
-
-  /**
-   * <p>The friendly device name.</p>
-   */
-  FriendlyDeviceName?: string;
 }
 
 export namespace VerifySoftwareTokenRequest {
@@ -832,15 +832,15 @@ export enum VerifySoftwareTokenResponseType {
 
 export interface VerifySoftwareTokenResponse {
   /**
-   * <p>The status of the verify software token.</p>
-   */
-  Status?: VerifySoftwareTokenResponseType | string;
-
-  /**
    * <p>The session which should be passed both ways in challenge-response calls to the
    *             service.</p>
    */
   Session?: string;
+
+  /**
+   * <p>The status of the verify software token.</p>
+   */
+  Status?: VerifySoftwareTokenResponseType | string;
 }
 
 export namespace VerifySoftwareTokenResponse {

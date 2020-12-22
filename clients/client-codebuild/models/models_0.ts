@@ -123,20 +123,19 @@ export namespace BatchGetBuildBatchesInput {
  */
 export interface BuildArtifacts {
   /**
+   * <p> An identifier for this artifact definition. </p>
+   */
+  artifactIdentifier?: string;
+
+  /**
+   * <p> Information that tells you if encryption for build artifacts is disabled. </p>
+   */
+  encryptionDisabled?: boolean;
+
+  /**
    * <p>Information about the location of the build artifacts.</p>
    */
   location?: string;
-
-  /**
-   * <p>The SHA-256 hash of the build artifact.</p>
-   *         <p>You can use this hash along with a checksum tool to confirm file integrity and
-   *             authenticity.</p>
-   *         <note>
-   *             <p>This value is available only if the build project's <code>packaging</code> value
-   *                 is set to <code>ZIP</code>.</p>
-   *         </note>
-   */
-  sha256sum?: string;
 
   /**
    * <p>The MD5 hash of the build artifact.</p>
@@ -158,14 +157,15 @@ export interface BuildArtifacts {
   overrideArtifactName?: boolean;
 
   /**
-   * <p> Information that tells you if encryption for build artifacts is disabled. </p>
+   * <p>The SHA-256 hash of the build artifact.</p>
+   *         <p>You can use this hash along with a checksum tool to confirm file integrity and
+   *             authenticity.</p>
+   *         <note>
+   *             <p>This value is available only if the build project's <code>packaging</code> value
+   *                 is set to <code>ZIP</code>.</p>
+   *         </note>
    */
-  encryptionDisabled?: boolean;
-
-  /**
-   * <p> An identifier for this artifact definition. </p>
-   */
-  artifactIdentifier?: string;
+  sha256sum?: string;
 }
 
 export namespace BuildArtifacts {
@@ -179,17 +179,17 @@ export namespace BuildArtifacts {
  */
 export interface BatchRestrictions {
   /**
-   * <p>Specifies the maximum number of builds allowed.</p>
-   */
-  maximumBuildsAllowed?: number;
-
-  /**
    * <p>An array of strings that specify the compute types that are allowed for the batch
    *             build. See <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html">Build environment
    *                 compute types</a> in the <i>AWS CodeBuild User Guide</i> for these values.
    *         </p>
    */
   computeTypesAllowed?: string[];
+
+  /**
+   * <p>Specifies the maximum number of builds allowed.</p>
+   */
+  maximumBuildsAllowed?: number;
 }
 
 export namespace BatchRestrictions {
@@ -203,11 +203,6 @@ export namespace BatchRestrictions {
  */
 export interface ProjectBuildBatchConfig {
   /**
-   * <p>Specifies the service role ARN for the batch build project.</p>
-   */
-  serviceRole?: string;
-
-  /**
    * <p>Specifies if the build artifacts for the batch build should be combined into a single
    *             artifact location.</p>
    */
@@ -218,6 +213,11 @@ export interface ProjectBuildBatchConfig {
    *             build.</p>
    */
   restrictions?: BatchRestrictions;
+
+  /**
+   * <p>Specifies the service role ARN for the batch build project.</p>
+   */
+  serviceRole?: string;
 
   /**
    * <p>Specifies the maximum amount of time, in minutes, that the batch build must be completed in.</p>
@@ -246,9 +246,9 @@ export enum StatusType {
  */
 export interface ResolvedArtifact {
   /**
-   * <p>Specifies the type of artifact.</p>
+   * <p>The identifier of the artifact.</p>
    */
-  type?: ArtifactsType | string;
+  identifier?: string;
 
   /**
    * <p>The location of the artifact.</p>
@@ -256,9 +256,9 @@ export interface ResolvedArtifact {
   location?: string;
 
   /**
-   * <p>The identifier of the artifact.</p>
+   * <p>Specifies the type of artifact.</p>
    */
-  identifier?: string;
+  type?: ArtifactsType | string;
 }
 
 export namespace ResolvedArtifact {
@@ -275,11 +275,6 @@ export interface BuildSummary {
    * <p>The batch build ARN.</p>
    */
   arn?: string;
-
-  /**
-   * <p>When the build was started, expressed in Unix time format.</p>
-   */
-  requestedOn?: Date;
 
   /**
    * <p>The status of the build group.</p>
@@ -319,6 +314,11 @@ export interface BuildSummary {
   primaryArtifact?: ResolvedArtifact;
 
   /**
+   * <p>When the build was started, expressed in Unix time format.</p>
+   */
+  requestedOn?: Date;
+
+  /**
    * <p>An array of <code>ResolvedArtifact</code> objects that represents the secondary build
    *             artifacts for the build group.</p>
    */
@@ -338,9 +338,10 @@ export namespace BuildSummary {
  */
 export interface BuildGroup {
   /**
-   * <p>Contains the identifier of the build group.</p>
+   * <p>A <code>BuildSummary</code> object that contains a summary of the current build
+   *             group.</p>
    */
-  identifier?: string;
+  currentBuildSummary?: BuildSummary;
 
   /**
    * <p>An array of strings that contain the identifiers of the build groups that this build
@@ -349,15 +350,14 @@ export interface BuildGroup {
   dependsOn?: string[];
 
   /**
+   * <p>Contains the identifier of the build group.</p>
+   */
+  identifier?: string;
+
+  /**
    * <p>Specifies if failures in this build group can be ignored.</p>
    */
   ignoreFailure?: boolean;
-
-  /**
-   * <p>A <code>BuildSummary</code> object that contains a summary of the current build
-   *             group.</p>
-   */
-  currentBuildSummary?: BuildSummary;
 
   /**
    * <p>An array of <code>BuildSummary</code> objects that contain summaries of previous
@@ -388,26 +388,6 @@ export enum CacheType {
  * <p>Information about the cache for the build project.</p>
  */
 export interface ProjectCache {
-  /**
-   * <p>The type of cache used by the build project. Valid values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>NO_CACHE</code>: The build project does not use any cache.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>S3</code>: The build project reads and writes from and to S3.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>LOCAL</code>: The build project stores a cache locally on a build host
-   *                     that is only available to that build host.</p>
-   *             </li>
-   *          </ul>
-   */
-  type: CacheType | string | undefined;
-
   /**
    * <p>Information about the cache location: </p>
    *         <ul>
@@ -484,6 +464,26 @@ export interface ProjectCache {
    *          </dl>
    */
   modes?: (CacheMode | string)[];
+
+  /**
+   * <p>The type of cache used by the build project. Valid values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>NO_CACHE</code>: The build project does not use any cache.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>S3</code>: The build project reads and writes from and to S3.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>LOCAL</code>: The build project stores a cache locally on a build host
+   *                     that is only available to that build host.</p>
+   *             </li>
+   *          </ul>
+   */
+  type: CacheType | string | undefined;
 }
 
 export namespace ProjectCache {
@@ -515,19 +515,6 @@ export interface EnvironmentVariable {
   name: string | undefined;
 
   /**
-   * <p>The value of the environment variable.</p>
-   *         <important>
-   *             <p>We strongly discourage the use of <code>PLAINTEXT</code> environment variables to
-   *                 store sensitive values, especially AWS secret key IDs and secret access keys.
-   *                     <code>PLAINTEXT</code> environment variables can be displayed in plain text
-   *                 using the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI). For sensitive values, we recommend you use an
-   *                 environment variable of type <code>PARAMETER_STORE</code> or
-   *                     <code>SECRETS_MANAGER</code>. </p>
-   *         </important>
-   */
-  value: string | undefined;
-
-  /**
    * <p>The type of environment variable. Valid values include:</p>
    *         <ul>
    *             <li>
@@ -552,6 +539,19 @@ export interface EnvironmentVariable {
    *          </ul>
    */
   type?: EnvironmentVariableType | string;
+
+  /**
+   * <p>The value of the environment variable.</p>
+   *         <important>
+   *             <p>We strongly discourage the use of <code>PLAINTEXT</code> environment variables to
+   *                 store sensitive values, especially AWS secret key IDs and secret access keys.
+   *                     <code>PLAINTEXT</code> environment variables can be displayed in plain text
+   *                 using the AWS CodeBuild console and the AWS Command Line Interface (AWS CLI). For sensitive values, we recommend you use an
+   *                 environment variable of type <code>PARAMETER_STORE</code> or
+   *                     <code>SECRETS_MANAGER</code>. </p>
+   *         </important>
+   */
+  value: string | undefined;
 }
 
 export namespace EnvironmentVariable {
@@ -621,53 +621,11 @@ export enum EnvironmentType {
  */
 export interface ProjectEnvironment {
   /**
-   * <p>The type of build environment to use for related builds.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>The environment type <code>ARM_CONTAINER</code> is available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
-   *                     Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and
-   *                     EU (Frankfurt).</p>
-   *             </li>
-   *             <li>
-   *                 <p>The environment type <code>LINUX_CONTAINER</code> with compute type
-   *                         <code>build.general1.2xlarge</code> is available only in regions
-   *                     US East (N. Virginia), US East (Ohio), US West (Oregon),
-   *                     Canada (Central), EU (Ireland), EU (London),
-   *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and
-   *                     China (Ningxia).</p>
-   *             </li>
-   *             <li>
-   *                 <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in
-   *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon),
-   *                     Canada (Central), EU (Ireland), EU (London),
-   *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
-   *                     Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and
-   *                     China (Ningxia).</p>
-   *             </li>
-   *          </ul>
+   * <p>The ARN of the Amazon Simple Storage Service (Amazon S3) bucket, path prefix, and object key that contains the PEM-encoded
+   *             certificate for the build project. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate">certificate</a> in the
+   *                 <i>AWS CodeBuild User Guide</i>.</p>
    */
-  type: EnvironmentType | string | undefined;
-
-  /**
-   * <p>The image tag or image digest that identifies the Docker image to use for this build
-   *             project. Use the following formats:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For an image tag: <code><registry>/<repository>:<tag></code>. For
-   *                     example, in the Docker repository that CodeBuild uses to manage its Docker
-   *                     images, this would be <code>aws/codebuild/standard:4.0</code>. </p>
-   *             </li>
-   *             <li>
-   *                 <p>For an image digest: <code><registry>/<repository>@<digest></code>.
-   *                     For example, to specify an image with the digest
-   *                     "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use
-   *                         <code><registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  image: string | undefined;
+  certificate?: string;
 
   /**
    * <p>Information about the compute resources the build project uses. Available values
@@ -723,6 +681,47 @@ export interface ProjectEnvironment {
   environmentVariables?: EnvironmentVariable[];
 
   /**
+   * <p>The image tag or image digest that identifies the Docker image to use for this build
+   *             project. Use the following formats:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For an image tag: <code><registry>/<repository>:<tag></code>. For
+   *                     example, in the Docker repository that CodeBuild uses to manage its Docker
+   *                     images, this would be <code>aws/codebuild/standard:4.0</code>. </p>
+   *             </li>
+   *             <li>
+   *                 <p>For an image digest: <code><registry>/<repository>@<digest></code>.
+   *                     For example, to specify an image with the digest
+   *                     "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf," use
+   *                         <code><registry>/<repository>@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  image: string | undefined;
+
+  /**
+   * <p> The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid
+   *             values: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials.
+   *                     This requires that you modify your ECR repository policy to trust AWS
+   *                     CodeBuild's service principal. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's service
+   *                     role. </p>
+   *             </li>
+   *          </ul>
+   *         <p> When you use a cross-account or private registry image, you must use SERVICE_ROLE
+   *             credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+   *         </p>
+   */
+  imagePullCredentialsType?: ImagePullCredentialsType | string;
+
+  /**
    * <p>Enables running the Docker daemon inside a Docker container. Set to true only if the
    *             build project is used to build Docker images. Otherwise, a build that attempts to
    *             interact with the Docker daemon fails. The default setting is <code>false</code>.</p>
@@ -748,38 +747,39 @@ export interface ProjectEnvironment {
   privilegedMode?: boolean;
 
   /**
-   * <p>The ARN of the Amazon Simple Storage Service (Amazon S3) bucket, path prefix, and object key that contains the PEM-encoded
-   *             certificate for the build project. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate">certificate</a> in the
-   *                 <i>AWS CodeBuild User Guide</i>.</p>
-   */
-  certificate?: string;
-
-  /**
    * <p> The credentials for access to a private registry.</p>
    */
   registryCredential?: RegistryCredential;
 
   /**
-   * <p> The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid
-   *             values: </p>
+   * <p>The type of build environment to use for related builds.</p>
    *         <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials.
-   *                     This requires that you modify your ECR repository policy to trust AWS
-   *                     CodeBuild's service principal. </p>
+   *                 <p>The environment type <code>ARM_CONTAINER</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland),
+   *                     Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Sydney), and
+   *                     EU (Frankfurt).</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's service
-   *                     role. </p>
+   *                 <p>The environment type <code>LINUX_CONTAINER</code> with compute type
+   *                         <code>build.general1.2xlarge</code> is available only in regions
+   *                     US East (N. Virginia), US East (Ohio), US West (Oregon),
+   *                     Canada (Central), EU (Ireland), EU (London),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney), China (Beijing), and
+   *                     China (Ningxia).</p>
+   *             </li>
+   *             <li>
+   *                 <p>The environment type <code>LINUX_GPU_CONTAINER</code> is available only in
+   *                     regions US East (N. Virginia), US East (Ohio), US West (Oregon),
+   *                     Canada (Central), EU (Ireland), EU (London),
+   *                     EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Seoul),
+   *                     Asia Pacific (Singapore), Asia Pacific (Sydney) , China (Beijing), and
+   *                     China (Ningxia).</p>
    *             </li>
    *          </ul>
-   *         <p> When you use a cross-account or private registry image, you must use SERVICE_ROLE
-   *             credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
-   *         </p>
    */
-  imagePullCredentialsType?: ImagePullCredentialsType | string;
+  type: EnvironmentType | string | undefined;
 }
 
 export namespace ProjectEnvironment {
@@ -800,9 +800,14 @@ export enum FileSystemType {
  */
 export interface ProjectFileSystemLocation {
   /**
-   * <p> The type of the file system. The one supported type is <code>EFS</code>. </p>
+   * <p>The name used to access a file system created by Amazon EFS. CodeBuild creates an
+   *             environment variable by appending the <code>identifier</code> in all capital letters to
+   *                 <code>CODEBUILD_</code>. For example, if you specify <code>my_efs</code> for
+   *                 <code>identifier</code>, a new environment variable is create named
+   *                 <code>CODEBUILD_MY_EFS</code>. </p>
+   *         <p> The <code>identifier</code> is used to mount your file system. </p>
    */
-  type?: FileSystemType | string;
+  identifier?: string;
 
   /**
    * <p>A string that specifies the location of the file system created by Amazon EFS. Its
@@ -819,21 +824,6 @@ export interface ProjectFileSystemLocation {
   location?: string;
 
   /**
-   * <p>The location in the container where you mount the file system. </p>
-   */
-  mountPoint?: string;
-
-  /**
-   * <p>The name used to access a file system created by Amazon EFS. CodeBuild creates an
-   *             environment variable by appending the <code>identifier</code> in all capital letters to
-   *                 <code>CODEBUILD_</code>. For example, if you specify <code>my_efs</code> for
-   *                 <code>identifier</code>, a new environment variable is create named
-   *                 <code>CODEBUILD_MY_EFS</code>. </p>
-   *         <p> The <code>identifier</code> is used to mount your file system. </p>
-   */
-  identifier?: string;
-
-  /**
    * <p> The mount options for a file system created by AWS EFS. The default mount options
    *             used by CodeBuild are
    *                 <code>nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2</code>. For
@@ -841,6 +831,16 @@ export interface ProjectFileSystemLocation {
    *                 Options</a>. </p>
    */
   mountOptions?: string;
+
+  /**
+   * <p>The location in the container where you mount the file system. </p>
+   */
+  mountPoint?: string;
+
+  /**
+   * <p> The type of the file system. The one supported type is <code>EFS</code>. </p>
+   */
+  type?: FileSystemType | string;
 }
 
 export namespace ProjectFileSystemLocation {
@@ -859,6 +859,12 @@ export enum LogsConfigStatusType {
  */
 export interface CloudWatchLogsConfig {
   /**
+   * <p> The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+   *                 with Log Groups and Log Streams</a>. </p>
+   */
+  groupName?: string;
+
+  /**
    * <p>The current status of the logs in Amazon CloudWatch Logs for a build project. Valid values are:</p>
    *         <ul>
    *             <li>
@@ -872,12 +878,6 @@ export interface CloudWatchLogsConfig {
    *          </ul>
    */
   status: LogsConfigStatusType | string | undefined;
-
-  /**
-   * <p> The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
-   *                 with Log Groups and Log Streams</a>. </p>
-   */
-  groupName?: string;
 
   /**
    * <p> The prefix of the stream name of the Amazon CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
@@ -897,6 +897,20 @@ export namespace CloudWatchLogsConfig {
  */
 export interface S3LogsConfig {
   /**
+   * <p> Set to true if you do not want your S3 build log output encrypted. By default S3
+   *             build logs are encrypted. </p>
+   */
+  encryptionDisabled?: boolean;
+
+  /**
+   * <p> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket
+   *             name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then
+   *             acceptable formats are <code>my-bucket/build-log</code> or
+   *                 <code>arn:aws:s3:::my-bucket/build-log</code>. </p>
+   */
+  location?: string;
+
+  /**
    * <p>The current status of the S3 build logs. Valid values are:</p>
    *         <ul>
    *             <li>
@@ -911,20 +925,6 @@ export interface S3LogsConfig {
    *          </ul>
    */
   status: LogsConfigStatusType | string | undefined;
-
-  /**
-   * <p> The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket
-   *             name is <code>my-bucket</code>, and your path prefix is <code>build-log</code>, then
-   *             acceptable formats are <code>my-bucket/build-log</code> or
-   *                 <code>arn:aws:s3:::my-bucket/build-log</code>. </p>
-   */
-  location?: string;
-
-  /**
-   * <p> Set to true if you do not want your S3 build log output encrypted. By default S3
-   *             build logs are encrypted. </p>
-   */
-  encryptionDisabled?: boolean;
 }
 
 export namespace S3LogsConfig {
@@ -962,15 +962,15 @@ export namespace LogsConfig {
  */
 export interface PhaseContext {
   /**
-   * <p>The status code for the context of the build phase.</p>
-   */
-  statusCode?: string;
-
-  /**
    * <p>An explanation of the build phase's context. This might include a command ID and an
    *             exit code.</p>
    */
   message?: string;
+
+  /**
+   * <p>The status code for the context of the build phase.</p>
+   */
+  statusCode?: string;
 }
 
 export namespace PhaseContext {
@@ -994,40 +994,21 @@ export enum BuildBatchPhaseType {
  */
 export interface BuildBatchPhase {
   /**
-   * <p>The name of the batch build phase. Valid values include:</p>
-   *         <dl>
-   *             <dt>COMBINE_ARTIFACTS</dt>
-   *             <dd>
-   *                     <p>Build output artifacts are being combined and uploaded to the output
-   *                         location.</p>
-   *                 </dd>
-   *             <dt>DOWNLOAD_BATCHSPEC</dt>
-   *             <dd>
-   *                     <p>The batch build specification is being downloaded.</p>
-   *                 </dd>
-   *             <dt>FAILED</dt>
-   *             <dd>
-   *                     <p>One or more of the builds failed.</p>
-   *                 </dd>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                     <p>The batch build is in progress.</p>
-   *                 </dd>
-   *             <dt>STOPPED</dt>
-   *             <dd>
-   *                     <p>The batch build was stopped.</p>
-   *                 </dd>
-   *             <dt>SUBMITTED</dt>
-   *             <dd>
-   *                     <p>The btach build has been submitted.</p>
-   *                 </dd>
-   *             <dt>SUCCEEDED</dt>
-   *             <dd>
-   *                     <p>The batch build succeeded.</p>
-   *                 </dd>
-   *          </dl>
+   * <p>Additional information about the batch build phase. Especially to help troubleshoot a
+   *             failed btach build.</p>
    */
-  phaseType?: BuildBatchPhaseType | string;
+  contexts?: PhaseContext[];
+
+  /**
+   * <p>How long, in seconds, between the starting and ending times of the batch build's
+   *         phase.</p>
+   */
+  durationInSeconds?: number;
+
+  /**
+   * <p>When the batch build phase ended, expressed in Unix time format.</p>
+   */
+  endTime?: Date;
 
   /**
    * <p>The current status of the batch build phase. Valid values include:</p>
@@ -1066,26 +1047,45 @@ export interface BuildBatchPhase {
   phaseStatus?: StatusType | string;
 
   /**
+   * <p>The name of the batch build phase. Valid values include:</p>
+   *         <dl>
+   *             <dt>COMBINE_ARTIFACTS</dt>
+   *             <dd>
+   *                     <p>Build output artifacts are being combined and uploaded to the output
+   *                         location.</p>
+   *                 </dd>
+   *             <dt>DOWNLOAD_BATCHSPEC</dt>
+   *             <dd>
+   *                     <p>The batch build specification is being downloaded.</p>
+   *                 </dd>
+   *             <dt>FAILED</dt>
+   *             <dd>
+   *                     <p>One or more of the builds failed.</p>
+   *                 </dd>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                     <p>The batch build is in progress.</p>
+   *                 </dd>
+   *             <dt>STOPPED</dt>
+   *             <dd>
+   *                     <p>The batch build was stopped.</p>
+   *                 </dd>
+   *             <dt>SUBMITTED</dt>
+   *             <dd>
+   *                     <p>The btach build has been submitted.</p>
+   *                 </dd>
+   *             <dt>SUCCEEDED</dt>
+   *             <dd>
+   *                     <p>The batch build succeeded.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  phaseType?: BuildBatchPhaseType | string;
+
+  /**
    * <p>When the batch build phase started, expressed in Unix time format.</p>
    */
   startTime?: Date;
-
-  /**
-   * <p>When the batch build phase ended, expressed in Unix time format.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>How long, in seconds, between the starting and ending times of the batch build's
-   *         phase.</p>
-   */
-  durationInSeconds?: number;
-
-  /**
-   * <p>Additional information about the batch build phase. Especially to help troubleshoot a
-   *             failed btach build.</p>
-   */
-  contexts?: PhaseContext[];
 }
 
 export namespace BuildBatchPhase {
@@ -1106,6 +1106,11 @@ export enum SourceAuthType {
  */
 export interface SourceAuth {
   /**
+   * <p>The resource value that applies to the specified authorization type.</p>
+   */
+  resource?: string;
+
+  /**
    * <note>
    *             <p> This data type is deprecated and is no longer accurate or used. </p>
    *         </note>
@@ -1113,11 +1118,6 @@ export interface SourceAuth {
    *             represents the OAuth authorization type.</p>
    */
   type: SourceAuthType | string | undefined;
-
-  /**
-   * <p>The resource value that applies to the specified authorization type.</p>
-   */
-  resource?: string;
 }
 
 export namespace SourceAuth {
@@ -1206,43 +1206,49 @@ export enum SourceType {
  */
 export interface ProjectSource {
   /**
-   * <p>The type of repository that contains the source code to be built. Valid values
-   *             include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>CODEPIPELINE</code>: The source code settings are specified in the
-   *                     source action of a pipeline in AWS CodePipeline.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud
-   *                     repository.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise
-   *                     Server repository.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>NO_SOURCE</code>: The project does not have input source code.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.</p>
-   *             </li>
-   *          </ul>
+   * <p>Information about the authorization settings for AWS CodeBuild to access the source code to be
+   *             built.</p>
+   *         <p>This information is for the AWS CodeBuild console's use only. Your code should not get or set
+   *             this information directly.</p>
    */
-  type: SourceType | string | undefined;
+  auth?: SourceAuth;
+
+  /**
+   * <p>The buildspec file declaration to use for the builds in this build project.</p>
+   *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
+   *             alternate buildspec file relative to the value of the built-in
+   *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
+   *             The bucket must be in the same AWS Region as the build project. Specify the buildspec
+   *             file using its ARN (for example,
+   *                 <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
+   *             provided or is set to an empty string, the source code must contain a buildspec file in
+   *             its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
+   */
+  buildspec?: string;
+
+  /**
+   * <p>Contains information that defines how the build project reports the build status to
+   *             the source provider. This option is only used when the source provider is
+   *                 <code>GITHUB</code>, <code>GITHUB_ENTERPRISE</code>, or
+   *             <code>BITBUCKET</code>.</p>
+   */
+  buildStatusConfig?: BuildStatusConfig;
+
+  /**
+   * <p>Information about the Git clone depth for the build project.</p>
+   */
+  gitCloneDepth?: number;
+
+  /**
+   * <p> Information about the Git submodules configuration for the build project. </p>
+   */
+  gitSubmodulesConfig?: GitSubmodulesConfig;
+
+  /**
+   * <p>Enable this flag to ignore SSL warnings while connecting to the project source
+   *             code.</p>
+   */
+  insecureSsl?: boolean;
 
   /**
    * <p>Information about the location of the source code to be built. Valid values
@@ -1304,37 +1310,6 @@ export interface ProjectSource {
   location?: string;
 
   /**
-   * <p>Information about the Git clone depth for the build project.</p>
-   */
-  gitCloneDepth?: number;
-
-  /**
-   * <p> Information about the Git submodules configuration for the build project. </p>
-   */
-  gitSubmodulesConfig?: GitSubmodulesConfig;
-
-  /**
-   * <p>The buildspec file declaration to use for the builds in this build project.</p>
-   *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
-   *             alternate buildspec file relative to the value of the built-in
-   *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
-   *             The bucket must be in the same AWS Region as the build project. Specify the buildspec
-   *             file using its ARN (for example,
-   *                 <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-   *             provided or is set to an empty string, the source code must contain a buildspec file in
-   *             its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
-   */
-  buildspec?: string;
-
-  /**
-   * <p>Information about the authorization settings for AWS CodeBuild to access the source code to be
-   *             built.</p>
-   *         <p>This information is for the AWS CodeBuild console's use only. Your code should not get or set
-   *             this information directly.</p>
-   */
-  auth?: SourceAuth;
-
-  /**
    * <p> Set to true to report the status of a build's start and finish to your source
    *             provider. This option is valid only when your source provider is GitHub, GitHub
    *             Enterprise, or Bitbucket. If this is set and you use a different source provider, an
@@ -1347,23 +1322,48 @@ export interface ProjectSource {
   reportBuildStatus?: boolean;
 
   /**
-   * <p>Contains information that defines how the build project reports the build status to
-   *             the source provider. This option is only used when the source provider is
-   *                 <code>GITHUB</code>, <code>GITHUB_ENTERPRISE</code>, or
-   *             <code>BITBUCKET</code>.</p>
-   */
-  buildStatusConfig?: BuildStatusConfig;
-
-  /**
-   * <p>Enable this flag to ignore SSL warnings while connecting to the project source
-   *             code.</p>
-   */
-  insecureSsl?: boolean;
-
-  /**
    * <p> An identifier for this project source. </p>
    */
   sourceIdentifier?: string;
+
+  /**
+   * <p>The type of repository that contains the source code to be built. Valid values
+   *             include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>BITBUCKET</code>: The source code is in a Bitbucket repository.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>CODEPIPELINE</code>: The source code settings are specified in the
+   *                     source action of a pipeline in AWS CodePipeline.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>GITHUB</code>: The source code is in a GitHub or GitHub Enterprise Cloud
+   *                     repository.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>GITHUB_ENTERPRISE</code>: The source code is in a GitHub Enterprise
+   *                     Server repository.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NO_SOURCE</code>: The project does not have input source code.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3) input bucket.</p>
+   *             </li>
+   *          </ul>
+   */
+  type: SourceType | string | undefined;
 }
 
 export namespace ProjectSource {
@@ -1424,9 +1424,9 @@ export namespace ProjectSourceVersion {
  */
 export interface VpcConfig {
   /**
-   * <p>The ID of the Amazon VPC.</p>
+   * <p>A list of one or more security groups IDs in your Amazon VPC.</p>
    */
-  vpcId?: string;
+  securityGroupIds?: string[];
 
   /**
    * <p>A list of one or more subnet IDs in your Amazon VPC.</p>
@@ -1434,9 +1434,9 @@ export interface VpcConfig {
   subnets?: string[];
 
   /**
-   * <p>A list of one or more security groups IDs in your Amazon VPC.</p>
+   * <p>The ID of the Amazon VPC.</p>
    */
-  securityGroupIds?: string[];
+  vpcId?: string;
 }
 
 export namespace VpcConfig {
@@ -1450,29 +1450,27 @@ export namespace VpcConfig {
  */
 export interface BuildBatch {
   /**
-   * <p>The identifier of the batch build.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The ARN of the batch build.</p>
    */
   arn?: string;
 
   /**
-   * <p>The date and time that the batch build started.</p>
+   * <p>A <code>BuildArtifacts</code> object the defines the build artifacts for this batch build.</p>
    */
-  startTime?: Date;
+  artifacts?: BuildArtifacts;
 
   /**
-   * <p>The date and time that the batch build ended.</p>
+   * <p>Contains configuration information about a batch build project.</p>
    */
-  endTime?: Date;
+  buildBatchConfig?: ProjectBuildBatchConfig;
 
   /**
-   * <p>The current phase of the batch build.</p>
+   * <p>The number of the batch build. For each project, the <code>buildBatchNumber</code> of its
+   *             first batch build is <code>1</code>. The <code>buildBatchNumber</code> of each subsequent
+   *             batch build is incremented by <code>1</code>. If a batch build is deleted, the
+   *                 <code>buildBatchNumber</code> of other batch builds does not change.</p>
    */
-  currentPhase?: string;
+  buildBatchNumber?: number;
 
   /**
    * <p>The status of the batch build.</p>
@@ -1480,9 +1478,108 @@ export interface BuildBatch {
   buildBatchStatus?: StatusType | string;
 
   /**
-   * <p>The identifier of the version of the source code to be built.</p>
+   * <p>An array of <code>BuildGroup</code> objects that define the build groups for the
+   *             batch build.</p>
    */
-  sourceVersion?: string;
+  buildGroups?: BuildGroup[];
+
+  /**
+   * <p>Specifies the maximum amount of time, in minutes, that the build in a batch must be
+   *             completed in.</p>
+   */
+  buildTimeoutInMinutes?: number;
+
+  /**
+   * <p>Information about the cache for the build project.</p>
+   */
+  cache?: ProjectCache;
+
+  /**
+   * <p>Indicates if the batch build is complete.</p>
+   */
+  complete?: boolean;
+
+  /**
+   * <p>The current phase of the batch build.</p>
+   */
+  currentPhase?: string;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the batch build output
+   *             artifacts.</p>
+   *         <note>
+   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *                 service role has permission to that key. </p>
+   *         </note>
+   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *             the format <code>alias/<alias-name></code>).</p>
+   */
+  encryptionKey?: string;
+
+  /**
+   * <p>The date and time that the batch build ended.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>Information about the build environment of the build project.</p>
+   */
+  environment?: ProjectEnvironment;
+
+  /**
+   * <p>An array of <code>ProjectFileSystemLocation</code> objects for the batch build
+   *             project. A <code>ProjectFileSystemLocation</code> object specifies the
+   *                 <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+   *                 <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon
+   *             Elastic File System. </p>
+   */
+  fileSystemLocations?: ProjectFileSystemLocation[];
+
+  /**
+   * <p>The identifier of the batch build.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The entity that started the batch build. Valid values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If AWS CodePipeline started the build, the pipeline's name (for example,
+   *                         <code>codepipeline/my-demo-pipeline</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>If an AWS Identity and Access Management (IAM) user started the build, the user's name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the Jenkins plugin for AWS CodeBuild started the build, the string
+   *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  initiator?: string;
+
+  /**
+   * <p> Information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a
+   *             specified S3 bucket, or both. </p>
+   */
+  logConfig?: LogsConfig;
+
+  /**
+   * <p>An array of <code>BuildBatchPhase</code> objects the specify the phases of the
+   *             batch build.</p>
+   */
+  phases?: BuildBatchPhase[];
+
+  /**
+   * <p>The name of the batch build project.</p>
+   */
+  projectName?: string;
+
+  /**
+   * <p>Specifies the amount of time, in minutes, that the batch build is allowed to be queued
+   *             before it times out.</p>
+   */
+  queuedTimeoutInMinutes?: number;
 
   /**
    * <p>The identifier of the resolved version of this batch build's source code.</p>
@@ -1501,20 +1598,10 @@ export interface BuildBatch {
   resolvedSourceVersion?: string;
 
   /**
-   * <p>The name of the batch build project.</p>
+   * <p>An array of <code>BuildArtifacts</code> objects the define the build artifacts
+   *             for this batch build.</p>
    */
-  projectName?: string;
-
-  /**
-   * <p>An array of <code>BuildBatchPhase</code> objects the specify the phases of the
-   *             batch build.</p>
-   */
-  phases?: BuildBatchPhase[];
-
-  /**
-   * <p>Information about the build input source code for the build project.</p>
-   */
-  source?: ProjectSource;
+  secondaryArtifacts?: BuildArtifacts[];
 
   /**
    * <p>An array of <code>ProjectSource</code> objects that define the sources for the batch
@@ -1552,116 +1639,29 @@ export interface BuildBatch {
   secondarySourceVersions?: ProjectSourceVersion[];
 
   /**
-   * <p>A <code>BuildArtifacts</code> object the defines the build artifacts for this batch build.</p>
-   */
-  artifacts?: BuildArtifacts;
-
-  /**
-   * <p>An array of <code>BuildArtifacts</code> objects the define the build artifacts
-   *             for this batch build.</p>
-   */
-  secondaryArtifacts?: BuildArtifacts[];
-
-  /**
-   * <p>Information about the cache for the build project.</p>
-   */
-  cache?: ProjectCache;
-
-  /**
-   * <p>Information about the build environment of the build project.</p>
-   */
-  environment?: ProjectEnvironment;
-
-  /**
    * <p>The name of a service role used for builds in the batch.</p>
    */
   serviceRole?: string;
 
   /**
-   * <p> Information about logs for a build project. These can be logs in Amazon CloudWatch Logs, built in a
-   *             specified S3 bucket, or both. </p>
+   * <p>Information about the build input source code for the build project.</p>
    */
-  logConfig?: LogsConfig;
+  source?: ProjectSource;
 
   /**
-   * <p>Specifies the maximum amount of time, in minutes, that the build in a batch must be
-   *             completed in.</p>
+   * <p>The identifier of the version of the source code to be built.</p>
    */
-  buildTimeoutInMinutes?: number;
+  sourceVersion?: string;
 
   /**
-   * <p>Specifies the amount of time, in minutes, that the batch build is allowed to be queued
-   *             before it times out.</p>
+   * <p>The date and time that the batch build started.</p>
    */
-  queuedTimeoutInMinutes?: number;
-
-  /**
-   * <p>Indicates if the batch build is complete.</p>
-   */
-  complete?: boolean;
-
-  /**
-   * <p>The entity that started the batch build. Valid values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If AWS CodePipeline started the build, the pipeline's name (for example,
-   *                         <code>codepipeline/my-demo-pipeline</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>If an AWS Identity and Access Management (IAM) user started the build, the user's name.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the Jenkins plugin for AWS CodeBuild started the build, the string
-   *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  initiator?: string;
+  startTime?: Date;
 
   /**
    * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
    */
   vpcConfig?: VpcConfig;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the batch build output
-   *             artifacts.</p>
-   *         <note>
-   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *             the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKey?: string;
-
-  /**
-   * <p>The number of the batch build. For each project, the <code>buildBatchNumber</code> of its
-   *             first batch build is <code>1</code>. The <code>buildBatchNumber</code> of each subsequent
-   *             batch build is incremented by <code>1</code>. If a batch build is deleted, the
-   *                 <code>buildBatchNumber</code> of other batch builds does not change.</p>
-   */
-  buildBatchNumber?: number;
-
-  /**
-   * <p>An array of <code>ProjectFileSystemLocation</code> objects for the batch build
-   *             project. A <code>ProjectFileSystemLocation</code> object specifies the
-   *                 <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
-   *                 <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon
-   *             Elastic File System. </p>
-   */
-  fileSystemLocations?: ProjectFileSystemLocation[];
-
-  /**
-   * <p>Contains configuration information about a batch build project.</p>
-   */
-  buildBatchConfig?: ProjectBuildBatchConfig;
-
-  /**
-   * <p>An array of <code>BuildGroup</code> objects that define the build groups for the
-   *             batch build.</p>
-   */
-  buildGroups?: BuildGroup[];
 }
 
 export namespace BuildBatch {
@@ -1759,24 +1759,9 @@ export namespace ExportedEnvironmentVariable {
  */
 export interface LogsLocation {
   /**
-   * <p>The name of the Amazon CloudWatch Logs group for the build logs.</p>
+   * <p> Information about Amazon CloudWatch Logs for a build project. </p>
    */
-  groupName?: string;
-
-  /**
-   * <p>The name of the Amazon CloudWatch Logs stream for the build logs.</p>
-   */
-  streamName?: string;
-
-  /**
-   * <p>The URL to an individual build log in Amazon CloudWatch Logs.</p>
-   */
-  deepLink?: string;
-
-  /**
-   * <p> The URL to a build log in an S3 bucket. </p>
-   */
-  s3DeepLink?: string;
+  cloudWatchLogs?: CloudWatchLogsConfig;
 
   /**
    * <p> The ARN of Amazon CloudWatch Logs for a build project. Its format is
@@ -1786,6 +1771,26 @@ export interface LogsLocation {
   cloudWatchLogsArn?: string;
 
   /**
+   * <p>The URL to an individual build log in Amazon CloudWatch Logs.</p>
+   */
+  deepLink?: string;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs group for the build logs.</p>
+   */
+  groupName?: string;
+
+  /**
+   * <p> The URL to a build log in an S3 bucket. </p>
+   */
+  s3DeepLink?: string;
+
+  /**
+   * <p> Information about S3 logs for a build project. </p>
+   */
+  s3Logs?: S3LogsConfig;
+
+  /**
    * <p> The ARN of S3 logs for a build project. Its format is
    *                 <code>arn:${Partition}:s3:::${BucketName}/${ObjectName}</code>. For more
    *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html#amazons3-resources-for-iam-policies">Resources Defined by Amazon S3</a>. </p>
@@ -1793,14 +1798,9 @@ export interface LogsLocation {
   s3LogsArn?: string;
 
   /**
-   * <p> Information about Amazon CloudWatch Logs for a build project. </p>
+   * <p>The name of the Amazon CloudWatch Logs stream for the build logs.</p>
    */
-  cloudWatchLogs?: CloudWatchLogsConfig;
-
-  /**
-   * <p> Information about S3 logs for a build project. </p>
-   */
-  s3Logs?: S3LogsConfig;
+  streamName?: string;
 }
 
 export namespace LogsLocation {
@@ -1814,14 +1814,14 @@ export namespace LogsLocation {
  */
 export interface NetworkInterface {
   /**
-   * <p>The ID of the subnet.</p>
-   */
-  subnetId?: string;
-
-  /**
    * <p>The ID of the network interface.</p>
    */
   networkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  subnetId?: string;
 }
 
 export namespace NetworkInterface {
@@ -1848,6 +1848,59 @@ export enum BuildPhaseType {
  * <p>Information about a stage for a build.</p>
  */
 export interface BuildPhase {
+  /**
+   * <p>Additional information about a build phase, especially to help troubleshoot a failed
+   *             build.</p>
+   */
+  contexts?: PhaseContext[];
+
+  /**
+   * <p>How long, in seconds, between the starting and ending times of the build's
+   *             phase.</p>
+   */
+  durationInSeconds?: number;
+
+  /**
+   * <p>When the build phase ended, expressed in Unix time format.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>The current status of the build phase. Valid values include:</p>
+   *         <dl>
+   *             <dt>FAILED</dt>
+   *             <dd>
+   *                     <p>The build phase failed.</p>
+   *                 </dd>
+   *             <dt>FAULT</dt>
+   *             <dd>
+   *                     <p>The build phase faulted.</p>
+   *                 </dd>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                     <p>The build phase is still in progress.</p>
+   *                 </dd>
+   *             <dt>QUEUED</dt>
+   *             <dd>
+   *                     <p>The build has been submitted and is queued behind other submitted
+   *                         builds.</p>
+   *                 </dd>
+   *             <dt>STOPPED</dt>
+   *             <dd>
+   *                     <p>The build phase stopped.</p>
+   *                 </dd>
+   *             <dt>SUCCEEDED</dt>
+   *             <dd>
+   *                     <p>The build phase succeeded.</p>
+   *                 </dd>
+   *             <dt>TIMED_OUT</dt>
+   *             <dd>
+   *                     <p>The build phase timed out.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  phaseStatus?: StatusType | string;
+
   /**
    * <p>The name of the build phase. Valid values include:</p>
    *         <ul>
@@ -1908,62 +1961,9 @@ export interface BuildPhase {
   phaseType?: BuildPhaseType | string;
 
   /**
-   * <p>The current status of the build phase. Valid values include:</p>
-   *         <dl>
-   *             <dt>FAILED</dt>
-   *             <dd>
-   *                     <p>The build phase failed.</p>
-   *                 </dd>
-   *             <dt>FAULT</dt>
-   *             <dd>
-   *                     <p>The build phase faulted.</p>
-   *                 </dd>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                     <p>The build phase is still in progress.</p>
-   *                 </dd>
-   *             <dt>QUEUED</dt>
-   *             <dd>
-   *                     <p>The build has been submitted and is queued behind other submitted
-   *                         builds.</p>
-   *                 </dd>
-   *             <dt>STOPPED</dt>
-   *             <dd>
-   *                     <p>The build phase stopped.</p>
-   *                 </dd>
-   *             <dt>SUCCEEDED</dt>
-   *             <dd>
-   *                     <p>The build phase succeeded.</p>
-   *                 </dd>
-   *             <dt>TIMED_OUT</dt>
-   *             <dd>
-   *                     <p>The build phase timed out.</p>
-   *                 </dd>
-   *          </dl>
-   */
-  phaseStatus?: StatusType | string;
-
-  /**
    * <p>When the build phase started, expressed in Unix time format.</p>
    */
   startTime?: Date;
-
-  /**
-   * <p>When the build phase ended, expressed in Unix time format.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>How long, in seconds, between the starting and ending times of the build's
-   *             phase.</p>
-   */
-  durationInSeconds?: number;
-
-  /**
-   * <p>Additional information about a build phase, especially to help troubleshoot a failed
-   *             build.</p>
-   */
-  contexts?: PhaseContext[];
 }
 
 export namespace BuildPhase {
@@ -1977,14 +1977,24 @@ export namespace BuildPhase {
  */
 export interface Build {
   /**
-   * <p>The unique ID for the build.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the build.</p>
    */
   arn?: string;
+
+  /**
+   * <p>Information about the output artifacts for the build.</p>
+   */
+  artifacts?: BuildArtifacts;
+
+  /**
+   * <p>The ARN of the batch build that this build is a member of, if applicable.</p>
+   */
+  buildBatchArn?: string;
+
+  /**
+   * <p>Whether the build is complete. True if complete; otherwise, false.</p>
+   */
+  buildComplete?: boolean;
 
   /**
    * <p>The number of the build. For each project, the <code>buildNumber</code> of its first
@@ -1993,21 +2003,6 @@ export interface Build {
    *             other builds does not change.</p>
    */
   buildNumber?: number;
-
-  /**
-   * <p>When the build process started, expressed in Unix time format.</p>
-   */
-  startTime?: Date;
-
-  /**
-   * <p>When the build process ended, expressed in Unix time format.</p>
-   */
-  endTime?: Date;
-
-  /**
-   * <p>The current build phase.</p>
-   */
-  currentPhase?: string;
 
   /**
    * <p>The current status of the build. Valid values include:</p>
@@ -2041,13 +2036,110 @@ export interface Build {
   buildStatus?: StatusType | string;
 
   /**
-   * <p>Any version identifier for the version of the source code to be built. If
-   *                 <code>sourceVersion</code> is specified at the project level, then this
-   *                 <code>sourceVersion</code> (at the build level) takes precedence. </p>
-   *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
-   *                 with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
+   * <p>Information about the cache for the build.</p>
    */
-  sourceVersion?: string;
+  cache?: ProjectCache;
+
+  /**
+   * <p>The current build phase.</p>
+   */
+  currentPhase?: string;
+
+  /**
+   * <p>Contains information about the debug session for this build.</p>
+   */
+  debugSession?: DebugSession;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
+   *             artifacts.</p>
+   *         <note>
+   *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *                 service role has permission to that key. </p>
+   *         </note>
+   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *             the format <code>alias/<alias-name></code>).</p>
+   */
+  encryptionKey?: string;
+
+  /**
+   * <p>When the build process ended, expressed in Unix time format.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * <p>Information about the build environment for this build.</p>
+   */
+  environment?: ProjectEnvironment;
+
+  /**
+   * <p> A list of exported environment variables for this build. </p>
+   */
+  exportedEnvironmentVariables?: ExportedEnvironmentVariable[];
+
+  /**
+   * <p>
+   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
+   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
+   *   </p>
+   */
+  fileSystemLocations?: ProjectFileSystemLocation[];
+
+  /**
+   * <p>The unique ID for the build.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The entity that started the build. Valid values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If AWS CodePipeline started the build, the pipeline's name (for example,
+   *                         <code>codepipeline/my-demo-pipeline</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
+   *                         <code>MyUserName</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>If the Jenkins plugin for AWS CodeBuild started the build, the string
+   *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  initiator?: string;
+
+  /**
+   * <p>Information about the build's logs in Amazon CloudWatch Logs.</p>
+   */
+  logs?: LogsLocation;
+
+  /**
+   * <p>Describes a network interface.</p>
+   */
+  networkInterface?: NetworkInterface;
+
+  /**
+   * <p>Information about all previous build phases that are complete and information about
+   *             any current build phase that is not yet complete.</p>
+   */
+  phases?: BuildPhase[];
+
+  /**
+   * <p>The name of the AWS CodeBuild project.</p>
+   */
+  projectName?: string;
+
+  /**
+   * <p> The number of minutes a build is allowed to be queued before it times out. </p>
+   */
+  queuedTimeoutInMinutes?: number;
+
+  /**
+   * <p> An array of the ARNs associated with this build's reports. </p>
+   */
+  reportArns?: string[];
 
   /**
    * <p> An identifier for the version of this build's source code. </p>
@@ -2066,20 +2158,9 @@ export interface Build {
   resolvedSourceVersion?: string;
 
   /**
-   * <p>The name of the AWS CodeBuild project.</p>
+   * <p> An array of <code>ProjectArtifacts</code> objects. </p>
    */
-  projectName?: string;
-
-  /**
-   * <p>Information about all previous build phases that are complete and information about
-   *             any current build phase that is not yet complete.</p>
-   */
-  phases?: BuildPhase[];
-
-  /**
-   * <p>Information about the source code to be built.</p>
-   */
-  source?: ProjectSource;
+  secondaryArtifacts?: BuildArtifacts[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
@@ -2116,34 +2197,28 @@ export interface Build {
   secondarySourceVersions?: ProjectSourceVersion[];
 
   /**
-   * <p>Information about the output artifacts for the build.</p>
-   */
-  artifacts?: BuildArtifacts;
-
-  /**
-   * <p> An array of <code>ProjectArtifacts</code> objects. </p>
-   */
-  secondaryArtifacts?: BuildArtifacts[];
-
-  /**
-   * <p>Information about the cache for the build.</p>
-   */
-  cache?: ProjectCache;
-
-  /**
-   * <p>Information about the build environment for this build.</p>
-   */
-  environment?: ProjectEnvironment;
-
-  /**
    * <p>The name of a service role used for this build.</p>
    */
   serviceRole?: string;
 
   /**
-   * <p>Information about the build's logs in Amazon CloudWatch Logs.</p>
+   * <p>Information about the source code to be built.</p>
    */
-  logs?: LogsLocation;
+  source?: ProjectSource;
+
+  /**
+   * <p>Any version identifier for the version of the source code to be built. If
+   *                 <code>sourceVersion</code> is specified at the project level, then this
+   *                 <code>sourceVersion</code> (at the build level) takes precedence. </p>
+   *         <p> For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html">Source Version Sample
+   *                 with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
+   */
+  sourceVersion?: string;
+
+  /**
+   * <p>When the build process started, expressed in Unix time format.</p>
+   */
+  startTime?: Date;
 
   /**
    * <p>How long, in minutes, for AWS CodeBuild to wait before timing out this build if it does not
@@ -2152,87 +2227,12 @@ export interface Build {
   timeoutInMinutes?: number;
 
   /**
-   * <p> The number of minutes a build is allowed to be queued before it times out. </p>
-   */
-  queuedTimeoutInMinutes?: number;
-
-  /**
-   * <p>Whether the build is complete. True if complete; otherwise, false.</p>
-   */
-  buildComplete?: boolean;
-
-  /**
-   * <p>The entity that started the build. Valid values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If AWS CodePipeline started the build, the pipeline's name (for example,
-   *                         <code>codepipeline/my-demo-pipeline</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>If an AWS Identity and Access Management (IAM) user started the build, the user's name (for example,
-   *                         <code>MyUserName</code>).</p>
-   *             </li>
-   *             <li>
-   *                 <p>If the Jenkins plugin for AWS CodeBuild started the build, the string
-   *                         <code>CodeBuild-Jenkins-Plugin</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  initiator?: string;
-
-  /**
    * <p>If your AWS CodeBuild project accesses resources in an Amazon VPC, you provide this parameter
    *             that identifies the VPC ID and the list of security group IDs and subnet IDs. The
    *             security groups and subnets must belong to the same VPC. You must provide at least one
    *             security group and one subnet ID.</p>
    */
   vpcConfig?: VpcConfig;
-
-  /**
-   * <p>Describes a network interface.</p>
-   */
-  networkInterface?: NetworkInterface;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
-   *             artifacts.</p>
-   *         <note>
-   *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *             the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKey?: string;
-
-  /**
-   * <p> A list of exported environment variables for this build. </p>
-   */
-  exportedEnvironmentVariables?: ExportedEnvironmentVariable[];
-
-  /**
-   * <p> An array of the ARNs associated with this build's reports. </p>
-   */
-  reportArns?: string[];
-
-  /**
-   * <p>
-   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
-   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
-   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
-   *   </p>
-   */
-  fileSystemLocations?: ProjectFileSystemLocation[];
-
-  /**
-   * <p>Contains information about the debug session for this build.</p>
-   */
-  debugSession?: DebugSession;
-
-  /**
-   * <p>The ARN of the batch build that this build is a member of, if applicable.</p>
-   */
-  buildBatchArn?: string;
 }
 
 export namespace Build {
@@ -2279,29 +2279,16 @@ export namespace BatchGetProjectsInput {
  */
 export interface ProjectArtifacts {
   /**
-   * <p>The type of build output artifact. Valid values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>CODEPIPELINE</code>: The build project has build output generated
-   *                     through AWS CodePipeline. </p>
-   *                 <note>
-   *                     <p>The <code>CODEPIPELINE</code> type is not supported for
-   *                             <code>secondaryArtifacts</code>.</p>
-   *                 </note>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>NO_ARTIFACTS</code>: The build project does not produce any build
-   *                     output.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>S3</code>: The build project stores build output in Amazon Simple Storage Service (Amazon S3).</p>
-   *             </li>
-   *          </ul>
+   * <p> An identifier for this artifact definition. </p>
    */
-  type: ArtifactsType | string | undefined;
+  artifactIdentifier?: string;
+
+  /**
+   * <p> Set to true if you do not want your output artifacts encrypted. This option is valid
+   *             only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an
+   *             invalidInputException is thrown. </p>
+   */
+  encryptionDisabled?: boolean;
 
   /**
    * <p>Information about the build output artifact location:</p>
@@ -2322,68 +2309,6 @@ export interface ProjectArtifacts {
    *          </ul>
    */
   location?: string;
-
-  /**
-   * <p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS CodeBuild
-   *             uses to name and store the output artifact:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
-   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
-   *                     of AWS CodeBuild.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
-   *                     ignored if specified, because no build output is produced.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, this is the path to the output
-   *                     artifact. If <code>path</code> is not specified, <code>path</code> is not
-   *                     used.</p>
-   *             </li>
-   *          </ul>
-   *         <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
-   *                 <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set
-   *             to <code>MyArtifact.zip</code>, the output artifact is stored in the output bucket at
-   *                 <code>MyArtifacts/MyArtifact.zip</code>.</p>
-   */
-  path?: string;
-
-  /**
-   * <p>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild uses to
-   *             determine the name and location to store the output artifact:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
-   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
-   *                     of AWS CodeBuild.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
-   *                     ignored if specified, because no build output is produced.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p>
-   *                 <ul>
-   *                   <li>
-   *                         <p>
-   *                         <code>BUILD_ID</code>: Include the build ID in the location of the
-   *                             build output artifact.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>
-   *                         <code>NONE</code>: Do not include the build ID. This is the default if
-   *                                 <code>namespaceType</code> is not specified.</p>
-   *                     </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *         <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
-   *                 <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is
-   *             set to <code>MyArtifact.zip</code>, the output artifact is stored in
-   *                 <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.</p>
-   */
-  namespaceType?: ArtifactNamespace | string;
 
   /**
    * <p>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS CodeBuild
@@ -2428,6 +2353,50 @@ export interface ProjectArtifacts {
   name?: string;
 
   /**
+   * <p>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild uses to
+   *             determine the name and location to store the output artifact:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
+   *                     of AWS CodeBuild.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                     ignored if specified, because no build output is produced.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>type</code> is set to <code>S3</code>, valid values include:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>BUILD_ID</code>: Include the build ID in the location of the
+   *                             build output artifact.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>NONE</code>: Do not include the build ID. This is the default if
+   *                                 <code>namespaceType</code> is not specified.</p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *         <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
+   *                 <code>namespaceType</code> is set to <code>BUILD_ID</code>, and <code>name</code> is
+   *             set to <code>MyArtifact.zip</code>, the output artifact is stored in
+   *                 <code>MyArtifacts/<build-ID>/MyArtifact.zip</code>.</p>
+   */
+  namespaceType?: ArtifactNamespace | string;
+
+  /**
+   * <p> If this flag is set, a name specified in the buildspec file overrides the artifact
+   *             name. The name specified in a buildspec file is calculated at build time and uses the
+   *             Shell Command Language. For example, you can append a date and time to your artifact
+   *             name so that it is always unique. </p>
+   */
+  overrideArtifactName?: boolean;
+
+  /**
    * <p>The type of build output artifact to create:</p>
    *         <ul>
    *             <li>
@@ -2460,24 +2429,55 @@ export interface ProjectArtifacts {
   packaging?: ArtifactPackaging | string;
 
   /**
-   * <p> If this flag is set, a name specified in the buildspec file overrides the artifact
-   *             name. The name specified in a buildspec file is calculated at build time and uses the
-   *             Shell Command Language. For example, you can append a date and time to your artifact
-   *             name so that it is always unique. </p>
+   * <p>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS CodeBuild
+   *             uses to name and store the output artifact:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores this
+   *                     value if specified. This is because AWS CodePipeline manages its build output names instead
+   *                     of AWS CodeBuild.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is
+   *                     ignored if specified, because no build output is produced.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If <code>type</code> is set to <code>S3</code>, this is the path to the output
+   *                     artifact. If <code>path</code> is not specified, <code>path</code> is not
+   *                     used.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For example, if <code>path</code> is set to <code>MyArtifacts</code>,
+   *                 <code>namespaceType</code> is set to <code>NONE</code>, and <code>name</code> is set
+   *             to <code>MyArtifact.zip</code>, the output artifact is stored in the output bucket at
+   *                 <code>MyArtifacts/MyArtifact.zip</code>.</p>
    */
-  overrideArtifactName?: boolean;
+  path?: string;
 
   /**
-   * <p> Set to true if you do not want your output artifacts encrypted. This option is valid
-   *             only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this is set with another artifacts type, an
-   *             invalidInputException is thrown. </p>
+   * <p>The type of build output artifact. Valid values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>CODEPIPELINE</code>: The build project has build output generated
+   *                     through AWS CodePipeline. </p>
+   *                 <note>
+   *                     <p>The <code>CODEPIPELINE</code> type is not supported for
+   *                             <code>secondaryArtifacts</code>.</p>
+   *                 </note>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NO_ARTIFACTS</code>: The build project does not produce any build
+   *                     output.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>S3</code>: The build project stores build output in Amazon Simple Storage Service (Amazon S3).</p>
+   *             </li>
+   *          </ul>
    */
-  encryptionDisabled?: boolean;
-
-  /**
-   * <p> An identifier for this artifact definition. </p>
-   */
-  artifactIdentifier?: string;
+  type: ArtifactsType | string | undefined;
 }
 
 export namespace ProjectArtifacts {
@@ -2551,6 +2551,27 @@ export enum WebhookFilterType {
  * <p> A filter used to determine which webhooks trigger a build. </p>
  */
 export interface WebhookFilter {
+  /**
+   * <p> Used to indicate that the <code>pattern</code> determines which webhook events do not
+   *             trigger a build. If true, then a webhook event that does not match the
+   *                 <code>pattern</code> triggers a build. If false, then a webhook event that matches
+   *             the <code>pattern</code> triggers a build. </p>
+   */
+  excludeMatchedPattern?: boolean;
+
+  /**
+   * <p> For a <code>WebHookFilter</code> that uses <code>EVENT</code> type, a comma-separated
+   *             string that specifies one or more events. For example, the webhook filter <code>PUSH,
+   *                 PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> allows all push, pull request
+   *             created, and pull request updated events to trigger a build. </p>
+   *         <p> For a <code>WebHookFilter</code> that uses any of the other filter types, a regular
+   *             expression pattern. For example, a <code>WebHookFilter</code> that uses
+   *                 <code>HEAD_REF</code> for its <code>type</code> and the pattern
+   *                 <code>^refs/heads/</code> triggers a build when the head reference is a branch with
+   *             a reference name <code>refs/heads/branch-name</code>. </p>
+   */
+  pattern: string | undefined;
+
   /**
    * <p> The type of webhook filter. There are six webhook filter types: <code>EVENT</code>,
    *                 <code>ACTOR_ACCOUNT_ID</code>, <code>HEAD_REF</code>, <code>BASE_REF</code>,
@@ -2628,27 +2649,6 @@ export interface WebhookFilter {
    *          </dl>
    */
   type: WebhookFilterType | string | undefined;
-
-  /**
-   * <p> For a <code>WebHookFilter</code> that uses <code>EVENT</code> type, a comma-separated
-   *             string that specifies one or more events. For example, the webhook filter <code>PUSH,
-   *                 PULL_REQUEST_CREATED, PULL_REQUEST_UPDATED</code> allows all push, pull request
-   *             created, and pull request updated events to trigger a build. </p>
-   *         <p> For a <code>WebHookFilter</code> that uses any of the other filter types, a regular
-   *             expression pattern. For example, a <code>WebHookFilter</code> that uses
-   *                 <code>HEAD_REF</code> for its <code>type</code> and the pattern
-   *                 <code>^refs/heads/</code> triggers a build when the head reference is a branch with
-   *             a reference name <code>refs/heads/branch-name</code>. </p>
-   */
-  pattern: string | undefined;
-
-  /**
-   * <p> Used to indicate that the <code>pattern</code> determines which webhook events do not
-   *             trigger a build. If true, then a webhook event that does not match the
-   *                 <code>pattern</code> triggers a build. If false, then a webhook event that matches
-   *             the <code>pattern</code> triggers a build. </p>
-   */
-  excludeMatchedPattern?: boolean;
 }
 
 export namespace WebhookFilter {
@@ -2663,9 +2663,36 @@ export namespace WebhookFilter {
  */
 export interface Webhook {
   /**
-   * <p>The URL to the webhook.</p>
+   * <p>A regular expression used to determine which repository branches are built when a
+   *       webhook is triggered. If the name of a branch matches the regular expression, then it is
+   *       built. If <code>branchFilter</code> is empty, then all branches are built.</p>
+   *          <note>
+   *             <p>It is recommended that you use <code>filterGroups</code> instead of
+   *         <code>branchFilter</code>. </p>
+   *          </note>
    */
-  url?: string;
+  branchFilter?: string;
+
+  /**
+   * <p>Specifies the type of build this webhook will trigger.</p>
+   */
+  buildType?: WebhookBuildType | string;
+
+  /**
+   * <p>An array of arrays of <code>WebhookFilter</code> objects used to determine which
+   *       webhooks are triggered. At least one <code>WebhookFilter</code> in the array must
+   *       specify <code>EVENT</code> as its <code>type</code>. </p>
+   *          <p>For a build to be triggered, at least one filter group in the
+   *       <code>filterGroups</code> array must pass. For a filter group to pass, each of its
+   *       filters must pass. </p>
+   */
+  filterGroups?: WebhookFilter[][];
+
+  /**
+   * <p>A timestamp that indicates the last time a repository's secret token was modified.
+   *     </p>
+   */
+  lastModifiedSecret?: Date;
 
   /**
    * <p>The AWS CodeBuild endpoint where webhook events are sent.</p>
@@ -2681,36 +2708,9 @@ export interface Webhook {
   secret?: string;
 
   /**
-   * <p>A regular expression used to determine which repository branches are built when a
-   *       webhook is triggered. If the name of a branch matches the regular expression, then it is
-   *       built. If <code>branchFilter</code> is empty, then all branches are built.</p>
-   *          <note>
-   *             <p>It is recommended that you use <code>filterGroups</code> instead of
-   *         <code>branchFilter</code>. </p>
-   *          </note>
+   * <p>The URL to the webhook.</p>
    */
-  branchFilter?: string;
-
-  /**
-   * <p>An array of arrays of <code>WebhookFilter</code> objects used to determine which
-   *       webhooks are triggered. At least one <code>WebhookFilter</code> in the array must
-   *       specify <code>EVENT</code> as its <code>type</code>. </p>
-   *          <p>For a build to be triggered, at least one filter group in the
-   *       <code>filterGroups</code> array must pass. For a filter group to pass, each of its
-   *       filters must pass. </p>
-   */
-  filterGroups?: WebhookFilter[][];
-
-  /**
-   * <p>Specifies the type of build this webhook will trigger.</p>
-   */
-  buildType?: WebhookBuildType | string;
-
-  /**
-   * <p>A timestamp that indicates the last time a repository's secret token was modified.
-   *     </p>
-   */
-  lastModifiedSecret?: Date;
+  url?: string;
 }
 
 export namespace Webhook {
@@ -2724,14 +2724,35 @@ export namespace Webhook {
  */
 export interface Project {
   /**
-   * <p>The name of the build project.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the build project.</p>
    */
   arn?: string;
+
+  /**
+   * <p>Information about the build output artifacts for the build project.</p>
+   */
+  artifacts?: ProjectArtifacts;
+
+  /**
+   * <p>Information about the build badge for the build project.</p>
+   */
+  badge?: ProjectBadge;
+
+  /**
+   * <p>A <a>ProjectBuildBatchConfig</a> object that defines the batch build
+   *             options for the project.</p>
+   */
+  buildBatchConfig?: ProjectBuildBatchConfig;
+
+  /**
+   * <p>Information about the cache for the build project.</p>
+   */
+  cache?: ProjectCache;
+
+  /**
+   * <p>When the build project was created, expressed in Unix time format.</p>
+   */
+  created?: Date;
 
   /**
    * <p>A description that makes the build project easy to identify.</p>
@@ -2739,14 +2760,80 @@ export interface Project {
   description?: string;
 
   /**
-   * <p>Information about the build input source code for this build project.</p>
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
+   *       artifacts.</p>
+   *          <note>
+   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *         service role has permission to that key. </p>
+   *          </note>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *         the format <code>alias/<alias-name></code>).</p>
    */
-  source?: ProjectSource;
+  encryptionKey?: string;
+
+  /**
+   * <p>Information about the build environment for this build project.</p>
+   */
+  environment?: ProjectEnvironment;
+
+  /**
+   * <p>
+   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
+   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
+   *   </p>
+   */
+  fileSystemLocations?: ProjectFileSystemLocation[];
+
+  /**
+   * <p>When the build project's settings were last modified, expressed in Unix time
+   *       format.</p>
+   */
+  lastModified?: Date;
+
+  /**
+   * <p>Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an
+   *       S3 bucket, or both. </p>
+   */
+  logsConfig?: LogsConfig;
+
+  /**
+   * <p>The name of the build project.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The number of minutes a build is allowed to be queued before it times out. </p>
+   */
+  queuedTimeoutInMinutes?: number;
+
+  /**
+   * <p>An array of <code>ProjectArtifacts</code> objects. </p>
+   */
+  secondaryArtifacts?: ProjectArtifacts[];
 
   /**
    * <p>An array of <code>ProjectSource</code> objects. </p>
    */
   secondarySources?: ProjectSource[];
+
+  /**
+   * <p>An array of <code>ProjectSourceVersion</code> objects. If
+   *       <code>secondarySourceVersions</code> is specified at the build level, then they take
+   *       over these <code>secondarySourceVersions</code> (at the project level). </p>
+   */
+  secondarySourceVersions?: ProjectSourceVersion[];
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
+   *       on behalf of the AWS account.</p>
+   */
+  serviceRole?: string;
+
+  /**
+   * <p>Information about the build input source code for this build project.</p>
+   */
+  source?: ProjectSource;
 
   /**
    * <p>A version of the build input to be built for this project. If not specified, the
@@ -2782,37 +2869,11 @@ export interface Project {
   sourceVersion?: string;
 
   /**
-   * <p>An array of <code>ProjectSourceVersion</code> objects. If
-   *       <code>secondarySourceVersions</code> is specified at the build level, then they take
-   *       over these <code>secondarySourceVersions</code> (at the project level). </p>
+   * <p>A list of tag key and value pairs associated with this build project.</p>
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
+   *       tags.</p>
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
-
-  /**
-   * <p>Information about the build output artifacts for the build project.</p>
-   */
-  artifacts?: ProjectArtifacts;
-
-  /**
-   * <p>An array of <code>ProjectArtifacts</code> objects. </p>
-   */
-  secondaryArtifacts?: ProjectArtifacts[];
-
-  /**
-   * <p>Information about the cache for the build project.</p>
-   */
-  cache?: ProjectCache;
-
-  /**
-   * <p>Information about the build environment for this build project.</p>
-   */
-  environment?: ProjectEnvironment;
-
-  /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
-   *       on behalf of the AWS account.</p>
-   */
-  serviceRole?: string;
+  tags?: Tag[];
 
   /**
    * <p>How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before timing out any
@@ -2821,76 +2882,15 @@ export interface Project {
   timeoutInMinutes?: number;
 
   /**
-   * <p>The number of minutes a build is allowed to be queued before it times out. </p>
+   * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
    */
-  queuedTimeoutInMinutes?: number;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
-   *       artifacts.</p>
-   *          <note>
-   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *         service role has permission to that key. </p>
-   *          </note>
-   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *         the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKey?: string;
-
-  /**
-   * <p>A list of tag key and value pairs associated with this build project.</p>
-   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
-   *       tags.</p>
-   */
-  tags?: Tag[];
-
-  /**
-   * <p>When the build project was created, expressed in Unix time format.</p>
-   */
-  created?: Date;
-
-  /**
-   * <p>When the build project's settings were last modified, expressed in Unix time
-   *       format.</p>
-   */
-  lastModified?: Date;
+  vpcConfig?: VpcConfig;
 
   /**
    * <p>Information about a webhook that connects repository events to a build project in
    *       AWS CodeBuild.</p>
    */
   webhook?: Webhook;
-
-  /**
-   * <p>Information about the VPC configuration that AWS CodeBuild accesses.</p>
-   */
-  vpcConfig?: VpcConfig;
-
-  /**
-   * <p>Information about the build badge for the build project.</p>
-   */
-  badge?: ProjectBadge;
-
-  /**
-   * <p>Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs, an
-   *       S3 bucket, or both. </p>
-   */
-  logsConfig?: LogsConfig;
-
-  /**
-   * <p>
-   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
-   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
-   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
-   *   </p>
-   */
-  fileSystemLocations?: ProjectFileSystemLocation[];
-
-  /**
-   * <p>A <a>ProjectBuildBatchConfig</a> object that defines the batch build
-   *             options for the project.</p>
-   */
-  buildBatchConfig?: ProjectBuildBatchConfig;
 }
 
 export namespace Project {
@@ -2952,9 +2952,14 @@ export interface S3ReportExportConfig {
   bucket?: string;
 
   /**
-   * <p> The path to the exported report's raw data results. </p>
+   * <p> A boolean value that specifies if the results of a report are encrypted. </p>
    */
-  path?: string;
+  encryptionDisabled?: boolean;
+
+  /**
+   * <p> The encryption key for the report's encrypted raw data. </p>
+   */
+  encryptionKey?: string;
 
   /**
    * <p> The type of build output artifact to create. Valid values include: </p>
@@ -2974,14 +2979,9 @@ export interface S3ReportExportConfig {
   packaging?: ReportPackagingType | string;
 
   /**
-   * <p> The encryption key for the report's encrypted raw data. </p>
+   * <p> The path to the exported report's raw data results. </p>
    */
-  encryptionKey?: string;
-
-  /**
-   * <p> A boolean value that specifies if the results of a report are encrypted. </p>
-   */
-  encryptionDisabled?: boolean;
+  path?: string;
 }
 
 export namespace S3ReportExportConfig {
@@ -3044,15 +3044,9 @@ export interface ReportGroup {
   arn?: string;
 
   /**
-   * <p> The name of a <code>ReportGroup</code>. </p>
+   * <p> The date and time this <code>ReportGroup</code> was created. </p>
    */
-  name?: string;
-
-  /**
-   * <p> The type of the <code>ReportGroup</code>. The one valid value is <code>TEST</code>.
-   *         </p>
-   */
-  type?: ReportType | string;
+  created?: Date;
 
   /**
    * <p> Information about the destination where the raw data of this <code>ReportGroup</code>
@@ -3061,15 +3055,16 @@ export interface ReportGroup {
   exportConfig?: ReportExportConfig;
 
   /**
-   * <p> The date and time this <code>ReportGroup</code> was created. </p>
-   */
-  created?: Date;
-
-  /**
    * <p> The date and time this <code>ReportGroup</code> was last modified. </p>
    */
   lastModified?: Date;
 
+  /**
+   * <p> The name of a <code>ReportGroup</code>. </p>
+   */
+  name?: string;
+
+  status?: ReportGroupStatusType | string;
   /**
    * <p> A list of tag key and value pairs associated with this report group. </p>
    *         <p>These tags are available for use by AWS services that support AWS CodeBuild report group
@@ -3077,7 +3072,11 @@ export interface ReportGroup {
    */
   tags?: Tag[];
 
-  status?: ReportGroupStatusType | string;
+  /**
+   * <p> The type of the <code>ReportGroup</code>. The one valid value is <code>TEST</code>.
+   *         </p>
+   */
+  type?: ReportType | string;
 }
 
 export namespace ReportGroup {
@@ -3132,21 +3131,6 @@ export namespace BatchGetReportsInput {
  */
 export interface CodeCoverageReportSummary {
   /**
-   * <p>The percentage of lines that are covered by your tests.</p>
-   */
-  lineCoveragePercentage?: number;
-
-  /**
-   * <p>The number of lines that are covered by your tests.</p>
-   */
-  linesCovered?: number;
-
-  /**
-   * <p>The number of lines that are not covered by your tests.</p>
-   */
-  linesMissed?: number;
-
-  /**
    * <p>The percentage of branches that are covered by your tests.</p>
    */
   branchCoveragePercentage?: number;
@@ -3160,6 +3144,21 @@ export interface CodeCoverageReportSummary {
    * <p>The number of conditional branches that are not covered by your tests.</p>
    */
   branchesMissed?: number;
+
+  /**
+   * <p>The percentage of lines that are covered by your tests.</p>
+   */
+  lineCoveragePercentage?: number;
+
+  /**
+   * <p>The number of lines that are covered by your tests.</p>
+   */
+  linesCovered?: number;
+
+  /**
+   * <p>The number of lines that are not covered by your tests.</p>
+   */
+  linesMissed?: number;
 }
 
 export namespace CodeCoverageReportSummary {
@@ -3181,10 +3180,10 @@ export enum ReportStatusType {
  */
 export interface TestReportSummary {
   /**
-   * <p> The number of test cases in this <code>TestReportSummary</code>. The total includes
-   *             truncated test cases. </p>
+   * <p> The number of nanoseconds it took to run all of the test cases in this report.
+   *         </p>
    */
-  total: number | undefined;
+  durationInNanoSeconds: number | undefined;
 
   /**
    * <p> A map that contains the number of each type of status returned by the test results in
@@ -3193,10 +3192,10 @@ export interface TestReportSummary {
   statusCounts: { [key: string]: number } | undefined;
 
   /**
-   * <p> The number of nanoseconds it took to run all of the test cases in this report.
-   *         </p>
+   * <p> The number of test cases in this <code>TestReportSummary</code>. The total includes
+   *             truncated test cases. </p>
    */
-  durationInNanoSeconds: number | undefined;
+  total: number | undefined;
 }
 
 export namespace TestReportSummary {
@@ -3218,44 +3217,20 @@ export interface Report {
   arn?: string;
 
   /**
-   * <p>The type of the report that was run.</p>
-   *         <dl>
-   *             <dt>CODE_COVERAGE</dt>
-   *             <dd>
-   *                     <p>A code coverage report.</p>
-   *                 </dd>
-   *             <dt>TEST</dt>
-   *             <dd>
-   *                     <p>A test report.</p>
-   *                 </dd>
-   *          </dl>
+   * <p>A <code>CodeCoverageReportSummary</code> object that contains a code coverage summary for
+   *             this report.</p>
    */
-  type?: ReportType | string;
-
-  /**
-   * <p> The name of the report that was run. </p>
-   */
-  name?: string;
-
-  /**
-   * <p> The ARN of the report group associated with this report. </p>
-   */
-  reportGroupArn?: string;
-
-  /**
-   * <p> The ARN of the build run that generated this report. </p>
-   */
-  executionId?: string;
-
-  /**
-   * <p> The status of this report. </p>
-   */
-  status?: ReportStatusType | string;
+  codeCoverageSummary?: CodeCoverageReportSummary;
 
   /**
    * <p> The date and time this report run occurred. </p>
    */
   created?: Date;
+
+  /**
+   * <p> The ARN of the build run that generated this report. </p>
+   */
+  executionId?: string;
 
   /**
    * <p> The date and time a report expires. A report expires 30 days after it is created. An
@@ -3270,10 +3245,19 @@ export interface Report {
   exportConfig?: ReportExportConfig;
 
   /**
-   * <p> A boolean that specifies if this report run is truncated. The list of test cases is
-   *       truncated after the maximum number of test cases is reached. </p>
+   * <p> The name of the report that was run. </p>
    */
-  truncated?: boolean;
+  name?: string;
+
+  /**
+   * <p> The ARN of the report group associated with this report. </p>
+   */
+  reportGroupArn?: string;
+
+  /**
+   * <p> The status of this report. </p>
+   */
+  status?: ReportStatusType | string;
 
   /**
    * <p> A <code>TestReportSummary</code> object that contains information about this test
@@ -3282,10 +3266,25 @@ export interface Report {
   testSummary?: TestReportSummary;
 
   /**
-   * <p>A <code>CodeCoverageReportSummary</code> object that contains a code coverage summary for
-   *             this report.</p>
+   * <p> A boolean that specifies if this report run is truncated. The list of test cases is
+   *       truncated after the maximum number of test cases is reached. </p>
    */
-  codeCoverageSummary?: CodeCoverageReportSummary;
+  truncated?: boolean;
+
+  /**
+   * <p>The type of the report that was run.</p>
+   *         <dl>
+   *             <dt>CODE_COVERAGE</dt>
+   *             <dd>
+   *                     <p>A code coverage report.</p>
+   *                 </dd>
+   *             <dt>TEST</dt>
+   *             <dd>
+   *                     <p>A test report.</p>
+   *                 </dd>
+   *          </dl>
+   */
+  type?: ReportType | string;
 }
 
 export namespace Report {
@@ -3335,9 +3334,27 @@ export namespace BuildBatchFilter {
 
 export interface CreateProjectInput {
   /**
-   * <p>The name of the build project.</p>
+   * <p>Information about the build output artifacts for the build project.</p>
    */
-  name: string | undefined;
+  artifacts: ProjectArtifacts | undefined;
+
+  /**
+   * <p>Set this to true to generate a publicly accessible URL for your project's build
+   *             badge.</p>
+   */
+  badgeEnabled?: boolean;
+
+  /**
+   * <p>A <a>ProjectBuildBatchConfig</a> object that defines the batch build options
+   *             for the project.</p>
+   */
+  buildBatchConfig?: ProjectBuildBatchConfig;
+
+  /**
+   * <p>Stores recently used information so that it can be quickly accessed at a later
+   *             time.</p>
+   */
+  cache?: ProjectCache;
 
   /**
    * <p>A description that makes the build project easy to identify.</p>
@@ -3345,14 +3362,75 @@ export interface CreateProjectInput {
   description?: string;
 
   /**
-   * <p>Information about the build input source code for the build project.</p>
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
+   *       artifacts.</p>
+   *          <note>
+   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *         service role has permission to that key. </p>
+   *          </note>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *         the format <code>alias/<alias-name></code>).</p>
    */
-  source: ProjectSource | undefined;
+  encryptionKey?: string;
+
+  /**
+   * <p>Information about the build environment for the build project.</p>
+   */
+  environment: ProjectEnvironment | undefined;
+
+  /**
+   * <p>
+   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
+   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
+   *   </p>
+   */
+  fileSystemLocations?: ProjectFileSystemLocation[];
+
+  /**
+   * <p>Information about logs for the build project. These can be logs in Amazon CloudWatch Logs, logs
+   *       uploaded to a specified S3 bucket, or both. </p>
+   */
+  logsConfig?: LogsConfig;
+
+  /**
+   * <p>The name of the build project.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The number of minutes a build is allowed to be queued before it times out. </p>
+   */
+  queuedTimeoutInMinutes?: number;
+
+  /**
+   * <p>An array of <code>ProjectArtifacts</code> objects. </p>
+   */
+  secondaryArtifacts?: ProjectArtifacts[];
 
   /**
    * <p>An array of <code>ProjectSource</code> objects. </p>
    */
   secondarySources?: ProjectSource[];
+
+  /**
+   * <p>An array of <code>ProjectSourceVersion</code> objects. If
+   *       <code>secondarySourceVersions</code> is specified at the build level, then they take
+   *       precedence over these <code>secondarySourceVersions</code> (at the project level).
+   *     </p>
+   */
+  secondarySourceVersions?: ProjectSourceVersion[];
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
+   *       on behalf of the AWS account.</p>
+   */
+  serviceRole: string | undefined;
+
+  /**
+   * <p>Information about the build input source code for the build project.</p>
+   */
+  source: ProjectSource | undefined;
 
   /**
    * <p>A version of the build input to be built for this project. If not specified, the latest
@@ -3388,39 +3466,11 @@ export interface CreateProjectInput {
   sourceVersion?: string;
 
   /**
-   * <p>An array of <code>ProjectSourceVersion</code> objects. If
-   *       <code>secondarySourceVersions</code> is specified at the build level, then they take
-   *       precedence over these <code>secondarySourceVersions</code> (at the project level).
-   *     </p>
+   * <p>A list of tag key and value pairs associated with this build project.</p>
+   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
+   *       tags.</p>
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
-
-  /**
-   * <p>Information about the build output artifacts for the build project.</p>
-   */
-  artifacts: ProjectArtifacts | undefined;
-
-  /**
-   * <p>An array of <code>ProjectArtifacts</code> objects. </p>
-   */
-  secondaryArtifacts?: ProjectArtifacts[];
-
-  /**
-   * <p>Stores recently used information so that it can be quickly accessed at a later
-   *             time.</p>
-   */
-  cache?: ProjectCache;
-
-  /**
-   * <p>Information about the build environment for the build project.</p>
-   */
-  environment: ProjectEnvironment | undefined;
-
-  /**
-   * <p>The ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services
-   *       on behalf of the AWS account.</p>
-   */
-  serviceRole: string | undefined;
+  tags?: Tag[];
 
   /**
    * <p>How long, in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before it times out
@@ -3429,60 +3479,9 @@ export interface CreateProjectInput {
   timeoutInMinutes?: number;
 
   /**
-   * <p>The number of minutes a build is allowed to be queued before it times out. </p>
-   */
-  queuedTimeoutInMinutes?: number;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
-   *       artifacts.</p>
-   *          <note>
-   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *         service role has permission to that key. </p>
-   *          </note>
-   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *         the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKey?: string;
-
-  /**
-   * <p>A list of tag key and value pairs associated with this build project.</p>
-   *          <p>These tags are available for use by AWS services that support AWS CodeBuild build project
-   *       tags.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.</p>
    */
   vpcConfig?: VpcConfig;
-
-  /**
-   * <p>Set this to true to generate a publicly accessible URL for your project's build
-   *             badge.</p>
-   */
-  badgeEnabled?: boolean;
-
-  /**
-   * <p>Information about logs for the build project. These can be logs in Amazon CloudWatch Logs, logs
-   *       uploaded to a specified S3 bucket, or both. </p>
-   */
-  logsConfig?: LogsConfig;
-
-  /**
-   * <p>
-   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
-   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
-   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
-   *   </p>
-   */
-  fileSystemLocations?: ProjectFileSystemLocation[];
-
-  /**
-   * <p>A <a>ProjectBuildBatchConfig</a> object that defines the batch build options
-   *             for the project.</p>
-   */
-  buildBatchConfig?: ProjectBuildBatchConfig;
 }
 
 export namespace CreateProjectInput {
@@ -3523,24 +3522,17 @@ export namespace ResourceAlreadyExistsException {
 export interface CreateReportGroupInput {
   /**
    * <p>
-   *       The name of the report group.
-   *     </p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>
-   *       The type of report group.
-   *     </p>
-   */
-  type: ReportType | string | undefined;
-
-  /**
-   * <p>
    *       A <code>ReportExportConfig</code> object that contains information about where the report group test results are exported.
    *     </p>
    */
   exportConfig: ReportExportConfig | undefined;
+
+  /**
+   * <p>
+   *       The name of the report group.
+   *     </p>
+   */
+  name: string | undefined;
 
   /**
    * <p>
@@ -3550,6 +3542,13 @@ export interface CreateReportGroupInput {
    *       tags.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>
+   *       The type of report group.
+   *     </p>
+   */
+  type: ReportType | string | undefined;
 }
 
 export namespace CreateReportGroupInput {
@@ -3575,11 +3574,6 @@ export namespace CreateReportGroupOutput {
 
 export interface CreateWebhookInput {
   /**
-   * <p>The name of the AWS CodeBuild project.</p>
-   */
-  projectName: string | undefined;
-
-  /**
    * <p>A regular expression used to determine which repository branches are built when a
    *       webhook is triggered. If the name of a branch matches the regular expression, then it is
    *       built. If <code>branchFilter</code> is empty, then all branches are built.</p>
@@ -3589,6 +3583,11 @@ export interface CreateWebhookInput {
    *          </note>
    */
   branchFilter?: string;
+
+  /**
+   * <p>Specifies the type of build this webhook will trigger.</p>
+   */
+  buildType?: WebhookBuildType | string;
 
   /**
    * <p>An array of arrays of <code>WebhookFilter</code> objects used to determine which
@@ -3601,9 +3600,9 @@ export interface CreateWebhookInput {
   filterGroups?: WebhookFilter[][];
 
   /**
-   * <p>Specifies the type of build this webhook will trigger.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
-  buildType?: WebhookBuildType | string;
+  projectName: string | undefined;
 }
 
 export namespace CreateWebhookInput {
@@ -3671,11 +3670,6 @@ export namespace DeleteBuildBatchInput {
 
 export interface DeleteBuildBatchOutput {
   /**
-   * <p>The status code.</p>
-   */
-  statusCode?: string;
-
-  /**
    * <p>An array of strings that contain the identifiers of the builds that were deleted.</p>
    */
   buildsDeleted?: string[];
@@ -3685,6 +3679,11 @@ export interface DeleteBuildBatchOutput {
    *             deleted.</p>
    */
   buildsNotDeleted?: BuildNotDeleted[];
+
+  /**
+   * <p>The status code.</p>
+   */
+  statusCode?: string;
 }
 
 export namespace DeleteBuildBatchOutput {
@@ -3847,11 +3846,19 @@ export enum SortOrderType {
 
 export interface DescribeCodeCoveragesInput {
   /**
-   * <p>
-   *       The ARN of the report for which test cases are returned.
-   *     </p>
+   * <p>The maximum line coverage percentage to report.</p>
    */
-  reportArn: string | undefined;
+  maxLineCoveragePercentage?: number;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The minimum line coverage percentage to report.</p>
+   */
+  minLineCoveragePercentage?: number;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous call to
@@ -3861,14 +3868,11 @@ export interface DescribeCodeCoveragesInput {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>
+   *       The ARN of the report for which test cases are returned.
+   *     </p>
    */
-  maxResults?: number;
-
-  /**
-   * <p>Specifies if the results are sorted in ascending or descending order.</p>
-   */
-  sortOrder?: SortOrderType | string;
+  reportArn: string | undefined;
 
   /**
    * <p>Specifies how the results are sorted. Possible values are:</p>
@@ -3886,14 +3890,9 @@ export interface DescribeCodeCoveragesInput {
   sortBy?: ReportCodeCoverageSortByType | string;
 
   /**
-   * <p>The minimum line coverage percentage to report.</p>
+   * <p>Specifies if the results are sorted in ascending or descending order.</p>
    */
-  minLineCoveragePercentage?: number;
-
-  /**
-   * <p>The maximum line coverage percentage to report.</p>
-   */
-  maxLineCoveragePercentage?: number;
+  sortOrder?: SortOrderType | string;
 }
 
 export namespace DescribeCodeCoveragesInput {
@@ -3910,36 +3909,6 @@ export namespace DescribeCodeCoveragesInput {
  *     structure, such as an <code>if</code> or <code>case</code> statement.</p>
  */
 export interface CodeCoverage {
-  /**
-   * <p>The identifier of the code coverage report.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The ARN of the report.</p>
-   */
-  reportARN?: string;
-
-  /**
-   * <p>The path of the test report file.</p>
-   */
-  filePath?: string;
-
-  /**
-   * <p>The percentage of lines that are covered by your tests.</p>
-   */
-  lineCoveragePercentage?: number;
-
-  /**
-   * <p>The number of lines that are covered by your tests.</p>
-   */
-  linesCovered?: number;
-
-  /**
-   * <p>The number of lines that are not covered by your tests.</p>
-   */
-  linesMissed?: number;
-
   /**
    * <p>The percentage of branches that are covered by your tests.</p>
    */
@@ -3959,6 +3928,36 @@ export interface CodeCoverage {
    * <p>The date and time that the tests were run.</p>
    */
   expired?: Date;
+
+  /**
+   * <p>The path of the test report file.</p>
+   */
+  filePath?: string;
+
+  /**
+   * <p>The identifier of the code coverage report.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The percentage of lines that are covered by your tests.</p>
+   */
+  lineCoveragePercentage?: number;
+
+  /**
+   * <p>The number of lines that are covered by your tests.</p>
+   */
+  linesCovered?: number;
+
+  /**
+   * <p>The number of lines that are not covered by your tests.</p>
+   */
+  linesMissed?: number;
+
+  /**
+   * <p>The ARN of the report.</p>
+   */
+  reportARN?: string;
 }
 
 export namespace CodeCoverage {
@@ -3969,15 +3968,15 @@ export namespace CodeCoverage {
 
 export interface DescribeCodeCoveragesOutput {
   /**
+   * <p>An array of <code>CodeCoverage</code> objects that contain the results.</p>
+   */
+  codeCoverages?: CodeCoverage[];
+
+  /**
    * <p>If there are more items to return, this contains a token that is passed to a subsequent
    *             call to <code>DescribeCodeCoverages</code> to retrieve the next set of items.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>An array of <code>CodeCoverage</code> objects that contain the results.</p>
-   */
-  codeCoverages?: CodeCoverage[];
 }
 
 export namespace DescribeCodeCoveragesOutput {
@@ -3991,6 +3990,13 @@ export namespace DescribeCodeCoveragesOutput {
  *             report must meet all of the filter properties.</p>
  */
 export interface TestCaseFilter {
+  /**
+   * <p>A keyword that is used to filter on the <code>name</code> or the <code>prefix</code>
+   *             of the test cases. Only test cases where the keyword is a substring of the
+   *                 <code>name</code> or the <code>prefix</code> will be returned.</p>
+   */
+  keyword?: string;
+
   /**
    * <p>The status used to filter test cases. A <code>TestCaseFilter</code> can have one
    *             status. Valid values are:</p>
@@ -4023,13 +4029,6 @@ export interface TestCaseFilter {
    *          </ul>
    */
   status?: string;
-
-  /**
-   * <p>A keyword that is used to filter on the <code>name</code> or the <code>prefix</code>
-   *             of the test cases. Only test cases where the keyword is a substring of the
-   *                 <code>name</code> or the <code>prefix</code> will be returned.</p>
-   */
-  keyword?: string;
 }
 
 export namespace TestCaseFilter {
@@ -4041,10 +4040,18 @@ export namespace TestCaseFilter {
 export interface DescribeTestCasesInput {
   /**
    * <p>
-   *       The ARN of the report for which test cases are returned.
+   *       A <code>TestCaseFilter</code> object used to filter the returned reports.
    *     </p>
    */
-  reportArn: string | undefined;
+  filter?: TestCaseFilter;
+
+  /**
+   * <p>
+   *       The maximum number of paginated test cases returned per response. Use <code>nextToken</code> to iterate pages in
+   *       the list of returned <code>TestCase</code> objects. The default value is 100.
+   *     </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>
@@ -4059,18 +4066,10 @@ export interface DescribeTestCasesInput {
 
   /**
    * <p>
-   *       The maximum number of paginated test cases returned per response. Use <code>nextToken</code> to iterate pages in
-   *       the list of returned <code>TestCase</code> objects. The default value is 100.
+   *       The ARN of the report for which test cases are returned.
    *     </p>
    */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       A <code>TestCaseFilter</code> object used to filter the returned reports.
-   *     </p>
-   */
-  filter?: TestCaseFilter;
+  reportArn: string | undefined;
 }
 
 export namespace DescribeTestCasesInput {
@@ -4085,14 +4084,26 @@ export namespace DescribeTestCasesInput {
  */
 export interface TestCase {
   /**
-   * <p> The ARN of the report to which the test case belongs. </p>
+   * <p> The number of nanoseconds it took to run this test case. </p>
    */
-  reportArn?: string;
+  durationInNanoSeconds?: number;
 
   /**
-   * <p> The path to the raw data file that contains the test result. </p>
+   * <p> The date and time a test case expires. A test case expires 30 days after it is
+   *             created. An expired test case is not available to view in CodeBuild. </p>
    */
-  testRawDataPath?: string;
+  expired?: Date;
+
+  /**
+   * <p> A message associated with a test case. For example, an error message or stack trace.
+   *         </p>
+   */
+  message?: string;
+
+  /**
+   * <p> The name of the test case. </p>
+   */
+  name?: string;
 
   /**
    * <p> A string that is applied to a series of related test cases. CodeBuild generates the
@@ -4101,9 +4112,9 @@ export interface TestCase {
   prefix?: string;
 
   /**
-   * <p> The name of the test case. </p>
+   * <p> The ARN of the report to which the test case belongs. </p>
    */
-  name?: string;
+  reportArn?: string;
 
   /**
    * <p> The status returned by the test case after it was run. Valid statuses are
@@ -4113,21 +4124,9 @@ export interface TestCase {
   status?: string;
 
   /**
-   * <p> The number of nanoseconds it took to run this test case. </p>
+   * <p> The path to the raw data file that contains the test result. </p>
    */
-  durationInNanoSeconds?: number;
-
-  /**
-   * <p> A message associated with a test case. For example, an error message or stack trace.
-   *         </p>
-   */
-  message?: string;
-
-  /**
-   * <p> The date and time a test case expires. A test case expires 30 days after it is
-   *             created. An expired test case is not available to view in CodeBuild. </p>
-   */
-  expired?: Date;
+  testRawDataPath?: string;
 }
 
 export namespace TestCase {
@@ -4175,8 +4174,8 @@ export enum ReportGroupTrendFieldType {
 }
 
 export interface GetReportGroupTrendInput {
-  reportGroupArn: string | undefined;
   numOfReports?: number;
+  reportGroupArn: string | undefined;
   trendField: ReportGroupTrendFieldType | string | undefined;
 }
 
@@ -4187,8 +4186,8 @@ export namespace GetReportGroupTrendInput {
 }
 
 export interface ReportWithRawData {
-  reportArn?: string;
   data?: string;
+  reportArn?: string;
 }
 
 export namespace ReportWithRawData {
@@ -4210,8 +4209,8 @@ export namespace ReportGroupTrendStats {
 }
 
 export interface GetReportGroupTrendOutput {
-  stats?: ReportGroupTrendStats;
   rawData?: ReportWithRawData[];
+  stats?: ReportGroupTrendStats;
 }
 
 export namespace GetReportGroupTrendOutput {
@@ -4254,10 +4253,23 @@ export enum ServerType {
 
 export interface ImportSourceCredentialsInput {
   /**
-   * <p> The Bitbucket username when the <code>authType</code> is BASIC_AUTH. This parameter
-   *             is not valid for other types of source providers or connections. </p>
+   * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, or
+   *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
+   *             created using the AWS CodeBuild console. </p>
    */
-  username?: string;
+  authType: AuthType | string | undefined;
+
+  /**
+   * <p> The source provider used for this project. </p>
+   */
+  serverType: ServerType | string | undefined;
+
+  /**
+   * <p> Set to <code>false</code> to prevent overwriting the repository source credentials.
+   *             Set to <code>true</code> to overwrite the repository source credentials. The default
+   *             value is <code>true</code>. </p>
+   */
+  shouldOverwrite?: boolean;
 
   /**
    * <p> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
@@ -4266,23 +4278,10 @@ export interface ImportSourceCredentialsInput {
   token: string | undefined;
 
   /**
-   * <p> The source provider used for this project. </p>
+   * <p> The Bitbucket username when the <code>authType</code> is BASIC_AUTH. This parameter
+   *             is not valid for other types of source providers or connections. </p>
    */
-  serverType: ServerType | string | undefined;
-
-  /**
-   * <p> The type of authentication used to connect to a GitHub, GitHub Enterprise, or
-   *             Bitbucket repository. An OAUTH connection is not supported by the API and must be
-   *             created using the AWS CodeBuild console. </p>
-   */
-  authType: AuthType | string | undefined;
-
-  /**
-   * <p> Set to <code>false</code> to prevent overwriting the repository source credentials.
-   *             Set to <code>true</code> to overwrite the repository source credentials. The default
-   *             value is <code>true</code>. </p>
-   */
-  shouldOverwrite?: boolean;
+  username?: string;
 }
 
 export namespace ImportSourceCredentialsInput {
@@ -4338,6 +4337,13 @@ export interface ListBuildBatchesInput {
   maxResults?: number;
 
   /**
+   * <p>The <code>nextToken</code> value returned from a previous call to
+   *                 <code>ListBuildBatches</code>. This specifies the next item to return. To return the
+   *             beginning of the list, exclude this parameter.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>Specifies the sort order of the returned items. Valid values include:</p>
    *          <ul>
    *             <li>
@@ -4351,13 +4357,6 @@ export interface ListBuildBatchesInput {
    *          </ul>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous call to
-   *                 <code>ListBuildBatches</code>. This specifies the next item to return. To return the
-   *             beginning of the list, exclude this parameter.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListBuildBatchesInput {
@@ -4387,11 +4386,6 @@ export namespace ListBuildBatchesOutput {
 
 export interface ListBuildBatchesForProjectInput {
   /**
-   * <p>The name of the project.</p>
-   */
-  projectName?: string;
-
-  /**
    * <p>A <code>BuildBatchFilter</code> object that specifies the filters for the search.</p>
    */
   filter?: BuildBatchFilter;
@@ -4400,6 +4394,18 @@ export interface ListBuildBatchesForProjectInput {
    * <p>The maximum number of results to return.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous call to
+   *                 <code>ListBuildBatchesForProject</code>. This specifies the next item to return. To return the
+   *             beginning of the list, exclude this parameter.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  projectName?: string;
 
   /**
    * <p>Specifies the sort order of the returned items. Valid values include:</p>
@@ -4417,13 +4423,6 @@ export interface ListBuildBatchesForProjectInput {
    *          </ul>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous call to
-   *                 <code>ListBuildBatchesForProject</code>. This specifies the next item to return. To return the
-   *             beginning of the list, exclude this parameter.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListBuildBatchesForProjectInput {
@@ -4454,6 +4453,16 @@ export namespace ListBuildBatchesForProjectOutput {
 
 export interface ListBuildsInput {
   /**
+   * <p>During a previous call, if there are more than 100 items in the list, only the first
+   *             100 items are returned, along with a unique string called a
+   *                 <i>nextToken</i>. To get the next batch of items in the list, call
+   *             this operation again, adding the next token to the call. To get all of the items in the
+   *             list, keep calling this operation with each subsequent next token that is returned,
+   *             until no more next tokens are returned.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The order to list build IDs. Valid values include:</p>
    *         <ul>
    *             <li>
@@ -4469,16 +4478,6 @@ export interface ListBuildsInput {
    *          </ul>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>During a previous call, if there are more than 100 items in the list, only the first
-   *             100 items are returned, along with a unique string called a
-   *                 <i>nextToken</i>. To get the next batch of items in the list, call
-   *             this operation again, adding the next token to the call. To get all of the items in the
-   *             list, keep calling this operation with each subsequent next token that is returned,
-   *             until no more next tokens are returned.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListBuildsInput {
@@ -4510,6 +4509,16 @@ export namespace ListBuildsOutput {
 
 export interface ListBuildsForProjectInput {
   /**
+   * <p>During a previous call, if there are more than 100 items in the list, only the first
+   *             100 items are returned, along with a unique string called a
+   *                 <i>nextToken</i>. To get the next batch of items in the list, call
+   *             this operation again, adding the next token to the call. To get all of the items in the
+   *             list, keep calling this operation with each subsequent next token that is returned,
+   *             until no more next tokens are returned.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The name of the AWS CodeBuild project.</p>
    */
   projectName: string | undefined;
@@ -4530,16 +4539,6 @@ export interface ListBuildsForProjectInput {
    *          </ul>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>During a previous call, if there are more than 100 items in the list, only the first
-   *             100 items are returned, along with a unique string called a
-   *                 <i>nextToken</i>. To get the next batch of items in the list, call
-   *             this operation again, adding the next token to the call. To get all of the items in the
-   *             list, keep calling this operation with each subsequent next token that is returned,
-   *             until no more next tokens are returned.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListBuildsForProjectInput {
@@ -4583,14 +4582,14 @@ export namespace ListCuratedEnvironmentImagesInput {
  */
 export interface EnvironmentImage {
   /**
-   * <p>The name of the Docker image.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The description of the Docker image.</p>
    */
   description?: string;
+
+  /**
+   * <p>The name of the Docker image.</p>
+   */
+  name?: string;
 
   /**
    * <p>A list of environment image versions.</p>
@@ -4623,15 +4622,15 @@ export enum LanguageType {
  */
 export interface EnvironmentLanguage {
   /**
-   * <p>The programming language for the Docker images.</p>
-   */
-  language?: LanguageType | string;
-
-  /**
    * <p>The list of Docker images that are related by the specified programming
    *             language.</p>
    */
   images?: EnvironmentImage[];
+
+  /**
+   * <p>The programming language for the Docker images.</p>
+   */
+  language?: LanguageType | string;
 }
 
 export namespace EnvironmentLanguage {
@@ -4652,15 +4651,15 @@ export enum PlatformType {
  */
 export interface EnvironmentPlatform {
   /**
-   * <p>The platform's name.</p>
-   */
-  platform?: PlatformType | string;
-
-  /**
    * <p>The list of programming languages that are available for the specified
    *             platform.</p>
    */
   languages?: EnvironmentLanguage[];
+
+  /**
+   * <p>The platform's name.</p>
+   */
+  platform?: PlatformType | string;
 }
 
 export namespace EnvironmentPlatform {
@@ -4690,6 +4689,16 @@ export enum ProjectSortByType {
 }
 
 export interface ListProjectsInput {
+  /**
+   * <p>During a previous call, if there are more than 100 items in the list, only the first
+   *             100 items are returned, along with a unique string called a
+   *                 <i>nextToken</i>. To get the next batch of items in the list, call
+   *             this operation again, adding the next token to the call. To get all of the items in the
+   *             list, keep calling this operation with each subsequent next token that is returned,
+   *             until no more next tokens are returned.</p>
+   */
+  nextToken?: string;
+
   /**
    * <p>The criterion to be used to list build project names. Valid values include:</p>
    *         <ul>
@@ -4729,16 +4738,6 @@ export interface ListProjectsInput {
    *             names.</p>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>During a previous call, if there are more than 100 items in the list, only the first
-   *             100 items are returned, along with a unique string called a
-   *                 <i>nextToken</i>. To get the next batch of items in the list, call
-   *             this operation again, adding the next token to the call. To get all of the items in the
-   *             list, keep calling this operation with each subsequent next token that is returned,
-   *             until no more next tokens are returned.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListProjectsInput {
@@ -4778,11 +4777,22 @@ export enum ReportGroupSortByType {
 export interface ListReportGroupsInput {
   /**
    * <p>
-   *       Used to specify the order to sort the list of returned report groups. Valid values are
-   *       <code>ASCENDING</code> and <code>DESCENDING</code>.
+   *       The maximum number of paginated report groups returned per response. Use <code>nextToken</code> to iterate pages in
+   *       the list of returned <code>ReportGroup</code> objects. The default value is 100.
    *     </p>
    */
-  sortOrder?: SortOrderType | string;
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       During a previous call, the maximum number of items that can be returned is the value specified in
+   *       <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i>
+   *       is returned. To get the next batch of items in the list, call this operation again, adding the next token
+   *       to the call. To get all of the items in the list, keep calling this operation with each
+   *       subsequent next token that is returned, until no more next tokens are returned.
+   *     </p>
+   */
+  nextToken?: string;
 
   /**
    * <p>
@@ -4808,22 +4818,11 @@ export interface ListReportGroupsInput {
 
   /**
    * <p>
-   *       During a previous call, the maximum number of items that can be returned is the value specified in
-   *       <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i>
-   *       is returned. To get the next batch of items in the list, call this operation again, adding the next token
-   *       to the call. To get all of the items in the list, keep calling this operation with each
-   *       subsequent next token that is returned, until no more next tokens are returned.
+   *       Used to specify the order to sort the list of returned report groups. Valid values are
+   *       <code>ASCENDING</code> and <code>DESCENDING</code>.
    *     </p>
    */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The maximum number of paginated report groups returned per response. Use <code>nextToken</code> to iterate pages in
-   *       the list of returned <code>ReportGroup</code> objects. The default value is 100.
-   *     </p>
-   */
-  maxResults?: number;
+  sortOrder?: SortOrderType | string;
 }
 
 export namespace ListReportGroupsInput {
@@ -4878,6 +4877,32 @@ export namespace ReportFilter {
 export interface ListReportsInput {
   /**
    * <p>
+   *       A <code>ReportFilter</code> object used to filter the returned reports.
+   *     </p>
+   */
+  filter?: ReportFilter;
+
+  /**
+   * <p>
+   *       The maximum number of paginated reports returned per response. Use <code>nextToken</code> to iterate pages in
+   *       the list of returned <code>Report</code> objects. The default value is 100.
+   *     </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>
+   *       During a previous call, the maximum number of items that can be returned is the value specified in
+   *       <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i>
+   *       is returned. To get the next batch of items in the list, call this operation again, adding the next token
+   *       to the call. To get all of the items in the list, keep calling this operation with each
+   *       subsequent next token that is returned, until no more next tokens are returned.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
    *       Specifies the sort order for the list of returned reports. Valid values are:
    *     </p>
    *          <ul>
@@ -4894,32 +4919,6 @@ export interface ListReportsInput {
    *          </ul>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>
-   *       During a previous call, the maximum number of items that can be returned is the value specified in
-   *       <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i>
-   *       is returned. To get the next batch of items in the list, call this operation again, adding the next token
-   *       to the call. To get all of the items in the list, keep calling this operation with each
-   *       subsequent next token that is returned, until no more next tokens are returned.
-   *     </p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>
-   *       The maximum number of paginated reports returned per response. Use <code>nextToken</code> to iterate pages in
-   *       the list of returned <code>Report</code> objects. The default value is 100.
-   *     </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       A <code>ReportFilter</code> object used to filter the returned reports.
-   *     </p>
-   */
-  filter?: ReportFilter;
 }
 
 export namespace ListReportsInput {
@@ -4957,10 +4956,18 @@ export namespace ListReportsOutput {
 export interface ListReportsForReportGroupInput {
   /**
    * <p>
-   *       The ARN of the report group for which you want to return report ARNs.
+   *       A <code>ReportFilter</code> object used to filter the returned reports.
    *     </p>
    */
-  reportGroupArn: string | undefined;
+  filter?: ReportFilter;
+
+  /**
+   * <p>
+   *       The maximum number of paginated reports in this report group returned per response. Use <code>nextToken</code> to iterate pages in
+   *       the list of returned <code>Report</code> objects. The default value is 100.
+   *     </p>
+   */
+  maxResults?: number;
 
   /**
    * <p>
@@ -4975,25 +4982,17 @@ export interface ListReportsForReportGroupInput {
 
   /**
    * <p>
+   *       The ARN of the report group for which you want to return report ARNs.
+   *     </p>
+   */
+  reportGroupArn: string | undefined;
+
+  /**
+   * <p>
    *       Use to specify whether the results are returned in ascending or descending order.
    *     </p>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p>
-   *       The maximum number of paginated reports in this report group returned per response. Use <code>nextToken</code> to iterate pages in
-   *       the list of returned <code>Report</code> objects. The default value is 100.
-   *     </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>
-   *       A <code>ReportFilter</code> object used to filter the returned reports.
-   *     </p>
-   */
-  filter?: ReportFilter;
 }
 
 export namespace ListReportsForReportGroupInput {
@@ -5035,6 +5034,23 @@ export enum SharedResourceSortByType {
 
 export interface ListSharedProjectsInput {
   /**
+   * <p> The maximum number of paginated shared build projects returned per response. Use
+   *                 <code>nextToken</code> to iterate pages in the list of returned <code>Project</code>
+   *             objects. The default value is 100. </p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p> During a previous call, the maximum number of items that can be returned is the value
+   *             specified in <code>maxResults</code>. If there more items in the list, then a unique
+   *             string called a <i>nextToken</i> is returned. To get the next batch of
+   *             items in the list, call this operation again, adding the next token to the call. To get
+   *             all of the items in the list, keep calling this operation with each subsequent next
+   *             token that is returned, until no more next tokens are returned. </p>
+   */
+  nextToken?: string;
+
+  /**
    * <p> The criterion to be used to list build projects shared with the current AWS account
    *             or user. Valid values include: </p>
    *         <ul>
@@ -5065,23 +5081,6 @@ export interface ListSharedProjectsInput {
    *          </ul>
    */
   sortOrder?: SortOrderType | string;
-
-  /**
-   * <p> The maximum number of paginated shared build projects returned per response. Use
-   *                 <code>nextToken</code> to iterate pages in the list of returned <code>Project</code>
-   *             objects. The default value is 100. </p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p> During a previous call, the maximum number of items that can be returned is the value
-   *             specified in <code>maxResults</code>. If there more items in the list, then a unique
-   *             string called a <i>nextToken</i> is returned. To get the next batch of
-   *             items in the list, call this operation again, adding the next token to the call. To get
-   *             all of the items in the list, keep calling this operation with each subsequent next
-   *             token that is returned, until no more next tokens are returned. </p>
-   */
-  nextToken?: string;
 }
 
 export namespace ListSharedProjectsInput {
@@ -5116,19 +5115,21 @@ export namespace ListSharedProjectsOutput {
 
 export interface ListSharedReportGroupsInput {
   /**
-   * <p>The order in which to list shared report groups. Valid values include:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>ASCENDING</code>: List in ascending order.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>DESCENDING</code>: List in descending order.</p>
-   *             </li>
-   *          </ul>
+   * <p> The maximum number of paginated shared report groups per response. Use
+   *                 <code>nextToken</code> to iterate pages in the list of returned
+   *                 <code>ReportGroup</code> objects. The default value is 100. </p>
    */
-  sortOrder?: SortOrderType | string;
+  maxResults?: number;
+
+  /**
+   * <p> During a previous call, the maximum number of items that can be returned is the value
+   *             specified in <code>maxResults</code>. If there more items in the list, then a unique
+   *             string called a <i>nextToken</i> is returned. To get the next batch of
+   *             items in the list, call this operation again, adding the next token to the call. To get
+   *             all of the items in the list, keep calling this operation with each subsequent next
+   *             token that is returned, until no more next tokens are returned. </p>
+   */
+  nextToken?: string;
 
   /**
    * <p> The criterion to be used to list report groups shared with the current AWS account or
@@ -5148,21 +5149,19 @@ export interface ListSharedReportGroupsInput {
   sortBy?: SharedResourceSortByType | string;
 
   /**
-   * <p> During a previous call, the maximum number of items that can be returned is the value
-   *             specified in <code>maxResults</code>. If there more items in the list, then a unique
-   *             string called a <i>nextToken</i> is returned. To get the next batch of
-   *             items in the list, call this operation again, adding the next token to the call. To get
-   *             all of the items in the list, keep calling this operation with each subsequent next
-   *             token that is returned, until no more next tokens are returned. </p>
+   * <p>The order in which to list shared report groups. Valid values include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ASCENDING</code>: List in ascending order.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DESCENDING</code>: List in descending order.</p>
+   *             </li>
+   *          </ul>
    */
-  nextToken?: string;
-
-  /**
-   * <p> The maximum number of paginated shared report groups per response. Use
-   *                 <code>nextToken</code> to iterate pages in the list of returned
-   *                 <code>ReportGroup</code> objects. The default value is 100. </p>
-   */
-  maxResults?: number;
+  sortOrder?: SortOrderType | string;
 }
 
 export namespace ListSharedReportGroupsInput {
@@ -5214,16 +5213,16 @@ export interface SourceCredentialsInfo {
   arn?: string;
 
   /**
-   * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or
-   *             BITBUCKET. </p>
-   */
-  serverType?: ServerType | string;
-
-  /**
    * <p> The type of authentication used by the credentials. Valid options are OAUTH,
    *             BASIC_AUTH, or PERSONAL_ACCESS_TOKEN. </p>
    */
   authType?: AuthType | string;
+
+  /**
+   * <p> The type of source provider. The valid options are GITHUB, GITHUB_ENTERPRISE, or
+   *             BITBUCKET. </p>
+   */
+  serverType?: ServerType | string;
 }
 
 export namespace SourceCredentialsInfo {
@@ -5364,9 +5363,176 @@ export namespace RetryBuildBatchOutput {
 
 export interface StartBuildInput {
   /**
+   * <p>Build output artifact settings that override, for this build only, the latest ones
+   *             already defined in the build project.</p>
+   */
+  artifactsOverride?: ProjectArtifacts;
+
+  /**
+   * <p>A buildspec file declaration that overrides, for this build only, the latest one
+   *             already defined in the build project.</p>
+   *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
+   *             alternate buildspec file relative to the value of the built-in
+   *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
+   *             The bucket must be in the same AWS Region as the build project. Specify the buildspec
+   *             file using its ARN (for example,
+   *                 <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
+   *             provided or is set to an empty string, the source code must contain a buildspec file in
+   *             its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
+   */
+  buildspecOverride?: string;
+
+  /**
+   * <p>Contains information that defines how the build project reports the build status to
+   *             the source provider. This option is only used when the source provider is
+   *                 <code>GITHUB</code>, <code>GITHUB_ENTERPRISE</code>, or
+   *             <code>BITBUCKET</code>.</p>
+   */
+  buildStatusConfigOverride?: BuildStatusConfig;
+
+  /**
+   * <p>A ProjectCache object specified for this build that overrides the one defined in the
+   *             build project.</p>
+   */
+  cacheOverride?: ProjectCache;
+
+  /**
+   * <p>The name of a certificate for this build that overrides the one specified in the build
+   *             project.</p>
+   */
+  certificateOverride?: string;
+
+  /**
+   * <p>The name of a compute type for this build that overrides the one specified in the
+   *             build project.</p>
+   */
+  computeTypeOverride?: ComputeType | string;
+
+  /**
+   * <p>Specifies if session debugging is enabled for this build. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing a running build in Session Manager</a>.</p>
+   */
+  debugSessionEnabled?: boolean;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build
+   *             project. The CMK key encrypts the build output artifacts.</p>
+   *         <note>
+   *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *                 service role has permission to that key. </p>
+   *         </note>
+   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *             the format <code>alias/<alias-name></code>).</p>
+   */
+  encryptionKeyOverride?: string;
+
+  /**
+   * <p>A container type for this build that overrides the one specified in the build
+   *             project.</p>
+   */
+  environmentTypeOverride?: EnvironmentType | string;
+
+  /**
+   * <p>A set of environment variables that overrides, for this build only, the latest ones
+   *             already defined in the build project.</p>
+   */
+  environmentVariablesOverride?: EnvironmentVariable[];
+
+  /**
+   * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
+   *             build only, any previous depth of history defined in the build project.</p>
+   */
+  gitCloneDepthOverride?: number;
+
+  /**
+   * <p> Information about the Git submodules configuration for this build of an AWS CodeBuild build
+   *             project. </p>
+   */
+  gitSubmodulesConfigOverride?: GitSubmodulesConfig;
+
+  /**
+   * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
+   *             StartBuild request. The token is included in the StartBuild request and is valid for 5
+   *             minutes. If you repeat the StartBuild request with the same token, but change a
+   *             parameter, AWS CodeBuild returns a parameter mismatch error. </p>
+   */
+  idempotencyToken?: string;
+
+  /**
+   * <p>The name of an image for this build that overrides the one specified in the build
+   *             project.</p>
+   */
+  imageOverride?: string;
+
+  /**
+   * <p>The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid
+   *             values: </p>
+   *         <dl>
+   *             <dt>CODEBUILD</dt>
+   *             <dd>
+   *                     <p>Specifies that AWS CodeBuild uses its own credentials. This requires that you
+   *                         modify your ECR repository policy to trust AWS CodeBuild's service principal.</p>
+   *                 </dd>
+   *             <dt>SERVICE_ROLE</dt>
+   *             <dd>
+   *                     <p>Specifies that AWS CodeBuild uses your build project's service role. </p>
+   *                 </dd>
+   *          </dl>
+   *         <p>When using a cross-account or private registry image, you must use
+   *             <code>SERVICE_ROLE</code> credentials. When using an AWS CodeBuild curated image,
+   *             you must use <code>CODEBUILD</code> credentials. </p>
+   */
+  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
+
+  /**
+   * <p>Enable this flag to override the insecure SSL setting that is specified in the build
+   *             project. The insecure SSL setting determines whether to ignore SSL warnings while
+   *             connecting to the project source code. This override applies only if the build's source
+   *             is GitHub Enterprise.</p>
+   */
+  insecureSslOverride?: boolean;
+
+  /**
+   * <p> Log settings for this build that override the log settings defined in the build
+   *             project. </p>
+   */
+  logsConfigOverride?: LogsConfig;
+
+  /**
+   * <p>Enable this flag to override privileged mode in the build project.</p>
+   */
+  privilegedModeOverride?: boolean;
+
+  /**
    * <p>The name of the AWS CodeBuild build project to start running a build.</p>
    */
   projectName: string | undefined;
+
+  /**
+   * <p> The number of minutes a build is allowed to be queued before it times out. </p>
+   */
+  queuedTimeoutInMinutesOverride?: number;
+
+  /**
+   * <p> The credentials for access to a private registry. </p>
+   */
+  registryCredentialOverride?: RegistryCredential;
+
+  /**
+   * <p> Set to true to report to your source provider the status of a build's start and
+   *             completion. If you use this option with a source provider other than GitHub, GitHub
+   *             Enterprise, or Bitbucket, an invalidInputException is thrown. </p>
+   *         <note>
+   *             <p> The status of a build triggered by a webhook is always reported to your source
+   *                 provider. </p>
+   *         </note>
+   */
+  reportBuildStatusOverride?: boolean;
+
+  /**
+   * <p> An array of <code>ProjectArtifacts</code> objects. </p>
+   */
+  secondaryArtifactsOverride?: ProjectArtifacts[];
 
   /**
    * <p> An array of <code>ProjectSource</code> objects. </p>
@@ -5378,6 +5544,31 @@ export interface StartBuildInput {
    *             versions of the project's secondary sources to be used for this build only. </p>
    */
   secondarySourcesVersionOverride?: ProjectSourceVersion[];
+
+  /**
+   * <p>The name of a service role for this build that overrides the one specified in the
+   *             build project.</p>
+   */
+  serviceRoleOverride?: string;
+
+  /**
+   * <p>An authorization type for this build that overrides the one defined in the build
+   *             project. This override applies only if the build project's source is BitBucket or
+   *             GitHub.</p>
+   */
+  sourceAuthOverride?: SourceAuth;
+
+  /**
+   * <p>A location that overrides, for this build, the source location for the one defined in
+   *             the build project.</p>
+   */
+  sourceLocationOverride?: string;
+
+  /**
+   * <p>A source input type, for this build, that overrides the source input defined in the
+   *             build project.</p>
+   */
+  sourceTypeOverride?: SourceType | string;
 
   /**
    * <p>The version of the build input to be built, for this build only. If not specified,
@@ -5418,202 +5609,10 @@ export interface StartBuildInput {
   sourceVersion?: string;
 
   /**
-   * <p>Build output artifact settings that override, for this build only, the latest ones
-   *             already defined in the build project.</p>
-   */
-  artifactsOverride?: ProjectArtifacts;
-
-  /**
-   * <p> An array of <code>ProjectArtifacts</code> objects. </p>
-   */
-  secondaryArtifactsOverride?: ProjectArtifacts[];
-
-  /**
-   * <p>A set of environment variables that overrides, for this build only, the latest ones
-   *             already defined in the build project.</p>
-   */
-  environmentVariablesOverride?: EnvironmentVariable[];
-
-  /**
-   * <p>A source input type, for this build, that overrides the source input defined in the
-   *             build project.</p>
-   */
-  sourceTypeOverride?: SourceType | string;
-
-  /**
-   * <p>A location that overrides, for this build, the source location for the one defined in
-   *             the build project.</p>
-   */
-  sourceLocationOverride?: string;
-
-  /**
-   * <p>An authorization type for this build that overrides the one defined in the build
-   *             project. This override applies only if the build project's source is BitBucket or
-   *             GitHub.</p>
-   */
-  sourceAuthOverride?: SourceAuth;
-
-  /**
-   * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
-   *             build only, any previous depth of history defined in the build project.</p>
-   */
-  gitCloneDepthOverride?: number;
-
-  /**
-   * <p> Information about the Git submodules configuration for this build of an AWS CodeBuild build
-   *             project. </p>
-   */
-  gitSubmodulesConfigOverride?: GitSubmodulesConfig;
-
-  /**
-   * <p>A buildspec file declaration that overrides, for this build only, the latest one
-   *             already defined in the build project.</p>
-   *         <p> If this value is set, it can be either an inline buildspec definition, the path to an
-   *             alternate buildspec file relative to the value of the built-in
-   *                 <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
-   *             The bucket must be in the same AWS Region as the build project. Specify the buildspec
-   *             file using its ARN (for example,
-   *                 <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-   *             provided or is set to an empty string, the source code must contain a buildspec file in
-   *             its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
-   */
-  buildspecOverride?: string;
-
-  /**
-   * <p>Enable this flag to override the insecure SSL setting that is specified in the build
-   *             project. The insecure SSL setting determines whether to ignore SSL warnings while
-   *             connecting to the project source code. This override applies only if the build's source
-   *             is GitHub Enterprise.</p>
-   */
-  insecureSslOverride?: boolean;
-
-  /**
-   * <p> Set to true to report to your source provider the status of a build's start and
-   *             completion. If you use this option with a source provider other than GitHub, GitHub
-   *             Enterprise, or Bitbucket, an invalidInputException is thrown. </p>
-   *         <note>
-   *             <p> The status of a build triggered by a webhook is always reported to your source
-   *                 provider. </p>
-   *         </note>
-   */
-  reportBuildStatusOverride?: boolean;
-
-  /**
-   * <p>Contains information that defines how the build project reports the build status to
-   *             the source provider. This option is only used when the source provider is
-   *                 <code>GITHUB</code>, <code>GITHUB_ENTERPRISE</code>, or
-   *             <code>BITBUCKET</code>.</p>
-   */
-  buildStatusConfigOverride?: BuildStatusConfig;
-
-  /**
-   * <p>A container type for this build that overrides the one specified in the build
-   *             project.</p>
-   */
-  environmentTypeOverride?: EnvironmentType | string;
-
-  /**
-   * <p>The name of an image for this build that overrides the one specified in the build
-   *             project.</p>
-   */
-  imageOverride?: string;
-
-  /**
-   * <p>The name of a compute type for this build that overrides the one specified in the
-   *             build project.</p>
-   */
-  computeTypeOverride?: ComputeType | string;
-
-  /**
-   * <p>The name of a certificate for this build that overrides the one specified in the build
-   *             project.</p>
-   */
-  certificateOverride?: string;
-
-  /**
-   * <p>A ProjectCache object specified for this build that overrides the one defined in the
-   *             build project.</p>
-   */
-  cacheOverride?: ProjectCache;
-
-  /**
-   * <p>The name of a service role for this build that overrides the one specified in the
-   *             build project.</p>
-   */
-  serviceRoleOverride?: string;
-
-  /**
-   * <p>Enable this flag to override privileged mode in the build project.</p>
-   */
-  privilegedModeOverride?: boolean;
-
-  /**
    * <p>The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for this
    *             build only, the latest setting already defined in the build project.</p>
    */
   timeoutInMinutesOverride?: number;
-
-  /**
-   * <p> The number of minutes a build is allowed to be queued before it times out. </p>
-   */
-  queuedTimeoutInMinutesOverride?: number;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the build
-   *             project. The CMK key encrypts the build output artifacts.</p>
-   *         <note>
-   *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *             the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKeyOverride?: string;
-
-  /**
-   * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
-   *             StartBuild request. The token is included in the StartBuild request and is valid for 5
-   *             minutes. If you repeat the StartBuild request with the same token, but change a
-   *             parameter, AWS CodeBuild returns a parameter mismatch error. </p>
-   */
-  idempotencyToken?: string;
-
-  /**
-   * <p> Log settings for this build that override the log settings defined in the build
-   *             project. </p>
-   */
-  logsConfigOverride?: LogsConfig;
-
-  /**
-   * <p> The credentials for access to a private registry. </p>
-   */
-  registryCredentialOverride?: RegistryCredential;
-
-  /**
-   * <p>The type of credentials AWS CodeBuild uses to pull images in your build. There are two valid
-   *             values: </p>
-   *         <dl>
-   *             <dt>CODEBUILD</dt>
-   *             <dd>
-   *                     <p>Specifies that AWS CodeBuild uses its own credentials. This requires that you
-   *                         modify your ECR repository policy to trust AWS CodeBuild's service principal.</p>
-   *                 </dd>
-   *             <dt>SERVICE_ROLE</dt>
-   *             <dd>
-   *                     <p>Specifies that AWS CodeBuild uses your build project's service role. </p>
-   *                 </dd>
-   *          </dl>
-   *         <p>When using a cross-account or private registry image, you must use
-   *             <code>SERVICE_ROLE</code> credentials. When using an AWS CodeBuild curated image,
-   *             you must use <code>CODEBUILD</code> credentials. </p>
-   */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
-
-  /**
-   * <p>Specifies if session debugging is enabled for this build. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html">Viewing a running build in Session Manager</a>.</p>
-   */
-  debugSessionEnabled?: boolean;
 }
 
 export namespace StartBuildInput {
@@ -5637,9 +5636,175 @@ export namespace StartBuildOutput {
 
 export interface StartBuildBatchInput {
   /**
+   * <p>An array of <code>ProjectArtifacts</code> objects that contains information about the
+   *             build output artifact overrides for the build project.</p>
+   */
+  artifactsOverride?: ProjectArtifacts;
+
+  /**
+   * <p>A <code>BuildBatchConfigOverride</code> object that contains batch build configuration
+   *             overrides.</p>
+   */
+  buildBatchConfigOverride?: ProjectBuildBatchConfig;
+
+  /**
+   * <p>A buildspec file declaration that overrides, for this build only, the latest one
+   *         already defined in the build project.</p>
+   *          <p>If this value is set, it can be either an inline buildspec definition, the path to an
+   *         alternate buildspec file relative to the value of the built-in
+   *         <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
+   *         The bucket must be in the same AWS Region as the build project. Specify the buildspec
+   *         file using its ARN (for example,
+   *         <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
+   *         provided or is set to an empty string, the source code must contain a buildspec file in
+   *         its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
+   */
+  buildspecOverride?: string;
+
+  /**
+   * <p>Overrides the build timeout specified in the batch build project.</p>
+   */
+  buildTimeoutInMinutesOverride?: number;
+
+  /**
+   * <p>A <code>ProjectCache</code> object that specifies cache overrides.</p>
+   */
+  cacheOverride?: ProjectCache;
+
+  /**
+   * <p>The name of a certificate for this batch build that overrides the one specified in the batch build
+   *         project.</p>
+   */
+  certificateOverride?: string;
+
+  /**
+   * <p>The name of a compute type for this batch build that overrides the one specified in the
+   *         batch build project.</p>
+   */
+  computeTypeOverride?: ComputeType | string;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build
+   *         project. The CMK key encrypts the build output artifacts.</p>
+   *          <note>
+   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *           service role has permission to that key. </p>
+   *          </note>
+   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *         the format <code>alias/<alias-name></code>).</p>
+   */
+  encryptionKeyOverride?: string;
+
+  /**
+   * <p>A container type for this batch build that overrides the one specified in the batch build
+   *         project.</p>
+   */
+  environmentTypeOverride?: EnvironmentType | string;
+
+  /**
+   * <p>An array of <code>EnvironmentVariable</code> objects that override, or add to, the
+   *             environment variables defined in the batch build project.</p>
+   */
+  environmentVariablesOverride?: EnvironmentVariable[];
+
+  /**
+   * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
+   *         batch build only, any previous depth of history defined in the batch build project.</p>
+   */
+  gitCloneDepthOverride?: number;
+
+  /**
+   * <p>A <code>GitSubmodulesConfig</code> object that overrides the Git submodules configuration
+   *             for this batch build.</p>
+   */
+  gitSubmodulesConfigOverride?: GitSubmodulesConfig;
+
+  /**
+   * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
+   *                 <code>StartBuildBatch</code> request. The token is included in the
+   *                 <code>StartBuildBatch</code> request and is valid for five minutes. If you repeat
+   *             the <code>StartBuildBatch</code> request with the same token, but change a parameter,
+   *             AWS CodeBuild returns a parameter mismatch error.</p>
+   */
+  idempotencyToken?: string;
+
+  /**
+   * <p>The name of an image for this batch build that overrides the one specified in the batch
+   *             build project.</p>
+   */
+  imageOverride?: string;
+
+  /**
+   * <p>The type of credentials AWS CodeBuild uses to pull images in your batch build. There are two valid
+   *         values: </p>
+   *         <dl>
+   *             <dt>CODEBUILD</dt>
+   *             <dd>
+   *                     <p>Specifies that AWS CodeBuild uses its own credentials. This requires that you
+   *                         modify your ECR repository policy to trust AWS CodeBuild's service principal.</p>
+   *                 </dd>
+   *             <dt>SERVICE_ROLE</dt>
+   *             <dd>
+   *                     <p>Specifies that AWS CodeBuild uses your build project's service role. </p>
+   *                 </dd>
+   *          </dl>
+   *          <p>When using a cross-account or private registry image, you must use
+   *                 <code>SERVICE_ROLE</code> credentials. When using an AWS CodeBuild curated image,
+   *             you must use <code>CODEBUILD</code> credentials. </p>
+   */
+  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
+
+  /**
+   * <p>Enable this flag to override the insecure SSL setting that is specified in the batch build
+   *         project. The insecure SSL setting determines whether to ignore SSL warnings while
+   *         connecting to the project source code. This override applies only if the build's source
+   *         is GitHub Enterprise.</p>
+   */
+  insecureSslOverride?: boolean;
+
+  /**
+   * <p>A <code>LogsConfig</code> object that override the log settings defined in the batch build
+   *             project.</p>
+   */
+  logsConfigOverride?: LogsConfig;
+
+  /**
+   * <p>Enable this flag to override privileged mode in the batch build project.</p>
+   */
+  privilegedModeOverride?: boolean;
+
+  /**
    * <p>The name of the project.</p>
    */
   projectName: string | undefined;
+
+  /**
+   * <p>The number of minutes a batch build is allowed to be queued before it times out.</p>
+   */
+  queuedTimeoutInMinutesOverride?: number;
+
+  /**
+   * <p>A <code>RegistryCredential</code> object that overrides credentials for access to a
+   *             private registry.</p>
+   */
+  registryCredentialOverride?: RegistryCredential;
+
+  /**
+   * <p>Set to <code>true</code> to report to your source provider the status of a batch build's
+   *             start and completion. If you use this option with a source provider other than GitHub,
+   *             GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
+   *          <note>
+   *             <p>The status of a build triggered by a webhook is always reported to your source
+   *           provider. </p>
+   *          </note>
+   */
+  reportBuildBatchStatusOverride?: boolean;
+
+  /**
+   * <p>An array of <code>ProjectArtifacts</code> objects that override the secondary artifacts
+   *             defined in the batch build project.</p>
+   */
+  secondaryArtifactsOverride?: ProjectArtifacts[];
 
   /**
    * <p>An array of <code>ProjectSource</code> objects that override the secondary sources
@@ -5652,6 +5817,31 @@ export interface StartBuildBatchInput {
    *             versions in the batch build project.</p>
    */
   secondarySourcesVersionOverride?: ProjectSourceVersion[];
+
+  /**
+   * <p>The name of a service role for this batch build that overrides the one specified in the
+   *         batch build project.</p>
+   */
+  serviceRoleOverride?: string;
+
+  /**
+   * <p>A <code>SourceAuth</code> object that overrides the one defined in the batch build
+   *             project. This override applies only if the build project's source is BitBucket or
+   *             GitHub.</p>
+   */
+  sourceAuthOverride?: SourceAuth;
+
+  /**
+   * <p>A location that overrides, for this batch build, the source location defined in
+   *         the batch build project.</p>
+   */
+  sourceLocationOverride?: string;
+
+  /**
+   * <p>The source input type that overrides the source input defined in the batch
+   *         build project.</p>
+   */
+  sourceTypeOverride?: SourceType | string;
 
   /**
    * <p>The version of the batch build input to be built, for this build only. If not specified,
@@ -5690,197 +5880,6 @@ export interface StartBuildBatchInput {
    *                 with CodeBuild</a> in the <i>AWS CodeBuild User Guide</i>. </p>
    */
   sourceVersion?: string;
-
-  /**
-   * <p>An array of <code>ProjectArtifacts</code> objects that contains information about the
-   *             build output artifact overrides for the build project.</p>
-   */
-  artifactsOverride?: ProjectArtifacts;
-
-  /**
-   * <p>An array of <code>ProjectArtifacts</code> objects that override the secondary artifacts
-   *             defined in the batch build project.</p>
-   */
-  secondaryArtifactsOverride?: ProjectArtifacts[];
-
-  /**
-   * <p>An array of <code>EnvironmentVariable</code> objects that override, or add to, the
-   *             environment variables defined in the batch build project.</p>
-   */
-  environmentVariablesOverride?: EnvironmentVariable[];
-
-  /**
-   * <p>The source input type that overrides the source input defined in the batch
-   *         build project.</p>
-   */
-  sourceTypeOverride?: SourceType | string;
-
-  /**
-   * <p>A location that overrides, for this batch build, the source location defined in
-   *         the batch build project.</p>
-   */
-  sourceLocationOverride?: string;
-
-  /**
-   * <p>A <code>SourceAuth</code> object that overrides the one defined in the batch build
-   *             project. This override applies only if the build project's source is BitBucket or
-   *             GitHub.</p>
-   */
-  sourceAuthOverride?: SourceAuth;
-
-  /**
-   * <p>The user-defined depth of history, with a minimum value of 0, that overrides, for this
-   *         batch build only, any previous depth of history defined in the batch build project.</p>
-   */
-  gitCloneDepthOverride?: number;
-
-  /**
-   * <p>A <code>GitSubmodulesConfig</code> object that overrides the Git submodules configuration
-   *             for this batch build.</p>
-   */
-  gitSubmodulesConfigOverride?: GitSubmodulesConfig;
-
-  /**
-   * <p>A buildspec file declaration that overrides, for this build only, the latest one
-   *         already defined in the build project.</p>
-   *          <p>If this value is set, it can be either an inline buildspec definition, the path to an
-   *         alternate buildspec file relative to the value of the built-in
-   *         <code>CODEBUILD_SRC_DIR</code> environment variable, or the path to an S3 bucket.
-   *         The bucket must be in the same AWS Region as the build project. Specify the buildspec
-   *         file using its ARN (for example,
-   *         <code>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</code>). If this value is not
-   *         provided or is set to an empty string, the source code must contain a buildspec file in
-   *         its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec File Name and Storage Location</a>. </p>
-   */
-  buildspecOverride?: string;
-
-  /**
-   * <p>Enable this flag to override the insecure SSL setting that is specified in the batch build
-   *         project. The insecure SSL setting determines whether to ignore SSL warnings while
-   *         connecting to the project source code. This override applies only if the build's source
-   *         is GitHub Enterprise.</p>
-   */
-  insecureSslOverride?: boolean;
-
-  /**
-   * <p>Set to <code>true</code> to report to your source provider the status of a batch build's
-   *             start and completion. If you use this option with a source provider other than GitHub,
-   *             GitHub Enterprise, or Bitbucket, an <code>invalidInputException</code> is thrown. </p>
-   *          <note>
-   *             <p>The status of a build triggered by a webhook is always reported to your source
-   *           provider. </p>
-   *          </note>
-   */
-  reportBuildBatchStatusOverride?: boolean;
-
-  /**
-   * <p>A container type for this batch build that overrides the one specified in the batch build
-   *         project.</p>
-   */
-  environmentTypeOverride?: EnvironmentType | string;
-
-  /**
-   * <p>The name of an image for this batch build that overrides the one specified in the batch
-   *             build project.</p>
-   */
-  imageOverride?: string;
-
-  /**
-   * <p>The name of a compute type for this batch build that overrides the one specified in the
-   *         batch build project.</p>
-   */
-  computeTypeOverride?: ComputeType | string;
-
-  /**
-   * <p>The name of a certificate for this batch build that overrides the one specified in the batch build
-   *         project.</p>
-   */
-  certificateOverride?: string;
-
-  /**
-   * <p>A <code>ProjectCache</code> object that specifies cache overrides.</p>
-   */
-  cacheOverride?: ProjectCache;
-
-  /**
-   * <p>The name of a service role for this batch build that overrides the one specified in the
-   *         batch build project.</p>
-   */
-  serviceRoleOverride?: string;
-
-  /**
-   * <p>Enable this flag to override privileged mode in the batch build project.</p>
-   */
-  privilegedModeOverride?: boolean;
-
-  /**
-   * <p>Overrides the build timeout specified in the batch build project.</p>
-   */
-  buildTimeoutInMinutesOverride?: number;
-
-  /**
-   * <p>The number of minutes a batch build is allowed to be queued before it times out.</p>
-   */
-  queuedTimeoutInMinutesOverride?: number;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) that overrides the one specified in the batch build
-   *         project. The CMK key encrypts the build output artifacts.</p>
-   *          <note>
-   *             <p>You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *           service role has permission to that key. </p>
-   *          </note>
-   *          <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *         the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKeyOverride?: string;
-
-  /**
-   * <p>A unique, case sensitive identifier you provide to ensure the idempotency of the
-   *                 <code>StartBuildBatch</code> request. The token is included in the
-   *                 <code>StartBuildBatch</code> request and is valid for five minutes. If you repeat
-   *             the <code>StartBuildBatch</code> request with the same token, but change a parameter,
-   *             AWS CodeBuild returns a parameter mismatch error.</p>
-   */
-  idempotencyToken?: string;
-
-  /**
-   * <p>A <code>LogsConfig</code> object that override the log settings defined in the batch build
-   *             project.</p>
-   */
-  logsConfigOverride?: LogsConfig;
-
-  /**
-   * <p>A <code>RegistryCredential</code> object that overrides credentials for access to a
-   *             private registry.</p>
-   */
-  registryCredentialOverride?: RegistryCredential;
-
-  /**
-   * <p>The type of credentials AWS CodeBuild uses to pull images in your batch build. There are two valid
-   *         values: </p>
-   *         <dl>
-   *             <dt>CODEBUILD</dt>
-   *             <dd>
-   *                     <p>Specifies that AWS CodeBuild uses its own credentials. This requires that you
-   *                         modify your ECR repository policy to trust AWS CodeBuild's service principal.</p>
-   *                 </dd>
-   *             <dt>SERVICE_ROLE</dt>
-   *             <dd>
-   *                     <p>Specifies that AWS CodeBuild uses your build project's service role. </p>
-   *                 </dd>
-   *          </dl>
-   *          <p>When using a cross-account or private registry image, you must use
-   *                 <code>SERVICE_ROLE</code> credentials. When using an AWS CodeBuild curated image,
-   *             you must use <code>CODEBUILD</code> credentials. </p>
-   */
-  imagePullCredentialsTypeOverride?: ImagePullCredentialsType | string;
-
-  /**
-   * <p>A <code>BuildBatchConfigOverride</code> object that contains batch build configuration
-   *             overrides.</p>
-   */
-  buildBatchConfigOverride?: ProjectBuildBatchConfig;
 }
 
 export namespace StartBuildBatchInput {
@@ -5956,6 +5955,66 @@ export namespace StopBuildBatchOutput {
 
 export interface UpdateProjectInput {
   /**
+   * <p>Information to be changed about the build output artifacts for the build
+   *             project.</p>
+   */
+  artifacts?: ProjectArtifacts;
+
+  /**
+   * <p>Set this to true to generate a publicly accessible URL for your project's build
+   *             badge.</p>
+   */
+  badgeEnabled?: boolean;
+
+  /**
+   * <p>Contains configuration information about a batch build project.</p>
+   */
+  buildBatchConfig?: ProjectBuildBatchConfig;
+
+  /**
+   * <p>Stores recently used information so that it can be quickly accessed at a later
+   *             time.</p>
+   */
+  cache?: ProjectCache;
+
+  /**
+   * <p>A new or replacement description of the build project.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
+   *             artifacts.</p>
+   *         <note>
+   *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
+   *                 service role has permission to that key. </p>
+   *         </note>
+   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
+   *             the format <code>alias/<alias-name></code>).</p>
+   */
+  encryptionKey?: string;
+
+  /**
+   * <p>Information to be changed about the build environment for the build project.</p>
+   */
+  environment?: ProjectEnvironment;
+
+  /**
+   * <p>
+   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
+   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
+   *   </p>
+   */
+  fileSystemLocations?: ProjectFileSystemLocation[];
+
+  /**
+   * <p> Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs,
+   *             logs in an S3 bucket, or both. </p>
+   */
+  logsConfig?: LogsConfig;
+
+  /**
    * <p>The name of the build project.</p>
    *         <note>
    *             <p>You cannot change a build project's name.</p>
@@ -5964,20 +6023,38 @@ export interface UpdateProjectInput {
   name: string | undefined;
 
   /**
-   * <p>A new or replacement description of the build project.</p>
+   * <p> The number of minutes a build is allowed to be queued before it times out. </p>
    */
-  description?: string;
+  queuedTimeoutInMinutes?: number;
+
+  /**
+   * <p> An array of <code>ProjectSource</code> objects. </p>
+   */
+  secondaryArtifacts?: ProjectArtifacts[];
+
+  /**
+   * <p> An array of <code>ProjectSource</code> objects. </p>
+   */
+  secondarySources?: ProjectSource[];
+
+  /**
+   * <p> An array of <code>ProjectSourceVersion</code> objects. If
+   *                 <code>secondarySourceVersions</code> is specified at the build level, then they take
+   *             over these <code>secondarySourceVersions</code> (at the project level). </p>
+   */
+  secondarySourceVersions?: ProjectSourceVersion[];
+
+  /**
+   * <p>The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent
+   *             AWS services on behalf of the AWS account.</p>
+   */
+  serviceRole?: string;
 
   /**
    * <p>Information to be changed about the build input source code for the build
    *             project.</p>
    */
   source?: ProjectSource;
-
-  /**
-   * <p> An array of <code>ProjectSource</code> objects. </p>
-   */
-  secondarySources?: ProjectSource[];
 
   /**
    * <p> A version of the build input to be built for this project. If not specified, the
@@ -6013,39 +6090,11 @@ export interface UpdateProjectInput {
   sourceVersion?: string;
 
   /**
-   * <p> An array of <code>ProjectSourceVersion</code> objects. If
-   *                 <code>secondarySourceVersions</code> is specified at the build level, then they take
-   *             over these <code>secondarySourceVersions</code> (at the project level). </p>
+   * <p>An updated list of tag key and value pairs associated with this build project.</p>
+   *         <p>These tags are available for use by AWS services that support AWS CodeBuild build project
+   *       tags.</p>
    */
-  secondarySourceVersions?: ProjectSourceVersion[];
-
-  /**
-   * <p>Information to be changed about the build output artifacts for the build
-   *             project.</p>
-   */
-  artifacts?: ProjectArtifacts;
-
-  /**
-   * <p> An array of <code>ProjectSource</code> objects. </p>
-   */
-  secondaryArtifacts?: ProjectArtifacts[];
-
-  /**
-   * <p>Stores recently used information so that it can be quickly accessed at a later
-   *             time.</p>
-   */
-  cache?: ProjectCache;
-
-  /**
-   * <p>Information to be changed about the build environment for the build project.</p>
-   */
-  environment?: ProjectEnvironment;
-
-  /**
-   * <p>The replacement ARN of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent
-   *             AWS services on behalf of the AWS account.</p>
-   */
-  serviceRole?: string;
+  tags?: Tag[];
 
   /**
    * <p>The replacement value in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait before
@@ -6054,59 +6103,9 @@ export interface UpdateProjectInput {
   timeoutInMinutes?: number;
 
   /**
-   * <p> The number of minutes a build is allowed to be queued before it times out. </p>
-   */
-  queuedTimeoutInMinutes?: number;
-
-  /**
-   * <p>The AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build output
-   *             artifacts.</p>
-   *         <note>
-   *             <p> You can use a cross-account KMS key to encrypt the build output artifacts if your
-   *                 service role has permission to that key. </p>
-   *         </note>
-   *         <p>You can specify either the Amazon Resource Name (ARN) of the CMK or, if available, the CMK's alias (using
-   *             the format <code>alias/<alias-name></code>).</p>
-   */
-  encryptionKey?: string;
-
-  /**
-   * <p>An updated list of tag key and value pairs associated with this build project.</p>
-   *         <p>These tags are available for use by AWS services that support AWS CodeBuild build project
-   *       tags.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>VpcConfig enables AWS CodeBuild to access resources in an Amazon VPC.</p>
    */
   vpcConfig?: VpcConfig;
-
-  /**
-   * <p>Set this to true to generate a publicly accessible URL for your project's build
-   *             badge.</p>
-   */
-  badgeEnabled?: boolean;
-
-  /**
-   * <p> Information about logs for the build project. A project can create logs in Amazon CloudWatch Logs,
-   *             logs in an S3 bucket, or both. </p>
-   */
-  logsConfig?: LogsConfig;
-
-  /**
-   * <p>
-   *       An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild build project. A <code>ProjectFileSystemLocation</code> object
-   *       specifies the <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
-   *       <code>mountPoint</code>, and <code>type</code> of a file system created using Amazon Elastic File System.
-   *   </p>
-   */
-  fileSystemLocations?: ProjectFileSystemLocation[];
-
-  /**
-   * <p>Contains configuration information about a batch build project.</p>
-   */
-  buildBatchConfig?: ProjectBuildBatchConfig;
 }
 
 export namespace UpdateProjectInput {
@@ -6188,11 +6187,6 @@ export namespace UpdateReportGroupOutput {
 
 export interface UpdateWebhookInput {
   /**
-   * <p>The name of the AWS CodeBuild project.</p>
-   */
-  projectName: string | undefined;
-
-  /**
    * <p>A regular expression used to determine which repository branches are built when a
    *       webhook is triggered. If the name of a branch matches the regular expression, then it is
    *       built. If <code>branchFilter</code> is empty, then all branches are built.</p>
@@ -6204,11 +6198,9 @@ export interface UpdateWebhookInput {
   branchFilter?: string;
 
   /**
-   * <p> A boolean value that specifies whether the associated GitHub repository's secret
-   *       token should be updated. If you use Bitbucket for your repository,
-   *       <code>rotateSecret</code> is ignored. </p>
+   * <p>Specifies the type of build this webhook will trigger.</p>
    */
-  rotateSecret?: boolean;
+  buildType?: WebhookBuildType | string;
 
   /**
    * <p> An array of arrays of <code>WebhookFilter</code> objects used to determine if a
@@ -6219,9 +6211,16 @@ export interface UpdateWebhookInput {
   filterGroups?: WebhookFilter[][];
 
   /**
-   * <p>Specifies the type of build this webhook will trigger.</p>
+   * <p>The name of the AWS CodeBuild project.</p>
    */
-  buildType?: WebhookBuildType | string;
+  projectName: string | undefined;
+
+  /**
+   * <p> A boolean value that specifies whether the associated GitHub repository's secret
+   *       token should be updated. If you use Bitbucket for your repository,
+   *       <code>rotateSecret</code> is ignored. </p>
+   */
+  rotateSecret?: boolean;
 }
 
 export namespace UpdateWebhookInput {

@@ -340,13 +340,6 @@ export interface HlsManifestCreateOrUpdateParameters {
   AdMarkers?: AdMarkers | string;
 
   /**
-   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
-   * ad markers are output.  Specify multiple items to create ad markers for all of the included
-   * message types.
-   */
-  AdTriggers?: (__AdTriggersElement | string)[];
-
-  /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
    * determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become
    * ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that
@@ -357,6 +350,13 @@ export interface HlsManifestCreateOrUpdateParameters {
    * and are always treated as ads if specified in AdTriggers.
    */
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+
+  /**
+   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
+   * ad markers are output.  Specify multiple items to create ad markers for all of the included
+   * message types.
+   */
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
@@ -603,13 +603,6 @@ export enum UtcTiming {
  */
 export interface DashPackage {
   /**
-   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
-   * ad markers are output.  Specify multiple items to create ad markers for all of the included
-   * message types.
-   */
-  AdTriggers?: (__AdTriggersElement | string)[];
-
-  /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
    * determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become
    * ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that
@@ -620,6 +613,13 @@ export interface DashPackage {
    * and are always treated as ads if specified in AdTriggers.
    */
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+
+  /**
+   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
+   * ad markers are output.  Specify multiple items to create ad markers for all of the included
+   * message types.
+   */
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
@@ -757,13 +757,6 @@ export interface HlsPackage {
   AdMarkers?: AdMarkers | string;
 
   /**
-   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
-   * ad markers are output.  Specify multiple items to create ad markers for all of the included
-   * message types.
-   */
-  AdTriggers?: (__AdTriggersElement | string)[];
-
-  /**
    * This setting allows the delivery restriction flags on SCTE-35 segmentation descriptors to
    * determine whether a message signals an ad.  Choosing "NONE" means no SCTE-35 messages become
    * ads.  Choosing "RESTRICTED" means SCTE-35 messages of the types specified in AdTriggers that
@@ -774,6 +767,13 @@ export interface HlsPackage {
    * and are always treated as ads if specified in AdTriggers.
    */
   AdsOnDeliveryRestrictions?: AdsOnDeliveryRestrictions | string;
+
+  /**
+   * A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no
+   * ad markers are output.  Specify multiple items to create ad markers for all of the included
+   * message types.
+   */
+  AdTriggers?: (__AdTriggersElement | string)[];
 
   /**
    * An HTTP Live Streaming (HLS) encryption configuration.

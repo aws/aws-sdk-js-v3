@@ -2529,11 +2529,6 @@ export interface UpdateRecommenderConfigurationShape {
   RecommendationProviderUri: string | undefined;
 
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function to invoke for additional processing of recommendation data that's retrieved from the recommender model.</p>
-   */
-  RecommendationTransformerUri?: string;
-
-  /**
    * <p>A custom display name for the standard endpoint or user attribute (RecommendationItems) that temporarily stores recommended items for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This value is required if the configuration doesn't invoke an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p> <p>This name appears in the <b>Attribute finder</b> of the template editor on the Amazon Pinpoint console. The name can contain up to 25 characters. The characters can be letters, numbers, spaces, underscores (_), or hyphens (-). These restrictions don't apply to attribute values.</p>
    */
   RecommendationsDisplayName?: string;
@@ -2542,6 +2537,11 @@ export interface UpdateRecommenderConfigurationShape {
    * <p>The number of recommended items to retrieve from the model for each endpoint or user, depending on the value for the RecommendationProviderIdType property. This number determines how many recommended items are available for use in message variables. The minimum value is 1. The maximum value is 5. The default value is 5.</p> <p>To use multiple recommended items and custom attributes with message variables, you have to use an AWS Lambda function (RecommendationTransformerUri) to perform additional processing of recommendation data.</p>
    */
   RecommendationsPerMessage?: number;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the AWS Lambda function to invoke for additional processing of recommendation data that's retrieved from the recommender model.</p>
+   */
+  RecommendationTransformerUri?: string;
 }
 
 export namespace UpdateRecommenderConfigurationShape {

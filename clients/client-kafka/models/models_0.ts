@@ -471,16 +471,16 @@ export interface ClusterInfo {
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
-  /**
-   * <p>Settings for open monitoring using Prometheus.</p>
-   */
-  OpenMonitoring?: OpenMonitoring;
-
   LoggingInfo?: LoggingInfo;
   /**
    * <p>The number of broker nodes in the cluster.</p>
    */
   NumberOfBrokerNodes?: number;
+
+  /**
+   * <p>Settings for open monitoring using Prometheus.</p>
+   */
+  OpenMonitoring?: OpenMonitoring;
 
   /**
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
@@ -604,19 +604,9 @@ export interface MutableClusterInfo {
   ConfigurationInfo?: ConfigurationInfo;
 
   /**
-   * <p>The number of broker nodes in the cluster.</p>
-   */
-  NumberOfBrokerNodes?: number;
-
-  /**
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
-
-  /**
-   * <p>The settings for open monitoring.</p>
-   */
-  OpenMonitoring?: OpenMonitoring;
 
   /**
    * <p>The Kafka version.</p>
@@ -624,6 +614,15 @@ export interface MutableClusterInfo {
   KafkaVersion?: string;
 
   LoggingInfo?: LoggingInfo;
+  /**
+   * <p>The number of broker nodes in the cluster.</p>
+   */
+  NumberOfBrokerNodes?: number;
+
+  /**
+   * <p>The settings for open monitoring.</p>
+   */
+  OpenMonitoring?: OpenMonitoring;
 }
 
 export namespace MutableClusterInfo {
@@ -803,8 +802,8 @@ export enum KafkaVersionStatus {
 }
 
 export interface KafkaVersion {
-  Version?: string;
   Status?: KafkaVersionStatus | string;
+  Version?: string;
 }
 
 export namespace KafkaVersion {
@@ -1324,11 +1323,6 @@ export interface CreateClusterRequest {
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
   /**
-   * <p>The settings for open monitoring.</p>
-   */
-  OpenMonitoring?: OpenMonitoringInfo;
-
-  /**
    * <p>The version of Apache Kafka.</p>
    */
   KafkaVersion: string | undefined;
@@ -1338,6 +1332,11 @@ export interface CreateClusterRequest {
    * <p>The number of broker nodes in the cluster.</p>
    */
   NumberOfBrokerNodes: number | undefined;
+
+  /**
+   * <p>The settings for open monitoring.</p>
+   */
+  OpenMonitoring?: OpenMonitoringInfo;
 
   /**
    * <p>Create tags when creating the cluster.</p>
@@ -1683,14 +1682,14 @@ export interface GetBootstrapBrokersResponse {
   BootstrapBrokerString?: string;
 
   /**
-   * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
-   */
-  BootstrapBrokerStringTls?: string;
-
-  /**
    * <p>A string containing one or more DNS names (or IP) and Sasl Scram port pairs.</p>
    */
   BootstrapBrokerStringSaslScram?: string;
+
+  /**
+   * <p>A string containing one or more DNS names (or IP) and TLS port pairs.</p>
+   */
+  BootstrapBrokerStringTls?: string;
 }
 
 export namespace GetBootstrapBrokersResponse {
@@ -2353,12 +2352,11 @@ export interface UpdateMonitoringRequest {
    */
   EnhancedMonitoring?: EnhancedMonitoring | string;
 
+  LoggingInfo?: LoggingInfo;
   /**
    * <p>The settings for open monitoring.</p>
    */
   OpenMonitoring?: OpenMonitoringInfo;
-
-  LoggingInfo?: LoggingInfo;
 }
 
 export namespace UpdateMonitoringRequest {

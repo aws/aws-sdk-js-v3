@@ -45,9 +45,9 @@ export interface CreateTokenRequest {
   clientSecret: string | undefined;
 
   /**
-   * <p>Supports grant types for authorization code, refresh token, and device code request.</p>
+   * <p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>
    */
-  grantType: string | undefined;
+  code?: string;
 
   /**
    * <p>Used only when calling this API for the device code grant type. This short-term code is
@@ -57,9 +57,15 @@ export interface CreateTokenRequest {
   deviceCode: string | undefined;
 
   /**
-   * <p>The authorization code received from the authorization service. This parameter is required to perform an authorization grant request to get access to a token.</p>
+   * <p>Supports grant types for authorization code, refresh token, and device code request.</p>
    */
-  code?: string;
+  grantType: string | undefined;
+
+  /**
+   * <p>The location of the application that will receive the authorization code. Users authorize
+   *       the service to send the request to this location.</p>
+   */
+  redirectUri?: string;
 
   /**
    * <p>The token used to obtain an access token in the event that the access token is invalid or expired. This token is not issued by the service.</p>
@@ -71,12 +77,6 @@ export interface CreateTokenRequest {
    *       restrict permissions when granting an access token.</p>
    */
   scope?: string[];
-
-  /**
-   * <p>The location of the application that will receive the authorization code. Users authorize
-   *       the service to send the request to this location.</p>
-   */
-  redirectUri?: string;
 }
 
 export namespace CreateTokenRequest {
@@ -92,15 +92,14 @@ export interface CreateTokenResponse {
   accessToken?: string;
 
   /**
-   * <p>Used to notify the client that the returned token is an access token. The supported type
-   *       is <code>BearerToken</code>.</p>
-   */
-  tokenType?: string;
-
-  /**
    * <p>Indicates the time in seconds when an access token will expire.</p>
    */
   expiresIn?: number;
+
+  /**
+   * <p>The identifier of the user that associated with the access token, if present.</p>
+   */
+  idToken?: string;
 
   /**
    * <p>A token that, if present, can be used to refresh a previously issued access token that
@@ -109,9 +108,10 @@ export interface CreateTokenResponse {
   refreshToken?: string;
 
   /**
-   * <p>The identifier of the user that associated with the access token, if present.</p>
+   * <p>Used to notify the client that the returned token is an access token. The supported type
+   *       is <code>BearerToken</code>.</p>
    */
-  idToken?: string;
+  tokenType?: string;
 }
 
 export namespace CreateTokenResponse {
@@ -310,10 +310,20 @@ export namespace RegisterClientRequest {
 
 export interface RegisterClientResponse {
   /**
+   * <p>The endpoint where the client can request authorization.</p>
+   */
+  authorizationEndpoint?: string;
+
+  /**
    * <p>The unique identifier string for each client. This client uses this identifier to get
    *       authenticated by the service in subsequent calls.</p>
    */
   clientId?: string;
+
+  /**
+   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were issued.</p>
+   */
+  clientIdIssuedAt?: number;
 
   /**
    * <p>A secret string generated for the client. The client will use this string to get
@@ -322,19 +332,9 @@ export interface RegisterClientResponse {
   clientSecret?: string;
 
   /**
-   * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were issued.</p>
-   */
-  clientIdIssuedAt?: number;
-
-  /**
    * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will become invalid.</p>
    */
   clientSecretExpiresAt?: number;
-
-  /**
-   * <p>The endpoint where the client can request authorization.</p>
-   */
-  authorizationEndpoint?: string;
 
   /**
    * <p>The endpoint where the client can get an access token.</p>
@@ -382,6 +382,16 @@ export interface StartDeviceAuthorizationResponse {
   deviceCode?: string;
 
   /**
+   * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
+   */
+  expiresIn?: number;
+
+  /**
+   * <p>Indicates the number of seconds the client must wait between attempts when polling for a session.</p>
+   */
+  interval?: number;
+
+  /**
    * <p>A one-time user verification code. This is needed to authorize an in-use device.</p>
    */
   userCode?: string;
@@ -397,16 +407,6 @@ export interface StartDeviceAuthorizationResponse {
    *       code.</p>
    */
   verificationUriComplete?: string;
-
-  /**
-   * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
-   */
-  expiresIn?: number;
-
-  /**
-   * <p>Indicates the number of seconds the client must wait between attempts when polling for a session.</p>
-   */
-  interval?: number;
 }
 
 export namespace StartDeviceAuthorizationResponse {

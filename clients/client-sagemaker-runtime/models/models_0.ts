@@ -18,10 +18,9 @@ export namespace InternalFailure {
 
 export interface InvokeEndpointInput {
   /**
-   * <p>The name of the endpoint that you specified when you created the endpoint using the
-   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
+   * <p>The desired MIME type of the inference in the response.</p>
    */
-  EndpointName: string | undefined;
+  Accept?: string;
 
   /**
    * <p>Provides input data, in the format specified in the <code>ContentType</code>
@@ -35,11 +34,6 @@ export interface InvokeEndpointInput {
    * <p>The MIME type of the input data in the request body.</p>
    */
   ContentType?: string;
-
-  /**
-   * <p>The desired MIME type of the inference in the response.</p>
-   */
-  Accept?: string;
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
@@ -61,6 +55,19 @@ export interface InvokeEndpointInput {
   CustomAttributes?: string;
 
   /**
+   * <p>The name of the endpoint that you specified when you created the endpoint using the
+   *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a> API. </p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * <p>If you provide a value, it is added to the captured data when you enable data capture
+   *             on the endpoint.
+   *             For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture Data</a>.</p>
+   */
+  InferenceId?: string;
+
+  /**
    * <p>The model to request for inference when invoking a multi-model endpoint.</p>
    */
   TargetModel?: string;
@@ -75,13 +82,6 @@ export interface InvokeEndpointInput {
    *          </p>
    */
   TargetVariant?: string;
-
-  /**
-   * <p>If you provide a value, it is added to the captured data when you enable data capture
-   *             on the endpoint.
-   *             For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture Data</a>.</p>
-   */
-  InferenceId?: string;
 }
 
 export namespace InvokeEndpointInput {
@@ -106,11 +106,6 @@ export interface InvokeEndpointOutput {
   ContentType?: string;
 
   /**
-   * <p>Identifies the production variant that was invoked.</p>
-   */
-  InvokedProductionVariant?: string;
-
-  /**
    * <p>Provides additional information in the response about the inference returned by a
    *             model hosted at an Amazon SageMaker endpoint. The information is an opaque value that is
    *             forwarded verbatim. You could use this value, for example, to return an ID received in
@@ -129,6 +124,11 @@ export interface InvokeEndpointOutput {
    *             SDK.</p>
    */
   CustomAttributes?: string;
+
+  /**
+   * <p>Identifies the production variant that was invoked.</p>
+   */
+  InvokedProductionVariant?: string;
 }
 
 export namespace InvokeEndpointOutput {
@@ -146,21 +146,21 @@ export namespace InvokeEndpointOutput {
 export interface ModelError extends __SmithyException, $MetadataBearer {
   name: "ModelError";
   $fault: "client";
-  Message?: string;
   /**
-   * <p> Original status code. </p>
+   * <p> The Amazon Resource Name (ARN) of the log stream. </p>
    */
-  OriginalStatusCode?: number;
+  LogStreamArn?: string;
 
+  Message?: string;
   /**
    * <p> Original message. </p>
    */
   OriginalMessage?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the log stream. </p>
+   * <p> Original status code. </p>
    */
-  LogStreamArn?: string;
+  OriginalStatusCode?: number;
 }
 
 export namespace ModelError {

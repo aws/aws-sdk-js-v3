@@ -20,14 +20,14 @@ export interface AbortMultipartUploadInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The upload ID of the multipart upload to delete.</p>
    */
   uploadId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace AbortMultipartUploadInput {
@@ -43,11 +43,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>400 Bad Request</p>
    */
   code?: string;
@@ -56,6 +51,11 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
    * <p>Returned if a parameter of the request is incorrectly specified.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace InvalidParameterValueException {
@@ -71,11 +71,6 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
   name: "MissingParameterValueException";
   $fault: "client";
   /**
-   * <p>Client.</p>
-   */
-  type?: string;
-
-  /**
    * <p>400 Bad Request</p>
    */
   code?: string;
@@ -84,6 +79,11 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
    * <p>Returned if no authentication data is found for the request.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client.</p>
+   */
+  type?: string;
 }
 
 export namespace MissingParameterValueException {
@@ -100,11 +100,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>404 Not Found</p>
    */
   code?: string;
@@ -114,6 +109,11 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    *          exist.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -129,11 +129,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
-   * <p>Server</p>
-   */
-  type?: string;
-
-  /**
    * <p>500 Internal Server Error</p>
    */
   code?: string;
@@ -142,6 +137,11 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>Returned if the service cannot complete the request.</p>
    */
   message?: string;
+
+  /**
+   * <p>Server</p>
+   */
+  type?: string;
 }
 
 export namespace ServiceUnavailableException {
@@ -186,19 +186,14 @@ export enum Type {
  */
 export interface Grantee {
   /**
-   * <p>Type of grantee</p>
-   */
-  Type: Type | string | undefined;
-
-  /**
    * <p>Screen name of the grantee.</p>
    */
   DisplayName?: string;
 
   /**
-   * <p>URI of the grantee group.</p>
+   * <p>Email address of the grantee.</p>
    */
-  URI?: string;
+  EmailAddress?: string;
 
   /**
    * <p>The canonical user ID of the grantee.</p>
@@ -206,9 +201,14 @@ export interface Grantee {
   ID?: string;
 
   /**
-   * <p>Email address of the grantee.</p>
+   * <p>Type of grantee</p>
    */
-  EmailAddress?: string;
+  Type: Type | string | undefined;
+
+  /**
+   * <p>URI of the grantee group.</p>
+   */
+  URI?: string;
 }
 
 export namespace Grantee {
@@ -266,15 +266,15 @@ export interface AddTagsToVaultInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The tags to add to the vault. Each tag is composed of a key and a value. The value
    *          can be an empty string.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace AddTagsToVaultInput {
@@ -290,11 +290,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>400 Bad Request</p>
    */
   code?: string;
@@ -303,6 +298,11 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>Returned if the request results in a vault limit or tags limit being exceeded.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace LimitExceededException {
@@ -319,9 +319,9 @@ export namespace LimitExceededException {
  */
 export interface ArchiveCreationOutput {
   /**
-   * <p>The relative URI path of the newly added archive resource.</p>
+   * <p>The ID of the archive. This value is also included as part of the location.</p>
    */
-  location?: string;
+  archiveId?: string;
 
   /**
    * <p>The checksum of the archive computed by Amazon S3 Glacier.</p>
@@ -329,9 +329,9 @@ export interface ArchiveCreationOutput {
   checksum?: string;
 
   /**
-   * <p>The ID of the archive. This value is also included as part of the location.</p>
+   * <p>The relative URI path of the newly added archive resource.</p>
    */
-  archiveId?: string;
+  location?: string;
 }
 
 export namespace ArchiveCreationOutput {
@@ -367,16 +367,6 @@ export interface CompleteMultipartUploadInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
-   * <p>The upload ID of the multipart upload.</p>
-   */
-  uploadId: string | undefined;
-
-  /**
    * <p>The total size, in bytes, of the entire archive. This value should be the sum of all
    *          the sizes of the individual parts that you uploaded.</p>
    */
@@ -389,6 +379,16 @@ export interface CompleteMultipartUploadInput {
    *          Glacier returns an error and the request fails.</p>
    */
   checksum?: string;
+
+  /**
+   * <p>The upload ID of the multipart upload.</p>
+   */
+  uploadId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace CompleteMultipartUploadInput {
@@ -411,14 +411,14 @@ export interface CompleteVaultLockInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The <code>lockId</code> value is the lock ID obtained from a <a>InitiateVaultLock</a> request.</p>
    */
   lockId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace CompleteVaultLockInput {
@@ -479,16 +479,27 @@ export enum FileHeaderInfo {
  */
 export interface CSVInput {
   /**
+   * <p>A single character used to indicate that a row should be ignored when the character is
+   *             present at the start of that row.</p>
+   */
+  Comments?: string;
+
+  /**
+   * <p>A value used to separate individual fields from each other within a record.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
    * <p>Describes the first line of input. Valid values are <code>None</code>,
    *                 <code>Ignore</code>, and <code>Use</code>.</p>
    */
   FileHeaderInfo?: FileHeaderInfo | string;
 
   /**
-   * <p>A single character used to indicate that a row should be ignored when the character is
-   *             present at the start of that row.</p>
+   * <p>A value used as an escape character where the field delimiter is part of the
+   *             value.</p>
    */
-  Comments?: string;
+  QuoteCharacter?: string;
 
   /**
    * <p>A single character used for escaping the quotation-mark character inside an already
@@ -500,17 +511,6 @@ export interface CSVInput {
    * <p>A value used to separate individual records from each other.</p>
    */
   RecordDelimiter?: string;
-
-  /**
-   * <p>A value used to separate individual fields from each other within a record.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
-   * <p>A value used as an escape character where the field delimiter is part of the
-   *             value.</p>
-   */
-  QuoteCharacter?: string;
 }
 
 export namespace CSVInput {
@@ -530,23 +530,6 @@ export enum QuoteFields {
  */
 export interface CSVOutput {
   /**
-   * <p>A value that indicates whether all output fields should be contained within quotation
-   *             marks.</p>
-   */
-  QuoteFields?: QuoteFields | string;
-
-  /**
-   * <p>A single character used for escaping the quotation-mark character inside an already
-   *             escaped value.</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>A value used to separate individual records from each other.</p>
-   */
-  RecordDelimiter?: string;
-
-  /**
    * <p>A value used to separate individual fields from each other within a record.</p>
    */
   FieldDelimiter?: string;
@@ -556,6 +539,23 @@ export interface CSVOutput {
    *             value.</p>
    */
   QuoteCharacter?: string;
+
+  /**
+   * <p>A single character used for escaping the quotation-mark character inside an already
+   *             escaped value.</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
+   * <p>A value that indicates whether all output fields should be contained within quotation
+   *             marks.</p>
+   */
+  QuoteFields?: QuoteFields | string;
+
+  /**
+   * <p>A value used to separate individual records from each other.</p>
+   */
+  RecordDelimiter?: string;
 }
 
 export namespace CSVOutput {
@@ -569,18 +569,18 @@ export namespace CSVOutput {
  */
 export interface DataRetrievalRule {
   /**
-   * <p>The type of data retrieval policy to set.</p>
-   *          <p>Valid values: BytesPerHour|FreeTier|None</p>
-   */
-  Strategy?: string;
-
-  /**
    * <p>The maximum number of bytes that can be retrieved in an hour.</p>
    *          <p>This field is required only if the value of the Strategy field is
    *             <code>BytesPerHour</code>. Your PUT operation will be rejected if the Strategy field is
    *          not set to <code>BytesPerHour</code> and you set this field.</p>
    */
   BytesPerHour?: number;
+
+  /**
+   * <p>The type of data retrieval policy to set.</p>
+   *          <p>Valid values: BytesPerHour|FreeTier|None</p>
+   */
+  Strategy?: string;
 }
 
 export namespace DataRetrievalRule {
@@ -620,14 +620,14 @@ export interface DeleteArchiveInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The ID of the archive to delete.</p>
    */
   archiveId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace DeleteArchiveInput {
@@ -726,14 +726,14 @@ export interface DescribeJobInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The ID of the job to describe.</p>
    */
   jobId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace DescribeJobInput {
@@ -747,25 +747,17 @@ export namespace DescribeJobInput {
  */
 export interface InventoryRetrievalJobDescription {
   /**
-   * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
-   *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The start of the date range in Universal Coordinated Time (UTC) for vault inventory
-   *             retrieval that includes archives created on or after this date. This value should be a
-   *             string in the ISO 8601 date format, for example
-   *             <code>2013-03-20T17:03:43Z</code>.</p>
-   */
-  StartDate?: string;
-
-  /**
    * <p>The end of the date range in UTC for vault inventory retrieval that includes
    *             archives created before this date. This value should be a string in the ISO 8601 date
    *             format, for example <code>2013-03-20T17:03:43Z</code>.</p>
    */
   EndDate?: string;
+
+  /**
+   * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
+   *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
+   */
+  Format?: string;
 
   /**
    * <p>The maximum number of inventory items returned per vault inventory retrieval
@@ -780,6 +772,14 @@ export interface InventoryRetrievalJobDescription {
    *                 <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering"> Range Inventory Retrieval</a>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The start of the date range in Universal Coordinated Time (UTC) for vault inventory
+   *             retrieval that includes archives created on or after this date. This value should be a
+   *             string in the ISO 8601 date format, for example
+   *             <code>2013-03-20T17:03:43Z</code>.</p>
+   */
+  StartDate?: string;
 }
 
 export namespace InventoryRetrievalJobDescription {
@@ -804,17 +804,17 @@ export interface Encryption {
   EncryptionType?: EncryptionType | string;
 
   /**
+   * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
+   *             specify the encryption context for the job results.</p>
+   */
+  KMSContext?: string;
+
+  /**
    * <p>The AWS KMS key ID to use for object encryption. All GET and PUT requests for an
    *             object protected by AWS KMS fail if not made by using Secure Sockets Layer (SSL) or
    *             Signature Version 4. </p>
    */
   KMSKeyId?: string;
-
-  /**
-   * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
-   *             specify the encryption context for the job results.</p>
-   */
-  KMSContext?: string;
 }
 
 export namespace Encryption {
@@ -834,19 +834,14 @@ export enum StorageClass {
  */
 export interface S3Location {
   /**
+   * <p>A list of grants that control access to the staged results.</p>
+   */
+  AccessControlList?: Grant[];
+
+  /**
    * <p>The name of the Amazon S3 bucket where the job results are stored.</p>
    */
   BucketName?: string;
-
-  /**
-   * <p>The prefix that is prepended to the results for this request.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
-   */
-  Encryption?: Encryption;
 
   /**
    * <p>The canned access control list (ACL) to apply to the job results.</p>
@@ -854,9 +849,19 @@ export interface S3Location {
   CannedACL?: CannedACL | string;
 
   /**
-   * <p>A list of grants that control access to the staged results.</p>
+   * <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
    */
-  AccessControlList?: Grant[];
+  Encryption?: Encryption;
+
+  /**
+   * <p>The prefix that is prepended to the results for this request.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The storage class used to store the job results.</p>
+   */
+  StorageClass?: StorageClass | string;
 
   /**
    * <p>The tag-set that is applied to the job results.</p>
@@ -867,11 +872,6 @@ export interface S3Location {
    * <p>A map of metadata to store with the job results in Amazon S3.</p>
    */
   UserMetadata?: { [key: string]: string };
-
-  /**
-   * <p>The storage class used to store the job results.</p>
-   */
-  StorageClass?: StorageClass | string;
 }
 
 export namespace S3Location {
@@ -937,9 +937,9 @@ export namespace OutputSerialization {
  */
 export interface SelectParameters {
   /**
-   * <p>Describes the serialization format of the object.</p>
+   * <p>The expression that is used to select the object.</p>
    */
-  InputSerialization?: InputSerialization;
+  Expression?: string;
 
   /**
    * <p>The type of the provided expression, for example <code>SQL</code>.</p>
@@ -947,9 +947,9 @@ export interface SelectParameters {
   ExpressionType?: ExpressionType | string;
 
   /**
-   * <p>The expression that is used to select the object.</p>
+   * <p>Describes the serialization format of the object.</p>
    */
-  Expression?: string;
+  InputSerialization?: InputSerialization;
 
   /**
    * <p>Describes how the results of the select job are serialized.</p>
@@ -974,16 +974,6 @@ export enum StatusCode {
  */
 export interface GlacierJobDescription {
   /**
-   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
-   */
-  JobId?: string;
-
-  /**
-   * <p>The job description provided when initiating the job.</p>
-   */
-  JobDescription?: string;
-
-  /**
    * <p>The job type. This value is either <code>ArchiveRetrieval</code>,
    *                 <code>InventoryRetrieval</code>, or
    *             <code>Select</code>. </p>
@@ -997,33 +987,10 @@ export interface GlacierJobDescription {
   ArchiveId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was
-   *             requested.</p>
+   * <p>The SHA256 tree hash of the entire archive for an archive retrieval. For inventory
+   *             retrieval or select jobs, this field is null.</p>
    */
-  VaultARN?: string;
-
-  /**
-   * <p>The UTC date when the job was created. This value is a string representation of ISO
-   *             8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>The job status. When a job is completed, you get the job's output using Get Job
-   *             Output (GET output).</p>
-   */
-  Completed?: boolean;
-
-  /**
-   * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
-   *                 <code>Failed</code>, and indicates the status of the job.</p>
-   */
-  StatusCode?: StatusCode | string;
-
-  /**
-   * <p>A friendly message that describes the job status.</p>
-   */
-  StatusMessage?: string;
+  ArchiveSHA256TreeHash?: string;
 
   /**
    * <p>For an archive retrieval job, this value is the size in bytes of the archive being
@@ -1033,6 +1000,29 @@ export interface GlacierJobDescription {
   ArchiveSizeInBytes?: number;
 
   /**
+   * <p>The job status. When a job is completed, you get the job's output using Get Job
+   *             Output (GET output).</p>
+   */
+  Completed?: boolean;
+
+  /**
+   * <p>The UTC time that the job request completed. While the job is in progress, the
+   *             value is null.</p>
+   */
+  CompletionDate?: string;
+
+  /**
+   * <p>The UTC date when the job was created. This value is a string representation of ISO
+   *             8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>Parameters used for range inventory retrieval.</p>
+   */
+  InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
+
+  /**
    * <p>For an inventory retrieval job, this value is the size in bytes of the inventory
    *             requested for download. For an archive retrieval or select job, this value is
    *             null.</p>
@@ -1040,15 +1030,39 @@ export interface GlacierJobDescription {
   InventorySizeInBytes?: number;
 
   /**
-   * <p>An Amazon SNS topic that receives notification.</p>
+   * <p>The job description provided when initiating the job.</p>
    */
-  SNSTopic?: string;
+  JobDescription?: string;
 
   /**
-   * <p>The UTC time that the job request completed. While the job is in progress, the
-   *             value is null.</p>
+   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
    */
-  CompletionDate?: string;
+  JobId?: string;
+
+  /**
+   * <p>Contains the job output location.</p>
+   */
+  JobOutputPath?: string;
+
+  /**
+   * <p>Contains the location where the data from the select job is stored.</p>
+   */
+  OutputLocation?: OutputLocation;
+
+  /**
+   * <p>The retrieved byte range for archive retrieval jobs in the form
+   *                 <i>StartByteValue</i>-<i>EndByteValue</i>. If no range
+   *             was specified in the archive retrieval, then the whole archive is retrieved. In this
+   *             case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i>
+   *             equals the size of the archive minus 1. For inventory retrieval or select jobs, this
+   *             field is null. </p>
+   */
+  RetrievalByteRange?: string;
+
+  /**
+   * <p>Contains the parameters used for a select.</p>
+   */
+  SelectParameters?: SelectParameters;
 
   /**
    * <p>For an archive retrieval job, this value is the checksum of the archive. Otherwise,
@@ -1083,20 +1097,20 @@ export interface GlacierJobDescription {
   SHA256TreeHash?: string;
 
   /**
-   * <p>The SHA256 tree hash of the entire archive for an archive retrieval. For inventory
-   *             retrieval or select jobs, this field is null.</p>
+   * <p>An Amazon SNS topic that receives notification.</p>
    */
-  ArchiveSHA256TreeHash?: string;
+  SNSTopic?: string;
 
   /**
-   * <p>The retrieved byte range for archive retrieval jobs in the form
-   *                 <i>StartByteValue</i>-<i>EndByteValue</i>. If no range
-   *             was specified in the archive retrieval, then the whole archive is retrieved. In this
-   *             case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i>
-   *             equals the size of the archive minus 1. For inventory retrieval or select jobs, this
-   *             field is null. </p>
+   * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
+   *                 <code>Failed</code>, and indicates the status of the job.</p>
    */
-  RetrievalByteRange?: string;
+  StatusCode?: StatusCode | string;
+
+  /**
+   * <p>A friendly message that describes the job status.</p>
+   */
+  StatusMessage?: string;
 
   /**
    * <p>The tier to use for a select or an archive retrieval. Valid values are
@@ -1106,24 +1120,10 @@ export interface GlacierJobDescription {
   Tier?: string;
 
   /**
-   * <p>Parameters used for range inventory retrieval.</p>
+   * <p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was
+   *             requested.</p>
    */
-  InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
-
-  /**
-   * <p>Contains the job output location.</p>
-   */
-  JobOutputPath?: string;
-
-  /**
-   * <p>Contains the parameters used for a select.</p>
-   */
-  SelectParameters?: SelectParameters;
-
-  /**
-   * <p>Contains the location where the data from the select job is stored.</p>
-   */
-  OutputLocation?: OutputLocation;
+  VaultARN?: string;
 }
 
 export namespace GlacierJobDescription {
@@ -1163,16 +1163,6 @@ export namespace DescribeVaultInput {
  */
 export interface DescribeVaultOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the vault.</p>
-   */
-  VaultARN?: string;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  VaultName?: string;
-
-  /**
    * <p>The Universal Coordinated Time (UTC) date when the vault was created. This value
    *          should be a string in the ISO 8601 date format, for example
    *             <code>2012-03-20T17:03:43.221Z</code>.</p>
@@ -1199,6 +1189,16 @@ export interface DescribeVaultOutput {
    *          you just created the vault.</p>
    */
   SizeInBytes?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vault.</p>
+   */
+  VaultARN?: string;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  VaultName?: string;
 }
 
 export namespace DescribeVaultOutput {
@@ -1258,11 +1258,6 @@ export interface GetJobOutputInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The job ID whose data is downloaded.</p>
    */
   jobId: string | undefined;
@@ -1306,6 +1301,11 @@ export interface GetJobOutputInput {
    *          </ol>
    */
   range?: string;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace GetJobOutputInput {
@@ -1318,6 +1318,16 @@ export namespace GetJobOutputInput {
  * <p>Contains the Amazon S3 Glacier response to your request.</p>
  */
 export interface GetJobOutputOutput {
+  /**
+   * <p>Indicates the range units accepted. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a>. </p>
+   */
+  acceptRanges?: string;
+
+  /**
+   * <p>The description of an archive.</p>
+   */
+  archiveDescription?: string;
+
   /**
    * <p>The job data, either archive data or inventory data.</p>
    */
@@ -1348,22 +1358,11 @@ export interface GetJobOutputOutput {
   checksum?: string;
 
   /**
-   * <p>The HTTP response code for a job output request. The value depends on whether a range
-   *          was specified in the request.</p>
-   */
-  status?: number;
-
-  /**
    * <p>The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded,
    *          the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes
    *          0-1048575/8388608 returns the first 1 MB from 8 MB.</p>
    */
   contentRange?: string;
-
-  /**
-   * <p>Indicates the range units accepted. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a>. </p>
-   */
-  acceptRanges?: string;
 
   /**
    * <p>The Content-Type depends on whether the job output is an archive or a vault
@@ -1375,9 +1374,10 @@ export interface GetJobOutputOutput {
   contentType?: string;
 
   /**
-   * <p>The description of an archive.</p>
+   * <p>The HTTP response code for a job output request. The value depends on whether a range
+   *          was specified in the request.</p>
    */
-  archiveDescription?: string;
+  status?: number;
 }
 
 export namespace GetJobOutputOutput {
@@ -1473,6 +1473,18 @@ export namespace GetVaultLockInput {
  */
 export interface GetVaultLockOutput {
   /**
+   * <p>The UTC date and time at which the vault lock was put into the
+   *             <code>InProgress</code> state.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The UTC date and time at which the lock ID expires. This value can be
+   *             <code>null</code> if the vault lock is in a <code>Locked</code> state.</p>
+   */
+  ExpirationDate?: string;
+
+  /**
    * <p>The vault lock policy as a JSON string, which uses "\" as an escape
    *          character.</p>
    */
@@ -1483,18 +1495,6 @@ export interface GetVaultLockOutput {
    *          <code>Locked</code>.</p>
    */
   State?: string;
-
-  /**
-   * <p>The UTC date and time at which the lock ID expires. This value can be
-   *             <code>null</code> if the vault lock is in a <code>Locked</code> state.</p>
-   */
-  ExpirationDate?: string;
-
-  /**
-   * <p>The UTC date and time at which the vault lock was put into the
-   *             <code>InProgress</code> state.</p>
-   */
-  CreationDate?: string;
 }
 
 export namespace GetVaultLockOutput {
@@ -1534,16 +1534,16 @@ export namespace GetVaultNotificationsInput {
  */
 export interface VaultNotificationConfig {
   /**
-   * <p>The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name
-   *          (ARN).</p>
-   */
-  SNSTopic?: string;
-
-  /**
    * <p>A list of one or more events for which Amazon S3 Glacier will send a notification to the
    *          specified Amazon SNS topic.</p>
    */
   Events?: string[];
+
+  /**
+   * <p>The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name
+   *          (ARN).</p>
+   */
+  SNSTopic?: string;
 }
 
 export namespace VaultNotificationConfig {
@@ -1573,13 +1573,6 @@ export namespace GetVaultNotificationsOutput {
  */
 export interface InventoryRetrievalJobInput {
   /**
-   * <p>The start of the date range in UTC for vault inventory retrieval that includes
-   *          archives created on or after this date. This value should be a string in the ISO 8601 date
-   *          format, for example <code>2013-03-20T17:03:43Z</code>.</p>
-   */
-  StartDate?: string;
-
-  /**
    * <p>The end of the date range in UTC for vault inventory retrieval that includes archives
    *          created before this date. This value should be a string in the ISO 8601 date format, for
    *          example <code>2013-03-20T17:03:43Z</code>.</p>
@@ -1599,6 +1592,13 @@ export interface InventoryRetrievalJobInput {
    *          value is <code>null</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The start of the date range in UTC for vault inventory retrieval that includes
+   *          archives created on or after this date. This value should be a string in the ISO 8601 date
+   *          format, for example <code>2013-03-20T17:03:43Z</code>.</p>
+   */
+  StartDate?: string;
 }
 
 export namespace InventoryRetrievalJobInput {
@@ -1611,21 +1611,6 @@ export namespace InventoryRetrievalJobInput {
  * <p>Provides options for defining a job.</p>
  */
 export interface JobParameters {
-  /**
-   * <p>When initiating a job to retrieve a vault inventory, you can optionally add this
-   *          parameter to your request to specify the output format. If you are initiating an inventory
-   *          job and do not specify a Format field, JSON is the default format. Valid values are "CSV"
-   *          and "JSON".</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The job type. You can initiate a job to perform a select query on an archive,
-   *          retrieve an archive, or get an inventory of a vault.
-   *          Valid values are "select", "archive-retrieval" and "inventory-retrieval".</p>
-   */
-  Type?: string;
-
   /**
    * <p>The ID of the archive that you want to retrieve. This field is required only if
    *             <code>Type</code> is set to <code>select</code> or <code>archive-retrieval</code>code>.
@@ -1642,11 +1627,22 @@ export interface JobParameters {
   Description?: string;
 
   /**
-   * <p>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is
-   *          completed and the output is ready for you to download. The specified topic publishes the
-   *          notification to its subscribers. The SNS topic must exist.</p>
+   * <p>When initiating a job to retrieve a vault inventory, you can optionally add this
+   *          parameter to your request to specify the output format. If you are initiating an inventory
+   *          job and do not specify a Format field, JSON is the default format. Valid values are "CSV"
+   *          and "JSON".</p>
    */
-  SNSTopic?: string;
+  Format?: string;
+
+  /**
+   * <p>Input parameters used for range inventory retrieval.</p>
+   */
+  InventoryRetrievalParameters?: InventoryRetrievalJobInput;
+
+  /**
+   * <p>Contains information about the location where the select job results are stored.</p>
+   */
+  OutputLocation?: OutputLocation;
 
   /**
    * <p>The byte range to retrieve for an archive retrieval. in the form
@@ -1662,6 +1658,18 @@ export interface JobParameters {
   RetrievalByteRange?: string;
 
   /**
+   * <p>Contains the parameters that define a job.</p>
+   */
+  SelectParameters?: SelectParameters;
+
+  /**
+   * <p>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is
+   *          completed and the output is ready for you to download. The specified topic publishes the
+   *          notification to its subscribers. The SNS topic must exist.</p>
+   */
+  SNSTopic?: string;
+
+  /**
    * <p>The tier to use for a select or an archive retrieval job. Valid values are
    *             <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>.
    *             <code>Standard</code> is the default.</p>
@@ -1669,19 +1677,11 @@ export interface JobParameters {
   Tier?: string;
 
   /**
-   * <p>Input parameters used for range inventory retrieval.</p>
+   * <p>The job type. You can initiate a job to perform a select query on an archive,
+   *          retrieve an archive, or get an inventory of a vault.
+   *          Valid values are "select", "archive-retrieval" and "inventory-retrieval".</p>
    */
-  InventoryRetrievalParameters?: InventoryRetrievalJobInput;
-
-  /**
-   * <p>Contains the parameters that define a job.</p>
-   */
-  SelectParameters?: SelectParameters;
-
-  /**
-   * <p>Contains information about the location where the select job results are stored.</p>
-   */
-  OutputLocation?: OutputLocation;
+  Type?: string;
 }
 
 export namespace JobParameters {
@@ -1704,14 +1704,14 @@ export interface InitiateJobInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>Provides options for specifying job information.</p>
    */
   jobParameters?: JobParameters;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace InitiateJobInput {
@@ -1725,11 +1725,6 @@ export namespace InitiateJobInput {
  */
 export interface InitiateJobOutput {
   /**
-   * <p>The relative URI path of the job.</p>
-   */
-  location?: string;
-
-  /**
    * <p>The ID of the job.</p>
    */
   jobId?: string;
@@ -1738,6 +1733,11 @@ export interface InitiateJobOutput {
    * <p>The path to the location of where the select results are stored.</p>
    */
   jobOutputPath?: string;
+
+  /**
+   * <p>The relative URI path of the job.</p>
+   */
+  location?: string;
 }
 
 export namespace InitiateJobOutput {
@@ -1754,9 +1754,9 @@ export namespace InitiateJobOutput {
 export interface InsufficientCapacityException extends __SmithyException, $MetadataBearer {
   name: "InsufficientCapacityException";
   $fault: "client";
-  type?: string;
   code?: string;
   message?: string;
+  type?: string;
 }
 
 export namespace InsufficientCapacityException {
@@ -1773,11 +1773,6 @@ export interface PolicyEnforcedException extends __SmithyException, $MetadataBea
   name: "PolicyEnforcedException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>PolicyEnforcedException</p>
    */
   code?: string;
@@ -1786,6 +1781,11 @@ export interface PolicyEnforcedException extends __SmithyException, $MetadataBea
    * <p>InitiateJob request denied by current data retrieval policy.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace PolicyEnforcedException {
@@ -1809,11 +1809,6 @@ export interface InitiateMultipartUploadInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The archive description that you are uploading in parts.</p>
    *          <p>The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example
    *          1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum
@@ -1826,6 +1821,11 @@ export interface InitiateMultipartUploadInput {
    *          this part size.</p>
    */
   partSize?: string;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace InitiateMultipartUploadInput {
@@ -1886,15 +1886,15 @@ export interface InitiateVaultLockInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The vault lock policy as a JSON string, which uses "\" as an escape
    *          character.</p>
    */
   policy?: VaultLockPolicy;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace InitiateVaultLockInput {
@@ -1933,9 +1933,10 @@ export interface ListJobsInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
+   * <p>The state of the jobs to return. You can specify <code>true</code> or
+   *             <code>false</code>.</p>
    */
-  vaultName: string | undefined;
+  completed?: string;
 
   /**
    * <p>The maximum number of jobs to be returned. The default limit is 50. The number of
@@ -1959,10 +1960,9 @@ export interface ListJobsInput {
   statuscode?: string;
 
   /**
-   * <p>The state of the jobs to return. You can specify <code>true</code> or
-   *             <code>false</code>.</p>
+   * <p>The name of the vault.</p>
    */
-  completed?: string;
+  vaultName: string | undefined;
 }
 
 export namespace ListJobsInput {
@@ -2012,11 +2012,6 @@ export interface ListMultipartUploadsInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>Specifies the maximum number of uploads returned in the response body. If this value
    *          is not specified, the List Uploads operation returns up to 50 uploads.</p>
    */
@@ -2029,6 +2024,11 @@ export interface ListMultipartUploadsInput {
    *          started in a previous List Uploads request.</p>
    */
   marker?: string;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace ListMultipartUploadsInput {
@@ -2042,20 +2042,20 @@ export namespace ListMultipartUploadsInput {
  */
 export interface UploadListElement {
   /**
-   * <p>The ID of a multipart upload.</p>
-   */
-  MultipartUploadId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the vault that contains the archive.</p>
-   */
-  VaultARN?: string;
-
-  /**
    * <p>The description of the archive that was specified in the Initiate Multipart Upload
    *          request.</p>
    */
   ArchiveDescription?: string;
+
+  /**
+   * <p>The UTC time at which the multipart upload was initiated.</p>
+   */
+  CreationDate?: string;
+
+  /**
+   * <p>The ID of a multipart upload.</p>
+   */
+  MultipartUploadId?: string;
 
   /**
    * <p>The part size, in bytes, specified in the Initiate Multipart Upload request. This is
@@ -2065,9 +2065,9 @@ export interface UploadListElement {
   PartSizeInBytes?: number;
 
   /**
-   * <p>The UTC time at which the multipart upload was initiated.</p>
+   * <p>The Amazon Resource Name (ARN) of the vault that contains the archive.</p>
    */
-  CreationDate?: string;
+  VaultARN?: string;
 }
 
 export namespace UploadListElement {
@@ -2081,16 +2081,16 @@ export namespace UploadListElement {
  */
 export interface ListMultipartUploadsOutput {
   /**
-   * <p>A list of in-progress multipart uploads.</p>
-   */
-  UploadsList?: UploadListElement[];
-
-  /**
    * <p>An opaque string that represents where to continue pagination of the results. You use
    *          the marker in a new List Multipart Uploads request to obtain more uploads in the list. If
    *          there are no more uploads, this value is <code>null</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of in-progress multipart uploads.</p>
+   */
+  UploadsList?: UploadListElement[];
 }
 
 export namespace ListMultipartUploadsOutput {
@@ -2114,14 +2114,11 @@ export interface ListPartsInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
+   * <p>The maximum number of parts to be returned. The default limit is 50. The number of
+   *          parts returned might be fewer than the specified limit, but the number of returned parts
+   *          never exceeds the limit.</p>
    */
-  vaultName: string | undefined;
-
-  /**
-   * <p>The upload ID of the multipart upload.</p>
-   */
-  uploadId: string | undefined;
+  limit?: number;
 
   /**
    * <p>An opaque string used for pagination. This value specifies the part at which the
@@ -2132,11 +2129,14 @@ export interface ListPartsInput {
   marker?: string;
 
   /**
-   * <p>The maximum number of parts to be returned. The default limit is 50. The number of
-   *          parts returned might be fewer than the specified limit, but the number of returned parts
-   *          never exceeds the limit.</p>
+   * <p>The upload ID of the multipart upload.</p>
    */
-  limit?: number;
+  uploadId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace ListPartsInput {
@@ -2172,32 +2172,27 @@ export namespace PartListElement {
  */
 export interface ListPartsOutput {
   /**
-   * <p>The ID of the upload to which the parts are associated.</p>
-   */
-  MultipartUploadId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the vault to which the multipart upload was
-   *          initiated.</p>
-   */
-  VaultARN?: string;
-
-  /**
    * <p>The description of the archive that was specified in the Initiate Multipart Upload
    *          request.</p>
    */
   ArchiveDescription?: string;
 
   /**
-   * <p>The part size in bytes. This is the same value that you specified in the Initiate
-   *          Multipart Upload request.</p>
-   */
-  PartSizeInBytes?: number;
-
-  /**
    * <p>The UTC time at which the multipart upload was initiated.</p>
    */
   CreationDate?: string;
+
+  /**
+   * <p>An opaque string that represents where to continue pagination of the results. You use
+   *          the marker in a new List Parts request to obtain more jobs in the list. If there are no
+   *          more parts, this value is <code>null</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The ID of the upload to which the parts are associated.</p>
+   */
+  MultipartUploadId?: string;
 
   /**
    * <p>A list of the part sizes of the multipart upload. Each object in the array contains a
@@ -2207,11 +2202,16 @@ export interface ListPartsOutput {
   Parts?: PartListElement[];
 
   /**
-   * <p>An opaque string that represents where to continue pagination of the results. You use
-   *          the marker in a new List Parts request to obtain more jobs in the list. If there are no
-   *          more parts, this value is <code>null</code>.</p>
+   * <p>The part size in bytes. This is the same value that you specified in the Initiate
+   *          Multipart Upload request.</p>
    */
-  Marker?: string;
+  PartSizeInBytes?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vault to which the multipart upload was
+   *          initiated.</p>
+   */
+  VaultARN?: string;
 }
 
 export namespace ListPartsOutput {
@@ -2246,14 +2246,14 @@ export interface ProvisionedCapacityDescription {
   CapacityId?: string;
 
   /**
-   * <p>The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).</p>
-   */
-  StartDate?: string;
-
-  /**
    * <p>The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).</p>
    */
   ExpirationDate?: string;
+
+  /**
+   * <p>The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).</p>
+   */
+  StartDate?: string;
 }
 
 export namespace ProvisionedCapacityDescription {
@@ -2331,17 +2331,17 @@ export interface ListVaultsInput {
   accountId: string | undefined;
 
   /**
-   * <p>A string used for pagination. The marker specifies the vault ARN after which the
-   *          listing of vaults should begin.</p>
-   */
-  marker?: string;
-
-  /**
    * <p>The maximum number of vaults to be returned. The default limit is 10. The number of
    *          vaults returned might be fewer than the specified limit, but the number of returned vaults
    *          never exceeds the limit.</p>
    */
   limit?: number;
+
+  /**
+   * <p>A string used for pagination. The marker specifies the vault ARN after which the
+   *          listing of vaults should begin.</p>
+   */
+  marker?: string;
 }
 
 export namespace ListVaultsInput {
@@ -2355,15 +2355,15 @@ export namespace ListVaultsInput {
  */
 export interface ListVaultsOutput {
   /**
-   * <p>List of vaults.</p>
-   */
-  VaultList?: DescribeVaultOutput[];
-
-  /**
    * <p>The vault ARN at which to continue pagination of the results. You use the marker in
    *          another List Vaults request to obtain more vaults in the list.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>List of vaults.</p>
+   */
+  VaultList?: DescribeVaultOutput[];
 }
 
 export namespace ListVaultsOutput {
@@ -2415,14 +2415,14 @@ export interface RemoveTagsFromVaultInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>A list of tag keys. Each corresponding tag is removed from the vault.</p>
    */
   TagKeys?: string[];
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace RemoveTagsFromVaultInput {
@@ -2470,14 +2470,14 @@ export interface SetVaultAccessPolicyInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The vault access policy as a JSON string.</p>
    */
   policy?: VaultAccessPolicy;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace SetVaultAccessPolicyInput {
@@ -2525,11 +2525,6 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
   name: "RequestTimeoutException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>408 Request Timeout</p>
    */
   code?: string;
@@ -2539,6 +2534,11 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
    *          upload.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace RequestTimeoutException {
@@ -2551,11 +2551,6 @@ export namespace RequestTimeoutException {
  * <p>Provides options to add an archive to a vault.</p>
  */
 export interface UploadArchiveInput {
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
@@ -2571,14 +2566,19 @@ export interface UploadArchiveInput {
   archiveDescription?: string;
 
   /**
+   * <p>The data to upload.</p>
+   */
+  body?: Readable | ReadableStream | Blob;
+
+  /**
    * <p>The SHA256 tree hash of the data being uploaded.</p>
    */
   checksum?: string;
 
   /**
-   * <p>The data to upload.</p>
+   * <p>The name of the vault.</p>
    */
-  body?: Readable | ReadableStream | Blob;
+  vaultName: string | undefined;
 }
 
 export namespace UploadArchiveInput {
@@ -2602,14 +2602,9 @@ export interface UploadMultipartPartInput {
   accountId: string | undefined;
 
   /**
-   * <p>The name of the vault.</p>
+   * <p>The data to upload.</p>
    */
-  vaultName: string | undefined;
-
-  /**
-   * <p>The upload ID of the multipart upload.</p>
-   */
-  uploadId: string | undefined;
+  body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>The SHA256 tree hash of the data being uploaded.</p>
@@ -2625,9 +2620,14 @@ export interface UploadMultipartPartInput {
   range?: string;
 
   /**
-   * <p>The data to upload.</p>
+   * <p>The upload ID of the multipart upload.</p>
    */
-  body?: Readable | ReadableStream | Blob;
+  uploadId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace UploadMultipartPartInput {

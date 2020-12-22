@@ -117,14 +117,14 @@ export namespace PayloadTooLargeException {
 
 export interface PostToConnectionRequest {
   /**
-   * <p>The data to be sent to the client specified by its connection id.</p>
-   */
-  Data: Uint8Array | undefined;
-
-  /**
    * <p>The identifier of the connection that a specific client is using.</p>
    */
   ConnectionId: string | undefined;
+
+  /**
+   * <p>The data to be sent to the client specified by its connection id.</p>
+   */
+  Data: Uint8Array | undefined;
 }
 
 export namespace PostToConnectionRequest {

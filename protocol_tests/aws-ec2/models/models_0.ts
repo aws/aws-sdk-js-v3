@@ -33,8 +33,8 @@ export namespace ComplexNestedErrorData {
 export interface ComplexError extends __SmithyException, $MetadataBearer {
   name: "ComplexError";
   $fault: "client";
-  TopLevel?: string;
   Nested?: ComplexNestedErrorData;
+  TopLevel?: string;
 }
 
 export namespace ComplexError {
@@ -107,10 +107,10 @@ export namespace GreetingStruct {
 }
 
 export interface QueryListsInput {
-  ListArg?: string[];
   ComplexListArg?: GreetingStruct[];
-  ListArgWithXmlNameMember?: string[];
+  ListArg?: string[];
   ListArgWithXmlName?: string[];
+  ListArgWithXmlNameMember?: string[];
 }
 
 export namespace QueryListsInput {
@@ -120,9 +120,9 @@ export namespace QueryListsInput {
 }
 
 export interface QueryTimestampsInput {
-  normalFormat?: Date;
   epochMember?: Date;
   epochTarget?: Date;
+  normalFormat?: Date;
 }
 
 export namespace QueryTimestampsInput {
@@ -140,15 +140,15 @@ export enum FooEnum {
 }
 
 export interface SimpleInputParamsInput {
-  Foo?: string;
+  Bam?: number;
   Bar?: string;
   Baz?: boolean;
-  Bam?: number;
   Boo?: number;
-  Qux?: Uint8Array;
+  Foo?: string;
   FooEnum?: FooEnum | string;
-  HasQueryName?: string;
   HasQueryAndXmlName?: string;
+  HasQueryName?: string;
+  Qux?: Uint8Array;
   UsesXmlName?: string;
 }
 
@@ -159,16 +159,16 @@ export namespace SimpleInputParamsInput {
 }
 
 export interface SimpleScalarXmlPropertiesOutput {
-  stringValue?: string;
-  emptyStringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
   byteValue?: number;
-  shortValue?: number;
+  doubleValue?: number;
+  emptyStringValue?: string;
+  falseBooleanValue?: boolean;
+  floatValue?: number;
   integerValue?: number;
   longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  shortValue?: number;
+  stringValue?: string;
+  trueBooleanValue?: boolean;
 }
 
 export namespace SimpleScalarXmlPropertiesOutput {
@@ -199,23 +199,23 @@ export namespace StructureListMember {
 }
 
 export interface XmlListsOutput {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
   booleanList?: boolean[];
-  timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
+  integerList?: number[];
   /**
    * A list of lists of strings.
    */
   nestedStringList?: string[][];
 
   renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
+  stringList?: string[];
+  stringSet?: string[];
   structureList?: StructureListMember[];
+  timestampList?: Date[];
 }
 
 export namespace XmlListsOutput {
@@ -229,8 +229,8 @@ export interface XmlEnumsOutput {
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumSet?: (FooEnum | string)[];
 }
 
 export namespace XmlEnumsOutput {
@@ -261,10 +261,10 @@ export namespace XmlNamespacesOutput {
 }
 
 export interface XmlTimestampsOutput {
-  normal?: Date;
   dateTime?: Date;
   epochSeconds?: Date;
   httpDate?: Date;
+  normal?: Date;
 }
 
 export namespace XmlTimestampsOutput {
@@ -274,9 +274,9 @@ export namespace XmlTimestampsOutput {
 }
 
 export interface StructArg {
-  StringArg?: string;
   OtherArg?: boolean;
   RecursiveArg?: StructArg;
+  StringArg?: string;
 }
 
 export namespace StructArg {

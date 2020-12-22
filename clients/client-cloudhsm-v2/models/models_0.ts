@@ -54,26 +54,25 @@ export interface Backup {
   ClusterId?: string;
 
   /**
+   * <p>The date and time when the backup was copied from a source backup.</p>
+   */
+  CopyTimestamp?: Date;
+
+  /**
    * <p>The date and time when the backup was created.</p>
    */
   CreateTimestamp?: Date;
 
   /**
-   * <p>The date and time when the backup was copied from a source backup.</p>
+   * <p>The date and time when the backup will be permanently deleted.</p>
    */
-  CopyTimestamp?: Date;
+  DeleteTimestamp?: Date;
 
   /**
    * <p>Specifies whether the service should exempt a backup from the retention policy for the cluster. <code>True</code> exempts
    *       a backup from the retention policy. <code>False</code> means the service applies the backup retention policy defined at the cluster.</p>
    */
   NeverExpires?: boolean;
-
-  /**
-   * <p>The AWS Region that contains the source backup from which the new backup was
-   *       copied.</p>
-   */
-  SourceRegion?: string;
 
   /**
    * <p>The identifier (ID) of the source backup from which the new backup was
@@ -88,9 +87,10 @@ export interface Backup {
   SourceCluster?: string;
 
   /**
-   * <p>The date and time when the backup will be permanently deleted.</p>
+   * <p>The AWS Region that contains the source backup from which the new backup was
+   *       copied.</p>
    */
-  DeleteTimestamp?: Date;
+  SourceRegion?: string;
 
   /**
    * <p>The list of tags for the backup.</p>
@@ -229,14 +229,14 @@ export namespace CloudHsmTagException {
 
 export interface CopyBackupToRegionRequest {
   /**
-   * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
-   */
-  DestinationRegion: string | undefined;
-
-  /**
    * <p>The ID of the backup that will be copied to the destination region. </p>
    */
   BackupId: string | undefined;
+
+  /**
+   * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
+   */
+  DestinationRegion: string | undefined;
 
   /**
    * <p>Tags to apply to the destination backup during creation. If you specify tags, only these tags will be applied to the destination backup. If you do not specify tags, the service copies tags from the source backup to the destination backup.</p>
@@ -260,11 +260,6 @@ export interface DestinationBackup {
   CreateTimestamp?: Date;
 
   /**
-   * <p>The AWS region that contains the source backup from which the new backup was copied.</p>
-   */
-  SourceRegion?: string;
-
-  /**
    * <p>The identifier (ID) of the source backup from which the new backup was copied.</p>
    */
   SourceBackup?: string;
@@ -273,6 +268,11 @@ export interface DestinationBackup {
    * <p>The identifier (ID) of the cluster containing the source backup from which the new backup was copied.</p>
    */
   SourceCluster?: string;
+
+  /**
+   * <p>The AWS region that contains the source backup from which the new backup was copied.</p>
+   */
+  SourceRegion?: string;
 }
 
 export namespace DestinationBackup {
@@ -349,6 +349,17 @@ export namespace CreateClusterRequest {
  */
 export interface Certificates {
   /**
+   * <p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>
+   */
+  AwsHardwareCertificate?: string;
+
+  /**
+   * <p>The cluster certificate issued (signed) by the issuing certificate authority (CA) of
+   *       the cluster's owner.</p>
+   */
+  ClusterCertificate?: string;
+
+  /**
    * <p>The cluster's certificate signing request (CSR). The CSR exists only when the cluster's
    *       state is <code>UNINITIALIZED</code>.</p>
    */
@@ -360,20 +371,9 @@ export interface Certificates {
   HsmCertificate?: string;
 
   /**
-   * <p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>
-   */
-  AwsHardwareCertificate?: string;
-
-  /**
    * <p>The HSM hardware certificate issued (signed) by the hardware manufacturer.</p>
    */
   ManufacturerHardwareCertificate?: string;
-
-  /**
-   * <p>The cluster certificate issued (signed) by the issuing certificate authority (CA) of
-   *       the cluster's owner.</p>
-   */
-  ClusterCertificate?: string;
 }
 
 export namespace Certificates {
@@ -406,11 +406,6 @@ export interface Hsm {
   ClusterId?: string;
 
   /**
-   * <p>The subnet that contains the HSM's elastic network interface (ENI).</p>
-   */
-  SubnetId?: string;
-
-  /**
    * <p>The identifier (ID) of the HSM's elastic network interface (ENI).</p>
    */
   EniId?: string;
@@ -434,6 +429,11 @@ export interface Hsm {
    * <p>A description of the HSM's state.</p>
    */
   StateMessage?: string;
+
+  /**
+   * <p>The subnet that contains the HSM's elastic network interface (ENI).</p>
+   */
+  SubnetId?: string;
 }
 
 export namespace Hsm {
@@ -467,6 +467,11 @@ export interface Cluster {
    * <p>A policy that defines how the service retains backups.</p>
    */
   BackupRetentionPolicy?: BackupRetentionPolicy;
+
+  /**
+   * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
+   */
+  Certificates?: Certificates;
 
   /**
    * <p>The cluster's identifier (ID).</p>
@@ -520,20 +525,15 @@ export interface Cluster {
   SubnetMapping?: { [key: string]: string };
 
   /**
+   * <p>The list of tags for the cluster.</p>
+   */
+  TagList?: Tag[];
+
+  /**
    * <p>The identifier (ID) of the virtual private cloud (VPC) that contains the
    *       cluster.</p>
    */
   VpcId?: string;
-
-  /**
-   * <p>Contains one or more certificates or a certificate signing request (CSR).</p>
-   */
-  Certificates?: Certificates;
-
-  /**
-   * <p>The list of tags for the cluster.</p>
-   */
-  TagList?: Tag[];
 }
 
 export namespace Cluster {
@@ -557,15 +557,15 @@ export namespace CreateClusterResponse {
 
 export interface CreateHsmRequest {
   /**
-   * <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>.</p>
-   */
-  ClusterId: string | undefined;
-
-  /**
    * <p>The Availability Zone where you are creating the HSM. To find the cluster's
    *       Availability Zones, use <a>DescribeClusters</a>.</p>
    */
   AvailabilityZone: string | undefined;
+
+  /**
+   * <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>.</p>
+   */
+  ClusterId: string | undefined;
 
   /**
    * <p>The HSM's IP address. If you specify an IP address, use an available address from the
@@ -655,11 +655,6 @@ export interface DeleteHsmRequest {
   ClusterId: string | undefined;
 
   /**
-   * <p>The identifier (ID) of the HSM that you are deleting.</p>
-   */
-  HsmId?: string;
-
-  /**
    * <p>The identifier (ID) of the elastic network interface (ENI) of the HSM that you are
    *       deleting.</p>
    */
@@ -670,6 +665,11 @@ export interface DeleteHsmRequest {
    *       deleting.</p>
    */
   EniIp?: string;
+
+  /**
+   * <p>The identifier (ID) of the HSM that you are deleting.</p>
+   */
+  HsmId?: string;
 }
 
 export namespace DeleteHsmRequest {
@@ -693,18 +693,6 @@ export namespace DeleteHsmResponse {
 
 export interface DescribeBackupsRequest {
   /**
-   * <p>The <code>NextToken</code> value that you received in the previous response. Use this
-   *       value to get more backups.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of backups to return in the response. When there are more backups
-   *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>One or more filters to limit the items returned in the response.</p>
    *          <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify
    *       backups by their backup identifier (ID).</p>
@@ -720,6 +708,18 @@ export interface DescribeBackupsRequest {
    *       defined at the cluster.</p>
    */
   Filters?: { [key: string]: string[] };
+
+  /**
+   * <p>The maximum number of backups to return in the response. When there are more backups
+   *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The <code>NextToken</code> value that you received in the previous response. Use this
+   *       value to get more backups.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Designates whether or not to sort the return backups by ascending chronological order
@@ -767,16 +767,16 @@ export interface DescribeClustersRequest {
   Filters?: { [key: string]: string[] };
 
   /**
-   * <p>The <code>NextToken</code> value that you received in the previous response. Use this
-   *       value to get more clusters.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of clusters to return in the response. When there are more clusters
    *       than the number you specify, the response contains a <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The <code>NextToken</code> value that you received in the previous response. Use this
+   *       value to get more clusters.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeClustersRequest {
@@ -853,10 +853,10 @@ export namespace InitializeClusterResponse {
 
 export interface ListTagsRequest {
   /**
-   * <p>The cluster identifier (ID) for the cluster whose tags you are getting. To find the
-   *       cluster ID, use <a>DescribeClusters</a>.</p>
+   * <p>The maximum number of tags to return in the response. When there are more tags than the
+   *       number you specify, the response contains a <code>NextToken</code> value.</p>
    */
-  ResourceId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The <code>NextToken</code> value that you received in the previous response. Use this
@@ -865,10 +865,10 @@ export interface ListTagsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of tags to return in the response. When there are more tags than the
-   *       number you specify, the response contains a <code>NextToken</code> value.</p>
+   * <p>The cluster identifier (ID) for the cluster whose tags you are getting. To find the
+   *       cluster ID, use <a>DescribeClusters</a>.</p>
    */
-  MaxResults?: number;
+  ResourceId: string | undefined;
 }
 
 export namespace ListTagsRequest {
@@ -879,15 +879,15 @@ export namespace ListTagsRequest {
 
 export interface ListTagsResponse {
   /**
-   * <p>A list of tags.</p>
-   */
-  TagList: Tag[] | undefined;
-
-  /**
    * <p>An opaque string that indicates that the response contains only a subset of tags. Use
    *       this value in a subsequent <code>ListTags</code> request to get more tags.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of tags.</p>
+   */
+  TagList: Tag[] | undefined;
 }
 
 export namespace ListTagsResponse {

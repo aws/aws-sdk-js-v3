@@ -54,6 +54,21 @@ export interface EndpointDetails {
   AddressAllocationIds?: string[];
 
   /**
+   * <p>A list of security groups IDs that are available to attach to your server's
+   *       endpoint.</p>
+   *
+   *          <note>
+   *             <p>This property can only be set when <code>EndpointType</code> is set to
+   *         <code>VPC</code>.</p>
+   *
+   *             <p>You can only edit the <code>SecurityGroupIds</code> property in the
+   *           <code>UpdateServer</code> API and only if you are changing the <code>EndpointType</code>
+   *         from <code>PUBLIC</code> or <code>VPC_ENDPOINT</code> to <code>VPC</code>.</p>
+   *          </note>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
    * <p>A list of subnet IDs that are required to host your server endpoint in your VPC.</p>
    *
    *          <note>
@@ -82,21 +97,6 @@ export interface EndpointDetails {
    *          </note>
    */
   VpcId?: string;
-
-  /**
-   * <p>A list of security groups IDs that are available to attach to your server's
-   *       endpoint.</p>
-   *
-   *          <note>
-   *             <p>This property can only be set when <code>EndpointType</code> is set to
-   *         <code>VPC</code>.</p>
-   *
-   *             <p>You can only edit the <code>SecurityGroupIds</code> property in the
-   *           <code>UpdateServer</code> API and only if you are changing the <code>EndpointType</code>
-   *         from <code>PUBLIC</code> or <code>VPC_ENDPOINT</code> to <code>VPC</code>.</p>
-   *          </note>
-   */
-  SecurityGroupIds?: string[];
 }
 
 export namespace EndpointDetails {
@@ -118,15 +118,15 @@ export enum EndpointType {
  */
 export interface IdentityProviderDetails {
   /**
-   * <p>Provides the location of the service endpoint used to authenticate users.</p>
-   */
-  Url?: string;
-
-  /**
    * <p>Provides the type of <code>InvocationRole</code> used to authenticate the user
    *       account.</p>
    */
   InvocationRole?: string;
+
+  /**
+   * <p>Provides the location of the service endpoint used to authenticate users.</p>
+   */
+  Url?: string;
 }
 
 export namespace IdentityProviderDetails {
@@ -469,16 +469,6 @@ export interface CreateUserRequest {
   HomeDirectory?: string;
 
   /**
-   * <p>The type of landing directory (folder) you want your users' home directory to be when
-   *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
-   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
-   *         <code>LOGICAL</code>, you will need to provide mappings in the
-   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
-   *       users.</p>
-   */
-  HomeDirectoryType?: HomeDirectoryType | string;
-
-  /**
    * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
    *       your user and how you want to make them visible. You will need to specify the
    *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
@@ -506,6 +496,16 @@ export interface CreateUserRequest {
    *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p>The type of landing directory (folder) you want your users' home directory to be when
+   *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *         <code>LOGICAL</code>, you will need to provide mappings in the
+   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
+   *       users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
    * <p>A scope-down policy for your user so you can use the same IAM role across multiple users.
@@ -1128,19 +1128,19 @@ export interface ListedServer {
   Arn: string | undefined;
 
   /**
+   * <p>Specifies the type of VPC endpoint that your server is connected to. If your server is
+   *       connected to a VPC endpoint, your server isn't accessible over the public
+   *       internet.</p>
+   */
+  EndpointType?: EndpointType | string;
+
+  /**
    * <p>Specifies the authentication method used to validate a user for a server that was
    *       specified. This can include Secure Shell (SSH), user name and password combinations, or your
    *       own custom authentication method. Valid values include <code>SERVICE_MANAGED</code> or
    *         <code>API_GATEWAY</code>.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
-
-  /**
-   * <p>Specifies the type of VPC endpoint that your server is connected to. If your server is
-   *       connected to a VPC endpoint, your server isn't accessible over the public
-   *       internet.</p>
-   */
-  EndpointType?: EndpointType | string;
 
   /**
    * <p>Specifies the AWS Identity and Access Management (IAM) role that allows a server to turn
@@ -1520,6 +1520,11 @@ export namespace TestIdentityProviderRequest {
 
 export interface TestIdentityProviderResponse {
   /**
+   * <p>A message that indicates whether the test was successful or not.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>The response that is returned from your API Gateway.</p>
    */
   Response?: string;
@@ -1528,11 +1533,6 @@ export interface TestIdentityProviderResponse {
    * <p>The HTTP status code that is the response from your API Gateway.</p>
    */
   StatusCode: number | undefined;
-
-  /**
-   * <p>A message that indicates whether the test was successful or not.</p>
-   */
-  Message?: string;
 
   /**
    * <p>The endpoint of the service used to authenticate a user.</p>
@@ -1739,16 +1739,6 @@ export interface UpdateUserRequest {
   HomeDirectory?: string;
 
   /**
-   * <p>The type of landing directory (folder) you want your users' home directory to be when
-   *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
-   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
-   *         <code>LOGICAL</code>, you will need to provide mappings in the
-   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
-   *       users.</p>
-   */
-  HomeDirectoryType?: HomeDirectoryType | string;
-
-  /**
    * <p>Logical directory mappings that specify what Amazon S3 paths and keys should be visible to
    *       your user and how you want to make them visible. You will need to specify the
    *         "<code>Entry</code>" and "<code>Target</code>" pair, where <code>Entry</code> shows how the
@@ -1775,6 +1765,16 @@ export interface UpdateUserRequest {
    *          </note>
    */
   HomeDirectoryMappings?: HomeDirectoryMapEntry[];
+
+  /**
+   * <p>The type of landing directory (folder) you want your users' home directory to be when
+   *       they log into the server. If you set it to <code>PATH</code>, the user will see the absolute
+   *       Amazon S3 bucket paths as is in their file transfer protocol clients. If you set it
+   *         <code>LOGICAL</code>, you will need to provide mappings in the
+   *         <code>HomeDirectoryMappings</code> for how you want to make Amazon S3 paths visible to your
+   *       users.</p>
+   */
+  HomeDirectoryType?: HomeDirectoryType | string;
 
   /**
    * <p>Allows you to supply a scope-down policy for your user so you can use the same IAM role

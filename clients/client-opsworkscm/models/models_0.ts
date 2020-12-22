@@ -8,6 +8,13 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccountAttribute {
   /**
    * <p>
+   *       The maximum allowed value.
+   *     </p>
+   */
+  Maximum?: number;
+
+  /**
+   * <p>
    *       The attribute name. The following are supported attribute names.
    *     </p>
    *          <ul>
@@ -25,13 +32,6 @@ export interface AccountAttribute {
    *          </ul>
    */
   Name?: string;
-
-  /**
-   * <p>
-   *       The maximum allowed value.
-   *     </p>
-   */
-  Maximum?: number;
 
   /**
    * <p>
@@ -74,18 +74,6 @@ export namespace EngineAttribute {
 
 export interface AssociateNodeRequest {
   /**
-   * <p>The name of the server with which to associate the node.
-   *     </p>
-   */
-  ServerName: string | undefined;
-
-  /**
-   * <p>The name of the node.
-   *     </p>
-   */
-  NodeName: string | undefined;
-
-  /**
    * <p>Engine attributes used for associating the node.
    *     </p>
    *          <p class="title">
@@ -117,6 +105,18 @@ export interface AssociateNodeRequest {
    *          </ul>
    */
   EngineAttributes: EngineAttribute[] | undefined;
+
+  /**
+   * <p>The name of the node.
+   *     </p>
+   */
+  NodeName: string | undefined;
+
+  /**
+   * <p>The name of the server with which to associate the node.
+   *     </p>
+   */
+  ServerName: string | undefined;
 }
 
 export namespace AssociateNodeRequest {
@@ -423,17 +423,17 @@ export namespace Tag {
 
 export interface CreateBackupRequest {
   /**
-   * <p>The name of the server that you want to back up.
-   *     </p>
-   */
-  ServerName: string | undefined;
-
-  /**
    * <p>
    *       A user-defined description of the backup.
    *     </p>
    */
   Description?: string;
+
+  /**
+   * <p>The name of the server that you want to back up.
+   *     </p>
+   */
+  ServerName: string | undefined;
 
   /**
    * <p>A map that contains tag keys and tag values to attach to an AWS OpsWorks-CM server backup.</p>
@@ -508,12 +508,19 @@ export interface CreateServerRequest {
   AssociatePublicIpAddress?: boolean;
 
   /**
-   * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom
-   *       domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the
-   *       generated <code>Endpoint</code> value if the server is using a custom domain. If you specify a custom domain, you must also specify values for <code>CustomCertificate</code>
-   *       and <code>CustomPrivateKey</code>.</p>
+   * <p>
+   *       If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
+   *     </p>
    */
-  CustomDomain?: string;
+  BackupId?: string;
+
+  /**
+   * <p>
+   *         The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.
+   *         The default value is <code>1</code>.
+   *       </p>
+   */
+  BackupRetentionCount?: number;
 
   /**
    * <p>A PEM-formatted HTTPS certificate. The value can be be a single, self-signed certificate, or a certificate chain. If you specify a
@@ -540,6 +547,14 @@ export interface CreateServerRequest {
   CustomCertificate?: string;
 
   /**
+   * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>. To access the server, create a CNAME DNS record in your preferred DNS service that points the custom
+   *       domain to the endpoint that is generated when the server is created (the value of the CreateServer Endpoint attribute). You cannot access the server by using the
+   *       generated <code>Endpoint</code> value if the server is using a custom domain. If you specify a custom domain, you must also specify values for <code>CustomCertificate</code>
+   *       and <code>CustomPrivateKey</code>.</p>
+   */
+  CustomDomain?: string;
+
+  /**
    * <p>A private key in PEM format for connecting to the server by using HTTPS. The private key must not be encrypted; it cannot be protected by a password or passphrase.
    *       If you specify a custom private key, you must also specify values for <code>CustomDomain</code> and <code>CustomCertificate</code>.</p>
    */
@@ -558,20 +573,6 @@ export interface CreateServerRequest {
    *       </p>
    */
   Engine: string | undefined;
-
-  /**
-   * <p>
-   *         The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
-   *       </p>
-   */
-  EngineModel?: string;
-
-  /**
-   * <p>
-   *         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.
-   *       </p>
-   */
-  EngineVersion?: string;
 
   /**
    * <p>Optional engine attributes on a specified server.
@@ -623,19 +624,17 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *         The number of automated backups that you want to keep. Whenever a new backup is created, AWS OpsWorks CM deletes the oldest backups if this number is exceeded.
-   *         The default value is <code>1</code>.
+   *         The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
    *       </p>
    */
-  BackupRetentionCount?: number;
+  EngineModel?: string;
 
   /**
    * <p>
-   *         The name of the server. The server name must be unique within your AWS account, within each region.
-   *         Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+   *         The major release version of the engine that you want to use. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.
    *       </p>
    */
-  ServerName: string | undefined;
+  EngineVersion?: string;
 
   /**
    * <p>
@@ -665,20 +664,6 @@ export interface CreateServerRequest {
 
   /**
    * <p>
-   *       The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.
-   *       Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).
-   *       The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See <code>TimeWindowDefinition</code> for more information.
-   *     </p>
-   *          <p>
-   *             <b>Example:</b>
-   *             <code>Mon:08:00</code>,
-   *       which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
-   *     </p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>
    *       The start time for a one-hour period during which AWS OpsWorks CM backs up application-level data on your server
    *       if automated backups are enabled. Valid values must be specified in one of the following formats:
    *     </p>
@@ -705,6 +690,20 @@ export interface CreateServerRequest {
 
   /**
    * <p>
+   *       The start time for a one-hour period each week during which AWS OpsWorks CM performs maintenance on the instance.
+   *       Valid values must be specified in the following format: <code>DDD:HH:MM</code>. <code>MM</code> must be specified as <code>00</code>. The specified time is in coordinated universal time (UTC).
+   *       The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See <code>TimeWindowDefinition</code> for more information.
+   *     </p>
+   *          <p>
+   *             <b>Example:</b>
+   *             <code>Mon:08:00</code>,
+   *       which represents a start time of every Monday at 08:00 UTC. (8:00 a.m.)
+   *     </p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>
    *       A list of security group IDs to attach to the Amazon EC2 instance. If you add this parameter, the specified security groups
    *       must be within the VPC that is specified by <code>SubnetIds</code>.
    *     </p>
@@ -714,6 +713,14 @@ export interface CreateServerRequest {
    *     </p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>
+   *         The name of the server. The server name must be unique within your AWS account, within each region.
+   *         Server names must start with a letter; then letters, numbers, or hyphens (-) are allowed, up to a maximum of 40 characters.
+   *       </p>
+   */
+  ServerName: string | undefined;
 
   /**
    * <p>
@@ -763,13 +770,6 @@ export interface CreateServerRequest {
    *          </ul>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>
-   *       If you specify this field, AWS OpsWorks CM creates the server by using the backup represented by BackupId.
-   *     </p>
-   */
-  BackupId?: string;
 }
 
 export namespace CreateServerRequest {
@@ -821,22 +821,16 @@ export interface Server {
   BackupRetentionCount?: number;
 
   /**
-   * <p>The name of the server.
+   * <p>The ARN of the CloudFormation stack that was used to create the server.
    *     </p>
    */
-  ServerName?: string;
+  CloudFormationStackArn?: string;
 
   /**
    * <p>Time stamp of server creation. Example <code>2016-07-29T13:38:47.520Z</code>
    *          </p>
    */
   CreatedAt?: Date;
-
-  /**
-   * <p>The ARN of the CloudFormation stack that was used to create the server.
-   *     </p>
-   */
-  CloudFormationStackArn?: string;
 
   /**
    * <p>An optional public endpoint of a server, such as <code>https://aws.my-company.com</code>.
@@ -863,12 +857,6 @@ export interface Server {
    *     </p>
    */
   Engine?: string;
-
-  /**
-   * <p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
-   *     </p>
-   */
-  EngineModel?: string;
 
   /**
    * <p>The response of a createServer() request returns the master
@@ -914,6 +902,12 @@ export interface Server {
   EngineAttributes?: EngineAttribute[];
 
   /**
+   * <p>The engine model of the server. Valid values in this release include <code>Monolithic</code> for Puppet and <code>Single</code> for Chef.
+   *     </p>
+   */
+  EngineModel?: string;
+
+  /**
    * <p>The engine version of the server. For a Chef server, the valid value for EngineVersion is currently <code>2</code>. For a Puppet server, the valid value is <code>2017</code>.
    *     </p>
    */
@@ -945,16 +939,16 @@ export interface Server {
   MaintenanceStatus?: MaintenanceStatus | string;
 
   /**
-   * <p>The preferred maintenance period specified for the server.
-   *     </p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
    * <p>The preferred backup period specified for the server.
    *     </p>
    */
   PreferredBackupWindow?: string;
+
+  /**
+   * <p>The preferred maintenance period specified for the server.
+   *     </p>
+   */
+  PreferredMaintenanceWindow?: string;
 
   /**
    * <p>
@@ -963,6 +957,18 @@ export interface Server {
    *     </p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>The ARN of the server.
+   *     </p>
+   */
+  ServerArn?: string;
+
+  /**
+   * <p>The name of the server.
+   *     </p>
+   */
+  ServerName?: string;
 
   /**
    * <p>The service role ARN used to create the server.
@@ -992,12 +998,6 @@ export interface Server {
    *     </p>
    */
   SubnetIds?: string[];
-
-  /**
-   * <p>The ARN of the server.
-   *     </p>
-   */
-  ServerArn?: string;
 }
 
 export namespace Server {
@@ -1119,10 +1119,9 @@ export interface DescribeBackupsRequest {
   BackupId?: string;
 
   /**
-   * <p>Returns backups for the server with the specified ServerName.
-   *     </p>
+   * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
    */
-  ServerName?: string;
+  MaxResults?: number;
 
   /**
    * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
@@ -1130,9 +1129,10 @@ export interface DescribeBackupsRequest {
   NextToken?: string;
 
   /**
-   * <p>This is not currently implemented for <code>DescribeBackups</code> requests.</p>
+   * <p>Returns backups for the server with the specified ServerName.
+   *     </p>
    */
-  MaxResults?: number;
+  ServerName?: string;
 }
 
 export namespace DescribeBackupsRequest {
@@ -1182,9 +1182,13 @@ export namespace InvalidNextTokenException {
 
 export interface DescribeEventsRequest {
   /**
-   * <p>The name of the server for which you want to view events.</p>
+   * <p>To receive a paginated response, use this parameter to specify the maximum number
+   *       of results to be returned with a single call. If the number of available results exceeds
+   *       this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
+   *       request parameter to get the next set of results.
+   *     </p>
    */
-  ServerName: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>NextToken is a string that is returned in some command responses. It indicates that
@@ -1199,13 +1203,9 @@ export interface DescribeEventsRequest {
   NextToken?: string;
 
   /**
-   * <p>To receive a paginated response, use this parameter to specify the maximum number
-   *       of results to be returned with a single call. If the number of available results exceeds
-   *       this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
-   *       request parameter to get the next set of results.
-   *     </p>
+   * <p>The name of the server for which you want to view events.</p>
    */
-  MaxResults?: number;
+  ServerName: string | undefined;
 }
 
 export namespace DescribeEventsRequest {
@@ -1226,10 +1226,9 @@ export interface ServerEvent {
   CreatedAt?: Date;
 
   /**
-   * <p>The name of the server on or for which the event occurred.
-   *     </p>
+   * <p>The Amazon S3 URL of the event's log file.</p>
    */
-  ServerName?: string;
+  LogUrl?: string;
 
   /**
    * <p>A human-readable informational or status message.</p>
@@ -1237,9 +1236,10 @@ export interface ServerEvent {
   Message?: string;
 
   /**
-   * <p>The Amazon S3 URL of the event's log file.</p>
+   * <p>The name of the server on or for which the event occurred.
+   *     </p>
    */
-  LogUrl?: string;
+  ServerName?: string;
 }
 
 export namespace ServerEvent {
@@ -1249,12 +1249,6 @@ export namespace ServerEvent {
 }
 
 export interface DescribeEventsResponse {
-  /**
-   * <p>Contains the response to a <code>DescribeEvents</code> request.
-   *     </p>
-   */
-  ServerEvents?: ServerEvent[];
-
   /**
    * <p>NextToken is a string that is returned in some command responses. It indicates that
    *       not all entries have been returned, and that you must run at least one more request to get remaining
@@ -1266,6 +1260,12 @@ export interface DescribeEventsResponse {
    *     </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Contains the response to a <code>DescribeEvents</code> request.
+   *     </p>
+   */
+  ServerEvents?: ServerEvent[];
 }
 
 export namespace DescribeEventsResponse {
@@ -1302,6 +1302,13 @@ export enum NodeAssociationStatus {
 
 export interface DescribeNodeAssociationStatusResponse {
   /**
+   * <p>Attributes specific to the node association.
+   *       In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
+   *     </p>
+   */
+  EngineAttributes?: EngineAttribute[];
+
+  /**
    * <p>The status of the association or disassociation request.
    *     </p>
    *          <p class="title">
@@ -1326,13 +1333,6 @@ export interface DescribeNodeAssociationStatusResponse {
    *          </ul>
    */
   NodeAssociationStatus?: NodeAssociationStatus | string;
-
-  /**
-   * <p>Attributes specific to the node association.
-   *       In Puppet, the attibute PUPPET_NODE_CERT contains the signed certificate (the result of the CSR).
-   *     </p>
-   */
-  EngineAttributes?: EngineAttribute[];
 }
 
 export namespace DescribeNodeAssociationStatusResponse {
@@ -1346,9 +1346,10 @@ export namespace DescribeNodeAssociationStatusResponse {
 
 export interface DescribeServersRequest {
   /**
-   * <p>Describes the server with the specified ServerName.</p>
+   * <p>This is not currently implemented for <code>DescribeServers</code> requests.
+   *     </p>
    */
-  ServerName?: string;
+  MaxResults?: number;
 
   /**
    * <p>This is not currently implemented for <code>DescribeServers</code> requests.
@@ -1357,10 +1358,9 @@ export interface DescribeServersRequest {
   NextToken?: string;
 
   /**
-   * <p>This is not currently implemented for <code>DescribeServers</code> requests.
-   *     </p>
+   * <p>Describes the server with the specified ServerName.</p>
    */
-  MaxResults?: number;
+  ServerName?: string;
 }
 
 export namespace DescribeServersRequest {
@@ -1370,6 +1370,12 @@ export namespace DescribeServersRequest {
 }
 
 export interface DescribeServersResponse {
+  /**
+   * <p>This is not currently implemented for <code>DescribeServers</code> requests.
+   *     </p>
+   */
+  NextToken?: string;
+
   /**
    * <p>Contains the response to a <code>DescribeServers</code> request.</p>
    *          <p>
@@ -1383,12 +1389,6 @@ export interface DescribeServersResponse {
    *       The CA certificate is also used to sign node certificates.</p>
    */
   Servers?: Server[];
-
-  /**
-   * <p>This is not currently implemented for <code>DescribeServers</code> requests.
-   *     </p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeServersResponse {
@@ -1398,18 +1398,6 @@ export namespace DescribeServersResponse {
 }
 
 export interface DisassociateNodeRequest {
-  /**
-   * <p>The name of the server from which to disassociate the node.
-   *     </p>
-   */
-  ServerName: string | undefined;
-
-  /**
-   * <p>The name of the client node.
-   *     </p>
-   */
-  NodeName: string | undefined;
-
   /**
    * <p>Engine attributes that are used for disassociating the node. No attributes are required for Puppet.
    *     </p>
@@ -1427,6 +1415,18 @@ export interface DisassociateNodeRequest {
    *          </ul>
    */
   EngineAttributes?: EngineAttribute[];
+
+  /**
+   * <p>The name of the client node.
+   *     </p>
+   */
+  NodeName: string | undefined;
+
+  /**
+   * <p>The name of the server from which to disassociate the node.
+   *     </p>
+   */
+  ServerName: string | undefined;
 }
 
 export namespace DisassociateNodeRequest {
@@ -1462,11 +1462,6 @@ export interface ExportServerEngineAttributeRequest {
   ExportAttributeName: string | undefined;
 
   /**
-   * <p>The name of the server from which you are exporting the attribute.</p>
-   */
-  ServerName: string | undefined;
-
-  /**
    * <p>The list of engine attributes. The list type is <code>EngineAttribute</code>. An <code>EngineAttribute</code> list item
    *       is a pair that includes an attribute name and its value. For the <code>Userdata</code> ExportAttributeName, the following are
    *       supported engine attribute names.</p>
@@ -1495,6 +1490,11 @@ export interface ExportServerEngineAttributeRequest {
    *          </ul>
    */
   InputAttributes?: EngineAttribute[];
+
+  /**
+   * <p>The name of the server from which you are exporting the attribute.</p>
+   */
+  ServerName: string | undefined;
 }
 
 export namespace ExportServerEngineAttributeRequest {
@@ -1527,10 +1527,12 @@ export namespace ExportServerEngineAttributeResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
-   *         <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
+   * <p>To receive a paginated response, use this parameter to specify the maximum number
+   *         of results to be returned with a single call. If the number of available results exceeds
+   *         this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
+   *         request parameter to get the next set of results.</p>
    */
-  ResourceArn: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>NextToken is a string that is returned in some command responses. It indicates that
@@ -1544,12 +1546,10 @@ export interface ListTagsForResourceRequest {
   NextToken?: string;
 
   /**
-   * <p>To receive a paginated response, use this parameter to specify the maximum number
-   *         of results to be returned with a single call. If the number of available results exceeds
-   *         this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code>
-   *         request parameter to get the next set of results.</p>
+   * <p>The Amazon Resource Number (ARN) of an AWS OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise server for which you want to show applied tags. For example,
+   *         <code>arn:aws:opsworks-cm:us-west-2:123456789012:server/test-owcm-server/EXAMPLE-66b0-4196-8274-d1a2bEXAMPLE</code>.</p>
    */
-  MaxResults?: number;
+  ResourceArn: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -1560,14 +1560,14 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags that have been applied to the resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>A token that you can use as the value of <code>NextToken</code> in subsequent calls to the API to show more results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Tags that have been applied to the resource.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1584,12 +1584,6 @@ export interface RestoreServerRequest {
   BackupId: string | undefined;
 
   /**
-   * <p> The name of the server that you want to restore.
-   *     </p>
-   */
-  ServerName: string | undefined;
-
-  /**
    * <p> The type of instance to restore. Valid values must be specified in the following format: <code>^([cm][34]|t2).*</code>
    *       For example, <code>m5.large</code>. Valid values are <code>m5.large</code>, <code>r5.xlarge</code>, and <code>r5.2xlarge</code>. If you do not specify this parameter,
    *       RestoreServer uses the instance type from the specified backup.
@@ -1603,6 +1597,12 @@ export interface RestoreServerRequest {
    *     </p>
    */
   KeyPair?: string;
+
+  /**
+   * <p> The name of the server that you want to restore.
+   *     </p>
+   */
+  ServerName: string | undefined;
 }
 
 export namespace RestoreServerRequest {
@@ -1621,12 +1621,6 @@ export namespace RestoreServerResponse {
 
 export interface StartMaintenanceRequest {
   /**
-   * <p>The name of the server on which to run maintenance.
-   *     </p>
-   */
-  ServerName: string | undefined;
-
-  /**
    * <p>Engine attributes that are specific to the server on which you want to run maintenance.</p>
    *          <p class="title">
    *             <b>Attributes accepted in a StartMaintenance request for Chef</b>
@@ -1642,6 +1636,12 @@ export interface StartMaintenanceRequest {
    *          </ul>
    */
   EngineAttributes?: EngineAttribute[];
+
+  /**
+   * <p>The name of the server on which to run maintenance.
+   *     </p>
+   */
+  ServerName: string | undefined;
 }
 
 export namespace StartMaintenanceRequest {
@@ -1743,22 +1743,27 @@ export namespace UntagResourceResponse {
 
 export interface UpdateServerRequest {
   /**
-   * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.
-   *     </p>
-   */
-  DisableAutomatedBackup?: boolean;
-
-  /**
    * <p>Sets the number of automated backups that you want to keep.
    *       </p>
    */
   BackupRetentionCount?: number;
 
   /**
-   * <p>The name of the server to update.
+   * <p>Setting DisableAutomatedBackup to <code>true</code> disables automated or scheduled backups. Automated backups are enabled by default.
    *     </p>
    */
-  ServerName: string | undefined;
+  DisableAutomatedBackup?: boolean;
+
+  /**
+   * <p>
+   *             <code>DDD:HH:MM</code> (weekly start time) or
+   *     <code>HH:MM</code> (daily start time).
+   *     </p>
+   *          <p>
+   *       Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>,
+   *       <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
+   */
+  PreferredBackupWindow?: string;
 
   /**
    * <p>
@@ -1772,15 +1777,10 @@ export interface UpdateServerRequest {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>
-   *             <code>DDD:HH:MM</code> (weekly start time) or
-   *     <code>HH:MM</code> (daily start time).
+   * <p>The name of the server to update.
    *     </p>
-   *          <p>
-   *       Time windows always use coordinated universal time (UTC). Valid strings for day of week (<code>DDD</code>) are: <code>Mon</code>, <code>Tue</code>, <code>Wed</code>,
-   *       <code>Thr</code>, <code>Fri</code>, <code>Sat</code>, or <code>Sun</code>.</p>
    */
-  PreferredBackupWindow?: string;
+  ServerName: string | undefined;
 }
 
 export namespace UpdateServerRequest {
@@ -1806,12 +1806,6 @@ export namespace UpdateServerResponse {
 
 export interface UpdateServerEngineAttributesRequest {
   /**
-   * <p>The name of the server to update.
-   *     </p>
-   */
-  ServerName: string | undefined;
-
-  /**
    * <p>The name of the engine attribute to update.
    *     </p>
    */
@@ -1822,6 +1816,12 @@ export interface UpdateServerEngineAttributesRequest {
    *     </p>
    */
   AttributeValue?: string;
+
+  /**
+   * <p>The name of the server to update.
+   *     </p>
+   */
+  ServerName: string | undefined;
 }
 
 export namespace UpdateServerEngineAttributesRequest {

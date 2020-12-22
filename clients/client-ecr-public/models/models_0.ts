@@ -27,6 +27,11 @@ export namespace AuthorizationData {
 
 export interface BatchCheckLayerAvailabilityRequest {
   /**
+   * <p>The digests of the image layers to check.</p>
+   */
+  layerDigests: string[] | undefined;
+
+  /**
    * <p>The AWS account ID associated with the public registry that contains the image layers to
    *          check. If you do not specify a registry, the default public registry is assumed.</p>
    */
@@ -36,11 +41,6 @@ export interface BatchCheckLayerAvailabilityRequest {
    * <p>The name of the repository that is associated with the image layers to check.</p>
    */
   repositoryName: string | undefined;
-
-  /**
-   * <p>The digests of the image layers to check.</p>
-   */
-  layerDigests: string[] | undefined;
 }
 
 export namespace BatchCheckLayerAvailabilityRequest {
@@ -59,11 +59,6 @@ export enum LayerFailureCode {
  */
 export interface LayerFailure {
   /**
-   * <p>The layer digest associated with the failure.</p>
-   */
-  layerDigest?: string;
-
-  /**
    * <p>The failure code associated with the failure.</p>
    */
   failureCode?: LayerFailureCode | string;
@@ -72,6 +67,11 @@ export interface LayerFailure {
    * <p>The reason for the failure.</p>
    */
   failureReason?: string;
+
+  /**
+   * <p>The layer digest associated with the failure.</p>
+   */
+  layerDigest?: string;
 }
 
 export namespace LayerFailure {
@@ -90,14 +90,14 @@ export enum LayerAvailability {
  */
 export interface Layer {
   /**
-   * <p>The <code>sha256</code> digest of the image layer.</p>
-   */
-  layerDigest?: string;
-
-  /**
    * <p>The availability status of the image layer.</p>
    */
   layerAvailability?: LayerAvailability | string;
+
+  /**
+   * <p>The <code>sha256</code> digest of the image layer.</p>
+   */
+  layerDigest?: string;
 
   /**
    * <p>The size, in bytes, of the image layer.</p>
@@ -120,15 +120,15 @@ export namespace Layer {
 
 export interface BatchCheckLayerAvailabilityResponse {
   /**
+   * <p>Any failures associated with the call.</p>
+   */
+  failures?: LayerFailure[];
+
+  /**
    * <p>A list of image layer objects corresponding to the image layer references in the
    *          request.</p>
    */
   layers?: Layer[];
-
-  /**
-   * <p>Any failures associated with the call.</p>
-   */
-  failures?: LayerFailure[];
 }
 
 export namespace BatchCheckLayerAvailabilityResponse {
@@ -222,6 +222,13 @@ export namespace ImageIdentifier {
 
 export interface BatchDeleteImageRequest {
   /**
+   * <p>A list of image ID references that correspond to images to delete. The format of the
+   *             <code>imageIds</code> reference is <code>imageTag=tag</code> or
+   *             <code>imageDigest=digest</code>.</p>
+   */
+  imageIds: ImageIdentifier[] | undefined;
+
+  /**
    * <p>The AWS account ID associated with the registry that contains the image to delete.
    *          If you do not specify a registry, the default public registry is assumed.</p>
    */
@@ -231,13 +238,6 @@ export interface BatchDeleteImageRequest {
    * <p>The repository in a public registry that contains the image to delete.</p>
    */
   repositoryName: string | undefined;
-
-  /**
-   * <p>A list of image ID references that correspond to images to delete. The format of the
-   *             <code>imageIds</code> reference is <code>imageTag=tag</code> or
-   *             <code>imageDigest=digest</code>.</p>
-   */
-  imageIds: ImageIdentifier[] | undefined;
 }
 
 export namespace BatchDeleteImageRequest {
@@ -261,11 +261,6 @@ export enum ImageFailureCode {
  */
 export interface ImageFailure {
   /**
-   * <p>The image ID associated with the failure.</p>
-   */
-  imageId?: ImageIdentifier;
-
-  /**
    * <p>The code associated with the failure.</p>
    */
   failureCode?: ImageFailureCode | string;
@@ -274,6 +269,11 @@ export interface ImageFailure {
    * <p>The reason for the failure.</p>
    */
   failureReason?: string;
+
+  /**
+   * <p>The image ID associated with the failure.</p>
+   */
+  imageId?: ImageIdentifier;
 }
 
 export namespace ImageFailure {
@@ -284,14 +284,14 @@ export namespace ImageFailure {
 
 export interface BatchDeleteImageResponse {
   /**
-   * <p>The image IDs of the deleted images.</p>
-   */
-  imageIds?: ImageIdentifier[];
-
-  /**
    * <p>Any failures associated with the call.</p>
    */
   failures?: ImageFailure[];
+
+  /**
+   * <p>The image IDs of the deleted images.</p>
+   */
+  imageIds?: ImageIdentifier[];
 }
 
 export namespace BatchDeleteImageResponse {
@@ -301,6 +301,11 @@ export namespace BatchDeleteImageResponse {
 }
 
 export interface CompleteLayerUploadRequest {
+  /**
+   * <p>The <code>sha256</code> digest of the image layer.</p>
+   */
+  layerDigests: string[] | undefined;
+
   /**
    * <p>The AWS account ID associated with the registry to which to upload layers.
    *          If you do not specify a registry, the default public registry is assumed.</p>
@@ -318,11 +323,6 @@ export interface CompleteLayerUploadRequest {
    *          associate with the image layer.</p>
    */
   uploadId: string | undefined;
-
-  /**
-   * <p>The <code>sha256</code> digest of the image layer.</p>
-   */
-  layerDigests: string[] | undefined;
 }
 
 export namespace CompleteLayerUploadRequest {
@@ -332,6 +332,11 @@ export namespace CompleteLayerUploadRequest {
 }
 
 export interface CompleteLayerUploadResponse {
+  /**
+   * <p>The <code>sha256</code> digest of the image layer.</p>
+   */
+  layerDigest?: string;
+
   /**
    * <p>The public registry ID associated with the request.</p>
    */
@@ -346,11 +351,6 @@ export interface CompleteLayerUploadResponse {
    * <p>The upload ID associated with the layer.</p>
    */
   uploadId?: string;
-
-  /**
-   * <p>The <code>sha256</code> digest of the image layer.</p>
-   */
-  layerDigest?: string;
 }
 
 export namespace CompleteLayerUploadResponse {
@@ -457,10 +457,10 @@ export namespace UploadNotFoundException {
  */
 export interface RepositoryCatalogDataInput {
   /**
-   * <p>A short description of the contents of the repository. This text appears in both the
-   *          image details and also when searching for repositories on the Amazon ECR Public Gallery.</p>
+   * <p>A detailed description of the contents of the repository. It is publicly visible in the
+   *          Amazon ECR Public Gallery. The text must be in markdown format.</p>
    */
-  description?: string;
+  aboutText?: string;
 
   /**
    * <p>The system architecture that the images in the repository are compatible with. On the
@@ -485,6 +485,21 @@ export interface RepositoryCatalogDataInput {
    *          </note>
    */
   architectures?: string[];
+
+  /**
+   * <p>A short description of the contents of the repository. This text appears in both the
+   *          image details and also when searching for repositories on the Amazon ECR Public Gallery.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The base64-encoded repository logo payload.</p>
+   *          <note>
+   *             <p>The repository logo is only publicly visible in the Amazon ECR Public Gallery for verified
+   *             accounts.</p>
+   *          </note>
+   */
+  logoImageBlob?: Uint8Array;
 
   /**
    * <p>The operating systems that the images in the repository are compatible with. On the
@@ -521,21 +536,6 @@ export interface RepositoryCatalogDataInput {
   operatingSystems?: string[];
 
   /**
-   * <p>The base64-encoded repository logo payload.</p>
-   *          <note>
-   *             <p>The repository logo is only publicly visible in the Amazon ECR Public Gallery for verified
-   *             accounts.</p>
-   *          </note>
-   */
-  logoImageBlob?: Uint8Array;
-
-  /**
-   * <p>A detailed description of the contents of the repository. It is publicly visible in the
-   *          Amazon ECR Public Gallery. The text must be in markdown format.</p>
-   */
-  aboutText?: string;
-
-  /**
    * <p>Detailed information on how to use the contents of the repository. It is publicly
    *          visible in the Amazon ECR Public Gallery. The usage text provides context, support information,
    *          and additional usage details for users of the repository. The text must be in markdown
@@ -552,18 +552,18 @@ export namespace RepositoryCatalogDataInput {
 
 export interface CreateRepositoryRequest {
   /**
+   * <p>The details about the repository that are publicly visible in the
+   *          Amazon ECR Public Gallery.</p>
+   */
+  catalogData?: RepositoryCatalogDataInput;
+
+  /**
    * <p>The name to use for the repository. This appears publicly in the Amazon ECR Public Gallery.
    *          The repository name may be specified on its own (such as <code>nginx-web-app</code>) or it
    *          can be prepended with a namespace to group the repository into a category (such as
    *             <code>project-a/nginx-web-app</code>).</p>
    */
   repositoryName: string | undefined;
-
-  /**
-   * <p>The details about the repository that are publicly visible in the
-   *          Amazon ECR Public Gallery.</p>
-   */
-  catalogData?: RepositoryCatalogDataInput;
 }
 
 export namespace CreateRepositoryRequest {
@@ -578,9 +578,10 @@ export namespace CreateRepositoryRequest {
  */
 export interface RepositoryCatalogData {
   /**
-   * <p>The short description of the repository.</p>
+   * <p>The longform description of the contents of the repository. This text appears in the
+   *          repository details on the Amazon ECR Public Gallery.</p>
    */
-  description?: string;
+  aboutText?: string;
 
   /**
    * <p>The architecture tags that are associated with the repository.</p>
@@ -592,6 +593,21 @@ export interface RepositoryCatalogData {
   architectures?: string[];
 
   /**
+   * <p>The short description of the repository.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The URL containing the logo associated with the repository.</p>
+   */
+  logoUrl?: string;
+
+  /**
+   * <p>Whether or not the repository is certified by AWS Marketplace.</p>
+   */
+  marketplaceCertified?: boolean;
+
+  /**
    * <p>The operating system tags that are associated with the repository.</p>
    *          <note>
    *             <p>Only supported operating system tags appear publicly in the Amazon ECR Public Gallery. For
@@ -601,26 +617,10 @@ export interface RepositoryCatalogData {
   operatingSystems?: string[];
 
   /**
-   * <p>The URL containing the logo associated with the repository.</p>
-   */
-  logoUrl?: string;
-
-  /**
-   * <p>The longform description of the contents of the repository. This text appears in the
-   *          repository details on the Amazon ECR Public Gallery.</p>
-   */
-  aboutText?: string;
-
-  /**
    * <p>The longform usage details of the contents of the repository. The usage text provides
    *          context for users of the repository.</p>
    */
   usageText?: string;
-
-  /**
-   * <p>Whether or not the repository is certified by AWS Marketplace.</p>
-   */
-  marketplaceCertified?: boolean;
 }
 
 export namespace RepositoryCatalogData {
@@ -634,15 +634,20 @@ export namespace RepositoryCatalogData {
  */
 export interface Repository {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+   * <p>The date and time, in JavaScript date format, when the repository was created.</p>
    */
-  repositoryArn?: string;
+  createdAt?: Date;
 
   /**
    * <p>The AWS account ID associated with the public registry that contains the
    *          repository.</p>
    */
   registryId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the repository, AWS account ID of the repository owner, repository namespace, and repository name. For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+   */
+  repositoryArn?: string;
 
   /**
    * <p>The name of the repository.</p>
@@ -654,11 +659,6 @@ export interface Repository {
    *          and <code>pull</code> operations.</p>
    */
   repositoryUri?: string;
-
-  /**
-   * <p>The date and time, in JavaScript date format, when the repository was created.</p>
-   */
-  createdAt?: Date;
 }
 
 export namespace Repository {
@@ -669,15 +669,15 @@ export namespace Repository {
 
 export interface CreateRepositoryResponse {
   /**
-   * <p>The repository that was created.</p>
-   */
-  repository?: Repository;
-
-  /**
    * <p>The catalog data for a repository. This data is publicly visible in the
    *          Amazon ECR Public Gallery.</p>
    */
   catalogData?: RepositoryCatalogData;
+
+  /**
+   * <p>The repository that was created.</p>
+   */
+  repository?: Repository;
 }
 
 export namespace CreateRepositoryResponse {
@@ -720,6 +720,11 @@ export namespace RepositoryAlreadyExistsException {
 
 export interface DeleteRepositoryRequest {
   /**
+   * <p> If a repository contains images, forces the deletion.</p>
+   */
+  force?: boolean;
+
+  /**
    * <p>The AWS account ID associated with the public registry that contains the repository to
    *          delete. If you do not specify a registry, the default public registry is assumed.</p>
    */
@@ -729,11 +734,6 @@ export interface DeleteRepositoryRequest {
    * <p>The name of the repository to delete.</p>
    */
   repositoryName: string | undefined;
-
-  /**
-   * <p> If a repository contains images, forces the deletion.</p>
-   */
-  force?: boolean;
 }
 
 export namespace DeleteRepositoryRequest {
@@ -793,6 +793,11 @@ export namespace DeleteRepositoryPolicyRequest {
 
 export interface DeleteRepositoryPolicyResponse {
   /**
+   * <p>The JSON repository policy that was deleted from the repository.</p>
+   */
+  policyText?: string;
+
+  /**
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
@@ -801,11 +806,6 @@ export interface DeleteRepositoryPolicyResponse {
    * <p>The repository name associated with the request.</p>
    */
   repositoryName?: string;
-
-  /**
-   * <p>The JSON repository policy that was deleted from the repository.</p>
-   */
-  policyText?: string;
 }
 
 export namespace DeleteRepositoryPolicyResponse {
@@ -832,30 +832,9 @@ export namespace RepositoryPolicyNotFoundException {
 
 export interface DescribeImagesRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository in
-   *          which to describe images. If you do not specify a registry, the default public registry is assumed.</p>
-   */
-  registryId?: string;
-
-  /**
-   * <p>The repository that contains the images to describe.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
    * <p>The list of image IDs for the requested repository.</p>
    */
   imageIds?: ImageIdentifier[];
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>DescribeImages</code> request where <code>maxResults</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return. This option cannot be used
-   *          when you specify images with <code>imageIds</code>.</p>
-   */
-  nextToken?: string;
 
   /**
    * <p>The maximum number of repository results returned by <code>DescribeImages</code> in
@@ -869,6 +848,27 @@ export interface DescribeImagesRequest {
    *          images with <code>imageIds</code>.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>DescribeImages</code> request where <code>maxResults</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value. This value is
+   *             <code>null</code> when there are no more results to return. This option cannot be used
+   *          when you specify images with <code>imageIds</code>.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The AWS account ID associated with the public registry that contains the repository in
+   *          which to describe images. If you do not specify a registry, the default public registry is assumed.</p>
+   */
+  registryId?: string;
+
+  /**
+   * <p>The repository that contains the images to describe.</p>
+   */
+  repositoryName: string | undefined;
 }
 
 export namespace DescribeImagesRequest {
@@ -883,15 +883,9 @@ export namespace DescribeImagesRequest {
  */
 export interface ImageDetail {
   /**
-   * <p>The AWS account ID associated with the public registry to which this image
-   *          belongs.</p>
+   * <p>The artifact media type of the image.</p>
    */
-  registryId?: string;
-
-  /**
-   * <p>The name of the repository to which this image belongs.</p>
-   */
-  repositoryName?: string;
+  artifactMediaType?: string;
 
   /**
    * <p>The <code>sha256</code> digest of the image manifest.</p>
@@ -899,9 +893,15 @@ export interface ImageDetail {
   imageDigest?: string;
 
   /**
-   * <p>The list of tags associated with this image.</p>
+   * <p>The media type of the image manifest.</p>
    */
-  imageTags?: string[];
+  imageManifestMediaType?: string;
+
+  /**
+   * <p>The date and time, expressed in standard JavaScript date format, at which the current
+   *          image was pushed to the repository. </p>
+   */
+  imagePushedAt?: Date;
 
   /**
    * <p>The size, in bytes, of the image in the repository.</p>
@@ -917,20 +917,20 @@ export interface ImageDetail {
   imageSizeInBytes?: number;
 
   /**
-   * <p>The date and time, expressed in standard JavaScript date format, at which the current
-   *          image was pushed to the repository. </p>
+   * <p>The list of tags associated with this image.</p>
    */
-  imagePushedAt?: Date;
+  imageTags?: string[];
 
   /**
-   * <p>The media type of the image manifest.</p>
+   * <p>The AWS account ID associated with the public registry to which this image
+   *          belongs.</p>
    */
-  imageManifestMediaType?: string;
+  registryId?: string;
 
   /**
-   * <p>The artifact media type of the image.</p>
+   * <p>The name of the repository to which this image belongs.</p>
    */
-  artifactMediaType?: string;
+  repositoryName?: string;
 }
 
 export namespace ImageDetail {
@@ -978,15 +978,17 @@ export namespace ImageNotFoundException {
 
 export interface DescribeImageTagsRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository in
-   *          which to describe images. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The maximum number of repository results returned by <code>DescribeImageTags</code> in
+   *          paginated output. When this parameter is used, <code>DescribeImageTags</code> only returns
+   *             <code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   *          response element. The remaining results of the initial request can be seen by sending
+   *          another <code>DescribeImageTags</code> request with the returned <code>nextToken</code>
+   *          value. This value can be between 1 and 1000. If this parameter
+   *          is not used, then <code>DescribeImageTags</code> returns up to 100
+   *          results and a <code>nextToken</code> value, if applicable. This option cannot be used when
+   *          you specify images with <code>imageIds</code>.</p>
    */
-  registryId?: string;
-
-  /**
-   * <p>The name of the repository that contains the image tag details to describe.</p>
-   */
-  repositoryName: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -999,17 +1001,15 @@ export interface DescribeImageTagsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of repository results returned by <code>DescribeImageTags</code> in
-   *          paginated output. When this parameter is used, <code>DescribeImageTags</code> only returns
-   *             <code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   *          response element. The remaining results of the initial request can be seen by sending
-   *          another <code>DescribeImageTags</code> request with the returned <code>nextToken</code>
-   *          value. This value can be between 1 and 1000. If this parameter
-   *          is not used, then <code>DescribeImageTags</code> returns up to 100
-   *          results and a <code>nextToken</code> value, if applicable. This option cannot be used when
-   *          you specify images with <code>imageIds</code>.</p>
+   * <p>The AWS account ID associated with the public registry that contains the repository in
+   *          which to describe images. If you do not specify a registry, the default public registry is assumed.</p>
    */
-  maxResults?: number;
+  registryId?: string;
+
+  /**
+   * <p>The name of the repository that contains the image tag details to describe.</p>
+   */
+  repositoryName: string | undefined;
 }
 
 export namespace DescribeImageTagsRequest {
@@ -1023,9 +1023,25 @@ export namespace DescribeImageTagsRequest {
  */
 export interface ReferencedImageDetail {
   /**
+   * <p>The artifact media type of the image.</p>
+   */
+  artifactMediaType?: string;
+
+  /**
    * <p>The <code>sha256</code> digest of the image manifest.</p>
    */
   imageDigest?: string;
+
+  /**
+   * <p>The media type of the image manifest.</p>
+   */
+  imageManifestMediaType?: string;
+
+  /**
+   * <p>The date and time, expressed in standard JavaScript date format, at which the current
+   *          image tag was pushed to the repository.</p>
+   */
+  imagePushedAt?: Date;
 
   /**
    * <p>The size, in bytes, of the image in the repository.</p>
@@ -1039,22 +1055,6 @@ export interface ReferencedImageDetail {
    *          </note>
    */
   imageSizeInBytes?: number;
-
-  /**
-   * <p>The date and time, expressed in standard JavaScript date format, at which the current
-   *          image tag was pushed to the repository.</p>
-   */
-  imagePushedAt?: Date;
-
-  /**
-   * <p>The media type of the image manifest.</p>
-   */
-  imageManifestMediaType?: string;
-
-  /**
-   * <p>The artifact media type of the image.</p>
-   */
-  artifactMediaType?: string;
 }
 
 export namespace ReferencedImageDetail {
@@ -1068,11 +1068,6 @@ export namespace ReferencedImageDetail {
  */
 export interface ImageTagDetail {
   /**
-   * <p>The tag associated with the image.</p>
-   */
-  imageTag?: string;
-
-  /**
    * <p>The time stamp indicating when the image tag was created.</p>
    */
   createdAt?: Date;
@@ -1081,6 +1076,11 @@ export interface ImageTagDetail {
    * <p>An object that describes the details of an image.</p>
    */
   imageDetail?: ReferencedImageDetail;
+
+  /**
+   * <p>The tag associated with the image.</p>
+   */
+  imageTag?: string;
 }
 
 export namespace ImageTagDetail {
@@ -1112,18 +1112,6 @@ export namespace DescribeImageTagsResponse {
 
 export interface DescribeRegistriesRequest {
   /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *             <code>DescribeRegistries</code> request where <code>maxResults</code> was used and the
-   *          results exceeded the value of that parameter. Pagination continues from the end of the
-   *          previous results that returned the <code>nextToken</code> value. This value is
-   *             <code>null</code> when there are no more results to return.</p>
-   *          <note>
-   *             <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
-   *          </note>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of repository results returned by <code>DescribeRegistries</code> in
    *          paginated output. When this parameter is used, <code>DescribeRegistries</code> only returns
    *             <code>maxResults</code> results in a single page along with a <code>nextToken</code>
@@ -1134,6 +1122,18 @@ export interface DescribeRegistriesRequest {
    *          results and a <code>nextToken</code> value, if applicable.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *             <code>DescribeRegistries</code> request where <code>maxResults</code> was used and the
+   *          results exceeded the value of that parameter. Pagination continues from the end of the
+   *          previous results that returned the <code>nextToken</code> value. This value is
+   *             <code>null</code> when there are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   */
+  nextToken?: string;
 }
 
 export namespace DescribeRegistriesRequest {
@@ -1156,14 +1156,16 @@ export enum RegistryAliasStatus {
  */
 export interface RegistryAlias {
   /**
+   * <p>Whether or not the registry alias is the default alias for the registry. When the first
+   *          public repository is created, your public registry is assigned a default registry
+   *          alias.</p>
+   */
+  defaultRegistryAlias: boolean | undefined;
+
+  /**
    * <p>The name of the registry alias.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The status of the registry alias.</p>
-   */
-  status: RegistryAliasStatus | string | undefined;
 
   /**
    * <p>Whether or not the registry alias is the primary alias for the registry. If true, the
@@ -1177,11 +1179,9 @@ export interface RegistryAlias {
   primaryRegistryAlias: boolean | undefined;
 
   /**
-   * <p>Whether or not the registry alias is the default alias for the registry. When the first
-   *          public repository is created, your public registry is assigned a default registry
-   *          alias.</p>
+   * <p>The status of the registry alias.</p>
    */
-  defaultRegistryAlias: boolean | undefined;
+  status: RegistryAliasStatus | string | undefined;
 }
 
 export namespace RegistryAlias {
@@ -1195,14 +1195,19 @@ export namespace RegistryAlias {
  */
 export interface Registry {
   /**
-   * <p>The AWS account ID associated with the registry. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>An array of objects representing the aliases for a public registry.</p>
    */
-  registryId: string | undefined;
+  aliases: RegistryAlias[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the public registry.</p>
    */
   registryArn: string | undefined;
+
+  /**
+   * <p>The AWS account ID associated with the registry. If you do not specify a registry, the default public registry is assumed.</p>
+   */
+  registryId: string | undefined;
 
   /**
    * <p>The URI of a public registry. The URI contains a universal prefix and the registry
@@ -1216,11 +1221,6 @@ export interface Registry {
    *          verified account badge on the Amazon ECR Public Gallery.</p>
    */
   verified: boolean | undefined;
-
-  /**
-   * <p>An array of objects representing the aliases for a public registry.</p>
-   */
-  aliases: RegistryAlias[] | undefined;
 }
 
 export namespace Registry {
@@ -1231,11 +1231,6 @@ export namespace Registry {
 
 export interface DescribeRegistriesResponse {
   /**
-   * <p>An object containing the details for a public registry.</p>
-   */
-  registries: Registry[] | undefined;
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future
    *             <code>DescribeRepositories</code> request. When the results of a
    *             <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value can
@@ -1243,6 +1238,11 @@ export interface DescribeRegistriesResponse {
    *          are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An object containing the details for a public registry.</p>
+   */
+  registries: Registry[] | undefined;
 }
 
 export namespace DescribeRegistriesResponse {
@@ -1253,16 +1253,18 @@ export namespace DescribeRegistriesResponse {
 
 export interface DescribeRepositoriesRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repositories to be
-   *          described. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The maximum number of repository results returned by <code>DescribeRepositories</code>
+   *          in paginated output. When this parameter is used, <code>DescribeRepositories</code> only
+   *          returns <code>maxResults</code> results in a single page along with a
+   *             <code>nextToken</code> response element. The remaining results of the initial request
+   *          can be seen by sending another <code>DescribeRepositories</code> request with the returned
+   *             <code>nextToken</code> value. This value can be between 1 and
+   *          1000. If this parameter is not used, then <code>DescribeRepositories</code>
+   *          returns up to 100 results and a <code>nextToken</code> value, if
+   *          applicable. This option cannot be used when you specify repositories with
+   *             <code>repositoryNames</code>.</p>
    */
-  registryId?: string;
-
-  /**
-   * <p>A list of repositories to describe. If this parameter is omitted, then all repositories
-   *          in a registry are described.</p>
-   */
-  repositoryNames?: string[];
+  maxResults?: number;
 
   /**
    * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -1278,18 +1280,16 @@ export interface DescribeRepositoriesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of repository results returned by <code>DescribeRepositories</code>
-   *          in paginated output. When this parameter is used, <code>DescribeRepositories</code> only
-   *          returns <code>maxResults</code> results in a single page along with a
-   *             <code>nextToken</code> response element. The remaining results of the initial request
-   *          can be seen by sending another <code>DescribeRepositories</code> request with the returned
-   *             <code>nextToken</code> value. This value can be between 1 and
-   *          1000. If this parameter is not used, then <code>DescribeRepositories</code>
-   *          returns up to 100 results and a <code>nextToken</code> value, if
-   *          applicable. This option cannot be used when you specify repositories with
-   *             <code>repositoryNames</code>.</p>
+   * <p>The AWS account ID associated with the registry that contains the repositories to be
+   *          described. If you do not specify a registry, the default public registry is assumed.</p>
    */
-  maxResults?: number;
+  registryId?: string;
+
+  /**
+   * <p>A list of repositories to describe. If this parameter is omitted, then all repositories
+   *          in a registry are described.</p>
+   */
+  repositoryNames?: string[];
 }
 
 export namespace DescribeRepositoriesRequest {
@@ -1300,11 +1300,6 @@ export namespace DescribeRepositoriesRequest {
 
 export interface DescribeRepositoriesResponse {
   /**
-   * <p>A list of repository objects corresponding to valid repositories.</p>
-   */
-  repositories?: Repository[];
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future
    *             <code>DescribeRepositories</code> request. When the results of a
    *             <code>DescribeRepositories</code> request exceed <code>maxResults</code>, this value can
@@ -1312,6 +1307,11 @@ export interface DescribeRepositoriesResponse {
    *          are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of repository objects corresponding to valid repositories.</p>
+   */
+  repositories?: Repository[];
 }
 
 export namespace DescribeRepositoriesResponse {
@@ -1435,6 +1435,12 @@ export namespace GetRepositoryPolicyRequest {
 
 export interface GetRepositoryPolicyResponse {
   /**
+   * <p>The repository policy text associated with the repository. The policy text will be in
+   *          JSON format.</p>
+   */
+  policyText?: string;
+
+  /**
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
@@ -1443,12 +1449,6 @@ export interface GetRepositoryPolicyResponse {
    * <p>The repository name associated with the request.</p>
    */
   repositoryName?: string;
-
-  /**
-   * <p>The repository policy text associated with the repository. The policy text will be in
-   *          JSON format.</p>
-   */
-  policyText?: string;
 }
 
 export namespace GetRepositoryPolicyResponse {
@@ -1461,16 +1461,6 @@ export namespace GetRepositoryPolicyResponse {
  * <p>An object representing an Amazon ECR image.</p>
  */
 export interface Image {
-  /**
-   * <p>The AWS account ID associated with the registry containing the image.</p>
-   */
-  registryId?: string;
-
-  /**
-   * <p>The name of the repository associated with the image.</p>
-   */
-  repositoryName?: string;
-
   /**
    * <p>An object containing the image tag and image digest associated with an image.</p>
    */
@@ -1485,6 +1475,16 @@ export interface Image {
    * <p>The manifest media type of the image.</p>
    */
   imageManifestMediaType?: string;
+
+  /**
+   * <p>The AWS account ID associated with the registry containing the image.</p>
+   */
+  registryId?: string;
+
+  /**
+   * <p>The name of the repository associated with the image.</p>
+   */
+  repositoryName?: string;
 }
 
 export namespace Image {
@@ -1562,14 +1562,14 @@ export namespace InitiateLayerUploadRequest {
 
 export interface InitiateLayerUploadResponse {
   /**
-   * <p>The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations.</p>
-   */
-  uploadId?: string;
-
-  /**
    * <p>The size, in bytes, that Amazon ECR expects future layer part uploads to be.</p>
    */
   partSize?: number;
+
+  /**
+   * <p>The upload ID for the layer upload. This parameter is passed to further <a>UploadLayerPart</a> and <a>CompleteLayerUpload</a> operations.</p>
+   */
+  uploadId?: string;
 }
 
 export namespace InitiateLayerUploadResponse {
@@ -1586,6 +1586,12 @@ export interface InvalidLayerPartException extends __SmithyException, $MetadataB
   name: "InvalidLayerPartException";
   $fault: "client";
   /**
+   * <p>The position of the last byte of the layer part.</p>
+   */
+  lastValidByteReceived?: number;
+
+  message?: string;
+  /**
    * <p>The AWS account ID associated with the layer part.</p>
    */
   registryId?: string;
@@ -1599,13 +1605,6 @@ export interface InvalidLayerPartException extends __SmithyException, $MetadataB
    * <p>The upload ID associated with the layer part.</p>
    */
   uploadId?: string;
-
-  /**
-   * <p>The position of the last byte of the layer part.</p>
-   */
-  lastValidByteReceived?: number;
-
-  message?: string;
 }
 
 export namespace InvalidLayerPartException {
@@ -1632,15 +1631,9 @@ export namespace LayersNotFoundException {
 
 export interface PutImageRequest {
   /**
-   * <p>The AWS account ID associated with the public registry that contains the repository in
-   *          which to put the image. If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>The image digest of the image manifest corresponding to the image.</p>
    */
-  registryId?: string;
-
-  /**
-   * <p>The name of the repository in which to put the image.</p>
-   */
-  repositoryName: string | undefined;
+  imageDigest?: string;
 
   /**
    * <p>The image manifest corresponding to the image to be uploaded.</p>
@@ -1661,9 +1654,15 @@ export interface PutImageRequest {
   imageTag?: string;
 
   /**
-   * <p>The image digest of the image manifest corresponding to the image.</p>
+   * <p>The AWS account ID associated with the public registry that contains the repository in
+   *          which to put the image. If you do not specify a registry, the default public registry is assumed.</p>
    */
-  imageDigest?: string;
+  registryId?: string;
+
+  /**
+   * <p>The name of the repository in which to put the image.</p>
+   */
+  repositoryName: string | undefined;
 }
 
 export namespace PutImageRequest {
@@ -1733,6 +1732,12 @@ export namespace PutRegistryCatalogDataResponse {
 
 export interface PutRepositoryCatalogDataRequest {
   /**
+   * <p>An object containing the catalog data for a repository. This data is publicly visible in
+   *          the Amazon ECR Public Gallery.</p>
+   */
+  catalogData: RepositoryCatalogDataInput | undefined;
+
+  /**
    * <p>The AWS account ID associated with the public registry the repository is in.
    *          If you do not specify a registry, the default public registry is assumed.</p>
    */
@@ -1742,12 +1747,6 @@ export interface PutRepositoryCatalogDataRequest {
    * <p>The name of the repository to create or update the catalog data for.</p>
    */
   repositoryName: string | undefined;
-
-  /**
-   * <p>An object containing the catalog data for a repository. This data is publicly visible in
-   *          the Amazon ECR Public Gallery.</p>
-   */
-  catalogData: RepositoryCatalogDataInput | undefined;
 }
 
 export namespace PutRepositoryCatalogDataRequest {
@@ -1771,15 +1770,11 @@ export namespace PutRepositoryCatalogDataResponse {
 
 export interface SetRepositoryPolicyRequest {
   /**
-   * <p>The AWS account ID associated with the registry that contains the repository.
-   *          If you do not specify a registry, the default public registry is assumed.</p>
+   * <p>If the policy you are attempting to set on a repository policy would prevent you from
+   *          setting another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation. This is intended to prevent accidental
+   *          repository lock outs.</p>
    */
-  registryId?: string;
-
-  /**
-   * <p>The name of the repository to receive the policy.</p>
-   */
-  repositoryName: string | undefined;
+  force?: boolean;
 
   /**
    * <p>The JSON repository policy text to apply to the repository. For more information, see
@@ -1789,11 +1784,15 @@ export interface SetRepositoryPolicyRequest {
   policyText: string | undefined;
 
   /**
-   * <p>If the policy you are attempting to set on a repository policy would prevent you from
-   *          setting another policy in the future, you must force the <a>SetRepositoryPolicy</a> operation. This is intended to prevent accidental
-   *          repository lock outs.</p>
+   * <p>The AWS account ID associated with the registry that contains the repository.
+   *          If you do not specify a registry, the default public registry is assumed.</p>
    */
-  force?: boolean;
+  registryId?: string;
+
+  /**
+   * <p>The name of the repository to receive the policy.</p>
+   */
+  repositoryName: string | undefined;
 }
 
 export namespace SetRepositoryPolicyRequest {
@@ -1804,6 +1803,11 @@ export namespace SetRepositoryPolicyRequest {
 
 export interface SetRepositoryPolicyResponse {
   /**
+   * <p>The JSON repository policy text applied to the repository.</p>
+   */
+  policyText?: string;
+
+  /**
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
@@ -1812,11 +1816,6 @@ export interface SetRepositoryPolicyResponse {
    * <p>The repository name associated with the request.</p>
    */
   repositoryName?: string;
-
-  /**
-   * <p>The JSON repository policy text applied to the repository.</p>
-   */
-  policyText?: string;
 }
 
 export namespace SetRepositoryPolicyResponse {
@@ -1826,6 +1825,21 @@ export namespace SetRepositoryPolicyResponse {
 }
 
 export interface UploadLayerPartRequest {
+  /**
+   * <p>The base64-encoded layer part payload.</p>
+   */
+  layerPartBlob: Uint8Array | undefined;
+
+  /**
+   * <p>The position of the first byte of the layer part witin the overall image layer.</p>
+   */
+  partFirstByte: number | undefined;
+
+  /**
+   * <p>The position of the last byte of the layer part within the overall image layer.</p>
+   */
+  partLastByte: number | undefined;
+
   /**
    * <p>The AWS account ID associated with the registry to which you are uploading layer parts.
    *          If you do not specify a registry, the default public registry is assumed.</p>
@@ -1842,21 +1856,6 @@ export interface UploadLayerPartRequest {
    *          associate with the layer part upload.</p>
    */
   uploadId: string | undefined;
-
-  /**
-   * <p>The position of the first byte of the layer part witin the overall image layer.</p>
-   */
-  partFirstByte: number | undefined;
-
-  /**
-   * <p>The position of the last byte of the layer part within the overall image layer.</p>
-   */
-  partLastByte: number | undefined;
-
-  /**
-   * <p>The base64-encoded layer part payload.</p>
-   */
-  layerPartBlob: Uint8Array | undefined;
 }
 
 export namespace UploadLayerPartRequest {
@@ -1866,6 +1865,11 @@ export namespace UploadLayerPartRequest {
 }
 
 export interface UploadLayerPartResponse {
+  /**
+   * <p>The integer value of the last byte received in the request.</p>
+   */
+  lastByteReceived?: number;
+
   /**
    * <p>The registry ID associated with the request.</p>
    */
@@ -1880,11 +1884,6 @@ export interface UploadLayerPartResponse {
    * <p>The upload ID associated with the request.</p>
    */
   uploadId?: string;
-
-  /**
-   * <p>The integer value of the last byte received in the request.</p>
-   */
-  lastByteReceived?: number;
 }
 
 export namespace UploadLayerPartResponse {

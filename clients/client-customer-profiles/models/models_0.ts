@@ -18,9 +18,9 @@ export namespace AccessDeniedException {
 
 export interface AddProfileKeyRequest {
   /**
-   * <p>The unique identifier of a customer profile.</p>
+   * <p>The unique name of the domain.</p>
    */
-  ProfileId: string | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>A searchable identifier of a customer profile.</p>
@@ -28,14 +28,14 @@ export interface AddProfileKeyRequest {
   KeyName: string | undefined;
 
   /**
+   * <p>The unique identifier of a customer profile.</p>
+   */
+  ProfileId: string | undefined;
+
+  /**
    * <p>A list of key values.</p>
    */
   Values: string[] | undefined;
-
-  /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
 }
 
 export namespace AddProfileKeyRequest {
@@ -153,14 +153,19 @@ export interface Address {
   City?: string;
 
   /**
+   * <p>The country in which a customer lives.</p>
+   */
+  Country?: string;
+
+  /**
    * <p>The county in which a customer lives.</p>
    */
   County?: string;
 
   /**
-   * <p>The state in which a customer lives.</p>
+   * <p>The postal code of a customer address.</p>
    */
-  State?: string;
+  PostalCode?: string;
 
   /**
    * <p>The province in which a customer lives.</p>
@@ -168,14 +173,9 @@ export interface Address {
   Province?: string;
 
   /**
-   * <p>The country in which a customer lives.</p>
+   * <p>The state in which a customer lives.</p>
    */
-  Country?: string;
-
-  /**
-   * <p>The postal code of a customer address.</p>
-   */
-  PostalCode?: string;
+  State?: string;
 }
 
 export namespace Address {
@@ -186,14 +186,12 @@ export namespace Address {
 
 export interface CreateDomainRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications. You must set up a policy on the
+   *          DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to
+   *          send messages to the DeadLetterQueue.</p>
    */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The default number of days until the data within the domain expires.</p>
-   */
-  DefaultExpirationDays: number | undefined;
+  DeadLetterQueueUrl?: string;
 
   /**
    * <p>The default encryption key, which is an AWS managed key, is used when no specific type
@@ -203,12 +201,14 @@ export interface CreateDomainRequest {
   DefaultEncryptionKey?: string;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications. You must set up a policy on the
-   *          DeadLetterQueue for the SendMessage operation to enable Amazon Connect Customer Profiles to
-   *          send messages to the DeadLetterQueue.</p>
+   * <p>The default number of days until the data within the domain expires.</p>
    */
-  DeadLetterQueueUrl?: string;
+  DefaultExpirationDays: number | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -224,14 +224,15 @@ export namespace CreateDomainRequest {
 
 export interface CreateDomainResponse {
   /**
-   * <p>The unique name of the domain.</p>
+   * <p>The timestamp of when the domain was created.</p>
    */
-  DomainName: string | undefined;
+  CreatedAt: Date | undefined;
 
   /**
-   * <p>The default number of days until the data within the domain expires.</p>
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications.</p>
    */
-  DefaultExpirationDays: number | undefined;
+  DeadLetterQueueUrl?: string;
 
   /**
    * <p>The default encryption key, which is an AWS managed key, is used when no specific type
@@ -241,15 +242,14 @@ export interface CreateDomainResponse {
   DefaultEncryptionKey?: string;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications.</p>
+   * <p>The default number of days until the data within the domain expires.</p>
    */
-  DeadLetterQueueUrl?: string;
+  DefaultExpirationDays: number | undefined;
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
+   * <p>The unique name of the domain.</p>
    */
-  CreatedAt: Date | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
@@ -282,11 +282,6 @@ export enum PartyType {
 
 export interface CreateProfileRequest {
   /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>A unique account number that you have given to the customer.</p>
    */
   AccountNumber?: string;
@@ -297,29 +292,20 @@ export interface CreateProfileRequest {
   AdditionalInformation?: string;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>
+   * <p>A generic address associated with the customer that is not mailing, shipping, or
+   *          billing.</p>
    */
-  PartyType?: PartyType | string;
+  Address?: Address;
 
   /**
-   * <p>The name of the customer’s business.</p>
+   * <p>A key value pair of attributes of a customer profile.</p>
    */
-  BusinessName?: string;
+  Attributes?: { [key: string]: string };
 
   /**
-   * <p>The customer’s first name.</p>
+   * <p>The customer’s billing address.</p>
    */
-  FirstName?: string;
-
-  /**
-   * <p>The customer’s middle name.</p>
-   */
-  MiddleName?: string;
-
-  /**
-   * <p>The customer’s last name.</p>
-   */
-  LastName?: string;
+  BillingAddress?: Address;
 
   /**
    * <p>The customer’s birth date.</p>
@@ -327,30 +313,24 @@ export interface CreateProfileRequest {
   BirthDate?: string;
 
   /**
-   * <p>The gender with which the customer identifies.</p>
+   * <p>The customer’s business email address.</p>
    */
-  Gender?: Gender | string;
+  BusinessEmailAddress?: string;
 
   /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
-   *          number.</p>
+   * <p>The name of the customer’s business.</p>
    */
-  PhoneNumber?: string;
-
-  /**
-   * <p>The customer’s mobile phone number.</p>
-   */
-  MobilePhoneNumber?: string;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   */
-  HomePhoneNumber?: string;
+  BusinessName?: string;
 
   /**
    * <p>The customer’s business phone number.</p>
    */
   BusinessPhoneNumber?: string;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The customer's email address, which has not been specified as a personal or business
@@ -359,25 +339,24 @@ export interface CreateProfileRequest {
   EmailAddress?: string;
 
   /**
-   * <p>The customer’s personal email address.</p>
+   * <p>The customer’s first name.</p>
    */
-  PersonalEmailAddress?: string;
+  FirstName?: string;
 
   /**
-   * <p>The customer’s business email address.</p>
+   * <p>The gender with which the customer identifies.</p>
    */
-  BusinessEmailAddress?: string;
+  Gender?: Gender | string;
 
   /**
-   * <p>A generic address associated with the customer that is not mailing, shipping, or
-   *          billing.</p>
+   * <p>The customer’s home phone number.</p>
    */
-  Address?: Address;
+  HomePhoneNumber?: string;
 
   /**
-   * <p>The customer’s shipping address.</p>
+   * <p>The customer’s last name.</p>
    */
-  ShippingAddress?: Address;
+  LastName?: string;
 
   /**
    * <p>The customer’s mailing address.</p>
@@ -385,14 +364,35 @@ export interface CreateProfileRequest {
   MailingAddress?: Address;
 
   /**
-   * <p>The customer’s billing address.</p>
+   * <p>The customer’s middle name.</p>
    */
-  BillingAddress?: Address;
+  MiddleName?: string;
 
   /**
-   * <p>A key value pair of attributes of a customer profile.</p>
+   * <p>The customer’s mobile phone number.</p>
    */
-  Attributes?: { [key: string]: string };
+  MobilePhoneNumber?: string;
+
+  /**
+   * <p>The type of profile used to describe the customer.</p>
+   */
+  PartyType?: PartyType | string;
+
+  /**
+   * <p>The customer’s personal email address.</p>
+   */
+  PersonalEmailAddress?: string;
+
+  /**
+   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
+   *          number.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The customer’s shipping address.</p>
+   */
+  ShippingAddress?: Address;
 }
 
 export namespace CreateProfileRequest {
@@ -473,14 +473,14 @@ export namespace DeleteIntegrationResponse {
 
 export interface DeleteProfileRequest {
   /**
-   * <p>The unique identifier of a customer profile.</p>
-   */
-  ProfileId: string | undefined;
-
-  /**
    * <p>The unique name of the domain.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   */
+  ProfileId: string | undefined;
 }
 
 export namespace DeleteProfileRequest {
@@ -504,9 +504,9 @@ export namespace DeleteProfileResponse {
 
 export interface DeleteProfileKeyRequest {
   /**
-   * <p>The unique identifier of a customer profile.</p>
+   * <p>The unique name of the domain.</p>
    */
-  ProfileId: string | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>A searchable identifier of a customer profile.</p>
@@ -514,14 +514,14 @@ export interface DeleteProfileKeyRequest {
   KeyName: string | undefined;
 
   /**
+   * <p>The unique identifier of a customer profile.</p>
+   */
+  ProfileId: string | undefined;
+
+  /**
    * <p>A list of key values.</p>
    */
   Values: string[] | undefined;
-
-  /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
 }
 
 export namespace DeleteProfileKeyRequest {
@@ -545,6 +545,16 @@ export namespace DeleteProfileKeyResponse {
 
 export interface DeleteProfileObjectRequest {
   /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The unique identifier of a customer profile.</p>
    */
   ProfileId: string | undefined;
@@ -553,16 +563,6 @@ export interface DeleteProfileObjectRequest {
    * <p>The unique identifier of the profile object generated by the service.</p>
    */
   ProfileObjectUniqueKey: string | undefined;
-
-  /**
-   * <p>The name of the profile object type.</p>
-   */
-  ObjectTypeName: string | undefined;
-
-  /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
 }
 
 export namespace DeleteProfileObjectRequest {
@@ -633,11 +633,6 @@ export namespace GetDomainRequest {
  */
 export interface DomainStats {
   /**
-   * <p>The total number of profiles currently in the domain.</p>
-   */
-  ProfileCount?: number;
-
-  /**
    * <p>The number of profiles that you are currently paying for in the domain. If you have more
    *          than 100 objects associated with a single profile, that profile counts as two profiles. If
    *          you have more than 200 objects, that profile counts as three, and so on.</p>
@@ -648,6 +643,11 @@ export interface DomainStats {
    * <p>The total number of objects in domain.</p>
    */
   ObjectCount?: number;
+
+  /**
+   * <p>The total number of profiles currently in the domain.</p>
+   */
+  ProfileCount?: number;
 
   /**
    * <p>The total size, in bytes, of all objects in the domain.</p>
@@ -663,14 +663,15 @@ export namespace DomainStats {
 
 export interface GetDomainResponse {
   /**
-   * <p>The unique name of the domain.</p>
+   * <p>The timestamp of when the domain was created.</p>
    */
-  DomainName: string | undefined;
+  CreatedAt: Date | undefined;
 
   /**
-   * <p>The default number of days until the data within the domain expires.</p>
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications.</p>
    */
-  DefaultExpirationDays?: number;
+  DeadLetterQueueUrl?: string;
 
   /**
    * <p>The default encryption key, which is an AWS managed key, is used when no specific type
@@ -680,25 +681,24 @@ export interface GetDomainResponse {
   DefaultEncryptionKey?: string;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications.</p>
+   * <p>The default number of days until the data within the domain expires.</p>
    */
-  DeadLetterQueueUrl?: string;
+  DefaultExpirationDays?: number;
 
   /**
-   * <p>Usage-specific statistics about the domain.</p>
+   * <p>The unique name of the domain.</p>
    */
-  Stats?: DomainStats;
-
-  /**
-   * <p>The timestamp of when the domain was created.</p>
-   */
-  CreatedAt: Date | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
    */
   LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>Usage-specific statistics about the domain.</p>
+   */
+  Stats?: DomainStats;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -732,24 +732,14 @@ export namespace GetIntegrationRequest {
 
 export interface GetIntegrationResponse {
   /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
-   */
-  Uri: string | undefined;
-
-  /**
-   * <p>The name of the profile object type.</p>
-   */
-  ObjectTypeName: string | undefined;
-
-  /**
    * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
@@ -757,9 +747,19 @@ export interface GetIntegrationResponse {
   LastUpdatedAt: Date | undefined;
 
   /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   */
+  Uri: string | undefined;
 }
 
 export namespace GetIntegrationResponse {
@@ -799,6 +799,11 @@ export enum FieldContentType {
  */
 export interface ObjectTypeField {
   /**
+   * <p>The content type of the field. Used for determining equality when searching.</p>
+   */
+  ContentType?: FieldContentType | string;
+
+  /**
    * <p>A field of a ProfileObject. For example: _source.FirstName, where “_source” is a
    *          ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.</p>
    */
@@ -809,11 +814,6 @@ export interface ObjectTypeField {
    *          _profile.Address.PostalCode.</p>
    */
   Target?: string;
-
-  /**
-   * <p>The content type of the field. Used for determining equality when searching.</p>
-   */
-  ContentType?: FieldContentType | string;
 }
 
 export namespace ObjectTypeField {
@@ -836,6 +836,11 @@ export enum StandardIdentifier {
  */
 export interface ObjectTypeKey {
   /**
+   * <p>The reference for the key name of the fields map.</p>
+   */
+  FieldNames?: string[];
+
+  /**
    * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
    *          UNIQUE key but multiple PROFILE keys. PROFILE means that this key can be used to tie an
    *          object to a PROFILE. UNIQUE means that it can be used to uniquely identify an object. If a
@@ -846,11 +851,6 @@ export interface ObjectTypeKey {
    *          matching objects to profiles.</p>
    */
   StandardIdentifiers?: (StandardIdentifier | string)[];
-
-  /**
-   * <p>The reference for the key name of the fields map.</p>
-   */
-  FieldNames?: string[];
 }
 
 export namespace ObjectTypeKey {
@@ -861,24 +861,23 @@ export namespace ObjectTypeKey {
 
 export interface GetProfileObjectTypeResponse {
   /**
-   * <p>The name of the profile object type.</p>
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
    */
-  ObjectTypeName: string | undefined;
+  AllowProfileCreation?: boolean;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   */
+  CreatedAt?: Date;
 
   /**
    * <p>The description of the profile object type.</p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>A unique identifier for the object template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The number of days until the data in the object expires.</p>
-   */
-  ExpirationDays?: number;
 
   /**
    * <p>The customer-provided key to encrypt the profile object that will be created in this
@@ -887,13 +886,9 @@ export interface GetProfileObjectTypeResponse {
   EncryptionKey?: string;
 
   /**
-   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
-   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
-   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
-   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
-   *          is found, then the service creates a new standard profile.</p>
+   * <p>The number of days until the data in the object expires.</p>
    */
-  AllowProfileCreation?: boolean;
+  ExpirationDays?: number;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -906,19 +901,24 @@ export interface GetProfileObjectTypeResponse {
   Keys?: { [key: string]: ObjectTypeKey[] };
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
    * <p>The timestamp of when the domain was most recently edited.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace GetProfileObjectTypeResponse {
@@ -942,21 +942,6 @@ export namespace GetProfileObjectTypeTemplateRequest {
 
 export interface GetProfileObjectTypeTemplateResponse {
   /**
-   * <p>A unique identifier for the object template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The name of the source of the object template.</p>
-   */
-  SourceName?: string;
-
-  /**
-   * <p>The source of the object template.</p>
-   */
-  SourceObject?: string;
-
-  /**
    * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
    *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
    *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
@@ -974,6 +959,21 @@ export interface GetProfileObjectTypeTemplateResponse {
    * <p>A list of unique keys that can be used to map data to the profile.</p>
    */
   Keys?: { [key: string]: ObjectTypeKey[] };
+
+  /**
+   * <p>The name of the source of the object template.</p>
+   */
+  SourceName?: string;
+
+  /**
+   * <p>The source of the object template.</p>
+   */
+  SourceObject?: string;
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace GetProfileObjectTypeTemplateResponse {
@@ -984,9 +984,9 @@ export namespace GetProfileObjectTypeTemplateResponse {
 
 export interface ListAccountIntegrationsRequest {
   /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * <p>The maximum number of objects returned per page.</p>
    */
-  Uri: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The pagination token from the previous ListAccountIntegrations API call.</p>
@@ -994,9 +994,9 @@ export interface ListAccountIntegrationsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of objects returned per page.</p>
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
    */
-  MaxResults?: number;
+  Uri: string | undefined;
 }
 
 export namespace ListAccountIntegrationsRequest {
@@ -1010,24 +1010,14 @@ export namespace ListAccountIntegrationsRequest {
  */
 export interface ListIntegrationItem {
   /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
-   */
-  Uri: string | undefined;
-
-  /**
-   * <p>The name of the profile object type.</p>
-   */
-  ObjectTypeName: string | undefined;
-
-  /**
    * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
@@ -1035,9 +1025,19 @@ export interface ListIntegrationItem {
   LastUpdatedAt: Date | undefined;
 
   /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   */
+  Uri: string | undefined;
 }
 
 export namespace ListIntegrationItem {
@@ -1066,14 +1066,14 @@ export namespace ListAccountIntegrationsResponse {
 
 export interface ListDomainsRequest {
   /**
-   * <p>The pagination token from the previous ListDomain API call.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token from the previous ListDomain API call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDomainsRequest {
@@ -1087,14 +1087,14 @@ export namespace ListDomainsRequest {
  */
 export interface ListDomainItem {
   /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
    * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
@@ -1138,14 +1138,14 @@ export interface ListIntegrationsRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The pagination token from the previous ListIntegrations API call.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token from the previous ListIntegrations API call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListIntegrationsRequest {
@@ -1174,9 +1174,9 @@ export namespace ListIntegrationsResponse {
 
 export interface ListProfileObjectsRequest {
   /**
-   * <p>The pagination token from the previous call to ListProfileObjects.</p>
+   * <p>The unique name of the domain.</p>
    */
-  NextToken?: string;
+  DomainName: string | undefined;
 
   /**
    * <p>The maximum number of objects returned per page.</p>
@@ -1184,9 +1184,9 @@ export interface ListProfileObjectsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The unique name of the domain.</p>
+   * <p>The pagination token from the previous call to ListProfileObjects.</p>
    */
-  DomainName: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>The name of the profile object type.</p>
@@ -1210,6 +1210,11 @@ export namespace ListProfileObjectsRequest {
  */
 export interface ListProfileObjectsItem {
   /**
+   * <p>A JSON representation of a ProfileObject that belongs to a profile.</p>
+   */
+  Object?: string;
+
+  /**
    * <p>Specifies the kind of object being added to a profile, such as
    *          "Salesforce-Account."</p>
    */
@@ -1219,11 +1224,6 @@ export interface ListProfileObjectsItem {
    * <p>The unique identifier of the ProfileObject generated by the service.</p>
    */
   ProfileObjectUniqueKey?: string;
-
-  /**
-   * <p>A JSON representation of a ProfileObject that belongs to a profile.</p>
-   */
-  Object?: string;
 }
 
 export namespace ListProfileObjectsItem {
@@ -1257,14 +1257,14 @@ export interface ListProfileObjectTypesRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>Identifies the next page of results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Identifies the next page of results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProfileObjectTypesRequest {
@@ -1278,9 +1278,9 @@ export namespace ListProfileObjectTypesRequest {
  */
 export interface ListProfileObjectTypeItem {
   /**
-   * <p>The name of the profile object type.</p>
+   * <p>The timestamp of when the domain was created.</p>
    */
-  ObjectTypeName: string | undefined;
+  CreatedAt?: Date;
 
   /**
    * <p>Description of the profile object type.</p>
@@ -1288,14 +1288,14 @@ export interface ListProfileObjectTypeItem {
   Description: string | undefined;
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
    * <p>The timestamp of when the domain was most recently edited.</p>
    */
   LastUpdatedAt?: Date;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -1329,14 +1329,14 @@ export namespace ListProfileObjectTypesResponse {
 
 export interface ListProfileObjectTypeTemplatesRequest {
   /**
-   * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of objects returned per page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token from the previous ListObjectTypeTemplates API call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProfileObjectTypeTemplatesRequest {
@@ -1350,11 +1350,6 @@ export namespace ListProfileObjectTypeTemplatesRequest {
  */
 export interface ListProfileObjectTypeTemplateItem {
   /**
-   * <p>A unique identifier for the object template.</p>
-   */
-  TemplateId?: string;
-
-  /**
    * <p>The name of the source of the object template.</p>
    */
   SourceName?: string;
@@ -1363,6 +1358,11 @@ export interface ListProfileObjectTypeTemplateItem {
    * <p>The source of the object template.</p>
    */
   SourceObject?: string;
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace ListProfileObjectTypeTemplateItem {
@@ -1422,11 +1422,6 @@ export interface PutIntegrationRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
-   */
-  Uri: string | undefined;
-
-  /**
    * <p>The name of the profile object type.</p>
    */
   ObjectTypeName: string | undefined;
@@ -1435,6 +1430,11 @@ export interface PutIntegrationRequest {
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   */
+  Uri: string | undefined;
 }
 
 export namespace PutIntegrationRequest {
@@ -1445,24 +1445,14 @@ export namespace PutIntegrationRequest {
 
 export interface PutIntegrationResponse {
   /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The URI of the S3 bucket or any other type of data source.</p>
-   */
-  Uri: string | undefined;
-
-  /**
-   * <p>The name of the profile object type.</p>
-   */
-  ObjectTypeName: string | undefined;
-
-  /**
    * <p>The timestamp of when the domain was created.</p>
    */
   CreatedAt: Date | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
@@ -1470,9 +1460,19 @@ export interface PutIntegrationResponse {
   LastUpdatedAt: Date | undefined;
 
   /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   */
+  Uri: string | undefined;
 }
 
 export namespace PutIntegrationResponse {
@@ -1483,9 +1483,9 @@ export namespace PutIntegrationResponse {
 
 export interface PutProfileObjectRequest {
   /**
-   * <p>The name of the profile object type.</p>
+   * <p>The unique name of the domain.</p>
    */
-  ObjectTypeName: string | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>A string that is serialized from a JSON object.</p>
@@ -1493,9 +1493,9 @@ export interface PutProfileObjectRequest {
   Object: string | undefined;
 
   /**
-   * <p>The unique name of the domain.</p>
+   * <p>The name of the profile object type.</p>
    */
-  DomainName: string | undefined;
+  ObjectTypeName: string | undefined;
 }
 
 export namespace PutProfileObjectRequest {
@@ -1519,14 +1519,13 @@ export namespace PutProfileObjectResponse {
 
 export interface PutProfileObjectTypeRequest {
   /**
-   * <p>The unique name of the domain.</p>
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
    */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The name of the profile object type.</p>
-   */
-  ObjectTypeName: string | undefined;
+  AllowProfileCreation?: boolean;
 
   /**
    * <p>Description of the profile object type.</p>
@@ -1534,14 +1533,9 @@ export interface PutProfileObjectTypeRequest {
   Description: string | undefined;
 
   /**
-   * <p>A unique identifier for the object template.</p>
+   * <p>The unique name of the domain.</p>
    */
-  TemplateId?: string;
-
-  /**
-   * <p>The number of days until the data in the object expires.</p>
-   */
-  ExpirationDays?: number;
+  DomainName: string | undefined;
 
   /**
    * <p>The customer-provided key to encrypt the profile object that will be created in this
@@ -1550,13 +1544,9 @@ export interface PutProfileObjectTypeRequest {
   EncryptionKey?: string;
 
   /**
-   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
-   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
-   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
-   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
-   *          is found, then the service creates a new standard profile.</p>
+   * <p>The number of days until the data in the object expires.</p>
    */
-  AllowProfileCreation?: boolean;
+  ExpirationDays?: number;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -1569,9 +1559,19 @@ export interface PutProfileObjectTypeRequest {
   Keys?: { [key: string]: ObjectTypeKey[] };
 
   /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace PutProfileObjectTypeRequest {
@@ -1582,24 +1582,23 @@ export namespace PutProfileObjectTypeRequest {
 
 export interface PutProfileObjectTypeResponse {
   /**
-   * <p>The name of the profile object type.</p>
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
    */
-  ObjectTypeName: string | undefined;
+  AllowProfileCreation?: boolean;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   */
+  CreatedAt?: Date;
 
   /**
    * <p>Description of the profile object type.</p>
    */
   Description: string | undefined;
-
-  /**
-   * <p>A unique identifier for the object template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The number of days until the data in the object expires.</p>
-   */
-  ExpirationDays?: number;
 
   /**
    * <p>The customer-provided key to encrypt the profile object that will be created in this
@@ -1608,13 +1607,9 @@ export interface PutProfileObjectTypeResponse {
   EncryptionKey?: string;
 
   /**
-   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
-   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
-   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
-   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
-   *          is found, then the service creates a new standard profile.</p>
+   * <p>The number of days until the data in the object expires.</p>
    */
-  AllowProfileCreation?: boolean;
+  ExpirationDays?: number;
 
   /**
    * <p>A map of the name and ObjectType field.</p>
@@ -1627,19 +1622,24 @@ export interface PutProfileObjectTypeResponse {
   Keys?: { [key: string]: ObjectTypeKey[] };
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
    * <p>The timestamp of when the domain was most recently edited.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>The name of the profile object type.</p>
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   */
+  TemplateId?: string;
 }
 
 export namespace PutProfileObjectTypeResponse {
@@ -1649,16 +1649,6 @@ export namespace PutProfileObjectTypeResponse {
 }
 
 export interface SearchProfilesRequest {
-  /**
-   * <p>The pagination token from the previous SearchProfiles API call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of objects returned per page.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>The unique name of the domain.</p>
    */
@@ -1671,6 +1661,16 @@ export interface SearchProfilesRequest {
    *          _serviceNowSystemId.</p>
    */
   KeyName: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>A list of key values.</p>
@@ -1689,11 +1689,6 @@ export namespace SearchProfilesRequest {
  */
 export interface Profile {
   /**
-   * <p>The unique identifier of a customer profile.</p>
-   */
-  ProfileId?: string;
-
-  /**
    * <p>A unique account number that you have given to the customer.</p>
    */
   AccountNumber?: string;
@@ -1704,29 +1699,20 @@ export interface Profile {
   AdditionalInformation?: string;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>
+   * <p>A generic address associated with the customer that is not mailing, shipping, or
+   *          billing.</p>
    */
-  PartyType?: PartyType | string;
+  Address?: Address;
 
   /**
-   * <p>The name of the customer’s business.</p>
+   * <p>A key value pair of attributes of a customer profile.</p>
    */
-  BusinessName?: string;
+  Attributes?: { [key: string]: string };
 
   /**
-   * <p>The customer’s first name.</p>
+   * <p>The customer’s billing address.</p>
    */
-  FirstName?: string;
-
-  /**
-   * <p>The customer’s middle name.</p>
-   */
-  MiddleName?: string;
-
-  /**
-   * <p>The customer’s last name.</p>
-   */
-  LastName?: string;
+  BillingAddress?: Address;
 
   /**
    * <p>The customer’s birth date.</p>
@@ -1734,25 +1720,14 @@ export interface Profile {
   BirthDate?: string;
 
   /**
-   * <p>The gender with which the customer identifies.</p>
+   * <p>The customer’s business email address.</p>
    */
-  Gender?: Gender | string;
+  BusinessEmailAddress?: string;
 
   /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
-   *          number.</p>
+   * <p>The name of the customer’s business.</p>
    */
-  PhoneNumber?: string;
-
-  /**
-   * <p>The customer’s mobile phone number.</p>
-   */
-  MobilePhoneNumber?: string;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   */
-  HomePhoneNumber?: string;
+  BusinessName?: string;
 
   /**
    * <p>The customer’s home phone number.</p>
@@ -1766,25 +1741,24 @@ export interface Profile {
   EmailAddress?: string;
 
   /**
-   * <p>The customer’s personal email address.</p>
+   * <p>The customer’s first name.</p>
    */
-  PersonalEmailAddress?: string;
+  FirstName?: string;
 
   /**
-   * <p>The customer’s business email address.</p>
+   * <p>The gender with which the customer identifies.</p>
    */
-  BusinessEmailAddress?: string;
+  Gender?: Gender | string;
 
   /**
-   * <p>A generic address associated with the customer that is not mailing, shipping, or
-   *          billing.</p>
+   * <p>The customer’s home phone number.</p>
    */
-  Address?: Address;
+  HomePhoneNumber?: string;
 
   /**
-   * <p>The customer’s shipping address.</p>
+   * <p>The customer’s last name.</p>
    */
-  ShippingAddress?: Address;
+  LastName?: string;
 
   /**
    * <p>The customer’s mailing address.</p>
@@ -1792,14 +1766,40 @@ export interface Profile {
   MailingAddress?: Address;
 
   /**
-   * <p>The customer’s billing address.</p>
+   * <p>The customer’s middle name.</p>
    */
-  BillingAddress?: Address;
+  MiddleName?: string;
 
   /**
-   * <p>A key value pair of attributes of a customer profile.</p>
+   * <p>The customer’s mobile phone number.</p>
    */
-  Attributes?: { [key: string]: string };
+  MobilePhoneNumber?: string;
+
+  /**
+   * <p>The type of profile used to describe the customer.</p>
+   */
+  PartyType?: PartyType | string;
+
+  /**
+   * <p>The customer’s personal email address.</p>
+   */
+  PersonalEmailAddress?: string;
+
+  /**
+   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
+   *          number.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   */
+  ProfileId?: string;
+
+  /**
+   * <p>The customer’s shipping address.</p>
+   */
+  ShippingAddress?: Address;
 }
 
 export namespace Profile {
@@ -1880,14 +1880,13 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDomainRequest {
   /**
-   * <p>The unique name for the domain.</p>
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications. If specified as an empty string, it will
+   *          clear any existing value. You must set up a policy on the DeadLetterQueue for the
+   *          SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the
+   *          DeadLetterQueue.</p>
    */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The default number of days until the data within the domain expires.</p>
-   */
-  DefaultExpirationDays?: number;
+  DeadLetterQueueUrl?: string;
 
   /**
    * <p>The default encryption key, which is an AWS managed key, is used when no specific type
@@ -1898,13 +1897,14 @@ export interface UpdateDomainRequest {
   DefaultEncryptionKey?: string;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications. If specified as an empty string, it will
-   *          clear any existing value. You must set up a policy on the DeadLetterQueue for the
-   *          SendMessage operation to enable Amazon Connect Customer Profiles to send messages to the
-   *          DeadLetterQueue.</p>
+   * <p>The default number of days until the data within the domain expires.</p>
    */
-  DeadLetterQueueUrl?: string;
+  DefaultExpirationDays?: number;
+
+  /**
+   * <p>The unique name for the domain.</p>
+   */
+  DomainName: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
@@ -1920,14 +1920,15 @@ export namespace UpdateDomainRequest {
 
 export interface UpdateDomainResponse {
   /**
-   * <p>The unique name for the domain.</p>
+   * <p>The timestamp of when the domain was created.</p>
    */
-  DomainName: string | undefined;
+  CreatedAt: Date | undefined;
 
   /**
-   * <p>The default number of days until the data within the domain expires.</p>
+   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
+   *          ingesting data from third party applications.</p>
    */
-  DefaultExpirationDays?: number;
+  DeadLetterQueueUrl?: string;
 
   /**
    * <p>The default encryption key, which is an AWS managed key, is used when no specific type
@@ -1937,15 +1938,14 @@ export interface UpdateDomainResponse {
   DefaultEncryptionKey?: string;
 
   /**
-   * <p>The URL of the SQS dead letter queue, which is used for reporting errors associated with
-   *          ingesting data from third party applications.</p>
+   * <p>The default number of days until the data within the domain expires.</p>
    */
-  DeadLetterQueueUrl?: string;
+  DefaultExpirationDays?: number;
 
   /**
-   * <p>The timestamp of when the domain was created.</p>
+   * <p>The unique name for the domain.</p>
    */
-  CreatedAt: Date | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>The timestamp of when the domain was most recently edited.</p>
@@ -1994,14 +1994,19 @@ export interface UpdateAddress {
   City?: string;
 
   /**
+   * <p>The country in which a customer lives.</p>
+   */
+  Country?: string;
+
+  /**
    * <p>The county in which a customer lives.</p>
    */
   County?: string;
 
   /**
-   * <p>The state in which a customer lives.</p>
+   * <p>The postal code of a customer address.</p>
    */
-  State?: string;
+  PostalCode?: string;
 
   /**
    * <p>The province in which a customer lives.</p>
@@ -2009,14 +2014,9 @@ export interface UpdateAddress {
   Province?: string;
 
   /**
-   * <p>The country in which a customer lives.</p>
+   * <p>The state in which a customer lives.</p>
    */
-  Country?: string;
-
-  /**
-   * <p>The postal code of a customer address.</p>
-   */
-  PostalCode?: string;
+  State?: string;
 }
 
 export namespace UpdateAddress {
@@ -2027,96 +2027,14 @@ export namespace UpdateAddress {
 
 export interface UpdateProfileRequest {
   /**
-   * <p>The unique name of the domain.</p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The unique identifier of a customer profile.</p>
-   */
-  ProfileId: string | undefined;
-
-  /**
-   * <p>Any additional information relevant to the customer's profile.</p>
-   */
-  AdditionalInformation?: string;
-
-  /**
    * <p>A unique account number that you have given to the customer.</p>
    */
   AccountNumber?: string;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>
+   * <p>Any additional information relevant to the customer's profile.</p>
    */
-  PartyType?: PartyType | string;
-
-  /**
-   * <p>The name of the customer’s business.</p>
-   */
-  BusinessName?: string;
-
-  /**
-   * <p>The customer’s first name.</p>
-   */
-  FirstName?: string;
-
-  /**
-   * <p>The customer’s middle name.</p>
-   */
-  MiddleName?: string;
-
-  /**
-   * <p>The customer’s last name.</p>
-   */
-  LastName?: string;
-
-  /**
-   * <p>The customer’s birth date.</p>
-   */
-  BirthDate?: string;
-
-  /**
-   * <p>The gender with which the customer identifies.</p>
-   */
-  Gender?: Gender | string;
-
-  /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
-   *          number.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * <p>The customer’s mobile phone number.</p>
-   */
-  MobilePhoneNumber?: string;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   */
-  HomePhoneNumber?: string;
-
-  /**
-   * <p>The customer’s business phone number.</p>
-   */
-  BusinessPhoneNumber?: string;
-
-  /**
-   * <p>The customer's email address, which has not been specified as a personal or business
-   *          address.</p>
-   */
-  EmailAddress?: string;
-
-  /**
-   * <p>The customer’s personal email address.</p>
-   */
-  PersonalEmailAddress?: string;
-
-  /**
-   * <p>The customer’s business email address.</p>
-   */
-  BusinessEmailAddress?: string;
+  AdditionalInformation?: string;
 
   /**
    * <p>A generic address associated with the customer that is not mailing, shipping, or
@@ -2125,14 +2043,9 @@ export interface UpdateProfileRequest {
   Address?: UpdateAddress;
 
   /**
-   * <p>The customer’s shipping address.</p>
+   * <p>A key value pair of attributes of a customer profile.</p>
    */
-  ShippingAddress?: UpdateAddress;
-
-  /**
-   * <p>The customer’s mailing address.</p>
-   */
-  MailingAddress?: UpdateAddress;
+  Attributes?: { [key: string]: string };
 
   /**
    * <p>The customer’s billing address.</p>
@@ -2140,9 +2053,96 @@ export interface UpdateProfileRequest {
   BillingAddress?: UpdateAddress;
 
   /**
-   * <p>A key value pair of attributes of a customer profile.</p>
+   * <p>The customer’s birth date.</p>
    */
-  Attributes?: { [key: string]: string };
+  BirthDate?: string;
+
+  /**
+   * <p>The customer’s business email address.</p>
+   */
+  BusinessEmailAddress?: string;
+
+  /**
+   * <p>The name of the customer’s business.</p>
+   */
+  BusinessName?: string;
+
+  /**
+   * <p>The customer’s business phone number.</p>
+   */
+  BusinessPhoneNumber?: string;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The customer's email address, which has not been specified as a personal or business
+   *          address.</p>
+   */
+  EmailAddress?: string;
+
+  /**
+   * <p>The customer’s first name.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>The gender with which the customer identifies.</p>
+   */
+  Gender?: Gender | string;
+
+  /**
+   * <p>The customer’s home phone number.</p>
+   */
+  HomePhoneNumber?: string;
+
+  /**
+   * <p>The customer’s last name.</p>
+   */
+  LastName?: string;
+
+  /**
+   * <p>The customer’s mailing address.</p>
+   */
+  MailingAddress?: UpdateAddress;
+
+  /**
+   * <p>The customer’s middle name.</p>
+   */
+  MiddleName?: string;
+
+  /**
+   * <p>The customer’s mobile phone number.</p>
+   */
+  MobilePhoneNumber?: string;
+
+  /**
+   * <p>The type of profile used to describe the customer.</p>
+   */
+  PartyType?: PartyType | string;
+
+  /**
+   * <p>The customer’s personal email address.</p>
+   */
+  PersonalEmailAddress?: string;
+
+  /**
+   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
+   *          number.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>The customer’s shipping address.</p>
+   */
+  ShippingAddress?: UpdateAddress;
 }
 
 export namespace UpdateProfileRequest {

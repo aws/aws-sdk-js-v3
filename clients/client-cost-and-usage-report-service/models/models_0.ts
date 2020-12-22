@@ -156,20 +156,14 @@ export enum TimeUnit {
  */
 export interface ReportDefinition {
   /**
-   * <p>The name of the report that you want to create. The name must be unique,
-   *         is case sensitive, and can't include spaces. </p>
+   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    */
-  ReportName: string | undefined;
+  AdditionalArtifacts?: (AdditionalArtifact | string)[];
 
   /**
-   * <p>The length of time covered by the report. </p>
+   * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
    */
-  TimeUnit: TimeUnit | string | undefined;
-
-  /**
-   * <p>The format that AWS saves the report in.</p>
-   */
-  Format: ReportFormat | string | undefined;
+  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
 
   /**
    * <p>The compression format that AWS uses for the report.</p>
@@ -177,9 +171,27 @@ export interface ReportDefinition {
   Compression: CompressionFormat | string | undefined;
 
   /**
-   * <p>A list of strings that indicate additional content that Amazon Web Services includes in the report, such as individual resource IDs. </p>
+   * <p>The format that AWS saves the report in.</p>
    */
-  AdditionalSchemaElements: (SchemaElement | string)[] | undefined;
+  Format: ReportFormat | string | undefined;
+
+  /**
+   * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
+   *       previous months. These charges can include refunds, credits, or support fees.</p>
+   */
+  RefreshClosedReports?: boolean;
+
+  /**
+   * <p>The name of the report that you want to create. The name must be unique,
+   *         is case sensitive, and can't include spaces. </p>
+   */
+  ReportName: string | undefined;
+
+  /**
+   * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
+   *          to deliver the report in addition to the previous versions.</p>
+   */
+  ReportVersioning?: ReportVersioning | string;
 
   /**
    * <p>The S3 bucket where AWS delivers the report.</p>
@@ -198,21 +210,9 @@ export interface ReportDefinition {
   S3Region: AWSRegion | string | undefined;
 
   /**
-   * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
+   * <p>The length of time covered by the report. </p>
    */
-  AdditionalArtifacts?: (AdditionalArtifact | string)[];
-
-  /**
-   * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
-   *       previous months. These charges can include refunds, credits, or support fees.</p>
-   */
-  RefreshClosedReports?: boolean;
-
-  /**
-   * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
-   *          to deliver the report in addition to the previous versions.</p>
-   */
-  ReportVersioning?: ReportVersioning | string;
+  TimeUnit: TimeUnit | string | undefined;
 }
 
 export namespace ReportDefinition {
@@ -226,14 +226,14 @@ export namespace ReportDefinition {
  */
 export interface DescribeReportDefinitionsResponse {
   /**
-   * <p>A list of AWS Cost and Usage reports owned by the account.</p>
-   */
-  ReportDefinitions?: ReportDefinition[];
-
-  /**
    * <p>A generic string.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of AWS Cost and Usage reports owned by the account.</p>
+   */
+  ReportDefinitions?: ReportDefinition[];
 }
 
 export namespace DescribeReportDefinitionsResponse {
@@ -244,18 +244,18 @@ export namespace DescribeReportDefinitionsResponse {
 
 export interface ModifyReportDefinitionRequest {
   /**
-   * <p>The name of the report that you want to create. The name must be unique,
-   *         is case sensitive, and can't include spaces. </p>
-   */
-  ReportName: string | undefined;
-
-  /**
    * <p>The definition of AWS Cost and Usage Report. You can specify the report name,
    *          time unit, report format, compression format, S3 bucket, additional artifacts, and schema
    *          elements in the definition.
    *     </p>
    */
   ReportDefinition: ReportDefinition | undefined;
+
+  /**
+   * <p>The name of the report that you want to create. The name must be unique,
+   *         is case sensitive, and can't include spaces. </p>
+   */
+  ReportName: string | undefined;
 }
 
 export namespace ModifyReportDefinitionRequest {

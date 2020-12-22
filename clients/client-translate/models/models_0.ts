@@ -73,15 +73,15 @@ export enum EncryptionKeyType {
  */
 export interface EncryptionKey {
   /**
-   * <p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>
-   */
-  Type: EncryptionKeyType | string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the encryption key being used to encrypt the custom
    *       terminology.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>The type of encryption key used by Amazon Translate to encrypt custom terminologies.</p>
+   */
+  Type: EncryptionKeyType | string | undefined;
 }
 
 export namespace EncryptionKey {
@@ -101,15 +101,15 @@ export enum ParallelDataFormat {
  */
 export interface ParallelDataConfig {
   /**
+   * <p>The format of the parallel data input file.</p>
+   */
+  Format: ParallelDataFormat | string | undefined;
+
+  /**
    * <p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder
    *       must be in the same Region as the API endpoint you are calling.</p>
    */
   S3Uri: string | undefined;
-
-  /**
-   * <p>The format of the parallel data input file.</p>
-   */
-  Format: ParallelDataFormat | string | undefined;
 }
 
 export namespace ParallelDataConfig {
@@ -120,10 +120,10 @@ export namespace ParallelDataConfig {
 
 export interface CreateParallelDataRequest {
   /**
-   * <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name
-   *       that is unique in the account and region.</p>
+   * <p>A unique identifier for the request. This token is automatically generated when you use
+   *       Amazon Translate through an AWS SDK.</p>
    */
-  Name: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>A custom description for the parallel data resource in Amazon Translate.</p>
@@ -131,20 +131,20 @@ export interface CreateParallelDataRequest {
   Description?: string;
 
   /**
-   * <p>Specifies the format and S3 location of the parallel data input file.</p>
-   */
-  ParallelDataConfig: ParallelDataConfig | undefined;
-
-  /**
    * <p>The encryption key used to encrypt this object.</p>
    */
   EncryptionKey?: EncryptionKey;
 
   /**
-   * <p>A unique identifier for the request. This token is automatically generated when you use
-   *       Amazon Translate through an AWS SDK.</p>
+   * <p>A custom name for the parallel data resource in Amazon Translate. You must assign a name
+   *       that is unique in the account and region.</p>
    */
-  ClientToken?: string;
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the format and S3 location of the parallel data input file.</p>
+   */
+  ParallelDataConfig: ParallelDataConfig | undefined;
 }
 
 export namespace CreateParallelDataRequest {
@@ -355,12 +355,6 @@ export namespace DescribeTextTranslationJobRequest {
  */
 export interface InputDataConfig {
   /**
-   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
-   *       same Region as the API endpoint you are calling.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
    * <p>Describes the format of the data that you submit to Amazon Translate as input. You can
    *       specify one of the following multipurpose internet mail extension (MIME) types:</p>
    *          <ul>
@@ -399,6 +393,12 @@ export interface InputDataConfig {
    *          </important>
    */
   ContentType: string | undefined;
+
+  /**
+   * <p>The URI of the AWS S3 folder that contains the input file. The folder must be in the
+   *       same Region as the API endpoint you are calling.</p>
+   */
+  S3Uri: string | undefined;
 }
 
 export namespace InputDataConfig {
@@ -413,11 +413,6 @@ export namespace InputDataConfig {
  */
 export interface JobDetails {
   /**
-   * <p>The number of documents successfully processed during a translation job.</p>
-   */
-  TranslatedDocumentsCount?: number;
-
-  /**
    * <p>The number of documents that could not be processed during a translation job.</p>
    */
   DocumentsWithErrorsCount?: number;
@@ -426,6 +421,11 @@ export interface JobDetails {
    * <p>The number of documents used as input in a translation job.</p>
    */
   InputDocumentsCount?: number;
+
+  /**
+   * <p>The number of documents successfully processed during a translation job.</p>
+   */
+  TranslatedDocumentsCount?: number;
 }
 
 export namespace JobDetails {
@@ -466,6 +466,28 @@ export namespace OutputDataConfig {
  */
 export interface TextTranslationJobProperties {
   /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
+   *       that granted Amazon Translate read access to the job's input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The time at which the translation job ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The input configuration properties that were specified when the job was requested.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
+   * <p>The number of documents successfully and unsuccessfully processed during the translation
+   *       job.</p>
+   */
+  JobDetails?: JobDetails;
+
+  /**
    * <p>The ID of the translation job.</p>
    */
   JobId?: string;
@@ -481,16 +503,31 @@ export interface TextTranslationJobProperties {
   JobStatus?: JobStatus | string;
 
   /**
-   * <p>The number of documents successfully and unsuccessfully processed during the translation
+   * <p>An explanation of any errors that may have occured during the translation job.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The output configuration properties that were specified when the job was requested.</p>
+   */
+  OutputDataConfig?: OutputDataConfig;
+
+  /**
+   * <p>A list containing the names of the parallel data resources applied to the translation
    *       job.</p>
    */
-  JobDetails?: JobDetails;
+  ParallelDataNames?: string[];
 
   /**
    * <p>The language code of the language of the source text. The language must be a language
    *       supported by Amazon Translate.</p>
    */
   SourceLanguageCode?: string;
+
+  /**
+   * <p>The time at which the translation job was submitted.</p>
+   */
+  SubmittedTime?: Date;
 
   /**
    * <p>The language code of the language of the target text. The language must be a language
@@ -504,43 +541,6 @@ export interface TextTranslationJobProperties {
    *       time.</p>
    */
   TerminologyNames?: string[];
-
-  /**
-   * <p>A list containing the names of the parallel data resources applied to the translation
-   *       job.</p>
-   */
-  ParallelDataNames?: string[];
-
-  /**
-   * <p>An explanation of any errors that may have occured during the translation job.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The time at which the translation job was submitted.</p>
-   */
-  SubmittedTime?: Date;
-
-  /**
-   * <p>The time at which the translation job ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The input configuration properties that were specified when the job was requested.</p>
-   */
-  InputDataConfig?: InputDataConfig;
-
-  /**
-   * <p>The output configuration properties that were specified when the job was requested.</p>
-   */
-  OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that granted Amazon Translate read access to the job's input data.</p>
-   */
-  DataAccessRoleArn?: string;
 }
 
 export namespace TextTranslationJobProperties {
@@ -582,15 +582,15 @@ export namespace GetParallelDataRequest {
  */
 export interface ParallelDataDataLocation {
   /**
-   * <p>Describes the repository that contains the parallel data input file.</p>
-   */
-  RepositoryType: string | undefined;
-
-  /**
    * <p>The Amazon S3 location of the parallel data input file. The location is returned as a
    *       presigned URL to that has a 30 minute expiration.</p>
    */
   Location: string | undefined;
+
+  /**
+   * <p>Describes the repository that contains the parallel data input file.</p>
+   */
+  RepositoryType: string | undefined;
 }
 
 export namespace ParallelDataDataLocation {
@@ -604,14 +604,14 @@ export namespace ParallelDataDataLocation {
  */
 export interface ParallelDataProperties {
   /**
-   * <p>The custom name assigned to the parallel data resource.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the parallel data resource.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The time at which the parallel data resource was created.</p>
+   */
+  CreatedAt?: Date;
 
   /**
    * <p>The description assigned to the parallel data resource.</p>
@@ -619,31 +619,14 @@ export interface ParallelDataProperties {
   Description?: string;
 
   /**
-   * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
-   *       the status is <code>ACTIVE</code>.</p>
+   * <p>The encryption key used to encrypt this object.</p>
    */
-  Status?: ParallelDataStatus | string;
+  EncryptionKey?: EncryptionKey;
 
   /**
-   * <p>The source language of the translations in the parallel data file.</p>
+   * <p>The number of records unsuccessfully imported from the parallel data input file.</p>
    */
-  SourceLanguageCode?: string;
-
-  /**
-   * <p>The language codes for the target languages available in the parallel data file. All
-   *       possible target languages are returned as an array.</p>
-   */
-  TargetLanguageCodes?: string[];
-
-  /**
-   * <p>Specifies the format and S3 location of the parallel data input file.</p>
-   */
-  ParallelDataConfig?: ParallelDataConfig;
-
-  /**
-   * <p>Additional information from Amazon Translate about the parallel data resource. </p>
-   */
-  Message?: string;
+  FailedRecordCount?: number;
 
   /**
    * <p>The number of UTF-8 characters that Amazon Translate imported from the parallel data input
@@ -659,9 +642,34 @@ export interface ParallelDataProperties {
   ImportedRecordCount?: number;
 
   /**
-   * <p>The number of records unsuccessfully imported from the parallel data input file.</p>
+   * <p>The time at which the parallel data resource was last updated.</p>
    */
-  FailedRecordCount?: number;
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>The time that the most recent update was attempted.</p>
+   */
+  LatestUpdateAttemptAt?: Date;
+
+  /**
+   * <p>The status of the most recent update attempt for the parallel data resource.</p>
+   */
+  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+
+  /**
+   * <p>Additional information from Amazon Translate about the parallel data resource. </p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The custom name assigned to the parallel data resource.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Specifies the format and S3 location of the parallel data input file.</p>
+   */
+  ParallelDataConfig?: ParallelDataConfig;
 
   /**
    * <p>The number of items in the input file that Amazon Translate skipped when you created or
@@ -671,29 +679,21 @@ export interface ParallelDataProperties {
   SkippedRecordCount?: number;
 
   /**
-   * <p>The encryption key used to encrypt this object.</p>
+   * <p>The source language of the translations in the parallel data file.</p>
    */
-  EncryptionKey?: EncryptionKey;
+  SourceLanguageCode?: string;
 
   /**
-   * <p>The time at which the parallel data resource was created.</p>
+   * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
+   *       the status is <code>ACTIVE</code>.</p>
    */
-  CreatedAt?: Date;
+  Status?: ParallelDataStatus | string;
 
   /**
-   * <p>The time at which the parallel data resource was last updated.</p>
+   * <p>The language codes for the target languages available in the parallel data file. All
+   *       possible target languages are returned as an array.</p>
    */
-  LastUpdatedAt?: Date;
-
-  /**
-   * <p>The status of the most recent update attempt for the parallel data resource.</p>
-   */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
-
-  /**
-   * <p>The time that the most recent update was attempted.</p>
-   */
-  LatestUpdateAttemptAt?: Date;
+  TargetLanguageCodes?: string[];
 }
 
 export namespace ParallelDataProperties {
@@ -704,9 +704,12 @@ export namespace ParallelDataProperties {
 
 export interface GetParallelDataResponse {
   /**
-   * <p>The properties of the parallel data resource that is being retrieved.</p>
+   * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
+   *       by your input file. This file was created when Amazon Translate attempted to create a parallel
+   *       data resource. The location is returned as a presigned URL to that has a 30 minute
+   *       expiration.</p>
    */
-  ParallelDataProperties?: ParallelDataProperties;
+  AuxiliaryDataLocation?: ParallelDataDataLocation;
 
   /**
    * <p>The location of the most recent parallel data input file that was successfully imported
@@ -717,19 +720,16 @@ export interface GetParallelDataResponse {
 
   /**
    * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
-   *       by your input file. This file was created when Amazon Translate attempted to create a parallel
-   *       data resource. The location is returned as a presigned URL to that has a 30 minute
-   *       expiration.</p>
-   */
-  AuxiliaryDataLocation?: ParallelDataDataLocation;
-
-  /**
-   * <p>The Amazon S3 location of a file that provides any errors or warnings that were produced
    *       by your input file. This file was created when Amazon Translate attempted to update a parallel
    *       data resource. The location is returned as a presigned URL to that has a 30 minute
    *       expiration.</p>
    */
   LatestUpdateAttemptAuxiliaryDataLocation?: ParallelDataDataLocation;
+
+  /**
+   * <p>The properties of the parallel data resource that is being retrieved.</p>
+   */
+  ParallelDataProperties?: ParallelDataProperties;
 }
 
 export namespace GetParallelDataResponse {
@@ -766,14 +766,14 @@ export namespace GetTerminologyRequest {
  */
 export interface TerminologyDataLocation {
   /**
-   * <p>The repository type for the custom terminology data.</p>
-   */
-  RepositoryType: string | undefined;
-
-  /**
    * <p>The location of the custom terminology data.</p>
    */
   Location: string | undefined;
+
+  /**
+   * <p>The repository type for the custom terminology data.</p>
+   */
+  RepositoryType: string | undefined;
 }
 
 export namespace TerminologyDataLocation {
@@ -787,9 +787,14 @@ export namespace TerminologyDataLocation {
  */
 export interface TerminologyProperties {
   /**
-   * <p>The name of the custom terminology.</p>
+   * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
    */
-  Name?: string;
+  Arn?: string;
+
+  /**
+   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
+   */
+  CreatedAt?: Date;
 
   /**
    * <p>The description of the custom terminology properties.</p>
@@ -797,9 +802,24 @@ export interface TerminologyProperties {
   Description?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the custom terminology. </p>
+   * <p>The encryption key for the custom terminology.</p>
    */
-  Arn?: string;
+  EncryptionKey?: EncryptionKey;
+
+  /**
+   * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
+   */
+  LastUpdatedAt?: Date;
+
+  /**
+   * <p>The name of the custom terminology.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The size of the file used when importing a custom terminology.</p>
+   */
+  SizeBytes?: number;
 
   /**
    * <p>The language code for the source text of the translation request for which the custom
@@ -814,29 +834,9 @@ export interface TerminologyProperties {
   TargetLanguageCodes?: string[];
 
   /**
-   * <p>The encryption key for the custom terminology.</p>
-   */
-  EncryptionKey?: EncryptionKey;
-
-  /**
-   * <p>The size of the file used when importing a custom terminology.</p>
-   */
-  SizeBytes?: number;
-
-  /**
    * <p>The number of terms included in the custom terminology.</p>
    */
   TermCount?: number;
-
-  /**
-   * <p>The time at which the custom terminology was created, based on the timestamp.</p>
-   */
-  CreatedAt?: Date;
-
-  /**
-   * <p>The time at which the custom terminology was last update, based on the timestamp.</p>
-   */
-  LastUpdatedAt?: Date;
 }
 
 export namespace TerminologyProperties {
@@ -847,15 +847,15 @@ export namespace TerminologyProperties {
 
 export interface GetTerminologyResponse {
   /**
-   * <p>The properties of the custom terminology being retrieved.</p>
-   */
-  TerminologyProperties?: TerminologyProperties;
-
-  /**
    * <p>The data location of the custom terminology being retrieved. The custom terminology file
    *       is returned in a presigned url that has a 30 minute expiration.</p>
    */
   TerminologyDataLocation?: TerminologyDataLocation;
+
+  /**
+   * <p>The properties of the custom terminology being retrieved.</p>
+   */
+  TerminologyProperties?: TerminologyProperties;
 }
 
 export namespace GetTerminologyResponse {
@@ -894,9 +894,14 @@ export namespace TerminologyData {
 
 export interface ImportTerminologyRequest {
   /**
-   * <p>The name of the custom terminology being imported.</p>
+   * <p>The description of the custom terminology being imported.</p>
    */
-  Name: string | undefined;
+  Description?: string;
+
+  /**
+   * <p>The encryption key for the custom terminology being imported.</p>
+   */
+  EncryptionKey?: EncryptionKey;
 
   /**
    * <p>The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE
@@ -906,19 +911,14 @@ export interface ImportTerminologyRequest {
   MergeStrategy: MergeStrategy | string | undefined;
 
   /**
-   * <p>The description of the custom terminology being imported.</p>
+   * <p>The name of the custom terminology being imported.</p>
    */
-  Description?: string;
+  Name: string | undefined;
 
   /**
    * <p>The terminology data for the custom terminology being imported.</p>
    */
   TerminologyData: TerminologyData | undefined;
-
-  /**
-   * <p>The encryption key for the custom terminology being imported.</p>
-   */
-  EncryptionKey?: EncryptionKey;
 }
 
 export namespace ImportTerminologyRequest {
@@ -943,14 +943,14 @@ export namespace ImportTerminologyResponse {
 
 export interface ListParallelDataRequest {
   /**
-   * <p>A string that specifies the next page of results to return in a paginated response.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of parallel data resources returned for each request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A string that specifies the next page of results to return in a paginated response.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListParallelDataRequest {
@@ -961,15 +961,15 @@ export namespace ListParallelDataRequest {
 
 export interface ListParallelDataResponse {
   /**
-   * <p>The properties of the parallel data resources returned by this request.</p>
-   */
-  ParallelDataPropertiesList?: ParallelDataProperties[];
-
-  /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated
    *       response. This value is null if there are no additional pages.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The properties of the parallel data resources returned by this request.</p>
+   */
+  ParallelDataPropertiesList?: ParallelDataProperties[];
 }
 
 export namespace ListParallelDataResponse {
@@ -980,15 +980,15 @@ export namespace ListParallelDataResponse {
 
 export interface ListTerminologiesRequest {
   /**
+   * <p>The maximum number of custom terminologies returned per list request.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If the result of the request to ListTerminologies was truncated, include the NextToken to
    *       fetch the next group of custom terminologies. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of custom terminologies returned per list request.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListTerminologiesRequest {
@@ -999,15 +999,15 @@ export namespace ListTerminologiesRequest {
 
 export interface ListTerminologiesResponse {
   /**
-   * <p>The properties list of the custom terminologies returned on the list request.</p>
-   */
-  TerminologyPropertiesList?: TerminologyProperties[];
-
-  /**
    * <p> If the response to the ListTerminologies was truncated, the NextToken fetches the next
    *       group of custom terminologies.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The properties list of the custom terminologies returned on the list request.</p>
+   */
+  TerminologyPropertiesList?: TerminologyProperties[];
 }
 
 export namespace ListTerminologiesResponse {
@@ -1048,17 +1048,17 @@ export interface TextTranslationJobFilter {
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing and
-   *       returns only the jobs submitted before the specified time. Jobs are returned in ascending
-   *       order, oldest to newest.</p>
-   */
-  SubmittedBeforeTime?: Date;
-
-  /**
-   * <p>Filters the list of jobs based on the time that the job was submitted for processing and
    *       returns only the jobs submitted after the specified time. Jobs are returned in descending
    *       order, newest to oldest.</p>
    */
   SubmittedAfterTime?: Date;
+
+  /**
+   * <p>Filters the list of jobs based on the time that the job was submitted for processing and
+   *       returns only the jobs submitted before the specified time. Jobs are returned in ascending
+   *       order, oldest to newest.</p>
+   */
+  SubmittedBeforeTime?: Date;
 }
 
 export namespace TextTranslationJobFilter {
@@ -1075,14 +1075,14 @@ export interface ListTextTranslationJobsRequest {
   Filter?: TextTranslationJobFilter;
 
   /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in each page. The default value is 100.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTextTranslationJobsRequest {
@@ -1093,15 +1093,15 @@ export namespace ListTextTranslationJobsRequest {
 
 export interface ListTextTranslationJobsResponse {
   /**
-   * <p>A list containing the properties of each job that is returned.</p>
-   */
-  TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
-
-  /**
    * <p>The token to use to retreive the next page of results. This value is <code>null</code>
    *       when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list containing the properties of each job that is returned.</p>
+   */
+  TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
 }
 
 export namespace ListTextTranslationJobsResponse {
@@ -1112,9 +1112,16 @@ export namespace ListTextTranslationJobsResponse {
 
 export interface StartTextTranslationJobRequest {
   /**
-   * <p>The name of the batch translation job to be performed.</p>
+   * <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate
+   *       SDK.</p>
    */
-  JobName?: string;
+  ClientToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
+   *       that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
+   */
+  DataAccessRoleArn: string | undefined;
 
   /**
    * <p>Specifies the format and S3 location of the input documents for the translation
@@ -1123,16 +1130,22 @@ export interface StartTextTranslationJobRequest {
   InputDataConfig: InputDataConfig | undefined;
 
   /**
+   * <p>The name of the batch translation job to be performed.</p>
+   */
+  JobName?: string;
+
+  /**
    * <p>Specifies the S3 folder to which your job output will be saved.
    *       </p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
+   * <p>The names of the parallel data resources to use in the batch translation job. For a list
+   *       of available parallel data resources, use the <a>ListParallelData</a>
+   *       operation.</p>
    */
-  DataAccessRoleArn: string | undefined;
+  ParallelDataNames?: string[];
 
   /**
    * <p>The language code of the input language. For a list of language codes, see <a>what-is-languages</a>.</p>
@@ -1151,19 +1164,6 @@ export interface StartTextTranslationJobRequest {
    *       terminologies, use the <a>ListTerminologies</a> operation.</p>
    */
   TerminologyNames?: string[];
-
-  /**
-   * <p>The names of the parallel data resources to use in the batch translation job. For a list
-   *       of available parallel data resources, use the <a>ListParallelData</a>
-   *       operation.</p>
-   */
-  ParallelDataNames?: string[];
-
-  /**
-   * <p>A unique identifier for the request. This token is auto-generated when using the Amazon Translate
-   *       SDK.</p>
-   */
-  ClientToken?: string;
 }
 
 export namespace StartTextTranslationJobRequest {
@@ -1291,11 +1291,12 @@ export namespace StopTextTranslationJobResponse {
 export interface DetectedLanguageLowConfidenceException extends __SmithyException, $MetadataBearer {
   name: "DetectedLanguageLowConfidenceException";
   $fault: "client";
-  Message?: string;
   /**
    * <p>The language code of the auto-detected language from Amazon Comprehend.</p>
    */
   DetectedLanguageCode?: string;
+
+  Message?: string;
 }
 
 export namespace DetectedLanguageLowConfidenceException {
@@ -1338,19 +1339,6 @@ export namespace TextSizeLimitExceededException {
 
 export interface TranslateTextRequest {
   /**
-   * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
-   *       your character set, this may be fewer than 5,000 characters.</p>
-   */
-  Text: string | undefined;
-
-  /**
-   * <p>The name of the terminology list file to be used in the TranslateText request. You can use
-   *       1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can
-   *       contain a maximum of 256 terms.</p>
-   */
-  TerminologyNames?: string[];
-
-  /**
    * <p>The language code for the language of the source text. The language must be a language
    *       supported by Amazon Translate. For a list of language codes, see <a>what-is-languages</a>.</p>
    *          <p>To have Amazon Translate determine the source language of your text, you can specify
@@ -1365,6 +1353,19 @@ export interface TranslateTextRequest {
    *       language supported by Amazon Translate.</p>
    */
   TargetLanguageCode: string | undefined;
+
+  /**
+   * <p>The name of the terminology list file to be used in the TranslateText request. You can use
+   *       1 terminology list at most in a <code>TranslateText</code> request. Terminology lists can
+   *       contain a maximum of 256 terms.</p>
+   */
+  TerminologyNames?: string[];
+
+  /**
+   * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
+   *       your character set, this may be fewer than 5,000 characters.</p>
+   */
+  Text: string | undefined;
 }
 
 export namespace TranslateTextRequest {
@@ -1375,9 +1376,10 @@ export namespace TranslateTextRequest {
 
 export interface TranslateTextResponse {
   /**
-   * <p>The translated text.</p>
+   * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
+   *       translated text response.</p>
    */
-  TranslatedText: string | undefined;
+  AppliedTerminologies?: AppliedTerminology[];
 
   /**
    * <p>The language code for the language of the source text.</p>
@@ -1390,10 +1392,9 @@ export interface TranslateTextResponse {
   TargetLanguageCode: string | undefined;
 
   /**
-   * <p>The names of the custom terminologies applied to the input text by Amazon Translate for the
-   *       translated text response.</p>
+   * <p>The translated text.</p>
    */
-  AppliedTerminologies?: AppliedTerminology[];
+  TranslatedText: string | undefined;
 }
 
 export namespace TranslateTextResponse {
@@ -1404,9 +1405,10 @@ export namespace TranslateTextResponse {
 
 export interface UpdateParallelDataRequest {
   /**
-   * <p>The name of the parallel data resource being updated.</p>
+   * <p>A unique identifier for the request. This token is automatically generated when you use
+   *       Amazon Translate through an AWS SDK.</p>
    */
-  Name: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>A custom description for the parallel data resource in Amazon Translate.</p>
@@ -1414,15 +1416,14 @@ export interface UpdateParallelDataRequest {
   Description?: string;
 
   /**
+   * <p>The name of the parallel data resource being updated.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>Specifies the format and S3 location of the parallel data input file.</p>
    */
   ParallelDataConfig: ParallelDataConfig | undefined;
-
-  /**
-   * <p>A unique identifier for the request. This token is automatically generated when you use
-   *       Amazon Translate through an AWS SDK.</p>
-   */
-  ClientToken?: string;
 }
 
 export namespace UpdateParallelDataRequest {
@@ -1432,6 +1433,17 @@ export namespace UpdateParallelDataRequest {
 }
 
 export interface UpdateParallelDataResponse {
+  /**
+   * <p>The time that the most recent update was attempted.</p>
+   */
+  LatestUpdateAttemptAt?: Date;
+
+  /**
+   * <p>The status of the parallel data update attempt. When the updated parallel data resource is
+   *       ready for you to use, the status is <code>ACTIVE</code>.</p>
+   */
+  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+
   /**
    * <p>The name of the parallel data resource being updated.</p>
    */
@@ -1443,17 +1455,6 @@ export interface UpdateParallelDataResponse {
    *       <code>FAILED</code>.</p>
    */
   Status?: ParallelDataStatus | string;
-
-  /**
-   * <p>The status of the parallel data update attempt. When the updated parallel data resource is
-   *       ready for you to use, the status is <code>ACTIVE</code>.</p>
-   */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
-
-  /**
-   * <p>The time that the most recent update was attempted.</p>
-   */
-  LatestUpdateAttemptAt?: Date;
 }
 
 export namespace UpdateParallelDataResponse {

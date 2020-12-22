@@ -3,14 +3,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AssociateDomainRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
    */
-  FleetArn: string | undefined;
-
-  /**
-   * <p>The fully qualified domain name (FQDN).</p>
-   */
-  DomainName: string | undefined;
+  AcmCertificateArn: string | undefined;
 
   /**
    * <p>The name to display.</p>
@@ -18,9 +13,14 @@ export interface AssociateDomainRequest {
   DisplayName?: string;
 
   /**
-   * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
+   * <p>The fully qualified domain name (FQDN).</p>
    */
-  AcmCertificateArn: string | undefined;
+  DomainName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace AssociateDomainRequest {
@@ -133,11 +133,6 @@ export enum AuthorizationProviderType {
 
 export interface AssociateWebsiteAuthorizationProviderRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The authorization provider type.</p>
    */
   AuthorizationProviderType: AuthorizationProviderType | string | undefined;
@@ -147,6 +142,11 @@ export interface AssociateWebsiteAuthorizationProviderRequest {
    *             authorization providers.</p>
    */
   DomainName?: string;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace AssociateWebsiteAuthorizationProviderRequest {
@@ -170,11 +170,6 @@ export namespace AssociateWebsiteAuthorizationProviderResponse {
 
 export interface AssociateWebsiteCertificateAuthorityRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The root certificate of the CA.</p>
    */
   Certificate: string | undefined;
@@ -183,6 +178,11 @@ export interface AssociateWebsiteCertificateAuthorityRequest {
    * <p>The certificate name to display.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace AssociateWebsiteCertificateAuthorityRequest {
@@ -206,14 +206,14 @@ export namespace AssociateWebsiteCertificateAuthorityResponse {
 
 export interface CreateFleetRequest {
   /**
-   * <p>A unique name for the fleet.</p>
-   */
-  FleetName: string | undefined;
-
-  /**
    * <p>The fleet name to display.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>A unique name for the fleet.</p>
+   */
+  FleetName: string | undefined;
 
   /**
    * <p>The option to optimize for better performance by routing traffic through the closest
@@ -308,9 +308,9 @@ export namespace DescribeCompanyNetworkConfigurationRequest {
 
 export interface DescribeCompanyNetworkConfigurationResponse {
   /**
-   * <p>The VPC with connectivity to associated websites.</p>
+   * <p>The security groups associated with access to the provided subnets.</p>
    */
-  VpcId?: string;
+  SecurityGroupIds?: string[];
 
   /**
    * <p>The subnets used for X-ENI connections from Amazon WorkLink rendering containers.</p>
@@ -318,9 +318,9 @@ export interface DescribeCompanyNetworkConfigurationResponse {
   SubnetIds?: string[];
 
   /**
-   * <p>The security groups associated with access to the provided subnets.</p>
+   * <p>The VPC with connectivity to associated websites.</p>
    */
-  SecurityGroupIds?: string[];
+  VpcId?: string;
 }
 
 export namespace DescribeCompanyNetworkConfigurationResponse {
@@ -331,14 +331,14 @@ export namespace DescribeCompanyNetworkConfigurationResponse {
 
 export interface DescribeDeviceRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>A unique identifier for a registered user's device.</p>
    */
   DeviceId: string | undefined;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace DescribeDeviceRequest {
@@ -354,19 +354,24 @@ export enum DeviceStatus {
 
 export interface DescribeDeviceResponse {
   /**
-   * <p>The current state of the device.</p>
+   * <p>The date that the device first signed in to Amazon WorkLink.</p>
    */
-  Status?: DeviceStatus | string;
+  FirstAccessedTime?: Date;
 
   /**
-   * <p>The model of the device.</p>
+   * <p>The date that the device last accessed Amazon WorkLink.</p>
    */
-  Model?: string;
+  LastAccessedTime?: Date;
 
   /**
    * <p>The manufacturer of the device.</p>
    */
   Manufacturer?: string;
+
+  /**
+   * <p>The model of the device.</p>
+   */
+  Model?: string;
 
   /**
    * <p>The operating system of the device.</p>
@@ -384,14 +389,9 @@ export interface DescribeDeviceResponse {
   PatchLevel?: string;
 
   /**
-   * <p>The date that the device first signed in to Amazon WorkLink.</p>
+   * <p>The current state of the device.</p>
    */
-  FirstAccessedTime?: Date;
-
-  /**
-   * <p>The date that the device last accessed Amazon WorkLink.</p>
-   */
-  LastAccessedTime?: Date;
+  Status?: DeviceStatus | string;
 
   /**
    * <p>The user name associated with the device.</p>
@@ -433,14 +433,14 @@ export namespace DescribeDevicePolicyConfigurationResponse {
 
 export interface DescribeDomainRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace DescribeDomainRequest {
@@ -462,14 +462,9 @@ export enum DomainStatus {
 
 export interface DescribeDomainResponse {
   /**
-   * <p>The name of the domain.</p>
+   * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
    */
-  DomainName?: string;
-
-  /**
-   * <p>The name to display.</p>
-   */
-  DisplayName?: string;
+  AcmCertificateArn?: string;
 
   /**
    * <p>The time that the domain was added.</p>
@@ -477,14 +472,19 @@ export interface DescribeDomainResponse {
   CreatedTime?: Date;
 
   /**
+   * <p>The name to display.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the domain.</p>
+   */
+  DomainName?: string;
+
+  /**
    * <p>The current state for the domain.</p>
    */
   DomainStatus?: DomainStatus | string;
-
-  /**
-   * <p>The ARN of an issued ACM certificate that is valid for the domain being associated.</p>
-   */
-  AcmCertificateArn?: string;
 }
 
 export namespace DescribeDomainResponse {
@@ -517,19 +517,14 @@ export enum FleetStatus {
 
 export interface DescribeFleetMetadataResponse {
   /**
+   * <p>The identifier used by users to sign in to the Amazon WorkLink app.</p>
+   */
+  CompanyCode?: string;
+
+  /**
    * <p>The time that the fleet was created.</p>
    */
   CreatedTime?: Date;
-
-  /**
-   * <p>The time that the fleet was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>The name of the fleet.</p>
-   */
-  FleetName?: string;
 
   /**
    * <p>The name to display.</p>
@@ -537,20 +532,25 @@ export interface DescribeFleetMetadataResponse {
   DisplayName?: string;
 
   /**
-   * <p>The option to optimize for better performance by routing traffic through the closest
-   *             AWS Region to users, which may be outside of your home Region.</p>
+   * <p>The name of the fleet.</p>
    */
-  OptimizeForEndUserLocation?: boolean;
-
-  /**
-   * <p>The identifier used by users to sign in to the Amazon WorkLink app.</p>
-   */
-  CompanyCode?: string;
+  FleetName?: string;
 
   /**
    * <p>The current state of the fleet.</p>
    */
   FleetStatus?: FleetStatus | string;
+
+  /**
+   * <p>The time that the fleet was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The option to optimize for better performance by routing traffic through the closest
+   *             AWS Region to users, which may be outside of your home Region.</p>
+   */
+  OptimizeForEndUserLocation?: boolean;
 
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
@@ -583,6 +583,11 @@ export enum IdentityProviderType {
 
 export interface DescribeIdentityProviderConfigurationResponse {
   /**
+   * <p>The SAML metadata document provided by the user’s identity provider.</p>
+   */
+  IdentityProviderSamlMetadata?: string;
+
+  /**
    * <p>The type of identity provider.</p>
    */
   IdentityProviderType?: IdentityProviderType | string;
@@ -591,11 +596,6 @@ export interface DescribeIdentityProviderConfigurationResponse {
    * <p>The SAML metadata document uploaded to the user’s identity provider.</p>
    */
   ServiceProviderSamlMetadata?: string;
-
-  /**
-   * <p>The SAML metadata document provided by the user’s identity provider.</p>
-   */
-  IdentityProviderSamlMetadata?: string;
 }
 
 export namespace DescribeIdentityProviderConfigurationResponse {
@@ -668,14 +668,14 @@ export namespace DeviceSummary {
 
 export interface DisassociateDomainRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace DisassociateDomainRequest {
@@ -694,14 +694,14 @@ export namespace DisassociateDomainResponse {
 
 export interface DisassociateWebsiteAuthorizationProviderRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>A unique identifier for the authorization provider.</p>
    */
   AuthorizationProviderId: string | undefined;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace DisassociateWebsiteAuthorizationProviderRequest {
@@ -749,9 +749,9 @@ export namespace DisassociateWebsiteCertificateAuthorityResponse {
  */
 export interface DomainSummary {
   /**
-   * <p>The name of the domain.</p>
+   * <p>The time that the domain was created.</p>
    */
-  DomainName: string | undefined;
+  CreatedTime: Date | undefined;
 
   /**
    * <p>The name to display.</p>
@@ -759,9 +759,9 @@ export interface DomainSummary {
   DisplayName?: string;
 
   /**
-   * <p>The time that the domain was created.</p>
+   * <p>The name of the domain.</p>
    */
-  CreatedTime: Date | undefined;
+  DomainName: string | undefined;
 
   /**
    * <p>The status of the domain.</p>
@@ -780,9 +780,9 @@ export namespace DomainSummary {
  */
 export interface FleetSummary {
   /**
-   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   * <p>The identifier used by users to sign into the Amazon WorkLink app.</p>
    */
-  FleetArn?: string;
+  CompanyCode?: string;
 
   /**
    * <p>The time when the fleet was created.</p>
@@ -790,9 +790,14 @@ export interface FleetSummary {
   CreatedTime?: Date;
 
   /**
-   * <p>The time when the fleet was last updated.</p>
+   * <p>The name of the fleet to display.</p>
    */
-  LastUpdatedTime?: Date;
+  DisplayName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the fleet.</p>
+   */
+  FleetArn?: string;
 
   /**
    * <p>The name of the fleet.</p>
@@ -800,19 +805,14 @@ export interface FleetSummary {
   FleetName?: string;
 
   /**
-   * <p>The name of the fleet to display.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The identifier used by users to sign into the Amazon WorkLink app.</p>
-   */
-  CompanyCode?: string;
-
-  /**
    * <p>The status of the fleet.</p>
    */
   FleetStatus?: FleetStatus | string;
+
+  /**
+   * <p>The time when the fleet was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
 
   /**
    * <p>The tags attached to the resource. A tag is a key-value pair.</p>
@@ -833,15 +833,15 @@ export interface ListDevicesRequest {
   FleetArn: string | undefined;
 
   /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be included in the next page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListDevicesRequest {
@@ -876,15 +876,15 @@ export interface ListDomainsRequest {
   FleetArn: string | undefined;
 
   /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be included in the next page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListDomainsRequest {
@@ -914,15 +914,15 @@ export namespace ListDomainsResponse {
 
 export interface ListFleetsRequest {
   /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be included in the next page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListFleetsRequest {
@@ -983,14 +983,14 @@ export interface ListWebsiteAuthorizationProvidersRequest {
   FleetArn: string | undefined;
 
   /**
-   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to be included in the next page.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListWebsiteAuthorizationProvidersRequest {
@@ -1014,15 +1014,15 @@ export interface WebsiteAuthorizationProviderSummary {
   AuthorizationProviderType: AuthorizationProviderType | string | undefined;
 
   /**
+   * <p>The time of creation.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
    * <p>The domain name of the authorization provider. This applies only to SAML-based
    *             authorization providers.</p>
    */
   DomainName?: string;
-
-  /**
-   * <p>The time of creation.</p>
-   */
-  CreatedTime?: Date;
 }
 
 export namespace WebsiteAuthorizationProviderSummary {
@@ -1033,14 +1033,14 @@ export namespace WebsiteAuthorizationProviderSummary {
 
 export interface ListWebsiteAuthorizationProvidersResponse {
   /**
-   * <p>The website authorization providers.</p>
-   */
-  WebsiteAuthorizationProviders?: WebsiteAuthorizationProviderSummary[];
-
-  /**
    * <p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The website authorization providers.</p>
+   */
+  WebsiteAuthorizationProviders?: WebsiteAuthorizationProviderSummary[];
 }
 
 export namespace ListWebsiteAuthorizationProvidersResponse {
@@ -1078,11 +1078,6 @@ export namespace ListWebsiteCertificateAuthoritiesRequest {
  */
 export interface WebsiteCaSummary {
   /**
-   * <p>A unique identifier for the CA.</p>
-   */
-  WebsiteCaId?: string;
-
-  /**
    * <p>The time when the CA was added.</p>
    */
   CreatedTime?: Date;
@@ -1091,6 +1086,11 @@ export interface WebsiteCaSummary {
    * <p>The name to display.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>A unique identifier for the CA.</p>
+   */
+  WebsiteCaId?: string;
 }
 
 export namespace WebsiteCaSummary {
@@ -1101,15 +1101,15 @@ export namespace WebsiteCaSummary {
 
 export interface ListWebsiteCertificateAuthoritiesResponse {
   /**
-   * <p>Information about the certificates.</p>
-   */
-  WebsiteCertificateAuthorities?: WebsiteCaSummary[];
-
-  /**
    * <p>The pagination token used to retrieve the next page of results for this operation. If
    *             there are no more pages, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the certificates.</p>
+   */
+  WebsiteCertificateAuthorities?: WebsiteCaSummary[];
 }
 
 export namespace ListWebsiteCertificateAuthoritiesResponse {
@@ -1120,14 +1120,14 @@ export namespace ListWebsiteCertificateAuthoritiesResponse {
 
 export interface RestoreDomainAccessRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace RestoreDomainAccessRequest {
@@ -1146,14 +1146,14 @@ export namespace RestoreDomainAccessResponse {
 
 export interface RevokeDomainAccessRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The name of the domain.</p>
    */
   DomainName: string | undefined;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace RevokeDomainAccessRequest {
@@ -1250,14 +1250,14 @@ export namespace UntagResourceResponse {
 
 export interface UpdateAuditStreamConfigurationRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The ARN of the Amazon Kinesis data stream that receives the audit events.</p>
    */
   AuditStreamArn?: string;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace UpdateAuditStreamConfigurationRequest {
@@ -1281,9 +1281,9 @@ export interface UpdateCompanyNetworkConfigurationRequest {
   FleetArn: string | undefined;
 
   /**
-   * <p>The VPC with connectivity to associated websites.</p>
+   * <p>The security groups associated with access to the provided subnets.</p>
    */
-  VpcId: string | undefined;
+  SecurityGroupIds: string[] | undefined;
 
   /**
    * <p>The subnets used for X-ENI connections from Amazon WorkLink rendering containers.</p>
@@ -1291,9 +1291,9 @@ export interface UpdateCompanyNetworkConfigurationRequest {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>The security groups associated with access to the provided subnets.</p>
+   * <p>The VPC with connectivity to associated websites.</p>
    */
-  SecurityGroupIds: string[] | undefined;
+  VpcId: string | undefined;
 }
 
 export namespace UpdateCompanyNetworkConfigurationRequest {
@@ -1312,14 +1312,14 @@ export namespace UpdateCompanyNetworkConfigurationResponse {
 
 export interface UpdateDevicePolicyConfigurationRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.</p>
    */
   DeviceCaCertificate?: string;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 }
 
 export namespace UpdateDevicePolicyConfigurationRequest {
@@ -1338,9 +1338,9 @@ export namespace UpdateDevicePolicyConfigurationResponse {
 
 export interface UpdateDomainMetadataRequest {
   /**
-   * <p>The ARN of the fleet.</p>
+   * <p>The name to display.</p>
    */
-  FleetArn: string | undefined;
+  DisplayName?: string;
 
   /**
    * <p>The name of the domain.</p>
@@ -1348,9 +1348,9 @@ export interface UpdateDomainMetadataRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The name to display.</p>
+   * <p>The ARN of the fleet.</p>
    */
-  DisplayName?: string;
+  FleetArn: string | undefined;
 }
 
 export namespace UpdateDomainMetadataRequest {
@@ -1369,14 +1369,14 @@ export namespace UpdateDomainMetadataResponse {
 
 export interface UpdateFleetMetadataRequest {
   /**
-   * <p>The ARN of the fleet.</p>
-   */
-  FleetArn: string | undefined;
-
-  /**
    * <p>The fleet name to display. The existing DisplayName is unset if null is passed.</p>
    */
   DisplayName?: string;
+
+  /**
+   * <p>The ARN of the fleet.</p>
+   */
+  FleetArn: string | undefined;
 
   /**
    * <p>The option to optimize for better performance by routing traffic through the closest
@@ -1406,15 +1406,15 @@ export interface UpdateIdentityProviderConfigurationRequest {
   FleetArn: string | undefined;
 
   /**
-   * <p>The type of identity provider.</p>
-   */
-  IdentityProviderType: IdentityProviderType | string | undefined;
-
-  /**
    * <p>The SAML metadata document provided by the customer’s identity provider. The existing
    *             IdentityProviderSamlMetadata is unset if null is passed.</p>
    */
   IdentityProviderSamlMetadata?: string;
+
+  /**
+   * <p>The type of identity provider.</p>
+   */
+  IdentityProviderType: IdentityProviderType | string | undefined;
 }
 
 export namespace UpdateIdentityProviderConfigurationRequest {

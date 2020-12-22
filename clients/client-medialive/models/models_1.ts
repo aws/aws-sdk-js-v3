@@ -487,11 +487,6 @@ export interface Scte35SegmentationDescriptor {
   DeliveryRestrictions?: Scte35DeliveryRestrictions;
 
   /**
-   * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
-   */
-  SegmentNum?: number;
-
-  /**
    * Corresponds to SCTE-35 segmentation_event_cancel_indicator.
    */
   SegmentationCancelIndicator: Scte35SegmentationCancelIndicator | string | undefined;
@@ -520,6 +515,11 @@ export interface Scte35SegmentationDescriptor {
    * Corresponds to SCTE-35 segmentation_upid_type. On the console, enter one of the types listed in the SCTE-35 specification, converted to a decimal. For example, "0x0C" hex from the specification is "12" in decimal. In the CLI, API, or an SDK, enter one of the types listed in the SCTE-35 specification, in either hex (for example, "0x0C" ) or in decimal (for example, "12").
    */
   SegmentationUpidType?: number;
+
+  /**
+   * Corresponds to SCTE-35 segment_num. A value that is valid for the specified segmentation_type_id.
+   */
+  SegmentNum?: number;
 
   /**
    * Corresponds to SCTE-35 segments_expected. A value that is valid for the specified segmentation_type_id.
@@ -4466,14 +4466,14 @@ export namespace DescribeInputDeviceResponse {
  */
 export interface DescribeInputDeviceThumbnailRequest {
   /**
-   * The unique ID of this input device. For example, hd-123456789abcdef.
-   */
-  InputDeviceId: string | undefined;
-
-  /**
    * The HTTP Accept header. Indicates the requested type for the thumbnail.
    */
   Accept: AcceptHeader | string | undefined;
+
+  /**
+   * The unique ID of this input device. For example, hd-123456789abcdef.
+   */
+  InputDeviceId: string | undefined;
 }
 
 export namespace DescribeInputDeviceThumbnailRequest {
@@ -4492,14 +4492,14 @@ export interface DescribeInputDeviceThumbnailResponse {
   Body?: Readable | ReadableStream | Blob;
 
   /**
-   * Specifies the media type of the thumbnail.
-   */
-  ContentType?: ContentType | string;
-
-  /**
    * The length of the content.
    */
   ContentLength?: number;
+
+  /**
+   * Specifies the media type of the thumbnail.
+   */
+  ContentType?: ContentType | string;
 
   /**
    * The unique, cacheable version of this thumbnail.
@@ -5305,11 +5305,6 @@ export interface ListOfferingsRequest {
   Duration?: string;
 
   /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
    * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
    */
   MaximumBitrate?: string;
@@ -5318,6 +5313,11 @@ export interface ListOfferingsRequest {
    * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
    */
   MaximumFramerate?: string;
+
+  /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
 
   /**
    * Placeholder documentation for __string
@@ -5387,11 +5387,6 @@ export interface ListReservationsRequest {
   Codec?: string;
 
   /**
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
    * Filter by bitrate, 'MAX_10_MBPS', 'MAX_20_MBPS', or 'MAX_50_MBPS'
    */
   MaximumBitrate?: string;
@@ -5400,6 +5395,11 @@ export interface ListReservationsRequest {
    * Filter by framerate, 'MAX_30_FPS' or 'MAX_60_FPS'
    */
   MaximumFramerate?: string;
+
+  /**
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
 
   /**
    * Placeholder documentation for __string

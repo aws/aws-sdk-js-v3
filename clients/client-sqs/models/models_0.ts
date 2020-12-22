@@ -6,15 +6,13 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AddPermissionRequest {
   /**
-   * <p>The URL of the Amazon SQS queue to which permissions are added.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
+   * <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
+   *          <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a>
+   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *          <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>,
+   *         <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
    */
-  QueueUrl: string | undefined;
-
-  /**
-   * <p>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
-   */
-  Label: string | undefined;
+  Actions: string[] | undefined;
 
   /**
    * <p>The AWS account number of the <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a> who is given permission. The principal must have an AWS account, but does not need to be signed up for Amazon SQS. For information about locating the AWS
@@ -23,13 +21,15 @@ export interface AddPermissionRequest {
   AWSAccountIds: string[] | undefined;
 
   /**
-   * <p>The action the client wants to allow for the specified principal. Valid values: the name of any action or <code>*</code>.</p>
-   *          <p>For more information about these actions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-overview-of-managing-access.html">Overview of Managing Access Permissions to Your Amazon Simple Queue Service Resource</a>
-   *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          <p>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code> for <code>ActionName.n</code> also grants permissions for the corresponding batch versions of those actions: <code>SendMessageBatch</code>,
-   *         <code>DeleteMessageBatch</code>, and <code>ChangeMessageVisibilityBatch</code>.</p>
+   * <p>The unique identification of the permission you're setting (for example, <code>AliceSendMessage</code>). Maximum 80 characters. Allowed characters include alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
    */
-  Actions: string[] | undefined;
+  Label: string | undefined;
+
+  /**
+   * <p>The URL of the Amazon SQS queue to which permissions are added.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace AddPermissionRequest {
@@ -172,15 +172,15 @@ export namespace ChangeMessageVisibilityBatchRequestEntry {
  */
 export interface ChangeMessageVisibilityBatchRequest {
   /**
+   * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
+   */
+  Entries: ChangeMessageVisibilityBatchRequestEntry[] | undefined;
+
+  /**
    * <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
-
-  /**
-   * <p>A list of receipt handles of the messages for which the visibility timeout must be changed.</p>
-   */
-  Entries: ChangeMessageVisibilityBatchRequestEntry[] | undefined;
 }
 
 export namespace ChangeMessageVisibilityBatchRequest {
@@ -195,24 +195,24 @@ export namespace ChangeMessageVisibilityBatchRequest {
  */
 export interface BatchResultErrorEntry {
   /**
-   * <p>The <code>Id</code> of an entry in a batch request.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
-   */
-  SenderFault: boolean | undefined;
-
-  /**
    * <p>An error code representing why the action failed on this entry.</p>
    */
   Code: string | undefined;
 
   /**
+   * <p>The <code>Id</code> of an entry in a batch request.</p>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>A message explaining why the action failed on this entry.</p>
    */
   Message?: string;
+
+  /**
+   * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
+   */
+  SenderFault: boolean | undefined;
 }
 
 export namespace BatchResultErrorEntry {
@@ -249,17 +249,17 @@ export namespace ChangeMessageVisibilityBatchResultEntry {
 export interface ChangeMessageVisibilityBatchResult {
   /**
    * <p>A list of <code>
-   *                <a>ChangeMessageVisibilityBatchResultEntry</a>
-   *             </code> items.</p>
-   */
-  Successful: ChangeMessageVisibilityBatchResultEntry[] | undefined;
-
-  /**
-   * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
    *             </code> items.</p>
    */
   Failed: BatchResultErrorEntry[] | undefined;
+
+  /**
+   * <p>A list of <code>
+   *                <a>ChangeMessageVisibilityBatchResultEntry</a>
+   *             </code> items.</p>
+   */
+  Successful: ChangeMessageVisibilityBatchResultEntry[] | undefined;
 }
 
 export namespace ChangeMessageVisibilityBatchResult {
@@ -334,50 +334,6 @@ export type QueueAttributeName =
  * <p></p>
  */
 export interface CreateQueueRequest {
-  /**
-   * <p>The name of the new queue. The following limits apply to this name:</p>
-   *          <ul>
-   *             <li>
-   *               <p>A queue name can have up to 80 characters.</p>
-   *             </li>
-   *             <li>
-   *               <p>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
-   *             </li>
-   *             <li>
-   *               <p>A FIFO queue name must end with the <code>.fifo</code> suffix.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueName: string | undefined;
-
-  /**
-   * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *
-   *          <p>When you use queue tags, keep the following guidelines in mind:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Adding more than 50 tags to a queue isn't recommended.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p>
-   *             </li>
-   *             <li>
-   *                <p>Tags are case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Limits Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          <note>
-   *             <p>To be able to tag a queue on creation, you must have the
-   *                     <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
-   *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   *          </note>
-   */
-  tags?: { [key: string]: string };
-
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *          <p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateQueue</code> action uses:</p>
@@ -508,6 +464,50 @@ export interface CreateQueueRequest {
    *          </ul>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The name of the new queue. The following limits apply to this name:</p>
+   *          <ul>
+   *             <li>
+   *               <p>A queue name can have up to 80 characters.</p>
+   *             </li>
+   *             <li>
+   *               <p>Valid values: alphanumeric characters, hyphens (<code>-</code>), and underscores (<code>_</code>).</p>
+   *             </li>
+   *             <li>
+   *               <p>A FIFO queue name must end with the <code>.fifo</code> suffix.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueName: string | undefined;
+
+  /**
+   * <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *
+   *          <p>When you use queue tags, keep the following guidelines in mind:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Adding more than 50 tags to a queue isn't recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.</p>
+   *             </li>
+   *             <li>
+   *                <p>Tags are case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For a full list of tag restrictions, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues">Limits Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *          <note>
+   *             <p>To be able to tag a queue on creation, you must have the
+   *                     <code>sqs:CreateQueue</code> and <code>sqs:TagQueue</code> permissions.</p>
+   *             <p>Cross-account permissions don't apply to this action. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant Cross-Account Permissions to a Role and a User Name</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   *          </note>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateQueueRequest {
@@ -628,15 +628,15 @@ export namespace DeleteMessageBatchRequestEntry {
  */
 export interface DeleteMessageBatchRequest {
   /**
+   * <p>A list of receipt handles for the messages to be deleted.</p>
+   */
+  Entries: DeleteMessageBatchRequestEntry[] | undefined;
+
+  /**
    * <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
    *          <p>Queue URLs and names are case-sensitive.</p>
    */
   QueueUrl: string | undefined;
-
-  /**
-   * <p>A list of receipt handles for the messages to be deleted.</p>
-   */
-  Entries: DeleteMessageBatchRequestEntry[] | undefined;
 }
 
 export namespace DeleteMessageBatchRequest {
@@ -673,17 +673,17 @@ export namespace DeleteMessageBatchResultEntry {
 export interface DeleteMessageBatchResult {
   /**
    * <p>A list of <code>
-   *                <a>DeleteMessageBatchResultEntry</a>
-   *             </code> items.</p>
-   */
-  Successful: DeleteMessageBatchResultEntry[] | undefined;
-
-  /**
-   * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
    *             </code> items.</p>
    */
   Failed: BatchResultErrorEntry[] | undefined;
+
+  /**
+   * <p>A list of <code>
+   *                <a>DeleteMessageBatchResultEntry</a>
+   *             </code> items.</p>
+   */
+  Successful: DeleteMessageBatchResultEntry[] | undefined;
 }
 
 export namespace DeleteMessageBatchResult {
@@ -713,12 +713,6 @@ export namespace DeleteQueueRequest {
  * <p></p>
  */
 export interface GetQueueAttributesRequest {
-  /**
-   * <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
   /**
    * <p>A list of attributes for which to retrieve information.</p>
    *          <note>
@@ -854,6 +848,12 @@ export interface GetQueueAttributesRequest {
    *          </ul>
    */
   AttributeNames?: (QueueAttributeName | string)[];
+
+  /**
+   * <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace GetQueueAttributesRequest {
@@ -949,10 +949,10 @@ export namespace QueueDoesNotExist {
  */
 export interface ListDeadLetterSourceQueuesRequest {
   /**
-   * <p>The URL of a dead-letter queue.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
+   * <p>Maximum number of results to include in the response. Value range is 1 to 1000.
+   *           You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
    */
-  QueueUrl: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>Pagination token to request the next set of results.</p>
@@ -960,10 +960,10 @@ export interface ListDeadLetterSourceQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>Maximum number of results to include in the response. Value range is 1 to 1000.
-   *           You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
+   * <p>The URL of a dead-letter queue.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
    */
-  MaxResults?: number;
+  QueueUrl: string | undefined;
 }
 
 export namespace ListDeadLetterSourceQueuesRequest {
@@ -977,15 +977,15 @@ export namespace ListDeadLetterSourceQueuesRequest {
  */
 export interface ListDeadLetterSourceQueuesResult {
   /**
-   * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
-   */
-  queueUrls: string[] | undefined;
-
-  /**
    * <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional
    *           results to request, or if you did not set <code>MaxResults</code> in the request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
+   */
+  queueUrls: string[] | undefined;
 }
 
 export namespace ListDeadLetterSourceQueuesResult {
@@ -999,10 +999,10 @@ export namespace ListDeadLetterSourceQueuesResult {
  */
 export interface ListQueuesRequest {
   /**
-   * <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
+   * <p>Maximum number of results to include in the response. Value range is 1 to 1000.
+   *           You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
    */
-  QueueNamePrefix?: string;
+  MaxResults?: number;
 
   /**
    * <p>Pagination token to request the next set of results.</p>
@@ -1010,10 +1010,10 @@ export interface ListQueuesRequest {
   NextToken?: string;
 
   /**
-   * <p>Maximum number of results to include in the response. Value range is 1 to 1000.
-   *           You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
+   * <p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
    */
-  MaxResults?: number;
+  QueueNamePrefix?: string;
 }
 
 export namespace ListQueuesRequest {
@@ -1106,12 +1106,6 @@ export namespace PurgeQueueRequest {
  */
 export interface ReceiveMessageRequest {
   /**
-   * <p>The URL of the Amazon SQS queue from which messages are received.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
    * <p>A list of attributes that need to be returned along with each message. These attributes
    *             include:</p>
    *          <ul>
@@ -1174,6 +1168,11 @@ export interface ReceiveMessageRequest {
   AttributeNames?: (QueueAttributeName | string)[];
 
   /**
+   * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>
+   */
+  MaxNumberOfMessages?: number;
+
+  /**
    * <p>The name of the message attribute, where <i>N</i> is the index.</p>
    *          <ul>
    *             <li>
@@ -1199,25 +1198,10 @@ export interface ReceiveMessageRequest {
   MessageAttributeNames?: string[];
 
   /**
-   * <p>The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values: 1 to 10. Default: 1.</p>
+   * <p>The URL of the Amazon SQS queue from which messages are received.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
    */
-  MaxNumberOfMessages?: number;
-
-  /**
-   * <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
-   */
-  VisibilityTimeout?: number;
-
-  /**
-   * <p>The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.
-   *           If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.</p>
-   *          <important>
-   *             <p>To avoid HTTP errors, ensure that the HTTP response timeout for <code>ReceiveMessage</code>
-   *                 requests is longer than the <code>WaitTimeSeconds</code> parameter. For example,
-   *                 with the Java SDK, you can set HTTP transport settings using the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html"> NettyNioAsyncHttpClient</a> for asynchronous clients, or the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html"> ApacheHttpClient</a> for synchronous clients. </p>
-   *          </important>
-   */
-  WaitTimeSeconds?: number;
+  QueueUrl: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1267,6 +1251,22 @@ export interface ReceiveMessageRequest {
    *           in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   ReceiveRequestAttemptId?: string;
+
+  /**
+   * <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
+   */
+  VisibilityTimeout?: number;
+
+  /**
+   * <p>The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.
+   *           If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.</p>
+   *          <important>
+   *             <p>To avoid HTTP errors, ensure that the HTTP response timeout for <code>ReceiveMessage</code>
+   *                 requests is longer than the <code>WaitTimeSeconds</code> parameter. For example,
+   *                 with the Java SDK, you can set HTTP transport settings using the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/nio/netty/NettyNioAsyncHttpClient.html"> NettyNioAsyncHttpClient</a> for asynchronous clients, or the <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/http/apache/ApacheHttpClient.html"> ApacheHttpClient</a> for synchronous clients. </p>
+   *          </important>
+   */
+  WaitTimeSeconds?: number;
 }
 
 export namespace ReceiveMessageRequest {
@@ -1294,9 +1294,9 @@ export type MessageSystemAttributeName =
  */
 export interface MessageAttributeValue {
   /**
-   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
+   * <p>Not implemented. Reserved for future use.</p>
    */
-  StringValue?: string;
+  BinaryListValues?: Uint8Array[];
 
   /**
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
@@ -1304,20 +1304,20 @@ export interface MessageAttributeValue {
   BinaryValue?: Uint8Array;
 
   /**
+   * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
+   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   */
+  DataType: string | undefined;
+
+  /**
    * <p>Not implemented. Reserved for future use.</p>
    */
   StringListValues?: string[];
 
   /**
-   * <p>Not implemented. Reserved for future use.</p>
+   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
    */
-  BinaryListValues?: Uint8Array[];
-
-  /**
-   * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
-   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   */
-  DataType: string | undefined;
+  StringValue?: string;
 }
 
 export namespace MessageAttributeValue {
@@ -1330,26 +1330,6 @@ export namespace MessageAttributeValue {
  * <p>An Amazon SQS message.</p>
  */
 export interface Message {
-  /**
-   * <p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all AWS accounts for an extended period of time.</p>
-   */
-  MessageId?: string;
-
-  /**
-   * <p>An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.</p>
-   */
-  ReceiptHandle?: string;
-
-  /**
-   * <p>An MD5 digest of the non-URL-encoded message body string.</p>
-   */
-  MD5OfBody?: string;
-
-  /**
-   * <p>The message's contents (not URL-encoded).</p>
-   */
-  Body?: string;
-
   /**
    * <p>A map of the attributes requested in <code>
    *                <a>ReceiveMessage</a>
@@ -1399,6 +1379,16 @@ export interface Message {
   Attributes?: { [key: string]: string };
 
   /**
+   * <p>The message's contents (not URL-encoded).</p>
+   */
+  Body?: string;
+
+  /**
+   * <p>An MD5 digest of the non-URL-encoded message body string.</p>
+   */
+  MD5OfBody?: string;
+
+  /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageAttributes?: string;
@@ -1407,6 +1397,16 @@ export interface Message {
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   MessageAttributes?: { [key: string]: MessageAttributeValue };
+
+  /**
+   * <p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all AWS accounts for an extended period of time.</p>
+   */
+  MessageId?: string;
+
+  /**
+   * <p>An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.</p>
+   */
+  ReceiptHandle?: string;
 }
 
 export namespace Message {
@@ -1436,17 +1436,17 @@ export namespace ReceiveMessageResult {
  */
 export interface RemovePermissionRequest {
   /**
-   * <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
    * <p>The identification of the permission to remove. This is the label added using the <code>
    *                <a>AddPermission</a>
    *             </code> action.</p>
    */
   Label: string | undefined;
+
+  /**
+   * <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace RemovePermissionRequest {
@@ -1480,9 +1480,9 @@ export type MessageSystemAttributeNameForSends = "AWSTraceHeader";
  */
 export interface MessageSystemAttributeValue {
   /**
-   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
+   * <p>Not implemented. Reserved for future use.</p>
    */
-  StringValue?: string;
+  BinaryListValues?: Uint8Array[];
 
   /**
    * <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
@@ -1490,20 +1490,20 @@ export interface MessageSystemAttributeValue {
   BinaryValue?: Uint8Array;
 
   /**
+   * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
+   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+   */
+  DataType: string | undefined;
+
+  /**
    * <p>Not implemented. Reserved for future use.</p>
    */
   StringListValues?: string[];
 
   /**
-   * <p>Not implemented. Reserved for future use.</p>
+   * <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
    */
-  BinaryListValues?: Uint8Array[];
-
-  /**
-   * <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
-   *          <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-   */
-  DataType: string | undefined;
+  StringValue?: string;
 }
 
 export namespace MessageSystemAttributeValue {
@@ -1516,24 +1516,6 @@ export namespace MessageSystemAttributeValue {
  * <p></p>
  */
 export interface SendMessageRequest {
-  /**
-   * <p>The URL of the Amazon SQS queue to which a message is sent.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
-   * <p>The message to send. The minimum size is one character. The maximum size is 256 KB.</p>
-   *          <important>
-   *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
-   *            <p>
-   *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
-   *             </p>
-   * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
-   *          </important>
-   */
-  MessageBody: string | undefined;
-
   /**
    * <p>
    *           The length of time, in seconds, for which to delay a specific message. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished.
@@ -1551,21 +1533,16 @@ export interface SendMessageRequest {
   MessageAttributes?: { [key: string]: MessageAttributeValue };
 
   /**
-   * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
+   * <p>The message to send. The minimum size is one character. The maximum size is 256 KB.</p>
    *          <important>
-   *             <ul>
-   *                <li>
-   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
-   *                     Its type must be <code>String</code> and its value must be a correctly formatted
-   *                     AWS X-Ray trace header string.</p>
-   *               </li>
-   *                <li>
-   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
-   *               </li>
-   *             </ul>
+   *            <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
+   *            <p>
+   *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
+   *             </p>
+   * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
    *          </important>
    */
-  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
+  MessageBody: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1647,6 +1624,29 @@ export interface SendMessageRequest {
    *          </important>
    */
   MessageGroupId?: string;
+
+  /**
+   * <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
+   *          <important>
+   *             <ul>
+   *                <li>
+   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
+   *                     Its type must be <code>String</code> and its value must be a correctly formatted
+   *                     AWS X-Ray trace header string.</p>
+   *               </li>
+   *                <li>
+   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
+   *               </li>
+   *             </ul>
+   *          </important>
+   */
+  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
+
+  /**
+   * <p>The URL of the Amazon SQS queue to which a message is sent.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace SendMessageRequest {
@@ -1662,12 +1662,12 @@ export interface SendMessageResult {
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
-  MD5OfMessageBody?: string;
+  MD5OfMessageAttributes?: string;
 
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
-  MD5OfMessageAttributes?: string;
+  MD5OfMessageBody?: string;
 
   /**
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest.</p>
@@ -1728,20 +1728,6 @@ export namespace BatchRequestTooLong {
  */
 export interface SendMessageBatchRequestEntry {
   /**
-   * <p>An identifier for a message in this batch used to communicate the result.</p>
-   *          <note>
-   *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
-   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
-   *          </note>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The body of the message.</p>
-   */
-  MessageBody: string | undefined;
-
-  /**
    * <p>The length of time, in seconds, for which a specific message is delayed. Valid values: 0 to 900. Maximum: 15 minutes. Messages with a positive <code>DelaySeconds</code> value become available for processing after the delay period is finished.
    *           If you don't specify a value, the default value for the queue is applied.
    *       </p>
@@ -1752,26 +1738,23 @@ export interface SendMessageBatchRequestEntry {
   DelaySeconds?: number;
 
   /**
+   * <p>An identifier for a message in this batch used to communicate the result.</p>
+   *          <note>
+   *             <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
+   *             <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
+   *          </note>
+   */
+  Id: string | undefined;
+
+  /**
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
    */
   MessageAttributes?: { [key: string]: MessageAttributeValue };
 
   /**
-   * <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
-   *          <important>
-   *             <ul>
-   *                <li>
-   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
-   *                     Its type must be <code>String</code> and its value must be a correctly formatted
-   *                     AWS X-Ray trace header string.</p>
-   *               </li>
-   *                <li>
-   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
-   *               </li>
-   *             </ul>
-   *          </important>
+   * <p>The body of the message.</p>
    */
-  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
+  MessageBody: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1854,6 +1837,23 @@ export interface SendMessageBatchRequestEntry {
    *          </important>
    */
   MessageGroupId?: string;
+
+  /**
+   * <p>The message system attribute to send Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p>
+   *          <important>
+   *             <ul>
+   *                <li>
+   *                   <p>Currently, the only supported message system attribute is <code>AWSTraceHeader</code>.
+   *                     Its type must be <code>String</code> and its value must be a correctly formatted
+   *                     AWS X-Ray trace header string.</p>
+   *               </li>
+   *                <li>
+   *                   <p>The size of a message system attribute doesn't count towards the total size of a message.</p>
+   *               </li>
+   *             </ul>
+   *          </important>
+   */
+  MessageSystemAttributes?: { [key: string]: MessageSystemAttributeValue };
 }
 
 export namespace SendMessageBatchRequestEntry {
@@ -1867,17 +1867,17 @@ export namespace SendMessageBatchRequestEntry {
  */
 export interface SendMessageBatchRequest {
   /**
-   * <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
-  /**
    * <p>A list of <code>
    *                <a>SendMessageBatchRequestEntry</a>
    *             </code> items.</p>
    */
   Entries: SendMessageBatchRequestEntry[] | undefined;
+
+  /**
+   * <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace SendMessageBatchRequest {
@@ -1898,9 +1898,9 @@ export interface SendMessageBatchResultEntry {
   Id: string | undefined;
 
   /**
-   * <p>An identifier for the message.</p>
+   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
-  MessageId: string | undefined;
+  MD5OfMessageAttributes?: string;
 
   /**
    * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -1908,14 +1908,14 @@ export interface SendMessageBatchResultEntry {
   MD5OfMessageBody: string | undefined;
 
   /**
-   * <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-   */
-  MD5OfMessageAttributes?: string;
-
-  /**
    * <p>An MD5 digest of the non-URL-encoded message system attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
    */
   MD5OfMessageSystemAttributes?: string;
+
+  /**
+   * <p>An identifier for the message.</p>
+   */
+  MessageId: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
@@ -1941,17 +1941,17 @@ export namespace SendMessageBatchResultEntry {
 export interface SendMessageBatchResult {
   /**
    * <p>A list of <code>
-   *                <a>SendMessageBatchResultEntry</a>
-   *             </code> items.</p>
-   */
-  Successful: SendMessageBatchResultEntry[] | undefined;
-
-  /**
-   * <p>A list of <code>
    *                <a>BatchResultErrorEntry</a>
    *             </code> items with error details about each message that can't be enqueued.</p>
    */
   Failed: BatchResultErrorEntry[] | undefined;
+
+  /**
+   * <p>A list of <code>
+   *                <a>SendMessageBatchResultEntry</a>
+   *             </code> items.</p>
+   */
+  Successful: SendMessageBatchResultEntry[] | undefined;
 }
 
 export namespace SendMessageBatchResult {
@@ -1964,12 +1964,6 @@ export namespace SendMessageBatchResult {
  * <p></p>
  */
 export interface SetQueueAttributesRequest {
-  /**
-   * <p>The URL of the Amazon SQS queue whose attributes are set.</p>
-   *          <p>Queue URLs and names are case-sensitive.</p>
-   */
-  QueueUrl: string | undefined;
-
   /**
    * <p>A map of attributes to set.</p>
    *          <p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetQueueAttributes</code> action uses:</p>
@@ -2092,6 +2086,12 @@ export interface SetQueueAttributesRequest {
    *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The URL of the Amazon SQS queue whose attributes are set.</p>
+   *          <p>Queue URLs and names are case-sensitive.</p>
+   */
+  QueueUrl: string | undefined;
 }
 
 export namespace SetQueueAttributesRequest {

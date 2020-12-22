@@ -24,16 +24,16 @@ export enum Domain {
  */
 export interface EncryptionConfig {
   /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
+   */
+  KMSKeyArn: string | undefined;
+
+  /**
    * <p>The ARN of the IAM role that Amazon Forecast can assume to access the AWS KMS key.</p>
    *          <p>Passing a role across AWS accounts is not allowed. If you pass a role that isn't in your
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
-   */
-  KMSKeyArn: string | undefined;
 }
 
 export namespace EncryptionConfig {
@@ -138,9 +138,23 @@ export namespace Tag {
 
 export interface CreateDatasetRequest {
   /**
+   * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
+   *       datasets.</p>
+   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
+   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
+   *       "D" indicates every day and "15min" indicates every 15 minutes.</p>
+   */
+  DataFrequency?: string;
+
+  /**
    * <p>A name for the dataset.</p>
    */
   DatasetName: string | undefined;
+
+  /**
+   * <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
+   */
+  DatasetType: DatasetType | string | undefined;
 
   /**
    * <p>The domain associated with the dataset. When you add a dataset to a dataset group, this
@@ -154,18 +168,10 @@ export interface CreateDatasetRequest {
   Domain: Domain | string | undefined;
 
   /**
-   * <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
+   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
    */
-  DatasetType: DatasetType | string | undefined;
-
-  /**
-   * <p>The frequency of data collection. This parameter is required for RELATED_TIME_SERIES
-   *       datasets.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute). For example,
-   *       "D" indicates every day and "15min" indicates every 15 minutes.</p>
-   */
-  DataFrequency?: string;
+  EncryptionConfig?: EncryptionConfig;
 
   /**
    * <p>The schema for the dataset. The schema attributes and their order must match the fields in
@@ -174,12 +180,6 @@ export interface CreateDatasetRequest {
    *       required fields for a specific dataset domain and type, see <a>howitworks-domains-ds-types</a>.</p>
    */
   Schema: Schema | undefined;
-
-  /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
-   */
-  EncryptionConfig?: EncryptionConfig;
 
   /**
    * <p>The optional metadata that you apply to the dataset to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -279,6 +279,12 @@ export namespace ResourceAlreadyExistsException {
 
 export interface CreateDatasetGroupRequest {
   /**
+   * <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the
+   *       dataset group.</p>
+   */
+  DatasetArns?: string[];
+
+  /**
    * <p>A name for the dataset group.</p>
    */
   DatasetGroupName: string | undefined;
@@ -294,12 +300,6 @@ export interface CreateDatasetGroupRequest {
    *       information, see <a>howitworks-datasets-groups</a>.</p>
    */
   Domain: Domain | string | undefined;
-
-  /**
-   * <p>An array of Amazon Resource Names (ARNs) of the datasets that you want to include in the
-   *       dataset group.</p>
-   */
-  DatasetArns?: string[];
 
   /**
    * <p>The optional metadata that you apply to the dataset group to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -389,6 +389,11 @@ export namespace ResourceNotFoundException {
  */
 export interface S3Config {
   /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</p>
+   */
+  KMSKeyArn?: string;
+
+  /**
    * <p>The path to an Amazon Simple Storage Service (Amazon S3) bucket or file(s) in an Amazon S3 bucket.</p>
    */
   Path: string | undefined;
@@ -401,11 +406,6 @@ export interface S3Config {
    *       account, you get an <code>InvalidInputException</code> error.</p>
    */
   RoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Key Management Service (KMS) key.</p>
-   */
-  KMSKeyArn?: string;
 }
 
 export namespace S3Config {
@@ -435,17 +435,17 @@ export namespace DataSource {
 
 export interface CreateDatasetImportJobRequest {
   /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Forecast dataset that you want to import data
+   *       to.</p>
+   */
+  DatasetArn: string | undefined;
+
+  /**
    * <p>The name for the dataset import job. We recommend including the current timestamp in the
    *       name, for example, <code>20190721DatasetImport</code>. This can help you avoid getting a
    *         <code>ResourceAlreadyExistsException</code> exception.</p>
    */
   DatasetImportJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Forecast dataset that you want to import data
-   *       to.</p>
-   */
-  DatasetArn: string | undefined;
 
   /**
    * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
@@ -456,28 +456,6 @@ export interface CreateDatasetImportJobRequest {
    */
   DataSource: DataSource | undefined;
 
-  /**
-   * <p>The format of timestamps in the dataset. The format that you specify depends on the
-   *         <code>DataFrequency</code> specified when the dataset was created. The following formats are
-   *       supported</p>
-   *          <ul>
-   *             <li>
-   *                <p>"yyyy-MM-dd"</p>
-   *                <p>For the following data frequencies: Y, M, W, and D</p>
-   *             </li>
-   *             <li>
-   *                <p>"yyyy-MM-dd HH:mm:ss"</p>
-   *                <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y,
-   *           M, W, and D</p>
-   *             </li>
-   *          </ul>
-   *          <p>If the format isn't specified, Amazon Forecast expects the format to be "yyyy-MM-dd
-   *       HH:mm:ss".</p>
-   */
-  TimestampFormat?: string;
-
-  TimeZone?: string;
-  UseGeolocationForTimeZone?: boolean;
   GeolocationFormat?: string;
   /**
    * <p>The optional metadata that you apply to the dataset import job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -507,6 +485,29 @@ export interface CreateDatasetImportJobRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The format of timestamps in the dataset. The format that you specify depends on the
+   *         <code>DataFrequency</code> specified when the dataset was created. The following formats are
+   *       supported</p>
+   *          <ul>
+   *             <li>
+   *                <p>"yyyy-MM-dd"</p>
+   *                <p>For the following data frequencies: Y, M, W, and D</p>
+   *             </li>
+   *             <li>
+   *                <p>"yyyy-MM-dd HH:mm:ss"</p>
+   *                <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y,
+   *           M, W, and D</p>
+   *             </li>
+   *          </ul>
+   *          <p>If the format isn't specified, Amazon Forecast expects the format to be "yyyy-MM-dd
+   *       HH:mm:ss".</p>
+   */
+  TimestampFormat?: string;
+
+  TimeZone?: string;
+  UseGeolocationForTimeZone?: boolean;
 }
 
 export namespace CreateDatasetImportJobRequest {
@@ -536,11 +537,6 @@ export interface CreateForecastRequest {
   ForecastName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the predictor to use to generate the forecast.</p>
-   */
-  PredictorArn: string | undefined;
-
-  /**
    * <p>The quantiles at which probabilistic forecasts are generated. <b>You
    *         can currently specify up to 5 quantiles per forecast</b>. Accepted values include
    *         <code>0.01 to 0.99</code> (increments of .01 only) and <code>mean</code>. The mean forecast
@@ -548,6 +544,11 @@ export interface CreateForecastRequest {
    *       and Negative Binomial). The default value is <code>["0.1", "0.5", "0.9"]</code>.</p>
    */
   ForecastTypes?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor to use to generate the forecast.</p>
+   */
+  PredictorArn: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the forecast to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -619,16 +620,6 @@ export namespace DataDestination {
 
 export interface CreateForecastExportJobRequest {
   /**
-   * <p>The name for the forecast export job.</p>
-   */
-  ForecastExportJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the forecast that you want to export.</p>
-   */
-  ForecastArn: string | undefined;
-
-  /**
    * <p>The location where you want to save the forecast and an AWS Identity and Access Management (IAM) role that
    *       Amazon Forecast can assume to access the location. The forecast must be exported to an Amazon S3
    *       bucket.</p>
@@ -636,6 +627,16 @@ export interface CreateForecastExportJobRequest {
    *       IAM role must allow Amazon Forecast permission to access the key.</p>
    */
   Destination: DataDestination | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the forecast that you want to export.</p>
+   */
+  ForecastArn: string | undefined;
+
+  /**
+   * <p>The name for the forecast export job.</p>
+   */
+  ForecastExportJobName: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the forecast export job to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -694,12 +695,6 @@ export namespace CreateForecastExportJobResponse {
  */
 export interface EvaluationParameters {
   /**
-   * <p>The number of times to split the input data. The default is 1. Valid values are 1 through
-   *       5.</p>
-   */
-  NumberOfBacktestWindows?: number;
-
-  /**
    * <p>The point from the end of the dataset where you want to split the data for model training
    *       and testing (evaluation). Specify the value as the number of data points. The default is the
    *       value of the forecast horizon. <code>BackTestWindowOffset</code> can be used to mimic a past
@@ -710,6 +705,12 @@ export interface EvaluationParameters {
    *       TARGET_TIME_SERIES dataset length</p>
    */
   BackTestWindowOffset?: number;
+
+  /**
+   * <p>The number of times to split the input data. The default is 1. Valid values are 1 through
+   *       5.</p>
+   */
+  NumberOfBacktestWindows?: number;
 }
 
 export namespace EvaluationParameters {
@@ -872,16 +873,9 @@ export namespace Featurization {
  */
 export interface FeaturizationConfig {
   /**
-   * <p>The frequency of predictions in a forecast.</p>
-   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
-   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
-   *       For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
-   *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
-   *       frequency.</p>
-   *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
-   *       RELATED_TIME_SERIES dataset frequency.</p>
+   * <p>An array of featurization (transformation) information for the fields of a dataset.</p>
    */
-  ForecastFrequency: string | undefined;
+  Featurizations?: Featurization[];
 
   /**
    * <p>An array of dimension (field) names that specify how to group the generated forecast.</p>
@@ -896,9 +890,16 @@ export interface FeaturizationConfig {
   ForecastDimensions?: string[];
 
   /**
-   * <p>An array of featurization (transformation) information for the fields of a dataset.</p>
+   * <p>The frequency of predictions in a forecast.</p>
+   *          <p>Valid intervals are Y (Year), M (Month), W (Week), D (Day), H (Hour), 30min (30 minutes),
+   *       15min (15 minutes), 10min (10 minutes), 5min (5 minutes), and 1min (1 minute).
+   *       For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
+   *          <p>The frequency must be greater than or equal to the TARGET_TIME_SERIES dataset
+   *       frequency.</p>
+   *          <p>When a RELATED_TIME_SERIES dataset is provided, the frequency must be equal to the
+   *       RELATED_TIME_SERIES dataset frequency.</p>
    */
-  Featurizations?: Featurization[];
+  ForecastFrequency: string | undefined;
 }
 
 export namespace FeaturizationConfig {
@@ -942,11 +943,6 @@ export enum ScalingType {
  */
 export interface ContinuousParameterRange {
   /**
-   * <p>The name of the hyperparameter to tune.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The maximum tunable value of the hyperparameter.</p>
    */
   MaxValue: number | undefined;
@@ -955,6 +951,11 @@ export interface ContinuousParameterRange {
    * <p>The minimum tunable value of the hyperparameter.</p>
    */
   MinValue: number | undefined;
+
+  /**
+   * <p>The name of the hyperparameter to tune.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range.
@@ -1002,11 +1003,6 @@ export namespace ContinuousParameterRange {
  */
 export interface IntegerParameterRange {
   /**
-   * <p>The name of the hyperparameter to tune.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The maximum tunable value of the hyperparameter.</p>
    */
   MaxValue: number | undefined;
@@ -1015,6 +1011,11 @@ export interface IntegerParameterRange {
    * <p>The minimum tunable value of the hyperparameter.</p>
    */
   MinValue: number | undefined;
+
+  /**
+   * <p>The name of the hyperparameter to tune.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range.
@@ -1358,11 +1359,6 @@ export namespace InputDataConfig {
 
 export interface CreatePredictorRequest {
   /**
-   * <p>A name for the predictor.</p>
-   */
-  PredictorName: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the algorithm to use for model training. Required if
    *         <code>PerformAutoML</code> is not set to <code>true</code>.</p>
    *          <p class="title">
@@ -1404,6 +1400,24 @@ export interface CreatePredictorRequest {
   AlgorithmArn?: string;
 
   /**
+   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
+   *       evaluates a predictor by splitting a dataset into training data and testing data. The
+   *       evaluation parameters define how to perform the split and the number of iterations.</p>
+   */
+  EvaluationParameters?: EvaluationParameters;
+
+  /**
+   * <p>The featurization configuration.</p>
+   */
+  FeaturizationConfig: FeaturizationConfig | undefined;
+
+  /**
    * <p>Specifies the number of time-steps that the model is trained to predict. The forecast
    *       horizon is also called the prediction length.</p>
    *          <p>For example, if you configure a dataset for daily data collection (using the
@@ -1422,6 +1436,20 @@ export interface CreatePredictorRequest {
    *          <p>The default value is <code>["0.10", "0.50", "0.9"]</code>.</p>
    */
   ForecastTypes?: string[];
+
+  /**
+   * <p>Provides hyperparameter override values for the algorithm. If you don't provide this
+   *       parameter, Amazon Forecast uses default values. The individual algorithms specify which
+   *       hyperparameters support hyperparameter optimization (HPO). For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
+   *          <p>If you included the <code>HPOConfig</code> object, you must set <code>PerformHPO</code> to
+   *       true.</p>
+   */
+  HPOConfig?: HyperParameterTuningJobConfig;
+
+  /**
+   * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
 
   /**
    * <p>Whether to perform AutoML. When Amazon Forecast performs AutoML, it evaluates the algorithms it
@@ -1458,43 +1486,9 @@ export interface CreatePredictorRequest {
   PerformHPO?: boolean;
 
   /**
-   * <p>The hyperparameters to override for model training. The hyperparameters that you can
-   *       override are listed in the individual algorithms. For the list of supported algorithms, see
-   *         <a>aws-forecast-choosing-recipes</a>.</p>
+   * <p>A name for the predictor.</p>
    */
-  TrainingParameters?: { [key: string]: string };
-
-  /**
-   * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
-   *       evaluates a predictor by splitting a dataset into training data and testing data. The
-   *       evaluation parameters define how to perform the split and the number of iterations.</p>
-   */
-  EvaluationParameters?: EvaluationParameters;
-
-  /**
-   * <p>Provides hyperparameter override values for the algorithm. If you don't provide this
-   *       parameter, Amazon Forecast uses default values. The individual algorithms specify which
-   *       hyperparameters support hyperparameter optimization (HPO). For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
-   *          <p>If you included the <code>HPOConfig</code> object, you must set <code>PerformHPO</code> to
-   *       true.</p>
-   */
-  HPOConfig?: HyperParameterTuningJobConfig;
-
-  /**
-   * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
-   * <p>The featurization configuration.</p>
-   */
-  FeaturizationConfig: FeaturizationConfig | undefined;
-
-  /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
-   */
-  EncryptionConfig?: EncryptionConfig;
+  PredictorName: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the predictor to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -1524,6 +1518,13 @@ export interface CreatePredictorRequest {
    *          </ul>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The hyperparameters to override for model training. The hyperparameters that you can
+   *       override are listed in the individual algorithms. For the list of supported algorithms, see
+   *         <a>aws-forecast-choosing-recipes</a>.</p>
+   */
+  TrainingParameters?: { [key: string]: string };
 }
 
 export namespace CreatePredictorRequest {
@@ -1548,9 +1549,10 @@ export namespace CreatePredictorResponse {
 
 export interface CreatePredictorBacktestExportJobRequest {
   /**
-   * <p>The name for the backtest export job.</p>
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
    */
-  PredictorBacktestExportJobName: string | undefined;
+  Destination: DataDestination | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor that you want to export.</p>
@@ -1558,10 +1560,9 @@ export interface CreatePredictorBacktestExportJobRequest {
   PredictorArn: string | undefined;
 
   /**
-   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
+   * <p>The name for the backtest export job.</p>
    */
-  Destination: DataDestination | undefined;
+  PredictorBacktestExportJobName: string | undefined;
 
   /**
    * <p>Optional metadata to help you categorize and organize your backtests. Each tag consists
@@ -1727,24 +1728,9 @@ export namespace DescribeDatasetRequest {
 
 export interface DescribeDatasetResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * <p>When the dataset was created.</p>
    */
-  DatasetArn?: string;
-
-  /**
-   * <p>The name of the dataset.</p>
-   */
-  DatasetName?: string;
-
-  /**
-   * <p>The domain associated with the dataset.</p>
-   */
-  Domain?: Domain | string;
-
-  /**
-   * <p>The dataset type.</p>
-   */
-  DatasetType?: DatasetType | string;
+  CreationTime?: Date;
 
   /**
    * <p>The frequency of data collection.</p>
@@ -1755,16 +1741,45 @@ export interface DescribeDatasetResponse {
   DataFrequency?: string;
 
   /**
-   * <p>An array of <code>SchemaAttribute</code> objects that specify the dataset fields. Each
-   *         <code>SchemaAttribute</code> specifies the name and data type of a field.</p>
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
-  Schema?: Schema;
+  DatasetArn?: string;
+
+  /**
+   * <p>The name of the dataset.</p>
+   */
+  DatasetName?: string;
+
+  /**
+   * <p>The dataset type.</p>
+   */
+  DatasetType?: DatasetType | string;
+
+  /**
+   * <p>The domain associated with the dataset.</p>
+   */
+  Domain?: Domain | string;
 
   /**
    * <p>The AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    */
   EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
+   *         <code>CreationTime</code>. While data is being imported to the dataset,
+   *         <code>LastModificationTime</code> is the current time of the <code>DescribeDataset</code>
+   *       call. After a <a>CreateDatasetImportJob</a> operation has finished,
+   *         <code>LastModificationTime</code> is when the import job completed or failed.</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>An array of <code>SchemaAttribute</code> objects that specify the dataset fields. Each
+   *         <code>SchemaAttribute</code> specifies the name and data type of a field.</p>
+   */
+  Schema?: Schema;
 
   /**
    * <p>The status of the dataset. States include:</p>
@@ -1803,20 +1818,6 @@ export interface DescribeDatasetResponse {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>When the dataset was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
-   *         <code>CreationTime</code>. While data is being imported to the dataset,
-   *         <code>LastModificationTime</code> is the current time of the <code>DescribeDataset</code>
-   *       call. After a <a>CreateDatasetImportJob</a> operation has finished,
-   *         <code>LastModificationTime</code> is when the import job completed or failed.</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace DescribeDatasetResponse {
@@ -1840,14 +1841,9 @@ export namespace DescribeDatasetGroupRequest {
 
 export interface DescribeDatasetGroupResponse {
   /**
-   * <p>The name of the dataset group.</p>
+   * <p>When the dataset group was created.</p>
    */
-  DatasetGroupName?: string;
-
-  /**
-   * <p>The ARN of the dataset group.</p>
-   */
-  DatasetGroupArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) of the datasets contained in the dataset
@@ -1856,9 +1852,26 @@ export interface DescribeDatasetGroupResponse {
   DatasetArns?: string[];
 
   /**
+   * <p>The ARN of the dataset group.</p>
+   */
+  DatasetGroupArn?: string;
+
+  /**
+   * <p>The name of the dataset group.</p>
+   */
+  DatasetGroupName?: string;
+
+  /**
    * <p>The domain associated with the dataset group.</p>
    */
   Domain?: Domain | string;
+
+  /**
+   * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
+   *         <code>LastModificationTime</code> is the current time of the
+   *         <code>DescribeDatasetGroup</code> call.</p>
+   */
+  LastModificationTime?: Date;
 
   /**
    * <p>The status of the dataset group. States include:</p>
@@ -1894,18 +1907,6 @@ export interface DescribeDatasetGroupResponse {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>When the dataset group was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
-   *         <code>LastModificationTime</code> is the current time of the
-   *         <code>DescribeDatasetGroup</code> call.</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace DescribeDatasetGroupResponse {
@@ -1933,6 +1934,11 @@ export namespace DescribeDatasetImportJobRequest {
  */
 export interface Statistics {
   /**
+   * <p>For a numeric field, the average value in the field.</p>
+   */
+  Avg?: number;
+
+  /**
    * <p>The number of values in the field.</p>
    */
   Count?: number;
@@ -1943,19 +1949,14 @@ export interface Statistics {
   CountDistinct?: number;
 
   /**
-   * <p>The number of null values in the field.</p>
-   */
-  CountNull?: number;
-
-  /**
    * <p>The number of NAN (not a number) values in the field.</p>
    */
   CountNan?: number;
 
   /**
-   * <p>For a numeric field, the minimum value in the field.</p>
+   * <p>The number of null values in the field.</p>
    */
-  Min?: string;
+  CountNull?: number;
 
   /**
    * <p>For a numeric field, the maximum value in the field.</p>
@@ -1963,9 +1964,9 @@ export interface Statistics {
   Max?: string;
 
   /**
-   * <p>For a numeric field, the average value in the field.</p>
+   * <p>For a numeric field, the minimum value in the field.</p>
    */
-  Avg?: number;
+  Min?: string;
 
   /**
    * <p>For a numeric field, the standard deviation.</p>
@@ -1981,14 +1982,9 @@ export namespace Statistics {
 
 export interface DescribeDatasetImportJobResponse {
   /**
-   * <p>The name of the dataset import job.</p>
+   * <p>When the dataset import job was created.</p>
    */
-  DatasetImportJobName?: string;
-
-  /**
-   * <p>The ARN of the dataset import job.</p>
-   */
-  DatasetImportJobArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset that the training data was imported
@@ -1997,26 +1993,20 @@ export interface DescribeDatasetImportJobResponse {
   DatasetArn?: string;
 
   /**
-   * <p>The format of timestamps in the dataset. The format that you specify depends on the
-   *         <code>DataFrequency</code> specified when the dataset was created. The following formats are
-   *       supported</p>
-   *          <ul>
-   *             <li>
-   *                <p>"yyyy-MM-dd"</p>
-   *                <p>For the following data frequencies: Y, M, W, and D</p>
-   *             </li>
-   *             <li>
-   *                <p>"yyyy-MM-dd HH:mm:ss"</p>
-   *                <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y,
-   *           M, W, and D</p>
-   *             </li>
-   *          </ul>
+   * <p>The ARN of the dataset import job.</p>
    */
-  TimestampFormat?: string;
+  DatasetImportJobArn?: string;
 
-  TimeZone?: string;
-  UseGeolocationForTimeZone?: boolean;
-  GeolocationFormat?: string;
+  /**
+   * <p>The name of the dataset import job.</p>
+   */
+  DatasetImportJobName?: string;
+
+  /**
+   * <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
+   */
+  DataSize?: number;
+
   /**
    * <p>The location of the training data to import and an AWS Identity and Access Management (IAM) role that Amazon Forecast
    *       can assume to access the data.</p>
@@ -2029,10 +2019,32 @@ export interface DescribeDatasetImportJobResponse {
    */
   FieldStatistics?: { [key: string]: Statistics };
 
+  GeolocationFormat?: string;
   /**
-   * <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
+   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
+   *       follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
    */
-  DataSize?: number;
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
 
   /**
    * <p>The status of the dataset import job. The status is reflected in the status of the
@@ -2061,35 +2073,25 @@ export interface DescribeDatasetImportJobResponse {
   Status?: string;
 
   /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the dataset import job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
-   *       follows:</p>
+   * <p>The format of timestamps in the dataset. The format that you specify depends on the
+   *         <code>DataFrequency</code> specified when the dataset was created. The following formats are
+   *       supported</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
+   *                <p>"yyyy-MM-dd"</p>
+   *                <p>For the following data frequencies: Y, M, W, and D</p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
-   *           failed.</p>
+   *                <p>"yyyy-MM-dd HH:mm:ss"</p>
+   *                <p>For the following data frequencies: H, 30min, 15min, and 1min; and optionally, for: Y,
+   *           M, W, and D</p>
    *             </li>
    *          </ul>
    */
-  LastModificationTime?: Date;
+  TimestampFormat?: string;
+
+  TimeZone?: string;
+  UseGeolocationForTimeZone?: boolean;
 }
 
 export namespace DescribeDatasetImportJobResponse {
@@ -2113,6 +2115,16 @@ export namespace DescribeForecastRequest {
 
 export interface DescribeForecastResponse {
   /**
+   * <p>When the forecast creation task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
+   */
+  DatasetGroupArn?: string;
+
+  /**
    * <p>The forecast ARN as specified in the request.</p>
    */
   ForecastArn?: string;
@@ -2128,14 +2140,22 @@ export interface DescribeForecastResponse {
   ForecastTypes?: string[];
 
   /**
+   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
+   *       Updated when inference (creating the forecast) starts (status changed to
+   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
+   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>The ARN of the predictor used to generate the forecast.</p>
    */
   PredictorArn?: string;
-
-  /**
-   * <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
-   */
-  DatasetGroupArn?: string;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -2164,24 +2184,6 @@ export interface DescribeForecastResponse {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the forecast creation task was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when inference (creating the forecast) starts (status changed to
-   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
-   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace DescribeForecastResponse {
@@ -2205,6 +2207,21 @@ export namespace DescribeForecastExportJobRequest {
 
 export interface DescribeForecastExportJobResponse {
   /**
+   * <p>When the forecast export job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the exported forecast.</p>
+   */
+  ForecastArn?: string;
+
+  /**
    * <p>The ARN of the forecast export job.</p>
    */
   ForecastExportJobArn?: string;
@@ -2215,14 +2232,9 @@ export interface DescribeForecastExportJobResponse {
   ForecastExportJobName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the exported forecast.</p>
+   * <p>When the last successful export job finished.</p>
    */
-  ForecastArn?: string;
-
-  /**
-   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
-   */
-  Destination?: DataDestination;
+  LastModificationTime?: Date;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
@@ -2256,16 +2268,6 @@ export interface DescribeForecastExportJobResponse {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>When the forecast export job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When the last successful export job finished.</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace DescribeForecastExportJobResponse {
@@ -2293,14 +2295,9 @@ export namespace DescribePredictorRequest {
  */
 export interface TestWindowSummary {
   /**
-   * <p>The time at which the test began.</p>
+   * <p>If the test failed, the reason why it failed.</p>
    */
-  TestWindowStart?: Date;
-
-  /**
-   * <p>The time at which the test ended.</p>
-   */
-  TestWindowEnd?: Date;
+  Message?: string;
 
   /**
    * <p>The status of the test. Possible status values are:</p>
@@ -2325,9 +2322,14 @@ export interface TestWindowSummary {
   Status?: string;
 
   /**
-   * <p>If the test failed, the reason why it failed.</p>
+   * <p>The time at which the test ended.</p>
    */
-  Message?: string;
+  TestWindowEnd?: Date;
+
+  /**
+   * <p>The time at which the test began.</p>
+   */
+  TestWindowStart?: Date;
 }
 
 export namespace TestWindowSummary {
@@ -2381,19 +2383,43 @@ export namespace PredictorExecutionDetails {
 
 export interface DescribePredictorResponse {
   /**
-   * <p>The ARN of the predictor.</p>
-   */
-  PredictorArn?: string;
-
-  /**
-   * <p>The name of the predictor.</p>
-   */
-  PredictorName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
    */
   AlgorithmArn?: string;
+
+  /**
+   * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
+   */
+  AutoMLAlgorithmArns?: string[];
+
+  /**
+   * <p>When the model training task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>An array of the ARNs of the dataset import jobs used to import training data for the
+   *       predictor.</p>
+   */
+  DatasetImportJobArns?: string[];
+
+  /**
+   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
+   *       the key.</p>
+   */
+  EncryptionConfig?: EncryptionConfig;
+
+  /**
+   * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
+   *       evaluates a predictor by splitting a dataset into training data and testing data. The
+   *       evaluation parameters define how to perform the split and the number of iterations.</p>
+   */
+  EvaluationParameters?: EvaluationParameters;
+
+  /**
+   * <p>The featurization configuration.</p>
+   */
+  FeaturizationConfig?: FeaturizationConfig;
 
   /**
    * <p>The number of time-steps of the forecast. The forecast horizon is also called the
@@ -2408,30 +2434,6 @@ export interface DescribePredictorResponse {
   ForecastTypes?: string[];
 
   /**
-   * <p>Whether the predictor is set to perform AutoML.</p>
-   */
-  PerformAutoML?: boolean;
-
-  /**
-   * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
-   */
-  PerformHPO?: boolean;
-
-  /**
-   * <p>The default training parameters or overrides selected during model training. When running
-   *       AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen
-   *       hyperparameters are returned. For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
-   */
-  TrainingParameters?: { [key: string]: string };
-
-  /**
-   * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
-   *       evaluates a predictor by splitting a dataset into training data and testing data. The
-   *       evaluation parameters define how to perform the split and the number of iterations.</p>
-   */
-  EvaluationParameters?: EvaluationParameters;
-
-  /**
    * <p>The hyperparameter override values for the algorithm.</p>
    */
   HPOConfig?: HyperParameterTuningJobConfig;
@@ -2442,15 +2444,33 @@ export interface DescribePredictorResponse {
   InputDataConfig?: InputDataConfig;
 
   /**
-   * <p>The featurization configuration.</p>
+   * <p>Initially, the same as <code>CreationTime</code> (when the status is
+   *         <code>CREATE_PENDING</code>). This value is updated when training starts (when the status
+   *       changes to <code>CREATE_IN_PROGRESS</code>), and when training has completed (when the status
+   *       changes to <code>ACTIVE</code>) or fails (when the status changes to
+   *         <code>CREATE_FAILED</code>).</p>
    */
-  FeaturizationConfig?: FeaturizationConfig;
+  LastModificationTime?: Date;
 
   /**
-   * <p>An AWS Key Management Service (KMS) key and the AWS Identity and Access Management (IAM) role that Amazon Forecast can assume to access
-   *       the key.</p>
+   * <p>If an error occurred, an informational message about the error.</p>
    */
-  EncryptionConfig?: EncryptionConfig;
+  Message?: string;
+
+  /**
+   * <p>Whether the predictor is set to perform AutoML.</p>
+   */
+  PerformAutoML?: boolean;
+
+  /**
+   * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
+   */
+  PerformHPO?: boolean;
+
+  /**
+   * <p>The ARN of the predictor.</p>
+   */
+  PredictorArn?: string;
 
   /**
    * <p>Details on the the status and results of the backtests performed to evaluate the accuracy
@@ -2459,15 +2479,9 @@ export interface DescribePredictorResponse {
   PredictorExecutionDetails?: PredictorExecutionDetails;
 
   /**
-   * <p>An array of the ARNs of the dataset import jobs used to import training data for the
-   *       predictor.</p>
+   * <p>The name of the predictor.</p>
    */
-  DatasetImportJobArns?: string[];
-
-  /**
-   * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
-   */
-  AutoMLAlgorithmArns?: string[];
+  PredictorName?: string;
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -2504,23 +2518,11 @@ export interface DescribePredictorResponse {
   Status?: string;
 
   /**
-   * <p>If an error occurred, an informational message about the error.</p>
+   * <p>The default training parameters or overrides selected during model training. When running
+   *       AutoML or choosing HPO with CNN-QR or DeepAR+, the optimized values for the chosen
+   *       hyperparameters are returned. For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
    */
-  Message?: string;
-
-  /**
-   * <p>When the model training task was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (when the status is
-   *         <code>CREATE_PENDING</code>). This value is updated when training starts (when the status
-   *       changes to <code>CREATE_IN_PROGRESS</code>), and when training has completed (when the status
-   *       changes to <code>ACTIVE</code>) or fails (when the status changes to
-   *         <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
+  TrainingParameters?: { [key: string]: string };
 }
 
 export namespace DescribePredictorResponse {
@@ -2544,19 +2546,9 @@ export namespace DescribePredictorBacktestExportJobRequest {
 
 export interface DescribePredictorBacktestExportJobResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
+   * <p>When the predictor backtest export job was created.</p>
    */
-  PredictorBacktestExportJobArn?: string;
-
-  /**
-   * <p>The name of the predictor backtest export job.</p>
-   */
-  PredictorBacktestExportJobName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the predictor.</p>
-   */
-  PredictorArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
@@ -2565,9 +2557,29 @@ export interface DescribePredictorBacktestExportJobResponse {
   Destination?: DataDestination;
 
   /**
+   * <p>When the last successful export job finished.</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
    * <p>Information about any errors that may have occurred during the backtest export.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor.</p>
+   */
+  PredictorArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobArn?: string;
+
+  /**
+   * <p>The name of the predictor backtest export job.</p>
+   */
+  PredictorBacktestExportJobName?: string;
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
@@ -2610,16 +2622,6 @@ export interface DescribePredictorBacktestExportJobResponse {
    *          </ul>
    */
   Status?: string;
-
-  /**
-   * <p>When the predictor backtest export job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When the last successful export job finished.</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace DescribePredictorBacktestExportJobResponse {
@@ -2662,17 +2664,17 @@ export interface ErrorMetric {
 
   /**
    * <p>
-   *       The weighted absolute percentage error (WAPE).
-   *     </p>
-   */
-  WAPE?: number;
-
-  /**
-   * <p>
    *       The root-mean-square error (RMSE).
    *     </p>
    */
   RMSE?: number;
+
+  /**
+   * <p>
+   *       The weighted absolute percentage error (WAPE).
+   *     </p>
+   */
+  WAPE?: number;
 }
 
 export namespace ErrorMetric {
@@ -2687,17 +2689,17 @@ export namespace ErrorMetric {
  */
 export interface WeightedQuantileLoss {
   /**
+   * <p>The difference between the predicted value and the actual value over the quantile,
+   *       weighted (normalized) by dividing by the sum over all quantiles.</p>
+   */
+  LossValue?: number;
+
+  /**
    * <p>The quantile. Quantiles divide a probability distribution into regions of equal
    *       probability. For example, if the distribution was divided into 5 regions of equal
    *       probability, the quantiles would be 0.2, 0.4, 0.6, and 0.8.</p>
    */
   Quantile?: number;
-
-  /**
-   * <p>The difference between the predicted value and the actual value over the quantile,
-   *       weighted (normalized) by dividing by the sum over all quantiles.</p>
-   */
-  LossValue?: number;
 }
 
 export namespace WeightedQuantileLoss {
@@ -2712,6 +2714,14 @@ export namespace WeightedQuantileLoss {
  */
 export interface Metrics {
   /**
+   * <p>
+   *       Provides detailed error metrics on forecast type, root-mean square-error (RMSE), and weighted
+   *       average percentage error (WAPE).
+   *     </p>
+   */
+  ErrorMetrics?: ErrorMetric[];
+
+  /**
    * <p>The root-mean-square error (RMSE).</p>
    */
   RMSE?: number;
@@ -2721,14 +2731,6 @@ export interface Metrics {
    *       regions of equal probability. The distribution in this case is the loss function.</p>
    */
   WeightedQuantileLosses?: WeightedQuantileLoss[];
-
-  /**
-   * <p>
-   *       Provides detailed error metrics on forecast type, root-mean square-error (RMSE), and weighted
-   *       average percentage error (WAPE).
-   *     </p>
-   */
-  ErrorMetrics?: ErrorMetric[];
 }
 
 export namespace Metrics {
@@ -2746,21 +2748,6 @@ export namespace Metrics {
  */
 export interface WindowSummary {
   /**
-   * <p>The timestamp that defines the start of the window.</p>
-   */
-  TestWindowStart?: Date;
-
-  /**
-   * <p>The timestamp that defines the end of the window.</p>
-   */
-  TestWindowEnd?: Date;
-
-  /**
-   * <p>The number of data points within the window.</p>
-   */
-  ItemCount?: number;
-
-  /**
    * <p>The type of evaluation.</p>
    *          <ul>
    *             <li>
@@ -2776,9 +2763,24 @@ export interface WindowSummary {
   EvaluationType?: EvaluationType | string;
 
   /**
+   * <p>The number of data points within the window.</p>
+   */
+  ItemCount?: number;
+
+  /**
    * <p>Provides metrics used to evaluate the performance of a predictor.</p>
    */
   Metrics?: Metrics;
+
+  /**
+   * <p>The timestamp that defines the end of the window.</p>
+   */
+  TestWindowEnd?: Date;
+
+  /**
+   * <p>The timestamp that defines the start of the window.</p>
+   */
+  TestWindowStart?: Date;
 }
 
 export namespace WindowSummary {
@@ -2841,16 +2843,16 @@ export namespace InvalidNextTokenException {
 
 export interface ListDatasetGroupsRequest {
   /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListDatasetGroupsRequest {
@@ -2866,6 +2868,11 @@ export namespace ListDatasetGroupsRequest {
  */
 export interface DatasetGroupSummary {
   /**
+   * <p>When the dataset group was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    */
   DatasetGroupArn?: string;
@@ -2874,11 +2881,6 @@ export interface DatasetGroupSummary {
    * <p>The name of the dataset group.</p>
    */
   DatasetGroupName?: string;
-
-  /**
-   * <p>When the dataset group was created.</p>
-   */
-  CreationTime?: Date;
 
   /**
    * <p>When the dataset group was created or last updated from a call to the <a>UpdateDatasetGroup</a> operation. While the dataset group is being updated,
@@ -2927,6 +2929,12 @@ export enum FilterConditionString {
  */
 export interface Filter {
   /**
+   * <p>The condition to apply. To include the objects that match the statement, specify
+   *       <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
+   */
+  Condition: FilterConditionString | string | undefined;
+
+  /**
    * <p>The name of the parameter to filter on.</p>
    */
   Key: string | undefined;
@@ -2935,12 +2943,6 @@ export interface Filter {
    * <p>The value to match.</p>
    */
   Value: string | undefined;
-
-  /**
-   * <p>The condition to apply. To include the objects that match the statement, specify
-   *       <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
-   */
-  Condition: FilterConditionString | string | undefined;
 }
 
 export namespace Filter {
@@ -2950,18 +2952,6 @@ export namespace Filter {
 }
 
 export interface ListDatasetImportJobsRequest {
-  /**
-   * <p>If the result of the previous request was truncated, the response includes a
-   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
-   *       request. Tokens expire after 24 hours.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -2995,6 +2985,18 @@ export interface ListDatasetImportJobsRequest {
    *          </p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDatasetImportJobsRequest {
@@ -3009,6 +3011,11 @@ export namespace ListDatasetImportJobsRequest {
  *         <code>DatasetImportJobArn</code>.</p>
  */
 export interface DatasetImportJobSummary {
+  /**
+   * <p>When the dataset import job was created.</p>
+   */
+  CreationTime?: Date;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    */
@@ -3025,6 +3032,32 @@ export interface DatasetImportJobSummary {
    *          <p>If encryption is used, <code>DataSource</code> includes an AWS Key Management Service (KMS) key.</p>
    */
   DataSource?: DataSource;
+
+  /**
+   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
+   *       follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
+   *           failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
 
   /**
    * <p>The status of the dataset import job. The status is reflected in the status of the
@@ -3051,37 +3084,6 @@ export interface DatasetImportJobSummary {
    *          </ul>
    */
   Status?: string;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the dataset import job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The last time that the dataset was modified. The time depends on the status of the job, as
-   *       follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_PENDING</code> - The same time as <code>CreationTime</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATE_IN_PROGRESS</code> - The current timestamp.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code> or <code>CREATE_FAILED</code> - When the job finished or
-   *           failed.</p>
-   *             </li>
-   *          </ul>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace DatasetImportJobSummary {
@@ -3111,16 +3113,16 @@ export namespace ListDatasetImportJobsResponse {
 
 export interface ListDatasetsRequest {
   /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListDatasetsRequest {
@@ -3135,6 +3137,11 @@ export namespace ListDatasetsRequest {
  *       operation, and provide the <code>DatasetArn</code>.</p>
  */
 export interface DatasetSummary {
+  /**
+   * <p>When the dataset was created.</p>
+   */
+  CreationTime?: Date;
+
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    */
@@ -3154,11 +3161,6 @@ export interface DatasetSummary {
    * <p>The domain associated with the dataset.</p>
    */
   Domain?: Domain | string;
-
-  /**
-   * <p>When the dataset was created.</p>
-   */
-  CreationTime?: Date;
 
   /**
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
@@ -3197,18 +3199,6 @@ export namespace ListDatasetsResponse {
 
 export interface ListForecastExportJobsRequest {
   /**
-   * <p>If the result of the previous request was truncated, the response includes a
-   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
-   *       request. Tokens expire after 24 hours.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
    *       or exclude the forecast export jobs that match the statement from the list, respectively. The
@@ -3242,6 +3232,18 @@ export interface ListForecastExportJobsRequest {
    *          </p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListForecastExportJobsRequest {
@@ -3257,6 +3259,16 @@ export namespace ListForecastExportJobsRequest {
  */
 export interface ForecastExportJobSummary {
   /**
+   * <p>When the forecast export job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
+   */
+  Destination?: DataDestination;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
    */
   ForecastExportJobArn?: string;
@@ -3267,9 +3279,14 @@ export interface ForecastExportJobSummary {
   ForecastExportJobName?: string;
 
   /**
-   * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
+   * <p>When the last successful export job finished.</p>
    */
-  Destination?: DataDestination;
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
 
   /**
    * <p>The status of the forecast export job. States include:</p>
@@ -3298,21 +3315,6 @@ export interface ForecastExportJobSummary {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the forecast export job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When the last successful export job finished.</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace ForecastExportJobSummary {
@@ -3341,18 +3343,6 @@ export namespace ListForecastExportJobsResponse {
 }
 
 export interface ListForecastsRequest {
-  /**
-   * <p>If the result of the previous request was truncated, the response includes a
-   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
-   *       request. Tokens expire after 24 hours.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -3385,6 +3375,18 @@ export interface ListForecastsRequest {
    *          </p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListForecastsRequest {
@@ -3400,6 +3402,17 @@ export namespace ListForecastsRequest {
  */
 export interface ForecastSummary {
   /**
+   * <p>When the forecast creation task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train
+   *       the predictor.</p>
+   */
+  DatasetGroupArn?: string;
+
+  /**
    * <p>The ARN of the forecast.</p>
    */
   ForecastArn?: string;
@@ -3410,15 +3423,22 @@ export interface ForecastSummary {
   ForecastName?: string;
 
   /**
+   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
+   *       Updated when inference (creating the forecast) starts (status changed to
+   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
+   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>The ARN of the predictor used to generate the forecast.</p>
    */
   PredictorArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train
-   *       the predictor.</p>
-   */
-  DatasetGroupArn?: string;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -3447,24 +3467,6 @@ export interface ForecastSummary {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the forecast creation task was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when inference (creating the forecast) starts (status changed to
-   *         <code>CREATE_IN_PROGRESS</code>), and when inference is complete (status changed to
-   *         <code>ACTIVE</code>) or fails (status changed to <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace ForecastSummary {
@@ -3494,18 +3496,6 @@ export namespace ListForecastsResponse {
 
 export interface ListPredictorBacktestExportJobsRequest {
   /**
-   * <p>If the result of the previous request was truncated, the response includes a NextToken.
-   *             To retrieve the next set of results, use the token in the next request. Tokens expire after
-   *             24 hours.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>An array of filters. For each filter, provide a condition and a match statement. The
    *                 condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to
    *                 include or exclude the predictor backtest export jobs that match the statement from the
@@ -3533,6 +3523,18 @@ export interface ListPredictorBacktestExportJobsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a NextToken.
+   *             To retrieve the next set of results, use the token in the next request. Tokens expire after
+   *             24 hours.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListPredictorBacktestExportJobsRequest {
@@ -3548,6 +3550,27 @@ export namespace ListPredictorBacktestExportJobsRequest {
  */
 export interface PredictorBacktestExportJobSummary {
   /**
+   * <p>When the predictor backtest export job was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
+   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
+   */
+  Destination?: DataDestination;
+
+  /**
+   * <p>When the last successful export job finished.</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>Information about any errors that may have occurred during the backtest export.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
    */
   PredictorBacktestExportJobArn?: string;
@@ -3556,12 +3579,6 @@ export interface PredictorBacktestExportJobSummary {
    * <p>The name of the predictor backtest export job.</p>
    */
   PredictorBacktestExportJobName?: string;
-
-  /**
-   * <p>The destination for an export job, an AWS Identity and Access Management (IAM) role that allows Amazon Forecast
-   *       to access the location and, optionally, an AWS Key Management Service (KMS) key. </p>
-   */
-  Destination?: DataDestination;
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
@@ -3604,21 +3621,6 @@ export interface PredictorBacktestExportJobSummary {
    *          </ul>
    */
   Status?: string;
-
-  /**
-   * <p>Information about any errors that may have occurred during the backtest export.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the predictor backtest export job was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>When the last successful export job finished.</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace PredictorBacktestExportJobSummary {
@@ -3629,16 +3631,16 @@ export namespace PredictorBacktestExportJobSummary {
 
 export interface ListPredictorBacktestExportJobsResponse {
   /**
-   * <p>An array of objects that summarize the properties of each predictor backtest export
-   *             job.</p>
-   */
-  PredictorBacktestExportJobs?: PredictorBacktestExportJobSummary[];
-
-  /**
    * <p>Returns this token if the response is truncated. To retrieve the next
    *             set of results, use the token in the next request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of objects that summarize the properties of each predictor backtest export
+   *             job.</p>
+   */
+  PredictorBacktestExportJobs?: PredictorBacktestExportJobSummary[];
 }
 
 export namespace ListPredictorBacktestExportJobsResponse {
@@ -3648,18 +3650,6 @@ export namespace ListPredictorBacktestExportJobsResponse {
 }
 
 export interface ListPredictorsRequest {
-  /**
-   * <p>If the result of the previous request was truncated, the response includes a
-   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
-   *       request. Tokens expire after 24 hours.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
    *       condition is either <code>IS</code> or <code>IS_NOT</code>, which specifies whether to include
@@ -3692,6 +3682,18 @@ export interface ListPredictorsRequest {
    *          </p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the result of the previous request was truncated, the response includes a
+   *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
+   *       request. Tokens expire after 24 hours.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListPredictorsRequest {
@@ -3706,6 +3708,30 @@ export namespace ListPredictorsRequest {
  */
 export interface PredictorSummary {
   /**
+   * <p>When the model training task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the data used to train
+   *       the predictor.</p>
+   */
+  DatasetGroupArn?: string;
+
+  /**
+   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
+   *       Updated when training starts (status changed to <code>CREATE_IN_PROGRESS</code>), and when
+   *       training is complete (status changed to <code>ACTIVE</code>) or fails (status changed to
+   *         <code>CREATE_FAILED</code>).</p>
+   */
+  LastModificationTime?: Date;
+
+  /**
+   * <p>If an error occurred, an informational message about the error.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>The ARN of the predictor.</p>
    */
   PredictorArn?: string;
@@ -3714,12 +3740,6 @@ export interface PredictorSummary {
    * <p>The name of the predictor.</p>
    */
   PredictorName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset group that contains the data used to train
-   *       the predictor.</p>
-   */
-  DatasetGroupArn?: string;
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -3754,24 +3774,6 @@ export interface PredictorSummary {
    *          </note>
    */
   Status?: string;
-
-  /**
-   * <p>If an error occurred, an informational message about the error.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>When the model training task was created.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Initially, the same as <code>CreationTime</code> (status is <code>CREATE_PENDING</code>).
-   *       Updated when training starts (status changed to <code>CREATE_IN_PROGRESS</code>), and when
-   *       training is complete (status changed to <code>ACTIVE</code>) or fails (status changed to
-   *         <code>CREATE_FAILED</code>).</p>
-   */
-  LastModificationTime?: Date;
 }
 
 export namespace PredictorSummary {
@@ -3782,15 +3784,15 @@ export namespace PredictorSummary {
 
 export interface ListPredictorsResponse {
   /**
-   * <p>An array of objects that summarize each predictor's properties.</p>
-   */
-  Predictors?: PredictorSummary[];
-
-  /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of objects that summarize each predictor's properties.</p>
+   */
+  Predictors?: PredictorSummary[];
 }
 
 export namespace ListPredictorsResponse {
@@ -3906,15 +3908,15 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDatasetGroupRequest {
   /**
-   * <p>The ARN of the dataset group.</p>
-   */
-  DatasetGroupArn: string | undefined;
-
-  /**
    * <p>An array of the Amazon Resource Names (ARNs) of the datasets to add to the dataset
    *       group.</p>
    */
   DatasetArns: string[] | undefined;
+
+  /**
+   * <p>The ARN of the dataset group.</p>
+   */
+  DatasetGroupArn: string | undefined;
 }
 
 export namespace UpdateDatasetGroupRequest {

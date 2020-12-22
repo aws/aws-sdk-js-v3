@@ -8,9 +8,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "AccessPointAlreadyExists";
   $fault: "client";
+  AccessPointId: string | undefined;
   ErrorCode: string | undefined;
   Message?: string;
-  AccessPointId: string | undefined;
 }
 
 export namespace AccessPointAlreadyExists {
@@ -33,11 +33,6 @@ export enum LifeCycleState {
  */
 export interface PosixUser {
   /**
-   * <p>The POSIX user ID used for all file system operations using this access point.</p>
-   */
-  Uid: number | undefined;
-
-  /**
    * <p>The POSIX group ID used for all file system operations using this access point.</p>
    */
   Gid: number | undefined;
@@ -46,6 +41,11 @@ export interface PosixUser {
    * <p>Secondary POSIX group IDs used for all file system operations using this access point.</p>
    */
   SecondaryGids?: number[];
+
+  /**
+   * <p>The POSIX user ID used for all file system operations using this access point.</p>
+   */
+  Uid: number | undefined;
 }
 
 export namespace PosixUser {
@@ -67,14 +67,14 @@ export namespace PosixUser {
  */
 export interface CreationInfo {
   /**
-   * <p>Specifies the POSIX user ID to apply to the <code>RootDirectory</code>. Accepts values from 0 to 2^32 (4294967295).</p>
-   */
-  OwnerUid: number | undefined;
-
-  /**
    * <p>Specifies the POSIX group ID to apply to the <code>RootDirectory</code>. Accepts values from 0 to 2^32 (4294967295).</p>
    */
   OwnerGid: number | undefined;
+
+  /**
+   * <p>Specifies the POSIX user ID to apply to the <code>RootDirectory</code>. Accepts values from 0 to 2^32 (4294967295).</p>
+   */
+  OwnerUid: number | undefined;
 
   /**
    * <p>Specifies the POSIX permissions to apply to the <code>RootDirectory</code>, in the format of an octal number representing the file's mode bits.</p>
@@ -96,13 +96,6 @@ export namespace CreationInfo {
  */
 export interface RootDirectory {
   /**
-   * <p>Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
-   *        A path can have up to four subdirectories.
-   *     If the specified path does not exist, you are required to provide the <code>CreationInfo</code>.</p>
-   */
-  Path?: string;
-
-  /**
    * <p>(Optional) Specifies the POSIX IDs and permissions to apply to the access point's <code>RootDirectory</code>.
    *       If the <code>RootDirectory</code> > <code>Path</code> specified does not exist,
    *       EFS creates the root directory using the <code>CreationInfo</code> settings when a client connects to an access point.
@@ -114,6 +107,13 @@ export interface RootDirectory {
    *          </important>
    */
   CreationInfo?: CreationInfo;
+
+  /**
+   * <p>Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
+   *        A path can have up to four subdirectories.
+   *     If the specified path does not exist, you are required to provide the <code>CreationInfo</code>.</p>
+   */
+  Path?: string;
 }
 
 export namespace RootDirectory {
@@ -150,19 +150,9 @@ export namespace Tag {
  */
 export interface AccessPointDescription {
   /**
-   * <p>The opaque string specified in the request to ensure idempotent creation.</p>
+   * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
    */
-  ClientToken?: string;
-
-  /**
-   * <p>The name of the access point. This is the value of the <code>Name</code> tag.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The tags associated with the access point, presented as an array of Tag objects.</p>
-   */
-  Tags?: Tag[];
+  AccessPointArn?: string;
 
   /**
    * <p>The ID of the access point, assigned by Amazon EFS.</p>
@@ -170,14 +160,29 @@ export interface AccessPointDescription {
   AccessPointId?: string;
 
   /**
-   * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
+   * <p>The opaque string specified in the request to ensure idempotent creation.</p>
    */
-  AccessPointArn?: string;
+  ClientToken?: string;
 
   /**
    * <p>The ID of the EFS file system that the access point applies to.</p>
    */
   FileSystemId?: string;
+
+  /**
+   * <p>Identifies the lifecycle phase of the access point.</p>
+   */
+  LifeCycleState?: LifeCycleState | string;
+
+  /**
+   * <p>The name of the access point. This is the value of the <code>Name</code> tag.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Identified the AWS account that owns the access point resource.</p>
+   */
+  OwnerId?: string;
 
   /**
    * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by
@@ -191,14 +196,9 @@ export interface AccessPointDescription {
   RootDirectory?: RootDirectory;
 
   /**
-   * <p>Identified the AWS account that owns the access point resource.</p>
+   * <p>The tags associated with the access point, presented as an array of Tag objects.</p>
    */
-  OwnerId?: string;
-
-  /**
-   * <p>Identifies the lifecycle phase of the access point.</p>
-   */
-  LifeCycleState?: LifeCycleState | string;
+  Tags?: Tag[];
 }
 
 export namespace AccessPointDescription {
@@ -329,11 +329,6 @@ export interface CreateAccessPointRequest {
   ClientToken?: string;
 
   /**
-   * <p>Creates tags associated with the access point. Each tag is a key-value pair.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The ID of the EFS file system that the access point provides access to.</p>
    */
   FileSystemId: string | undefined;
@@ -353,6 +348,11 @@ export interface CreateAccessPointRequest {
    *       When specifying a <code>RootDirectory</code>, you need to provide the <code>Path</code>, and the <code>CreationInfo</code> is optional.</p>
    */
   RootDirectory?: RootDirectory;
+
+  /**
+   * <p>Creates tags associated with the access point. Each tag is a key-value pair.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateAccessPointRequest {
@@ -428,15 +428,6 @@ export interface CreateFileSystemRequest {
   CreationToken?: string;
 
   /**
-   * <p>The performance mode of the file system. We recommend <code>generalPurpose</code>
-   *       performance mode for most file systems. File systems using the <code>maxIO</code> performance
-   *       mode can scale to higher levels of aggregate throughput and operations per second with a
-   *       tradeoff of slightly higher latencies for most file operations. The performance mode
-   *       can't be changed after the file system has been created.</p>
-   */
-  PerformanceMode?: PerformanceMode | string;
-
-  /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an
    *       encrypted file system, you have the option of specifying <a>CreateFileSystemRequest$KmsKeyId</a> for an existing AWS Key Management Service (AWS
    *       KMS) customer master key (CMK). If you don't specify a CMK, then the default CMK for
@@ -476,17 +467,13 @@ export interface CreateFileSystemRequest {
   KmsKeyId?: string;
 
   /**
-   * <p>The throughput mode for the file system to be created. There are two throughput modes to
-   *       choose from for your file system: <code>bursting</code> and <code>provisioned</code>. If you set <code>ThroughputMode</code> to <code>provisioned</code>,
-   *       you must also set a value for <code>ProvisionedThroughPutInMibps</code>. You can decrease your file
-   *       system's throughput in Provisioned Throughput mode or change between the throughput modes
-   *       as long as it’s been more than 24 hours since the last decrease or throughput mode
-   *       change. For more,
-   *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying Throughput with Provisioned Mode</a>
-   *       in the <i>Amazon EFS User Guide.</i>
-   *          </p>
+   * <p>The performance mode of the file system. We recommend <code>generalPurpose</code>
+   *       performance mode for most file systems. File systems using the <code>maxIO</code> performance
+   *       mode can scale to higher levels of aggregate throughput and operations per second with a
+   *       tradeoff of slightly higher latencies for most file operations. The performance mode
+   *       can't be changed after the file system has been created.</p>
    */
-  ThroughputMode?: ThroughputMode | string;
+  PerformanceMode?: PerformanceMode | string;
 
   /**
    * <p>The throughput, measured in MiB/s, that you want to provision for a file system that
@@ -503,6 +490,19 @@ export interface CreateFileSystemRequest {
    *           <code>"Key":"Name","Value":"{value}"</code> key-value pair.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The throughput mode for the file system to be created. There are two throughput modes to
+   *       choose from for your file system: <code>bursting</code> and <code>provisioned</code>. If you set <code>ThroughputMode</code> to <code>provisioned</code>,
+   *       you must also set a value for <code>ProvisionedThroughPutInMibps</code>. You can decrease your file
+   *       system's throughput in Provisioned Throughput mode or change between the throughput modes
+   *       as long as it’s been more than 24 hours since the last decrease or throughput mode
+   *       change. For more,
+   *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#provisioned-throughput">Specifying Throughput with Provisioned Mode</a>
+   *       in the <i>Amazon EFS User Guide.</i>
+   *          </p>
+   */
+  ThroughputMode?: ThroughputMode | string;
 }
 
 export namespace CreateFileSystemRequest {
@@ -519,8 +519,8 @@ export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBea
   name: "FileSystemAlreadyExists";
   $fault: "client";
   ErrorCode: string | undefined;
-  Message?: string;
   FileSystemId: string | undefined;
+  Message?: string;
 }
 
 export namespace FileSystemAlreadyExists {
@@ -540,15 +540,15 @@ export namespace FileSystemAlreadyExists {
  */
 export interface FileSystemSize {
   /**
-   * <p>The latest known metered size (in bytes) of data stored in the file system.</p>
-   */
-  Value: number | undefined;
-
-  /**
    * <p>The time at which the size of data, returned in the <code>Value</code> field, was
    *       determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>The latest known metered size (in bytes) of data stored in the file system.</p>
+   */
+  Value: number | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Infrequent Access
@@ -574,10 +574,10 @@ export namespace FileSystemSize {
  */
 export interface FileSystemDescription {
   /**
-   * <p>The AWS account that created the file system. If the file system was created by an IAM
-   *       user, the parent account to which the user belongs is the owner.</p>
+   * <p>The time that the file system was created, in seconds (since
+   *       1970-01-01T00:00:00Z).</p>
    */
-  OwnerId: string | undefined;
+  CreationTime: Date | undefined;
 
   /**
    * <p>The opaque string specified in the request.</p>
@@ -585,9 +585,9 @@ export interface FileSystemDescription {
   CreationToken: string | undefined;
 
   /**
-   * <p>The ID of the file system, assigned by Amazon EFS.</p>
+   * <p>A Boolean value that, if true, indicates that the file system is encrypted.</p>
    */
-  FileSystemId: string | undefined;
+  Encrypted?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the EFS file system, in the format
@@ -599,10 +599,15 @@ export interface FileSystemDescription {
   FileSystemArn?: string;
 
   /**
-   * <p>The time that the file system was created, in seconds (since
-   *       1970-01-01T00:00:00Z).</p>
+   * <p>The ID of the file system, assigned by Amazon EFS.</p>
    */
-  CreationTime: Date | undefined;
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>The ID of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was
+   *       used to protect the encrypted file system.</p>
+   */
+  KmsKeyId?: string;
 
   /**
    * <p>The lifecycle phase of the file system.</p>
@@ -622,6 +627,27 @@ export interface FileSystemDescription {
   NumberOfMountTargets: number | undefined;
 
   /**
+   * <p>The AWS account that created the file system. If the file system was created by an IAM
+   *       user, the parent account to which the user belongs is the owner.</p>
+   */
+  OwnerId: string | undefined;
+
+  /**
+   * <p>The performance mode of the file system.</p>
+   */
+  PerformanceMode: PerformanceMode | string | undefined;
+
+  /**
+   * <p>The throughput, measured in MiB/s, that you want to provision for a file system. Valid values are 1-1024.
+   *       Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The limit
+   *       on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For
+   *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can Increase</a>
+   *       in the <i>Amazon EFS User Guide.</i>
+   *          </p>
+   */
+  ProvisionedThroughputInMibps?: number;
+
+  /**
    * <p>The latest known metered size (in bytes) of data stored in the file system, in its
    *         <code>Value</code> field, and the time at which that size was determined in its
    *         <code>Timestamp</code> field. The <code>Timestamp</code> value is the integer number of
@@ -635,20 +661,10 @@ export interface FileSystemDescription {
   SizeInBytes: FileSystemSize | undefined;
 
   /**
-   * <p>The performance mode of the file system.</p>
+   * <p>The tags associated with the file system, presented as an array of <code>Tag</code>
+   *       objects.</p>
    */
-  PerformanceMode: PerformanceMode | string | undefined;
-
-  /**
-   * <p>A Boolean value that, if true, indicates that the file system is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The ID of an AWS Key Management Service (AWS KMS) customer master key (CMK) that was
-   *       used to protect the encrypted file system.</p>
-   */
-  KmsKeyId?: string;
+  Tags: Tag[] | undefined;
 
   /**
    * <p>The throughput mode for a file system. There are two throughput modes to choose from for
@@ -659,22 +675,6 @@ export interface FileSystemDescription {
    *     </p>
    */
   ThroughputMode?: ThroughputMode | string;
-
-  /**
-   * <p>The throughput, measured in MiB/s, that you want to provision for a file system. Valid values are 1-1024.
-   *       Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The limit
-   *       on throughput is 1024 MiB/s. You can get these limits increased by contacting AWS Support. For
-   *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS Limits That You Can Increase</a>
-   *       in the <i>Amazon EFS User Guide.</i>
-   *          </p>
-   */
-  ProvisionedThroughputInMibps?: number;
-
-  /**
-   * <p>The tags associated with the file system, presented as an array of <code>Tag</code>
-   *       objects.</p>
-   */
-  Tags: Tag[] | undefined;
 }
 
 export namespace FileSystemDescription {
@@ -747,11 +747,6 @@ export interface CreateMountTargetRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The ID of the subnet to add the mount target in.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
    * <p>Valid IPv4 address within the address range of the specified subnet.</p>
    */
   IpAddress?: string;
@@ -761,6 +756,11 @@ export interface CreateMountTargetRequest {
    *       for the same VPC as subnet specified.</p>
    */
   SecurityGroups?: string[];
+
+  /**
+   * <p>The ID of the subnet to add the mount target in.</p>
+   */
+  SubnetId: string | undefined;
 }
 
 export namespace CreateMountTargetRequest {
@@ -808,42 +808,6 @@ export namespace MountTargetConflict {
  */
 export interface MountTargetDescription {
   /**
-   * <p>AWS account ID that owns the resource.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>System-assigned mount target ID.</p>
-   */
-  MountTargetId: string | undefined;
-
-  /**
-   * <p>The ID of the file system for which the mount target is intended.</p>
-   */
-  FileSystemId: string | undefined;
-
-  /**
-   * <p>The ID of the mount target's subnet.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>Lifecycle state of the mount target.</p>
-   */
-  LifeCycleState: LifeCycleState | string | undefined;
-
-  /**
-   * <p>Address at which the file system can be mounted by using the mount target.</p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>The ID of the network interface that Amazon EFS created when it created the mount
-   *       target.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
    * <p>The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
    *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every AWS account.</p>
    */
@@ -855,6 +819,42 @@ export interface MountTargetDescription {
    *       <code>us-east-1a</code> for your AWS account might not be the same location as <code>us-east-1a</code> for another AWS account.</p>
    */
   AvailabilityZoneName?: string;
+
+  /**
+   * <p>The ID of the file system for which the mount target is intended.</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>Address at which the file system can be mounted by using the mount target.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>Lifecycle state of the mount target.</p>
+   */
+  LifeCycleState: LifeCycleState | string | undefined;
+
+  /**
+   * <p>System-assigned mount target ID.</p>
+   */
+  MountTargetId: string | undefined;
+
+  /**
+   * <p>The ID of the network interface that Amazon EFS created when it created the mount
+   *       target.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>AWS account ID that owns the resource.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The ID of the mount target's subnet.</p>
+   */
+  SubnetId: string | undefined;
 
   /**
    * <p>The Virtual Private Cloud (VPC) ID that the mount target is configured in.</p>
@@ -1126,6 +1126,16 @@ export namespace DeleteTagsRequest {
 
 export interface DescribeAccessPointsRequest {
   /**
+   * <p>(Optional) Specifies an EFS access point to describe in the response; mutually exclusive with <code>FileSystemId</code>.</p>
+   */
+  AccessPointId?: string;
+
+  /**
+   * <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
+   */
+  FileSystemId?: string;
+
+  /**
    * <p>(Optional) When retrieving all access points for a file system,
    *       you can optionally specify the <code>MaxItems</code> parameter to limit the number of objects returned in a response.
    *       The default value is 100. </p>
@@ -1137,16 +1147,6 @@ export interface DescribeAccessPointsRequest {
    *             <code>NextToken</code> is present if the response is paginated. You can use <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>(Optional) Specifies an EFS access point to describe in the response; mutually exclusive with <code>FileSystemId</code>.</p>
-   */
-  AccessPointId?: string;
-
-  /**
-   * <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
-   */
-  FileSystemId?: string;
 }
 
 export namespace DescribeAccessPointsRequest {
@@ -1255,20 +1255,6 @@ export namespace FileSystemPolicyDescription {
  */
 export interface DescribeFileSystemsRequest {
   /**
-   * <p>(Optional) Specifies the maximum number of file systems to return in the response
-   *       (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
-   *       </p>
-   */
-  MaxItems?: number;
-
-  /**
-   * <p>(Optional) Opaque pagination token returned from a previous
-   *         <code>DescribeFileSystems</code> operation (String). If present, specifies to continue the
-   *       list from where the returning call had left off. </p>
-   */
-  Marker?: string;
-
-  /**
    * <p>(Optional) Restricts the list to the file system with this creation token (String). You
    *       specify a creation token when you create an Amazon EFS file system.</p>
    */
@@ -1279,6 +1265,20 @@ export interface DescribeFileSystemsRequest {
    *       (String).</p>
    */
   FileSystemId?: string;
+
+  /**
+   * <p>(Optional) Opaque pagination token returned from a previous
+   *         <code>DescribeFileSystems</code> operation (String). If present, specifies to continue the
+   *       list from where the returning call had left off. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>(Optional) Specifies the maximum number of file systems to return in the response
+   *       (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems.
+   *       </p>
+   */
+  MaxItems?: number;
 }
 
 export namespace DescribeFileSystemsRequest {
@@ -1289,14 +1289,14 @@ export namespace DescribeFileSystemsRequest {
 
 export interface DescribeFileSystemsResponse {
   /**
-   * <p>Present if provided by caller in the request (String).</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>An array of file system descriptions.</p>
    */
   FileSystems?: FileSystemDescription[];
+
+  /**
+   * <p>Present if provided by caller in the request (String).</p>
+   */
+  Marker?: string;
 
   /**
    * <p>Present if there are more file systems than returned in the response (String). You can
@@ -1372,11 +1372,16 @@ export namespace LifecycleConfigurationDescription {
  */
 export interface DescribeMountTargetsRequest {
   /**
-   * <p>(Optional) Maximum number of mount targets to return in the response. Currently, this
-   *       number is automatically set to
-   *       10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.</p>
+   * <p>(Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a
+   *       <code>FileSystemId</code> or <code>MountTargetId</code> is not included in your request. Accepts either an access point ID or ARN as input.</p>
    */
-  MaxItems?: number;
+  AccessPointId?: string;
+
+  /**
+   * <p>(Optional) ID of the file system whose mount targets you want to list (String). It must
+   *       be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code> is not included. Accepts either a file system ID or ARN as input.</p>
+   */
+  FileSystemId?: string;
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous
@@ -1386,22 +1391,17 @@ export interface DescribeMountTargetsRequest {
   Marker?: string;
 
   /**
-   * <p>(Optional) ID of the file system whose mount targets you want to list (String). It must
-   *       be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code> is not included. Accepts either a file system ID or ARN as input.</p>
+   * <p>(Optional) Maximum number of mount targets to return in the response. Currently, this
+   *       number is automatically set to
+   *       10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.</p>
    */
-  FileSystemId?: string;
+  MaxItems?: number;
 
   /**
    * <p>(Optional) ID of the mount target that you want to have described (String). It must be
    *       included in your request if <code>FileSystemId</code> is not included. Accepts either a mount target ID or ARN as input.</p>
    */
   MountTargetId?: string;
-
-  /**
-   * <p>(Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a
-   *       <code>FileSystemId</code> or <code>MountTargetId</code> is not included in your request. Accepts either an access point ID or ARN as input.</p>
-   */
-  AccessPointId?: string;
 }
 
 export namespace DescribeMountTargetsRequest {
@@ -1491,11 +1491,9 @@ export namespace IncorrectMountTargetState {
  */
 export interface DescribeTagsRequest {
   /**
-   * <p>(Optional) The maximum number of file system tags to return in the response. Currently,
-   *       this number is automatically set to
-   *       100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.</p>
+   * <p>The ID of the file system whose tag set you want to retrieve.</p>
    */
-  MaxItems?: number;
+  FileSystemId: string | undefined;
 
   /**
    * <p>(Optional) An opaque pagination token returned from a previous
@@ -1505,9 +1503,11 @@ export interface DescribeTagsRequest {
   Marker?: string;
 
   /**
-   * <p>The ID of the file system whose tag set you want to retrieve.</p>
+   * <p>(Optional) The maximum number of file system tags to return in the response. Currently,
+   *       this number is automatically set to
+   *       100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.</p>
    */
-  FileSystemId: string | undefined;
+  MaxItems?: number;
 }
 
 export namespace DescribeTagsRequest {
@@ -1527,17 +1527,17 @@ export interface DescribeTagsResponse {
   Marker?: string;
 
   /**
-   * <p>Returns tags associated with the file system as an array of <code>Tag</code> objects.
-   *     </p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>If a value is present, there are more tags to return. In a subsequent request, you can
    *       provide the value of <code>NextMarker</code> as the value of the <code>Marker</code> parameter
    *       in your next request to retrieve the next set of tags.</p>
    */
   NextMarker?: string;
+
+  /**
+   * <p>Returns tags associated with the file system as an array of <code>Tag</code> objects.
+   *     </p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace DescribeTagsResponse {
@@ -1565,11 +1565,6 @@ export namespace InvalidPolicyException {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.</p>
-   */
-  ResourceId: string | undefined;
-
-  /**
    * <p>(Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.</p>
    */
   MaxResults?: number;
@@ -1578,6 +1573,11 @@ export interface ListTagsForResourceRequest {
    * <p>You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies the EFS resource you want to retrieve tags for. You can retrieve tags for EFS file systems and access points using this API endpoint.</p>
+   */
+  ResourceId: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -1588,15 +1588,15 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>An array of the tags for the specified EFS resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>
    *             <code>NextToken</code> is present if the response payload is paginated. You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of the tags for the specified EFS resource.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1628,14 +1628,14 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
 
 export interface PutBackupPolicyRequest {
   /**
-   * <p>Specifies which EFS file system to update the backup policy for.</p>
-   */
-  FileSystemId: string | undefined;
-
-  /**
    * <p>The backup policy included in the <code>PutBackupPolicy</code> request.</p>
    */
   BackupPolicy: BackupPolicy | undefined;
+
+  /**
+   * <p>Specifies which EFS file system to update the backup policy for.</p>
+   */
+  FileSystemId: string | undefined;
 }
 
 export namespace PutBackupPolicyRequest {
@@ -1645,6 +1645,16 @@ export namespace PutBackupPolicyRequest {
 }
 
 export interface PutFileSystemPolicyRequest {
+  /**
+   * <p>(Optional) A flag to indicate whether to bypass the <code>FileSystemPolicy</code> lockout safety check. The policy lockout safety check
+   *       determines whether the policy in the request will prevent the principal making the request will be locked out from making future <code>PutFileSystemPolicy</code> requests on the file system.
+   *       Set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code> only when you intend to prevent
+   *       the principal that is making the request from making a subsequent <code>PutFileSystemPolicy</code> request on the file system.
+   *       The default value is False.
+   *     </p>
+   */
+  BypassPolicyLockoutSafetyCheck?: boolean;
+
   /**
    * <p>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code> for.</p>
    */
@@ -1657,16 +1667,6 @@ export interface PutFileSystemPolicyRequest {
    *     </p>
    */
   Policy: string | undefined;
-
-  /**
-   * <p>(Optional) A flag to indicate whether to bypass the <code>FileSystemPolicy</code> lockout safety check. The policy lockout safety check
-   *       determines whether the policy in the request will prevent the principal making the request will be locked out from making future <code>PutFileSystemPolicy</code> requests on the file system.
-   *       Set <code>BypassPolicyLockoutSafetyCheck</code> to <code>True</code> only when you intend to prevent
-   *       the principal that is making the request from making a subsequent <code>PutFileSystemPolicy</code> request on the file system.
-   *       The default value is False.
-   *     </p>
-   */
-  BypassPolicyLockoutSafetyCheck?: boolean;
 }
 
 export namespace PutFileSystemPolicyRequest {
@@ -1757,19 +1757,19 @@ export interface UpdateFileSystemRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>(Optional) The throughput mode that you want your file system to use. If you're not
-   *       updating your throughput mode, you don't need to provide this value in your
-   *       request. If you are changing the <code>ThroughputMode</code> to <code>provisioned</code>, you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
-   */
-  ThroughputMode?: ThroughputMode | string;
-
-  /**
    * <p>(Optional) The amount of throughput, in MiB/s, that you want to provision for your file
    *       system. Valid values are 1-1024. Required if <code>ThroughputMode</code> is changed to <code>provisioned</code> on update.
    *       If you're not updating the amount of provisioned throughput for your file system, you
    *       don't need to provide this value in your request. </p>
    */
   ProvisionedThroughputInMibps?: number;
+
+  /**
+   * <p>(Optional) The throughput mode that you want your file system to use. If you're not
+   *       updating your throughput mode, you don't need to provide this value in your
+   *       request. If you are changing the <code>ThroughputMode</code> to <code>provisioned</code>, you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
+   */
+  ThroughputMode?: ThroughputMode | string;
 }
 
 export namespace UpdateFileSystemRequest {

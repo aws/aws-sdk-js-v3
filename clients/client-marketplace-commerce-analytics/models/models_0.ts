@@ -34,6 +34,22 @@ export enum DataSetType {
  */
 export interface GenerateDataSetRequest {
   /**
+   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   *         Amazon SNS notification message and the data set metadata file. These
+   *         key-value pairs can be used to correlated responses with tracking
+   *         information from other systems.
+   */
+  customerDefinedValues?: { [key: string]: string };
+
+  /**
+   * The date a data set was published.
+   *         For daily data sets, provide a date with day-level granularity for the desired day.
+   *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
+   *         For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).
+   */
+  dataSetPublicationDate: Date | undefined;
+
+  /**
    * <p>The desired data set type.</p>
    *         <p>
    *             <ul>
@@ -143,20 +159,6 @@ export interface GenerateDataSetRequest {
   dataSetType: DataSetType | string | undefined;
 
   /**
-   * The date a data set was published.
-   *         For daily data sets, provide a date with day-level granularity for the desired day.
-   *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
-   *         For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).
-   */
-  dataSetPublicationDate: Date | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
-   *         AWS services.
-   */
-  roleNameArn: string | undefined;
-
-  /**
    * The name (friendly name, not ARN) of the destination S3 bucket.
    */
   destinationS3BucketName: string | undefined;
@@ -171,18 +173,16 @@ export interface GenerateDataSetRequest {
   destinationS3Prefix?: string;
 
   /**
+   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
+   *         AWS services.
+   */
+  roleNameArn: string | undefined;
+
+  /**
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
    */
   snsTopicArn: string | undefined;
-
-  /**
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
-   *         Amazon SNS notification message and the data set metadata file. These
-   *         key-value pairs can be used to correlated responses with tracking
-   *         information from other systems.
-   */
-  customerDefinedValues?: { [key: string]: string };
 }
 
 export namespace GenerateDataSetRequest {
@@ -233,6 +233,12 @@ export type SupportDataSetType = "customer_support_contacts_data" | "test_custom
  */
 export interface StartSupportDataExportRequest {
   /**
+   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   *         Amazon SNS notification message and the data set metadata file.
+   */
+  customerDefinedValues?: { [key: string]: string };
+
+  /**
    * <p>
    *            Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and
    *            test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,
@@ -249,17 +255,6 @@ export interface StartSupportDataExportRequest {
   dataSetType: SupportDataSetType | string | undefined;
 
   /**
-   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
-   */
-  fromDate: Date | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
-   *         AWS services.
-   */
-  roleNameArn: string | undefined;
-
-  /**
    * The name (friendly name, not ARN) of the destination S3 bucket.
    */
   destinationS3BucketName: string | undefined;
@@ -274,16 +269,21 @@ export interface StartSupportDataExportRequest {
   destinationS3Prefix?: string;
 
   /**
+   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
+   */
+  fromDate: Date | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
+   *         AWS services.
+   */
+  roleNameArn: string | undefined;
+
+  /**
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
    */
   snsTopicArn: string | undefined;
-
-  /**
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
-   *         Amazon SNS notification message and the data set metadata file.
-   */
-  customerDefinedValues?: { [key: string]: string };
 }
 
 export namespace StartSupportDataExportRequest {

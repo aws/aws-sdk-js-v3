@@ -24,6 +24,32 @@ export namespace AccessDeniedException {
  */
 export interface Encryption {
   /**
+   * <p>The series of random bits created by a random bit generator, unique for every encryption
+   *             operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt
+   *             your output files. The initialization vector must be base64-encoded, and it must be exactly
+   *             16 bytes long before being base64-encoded.</p>
+   */
+  InitializationVector?: string;
+
+  /**
+   * <p>The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that
+   *             was used to encrypt your input file. The key must be base64-encoded and it must be one of the
+   *             following bit lengths before being base64-encoded:</p>
+   *         <p>
+   *             <code>128</code>, <code>192</code>, or <code>256</code>. </p>
+   *         <p>The key must also be encrypted by using the Amazon Key Management Service.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The MD5 digest of the key that you used to encrypt your input file, or that you want
+   *             Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a
+   *             checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded,
+   *             and it must be exactly 16 bytes long before being base64-encoded.</p>
+   */
+  KeyMd5?: string;
+
+  /**
    * <p>The specific server-side encryption mode that you want Elastic Transcoder to use when decrypting
    *             your input files or encrypting your output files. Elastic Transcoder supports the following options:</p>
    *         <ul>
@@ -82,32 +108,6 @@ export interface Encryption {
    *          </important>
    */
   Mode?: string;
-
-  /**
-   * <p>The data encryption key that you want Elastic Transcoder to use to encrypt your output file, or that
-   *             was used to encrypt your input file. The key must be base64-encoded and it must be one of the
-   *             following bit lengths before being base64-encoded:</p>
-   *         <p>
-   *             <code>128</code>, <code>192</code>, or <code>256</code>. </p>
-   *         <p>The key must also be encrypted by using the Amazon Key Management Service.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The MD5 digest of the key that you used to encrypt your input file, or that you want
-   *             Elastic Transcoder to use to encrypt your output file. Elastic Transcoder uses the key digest as a
-   *             checksum to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded,
-   *             and it must be exactly 16 bytes long before being base64-encoded.</p>
-   */
-  KeyMd5?: string;
-
-  /**
-   * <p>The series of random bits created by a random bit generator, unique for every encryption
-   *             operation, that you used to encrypt your input files or that you want Elastic Transcoder to use to encrypt
-   *             your output files. The initialization vector must be base64-encoded, and it must be exactly
-   *             16 bytes long before being base64-encoded.</p>
-   */
-  InitializationVector?: string;
 }
 
 export namespace Encryption {
@@ -127,6 +127,16 @@ export namespace Encryption {
  */
 export interface Artwork {
   /**
+   * <p>The format of album art, if any. Valid formats are <code>.jpg</code> and <code>.png</code>.</p>
+   */
+  AlbumArtFormat?: string;
+
+  /**
+   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
    * <p>The name of the file to be used as album art. To determine which Amazon S3 bucket contains the
    *             specified file, Elastic Transcoder checks the pipeline specified by <code>PipelineId</code>; the
    *             <code>InputBucket</code> object in that pipeline identifies the bucket.</p>
@@ -137,6 +147,13 @@ export interface Artwork {
   InputKey?: string;
 
   /**
+   * <p>The maximum height of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder
+   *         uses 600 as the default value. If you specify a numeric value, enter an even integer between 32
+   *         and 3072, inclusive.</p>
+   */
+  MaxHeight?: string;
+
+  /**
    * <p>The maximum width of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder
    *         uses 600 as the default value. If you specify a numeric value, enter an even integer between 32
    *         and 4096, inclusive.</p>
@@ -144,11 +161,12 @@ export interface Artwork {
   MaxWidth?: string;
 
   /**
-   * <p>The maximum height of the output album art in pixels. If you specify <code>auto</code>, Elastic Transcoder
-   *         uses 600 as the default value. If you specify a numeric value, enter an even integer between 32
-   *         and 3072, inclusive.</p>
+   * <p>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add white bars to the
+   *         top and bottom and/or left and right sides of the output album art to make the total size of
+   *         the output art match the values that you specified for <code>MaxWidth</code> and
+   *         <code>MaxHeight</code>.</p>
    */
-  MaxHeight?: string;
+  PaddingPolicy?: string;
 
   /**
    * <p>Specify one of the following values to control scaling of the output album art:</p>
@@ -197,24 +215,6 @@ export interface Artwork {
    *          </ul>
    */
   SizingPolicy?: string;
-
-  /**
-   * <p>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add white bars to the
-   *         top and bottom and/or left and right sides of the output album art to make the total size of
-   *         the output art match the values that you specified for <code>MaxWidth</code> and
-   *         <code>MaxHeight</code>.</p>
-   */
-  PaddingPolicy?: string;
-
-  /**
-   * <p>The format of album art, if any. Valid formats are <code>.jpg</code> and <code>.png</code>.</p>
-   */
-  AlbumArtFormat?: string;
-
-  /**
-   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your artwork.</p>
-   */
-  Encryption?: Encryption;
 }
 
 export namespace Artwork {
@@ -227,6 +227,24 @@ export namespace Artwork {
  * <p>Options associated with your audio codec.</p>
  */
 export interface AudioCodecOptions {
+  /**
+   * <p>You can only choose an audio bit depth when you specify <code>flac</code> or
+   *            <code>pcm</code> for the value of Audio:Codec.</p>
+   *         <p>The bit depth of a sample is how many bits of information are included in the
+   *             audio samples. The higher the bit depth, the better the audio, but the larger the file.</p>
+   *             <p>Valid values are <code>16</code> and <code>24</code>.</p>
+   *             <p>The most common bit depth is <code>24</code>.</p>
+   */
+  BitDepth?: string;
+
+  /**
+   * <p>You can only choose an audio bit order when you specify
+   *            <code>pcm</code> for the value of Audio:Codec.</p>
+   *          <p>The order the bits of a PCM sample are stored in.</p>
+   *          <p>The supported value is <code>LittleEndian</code>.</p>
+   */
+  BitOrder?: string;
+
   /**
    * <p>You can only choose an audio profile when you specify AAC for the value of Audio:Codec.</p>
    *         <p>Specify the AAC profile for the output file. Elastic Transcoder supports the following profiles:</p>
@@ -261,24 +279,6 @@ export interface AudioCodecOptions {
   Profile?: string;
 
   /**
-   * <p>You can only choose an audio bit depth when you specify <code>flac</code> or
-   *            <code>pcm</code> for the value of Audio:Codec.</p>
-   *         <p>The bit depth of a sample is how many bits of information are included in the
-   *             audio samples. The higher the bit depth, the better the audio, but the larger the file.</p>
-   *             <p>Valid values are <code>16</code> and <code>24</code>.</p>
-   *             <p>The most common bit depth is <code>24</code>.</p>
-   */
-  BitDepth?: string;
-
-  /**
-   * <p>You can only choose an audio bit order when you specify
-   *            <code>pcm</code> for the value of Audio:Codec.</p>
-   *          <p>The order the bits of a PCM sample are stored in.</p>
-   *          <p>The supported value is <code>LittleEndian</code>.</p>
-   */
-  BitOrder?: string;
-
-  /**
    * <p>You can only choose whether an audio sample is signed when you specify
    *            <code>pcm</code> for the value of Audio:Codec.</p>
    *         <p>Whether audio samples are represented with negative and positive numbers (signed) or
@@ -298,73 +298,6 @@ export namespace AudioCodecOptions {
  * <p>Parameters required for transcoding audio.</p>
  */
 export interface AudioParameters {
-  /**
-   * <p>The audio codec for the output file. Valid values include <code>aac</code>,
-   *             <code>flac</code>, <code>mp2</code>, <code>mp3</code>, <code>pcm</code>,
-   *             and <code>vorbis</code>.</p>
-   */
-  Codec?: string;
-
-  /**
-   * <p>The sample rate of the audio stream in the output file, in Hertz. Valid values include:</p>
-   *         <p>
-   *             <code>auto</code>, <code>22050</code>, <code>32000</code>, <code>44100</code>,
-   *                 <code>48000</code>, <code>96000</code>
-   *          </p>
-   *         <p>If you specify <code>auto</code>, Elastic Transcoder automatically detects the sample rate.</p>
-   */
-  SampleRate?: string;
-
-  /**
-   * <p>The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer
-   *             between 64 and 320, inclusive.</p>
-   */
-  BitRate?: string;
-
-  /**
-   * <p>The number of audio channels in the output file. The following values are valid:</p>
-   *         <p>
-   *             <code>auto</code>, <code>0</code>, <code>1</code>, <code>2</code>
-   *          </p>
-   *         <p>One channel carries the information played by a single speaker. For example, a stereo
-   *             track with two channels sends one channel to the left speaker, and the other
-   *             channel to the right speaker. The output channels are organized into tracks.
-   *             If you want Elastic Transcoder to automatically detect the number
-   *             of audio channels in the input file and use that value for the output file, select
-   *             <code>auto</code>.</p>
-   *
-   *         <p>The output of a specific channel value and inputs are as follows:</p>
-   *
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>auto</code>
-   *                   <b> channel specified, with any input:</b> Pass through up to eight input channels.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>0</code>
-   *                   <b> channels specified, with any input:</b> Audio omitted from the output.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>1</code>
-   *                   <b> channel specified, with at least one input channel:</b> Mono sound.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>2</code>
-   *                   <b> channels specified, with any input:</b> Two identical mono channels or stereo. For more
-   *                 information about tracks, see <code>Audio:AudioPackingMode.</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p> For more information about how Elastic Transcoder organizes channels and tracks, see
-   *             <code>Audio:AudioPackingMode</code>.</p>
-   */
-  Channels?: string;
-
   /**
    * <p>The method of organizing audio channels and tracks. Use <code>Audio:Channels</code> to
    *             specify the number of channels in your output, and <code>Audio:AudioPackingMode</code>
@@ -546,6 +479,63 @@ export interface AudioParameters {
   AudioPackingMode?: string;
 
   /**
+   * <p>The bit rate of the audio stream in the output file, in kilobits/second. Enter an integer
+   *             between 64 and 320, inclusive.</p>
+   */
+  BitRate?: string;
+
+  /**
+   * <p>The number of audio channels in the output file. The following values are valid:</p>
+   *         <p>
+   *             <code>auto</code>, <code>0</code>, <code>1</code>, <code>2</code>
+   *          </p>
+   *         <p>One channel carries the information played by a single speaker. For example, a stereo
+   *             track with two channels sends one channel to the left speaker, and the other
+   *             channel to the right speaker. The output channels are organized into tracks.
+   *             If you want Elastic Transcoder to automatically detect the number
+   *             of audio channels in the input file and use that value for the output file, select
+   *             <code>auto</code>.</p>
+   *
+   *         <p>The output of a specific channel value and inputs are as follows:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto</code>
+   *                   <b> channel specified, with any input:</b> Pass through up to eight input channels.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>0</code>
+   *                   <b> channels specified, with any input:</b> Audio omitted from the output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>1</code>
+   *                   <b> channel specified, with at least one input channel:</b> Mono sound.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>2</code>
+   *                   <b> channels specified, with any input:</b> Two identical mono channels or stereo. For more
+   *                 information about tracks, see <code>Audio:AudioPackingMode.</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p> For more information about how Elastic Transcoder organizes channels and tracks, see
+   *             <code>Audio:AudioPackingMode</code>.</p>
+   */
+  Channels?: string;
+
+  /**
+   * <p>The audio codec for the output file. Valid values include <code>aac</code>,
+   *             <code>flac</code>, <code>mp2</code>, <code>mp3</code>, <code>pcm</code>,
+   *             and <code>vorbis</code>.</p>
+   */
+  Codec?: string;
+
+  /**
    * <p>If you specified <code>AAC</code> for <code>Audio:Codec</code>, this is the <code>AAC</code>
    *             compression profile to use. Valid values include:</p>
    *         <p>
@@ -554,6 +544,16 @@ export interface AudioParameters {
    *         <p>If you specify <code>auto</code>, Elastic Transcoder chooses a profile based on the bit rate of the output file.</p>
    */
   CodecOptions?: AudioCodecOptions;
+
+  /**
+   * <p>The sample rate of the audio stream in the output file, in Hertz. Valid values include:</p>
+   *         <p>
+   *             <code>auto</code>, <code>22050</code>, <code>32000</code>, <code>44100</code>,
+   *                 <code>48000</code>, <code>96000</code>
+   *          </p>
+   *         <p>If you specify <code>auto</code>, Elastic Transcoder automatically detects the sample rate.</p>
+   */
+  SampleRate?: string;
 }
 
 export namespace AudioParameters {
@@ -671,6 +671,11 @@ export namespace ValidationException {
  */
 export interface CaptionFormat {
   /**
+   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
    * <p>The format you specify determines whether Elastic Transcoder generates an embedded or sidecar caption for this output.</p>
    *          <ul>
    *             <li>
@@ -749,11 +754,6 @@ export interface CaptionFormat {
    *           Sydney-en-sunrise00000.srt.</p>
    */
   Pattern?: string;
-
-  /**
-   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your caption formats.</p>
-   */
-  Encryption?: Encryption;
 }
 
 export namespace CaptionFormat {
@@ -767,9 +767,21 @@ export namespace CaptionFormat {
  */
 export interface CaptionSource {
   /**
+   * <p>The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you
+   *             want Elastic Transcoder to apply to your caption sources.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
    * <p>The name of the sidecar caption file that you want Elastic Transcoder to include in the output file.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The label of the caption shown in the player when choosing a language. We recommend that you
+   *             put the caption language name here, in the language of the captions.</p>
+   */
+  Label?: string;
 
   /**
    * <p>A string that specifies the language of the caption. If you specified multiple inputs with captions,
@@ -793,18 +805,6 @@ export interface CaptionSource {
    *         <p>Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.</p>
    */
   TimeOffset?: string;
-
-  /**
-   * <p>The label of the caption shown in the player when choosing a language. We recommend that you
-   *             put the caption language name here, in the language of the captions.</p>
-   */
-  Label?: string;
-
-  /**
-   * <p>The encryption settings, if any, that Elastic Transcoder needs to decyrpt your caption sources, or that you
-   *             want Elastic Transcoder to apply to your caption sources.</p>
-   */
-  Encryption?: Encryption;
 }
 
 export namespace CaptionSource {
@@ -817,6 +817,17 @@ export namespace CaptionSource {
  * <p>The captions to be created, if any.</p>
  */
 export interface Captions {
+  /**
+   * <p>The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
+   */
+  CaptionFormats?: CaptionFormat[];
+
+  /**
+   * <p>Source files for the input sidecar captions used during the transcoding
+   *          process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
+   */
+  CaptionSources?: CaptionSource[];
+
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
    *          <ul>
@@ -845,17 +856,6 @@ export interface Captions {
    *             <code>MergePolicy</code> cannot be null.</p>
    */
   MergePolicy?: string;
-
-  /**
-   * <p>Source files for the input sidecar captions used during the transcoding
-   *          process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
-   */
-  CaptionSources?: CaptionSource[];
-
-  /**
-   * <p>The array of file formats for the output captions. If you leave this value blank, Elastic Transcoder returns an error.</p>
-   */
-  CaptionFormats?: CaptionFormat[];
 }
 
 export namespace Captions {
@@ -869,14 +869,6 @@ export namespace Captions {
  */
 export interface TimeSpan {
   /**
-   * <p>The place in the input file where you want a clip to start. The format can be either
-   *            HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS
-   *            (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of
-   *            the input file.</p>
-   */
-  StartTime?: string;
-
-  /**
    * <p>The duration of the clip. The format can be either HH:mm:ss.SSS (maximum value: 23:59:59.999;
    *            SSS is thousandths of a second) or sssss.SSS (maximum value: 86399.999). If you don't specify a
    *            value, Elastic Transcoder creates an output file from StartTime to the end of the file.</p>
@@ -884,6 +876,14 @@ export interface TimeSpan {
    *            file and returns a warning message.</p>
    */
   Duration?: string;
+
+  /**
+   * <p>The place in the input file where you want a clip to start. The format can be either
+   *            HH:mm:ss.SSS (maximum value: 23:59:59.999; SSS is thousandths of a second) or sssss.SSS
+   *            (maximum value: 86399.999). If you don't specify a value, Elastic Transcoder starts at the beginning of
+   *            the input file.</p>
+   */
+  StartTime?: string;
 }
 
 export namespace TimeSpan {
@@ -913,19 +913,9 @@ export namespace Clip {
  */
 export interface DetectedProperties {
   /**
-   * <p>The detected width of the input file, in pixels.</p>
+   * <p>The detected duration of the input file, in milliseconds.</p>
    */
-  Width?: number;
-
-  /**
-   * <p>The detected height of the input file, in pixels.</p>
-   */
-  Height?: number;
-
-  /**
-   * <p>The detected frame rate of the input file, in frames per second.</p>
-   */
-  FrameRate?: string;
+  DurationMillis?: number;
 
   /**
    * <p>The detected file size of the input file, in bytes.</p>
@@ -933,9 +923,19 @@ export interface DetectedProperties {
   FileSize?: number;
 
   /**
-   * <p>The detected duration of the input file, in milliseconds.</p>
+   * <p>The detected frame rate of the input file, in frames per second.</p>
    */
-  DurationMillis?: number;
+  FrameRate?: string;
+
+  /**
+   * <p>The detected height of the input file, in pixels.</p>
+   */
+  Height?: number;
+
+  /**
+   * <p>The detected width of the input file, in pixels.</p>
+   */
+  Width?: number;
 }
 
 export namespace DetectedProperties {
@@ -948,6 +948,12 @@ export namespace DetectedProperties {
  * <p>The captions to be created, if any.</p>
  */
 export interface InputCaptions {
+  /**
+   * <p>Source files for the input sidecar captions used during the transcoding
+   *             process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
+   */
+  CaptionSources?: CaptionSource[];
+
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
    *         <ul>
@@ -976,12 +982,6 @@ export interface InputCaptions {
    *             <code>MergePolicy</code> cannot be null.</p>
    */
   MergePolicy?: string;
-
-  /**
-   * <p>Source files for the input sidecar captions used during the transcoding
-   *             process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
-   */
-  CaptionSources?: CaptionSource[];
 }
 
 export namespace InputCaptions {
@@ -995,34 +995,6 @@ export namespace InputCaptions {
  */
 export interface JobInput {
   /**
-   * <p> The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID
-   *             of the pipeline to use for processing the job. The <code>InputBucket</code> object in
-   *             that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. </p>
-   *         <p>If the file name includes a prefix, such as <code>cooking/lasagna.mpg</code>, include the
-   *             prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The frame rate of the input file. If you want Elastic Transcoder to automatically detect the frame rate
-   *             of the input file, specify <code>auto</code>. If you want to specify the frame rate for
-   *             the input file, enter one of the following values: </p>
-   *         <p>
-   *             <code>10</code>, <code>15</code>, <code>23.97</code>, <code>24</code>, <code>25</code>,
-   *                 <code>29.97</code>, <code>30</code>, <code>60</code>
-   *         </p>
-   *         <p>If you specify a value other than <code>auto</code>, Elastic Transcoder disables automatic detection of
-   *             the frame rate.</p>
-   */
-  FrameRate?: string;
-
-  /**
-   * <p>This value must be <code>auto</code>, which causes Elastic Transcoder to automatically
-   *             detect the resolution of the input file.</p>
-   */
-  Resolution?: string;
-
-  /**
    * <p> The aspect ratio of the input file. If you want Elastic Transcoder to automatically detect the aspect
    *             ratio of the input file, specify <code>auto</code>. If you want to specify the aspect
    *             ratio for the output file, enter one of the following values: </p>
@@ -1033,18 +1005,6 @@ export interface JobInput {
    *             of the aspect ratio. </p>
    */
   AspectRatio?: string;
-
-  /**
-   * <p>Whether the input file is interlaced. If you want Elastic Transcoder to automatically detect whether
-   *             the input file is interlaced, specify <code>auto</code>. If you want to specify whether
-   *             the input file is interlaced, enter one of the following values:</p>
-   *         <p>
-   *             <code>true</code>, <code>false</code>
-   *          </p>
-   *         <p>If you specify a value other than <code>auto</code>, Elastic Transcoder disables automatic detection of
-   *             interlacing.</p>
-   */
-  Interlaced?: string;
 
   /**
    * <p>The container type for the input file. If you want Elastic Transcoder to automatically detect the
@@ -1061,15 +1021,28 @@ export interface JobInput {
   Container?: string;
 
   /**
+   * <p>The detected properties of the input file.</p>
+   */
+  DetectedProperties?: DetectedProperties;
+
+  /**
    * <p>The encryption settings, if any, that are used for decrypting your input files. If
    *             your input file is encrypted, you must specify the mode that Elastic Transcoder uses to decrypt your file.</p>
    */
   Encryption?: Encryption;
 
   /**
-   * <p>Settings for clipping an input. Each input can have different clip settings.</p>
+   * <p>The frame rate of the input file. If you want Elastic Transcoder to automatically detect the frame rate
+   *             of the input file, specify <code>auto</code>. If you want to specify the frame rate for
+   *             the input file, enter one of the following values: </p>
+   *         <p>
+   *             <code>10</code>, <code>15</code>, <code>23.97</code>, <code>24</code>, <code>25</code>,
+   *                 <code>29.97</code>, <code>30</code>, <code>60</code>
+   *         </p>
+   *         <p>If you specify a value other than <code>auto</code>, Elastic Transcoder disables automatic detection of
+   *             the frame rate.</p>
    */
-  TimeSpan?: TimeSpan;
+  FrameRate?: string;
 
   /**
    * <p>You can configure Elastic Transcoder to transcode captions, or subtitles, from one format to another.
@@ -1115,9 +1088,36 @@ export interface JobInput {
   InputCaptions?: InputCaptions;
 
   /**
-   * <p>The detected properties of the input file.</p>
+   * <p>Whether the input file is interlaced. If you want Elastic Transcoder to automatically detect whether
+   *             the input file is interlaced, specify <code>auto</code>. If you want to specify whether
+   *             the input file is interlaced, enter one of the following values:</p>
+   *         <p>
+   *             <code>true</code>, <code>false</code>
+   *          </p>
+   *         <p>If you specify a value other than <code>auto</code>, Elastic Transcoder disables automatic detection of
+   *             interlacing.</p>
    */
-  DetectedProperties?: DetectedProperties;
+  Interlaced?: string;
+
+  /**
+   * <p> The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID
+   *             of the pipeline to use for processing the job. The <code>InputBucket</code> object in
+   *             that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. </p>
+   *         <p>If the file name includes a prefix, such as <code>cooking/lasagna.mpg</code>, include the
+   *             prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>This value must be <code>auto</code>, which causes Elastic Transcoder to automatically
+   *             detect the resolution of the input file.</p>
+   */
+  Resolution?: string;
+
+  /**
+   * <p>Settings for clipping an input. Each input can have different clip settings.</p>
+   */
+  TimeSpan?: TimeSpan;
 }
 
 export namespace JobInput {
@@ -1130,6 +1130,13 @@ export namespace JobInput {
  * <p>The .jpg or .png file associated with an audio file.</p>
  */
 export interface JobAlbumArt {
+  /**
+   * <p>The file to be used as album art. There can be multiple artworks associated with an audio file,
+   *             to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code>
+   *          </p>
+   */
+  Artwork?: Artwork[];
+
   /**
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple album artwork files.</p>
    *
@@ -1156,13 +1163,6 @@ export interface JobAlbumArt {
    *          </ul>
    */
   MergePolicy?: string;
-
-  /**
-   * <p>The file to be used as album art. There can be multiple artworks associated with an audio file,
-   *             to a maximum of 20. Valid formats are <code>.jpg</code> and <code>.png</code>
-   *          </p>
-   */
-  Artwork?: Artwork[];
 }
 
 export namespace JobAlbumArt {
@@ -1177,11 +1177,9 @@ export namespace JobAlbumArt {
  */
 export interface JobWatermark {
   /**
-   * <p>The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding.
-   *     The settings are in the preset specified by Preset for the current output. In that preset, the value
-   *     of Watermarks Id tells Elastic Transcoder which settings to use.</p>
+   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.</p>
    */
-  PresetWatermarkId?: string;
+  Encryption?: Encryption;
 
   /**
    * <p> The name of the .png or .jpg file that you want to use for the watermark. To determine
@@ -1195,9 +1193,11 @@ export interface JobWatermark {
   InputKey?: string;
 
   /**
-   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.</p>
+   * <p>The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding.
+   *     The settings are in the preset specified by Preset for the current output. In that preset, the value
+   *     of Watermarks Id tells Elastic Transcoder which settings to use.</p>
    */
-  Encryption?: Encryption;
+  PresetWatermarkId?: string;
 }
 
 export namespace JobWatermark {
@@ -1211,119 +1211,11 @@ export namespace JobWatermark {
  */
 export interface CreateJobOutput {
   /**
-   * <p> The name to assign to the transcoded file. Elastic Transcoder saves the file in the Amazon S3 bucket
-   *     specified by the <code>OutputBucket</code> object in the pipeline that is specified by
-   *     the pipeline ID. If a file with the specified name already exists in the output bucket,
-   *     the job fails. </p>
-   */
-  Key?: string;
-
-  /**
-   * <p>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.</p>
-   *          <p>If you don't want Elastic Transcoder to create thumbnails, specify "".</p>
-   *          <p>If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include
-   *     in the file name for each thumbnail. You can specify the following values in any sequence:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>{count}</code> (Required)</b>: If you want to create thumbnails, you
-   *             must include <code>{count}</code> in the <code>ThumbnailPattern</code> object.
-   *             Wherever you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence
-   *             number (beginning with <b>00001</b>) to thumbnail file names. The number
-   *             indicates where a given thumbnail appears in the sequence of thumbnails for a
-   *             transcoded file. </p>
-   *                <important>
-   *                   <p>If you specify a literal value and/or <code>{resolution}</code> but you
-   *             omit <code>{count}</code>, Elastic Transcoder returns a validation error and does not create
-   *             the job.</p>
-   *                </important>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Literal values (Optional)</b>: You can specify literal values anywhere in the
-   *                 <code>ThumbnailPattern</code> object. For example, you can include them as a
-   *             file name prefix or as a delimiter between <code>{resolution}</code> and
-   *                 <code>{count}</code>. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include the
-   *             resolution in the file name, include <code>{resolution}</code> in the
-   *                 <code>ThumbnailPattern</code> object. </p>
-   *             </li>
-   *          </ul>
-   *          <p>When creating thumbnails, Elastic Transcoder automatically saves the files in the format (.jpg or .png)
-   *     that appears in the preset that you specified in the <code>PresetID</code> value of
-   *         <code>CreateJobOutput</code>. Elastic Transcoder also appends the applicable file name
-   *     extension.</p>
-   */
-  ThumbnailPattern?: string;
-
-  /**
-   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your thumbnail.</p>
-   */
-  ThumbnailEncryption?: Encryption;
-
-  /**
-   * <p> The number of degrees clockwise by which you want Elastic Transcoder to rotate the output relative to
-   *     the input. Enter one of the following values: <code>auto</code>, <code>0</code>,
-   *         <code>90</code>, <code>180</code>, <code>270</code>. The value <code>auto</code>
-   *     generally works only if the file that you're transcoding contains rotation metadata.
-   * </p>
-   */
-  Rotate?: string;
-
-  /**
-   * <p> The <code>Id</code> of the preset to use for this job. The preset determines the audio,
-   *     video, and thumbnail settings that Elastic Transcoder uses for transcoding. </p>
-   */
-  PresetId?: string;
-
-  /**
-   * <important>
-   *             <p>(Outputs in Fragmented MP4 or MPEG-TS format only.</p>
-   *          </important>
-   *          <p>If you specify a preset in
-   *         <code>PresetId</code> for which the value of <code>Container</code> is <code>fmp4</code> (Fragmented MP4) or
-   *         <code>ts</code> (MPEG-TS), <code>SegmentDuration</code> is the target maximum duration of
-   *     each segment in seconds. For <code>HLSv3</code> format playlists,
-   *     each media segment is stored in a separate <code>.ts</code> file. For <code>HLSv4</code> and <code>Smooth</code>
-   *     playlists, all media segments for an output are stored in a single file. Each segment is approximately the length of
-   *     the <code>SegmentDuration</code>, though individual segments might be shorter or longer.</p>
-   *
-   *          <p>The range of valid values is 1 to 60 seconds. If the duration
-   *     of the video is not evenly divisible by <code>SegmentDuration</code>, the duration of
-   *     the last segment is the remainder of total length/SegmentDuration.</p>
-   *          <p>Elastic Transcoder
-   *     creates an output-specific playlist for each output <code>HLS</code> output that you specify in OutputKeys. To
-   *     add an output to the master playlist for this job, include it in the <code>OutputKeys</code> of
-   *     the associated playlist.</p>
-   */
-  SegmentDuration?: string;
-
-  /**
-   * <p>Information about the watermarks that you want Elastic Transcoder to add to the video during transcoding.
-   *     You can specify up to four watermarks for each output. Settings for each watermark must be defined
-   *     in the preset for the current output.</p>
-   */
-  Watermarks?: JobWatermark[];
-
-  /**
    * <p>Information about the album art that you want Elastic Transcoder to add to the file during transcoding.
    *             You can specify up to twenty album artworks for each output. Settings for each artwork must be
    *             defined in the job for the current output.</p>
    */
   AlbumArt?: JobAlbumArt;
-
-  /**
-   * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called a
-   *             clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
-   *             for the clips that make up an output file. For the current release, you can only specify settings for a
-   *             single clip per output file. The Composition object cannot be null.</p>
-   */
-  Composition?: Clip[];
 
   /**
    * <p>You can configure Elastic Transcoder to transcode captions, or subtitles, from one format to another. All
@@ -1369,12 +1261,120 @@ export interface CreateJobOutput {
   Captions?: Captions;
 
   /**
+   * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called a
+   *             clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
+   *             for the clips that make up an output file. For the current release, you can only specify settings for a
+   *             single clip per output file. The Composition object cannot be null.</p>
+   */
+  Composition?: Clip[];
+
+  /**
    * <p>You can specify encryption settings for any output files that you want to use for a
    *     transcoding job. This includes the output file and any watermarks, thumbnails, album art,
    *     or captions that you want to use. You must specify encryption settings for each file
    *     individually.</p>
    */
   Encryption?: Encryption;
+
+  /**
+   * <p> The name to assign to the transcoded file. Elastic Transcoder saves the file in the Amazon S3 bucket
+   *     specified by the <code>OutputBucket</code> object in the pipeline that is specified by
+   *     the pipeline ID. If a file with the specified name already exists in the output bucket,
+   *     the job fails. </p>
+   */
+  Key?: string;
+
+  /**
+   * <p> The <code>Id</code> of the preset to use for this job. The preset determines the audio,
+   *     video, and thumbnail settings that Elastic Transcoder uses for transcoding. </p>
+   */
+  PresetId?: string;
+
+  /**
+   * <p> The number of degrees clockwise by which you want Elastic Transcoder to rotate the output relative to
+   *     the input. Enter one of the following values: <code>auto</code>, <code>0</code>,
+   *         <code>90</code>, <code>180</code>, <code>270</code>. The value <code>auto</code>
+   *     generally works only if the file that you're transcoding contains rotation metadata.
+   * </p>
+   */
+  Rotate?: string;
+
+  /**
+   * <important>
+   *             <p>(Outputs in Fragmented MP4 or MPEG-TS format only.</p>
+   *          </important>
+   *          <p>If you specify a preset in
+   *         <code>PresetId</code> for which the value of <code>Container</code> is <code>fmp4</code> (Fragmented MP4) or
+   *         <code>ts</code> (MPEG-TS), <code>SegmentDuration</code> is the target maximum duration of
+   *     each segment in seconds. For <code>HLSv3</code> format playlists,
+   *     each media segment is stored in a separate <code>.ts</code> file. For <code>HLSv4</code> and <code>Smooth</code>
+   *     playlists, all media segments for an output are stored in a single file. Each segment is approximately the length of
+   *     the <code>SegmentDuration</code>, though individual segments might be shorter or longer.</p>
+   *
+   *          <p>The range of valid values is 1 to 60 seconds. If the duration
+   *     of the video is not evenly divisible by <code>SegmentDuration</code>, the duration of
+   *     the last segment is the remainder of total length/SegmentDuration.</p>
+   *          <p>Elastic Transcoder
+   *     creates an output-specific playlist for each output <code>HLS</code> output that you specify in OutputKeys. To
+   *     add an output to the master playlist for this job, include it in the <code>OutputKeys</code> of
+   *     the associated playlist.</p>
+   */
+  SegmentDuration?: string;
+
+  /**
+   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your thumbnail.</p>
+   */
+  ThumbnailEncryption?: Encryption;
+
+  /**
+   * <p>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want Elastic Transcoder to name the files.</p>
+   *          <p>If you don't want Elastic Transcoder to create thumbnails, specify "".</p>
+   *          <p>If you do want Elastic Transcoder to create thumbnails, specify the information that you want to include
+   *     in the file name for each thumbnail. You can specify the following values in any sequence:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>{count}</code> (Required)</b>: If you want to create thumbnails, you
+   *             must include <code>{count}</code> in the <code>ThumbnailPattern</code> object.
+   *             Wherever you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence
+   *             number (beginning with <b>00001</b>) to thumbnail file names. The number
+   *             indicates where a given thumbnail appears in the sequence of thumbnails for a
+   *             transcoded file. </p>
+   *                <important>
+   *                   <p>If you specify a literal value and/or <code>{resolution}</code> but you
+   *             omit <code>{count}</code>, Elastic Transcoder returns a validation error and does not create
+   *             the job.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Literal values (Optional)</b>: You can specify literal values anywhere in the
+   *                 <code>ThumbnailPattern</code> object. For example, you can include them as a
+   *             file name prefix or as a delimiter between <code>{resolution}</code> and
+   *                 <code>{count}</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include the
+   *             resolution in the file name, include <code>{resolution}</code> in the
+   *                 <code>ThumbnailPattern</code> object. </p>
+   *             </li>
+   *          </ul>
+   *          <p>When creating thumbnails, Elastic Transcoder automatically saves the files in the format (.jpg or .png)
+   *     that appears in the preset that you specified in the <code>PresetID</code> value of
+   *         <code>CreateJobOutput</code>. Elastic Transcoder also appends the applicable file name
+   *     extension.</p>
+   */
+  ThumbnailPattern?: string;
+
+  /**
+   * <p>Information about the watermarks that you want Elastic Transcoder to add to the video during transcoding.
+   *     You can specify up to four watermarks for each output. Settings for each watermark must be defined
+   *     in the preset for the current output.</p>
+   */
+  Watermarks?: JobWatermark[];
 }
 
 export namespace CreateJobOutput {
@@ -1388,12 +1388,12 @@ export namespace CreateJobOutput {
  */
 export interface HlsContentProtection {
   /**
-   * <p>The content protection method for your output. The only valid value is:
-   * <code>aes-128</code>.</p>
-   *          <p>This value is written into the method attribute of the <code>EXT-X-KEY</code> metadata tag in the output
-   * playlist.</p>
+   * <p>If Elastic Transcoder is generating your key for you, you must leave this field blank.</p>
+   *          <p>The series of random bits created by a random bit generator, unique for every encryption operation,
+   *     that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded,
+   *     and it must be exactly 16 bytes before being base64-encoded.</p>
    */
-  Method?: string;
+  InitializationVector?: string;
 
   /**
    * <p>If you want Elastic Transcoder to generate a key for you, leave this field blank.</p>
@@ -1413,12 +1413,11 @@ export interface HlsContentProtection {
   KeyMd5?: string;
 
   /**
-   * <p>If Elastic Transcoder is generating your key for you, you must leave this field blank.</p>
-   *          <p>The series of random bits created by a random bit generator, unique for every encryption operation,
-   *     that you want Elastic Transcoder to use to encrypt your output files. The initialization vector must be base64-encoded,
-   *     and it must be exactly 16 bytes before being base64-encoded.</p>
+   * <p>Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If
+   * you choose <code>WithVariantPlaylists</code>, <code>LicenseAcquisitionUrl</code> must be left blank and Elastic Transcoder
+   * writes your data key into the same bucket as the associated playlist.</p>
    */
-  InitializationVector?: string;
+  KeyStoragePolicy?: string;
 
   /**
    * <p>The location of the license key required to decrypt your HLS playlist. The URL must be an absolute
@@ -1427,11 +1426,12 @@ export interface HlsContentProtection {
   LicenseAcquisitionUrl?: string;
 
   /**
-   * <p>Specify whether you want Elastic Transcoder to write your HLS license key to an Amazon S3 bucket. If
-   * you choose <code>WithVariantPlaylists</code>, <code>LicenseAcquisitionUrl</code> must be left blank and Elastic Transcoder
-   * writes your data key into the same bucket as the associated playlist.</p>
+   * <p>The content protection method for your output. The only valid value is:
+   * <code>aes-128</code>.</p>
+   *          <p>This value is written into the method attribute of the <code>EXT-X-KEY</code> metadata tag in the output
+   * playlist.</p>
    */
-  KeyStoragePolicy?: string;
+  Method?: string;
 }
 
 export namespace HlsContentProtection {
@@ -1453,6 +1453,14 @@ export interface PlayReadyDrm {
   Format?: string;
 
   /**
+   * <p>The series of random bits created by a random bit generator, unique for every encryption operation,
+   *     that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it
+   *     must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder
+   *     generates one for you.</p>
+   */
+  InitializationVector?: string;
+
+  /**
    * <p>The DRM key for your file, provided by your DRM license provider. The key must be base64-encoded,
    *     and it must be one of the following bit lengths before being base64-encoded:</p>
    *          <p>
@@ -1460,13 +1468,6 @@ export interface PlayReadyDrm {
    *          <p>The key must also be encrypted by using AWS KMS.</p>
    */
   Key?: string;
-
-  /**
-   * <p>The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum
-   *     to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be
-   *     exactly 16 bytes before being base64-encoded.</p>
-   */
-  KeyMd5?: string;
 
   /**
    * <p>The ID for your DRM key, so that your DRM license provider knows which key to provide.</p>
@@ -1477,12 +1478,11 @@ export interface PlayReadyDrm {
   KeyId?: string;
 
   /**
-   * <p>The series of random bits created by a random bit generator, unique for every encryption operation,
-   *     that you want Elastic Transcoder to use to encrypt your files. The initialization vector must be base64-encoded, and it
-   *     must be exactly 8 bytes long before being base64-encoded. If no initialization vector is provided, Elastic Transcoder
-   *     generates one for you.</p>
+   * <p>The MD5 digest of the key used for DRM on your file, and that you want Elastic Transcoder to use as a checksum
+   *     to make sure your key was not corrupted in transit. The key MD5 must be base64-encoded, and it must be
+   *     exactly 16 bytes before being base64-encoded.</p>
    */
-  InitializationVector?: string;
+  KeyMd5?: string;
 
   /**
    * <p>The location of the license key required to play DRM content. The URL must be an absolute path,
@@ -1506,6 +1506,18 @@ export namespace PlayReadyDrm {
  */
 export interface CreateJobPlaylist {
   /**
+   * <p>The format of the output playlist. Valid formats include <code>HLSv3</code>,
+   *             <code>HLSv4</code>, and <code>Smooth</code>.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to the output
+   *             files associated with this playlist.</p>
+   */
+  HlsContentProtection?: HlsContentProtection;
+
+  /**
    * <p>The name that you want Elastic Transcoder to assign to the master playlist, for example,
    *     nyc-vacation.m3u8. If the name includes a <code>/</code> character,
    *     the section of the name before the last <code>/</code> must be identical
@@ -1522,12 +1534,6 @@ export interface CreateJobPlaylist {
    *          </note>
    */
   Name?: string;
-
-  /**
-   * <p>The format of the output playlist. Valid formats include <code>HLSv3</code>,
-   *             <code>HLSv4</code>, and <code>Smooth</code>.</p>
-   */
-  Format?: string;
 
   /**
    * <p>For each output in this job that you want to include in a master playlist, the value of
@@ -1571,12 +1577,6 @@ export interface CreateJobPlaylist {
   OutputKeys?: string[];
 
   /**
-   * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to the output
-   *             files associated with this playlist.</p>
-   */
-  HlsContentProtection?: HlsContentProtection;
-
-  /**
    * <p>The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
    */
   PlayReadyDrm?: PlayReadyDrm;
@@ -1592,14 +1592,6 @@ export namespace CreateJobPlaylist {
  * <p>The <code>CreateJobRequest</code> structure.</p>
  */
 export interface CreateJobRequest {
-  /**
-   * <p>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for
-   *             transcoding. The pipeline determines several settings, including the Amazon S3 bucket
-   *             from which Elastic Transcoder gets the files to transcode and the bucket into which
-   *             Elastic Transcoder puts the transcoded files.</p>
-   */
-  PipelineId: string | undefined;
-
   /**
    * <p>A section of the request body that provides information about the file that is being
    *              transcoded.</p>
@@ -1620,6 +1612,12 @@ export interface CreateJobRequest {
   Output?: CreateJobOutput;
 
   /**
+   * <p>The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this
+   *             job creates, including output files, thumbnails, and playlists.</p>
+   */
+  OutputKeyPrefix?: string;
+
+  /**
    * <p> A section of the request body that provides information about the transcoded (target)
    *             files. We recommend that you use the <code>Outputs</code> syntax instead of the
    *                 <code>Output</code> syntax. </p>
@@ -1627,10 +1625,12 @@ export interface CreateJobRequest {
   Outputs?: CreateJobOutput[];
 
   /**
-   * <p>The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this
-   *             job creates, including output files, thumbnails, and playlists.</p>
+   * <p>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for
+   *             transcoding. The pipeline determines several settings, including the Amazon S3 bucket
+   *             from which Elastic Transcoder gets the files to transcode and the bucket into which
+   *             Elastic Transcoder puts the transcoded files.</p>
    */
-  OutputKeyPrefix?: string;
+  PipelineId: string | undefined;
 
   /**
    * <p>If you specify a preset in <code>PresetId</code> for which the value of
@@ -1667,6 +1667,102 @@ export namespace CreateJobRequest {
  */
 export interface JobOutput {
   /**
+   * <p>The album art to be associated with the output file, if any.</p>
+   */
+  AlbumArt?: JobAlbumArt;
+
+  /**
+   * <p>If Elastic Transcoder used a preset with a <code>ColorSpaceConversionMode</code> to transcode the output
+   *       file, the <code>AppliedColorSpaceConversion</code> parameter shows the conversion used. If no
+   *       <code>ColorSpaceConversionMode</code> was defined in the preset, this parameter is not be
+   *       included in the job response.</p>
+   */
+  AppliedColorSpaceConversion?: string;
+
+  /**
+   * <p>You can configure Elastic Transcoder to transcode captions, or subtitles, from one format to another.
+   *           All captions must be in UTF-8. Elastic Transcoder supports two types of captions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Embedded:</b> Embedded captions
+   *             are included in the same file as the audio and video. Elastic Transcoder supports
+   *             only one embedded caption per language, to a maximum of 300 embedded captions per file.</p>
+   *                <p>Valid input values include: <code>CEA-608 (EIA-608</code>, first non-empty channel only),
+   *                <code>CEA-708 (EIA-708</code>, first non-empty channel only), and <code>mov-text</code>
+   *                </p>
+   *                <p>Valid outputs include: <code>mov-text</code>
+   *                </p>
+   *                <p>Elastic Transcoder supports a maximum of one embedded format per output.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Sidecar:</b> Sidecar captions are kept in a
+   *             separate metadata file from the audio and video data.  Sidecar captions require a player
+   *             that is capable of understanding the relationship between the video file and the sidecar
+   *             file. Elastic Transcoder supports only one sidecar caption per language, to a maximum of 20 sidecar
+   *             captions per file.</p>
+   *                <p>Valid input values include: <code>dfxp</code> (first div element only),
+   *                <code>ebu-tt</code>, <code>scc</code>, <code>smpt</code>, <code>srt</code>,
+   *                <code>ttml</code> (first div element only), and <code>webvtt</code>
+   *                </p>
+   *                <p>Valid outputs include: <code>dfxp</code> (first div element only), <code>scc</code>,
+   *                <code>srt</code>, and <code>webvtt</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you want ttml or smpte-tt compatible captions, specify dfxp as your output format.</p>
+   *          <p>Elastic Transcoder does not support OCR (Optical Character Recognition), does not accept pictures
+   *              as a valid input for captions, and is not available for audio-only transcoding. Elastic Transcoder does
+   *              not preserve text formatting (for example, italics) during the transcoding process.</p>
+   *              <p>To remove captions or leave the captions empty, set <code>Captions</code> to null. To pass through
+   *              existing captions unchanged, set the <code>MergePolicy</code> to <code>MergeRetain</code>,
+   *              and pass in a null <code>CaptionSources</code> array.</p>
+   *          <p>For more information on embedded files, see the Subtitles Wikipedia page.</p>
+   *          <p>For more information on sidecar files, see the Extensible Metadata Platform and Sidecar file Wikipedia pages.</p>
+   */
+  Captions?: Captions;
+
+  /**
+   * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called
+   *             a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
+   *             for the clips that make up an output file. For the current release, you can only specify settings for a
+   *             single clip per output file. The Composition object cannot be null.</p>
+   */
+  Composition?: Clip[];
+
+  /**
+   * <p>Duration of the output file, in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>Duration of the output file, in milliseconds.</p>
+   */
+  DurationMillis?: number;
+
+  /**
+   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your output files.
+   *             If you choose to use encryption, you must specify a mode to use. If you choose not to
+   *             use encryption, Elastic Transcoder writes an unencrypted file to your Amazon S3 bucket.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
+   * <p>File size of the output file, in bytes.</p>
+   */
+  FileSize?: number;
+
+  /**
+   * <p>Frame rate of the output file, in frames per second.</p>
+   */
+  FrameRate?: string;
+
+  /**
+   * <p>Height of the output file, in pixels.</p>
+   */
+  Height?: number;
+
+  /**
    * <p>A sequential counter, starting with 1, that identifies an output among the outputs from
    *             the current job. In the Output syntax, this value is always 1.</p>
    */
@@ -1680,53 +1776,13 @@ export interface JobOutput {
   Key?: string;
 
   /**
-   * <p>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want
-   *             Elastic Transcoder to name the files.</p>
-   *         <p>If you don't want Elastic Transcoder to create thumbnails, specify "".</p>
-   *         <p>If you do want Elastic Transcoder to create thumbnails, specify the information that you want to
-   *             include in the file name for each thumbnail. You can specify the following values in any sequence:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <b>
-   *                      <code>{count}</code> (Required)</b>: If you want to create thumbnails, you
-   *                     must include <code>{count}</code> in the <code>ThumbnailPattern</code> object.
-   *                     Wherever you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence
-   *                     number (beginning with <b>00001</b>) to thumbnail file names. The number
-   *                     indicates where a given thumbnail appears in the sequence of thumbnails for a
-   *                     transcoded file. </p>
-   *                 <important>
-   *                   <p>If you specify a literal value and/or <code>{resolution}</code> but you
-   *                     omit <code>{count}</code>, Elastic Transcoder returns a validation error and does not create
-   *                     the job.</p>
-   *                </important>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <b>Literal values (Optional)</b>: You can specify literal values anywhere in the
-   *                         <code>ThumbnailPattern</code> object. For example, you can include them as a
-   *                     file name prefix or as a delimiter between <code>{resolution}</code> and
-   *                         <code>{count}</code>. </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <b>
-   *                      <code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include the
-   *                     resolution in the file name, include <code>{resolution}</code> in the
-   *                         <code>ThumbnailPattern</code> object. </p>
-   *             </li>
-   *          </ul>
-   *         <p>When creating thumbnails, Elastic Transcoder automatically saves the files in the format (.jpg or .png)
-   *             that appears in the preset that you specified in the <code>PresetID</code> value of
-   *                 <code>CreateJobOutput</code>. Elastic Transcoder also appends the applicable file name
-   *             extension.</p>
+   * <p>The value of the <code>Id</code> object for the preset that you want to use for this job.
+   *             The preset determines the audio, video, and thumbnail settings that Elastic Transcoder
+   *             uses for transcoding. To use a preset that you created, specify the preset ID that
+   *             Elastic Transcoder returned in the response when you created the preset. You can also
+   *             use the Elastic Transcoder system presets, which you can get with <code>ListPresets</code>.</p>
    */
-  ThumbnailPattern?: string;
-
-  /**
-   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your thumbnail.</p>
-   */
-  ThumbnailEncryption?: Encryption;
+  PresetId?: string;
 
   /**
    * <p>The number of degrees clockwise by which you want Elastic Transcoder to rotate the output relative
@@ -1739,15 +1795,6 @@ export interface JobOutput {
    *             contains rotation metadata.</p>
    */
   Rotate?: string;
-
-  /**
-   * <p>The value of the <code>Id</code> object for the preset that you want to use for this job.
-   *             The preset determines the audio, video, and thumbnail settings that Elastic Transcoder
-   *             uses for transcoding. To use a preset that you created, specify the preset ID that
-   *             Elastic Transcoder returned in the response when you created the preset. You can also
-   *             use the Elastic Transcoder system presets, which you can get with <code>ListPresets</code>.</p>
-   */
-  PresetId?: string;
 
   /**
    * <important>
@@ -1811,34 +1858,53 @@ export interface JobOutput {
   StatusDetail?: string;
 
   /**
-   * <p>Duration of the output file, in seconds.</p>
+   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your thumbnail.</p>
    */
-  Duration?: number;
+  ThumbnailEncryption?: Encryption;
 
   /**
-   * <p>Specifies the width of the output file in pixels.</p>
+   * <p>Whether you want Elastic Transcoder to create thumbnails for your videos and, if so, how you want
+   *             Elastic Transcoder to name the files.</p>
+   *         <p>If you don't want Elastic Transcoder to create thumbnails, specify "".</p>
+   *         <p>If you do want Elastic Transcoder to create thumbnails, specify the information that you want to
+   *             include in the file name for each thumbnail. You can specify the following values in any sequence:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <b>
+   *                      <code>{count}</code> (Required)</b>: If you want to create thumbnails, you
+   *                     must include <code>{count}</code> in the <code>ThumbnailPattern</code> object.
+   *                     Wherever you specify <code>{count}</code>, Elastic Transcoder adds a five-digit sequence
+   *                     number (beginning with <b>00001</b>) to thumbnail file names. The number
+   *                     indicates where a given thumbnail appears in the sequence of thumbnails for a
+   *                     transcoded file. </p>
+   *                 <important>
+   *                   <p>If you specify a literal value and/or <code>{resolution}</code> but you
+   *                     omit <code>{count}</code>, Elastic Transcoder returns a validation error and does not create
+   *                     the job.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <b>Literal values (Optional)</b>: You can specify literal values anywhere in the
+   *                         <code>ThumbnailPattern</code> object. For example, you can include them as a
+   *                     file name prefix or as a delimiter between <code>{resolution}</code> and
+   *                         <code>{count}</code>. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <b>
+   *                      <code>{resolution}</code> (Optional)</b>: If you want Elastic Transcoder to include the
+   *                     resolution in the file name, include <code>{resolution}</code> in the
+   *                         <code>ThumbnailPattern</code> object. </p>
+   *             </li>
+   *          </ul>
+   *         <p>When creating thumbnails, Elastic Transcoder automatically saves the files in the format (.jpg or .png)
+   *             that appears in the preset that you specified in the <code>PresetID</code> value of
+   *                 <code>CreateJobOutput</code>. Elastic Transcoder also appends the applicable file name
+   *             extension.</p>
    */
-  Width?: number;
-
-  /**
-   * <p>Height of the output file, in pixels.</p>
-   */
-  Height?: number;
-
-  /**
-   * <p>Frame rate of the output file, in frames per second.</p>
-   */
-  FrameRate?: string;
-
-  /**
-   * <p>File size of the output file, in bytes.</p>
-   */
-  FileSize?: number;
-
-  /**
-   * <p>Duration of the output file, in milliseconds.</p>
-   */
-  DurationMillis?: number;
+  ThumbnailPattern?: string;
 
   /**
    * <p>Information about the watermarks that you want Elastic Transcoder to add to the video during
@@ -1855,75 +1921,9 @@ export interface JobOutput {
   Watermarks?: JobWatermark[];
 
   /**
-   * <p>The album art to be associated with the output file, if any.</p>
+   * <p>Specifies the width of the output file in pixels.</p>
    */
-  AlbumArt?: JobAlbumArt;
-
-  /**
-   * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called
-   *             a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
-   *             for the clips that make up an output file. For the current release, you can only specify settings for a
-   *             single clip per output file. The Composition object cannot be null.</p>
-   */
-  Composition?: Clip[];
-
-  /**
-   * <p>You can configure Elastic Transcoder to transcode captions, or subtitles, from one format to another.
-   *           All captions must be in UTF-8. Elastic Transcoder supports two types of captions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Embedded:</b> Embedded captions
-   *             are included in the same file as the audio and video. Elastic Transcoder supports
-   *             only one embedded caption per language, to a maximum of 300 embedded captions per file.</p>
-   *                <p>Valid input values include: <code>CEA-608 (EIA-608</code>, first non-empty channel only),
-   *                <code>CEA-708 (EIA-708</code>, first non-empty channel only), and <code>mov-text</code>
-   *                </p>
-   *                <p>Valid outputs include: <code>mov-text</code>
-   *                </p>
-   *                <p>Elastic Transcoder supports a maximum of one embedded format per output.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Sidecar:</b> Sidecar captions are kept in a
-   *             separate metadata file from the audio and video data.  Sidecar captions require a player
-   *             that is capable of understanding the relationship between the video file and the sidecar
-   *             file. Elastic Transcoder supports only one sidecar caption per language, to a maximum of 20 sidecar
-   *             captions per file.</p>
-   *                <p>Valid input values include: <code>dfxp</code> (first div element only),
-   *                <code>ebu-tt</code>, <code>scc</code>, <code>smpt</code>, <code>srt</code>,
-   *                <code>ttml</code> (first div element only), and <code>webvtt</code>
-   *                </p>
-   *                <p>Valid outputs include: <code>dfxp</code> (first div element only), <code>scc</code>,
-   *                <code>srt</code>, and <code>webvtt</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you want ttml or smpte-tt compatible captions, specify dfxp as your output format.</p>
-   *          <p>Elastic Transcoder does not support OCR (Optical Character Recognition), does not accept pictures
-   *              as a valid input for captions, and is not available for audio-only transcoding. Elastic Transcoder does
-   *              not preserve text formatting (for example, italics) during the transcoding process.</p>
-   *              <p>To remove captions or leave the captions empty, set <code>Captions</code> to null. To pass through
-   *              existing captions unchanged, set the <code>MergePolicy</code> to <code>MergeRetain</code>,
-   *              and pass in a null <code>CaptionSources</code> array.</p>
-   *          <p>For more information on embedded files, see the Subtitles Wikipedia page.</p>
-   *          <p>For more information on sidecar files, see the Extensible Metadata Platform and Sidecar file Wikipedia pages.</p>
-   */
-  Captions?: Captions;
-
-  /**
-   * <p>The encryption settings, if any, that you want Elastic Transcoder to apply to your output files.
-   *             If you choose to use encryption, you must specify a mode to use. If you choose not to
-   *             use encryption, Elastic Transcoder writes an unencrypted file to your Amazon S3 bucket.</p>
-   */
-  Encryption?: Encryption;
-
-  /**
-   * <p>If Elastic Transcoder used a preset with a <code>ColorSpaceConversionMode</code> to transcode the output
-   *       file, the <code>AppliedColorSpaceConversion</code> parameter shows the conversion used. If no
-   *       <code>ColorSpaceConversionMode</code> was defined in the preset, this parameter is not be
-   *       included in the job response.</p>
-   */
-  AppliedColorSpaceConversion?: string;
+  Width?: number;
 }
 
 export namespace JobOutput {
@@ -1941,6 +1941,17 @@ export namespace JobOutput {
  */
 export interface Playlist {
   /**
+   * <p>The format of the output playlist. Valid formats include <code>HLSv3</code>, <code>HLSv4</code>,
+   * and <code>Smooth</code>.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
+   */
+  HlsContentProtection?: HlsContentProtection;
+
+  /**
    * <p>The name that you want Elastic Transcoder to assign to the master playlist, for example,
    *             nyc-vacation.m3u8. If the name includes a <code>/</code> character, the
    *             section of the name before the last <code>/</code> must be identical for all
@@ -1956,12 +1967,6 @@ export interface Playlist {
    *          </note>
    */
   Name?: string;
-
-  /**
-   * <p>The format of the output playlist. Valid formats include <code>HLSv3</code>, <code>HLSv4</code>,
-   * and <code>Smooth</code>.</p>
-   */
-  Format?: string;
 
   /**
    * <p>For each output in this job that you want to include in a master playlist, the value of the Outputs:Key object.</p>
@@ -2003,11 +2008,6 @@ export interface Playlist {
   OutputKeys?: string[];
 
   /**
-   * <p>The HLS content protection settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
-   */
-  HlsContentProtection?: HlsContentProtection;
-
-  /**
    * <p>The DRM settings, if any, that you want Elastic Transcoder to apply to the output files associated with this playlist.</p>
    */
   PlayReadyDrm?: PlayReadyDrm;
@@ -2034,9 +2034,9 @@ export namespace Playlist {
  */
 export interface Timing {
   /**
-   * <p>The time the job was submitted to Elastic Transcoder, in epoch milliseconds.</p>
+   * <p>The time the job finished transcoding, in epoch milliseconds.</p>
    */
-  SubmitTimeMillis?: number;
+  FinishTimeMillis?: number;
 
   /**
    * <p>The time the job began transcoding, in epoch milliseconds.</p>
@@ -2044,9 +2044,9 @@ export interface Timing {
   StartTimeMillis?: number;
 
   /**
-   * <p>The time the job finished transcoding, in epoch milliseconds.</p>
+   * <p>The time the job was submitted to Elastic Transcoder, in epoch milliseconds.</p>
    */
-  FinishTimeMillis?: number;
+  SubmitTimeMillis?: number;
 }
 
 export namespace Timing {
@@ -2060,21 +2060,14 @@ export namespace Timing {
  */
 export interface Job {
   /**
-   * <p>The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the job.</p>
    */
   Arn?: string;
 
   /**
-   * <p> The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding. The
-   *             pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the
-   *             files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. </p>
+   * <p>The identifier that Elastic Transcoder assigned to the job. You use this value to get settings for the job or to delete the job.</p>
    */
-  PipelineId?: string;
+  Id?: string;
 
   /**
    * <p>A section of the request or response body that provides information about the file that is being transcoded.</p>
@@ -2100,6 +2093,13 @@ export interface Job {
   Output?: JobOutput;
 
   /**
+   * <p>The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job
+   *             creates, including output files, thumbnails, and playlists. We recommend that you add a
+   *             / or some other delimiter to the end of the <code>OutputKeyPrefix</code>.</p>
+   */
+  OutputKeyPrefix?: string;
+
+  /**
    * <p>Information about the output files. We recommend that you use the <code>Outputs</code>
    *             syntax for all jobs, even when you want Elastic Transcoder to transcode a file into only
    *             one format. Do not use both the <code>Outputs</code> and <code>Output</code> syntaxes in
@@ -2110,11 +2110,11 @@ export interface Job {
   Outputs?: JobOutput[];
 
   /**
-   * <p>The value, if any, that you want Elastic Transcoder to prepend to the names of all files that this job
-   *             creates, including output files, thumbnails, and playlists. We recommend that you add a
-   *             / or some other delimiter to the end of the <code>OutputKeyPrefix</code>.</p>
+   * <p> The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding. The
+   *             pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the
+   *             files to transcode and the bucket into which Elastic Transcoder puts the transcoded files. </p>
    */
-  OutputKeyPrefix?: string;
+  PipelineId?: string;
 
   /**
    * <important>
@@ -2133,6 +2133,11 @@ export interface Job {
    *                 <code>Canceled</code>, or <code>Error</code>. </p>
    */
   Status?: string;
+
+  /**
+   * <p>Details about the timing of a job.</p>
+   */
+  Timing?: Timing;
 
   /**
    * <p>User-defined metadata that you want to associate with an Elastic Transcoder job. You specify metadata in
@@ -2163,11 +2168,6 @@ export interface Job {
    *          </ul>
    */
   UserMetadata?: { [key: string]: string };
-
-  /**
-   * <p>Details about the timing of a job.</p>
-   */
-  Timing?: Timing;
 }
 
 export namespace Job {
@@ -2213,40 +2213,6 @@ export namespace LimitExceededException {
  */
 export interface Permission {
   /**
-   * <p>The type of value that appears in the Grantee object:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Canonical</code>: Either the canonical user ID for an AWS account or an
-   *                     origin access identity for an Amazon CloudFront distribution.</p>
-   * 					          <important>
-   *                   <p>A
-   *                         canonical user ID is not the same as an AWS account number.</p>
-   *                </important>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Email</code>: The registered email address of an AWS account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Group</code>: One of the following predefined Amazon S3 groups:
-   *                         <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or
-   *                         <code>LogDelivery</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  GranteeType?: string;
-
-  /**
-   * <p>The AWS user or group that you want to have access to transcoded files and playlists. To
-   *             identify the user or group, you can specify the canonical user ID for an AWS account, an origin
-   *             access identity for a CloudFront distribution, the registered email address of an AWS account,
-   *             or a predefined Amazon S3 group.</p>
-   */
-  Grantee?: string;
-
-  /**
    * <p> The permission that you want to give to the AWS user that is listed in Grantee. Valid
    *             values include: </p>
    * 			      <ul>
@@ -2274,6 +2240,40 @@ export interface Permission {
    *          </ul>
    */
   Access?: string[];
+
+  /**
+   * <p>The AWS user or group that you want to have access to transcoded files and playlists. To
+   *             identify the user or group, you can specify the canonical user ID for an AWS account, an origin
+   *             access identity for a CloudFront distribution, the registered email address of an AWS account,
+   *             or a predefined Amazon S3 group.</p>
+   */
+  Grantee?: string;
+
+  /**
+   * <p>The type of value that appears in the Grantee object:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Canonical</code>: Either the canonical user ID for an AWS account or an
+   *                     origin access identity for an Amazon CloudFront distribution.</p>
+   * 					          <important>
+   *                   <p>A
+   *                         canonical user ID is not the same as an AWS account number.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Email</code>: The registered email address of an AWS account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Group</code>: One of the following predefined Amazon S3 groups:
+   *                         <code>AllUsers</code>, <code>AuthenticatedUsers</code>, or
+   *                         <code>LogDelivery</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  GranteeType?: string;
 }
 
 export namespace Permission {
@@ -2314,13 +2314,6 @@ export interface PipelineOutputConfig {
   Bucket?: string;
 
   /**
-   * <p> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
-   *             that you want Elastic Transcoder to assign to the video files and playlists that it stores in your
-   *             Amazon S3 bucket. </p>
-   */
-  StorageClass?: string;
-
-  /**
    * <p>Optional. The <code>Permissions</code> object specifies which users and/or predefined
    *             Amazon S3 groups you want to have access to transcoded files and playlists, and the type
    *             of access you want them to have. You can grant permissions to a maximum of 30 users
@@ -2334,6 +2327,13 @@ export interface PipelineOutputConfig {
    *             other permissions to any other user or group.</p>
    */
   Permissions?: Permission[];
+
+  /**
+   * <p> The Amazon S3 storage class, <code>Standard</code> or <code>ReducedRedundancy</code>,
+   *             that you want Elastic Transcoder to assign to the video files and playlists that it stores in your
+   *             Amazon S3 bucket. </p>
+   */
+  StorageClass?: string;
 }
 
 export namespace PipelineOutputConfig {
@@ -2350,24 +2350,24 @@ export namespace PipelineOutputConfig {
  */
 export interface Notifications {
   /**
-   * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.</p>
-   */
-  Progressing?: string;
-
-  /**
    * <p>The Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing the job.</p>
    */
   Completed?: string;
 
   /**
-   * <p>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.</p>
-   */
-  Warning?: string;
-
-  /**
    * <p>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition.</p>
    */
   Error?: string;
+
+  /**
+   * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process the job.</p>
+   */
+  Progressing?: string;
+
+  /**
+   * <p>The Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition.</p>
+   */
+  Warning?: string;
 }
 
 export namespace Notifications {
@@ -2381,61 +2381,6 @@ export namespace Notifications {
  */
 export interface CreatePipelineRequest {
   /**
-   * <p>The name of the pipeline. We recommend that the name be unique within the AWS account,
-   *             but uniqueness is not enforced.</p>
-   *         <p>Constraints: Maximum 40 characters.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket in which you saved the media files that you want to transcode.</p>
-   */
-  InputBucket: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files. (Use
-   * 		  this, or use ContentConfig:Bucket plus ThumbnailConfig:Bucket.)</p>
-   *         <p>Specify this value when all of the following are true:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>You want to save transcoded files, thumbnails (if any), and playlists (if any)
-   *                     together in one bucket.</p>
-   *             </li>
-   *             <li>
-   *                <p>You do not want to specify the users or groups who have access to the transcoded
-   *                     files, thumbnails, and playlists.</p>
-   *             </li>
-   *             <li>
-   *                <p>You do not want to specify the permissions that Elastic Transcoder grants to the
-   *
-   *                     files. </p>
-   * 				           <important>
-   *                   <p>When Elastic Transcoder saves files in
-   *                             <code>OutputBucket</code>, it grants full control over the files only to
-   *                         the AWS account that owns the role that is specified by
-   *                         <code>Role</code>.</p>
-   *                </important>
-   *             </li>
-   *             <li>
-   *                <p>You want to associate the transcoded files and thumbnails with the Amazon S3
-   *                     Standard storage class.</p>
-   *             </li>
-   *          </ul>
-   *
-   *         <p>If you want to save transcoded files and playlists in one bucket and thumbnails in
-   *             another bucket, specify which users can access the transcoded files or the permissions
-   *             the users have, or change the Amazon S3 storage class, omit <code>OutputBucket</code>
-   *             and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>
-   *             instead.</p>
-   */
-  OutputBucket?: string;
-
-  /**
-   * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to create the pipeline.</p>
-   */
-  Role: string | undefined;
-
-  /**
    * <p>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</p>
    *         <p>If you use either <code>s3</code> or <code>s3-aws-kms</code> as your
    *             <code>Encryption:Mode</code>, you don't need to provide a key with
@@ -2445,41 +2390,6 @@ export interface CreatePipelineRequest {
    *             or <code>aes-gcm</code>.</p>
    */
   AwsKmsKeyArn?: string;
-
-  /**
-   * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p>
-   *         <important>
-   *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
-   *          </important>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to
-   *                 notify when Elastic Transcoder has started to process a job in this pipeline. This is the ARN that
-   *                 Amazon SNS returned when you created the topic. For more information, see Create a
-   *                 Topic in the Amazon Simple Notification Service Developer Guide.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when
-   *                 Elastic Transcoder has finished processing a job in this pipeline. This is the ARN that Amazon SNS
-   *                 returned when you created the topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
-   *                 encounters a warning condition while processing a job in this pipeline. This is the
-   *                 ARN that Amazon SNS returned when you created the topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
-   *                 encounters an error condition while processing a job in this pipeline. This is the
-   *                 ARN that Amazon SNS returned when you created the topic.</p>
-   *             </li>
-   *          </ul>
-   */
-  Notifications?: Notifications;
 
   /**
    * <p>The optional <code>ContentConfig</code> object specifies information about the Amazon S3
@@ -2583,6 +2493,96 @@ export interface CreatePipelineRequest {
    *          </ul>
    */
   ContentConfig?: PipelineOutputConfig;
+
+  /**
+   * <p>The Amazon S3 bucket in which you saved the media files that you want to transcode.</p>
+   */
+  InputBucket: string | undefined;
+
+  /**
+   * <p>The name of the pipeline. We recommend that the name be unique within the AWS account,
+   *             but uniqueness is not enforced.</p>
+   *         <p>Constraints: Maximum 40 characters.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p>
+   *         <important>
+   *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
+   *          </important>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to
+   *                 notify when Elastic Transcoder has started to process a job in this pipeline. This is the ARN that
+   *                 Amazon SNS returned when you created the topic. For more information, see Create a
+   *                 Topic in the Amazon Simple Notification Service Developer Guide.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when
+   *                 Elastic Transcoder has finished processing a job in this pipeline. This is the ARN that Amazon SNS
+   *                 returned when you created the topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
+   *                 encounters a warning condition while processing a job in this pipeline. This is the
+   *                 ARN that Amazon SNS returned when you created the topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
+   *                 encounters an error condition while processing a job in this pipeline. This is the
+   *                 ARN that Amazon SNS returned when you created the topic.</p>
+   *             </li>
+   *          </ul>
+   */
+  Notifications?: Notifications;
+
+  /**
+   * <p>The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files. (Use
+   * 		  this, or use ContentConfig:Bucket plus ThumbnailConfig:Bucket.)</p>
+   *         <p>Specify this value when all of the following are true:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>You want to save transcoded files, thumbnails (if any), and playlists (if any)
+   *                     together in one bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>You do not want to specify the users or groups who have access to the transcoded
+   *                     files, thumbnails, and playlists.</p>
+   *             </li>
+   *             <li>
+   *                <p>You do not want to specify the permissions that Elastic Transcoder grants to the
+   *
+   *                     files. </p>
+   * 				           <important>
+   *                   <p>When Elastic Transcoder saves files in
+   *                             <code>OutputBucket</code>, it grants full control over the files only to
+   *                         the AWS account that owns the role that is specified by
+   *                         <code>Role</code>.</p>
+   *                </important>
+   *             </li>
+   *             <li>
+   *                <p>You want to associate the transcoded files and thumbnails with the Amazon S3
+   *                     Standard storage class.</p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>If you want to save transcoded files and playlists in one bucket and thumbnails in
+   *             another bucket, specify which users can access the transcoded files or the permissions
+   *             the users have, or change the Amazon S3 storage class, omit <code>OutputBucket</code>
+   *             and specify values for <code>ContentConfig</code> and <code>ThumbnailConfig</code>
+   *             instead.</p>
+   */
+  OutputBucket?: string;
+
+  /**
+   * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to create the pipeline.</p>
+   */
+  Role: string | undefined;
 
   /**
    * <p>The <code>ThumbnailConfig</code> object specifies several values, including the Amazon S3
@@ -2691,55 +2691,9 @@ export namespace CreatePipelineRequest {
  */
 export interface Pipeline {
   /**
-   * <p>The identifier for the pipeline. You use this value to identify the pipeline in
-   *             which you want to perform a variety of operations, such as creating a job or a preset.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the pipeline.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The name of the pipeline. We recommend that the name be unique within the AWS account,
-   *             but uniqueness is not enforced.</p>
-   *         <p>Constraints: Maximum 40 characters</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The current status of the pipeline:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Active</code>: The pipeline is processing jobs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Paused</code>: The pipeline is not currently processing jobs.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: string;
-
-  /**
-   * <p>The Amazon S3 bucket from which Elastic Transcoder gets media files for transcoding and the graphics
-   *             files, if any, that you want to use for watermarks.</p>
-   */
-  InputBucket?: string;
-
-  /**
-   * <p>The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files,
-   *             thumbnails, and playlists. Either you specify this value, or you specify both
-   *                 <code>ContentConfig</code> and <code>ThumbnailConfig</code>.</p>
-   */
-  OutputBucket?: string;
-
-  /**
-   * <p>The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder uses to transcode jobs for this pipeline.</p>
-   */
-  Role?: string;
 
   /**
    * <p>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</p>
@@ -2751,36 +2705,6 @@ export interface Pipeline {
    *             or <code>aes-gcm</code>.</p>
    */
   AwsKmsKeyArn?: string;
-
-  /**
-   * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p>
-   *         <important>
-   *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
-   *          </important>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Progressing</b> (optional): The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify
-   *                 when Elastic Transcoder has started to process the job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Complete</b> (optional): The Amazon SNS topic that you want to notify when Elastic Transcoder has
-   *                 finished processing the job.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Warning</b> (optional): The Amazon SNS topic that you want to notify when Elastic Transcoder
-   *                 encounters a warning condition.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Error</b> (optional): The Amazon SNS topic that you want to notify when Elastic Transcoder
-   *                 encounters an error condition.</p>
-   *             </li>
-   *          </ul>
-   */
-  Notifications?: Notifications;
 
   /**
    * <p>Information about the Amazon S3 bucket in which you want Elastic Transcoder to save
@@ -2866,6 +2790,82 @@ export interface Pipeline {
    *          </ul>
    */
   ContentConfig?: PipelineOutputConfig;
+
+  /**
+   * <p>The identifier for the pipeline. You use this value to identify the pipeline in
+   *             which you want to perform a variety of operations, such as creating a job or a preset.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon S3 bucket from which Elastic Transcoder gets media files for transcoding and the graphics
+   *             files, if any, that you want to use for watermarks.</p>
+   */
+  InputBucket?: string;
+
+  /**
+   * <p>The name of the pipeline. We recommend that the name be unique within the AWS account,
+   *             but uniqueness is not enforced.</p>
+   *         <p>Constraints: Maximum 40 characters</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p>
+   *         <important>
+   *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
+   *          </important>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Progressing</b> (optional): The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify
+   *                 when Elastic Transcoder has started to process the job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Complete</b> (optional): The Amazon SNS topic that you want to notify when Elastic Transcoder has
+   *                 finished processing the job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Warning</b> (optional): The Amazon SNS topic that you want to notify when Elastic Transcoder
+   *                 encounters a warning condition.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Error</b> (optional): The Amazon SNS topic that you want to notify when Elastic Transcoder
+   *                 encounters an error condition.</p>
+   *             </li>
+   *          </ul>
+   */
+  Notifications?: Notifications;
+
+  /**
+   * <p>The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files,
+   *             thumbnails, and playlists. Either you specify this value, or you specify both
+   *                 <code>ContentConfig</code> and <code>ThumbnailConfig</code>.</p>
+   */
+  OutputBucket?: string;
+
+  /**
+   * <p>The IAM Amazon Resource Name (ARN) for the role that Elastic Transcoder uses to transcode jobs for this pipeline.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The current status of the pipeline:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Active</code>: The pipeline is processing jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Paused</code>: The pipeline is not currently processing jobs.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
 
   /**
    * <p>Information about the Amazon S3 bucket in which you want Elastic Transcoder to save
@@ -3019,6 +3019,24 @@ export namespace CreatePipelineResponse {
  */
 export interface Thumbnails {
   /**
+   * <important>
+   *             <p>To better control resolution and aspect ratio of thumbnails, we recommend that you
+   *                 use the values <code>MaxWidth</code>, <code>MaxHeight</code>,
+   *                     <code>SizingPolicy</code>, and <code>PaddingPolicy</code> instead of
+   *                     <code>Resolution</code> and <code>AspectRatio</code>. The two groups of settings
+   *                 are mutually exclusive. Do not use them together.</p>
+   *         </important>
+   *         <p>The aspect ratio of thumbnails. Valid values include:</p>
+   *         <p>
+   *             <code>auto</code>, <code>1:1</code>, <code>4:3</code>, <code>3:2</code>,
+   *                 <code>16:9</code>
+   *          </p>
+   *         <p>If you specify <code>auto</code>, Elastic Transcoder tries to preserve the aspect ratio of the video in
+   *             the output file.</p>
+   */
+  AspectRatio?: string;
+
+  /**
    * <p>The format of thumbnails, if any. Valid values are <code>jpg</code> and <code>png</code>. </p>
    *         <p>You specify whether you want Elastic Transcoder to create thumbnails when you create a job.</p>
    */
@@ -3028,6 +3046,27 @@ export interface Thumbnails {
    * <p>The approximate number of seconds between thumbnails. Specify an integer value.</p>
    */
   Interval?: string;
+
+  /**
+   * <p>The maximum height of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1080
+   *             (Full HD) as the default value. If you specify a numeric value, enter an even integer
+   *             between 32 and 3072.</p>
+   */
+  MaxHeight?: string;
+
+  /**
+   * <p>The maximum width of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD)
+   *             as the default value. If you specify a numeric value, enter an even integer between 32 and 4096.</p>
+   */
+  MaxWidth?: string;
+
+  /**
+   * <p>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add
+   *             black bars to the top and bottom and/or left and right sides of thumbnails to make the
+   *             total size of the thumbnails match the values that you specified for thumbnail
+   *                 <code>MaxWidth</code> and <code>MaxHeight</code> settings.</p>
+   */
+  PaddingPolicy?: string;
 
   /**
    * <important>
@@ -3047,37 +3086,6 @@ export interface Thumbnails {
    *                 <code>Video:Resolution</code> object.</p>
    */
   Resolution?: string;
-
-  /**
-   * <important>
-   *             <p>To better control resolution and aspect ratio of thumbnails, we recommend that you
-   *                 use the values <code>MaxWidth</code>, <code>MaxHeight</code>,
-   *                     <code>SizingPolicy</code>, and <code>PaddingPolicy</code> instead of
-   *                     <code>Resolution</code> and <code>AspectRatio</code>. The two groups of settings
-   *                 are mutually exclusive. Do not use them together.</p>
-   *         </important>
-   *         <p>The aspect ratio of thumbnails. Valid values include:</p>
-   *         <p>
-   *             <code>auto</code>, <code>1:1</code>, <code>4:3</code>, <code>3:2</code>,
-   *                 <code>16:9</code>
-   *          </p>
-   *         <p>If you specify <code>auto</code>, Elastic Transcoder tries to preserve the aspect ratio of the video in
-   *             the output file.</p>
-   */
-  AspectRatio?: string;
-
-  /**
-   * <p>The maximum width of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1920 (Full HD)
-   *             as the default value. If you specify a numeric value, enter an even integer between 32 and 4096.</p>
-   */
-  MaxWidth?: string;
-
-  /**
-   * <p>The maximum height of thumbnails in pixels. If you specify auto, Elastic Transcoder uses 1080
-   *             (Full HD) as the default value. If you specify a numeric value, enter an even integer
-   *             between 32 and 3072.</p>
-   */
-  MaxHeight?: string;
 
   /**
    * <p>Specify one of the following values to control scaling of thumbnails:</p>
@@ -3130,14 +3138,6 @@ export interface Thumbnails {
    *          </ul>
    */
   SizingPolicy?: string;
-
-  /**
-   * <p>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add
-   *             black bars to the top and bottom and/or left and right sides of thumbnails to make the
-   *             total size of the thumbnails match the values that you specified for thumbnail
-   *                 <code>MaxWidth</code> and <code>MaxHeight</code> settings.</p>
-   */
-  PaddingPolicy?: string;
 }
 
 export namespace Thumbnails {
@@ -3159,77 +3159,6 @@ export namespace Thumbnails {
  *             the same preset for up to four watermarks that have different dimensions.</p>
  */
 export interface PresetWatermark {
-  /**
-   * <p> A unique identifier for the settings for one
-   *         watermark. The value of <code>Id</code> can be up to 40 characters long. </p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The maximum width of the watermark in one of the following formats: </p>
-   * 		       <ul>
-   *             <li>
-   *                <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is
-   *                     the value of <code>MaxWidth</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of
-   *                         <code>Target</code> to specify whether you want Elastic Transcoder to include the black
-   *                     bars that are added by Elastic Transcoder, if any, in the calculation.</p>
-   * 					          <p>If
-   *                 you specify the value in pixels, it must be less than or equal to the value of
-   *                     <code>MaxWidth</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  MaxWidth?: string;
-
-  /**
-   * <p>The maximum height of the watermark in one of the following formats: </p>
-   * 		       <ul>
-   *             <li>
-   *                <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is
-   *                     the value of <code>MaxHeight</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of
-   *                         <code>Target</code> to specify whether you want Elastic Transcoder to include the black
-   *                     bars that are added by Elastic Transcoder, if any, in the calculation.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify the value in pixels, it must be less than or equal to the value of
-   *                 <code>MaxHeight</code>.</p>
-   */
-  MaxHeight?: string;
-
-  /**
-   * <p>A value that controls scaling of the watermark: </p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Fit</b>: Elastic Transcoder scales the watermark so it matches the value that
-   *                     you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without
-   *                     exceeding the other value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Stretch</b>: Elastic Transcoder stretches the watermark to match the values
-   *                     that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the
-   *                     relative proportions of the watermark and the values of <code>MaxWidth</code>
-   *                     and <code>MaxHeight</code> are different, the watermark will be distorted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>ShrinkToFit</b>: Elastic Transcoder scales the watermark down so that its
-   *                     dimensions match the values that you specified for at least one of
-   *                         <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either
-   *                     value. If you specify this option, Elastic Transcoder does not scale the
-   *                     watermark up.</p>
-   *             </li>
-   *          </ul>
-   */
-  SizingPolicy?: string;
-
   /**
    * <p>The horizontal position of the watermark unless you specify a non-zero value for
    *                 <code>HorizontalOffset</code>: </p>
@@ -3279,6 +3208,114 @@ export interface PresetWatermark {
    *             bars that are added by Elastic Transcoder, if any, in the offset calculation.</p>
    */
   HorizontalOffset?: string;
+
+  /**
+   * <p> A unique identifier for the settings for one
+   *         watermark. The value of <code>Id</code> can be up to 40 characters long. </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The maximum height of the watermark in one of the following formats: </p>
+   * 		       <ul>
+   *             <li>
+   *                <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is
+   *                     the value of <code>MaxHeight</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of
+   *                         <code>Target</code> to specify whether you want Elastic Transcoder to include the black
+   *                     bars that are added by Elastic Transcoder, if any, in the calculation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you specify the value in pixels, it must be less than or equal to the value of
+   *                 <code>MaxHeight</code>.</p>
+   */
+  MaxHeight?: string;
+
+  /**
+   * <p>The maximum width of the watermark in one of the following formats: </p>
+   * 		       <ul>
+   *             <li>
+   *                <p>number of pixels (px): The minimum value is 16 pixels, and the maximum value is
+   *                     the value of <code>MaxWidth</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>integer percentage (%): The range of valid values is 0 to 100. Use the value of
+   *                         <code>Target</code> to specify whether you want Elastic Transcoder to include the black
+   *                     bars that are added by Elastic Transcoder, if any, in the calculation.</p>
+   * 					          <p>If
+   *                 you specify the value in pixels, it must be less than or equal to the value of
+   *                     <code>MaxWidth</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  MaxWidth?: string;
+
+  /**
+   * <p>A percentage that indicates how much you want a watermark to obscure the video in the
+   *             location where it appears. Valid values are 0 (the watermark is invisible) to 100 (the
+   *             watermark completely obscures the video in the specified location). The datatype of
+   *                 <code>Opacity</code> is float.</p>
+   *         <p>Elastic Transcoder supports transparent .png graphics. If you use a transparent .png, the transparent
+   *             portion of the video appears as if you had specified a value of 0 for
+   *                 <code>Opacity</code>. The .jpg file format doesn't support transparency.</p>
+   */
+  Opacity?: string;
+
+  /**
+   * <p>A value that controls scaling of the watermark: </p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Fit</b>: Elastic Transcoder scales the watermark so it matches the value that
+   *                     you specified in either <code>MaxWidth</code> or <code>MaxHeight</code> without
+   *                     exceeding the other value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Stretch</b>: Elastic Transcoder stretches the watermark to match the values
+   *                     that you specified for <code>MaxWidth</code> and <code>MaxHeight</code>. If the
+   *                     relative proportions of the watermark and the values of <code>MaxWidth</code>
+   *                     and <code>MaxHeight</code> are different, the watermark will be distorted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ShrinkToFit</b>: Elastic Transcoder scales the watermark down so that its
+   *                     dimensions match the values that you specified for at least one of
+   *                         <code>MaxWidth</code> and <code>MaxHeight</code> without exceeding either
+   *                     value. If you specify this option, Elastic Transcoder does not scale the
+   *                     watermark up.</p>
+   *             </li>
+   *          </ul>
+   */
+  SizingPolicy?: string;
+
+  /**
+   * <p>A value that determines how Elastic Transcoder interprets values that you specified for
+   *                 <code>HorizontalOffset</code>, <code>VerticalOffset</code>, <code>MaxWidth</code>,
+   *             and <code>MaxHeight</code>:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Content</b>: <code>HorizontalOffset</code> and
+   *                         <code>VerticalOffset</code> values are calculated based on the borders of
+   *                     the video excluding black bars added by Elastic Transcoder, if any. In addition,
+   *                         <code>MaxWidth</code> and <code>MaxHeight</code>, if specified as a
+   *                     percentage, are calculated based on the borders of the video excluding black
+   *                     bars added by Elastic Transcoder, if any.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Frame</b>: <code>HorizontalOffset</code> and <code>VerticalOffset</code>
+   *                     values are calculated based on the borders of the video including black bars
+   *                     added by Elastic Transcoder, if any. In addition, <code>MaxWidth</code> and
+   *                     <code>MaxHeight</code>, if specified as a percentage, are calculated based on
+   *                 the borders of the video including black bars added by Elastic Transcoder, if any.</p>
+   *             </li>
+   *          </ul>
+   */
+  Target?: string;
 
   /**
    * <p>The vertical position of the watermark unless you specify a non-zero value for
@@ -3334,43 +3371,6 @@ export interface PresetWatermark {
    *             calculation.</p>
    */
   VerticalOffset?: string;
-
-  /**
-   * <p>A percentage that indicates how much you want a watermark to obscure the video in the
-   *             location where it appears. Valid values are 0 (the watermark is invisible) to 100 (the
-   *             watermark completely obscures the video in the specified location). The datatype of
-   *                 <code>Opacity</code> is float.</p>
-   *         <p>Elastic Transcoder supports transparent .png graphics. If you use a transparent .png, the transparent
-   *             portion of the video appears as if you had specified a value of 0 for
-   *                 <code>Opacity</code>. The .jpg file format doesn't support transparency.</p>
-   */
-  Opacity?: string;
-
-  /**
-   * <p>A value that determines how Elastic Transcoder interprets values that you specified for
-   *                 <code>HorizontalOffset</code>, <code>VerticalOffset</code>, <code>MaxWidth</code>,
-   *             and <code>MaxHeight</code>:</p>
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Content</b>: <code>HorizontalOffset</code> and
-   *                         <code>VerticalOffset</code> values are calculated based on the borders of
-   *                     the video excluding black bars added by Elastic Transcoder, if any. In addition,
-   *                         <code>MaxWidth</code> and <code>MaxHeight</code>, if specified as a
-   *                     percentage, are calculated based on the borders of the video excluding black
-   *                     bars added by Elastic Transcoder, if any.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Frame</b>: <code>HorizontalOffset</code> and <code>VerticalOffset</code>
-   *                     values are calculated based on the borders of the video including black bars
-   *                     added by Elastic Transcoder, if any. In addition, <code>MaxWidth</code> and
-   *                     <code>MaxHeight</code>, if specified as a percentage, are calculated based on
-   *                 the borders of the video including black bars added by Elastic Transcoder, if any.</p>
-   *             </li>
-   *          </ul>
-   */
-  Target?: string;
 }
 
 export namespace PresetWatermark {
@@ -3383,6 +3383,78 @@ export namespace PresetWatermark {
  * <p>The <code>VideoParameters</code> structure.</p>
  */
 export interface VideoParameters {
+  /**
+   * <important>
+   *             <p>To better control resolution and aspect ratio of output videos, we recommend that you
+   *                 use the values <code>MaxWidth</code>, <code>MaxHeight</code>,
+   *                     <code>SizingPolicy</code>, <code>PaddingPolicy</code>, and
+   *                     <code>DisplayAspectRatio</code> instead of <code>Resolution</code> and
+   *                     <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do
+   *                 not use them together.</p>
+   *         </important>
+   *         <p>The display aspect ratio of the video in the output file. Valid values include:</p>
+   *         <p>
+   *             <code>auto</code>, <code>1:1</code>, <code>4:3</code>, <code>3:2</code>,
+   *                 <code>16:9</code>
+   *          </p>
+   *         <p>If you specify <code>auto</code>, Elastic Transcoder tries to preserve the aspect ratio of the input
+   *             file.</p>
+   *         <p>If you specify an aspect ratio for the output file that differs from aspect ratio
+   *             of the input file, Elastic Transcoder adds pillarboxing (black bars on the sides) or letterboxing
+   *             (black bars on the top and bottom) to maintain the aspect ratio of the active region
+   *             of the video.</p>
+   */
+  AspectRatio?: string;
+
+  /**
+   * <p>The bit rate of the video stream in the output file, in kilobits/second. Valid values
+   *             depend on the values of <code>Level</code> and <code>Profile</code>. If you specify
+   *                 <code>auto</code>, Elastic Transcoder uses the detected bit rate of the input source. If you
+   *             specify a value other than <code>auto</code>, we recommend that you specify a value less
+   *             than or equal to the maximum H.264-compliant value listed for your level and
+   *             profile:</p>
+   *         <p>
+   *             <i>Level - Maximum video bit rate in kilobits/second (baseline and main Profile) :
+   *                 maximum video bit rate in kilobits/second (high Profile)</i>
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                <p>1 - 64 : 80</p>
+   *             </li>
+   *             <li>
+   *                <p>1b - 128 : 160</p>
+   *             </li>
+   *             <li>
+   *                <p>1.1 - 192 : 240</p>
+   *             </li>
+   *             <li>
+   *                <p>1.2 - 384 : 480</p>
+   *             </li>
+   *             <li>
+   *                <p>1.3 - 768 : 960</p>
+   *             </li>
+   *             <li>
+   *                <p>2 - 2000 : 2500</p>
+   *             </li>
+   *             <li>
+   *                <p>3 - 10000 : 12500</p>
+   *             </li>
+   *             <li>
+   *                <p>3.1 - 14000 : 17500</p>
+   *             </li>
+   *             <li>
+   *                <p>3.2 - 20000 : 25000</p>
+   *             </li>
+   *             <li>
+   *                <p>4 - 20000 : 25000</p>
+   *             </li>
+   *             <li>
+   *                <p>4.1 - 50000 : 62500</p>
+   *             </li>
+   *          </ul>
+   */
+  BitRate?: string;
+
   /**
    * <p>The video codec for the output file. Valid values include <code>gif</code>,
    *                 <code>H.264</code>, <code>mpeg2</code>, <code>vp8</code>, and <code>vp9</code>.
@@ -3573,24 +3645,9 @@ export interface VideoParameters {
   CodecOptions?: { [key: string]: string };
 
   /**
-   * <p>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,
-   *             or <code>VP8</code>.</p>
-   *         <p>The maximum number of frames between key frames. Key frames are fully encoded frames;
-   *             the frames between key frames are encoded based, in part, on the content of the key frames.
-   *             The value is an integer formatted as a string; valid values are between 1 (every frame is a
-   *             key frame) and 100000, inclusive. A higher value results in higher compression but may also
-   *             discernibly decrease video quality.</p>
-   *         <p>For <code>Smooth</code> outputs, the <code>FrameRate</code> must have a constant ratio to the
-   *             <code>KeyframesMaxDist</code>. This allows <code>Smooth</code> playlists to switch between different quality levels
-   *             while the file is being played.</p>
-   *         <p>For example, an input file can have a <code>FrameRate</code> of
-   *             30 with a <code>KeyframesMaxDist</code> of 90. The output file then needs to have a ratio of 1:3.
-   *             Valid outputs would have <code>FrameRate</code> of 30, 25, and 10, and <code>KeyframesMaxDist</code>
-   *             of 90, 75, and 30, respectively.</p>
-   *         <p>Alternately, this can be achieved by setting <code>FrameRate</code>
-   *             to auto and having the same values for <code>MaxFrameRate</code> and <code>KeyframesMaxDist</code>.</p>
+   * <p>The value that Elastic Transcoder adds to the metadata in the output file.</p>
    */
-  KeyframesMaxDist?: string;
+  DisplayAspectRatio?: string;
 
   /**
    * <p>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,
@@ -3615,55 +3672,6 @@ export interface VideoParameters {
    *          </important>
    */
   FixedGOP?: string;
-
-  /**
-   * <p>The bit rate of the video stream in the output file, in kilobits/second. Valid values
-   *             depend on the values of <code>Level</code> and <code>Profile</code>. If you specify
-   *                 <code>auto</code>, Elastic Transcoder uses the detected bit rate of the input source. If you
-   *             specify a value other than <code>auto</code>, we recommend that you specify a value less
-   *             than or equal to the maximum H.264-compliant value listed for your level and
-   *             profile:</p>
-   *         <p>
-   *             <i>Level - Maximum video bit rate in kilobits/second (baseline and main Profile) :
-   *                 maximum video bit rate in kilobits/second (high Profile)</i>
-   *         </p>
-   *         <ul>
-   *             <li>
-   *                <p>1 - 64 : 80</p>
-   *             </li>
-   *             <li>
-   *                <p>1b - 128 : 160</p>
-   *             </li>
-   *             <li>
-   *                <p>1.1 - 192 : 240</p>
-   *             </li>
-   *             <li>
-   *                <p>1.2 - 384 : 480</p>
-   *             </li>
-   *             <li>
-   *                <p>1.3 - 768 : 960</p>
-   *             </li>
-   *             <li>
-   *                <p>2 - 2000 : 2500</p>
-   *             </li>
-   *             <li>
-   *                <p>3 - 10000 : 12500</p>
-   *             </li>
-   *             <li>
-   *                <p>3.1 - 14000 : 17500</p>
-   *             </li>
-   *             <li>
-   *                <p>3.2 - 20000 : 25000</p>
-   *             </li>
-   *             <li>
-   *                <p>4 - 20000 : 25000</p>
-   *             </li>
-   *             <li>
-   *                <p>4.1 - 50000 : 62500</p>
-   *             </li>
-   *          </ul>
-   */
-  BitRate?: string;
 
   /**
    * <p>The frames per second for the video stream in the output file. Valid values include:</p>
@@ -3739,6 +3747,26 @@ export interface VideoParameters {
   FrameRate?: string;
 
   /**
+   * <p>Applicable only when the value of Video:Codec is one of <code>H.264</code>, <code>MPEG2</code>,
+   *             or <code>VP8</code>.</p>
+   *         <p>The maximum number of frames between key frames. Key frames are fully encoded frames;
+   *             the frames between key frames are encoded based, in part, on the content of the key frames.
+   *             The value is an integer formatted as a string; valid values are between 1 (every frame is a
+   *             key frame) and 100000, inclusive. A higher value results in higher compression but may also
+   *             discernibly decrease video quality.</p>
+   *         <p>For <code>Smooth</code> outputs, the <code>FrameRate</code> must have a constant ratio to the
+   *             <code>KeyframesMaxDist</code>. This allows <code>Smooth</code> playlists to switch between different quality levels
+   *             while the file is being played.</p>
+   *         <p>For example, an input file can have a <code>FrameRate</code> of
+   *             30 with a <code>KeyframesMaxDist</code> of 90. The output file then needs to have a ratio of 1:3.
+   *             Valid outputs would have <code>FrameRate</code> of 30, 25, and 10, and <code>KeyframesMaxDist</code>
+   *             of 90, 75, and 30, respectively.</p>
+   *         <p>Alternately, this can be achieved by setting <code>FrameRate</code>
+   *             to auto and having the same values for <code>MaxFrameRate</code> and <code>KeyframesMaxDist</code>.</p>
+   */
+  KeyframesMaxDist?: string;
+
+  /**
    * <p>If you specify <code>auto</code> for <code>FrameRate</code>, Elastic Transcoder uses the frame rate of
    *             the input video for the frame rate of the output video. Specify the maximum frame rate
    *             that you want Elastic Transcoder to use when the frame rate of the input video is greater than the
@@ -3747,6 +3775,28 @@ export interface VideoParameters {
    *                 <code>29.97</code>, <code>30</code>, <code>60</code>.</p>
    */
   MaxFrameRate?: string;
+
+  /**
+   * <p>The maximum height of the output video in pixels. If you specify <code>auto</code>, Elastic Transcoder
+   *             uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even
+   *             integer between 96 and 3072.</p>
+   */
+  MaxHeight?: string;
+
+  /**
+   * <p> The maximum width of the output video in pixels. If you specify <code>auto</code>, Elastic Transcoder
+   *             uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even
+   *             integer between 128 and 4096. </p>
+   */
+  MaxWidth?: string;
+
+  /**
+   * <p>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add black bars to
+   *             the top and bottom and/or left and right sides of the output video to make the total
+   *             size of the output video match the values that you specified for <code>MaxWidth</code>
+   *             and <code>MaxHeight</code>.</p>
+   */
+  PaddingPolicy?: string;
 
   /**
    * <important>
@@ -3840,48 +3890,6 @@ export interface VideoParameters {
   Resolution?: string;
 
   /**
-   * <important>
-   *             <p>To better control resolution and aspect ratio of output videos, we recommend that you
-   *                 use the values <code>MaxWidth</code>, <code>MaxHeight</code>,
-   *                     <code>SizingPolicy</code>, <code>PaddingPolicy</code>, and
-   *                     <code>DisplayAspectRatio</code> instead of <code>Resolution</code> and
-   *                     <code>AspectRatio</code>. The two groups of settings are mutually exclusive. Do
-   *                 not use them together.</p>
-   *         </important>
-   *         <p>The display aspect ratio of the video in the output file. Valid values include:</p>
-   *         <p>
-   *             <code>auto</code>, <code>1:1</code>, <code>4:3</code>, <code>3:2</code>,
-   *                 <code>16:9</code>
-   *          </p>
-   *         <p>If you specify <code>auto</code>, Elastic Transcoder tries to preserve the aspect ratio of the input
-   *             file.</p>
-   *         <p>If you specify an aspect ratio for the output file that differs from aspect ratio
-   *             of the input file, Elastic Transcoder adds pillarboxing (black bars on the sides) or letterboxing
-   *             (black bars on the top and bottom) to maintain the aspect ratio of the active region
-   *             of the video.</p>
-   */
-  AspectRatio?: string;
-
-  /**
-   * <p> The maximum width of the output video in pixels. If you specify <code>auto</code>, Elastic Transcoder
-   *             uses 1920 (Full HD) as the default value. If you specify a numeric value, enter an even
-   *             integer between 128 and 4096. </p>
-   */
-  MaxWidth?: string;
-
-  /**
-   * <p>The maximum height of the output video in pixels. If you specify <code>auto</code>, Elastic Transcoder
-   *             uses 1080 (Full HD) as the default value. If you specify a numeric value, enter an even
-   *             integer between 96 and 3072.</p>
-   */
-  MaxHeight?: string;
-
-  /**
-   * <p>The value that Elastic Transcoder adds to the metadata in the output file.</p>
-   */
-  DisplayAspectRatio?: string;
-
-  /**
    * <p>Specify one of the following values to control scaling of the output video:</p>
    *
    *             <ul>
@@ -3931,14 +3939,6 @@ export interface VideoParameters {
   SizingPolicy?: string;
 
   /**
-   * <p>When you set <code>PaddingPolicy</code> to <code>Pad</code>, Elastic Transcoder may add black bars to
-   *             the top and bottom and/or left and right sides of the output video to make the total
-   *             size of the output video match the values that you specified for <code>MaxWidth</code>
-   *             and <code>MaxHeight</code>.</p>
-   */
-  PaddingPolicy?: string;
-
-  /**
    * <p>Settings for the size, location, and opacity of graphics that you want Elastic Transcoder to overlay
    *             over videos that are transcoded using this preset. You can specify settings for up to four
    *             watermarks. Watermarks appear in the specified size and location, and with the specified
@@ -3964,14 +3964,9 @@ export namespace VideoParameters {
  */
 export interface CreatePresetRequest {
   /**
-   * <p>The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.</p>
+   * <p>A section of the request body that specifies the audio parameters.</p>
    */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the preset.</p>
-   */
-  Description?: string;
+  Audio?: AudioParameters;
 
   /**
    * <p>The container type for the output file. Valid values include <code>flac</code>,
@@ -3983,19 +3978,24 @@ export interface CreatePresetRequest {
   Container: string | undefined;
 
   /**
-   * <p>A section of the request body that specifies the video parameters.</p>
+   * <p>A description of the preset.</p>
    */
-  Video?: VideoParameters;
+  Description?: string;
 
   /**
-   * <p>A section of the request body that specifies the audio parameters.</p>
+   * <p>The name of the preset. We recommend that the name be unique within the AWS account, but uniqueness is not enforced.</p>
    */
-  Audio?: AudioParameters;
+  Name: string | undefined;
 
   /**
    * <p>A section of the request body that specifies the thumbnail parameters, if any.</p>
    */
   Thumbnails?: Thumbnails;
+
+  /**
+   * <p>A section of the request body that specifies the video parameters.</p>
+   */
+  Video?: VideoParameters;
 }
 
 export namespace CreatePresetRequest {
@@ -4013,24 +4013,14 @@ export namespace CreatePresetRequest {
  */
 export interface Preset {
   /**
-   * <p>Identifier for the new preset. You use this value to get settings for the preset or to delete it.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the preset.</p>
    */
   Arn?: string;
 
   /**
-   * <p>The name of the preset.</p>
+   * <p>A section of the response body that provides information about the audio preset values.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>A description of the preset.</p>
-   */
-  Description?: string;
+  Audio?: AudioParameters;
 
   /**
    * <p>The container type for the output file. Valid values include <code>flac</code>,
@@ -4041,14 +4031,19 @@ export interface Preset {
   Container?: string;
 
   /**
-   * <p>A section of the response body that provides information about the audio preset values.</p>
+   * <p>A description of the preset.</p>
    */
-  Audio?: AudioParameters;
+  Description?: string;
 
   /**
-   * <p>A section of the response body that provides information about the video preset values.</p>
+   * <p>Identifier for the new preset. You use this value to get settings for the preset or to delete it.</p>
    */
-  Video?: VideoParameters;
+  Id?: string;
+
+  /**
+   * <p>The name of the preset.</p>
+   */
+  Name?: string;
 
   /**
    * <p>A section of the response body that provides information about the thumbnail preset values, if any.</p>
@@ -4060,6 +4055,11 @@ export interface Preset {
    *                 (<code>System</code>) or a preset that you have defined (<code>Custom</code>).</p>
    */
   Type?: string;
+
+  /**
+   * <p>A section of the response body that provides information about the video preset values.</p>
+   */
+  Video?: VideoParameters;
 }
 
 export namespace Preset {
@@ -4151,11 +4151,6 @@ export namespace DeletePresetResponse {
  */
 export interface ListJobsByPipelineRequest {
   /**
-   * <p>The ID of the pipeline for which you want to get job information.</p>
-   */
-  PipelineId: string | undefined;
-
-  /**
    * <p> To list jobs in chronological order by the date and time that they were submitted, enter
    *                 <code>true</code>. To list jobs in reverse chronological order, enter
    *                 <code>false</code>. </p>
@@ -4167,6 +4162,11 @@ export interface ListJobsByPipelineRequest {
    *             subsequent <code>GET</code> requests to get each successive page of results. </p>
    */
   PageToken?: string;
+
+  /**
+   * <p>The ID of the pipeline for which you want to get job information.</p>
+   */
+  PipelineId: string | undefined;
 }
 
 export namespace ListJobsByPipelineRequest {
@@ -4203,14 +4203,6 @@ export namespace ListJobsByPipelineResponse {
  */
 export interface ListJobsByStatusRequest {
   /**
-   * <p>To get information about all of the jobs associated with the current AWS account that
-   *             have a given status, specify the following status: <code>Submitted</code>,
-   *                 <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or
-   *                 <code>Error</code>.</p>
-   */
-  Status: string | undefined;
-
-  /**
    * <p> To list jobs in chronological order by the date and time that they were submitted, enter
    *                 <code>true</code>. To list jobs in reverse chronological order, enter
    *                 <code>false</code>. </p>
@@ -4222,6 +4214,14 @@ export interface ListJobsByStatusRequest {
    *             subsequent <code>GET</code> requests to get each successive page of results. </p>
    */
   PageToken?: string;
+
+  /**
+   * <p>To get information about all of the jobs associated with the current AWS account that
+   *             have a given status, specify the following status: <code>Submitted</code>,
+   *                 <code>Progressing</code>, <code>Complete</code>, <code>Canceled</code>, or
+   *                 <code>Error</code>.</p>
+   */
+  Status: string | undefined;
 }
 
 export namespace ListJobsByStatusRequest {
@@ -4284,16 +4284,16 @@ export namespace ListPipelinesRequest {
  */
 export interface ListPipelinesResponse {
   /**
-   * <p>An array of <code>Pipeline</code> objects.</p>
-   */
-  Pipelines?: Pipeline[];
-
-  /**
    * <p>A value that you use to access the second and subsequent pages of results, if any. When
    *             the pipelines fit on one page or when you've reached the last page
    *             of results, the value of <code>NextPageToken</code> is <code>null</code>.</p>
    */
   NextPageToken?: string;
+
+  /**
+   * <p>An array of <code>Pipeline</code> objects.</p>
+   */
+  Pipelines?: Pipeline[];
 }
 
 export namespace ListPipelinesResponse {
@@ -4331,16 +4331,16 @@ export namespace ListPresetsRequest {
  */
 export interface ListPresetsResponse {
   /**
-   * <p>An array of <code>Preset</code> objects.</p>
-   */
-  Presets?: Preset[];
-
-  /**
    * <p>A value that you use to access the second and subsequent pages of results, if any. When
    *             the presets fit on one page or when you've reached the last page
    *             of results, the value of <code>NextPageToken</code> is <code>null</code>.</p>
    */
   NextPageToken?: string;
+
+  /**
+   * <p>An array of <code>Preset</code> objects.</p>
+   */
+  Presets?: Preset[];
 }
 
 export namespace ListPresetsResponse {
@@ -4458,11 +4458,6 @@ export namespace ReadPresetResponse {
  */
 export interface TestRoleRequest {
   /**
-   * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.</p>
-   */
-  Role: string | undefined;
-
-  /**
    * <p>The Amazon S3 bucket that contains media files to be transcoded. The action attempts to read from this bucket.</p>
    */
   InputBucket: string | undefined;
@@ -4471,6 +4466,11 @@ export interface TestRoleRequest {
    * <p>The Amazon S3 bucket that Elastic Transcoder writes transcoded media files to. The action attempts to read from this bucket.</p>
    */
   OutputBucket: string | undefined;
+
+  /**
+   * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to test.</p>
+   */
+  Role: string | undefined;
 
   /**
    * <p>The ARNs of one or more Amazon Simple Notification Service (Amazon SNS) topics that you want the action to send a test notification to.</p>
@@ -4489,16 +4489,16 @@ export namespace TestRoleRequest {
  */
 export interface TestRoleResponse {
   /**
-   * <p>If the operation is successful, this value is <code>true</code>; otherwise, the value is
-   *                 <code>false</code>.</p>
-   */
-  Success?: string;
-
-  /**
    * <p>If the <code>Success</code> element contains <code>false</code>, this value is an array
    *             of one or more error messages that were generated during the test process.</p>
    */
   Messages?: string[];
+
+  /**
+   * <p>If the operation is successful, this value is <code>true</code>; otherwise, the value is
+   *                 <code>false</code>.</p>
+   */
+  Success?: string;
 }
 
 export namespace TestRoleResponse {
@@ -4512,30 +4512,6 @@ export namespace TestRoleResponse {
  */
 export interface UpdatePipelineRequest {
   /**
-   * <p>The ID of the pipeline that you want to update.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The name of the pipeline. We recommend that the name be unique within the AWS account, but
-   *             uniqueness is not enforced.</p>
-   *         <p>Constraints: Maximum 40 characters</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics
-   *             that you want to use as watermarks.</p>
-   */
-  InputBucket?: string;
-
-  /**
-   * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for
-   *             this pipeline.</p>
-   */
-  Role?: string;
-
-  /**
    * <p>The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.</p>
    *         <p>If you use either <code>s3</code> or <code>s3-aws-kms</code> as your <code>Encryption:Mode</code>,
    *         you don't need to provide a key with your job because a default key, known as an AWS-KMS key, is
@@ -4544,40 +4520,6 @@ export interface UpdatePipelineRequest {
    *             or <code>aes-gcm</code>.</p>
    */
   AwsKmsKeyArn?: string;
-
-  /**
-   * <p>The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p>
-   *         <important>
-   *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
-   *         </important>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to
-   *                 notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This
-   *                 is the ARN that Amazon SNS returned when you created the topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when
-   *                 Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when
-   *                 you created the topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
-   *                 encounters a warning condition. This is the ARN that Amazon SNS returned when you
-   *                 created the topic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
-   *                 encounters an error condition. This is the ARN that Amazon SNS returned when you
-   *                 created the topic.</p>
-   *             </li>
-   *          </ul>
-   */
-  Notifications?: Notifications;
 
   /**
    * <p>The optional <code>ContentConfig</code> object specifies information about the Amazon S3
@@ -4681,6 +4623,64 @@ export interface UpdatePipelineRequest {
    *          </ul>
    */
   ContentConfig?: PipelineOutputConfig;
+
+  /**
+   * <p>The ID of the pipeline that you want to update.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics
+   *             that you want to use as watermarks.</p>
+   */
+  InputBucket?: string;
+
+  /**
+   * <p>The name of the pipeline. We recommend that the name be unique within the AWS account, but
+   *             uniqueness is not enforced.</p>
+   *         <p>Constraints: Maximum 40 characters</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.</p>
+   *         <important>
+   *             <p>To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.</p>
+   *         </important>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Progressing</b>: The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to
+   *                 notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This
+   *                 is the ARN that Amazon SNS returned when you created the topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Complete</b>: The topic ARN for the Amazon SNS topic that you want to notify when
+   *                 Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when
+   *                 you created the topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Warning</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
+   *                 encounters a warning condition. This is the ARN that Amazon SNS returned when you
+   *                 created the topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Error</b>: The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder
+   *                 encounters an error condition. This is the ARN that Amazon SNS returned when you
+   *                 created the topic.</p>
+   *             </li>
+   *          </ul>
+   */
+  Notifications?: Notifications;
+
+  /**
+   * <p>The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for
+   *             this pipeline.</p>
+   */
+  Role?: string;
 
   /**
    * <p>The <code>ThumbnailConfig</code> object specifies several values, including the Amazon S3

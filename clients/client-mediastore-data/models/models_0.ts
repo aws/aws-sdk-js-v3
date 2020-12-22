@@ -85,14 +85,11 @@ export namespace DescribeObjectRequest {
 
 export interface DescribeObjectResponse {
   /**
-   * <p>The ETag that represents a unique instance of the object.</p>
+   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
+   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
+   *          <p>Headers with a custom user-defined value are also accepted.</p>
    */
-  ETag?: string;
-
-  /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
+  CacheControl?: string;
 
   /**
    * <p>The length of the object in bytes.</p>
@@ -100,11 +97,14 @@ export interface DescribeObjectResponse {
   ContentLength?: number;
 
   /**
-   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
-   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
-   *          <p>Headers with a custom user-defined value are also accepted.</p>
+   * <p>The content type of the object.</p>
    */
-  CacheControl?: string;
+  ContentType?: string;
+
+  /**
+   * <p>The ETag that represents a unique instance of the object.</p>
+   */
+  ETag?: string;
 
   /**
    * <p>The date and time that the object was last modified.</p>
@@ -168,14 +168,14 @@ export interface GetObjectResponse {
   CacheControl?: string;
 
   /**
-   * <p>The range of bytes to retrieve.</p>
-   */
-  ContentRange?: string;
-
-  /**
    * <p>The length of the object in bytes.</p>
    */
   ContentLength?: number;
+
+  /**
+   * <p>The range of bytes to retrieve.</p>
+   */
+  ContentRange?: string;
 
   /**
    * <p>The content type of the object.</p>
@@ -230,14 +230,14 @@ export enum ItemType {
  */
 export interface Item {
   /**
-   * <p>The name of the item.</p>
+   * <p>The length of the item in bytes.</p>
    */
-  Name?: string;
+  ContentLength?: number;
 
   /**
-   * <p>The item type (folder or object).</p>
+   * <p>The content type of the item.</p>
    */
-  Type?: ItemType | string;
+  ContentType?: string;
 
   /**
    * <p>The ETag that represents a unique instance of the item.</p>
@@ -250,14 +250,14 @@ export interface Item {
   LastModified?: Date;
 
   /**
-   * <p>The content type of the item.</p>
+   * <p>The name of the item.</p>
    */
-  ContentType?: string;
+  Name?: string;
 
   /**
-   * <p>The length of the item in bytes.</p>
+   * <p>The item type (folder or object).</p>
    */
-  ContentLength?: number;
+  Type?: ItemType | string;
 }
 
 export namespace Item {
@@ -267,12 +267,6 @@ export namespace Item {
 }
 
 export interface ListItemsRequest {
-  /**
-   * <p>The path in the container from which to retrieve items. Format: <folder
-   *          name>/<folder name>/<file name></p>
-   */
-  Path?: string;
-
   /**
    * <p>The maximum number of results to return per API request. For example, you submit a
    *             <code>ListItems</code> request with <code>MaxResults</code> set at 500. Although 2,000
@@ -294,6 +288,12 @@ export interface ListItemsRequest {
    *          <p>Tokens expire after 15 minutes.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The path in the container from which to retrieve items. Format: <folder
+   *          name>/<folder name>/<file name></p>
+   */
+  Path?: string;
 }
 
 export namespace ListItemsRequest {
@@ -335,6 +335,18 @@ export interface PutObjectRequest {
   Body: Readable | ReadableStream | Blob | undefined;
 
   /**
+   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
+   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
+   *          <p>Headers with a custom user-defined value are also accepted.</p>
+   */
+  CacheControl?: string;
+
+  /**
+   * <p>The content type of the object.</p>
+   */
+  ContentType?: string;
+
+  /**
    * <p>The path (including the file name) where the object is stored in the container.
    *          Format: <folder name>/<folder name>/<file name></p>
    *          <p>For example, to upload the file <code>mlaw.avi</code> to the folder path
@@ -355,18 +367,6 @@ export interface PutObjectRequest {
    *          name. The file name can include or omit an extension. </p>
    */
   Path: string | undefined;
-
-  /**
-   * <p>The content type of the object.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>An optional <code>CacheControl</code> header that allows the caller to control the
-   *          object's cache behavior. Headers can be passed in as specified in the HTTP at <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
-   *          <p>Headers with a custom user-defined value are also accepted.</p>
-   */
-  CacheControl?: string;
 
   /**
    * <p>Indicates the storage class of a <code>Put</code> request. Defaults to

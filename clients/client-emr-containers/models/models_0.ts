@@ -114,14 +114,14 @@ export namespace S3MonitoringConfiguration {
  */
 export interface MonitoringConfiguration {
   /**
-   * <p>Monitoring configurations for the persistent application UI. </p>
-   */
-  persistentAppUI?: PersistentAppUI | string;
-
-  /**
    * <p>Monitoring configurations for CloudWatch.</p>
    */
   cloudWatchMonitoringConfiguration?: CloudWatchMonitoringConfiguration;
+
+  /**
+   * <p>Monitoring configurations for the persistent application UI. </p>
+   */
+  persistentAppUI?: PersistentAppUI | string;
 
   /**
    * <p>Amazon S3 configuration for monitoring log publishing.</p>
@@ -137,6 +137,11 @@ export namespace MonitoringConfiguration {
 
 export interface CreateManagedEndpointResponse {
   /**
+   * <p>The output contains the ARN of the managed endpoint.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The output contains the ID of the managed endpoint.</p>
    */
   id?: string;
@@ -145,11 +150,6 @@ export interface CreateManagedEndpointResponse {
    * <p>The output contains the name of the managed endpoint.</p>
    */
   name?: string;
-
-  /**
-   * <p>The output contains the ARN of the managed endpoint.</p>
-   */
-  arn?: string;
 
   /**
    * <p>The output contains the ID of the virtual cluster.</p>
@@ -238,11 +238,6 @@ export enum ContainerProviderType {
  */
 export interface ContainerProvider {
   /**
-   * <p>The type of the container provider. EKS is the only supported type as of now.</p>
-   */
-  type: ContainerProviderType | string | undefined;
-
-  /**
    * <p>The ID of the container cluster.</p>
    */
   id: string | undefined;
@@ -251,6 +246,11 @@ export interface ContainerProvider {
    * <p>The information about the container cluster.</p>
    */
   info?: ContainerInfo;
+
+  /**
+   * <p>The type of the container provider. EKS is the only supported type as of now.</p>
+   */
+  type: ContainerProviderType | string | undefined;
 }
 
 export namespace ContainerProvider {
@@ -262,9 +262,9 @@ export namespace ContainerProvider {
 
 export interface CreateVirtualClusterRequest {
   /**
-   * <p>The specified name of the virtual cluster.</p>
+   * <p>The client token of the virtual cluster.</p>
    */
-  name: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The container provider of the virtual cluster.</p>
@@ -272,9 +272,9 @@ export interface CreateVirtualClusterRequest {
   containerProvider: ContainerProvider | undefined;
 
   /**
-   * <p>The client token of the virtual cluster.</p>
+   * <p>The specified name of the virtual cluster.</p>
    */
-  clientToken?: string;
+  name: string | undefined;
 
   /**
    * <p>The tags assigned to the virtual cluster.</p>
@@ -291,6 +291,11 @@ export namespace CreateVirtualClusterRequest {
 
 export interface CreateVirtualClusterResponse {
   /**
+   * <p>This output contains the ARN of virtual cluster.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>This output contains the virtual cluster ID.</p>
    */
   id?: string;
@@ -299,11 +304,6 @@ export interface CreateVirtualClusterResponse {
    * <p>This output contains the name of the virtual cluster.</p>
    */
   name?: string;
-
-  /**
-   * <p>This output contains the ARN of virtual cluster.</p>
-   */
-  arn?: string;
 }
 
 export namespace CreateVirtualClusterResponse {
@@ -508,24 +508,9 @@ export enum VirtualClusterState {
  */
 export interface VirtualCluster {
   /**
-   * <p>The ID of the virtual cluster.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The name of the virtual cluster.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The ARN of the virtual cluster.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The state of the virtual cluster.</p>
-   */
-  state?: VirtualClusterState | string;
 
   /**
    * <p>The container provider of the virtual cluster.</p>
@@ -536,6 +521,21 @@ export interface VirtualCluster {
    * <p>The date and time when the virtual cluster is created.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>The ID of the virtual cluster.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the virtual cluster.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The state of the virtual cluster.</p>
+   */
+  state?: VirtualClusterState | string;
 
   /**
    * <p>The assigned tags of the virtual cluster.</p>
@@ -566,9 +566,9 @@ export namespace DescribeVirtualClusterResponse {
 
 export interface ListJobRunsRequest {
   /**
-   * <p>The ID of the virtual cluster for which to list the job run. </p>
+   * <p>The date and time after which the job runs were submitted.</p>
    */
-  virtualClusterId: string | undefined;
+  createdAfter?: Date;
 
   /**
    * <p>The date and time before which the job runs were submitted.</p>
@@ -576,9 +576,9 @@ export interface ListJobRunsRequest {
   createdBefore?: Date;
 
   /**
-   * <p>The date and time after which the job runs were submitted.</p>
+   * <p>The maximum number of job runs that can be listed.</p>
    */
-  createdAfter?: Date;
+  maxResults?: number;
 
   /**
    * <p>The name of the job run.</p>
@@ -586,19 +586,19 @@ export interface ListJobRunsRequest {
   name?: string;
 
   /**
+   * <p>The token for the next set of job runs to return.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The states of the job run.</p>
    */
   states?: (JobRunState | string)[];
 
   /**
-   * <p>The maximum number of job runs that can be listed.</p>
+   * <p>The ID of the virtual cluster for which to list the job run. </p>
    */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of job runs to return.</p>
-   */
-  nextToken?: string;
+  virtualClusterId: string | undefined;
 }
 
 export namespace ListJobRunsRequest {
@@ -609,29 +609,14 @@ export namespace ListJobRunsRequest {
 
 export interface ListManagedEndpointsRequest {
   /**
-   * <p>The ID of the virtual cluster.</p>
-   */
-  virtualClusterId: string | undefined;
-
-  /**
-   * <p>The date and time before which the endpoints are created.</p>
-   */
-  createdBefore?: Date;
-
-  /**
    * <p> The date and time after which the endpoints are created.</p>
    */
   createdAfter?: Date;
 
   /**
-   * <p>The types of the managed endpoints.</p>
+   * <p>The date and time before which the endpoints are created.</p>
    */
-  types?: string[];
-
-  /**
-   * <p>The states of the managed endpoints.</p>
-   */
-  states?: (EndpointState | string)[];
+  createdBefore?: Date;
 
   /**
    * <p>The maximum number of managed endpoints that can be listed.</p>
@@ -642,6 +627,21 @@ export interface ListManagedEndpointsRequest {
    * <p> The token for the next set of managed endpoints to return. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The states of the managed endpoints.</p>
+   */
+  states?: (EndpointState | string)[];
+
+  /**
+   * <p>The types of the managed endpoints.</p>
+   */
+  types?: string[];
+
+  /**
+   * <p>The ID of the virtual cluster.</p>
+   */
+  virtualClusterId: string | undefined;
 }
 
 export namespace ListManagedEndpointsRequest {
@@ -698,11 +698,6 @@ export interface ListVirtualClustersRequest {
   createdBefore?: Date;
 
   /**
-   * <p>The states of the requested virtual clusters.</p>
-   */
-  states?: (VirtualClusterState | string)[];
-
-  /**
    * <p>The maximum number of virtual clusters that can be listed.</p>
    */
   maxResults?: number;
@@ -711,6 +706,11 @@ export interface ListVirtualClustersRequest {
    * <p>The token for the next set of virtual clusters to return. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The states of the requested virtual clusters.</p>
+   */
+  states?: (VirtualClusterState | string)[];
 }
 
 export namespace ListVirtualClustersRequest {
@@ -721,14 +721,14 @@ export namespace ListVirtualClustersRequest {
 
 export interface ListVirtualClustersResponse {
   /**
-   * <p>This output lists the specified virtual clusters.</p>
-   */
-  virtualClusters?: VirtualCluster[];
-
-  /**
    * <p>This output displays the token for the next set of virtual clusters.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>This output lists the specified virtual clusters.</p>
+   */
+  virtualClusters?: VirtualCluster[];
 }
 
 export namespace ListVirtualClustersResponse {
@@ -742,6 +742,11 @@ export namespace ListVirtualClustersResponse {
 
 export interface StartJobRunResponse {
   /**
+   * <p>This output lists the ARN of job run.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>This output displays the started job run ID.</p>
    */
   id?: string;
@@ -750,11 +755,6 @@ export interface StartJobRunResponse {
    * <p>This output displays the name of the started job run.</p>
    */
   name?: string;
-
-  /**
-   * <p>This output lists the ARN of job run.</p>
-   */
-  arn?: string;
 
   /**
    * <p>This output displays the virtual cluster ID for which the job run was submitted.</p>
@@ -830,23 +830,23 @@ export interface Configuration {
   classification: string | undefined;
 
   /**
-   * <p>A set of properties specified within a configuration classification.</p>
-   */
-  properties?: { [key: string]: string };
-
-  /**
    * <p>A list of additional configurations to apply within a configuration object.</p>
    */
   configurations?: Configuration[];
+
+  /**
+   * <p>A set of properties specified within a configuration classification.</p>
+   */
+  properties?: { [key: string]: string };
 }
 
 export namespace Configuration {
   export const filterSensitiveLog = (obj: Configuration): any => ({
     ...obj,
-    ...(obj.properties && { properties: SENSITIVE_STRING }),
     ...(obj.configurations && {
       configurations: obj.configurations.map((item) => Configuration.filterSensitiveLog(item)),
     }),
+    ...(obj.properties && { properties: SENSITIVE_STRING }),
   });
 }
 
@@ -876,39 +876,9 @@ export namespace ConfigurationOverrides {
 
 export interface CreateManagedEndpointRequest {
   /**
-   * <p>The name of the managed endpoint.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ID of the virtual cluster for which a managed endpoint is created.</p>
-   */
-  virtualClusterId: string | undefined;
-
-  /**
-   * <p>The type of the managed endpoint.</p>
-   */
-  type: string | undefined;
-
-  /**
-   * <p>The Amazon EMR release version.</p>
-   */
-  releaseLabel: string | undefined;
-
-  /**
-   * <p>The ARN of the execution role.</p>
-   */
-  executionRoleArn: string | undefined;
-
-  /**
    * <p>The certificate ARN of the managed endpoint.</p>
    */
   certificateArn: string | undefined;
-
-  /**
-   * <p>The configuration settings that will be used to override existing configurations.</p>
-   */
-  configurationOverrides?: ConfigurationOverrides;
 
   /**
    * <p>The client idempotency token for this create call.</p>
@@ -916,10 +886,40 @@ export interface CreateManagedEndpointRequest {
   clientToken?: string;
 
   /**
+   * <p>The configuration settings that will be used to override existing configurations.</p>
+   */
+  configurationOverrides?: ConfigurationOverrides;
+
+  /**
+   * <p>The ARN of the execution role.</p>
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The name of the managed endpoint.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon EMR release version.</p>
+   */
+  releaseLabel: string | undefined;
+
+  /**
    * <p>The tags of the managed endpoint.
    *       </p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The type of the managed endpoint.</p>
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The ID of the virtual cluster for which a managed endpoint is created.</p>
+   */
+  virtualClusterId: string | undefined;
 }
 
 export namespace CreateManagedEndpointRequest {
@@ -936,44 +936,9 @@ export namespace CreateManagedEndpointRequest {
  */
 export interface Endpoint {
   /**
-   * <p>The ID of the endpoint.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The name of the endpoint.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The ARN of the endpoint.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The ID of the endpoint's virtual cluster.</p>
-   */
-  virtualClusterId?: string;
-
-  /**
-   * <p>The type of the endpoint.</p>
-   */
-  type?: string;
-
-  /**
-   * <p>The state of the endpoint.</p>
-   */
-  state?: EndpointState | string;
-
-  /**
-   * <p>The EMR release version to be used for the endpoint.</p>
-   */
-  releaseLabel?: string;
-
-  /**
-   * <p>The execution role ARN of the endpoint.</p>
-   */
-  executionRoleArn?: string;
 
   /**
    * <p>The certificate ARN of the endpoint.</p>
@@ -986,20 +951,45 @@ export interface Endpoint {
   configurationOverrides?: ConfigurationOverrides;
 
   /**
-   * <p>The server URL of the endpoint.</p>
-   */
-  serverUrl?: string;
-
-  /**
    * <p>The date and time when the endpoint was created.</p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>The execution role ARN of the endpoint.</p>
+   */
+  executionRoleArn?: string;
+
+  /**
+   * <p>The ID of the endpoint.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The EMR release version to be used for the endpoint.</p>
+   */
+  releaseLabel?: string;
 
   /**
    * <p>The security group configuration of the endpoint.
    *       </p>
    */
   securityGroup?: string;
+
+  /**
+   * <p>The server URL of the endpoint.</p>
+   */
+  serverUrl?: string;
+
+  /**
+   * <p>The state of the endpoint.</p>
+   */
+  state?: EndpointState | string;
 
   /**
    * <p>The subnet IDs of the endpoint.
@@ -1012,6 +1002,16 @@ export interface Endpoint {
    *       </p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The type of the endpoint.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>The ID of the endpoint's virtual cluster.</p>
+   */
+  virtualClusterId?: string;
 }
 
 export namespace Endpoint {
@@ -1028,29 +1028,9 @@ export namespace Endpoint {
  */
 export interface JobRun {
   /**
-   * <p>The ID of the job run.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The name of the job run.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The ID of the job run's virtual cluster.</p>
-   */
-  virtualClusterId?: string;
-
-  /**
    * <p>The ARN of job run.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The state of the job run. </p>
-   */
-  state?: JobRunState | string;
 
   /**
    * <p>The client token used to start a job run.</p>
@@ -1058,24 +1038,9 @@ export interface JobRun {
   clientToken?: string;
 
   /**
-   * <p>The execution role ARN of the job run.</p>
-   */
-  executionRoleArn?: string;
-
-  /**
-   * <p>The release version of Amazon EMR.</p>
-   */
-  releaseLabel?: string;
-
-  /**
    * <p>The configuration settings that are used to override default configuration.</p>
    */
   configurationOverrides?: ConfigurationOverrides;
-
-  /**
-   * <p>Parameters of job driver for the job run.</p>
-   */
-  jobDriver?: JobDriver;
 
   /**
    * <p>The date and time when the job run was created.</p>
@@ -1088,14 +1053,9 @@ export interface JobRun {
   createdBy?: string;
 
   /**
-   * <p>The date and time when the job run has finished.</p>
+   * <p>The execution role ARN of the job run.</p>
    */
-  finishedAt?: Date;
-
-  /**
-   * <p>Additional details of the job run state.</p>
-   */
-  stateDetails?: string;
+  executionRoleArn?: string;
 
   /**
    * <p>The reasons why the job run has failed.</p>
@@ -1103,9 +1063,49 @@ export interface JobRun {
   failureReason?: FailureReason | string;
 
   /**
+   * <p>The date and time when the job run has finished.</p>
+   */
+  finishedAt?: Date;
+
+  /**
+   * <p>The ID of the job run.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>Parameters of job driver for the job run.</p>
+   */
+  jobDriver?: JobDriver;
+
+  /**
+   * <p>The name of the job run.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The release version of Amazon EMR.</p>
+   */
+  releaseLabel?: string;
+
+  /**
+   * <p>The state of the job run. </p>
+   */
+  state?: JobRunState | string;
+
+  /**
+   * <p>Additional details of the job run state.</p>
+   */
+  stateDetails?: string;
+
+  /**
    * <p>The assigned tags of the job run.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The ID of the job run's virtual cluster.</p>
+   */
+  virtualClusterId?: string;
 }
 
 export namespace JobRun {
@@ -1120,34 +1120,9 @@ export namespace JobRun {
 
 export interface StartJobRunRequest {
   /**
-   * <p>The name of the job run.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The virtual cluster ID for which the job run request is submitted.</p>
-   */
-  virtualClusterId: string | undefined;
-
-  /**
    * <p>The client idempotency token of the job run request. </p>
    */
   clientToken?: string;
-
-  /**
-   * <p>The execution role ARN for the job run.</p>
-   */
-  executionRoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon EMR release version to use for the job run.</p>
-   */
-  releaseLabel: string | undefined;
-
-  /**
-   * <p>The job driver for the job run.</p>
-   */
-  jobDriver: JobDriver | undefined;
 
   /**
    * <p>The configuration overrides for the job run.</p>
@@ -1155,18 +1130,43 @@ export interface StartJobRunRequest {
   configurationOverrides?: ConfigurationOverrides;
 
   /**
+   * <p>The execution role ARN for the job run.</p>
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The job driver for the job run.</p>
+   */
+  jobDriver: JobDriver | undefined;
+
+  /**
+   * <p>The name of the job run.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The Amazon EMR release version to use for the job run.</p>
+   */
+  releaseLabel: string | undefined;
+
+  /**
    * <p>The tags assigned to job runs.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The virtual cluster ID for which the job run request is submitted.</p>
+   */
+  virtualClusterId: string | undefined;
 }
 
 export namespace StartJobRunRequest {
   export const filterSensitiveLog = (obj: StartJobRunRequest): any => ({
     ...obj,
-    ...(obj.jobDriver && { jobDriver: JobDriver.filterSensitiveLog(obj.jobDriver) }),
     ...(obj.configurationOverrides && {
       configurationOverrides: ConfigurationOverrides.filterSensitiveLog(obj.configurationOverrides),
     }),
+    ...(obj.jobDriver && { jobDriver: JobDriver.filterSensitiveLog(obj.jobDriver) }),
   });
 }
 

@@ -113,20 +113,19 @@ export namespace CreateRowData {
 
 export interface BatchCreateTableRowsRequest {
   /**
-   * <p>The ID of the workbook where the new rows are being added.</p>
+   * <p>
+   *             The request token for performing the batch create operation.
+   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
+   *             like a failed network connection, you can retry the call with the same request token. The service ensures
+   *             that if the first call using that request token is successfully performed, the second call will not perform
+   *             the operation again.
+   *         </p>
    *         <p>
-   *             If a workbook with the specified ID could not be found, this API throws ResourceNotFoundException.
+   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
+   *             spanning hours or days.
    *         </p>
    */
-  workbookId: string | undefined;
-
-  /**
-   * <p>The ID of the table where the new rows are being added.</p>
-   *         <p>
-   *             If a table with the specified ID could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  tableId: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>
@@ -142,19 +141,20 @@ export interface BatchCreateTableRowsRequest {
   rowsToCreate: CreateRowData[] | undefined;
 
   /**
-   * <p>
-   *             The request token for performing the batch create operation.
-   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
-   *             like a failed network connection, you can retry the call with the same request token. The service ensures
-   *             that if the first call using that request token is successfully performed, the second call will not perform
-   *             the operation again.
-   *         </p>
+   * <p>The ID of the table where the new rows are being added.</p>
    *         <p>
-   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
-   *             spanning hours or days.
+   *             If a table with the specified ID could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  clientRequestToken?: string;
+  tableId: string | undefined;
+
+  /**
+   * <p>The ID of the workbook where the new rows are being added.</p>
+   *         <p>
+   *             If a workbook with the specified ID could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace BatchCreateTableRowsRequest {
@@ -173,19 +173,19 @@ export namespace BatchCreateTableRowsRequest {
 export interface FailedBatchItem {
   /**
    * <p>
+   *             The error message that indicates why the batch item failed.
+   *         </p>
+   */
+  errorMessage: string | undefined;
+
+  /**
+   * <p>
    *             The id of the batch item that failed. This is the batch item id for the BatchCreateTableRows and
    *             BatchUpsertTableRows operations and the row id for the BatchUpdateTableRows and BatchDeleteTableRows
    *             operations.
    *         </p>
    */
   id: string | undefined;
-
-  /**
-   * <p>
-   *             The error message that indicates why the batch item failed.
-   *         </p>
-   */
-  errorMessage: string | undefined;
 }
 
 export namespace FailedBatchItem {
@@ -195,11 +195,6 @@ export namespace FailedBatchItem {
 }
 
 export interface BatchCreateTableRowsResult {
-  /**
-   * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
-   */
-  workbookCursor: number | undefined;
-
   /**
    * <p>The map of batch item id to the row id that was created for that item.</p>
    */
@@ -213,6 +208,11 @@ export interface BatchCreateTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
+
+  /**
+   * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
+   */
+  workbookCursor: number | undefined;
 }
 
 export namespace BatchCreateTableRowsResult {
@@ -332,33 +332,6 @@ export namespace ValidationException {
 
 export interface BatchDeleteTableRowsRequest {
   /**
-   * <p>The ID of the workbook where the rows are being deleted.</p>
-   *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  workbookId: string | undefined;
-
-  /**
-   * <p>The ID of the table where the rows are being deleted.</p>
-   *         <p>
-   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  tableId: string | undefined;
-
-  /**
-   * <p>
-   *             The list of row ids to delete from the table. You need to specify at least one row id in this list.
-   *         </p>
-   *         <p>
-   *             Note that if one of the row ids provided in the request does not exist in the table, then the request fails
-   *             and no rows are deleted from the table.
-   *         </p>
-   */
-  rowIds: string[] | undefined;
-
-  /**
    * <p>
    *             The request token for performing the delete action.
    *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
@@ -372,6 +345,33 @@ export interface BatchDeleteTableRowsRequest {
    *         </p>
    */
   clientRequestToken?: string;
+
+  /**
+   * <p>
+   *             The list of row ids to delete from the table. You need to specify at least one row id in this list.
+   *         </p>
+   *         <p>
+   *             Note that if one of the row ids provided in the request does not exist in the table, then the request fails
+   *             and no rows are deleted from the table.
+   *         </p>
+   */
+  rowIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the table where the rows are being deleted.</p>
+   *         <p>
+   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  tableId: string | undefined;
+
+  /**
+   * <p>The ID of the workbook where the rows are being deleted.</p>
+   *         <p>
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace BatchDeleteTableRowsRequest {
@@ -382,11 +382,6 @@ export namespace BatchDeleteTableRowsRequest {
 
 export interface BatchDeleteTableRowsResult {
   /**
-   * <p>The updated workbook cursor after deleting the rows from the table.</p>
-   */
-  workbookCursor: number | undefined;
-
-  /**
    * <p>
    *             The list of row ids in the request that could not be deleted from the table. Each element in this list
    *             contains one row id from the request that could not be deleted along with the reason why that item could not
@@ -394,6 +389,11 @@ export interface BatchDeleteTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
+
+  /**
+   * <p>The updated workbook cursor after deleting the rows from the table.</p>
+   */
+  workbookCursor: number | undefined;
 }
 
 export namespace BatchDeleteTableRowsResult {
@@ -410,18 +410,18 @@ export namespace BatchDeleteTableRowsResult {
 export interface UpdateRowData {
   /**
    * <p>
-   *             The id of the row that needs to be updated.
-   *         </p>
-   */
-  rowId: string | undefined;
-
-  /**
-   * <p>
    *             A map representing the cells to update in the given row. The key is the column id of the
    *             cell and the value is the CellInput object that represents the data to set in that cell.
    *         </p>
    */
   cellsToUpdate: { [key: string]: CellInput } | undefined;
+
+  /**
+   * <p>
+   *             The id of the row that needs to be updated.
+   *         </p>
+   */
+  rowId: string | undefined;
 }
 
 export namespace UpdateRowData {
@@ -441,20 +441,19 @@ export namespace UpdateRowData {
 
 export interface BatchUpdateTableRowsRequest {
   /**
-   * <p>The ID of the workbook where the rows are being updated.</p>
+   * <p>
+   *             The request token for performing the update action.
+   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
+   *             like a failed network connection, you can retry the call with the same request token. The service ensures
+   *             that if the first call using that request token is successfully performed, the second call will not perform
+   *             the action again.
+   *         </p>
    *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
+   *             spanning hours or days.
    *         </p>
    */
-  workbookId: string | undefined;
-
-  /**
-   * <p>The ID of the table where the rows are being updated.</p>
-   *         <p>
-   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  tableId: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>
@@ -471,19 +470,20 @@ export interface BatchUpdateTableRowsRequest {
   rowsToUpdate: UpdateRowData[] | undefined;
 
   /**
-   * <p>
-   *             The request token for performing the update action.
-   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
-   *             like a failed network connection, you can retry the call with the same request token. The service ensures
-   *             that if the first call using that request token is successfully performed, the second call will not perform
-   *             the action again.
-   *         </p>
+   * <p>The ID of the table where the rows are being updated.</p>
    *         <p>
-   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
-   *             spanning hours or days.
+   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  clientRequestToken?: string;
+  tableId: string | undefined;
+
+  /**
+   * <p>The ID of the workbook where the rows are being updated.</p>
+   *         <p>
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace BatchUpdateTableRowsRequest {
@@ -495,11 +495,6 @@ export namespace BatchUpdateTableRowsRequest {
 
 export interface BatchUpdateTableRowsResult {
   /**
-   * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
-   */
-  workbookCursor: number | undefined;
-
-  /**
    * <p>
    *             The list of batch items in the request that could not be updated in the table. Each element in this list
    *             contains one item from the request that could not be updated in the table along with the reason why
@@ -507,6 +502,11 @@ export interface BatchUpdateTableRowsResult {
    *         </p>
    */
   failedBatchItems?: FailedBatchItem[];
+
+  /**
+   * <p>The updated workbook cursor after adding the new rows at the end of the table.</p>
+   */
+  workbookCursor: number | undefined;
 }
 
 export namespace BatchUpdateTableRowsResult {
@@ -524,6 +524,15 @@ export namespace BatchUpdateTableRowsResult {
 export interface Filter {
   /**
    * <p>
+   *             The optional contextRowId attribute can be used to specify the row id of the context row if the filter
+   *             formula contains unqualified references to table columns and needs a context row to evaluate them
+   *             successfully.
+   *         </p>
+   */
+  contextRowId?: string;
+
+  /**
+   * <p>
    *             A formula representing a filter function that returns zero or more matching rows from a table. Valid
    *             formulas in this field return a list of rows from a table. The most common ways of writing a formula to
    *             return a list of rows are to use the FindRow() or Filter() functions. Any other formula that returns zero or
@@ -532,15 +541,6 @@ export interface Filter {
    *         </p>
    */
   formula: string | undefined;
-
-  /**
-   * <p>
-   *             The optional contextRowId attribute can be used to specify the row id of the context row if the filter
-   *             formula contains unqualified references to table columns and needs a context row to evaluate them
-   *             successfully.
-   *         </p>
-   */
-  contextRowId?: string;
 }
 
 export namespace Filter {
@@ -568,6 +568,14 @@ export interface UpsertRowData {
 
   /**
    * <p>
+   *             A map representing the cells to update for the matching rows or an appended row. The key is the column id
+   *             of the cell and the value is the CellInput object that represents the data to set in that cell.
+   *         </p>
+   */
+  cellsToUpdate: { [key: string]: CellInput } | undefined;
+
+  /**
+   * <p>
    *             The filter formula to use to find existing matching rows to update. The formula needs to return zero or more
    *             rows. If the formula returns 0 rows, then a new row will be appended in the target table. If the formula
    *             returns one or more rows, then the returned rows will be updated.
@@ -580,20 +588,11 @@ export interface UpsertRowData {
    *         </p>
    */
   filter: Filter | undefined;
-
-  /**
-   * <p>
-   *             A map representing the cells to update for the matching rows or an appended row. The key is the column id
-   *             of the cell and the value is the CellInput object that represents the data to set in that cell.
-   *         </p>
-   */
-  cellsToUpdate: { [key: string]: CellInput } | undefined;
 }
 
 export namespace UpsertRowData {
   export const filterSensitiveLog = (obj: UpsertRowData): any => ({
     ...obj,
-    ...(obj.filter && { filter: Filter.filterSensitiveLog(obj.filter) }),
     ...(obj.cellsToUpdate && {
       cellsToUpdate: Object.entries(obj.cellsToUpdate).reduce(
         (acc: any, [key, value]: [string, CellInput]) => ({
@@ -603,25 +602,25 @@ export namespace UpsertRowData {
         {}
       ),
     }),
+    ...(obj.filter && { filter: Filter.filterSensitiveLog(obj.filter) }),
   });
 }
 
 export interface BatchUpsertTableRowsRequest {
   /**
-   * <p>The ID of the workbook where the rows are being upserted.</p>
+   * <p>
+   *             The request token for performing the update action.
+   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
+   *             like a failed network connection, you can retry the call with the same request token. The service ensures
+   *             that if the first call using that request token is successfully performed, the second call will not perform
+   *             the action again.
+   *         </p>
    *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
+   *             spanning hours or days.
    *         </p>
    */
-  workbookId: string | undefined;
-
-  /**
-   * <p>The ID of the table where the rows are being upserted.</p>
-   *         <p>
-   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  tableId: string | undefined;
+  clientRequestToken?: string;
 
   /**
    * <p>
@@ -639,19 +638,20 @@ export interface BatchUpsertTableRowsRequest {
   rowsToUpsert: UpsertRowData[] | undefined;
 
   /**
-   * <p>
-   *             The request token for performing the update action.
-   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
-   *             like a failed network connection, you can retry the call with the same request token. The service ensures
-   *             that if the first call using that request token is successfully performed, the second call will not perform
-   *             the action again.
-   *         </p>
+   * <p>The ID of the table where the rows are being upserted.</p>
    *         <p>
-   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
-   *             spanning hours or days.
+   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  clientRequestToken?: string;
+  tableId: string | undefined;
+
+  /**
+   * <p>The ID of the workbook where the rows are being upserted.</p>
+   *         <p>
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace BatchUpsertTableRowsRequest {
@@ -698,6 +698,15 @@ export namespace UpsertRowsResult {
 export interface BatchUpsertTableRowsResult {
   /**
    * <p>
+   *             The list of batch items in the request that could not be updated or appended in the table. Each element in
+   *             this list contains one item from the request that could not be updated in the table along with the reason
+   *             why that item could not be updated or appended.
+   *         </p>
+   */
+  failedBatchItems?: FailedBatchItem[];
+
+  /**
+   * <p>
    *             A map with the batch item id as the key and the result of the upsert operation as the value. The
    *             result of the upsert operation specifies whether existing rows were updated or a new row was appended, along
    *             with the list of row ids that were affected.
@@ -709,15 +718,6 @@ export interface BatchUpsertTableRowsResult {
    * <p>The updated workbook cursor after updating or appending rows in the table.</p>
    */
   workbookCursor: number | undefined;
-
-  /**
-   * <p>
-   *             The list of batch items in the request that could not be updated or appended in the table. Each element in
-   *             this list contains one item from the request that could not be updated in the table along with the reason
-   *             why that item could not be updated or appended.
-   *         </p>
-   */
-  failedBatchItems?: FailedBatchItem[];
 }
 
 export namespace BatchUpsertTableRowsResult {
@@ -745,17 +745,30 @@ export enum Format {
  */
 export interface Cell {
   /**
+   * <p>The format of the cell. If this field is empty, then the format is either not specified in the
+   *         workbook or the format is set to AUTO.</p>
+   */
+  format?: Format | string;
+
+  /**
+   * <p>
+   *             The formatted value of the cell. This is the value that you see displayed in the cell in the UI.
+   *         </p>
+   *         <p>
+   *             Note that the formatted value of a cell is always represented as a string irrespective of the data that is
+   *             stored in the cell. For example, if a cell contains a date, the formatted value of the cell is the string
+   *             representation of the formatted date being shown in the cell in the UI. See details in the rawValue field
+   *             below for how cells of different formats will have different raw and formatted values.
+   *         </p>
+   */
+  formattedValue?: string;
+
+  /**
    * <p>
    *             The formula contained in the cell. This field is empty if a cell does not have a formula.
    *         </p>
    */
   formula?: string;
-
-  /**
-   * <p>The format of the cell. If this field is empty, then the format is either not specified in the
-   *         workbook or the format is set to AUTO.</p>
-   */
-  format?: Format | string;
 
   /**
    * <p>
@@ -800,19 +813,6 @@ export interface Cell {
    *         </p>
    */
   rawValue?: string;
-
-  /**
-   * <p>
-   *             The formatted value of the cell. This is the value that you see displayed in the cell in the UI.
-   *         </p>
-   *         <p>
-   *             Note that the formatted value of a cell is always represented as a string irrespective of the data that is
-   *             stored in the cell. For example, if a cell contains a date, the formatted value of the cell is the string
-   *             representation of the formatted date being shown in the cell in the UI. See details in the rawValue field
-   *             below for how cells of different formats will have different raw and formatted values.
-   *         </p>
-   */
-  formattedValue?: string;
 }
 
 export namespace Cell {
@@ -827,14 +827,14 @@ export namespace Cell {
  */
 export interface ColumnMetadata {
   /**
-   * <p>The name of the column.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The format of the column.</p>
    */
   format: Format | string | undefined;
+
+  /**
+   * <p>The name of the column.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace ColumnMetadata {
@@ -849,6 +849,11 @@ export namespace ColumnMetadata {
  */
 export interface DataItem {
   /**
+   * <p>The formatted value of the data. e.g. John Smith.</p>
+   */
+  formattedValue?: string;
+
+  /**
    * <p>
    *             The overrideFormat is optional and is specified only if a particular row of data has a different format for
    *             the data than the default format defined on the screen or the table.
@@ -860,11 +865,6 @@ export interface DataItem {
    * <p>The raw value of the data. e.g. jsmith@example.com</p>
    */
   rawValue?: string;
-
-  /**
-   * <p>The formatted value of the data. e.g. John Smith.</p>
-   */
-  formattedValue?: string;
 }
 
 export namespace DataItem {
@@ -889,6 +889,11 @@ export enum ImportDataCharacterEncoding {
  */
 export interface DelimitedTextImportOptions {
   /**
+   * <p>The encoding of the data in the input file.</p>
+   */
+  dataCharacterEncoding?: ImportDataCharacterEncoding | string;
+
+  /**
    * <p>The delimiter to use for separating columns in a single row of the input.</p>
    */
   delimiter: string | undefined;
@@ -902,11 +907,6 @@ export interface DelimitedTextImportOptions {
    * <p>A parameter to indicate whether empty rows should be ignored or be included in the import.</p>
    */
   ignoreEmptyRows?: boolean;
-
-  /**
-   * <p>The encoding of the data in the input file.</p>
-   */
-  dataCharacterEncoding?: ImportDataCharacterEncoding | string;
 }
 
 export namespace DelimitedTextImportOptions {
@@ -917,12 +917,12 @@ export namespace DelimitedTextImportOptions {
 
 export interface DescribeTableDataImportJobRequest {
   /**
-   * <p>The ID of the workbook into which data was imported.</p>
+   * <p>The ID of the job that was returned by the StartTableDataImportJob request.</p>
    *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *             If a job with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  workbookId: string | undefined;
+  jobId: string | undefined;
 
   /**
    * <p>The ID of the table into which data was imported.</p>
@@ -933,12 +933,12 @@ export interface DescribeTableDataImportJobRequest {
   tableId: string | undefined;
 
   /**
-   * <p>The ID of the job that was returned by the StartTableDataImportJob request.</p>
+   * <p>The ID of the workbook into which data was imported.</p>
    *         <p>
-   *             If a job with the specified id could not be found, this API throws ResourceNotFoundException.
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  jobId: string | undefined;
+  workbookId: string | undefined;
 }
 
 export namespace DescribeTableDataImportJobRequest {
@@ -1020,14 +1020,14 @@ export namespace DestinationOptions {
  */
 export interface ImportOptions {
   /**
-   * <p>Options relating to the destination of the import request.</p>
-   */
-  destinationOptions?: DestinationOptions;
-
-  /**
    * <p>Options relating to parsing delimited text. Required if dataFormat is DELIMITED_TEXT.</p>
    */
   delimitedTextOptions?: DelimitedTextImportOptions;
+
+  /**
+   * <p>Options relating to the destination of the import request.</p>
+   */
+  destinationOptions?: DestinationOptions;
 }
 
 export namespace ImportOptions {
@@ -1063,6 +1063,16 @@ export namespace ImportJobSubmitter {
  */
 export interface TableDataImportJobMetadata {
   /**
+   * <p>The source of the data that was submitted for import.</p>
+   */
+  dataSource: ImportDataSource | undefined;
+
+  /**
+   * <p>The options that was specified at the time of submitting the import request.</p>
+   */
+  importOptions: ImportOptions | undefined;
+
+  /**
    * <p>Details about the submitter of the import request.</p>
    */
   submitter: ImportJobSubmitter | undefined;
@@ -1071,16 +1081,6 @@ export interface TableDataImportJobMetadata {
    * <p>The timestamp when the job was submitted for import.</p>
    */
   submitTime: Date | undefined;
-
-  /**
-   * <p>The options that was specified at the time of submitting the import request.</p>
-   */
-  importOptions: ImportOptions | undefined;
-
-  /**
-   * <p>The source of the data that was submitted for import.</p>
-   */
-  dataSource: ImportDataSource | undefined;
 }
 
 export namespace TableDataImportJobMetadata {
@@ -1100,6 +1100,13 @@ export enum TableDataImportJobStatus {
 export interface DescribeTableDataImportJobResult {
   /**
    * <p>
+   *             The metadata about the job that was submitted for import.
+   *         </p>
+   */
+  jobMetadata: TableDataImportJobMetadata | undefined;
+
+  /**
+   * <p>
    *             The current status of the import job.
    *         </p>
    */
@@ -1111,13 +1118,6 @@ export interface DescribeTableDataImportJobResult {
    *         </p>
    */
   message: string | undefined;
-
-  /**
-   * <p>
-   *             The metadata about the job that was submitted for import.
-   *         </p>
-   */
-  jobMetadata: TableDataImportJobMetadata | undefined;
 }
 
 export namespace DescribeTableDataImportJobResult {
@@ -1145,29 +1145,9 @@ export namespace VariableValue {
 
 export interface GetScreenDataRequest {
   /**
-   * <p>The ID of the workbook that contains the screen.</p>
-   */
-  workbookId: string | undefined;
-
-  /**
    * <p>The ID of the app that contains the screem.</p>
    */
   appId: string | undefined;
-
-  /**
-   * <p>The ID of the screen.</p>
-   */
-  screenId: string | undefined;
-
-  /**
-   * <p>
-   *             Variables are optional and are needed only if the screen requires them to render correctly. Variables are
-   *             specified as a map where the key is the name of the variable as defined on the screen. The value is an
-   *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
-   *             to the screen.
-   *         </p>
-   */
-  variables?: { [key: string]: VariableValue };
 
   /**
    * <p>
@@ -1190,6 +1170,26 @@ export interface GetScreenDataRequest {
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the screen.</p>
+   */
+  screenId: string | undefined;
+
+  /**
+   * <p>
+   *             Variables are optional and are needed only if the screen requires them to render correctly. Variables are
+   *             specified as a map where the key is the name of the variable as defined on the screen. The value is an
+   *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
+   *             to the screen.
+   *         </p>
+   */
+  variables?: { [key: string]: VariableValue };
+
+  /**
+   * <p>The ID of the workbook that contains the screen.</p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace GetScreenDataRequest {
@@ -1204,14 +1204,14 @@ export namespace GetScreenDataRequest {
  */
 export interface ResultRow {
   /**
-   * <p>The ID for a particular row.</p>
-   */
-  rowId?: string;
-
-  /**
    * <p>List of all the data cells in a row.</p>
    */
   dataItems: DataItem[] | undefined;
+
+  /**
+   * <p>The ID for a particular row.</p>
+   */
+  rowId?: string;
 }
 
 export namespace ResultRow {
@@ -1262,6 +1262,14 @@ export namespace ResultSet {
 
 export interface GetScreenDataResult {
   /**
+   * <p>
+   *             Provides the pagination token to load the next page if there are more results matching the request. If a
+   *             pagination token is not present in the response, it means that all data matching the query has been loaded.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>A map of all the rows on the screen keyed by block name.</p>
    */
   results: { [key: string]: ResultSet } | undefined;
@@ -1273,14 +1281,6 @@ export interface GetScreenDataResult {
    *         </p>
    */
   workbookCursor: number | undefined;
-
-  /**
-   * <p>
-   *             Provides the pagination token to load the next page if there are more results matching the request. If a
-   *             pagination token is not present in the response, it means that all data matching the query has been loaded.
-   *         </p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetScreenDataResult {
@@ -1304,40 +1304,9 @@ export enum ImportSourceDataFormat {
 
 export interface InvokeScreenAutomationRequest {
   /**
-   * <p>The ID of the workbook that contains the screen automation.</p>
-   */
-  workbookId: string | undefined;
-
-  /**
    * <p>The ID of the app that contains the screen automation.</p>
    */
   appId: string | undefined;
-
-  /**
-   * <p>The ID of the screen that contains the screen automation.</p>
-   */
-  screenId: string | undefined;
-
-  /**
-   * <p>The ID of the automation action to be performed.</p>
-   */
-  screenAutomationId: string | undefined;
-
-  /**
-   * <p>
-   *             Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an
-   *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
-   *             to the screen. Any variables defined in a screen are required to be passed in the call.
-   *         </p>
-   */
-  variables?: { [key: string]: VariableValue };
-
-  /**
-   * <p>
-   *             The row ID for the automation if the automation is defined inside a block with source or list.
-   *         </p>
-   */
-  rowId?: string;
 
   /**
    * <p>
@@ -1353,6 +1322,37 @@ export interface InvokeScreenAutomationRequest {
    *         </p>
    */
   clientRequestToken?: string;
+
+  /**
+   * <p>
+   *             The row ID for the automation if the automation is defined inside a block with source or list.
+   *         </p>
+   */
+  rowId?: string;
+
+  /**
+   * <p>The ID of the automation action to be performed.</p>
+   */
+  screenAutomationId: string | undefined;
+
+  /**
+   * <p>The ID of the screen that contains the screen automation.</p>
+   */
+  screenId: string | undefined;
+
+  /**
+   * <p>
+   *             Variables are specified as a map where the key is the name of the variable as defined on the screen. The value is an
+   *             object which currently has only one property, rawValue, which holds the value of the variable to be passed
+   *             to the screen. Any variables defined in a screen are required to be passed in the call.
+   *         </p>
+   */
+  variables?: { [key: string]: VariableValue };
+
+  /**
+   * <p>The ID of the workbook that contains the screen automation.</p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace InvokeScreenAutomationRequest {
@@ -1377,12 +1377,15 @@ export namespace InvokeScreenAutomationResult {
 
 export interface ListTableColumnsRequest {
   /**
-   * <p>The ID of the workbook that contains the table whose columns are being retrieved.</p>
+   * <p>
+   *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
+   *         </p>
    *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
+   *             will throw ValidationException.
    *         </p>
    */
-  workbookId: string | undefined;
+  nextToken?: string;
 
   /**
    * <p>The ID of the table whose columns are being retrieved.</p>
@@ -1393,15 +1396,12 @@ export interface ListTableColumnsRequest {
   tableId: string | undefined;
 
   /**
-   * <p>
-   *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
-   *         </p>
+   * <p>The ID of the workbook that contains the table whose columns are being retrieved.</p>
    *         <p>
-   *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
-   *             will throw ValidationException.
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  nextToken?: string;
+  workbookId: string | undefined;
 }
 
 export namespace ListTableColumnsRequest {
@@ -1415,6 +1415,14 @@ export namespace ListTableColumnsRequest {
  */
 export interface TableColumn {
   /**
+   * <p>
+   *             The column level format that is applied in the table. An empty value in this field means that the
+   *             column format is the default value 'AUTO'.
+   *         </p>
+   */
+  format?: Format | string;
+
+  /**
    * <p>The id of the column in the table.</p>
    */
   tableColumnId?: string;
@@ -1423,14 +1431,6 @@ export interface TableColumn {
    * <p>The name of the column in the table.</p>
    */
   tableColumnName?: string;
-
-  /**
-   * <p>
-   *             The column level format that is applied in the table. An empty value in this field means that the
-   *             column format is the default value 'AUTO'.
-   *         </p>
-   */
-  format?: Format | string;
 }
 
 export namespace TableColumn {
@@ -1442,19 +1442,19 @@ export namespace TableColumn {
 export interface ListTableColumnsResult {
   /**
    * <p>
-   *             The list of columns in the table.
-   *         </p>
-   */
-  tableColumns: TableColumn[] | undefined;
-
-  /**
-   * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             The list of columns in the table.
+   *         </p>
+   */
+  tableColumns: TableColumn[] | undefined;
 
   /**
    * <p>
@@ -1473,31 +1473,6 @@ export namespace ListTableColumnsResult {
 
 export interface ListTableRowsRequest {
   /**
-   * <p>The ID of the workbook that contains the table whose rows are being retrieved.</p>
-   *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  workbookId: string | undefined;
-
-  /**
-   * <p>The ID of the table whose rows are being retrieved.</p>
-   *         <p>
-   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  tableId: string | undefined;
-
-  /**
-   * <p>
-   *             This parameter is optional. If one or more row ids are specified in this list, then only the specified
-   *             row ids are returned in the result. If no row ids are specified here, then all the rows in the table are
-   *             returned.
-   *         </p>
-   */
-  rowIds?: string[];
-
-  /**
    * <p>The maximum number of rows to return in each page of the results.</p>
    */
   maxResults?: number;
@@ -1512,6 +1487,31 @@ export interface ListTableRowsRequest {
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             This parameter is optional. If one or more row ids are specified in this list, then only the specified
+   *             row ids are returned in the result. If no row ids are specified here, then all the rows in the table are
+   *             returned.
+   *         </p>
+   */
+  rowIds?: string[];
+
+  /**
+   * <p>The ID of the table whose rows are being retrieved.</p>
+   *         <p>
+   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  tableId: string | undefined;
+
+  /**
+   * <p>The ID of the workbook that contains the table whose rows are being retrieved.</p>
+   *         <p>
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace ListTableRowsRequest {
@@ -1525,15 +1525,15 @@ export namespace ListTableRowsRequest {
  */
 export interface TableRow {
   /**
-   * <p>The id of the row in the table.</p>
-   */
-  rowId: string | undefined;
-
-  /**
    * <p>A list of cells in the table row. The cells appear in the same order as the columns of the table.
    *         </p>
    */
   cells: Cell[] | undefined;
+
+  /**
+   * <p>The id of the row in the table.</p>
+   */
+  rowId: string | undefined;
 }
 
 export namespace TableRow {
@@ -1553,11 +1553,12 @@ export interface ListTableRowsResult {
 
   /**
    * <p>
-   *             The list of rows in the table. Note that this result is paginated, so this list contains a maximum of 100
-   *             rows.
+   *             Provides the pagination token to load the next page if there are more results matching the request. If a
+   *             pagination token is not present in the response, it means that all data matching the request has been
+   *             loaded.
    *         </p>
    */
-  rows: TableRow[] | undefined;
+  nextToken?: string;
 
   /**
    * <p>
@@ -1568,12 +1569,11 @@ export interface ListTableRowsResult {
 
   /**
    * <p>
-   *             Provides the pagination token to load the next page if there are more results matching the request. If a
-   *             pagination token is not present in the response, it means that all data matching the request has been
-   *             loaded.
+   *             The list of rows in the table. Note that this result is paginated, so this list contains a maximum of 100
+   *             rows.
    *         </p>
    */
-  nextToken?: string;
+  rows: TableRow[] | undefined;
 
   /**
    * <p>
@@ -1592,14 +1592,6 @@ export namespace ListTableRowsResult {
 
 export interface ListTablesRequest {
   /**
-   * <p>The ID of the workbook whose tables are being retrieved.</p>
-   *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  workbookId: string | undefined;
-
-  /**
    * <p>The maximum number of tables to return in each page of the results.</p>
    */
   maxResults?: number;
@@ -1614,6 +1606,14 @@ export interface ListTablesRequest {
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the workbook whose tables are being retrieved.</p>
+   *         <p>
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace ListTablesRequest {
@@ -1646,19 +1646,19 @@ export namespace Table {
 export interface ListTablesResult {
   /**
    * <p>
-   *             The list of tables in the workbook.
-   *         </p>
-   */
-  tables: Table[] | undefined;
-
-  /**
-   * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             The list of tables in the workbook.
+   *         </p>
+   */
+  tables: Table[] | undefined;
 
   /**
    * <p>
@@ -1676,22 +1676,6 @@ export namespace ListTablesResult {
 }
 
 export interface QueryTableRowsRequest {
-  /**
-   * <p>The ID of the workbook whose table rows are being queried.</p>
-   *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  workbookId: string | undefined;
-
-  /**
-   * <p>The ID of the table whose rows are being queried.</p>
-   *         <p>
-   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
-   *         </p>
-   */
-  tableId: string | undefined;
-
   /**
    * <p>An object that represents a filter formula along with the id of the context row under which the filter
    *             function needs to evaluate.</p>
@@ -1713,6 +1697,22 @@ export interface QueryTableRowsRequest {
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ID of the table whose rows are being queried.</p>
+   *         <p>
+   *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  tableId: string | undefined;
+
+  /**
+   * <p>The ID of the workbook whose table rows are being queried.</p>
+   *         <p>
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *         </p>
+   */
+  workbookId: string | undefined;
 }
 
 export namespace QueryTableRowsRequest {
@@ -1732,19 +1732,19 @@ export interface QueryTableRowsResult {
 
   /**
    * <p>
-   *             The list of rows in the table that match the query filter.
-   *         </p>
-   */
-  rows: TableRow[] | undefined;
-
-  /**
-   * <p>
    *             Provides the pagination token to load the next page if there are more results matching the request. If a
    *             pagination token is not present in the response, it means that all data matching the request has been
    *             loaded.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             The list of rows in the table that match the query filter.
+   *         </p>
+   */
+  rows: TableRow[] | undefined;
 
   /**
    * <p>
@@ -1763,12 +1763,26 @@ export namespace QueryTableRowsResult {
 
 export interface StartTableDataImportJobRequest {
   /**
-   * <p>The ID of the workbook where the rows are being imported.</p>
+   * <p>
+   *             The request token for performing the update action.
+   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
+   *             like a failed network connection, you can retry the call with the same request token. The service ensures
+   *             that if the first call using that request token is successfully performed, the second call will not perform
+   *             the action again.
+   *         </p>
    *         <p>
-   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
+   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
+   *             spanning hours or days.
    *         </p>
    */
-  workbookId: string | undefined;
+  clientRequestToken: string | undefined;
+
+  /**
+   * <p>
+   *             The format of the data that is being imported. Currently the only option supported is "DELIMITED_TEXT".
+   *         </p>
+   */
+  dataFormat: ImportSourceDataFormat | string | undefined;
 
   /**
    * <p>
@@ -1777,13 +1791,6 @@ export interface StartTableDataImportJobRequest {
    *         </p>
    */
   dataSource: ImportDataSource | undefined;
-
-  /**
-   * <p>
-   *             The format of the data that is being imported. Currently the only option supported is "DELIMITED_TEXT".
-   *         </p>
-   */
-  dataFormat: ImportSourceDataFormat | string | undefined;
 
   /**
    * <p>The ID of the table where the rows are being imported.</p>
@@ -1801,19 +1808,12 @@ export interface StartTableDataImportJobRequest {
   importOptions: ImportOptions | undefined;
 
   /**
-   * <p>
-   *             The request token for performing the update action.
-   *             Request tokens help to identify duplicate requests. If a call times out or fails due to a transient error
-   *             like a failed network connection, you can retry the call with the same request token. The service ensures
-   *             that if the first call using that request token is successfully performed, the second call will not perform
-   *             the action again.
-   *         </p>
+   * <p>The ID of the workbook where the rows are being imported.</p>
    *         <p>
-   *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
-   *             spanning hours or days.
+   *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
-  clientRequestToken: string | undefined;
+  workbookId: string | undefined;
 }
 
 export namespace StartTableDataImportJobRequest {

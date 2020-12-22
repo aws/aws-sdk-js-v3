@@ -7,9 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface ComplianceDetails {
   /**
-   * <p>These tag keys on the resource are noncompliant with the effective tag policy.</p>
+   * <p>Whether a resource is compliant with the effective tag policy.</p>
    */
-  NoncompliantKeys?: string[];
+  ComplianceStatus?: boolean;
 
   /**
    * <p>These are keys defined in the effective policy that are on the resource with either
@@ -18,9 +18,9 @@ export interface ComplianceDetails {
   KeysWithNoncompliantValues?: string[];
 
   /**
-   * <p>Whether a resource is compliant with the effective tag policy.</p>
+   * <p>These tag keys on the resource are noncompliant with the effective tag policy.</p>
    */
-  ComplianceStatus?: boolean;
+  NoncompliantKeys?: string[];
 }
 
 export namespace ComplianceDetails {
@@ -89,6 +89,21 @@ export namespace DescribeReportCreationInput {
 
 export interface DescribeReportCreationOutput {
   /**
+   * <p>Details of the common errors that all operations return.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * <p>The path to the Amazon S3 bucket where the report was stored on creation.</p>
+   */
+  S3Location?: string;
+
+  /**
+   * <p>The date and time that the report was started. </p>
+   */
+  StartDate?: string;
+
+  /**
    * <p>Reports the status of the operation.</p>
    *         <p>The operation status can be one of the following:</p>
    *         <ul>
@@ -114,21 +129,6 @@ export interface DescribeReportCreationOutput {
    *          </ul>
    */
   Status?: string;
-
-  /**
-   * <p>The path to the Amazon S3 bucket where the report was stored on creation.</p>
-   */
-  S3Location?: string;
-
-  /**
-   * <p>The date and time that the report was started. </p>
-   */
-  StartDate?: string;
-
-  /**
-   * <p>Details of the common errors that all operations return.</p>
-   */
-  ErrorMessage?: string;
 }
 
 export namespace DescribeReportCreationOutput {
@@ -244,11 +244,6 @@ export enum ErrorCode {
  */
 export interface FailureInfo {
   /**
-   * <p>The HTTP status code of the common error.</p>
-   */
-  StatusCode?: number;
-
-  /**
    * <p>The code of the common error. Valid values include
    *                 <code>InternalServiceException</code>, <code>InvalidParameterException</code>, and
    *             any valid error code returned by the AWS service that hosts the resource that you want
@@ -260,6 +255,11 @@ export interface FailureInfo {
    * <p>The message of the common error.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The HTTP status code of the common error.</p>
+   */
+  StatusCode?: number;
 }
 
 export namespace FailureInfo {
@@ -276,11 +276,22 @@ export enum GroupByAttribute {
 
 export interface GetComplianceSummaryInput {
   /**
-   * <p>The target identifiers (usually, specific account IDs) to limit the output by. If you
-   *             use this parameter, the count of returned noncompliant resources includes only resources
-   *             with the specified target IDs.</p>
+   * <p>A list of attributes to group the counts of noncompliant resources by. If supplied,
+   *             the counts are sorted by those attributes.</p>
    */
-  TargetIdFilters?: string[];
+  GroupBy?: (GroupByAttribute | string)[];
+
+  /**
+   * <p>A limit that restricts the number of results that are returned per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string that indicates that additional data is available. Leave this value empty for
+   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
+   *             string for this value to request an additional page of data.</p>
+   */
+  PaginationToken?: string;
 
   /**
    * <p>A list of Regions to limit the output by. If you use this parameter, the count of
@@ -322,22 +333,11 @@ export interface GetComplianceSummaryInput {
   TagKeyFilters?: string[];
 
   /**
-   * <p>A list of attributes to group the counts of noncompliant resources by. If supplied,
-   *             the counts are sorted by those attributes.</p>
+   * <p>The target identifiers (usually, specific account IDs) to limit the output by. If you
+   *             use this parameter, the count of returned noncompliant resources includes only resources
+   *             with the specified target IDs.</p>
    */
-  GroupBy?: (GroupByAttribute | string)[];
-
-  /**
-   * <p>A limit that restricts the number of results that are returned per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string that indicates that additional data is available. Leave this value empty for
-   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
-   *             string for this value to request an additional page of data.</p>
-   */
-  PaginationToken?: string;
+  TargetIdFilters?: string[];
 }
 
 export namespace GetComplianceSummaryInput {
@@ -362,15 +362,9 @@ export interface Summary {
   LastUpdated?: string;
 
   /**
-   * <p>The account identifier or the root identifier of the organization. If you don't know
-   *             the root ID, you can call the AWS Organizations <a href="http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">ListRoots</a> API.</p>
+   * <p>The count of noncompliant resources.</p>
    */
-  TargetId?: string;
-
-  /**
-   * <p>Whether the target is an account, an OU, or the organization root.</p>
-   */
-  TargetIdType?: TargetIdType | string;
+  NonCompliantResources?: number;
 
   /**
    * <p>The AWS Region that the summary applies to.</p>
@@ -383,9 +377,15 @@ export interface Summary {
   ResourceType?: string;
 
   /**
-   * <p>The count of noncompliant resources.</p>
+   * <p>The account identifier or the root identifier of the organization. If you don't know
+   *             the root ID, you can call the AWS Organizations <a href="http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">ListRoots</a> API.</p>
    */
-  NonCompliantResources?: number;
+  TargetId?: string;
+
+  /**
+   * <p>Whether the target is an account, an OU, or the organization root.</p>
+   */
+  TargetIdType?: TargetIdType | string;
 }
 
 export namespace Summary {
@@ -396,16 +396,16 @@ export namespace Summary {
 
 export interface GetComplianceSummaryOutput {
   /**
-   * <p>A table that shows counts of noncompliant resources.</p>
-   */
-  SummaryList?: Summary[];
-
-  /**
    * <p>A string that indicates that the response contains more data than can be returned in a
    *             single response. To receive additional data, specify this string for the
    *                 <code>PaginationToken</code> value in a subsequent request.</p>
    */
   PaginationToken?: string;
+
+  /**
+   * <p>A table that shows counts of noncompliant resources.</p>
+   */
+  SummaryList?: Summary[];
 }
 
 export namespace GetComplianceSummaryOutput {
@@ -438,11 +438,60 @@ export namespace TagFilter {
 
 export interface GetResourcesInput {
   /**
+   * <p>Specifies whether to exclude resources that are compliant with the tag policy. Set
+   *             this to <code>true</code> if you are interested in retrieving information on
+   *             noncompliant resources only.</p>
+   *         <p>You can use this parameter only if the <code>IncludeComplianceDetails</code> parameter
+   *             is also set to <code>true</code>.</p>
+   */
+  ExcludeCompliantResources?: boolean;
+
+  /**
+   * <p>Specifies whether to include details regarding the compliance with the effective tag
+   *             policy. Set this to <code>true</code> to determine whether resources are compliant with
+   *             the tag policy and to get details.</p>
+   */
+  IncludeComplianceDetails?: boolean;
+
+  /**
    * <p>A string that indicates that additional data is available. Leave this value empty for
    *             your initial request. If the response includes a <code>PaginationToken</code>, use that
    *             string for this value to request an additional page of data.</p>
    */
   PaginationToken?: string;
+
+  /**
+   * <p>A limit that restricts the number of resources returned by GetResources in paginated
+   *             output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 100
+   *             items. </p>
+   */
+  ResourcesPerPage?: number;
+
+  /**
+   * <p>The constraints on the resources that you want returned. The format of each resource
+   *             type is <code>service[:resourceType]</code>. For example, specifying a resource type of
+   *                 <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
+   *             Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>
+   *         <p>The string for each service name and resource type is the same as that embedded in a
+   *             resource's Amazon Resource Name (ARN). Consult the <i>AWS General
+   *                 Reference</i> for the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a list of service name strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For resource type strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example ARNs</a>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                         Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You can specify multiple resource types by using an array. The array can include up to
+   *             100 items. Note that the length constraint requirement applies to each resource type
+   *             filter. </p>
+   */
+  ResourceTypeFilters?: string[];
 
   /**
    * <p>A list of TagFilters (keys and values). Each TagFilter specified must contain a key
@@ -499,13 +548,6 @@ export interface GetResourcesInput {
   TagFilters?: TagFilter[];
 
   /**
-   * <p>A limit that restricts the number of resources returned by GetResources in paginated
-   *             output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 100
-   *             items. </p>
-   */
-  ResourcesPerPage?: number;
-
-  /**
    * <p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
    *         <p>A limit that restricts the number of tags (key and value pairs) returned by
    *             GetResources in paginated output. A resource with no tags is counted as having one tag
@@ -524,48 +566,6 @@ export interface GetResourcesInput {
    *             items.</p>
    */
   TagsPerPage?: number;
-
-  /**
-   * <p>The constraints on the resources that you want returned. The format of each resource
-   *             type is <code>service[:resourceType]</code>. For example, specifying a resource type of
-   *                 <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
-   *             Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>
-   *         <p>The string for each service name and resource type is the same as that embedded in a
-   *             resource's Amazon Resource Name (ARN). Consult the <i>AWS General
-   *                 Reference</i> for the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For a list of service name strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For resource type strings, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example ARNs</a>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *                         Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   *             </li>
-   *          </ul>
-   *         <p>You can specify multiple resource types by using an array. The array can include up to
-   *             100 items. Note that the length constraint requirement applies to each resource type
-   *             filter. </p>
-   */
-  ResourceTypeFilters?: string[];
-
-  /**
-   * <p>Specifies whether to include details regarding the compliance with the effective tag
-   *             policy. Set this to <code>true</code> to determine whether resources are compliant with
-   *             the tag policy and to get details.</p>
-   */
-  IncludeComplianceDetails?: boolean;
-
-  /**
-   * <p>Specifies whether to exclude resources that are compliant with the tag policy. Set
-   *             this to <code>true</code> if you are interested in retrieving information on
-   *             noncompliant resources only.</p>
-   *         <p>You can use this parameter only if the <code>IncludeComplianceDetails</code> parameter
-   *             is also set to <code>true</code>.</p>
-   */
-  ExcludeCompliantResources?: boolean;
 }
 
 export namespace GetResourcesInput {
@@ -604,6 +604,12 @@ export namespace Tag {
  */
 export interface ResourceTagMapping {
   /**
+   * <p>Information that shows whether a resource is compliant with the effective tag policy,
+   *             including details on any noncompliant tag keys.</p>
+   */
+  ComplianceDetails?: ComplianceDetails;
+
+  /**
    * <p>The ARN of the resource.</p>
    */
   ResourceARN?: string;
@@ -612,12 +618,6 @@ export interface ResourceTagMapping {
    * <p>The tags that have been applied to one or more AWS resources.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>Information that shows whether a resource is compliant with the effective tag policy,
-   *             including details on any noncompliant tag keys.</p>
-   */
-  ComplianceDetails?: ComplianceDetails;
 }
 
 export namespace ResourceTagMapping {
@@ -663,14 +663,13 @@ export namespace PaginationTokenExpiredException {
 }
 
 export interface GetTagKeysInput {
+  MaxResults?: number;
   /**
    * <p>A string that indicates that additional data is available. Leave this value empty for
    *             your initial request. If the response includes a <code>PaginationToken</code>, use that
    *             string for this value to request an additional page of data.</p>
    */
   PaginationToken?: string;
-
-  MaxResults?: number;
 }
 
 export namespace GetTagKeysInput {
@@ -701,19 +700,18 @@ export namespace GetTagKeysOutput {
 
 export interface GetTagValuesInput {
   /**
-   * <p>A string that indicates that additional data is available. Leave this value empty for
-   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
-   *             string for this value to request an additional page of data.</p>
-   */
-  PaginationToken?: string;
-
-  /**
    * <p>The key for which you want to list all existing values in the specified Region for the
    *             AWS account.</p>
    */
   Key: string | undefined;
 
   MaxResults?: number;
+  /**
+   * <p>A string that indicates that additional data is available. Leave this value empty for
+   *             your initial request. If the response includes a <code>PaginationToken</code>, use that
+   *             string for this value to request an additional page of data.</p>
+   */
+  PaginationToken?: string;
 }
 
 export namespace GetTagValuesInput {

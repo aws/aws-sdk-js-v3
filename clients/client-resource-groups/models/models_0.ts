@@ -77,6 +77,11 @@ export namespace GroupConfigurationParameter {
  */
 export interface GroupConfigurationItem {
   /**
+   * <p>A collection of parameters for this group configuration item.</p>
+   */
+  Parameters?: GroupConfigurationParameter[];
+
+  /**
    * <p>Specifies the type of group configuration item. Each item must have a unique value for
    *                 <code>type</code>.</p>
    *         <p>You can specify the following string values:</p>
@@ -96,11 +101,6 @@ export interface GroupConfigurationItem {
    *          </ul>
    */
   Type: string | undefined;
-
-  /**
-   * <p>A collection of parameters for this group configuration item.</p>
-   */
-  Parameters?: GroupConfigurationParameter[];
 }
 
 export namespace GroupConfigurationItem {
@@ -221,6 +221,11 @@ export enum QueryType {
  */
 export interface ResourceQuery {
   /**
+   * <p>The query that defines a group or a search.</p>
+   */
+  Query: string | undefined;
+
+  /**
    * <p>The type of the query. You can use the following values:</p>
    *         <ul>
    *             <li>
@@ -291,11 +296,6 @@ export interface ResourceQuery {
    *          </ul>
    */
   Type: QueryType | string | undefined;
-
-  /**
-   * <p>The query that defines a group or a search.</p>
-   */
-  Query: string | undefined;
 }
 
 export namespace ResourceQuery {
@@ -306,6 +306,23 @@ export namespace ResourceQuery {
 
 export interface CreateGroupInput {
   /**
+   * <p>A configuration associates the resource group with an AWS service and specifies how
+   *             the service can interact with the resources in the group. A configuration is an array of
+   *                 <a>GroupConfigurationItem</a> elements.</p>
+   *         <note>
+   *             <p>You can specify either a <code>Configuration</code> or a
+   *                     <code>ResourceQuery</code> in a group, but not both.</p>
+   *         </note>
+   */
+  Configuration?: GroupConfigurationItem[];
+
+  /**
+   * <p>The description of the resource group. Descriptions can consist of letters, numbers,
+   *             hyphens, underscores, periods, and spaces.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The name of the group, which is the identifier of the group in other operations. You
    *             can't change the name of a resource group after you create it. A resource group name can
    *             consist of letters, numbers, hyphens, periods, and underscores. The name cannot start
@@ -313,12 +330,6 @@ export interface CreateGroupInput {
    *             must be unique within each AWS Region in your AWS account.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The description of the resource group. Descriptions can consist of letters, numbers,
-   *             hyphens, underscores, periods, and spaces.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The resource query that determines which AWS resources are members of this
@@ -334,17 +345,6 @@ export interface CreateGroupInput {
    * <p>The tags to add to the group. A tag is key-value pair string.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>A configuration associates the resource group with an AWS service and specifies how
-   *             the service can interact with the resources in the group. A configuration is an array of
-   *                 <a>GroupConfigurationItem</a> elements.</p>
-   *         <note>
-   *             <p>You can specify either a <code>Configuration</code> or a
-   *                     <code>ResourceQuery</code> in a group, but not both.</p>
-   *         </note>
-   */
-  Configuration?: GroupConfigurationItem[];
 }
 
 export namespace CreateGroupInput {
@@ -375,6 +375,11 @@ export namespace CreateGroupInput {
  */
 export interface Group {
   /**
+   * <p>The description of the resource group.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The ARN of the resource group.</p>
    */
   GroupArn: string | undefined;
@@ -383,11 +388,6 @@ export interface Group {
    * <p>The name of the resource group.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The description of the resource group.</p>
-   */
-  Description?: string;
 }
 
 export namespace Group {
@@ -416,6 +416,11 @@ export interface GroupConfiguration {
   Configuration?: GroupConfigurationItem[];
 
   /**
+   * <p>If present, the reason why a request to update the group configuration failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
    * <p>If present, the new configuration that is in the process of being applied to the
    *             group.</p>
    */
@@ -425,11 +430,6 @@ export interface GroupConfiguration {
    * <p>The current status of an attempt to update the group configuration.</p>
    */
   Status?: GroupConfigurationStatus | string;
-
-  /**
-   * <p>If present, the reason why a request to update the group configuration failed.</p>
-   */
-  FailureReason?: string;
 }
 
 export namespace GroupConfiguration {
@@ -445,16 +445,6 @@ export interface CreateGroupOutput {
   Group?: Group;
 
   /**
-   * <p>The resource query associated with the group.</p>
-   */
-  ResourceQuery?: ResourceQuery;
-
-  /**
-   * <p>The tags associated with the group.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The service configuration associated with the resource group. AWS Resource Groups
    *             supports adding service configurations for the following resource group types:</p>
    *         <ul>
@@ -467,6 +457,16 @@ export interface CreateGroupOutput {
    *          </ul>
    */
   GroupConfiguration?: GroupConfiguration;
+
+  /**
+   * <p>The resource query associated with the group.</p>
+   */
+  ResourceQuery?: ResourceQuery;
+
+  /**
+   * <p>The tags associated with the group.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateGroupOutput {
@@ -538,14 +538,14 @@ export namespace TooManyRequestsException {
 
 export interface DeleteGroupInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The name or the ARN of the resource group to delete.</p>
    */
   Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace DeleteGroupInput {
@@ -584,14 +584,14 @@ export namespace NotFoundException {
 
 export interface GetGroupInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The name or the ARN of the resource group to retrieve.</p>
    */
   Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace GetGroupInput {
@@ -641,14 +641,14 @@ export namespace GetGroupConfigurationOutput {
 
 export interface GetGroupQueryInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The name or the ARN of the resource group to query.</p>
    */
   Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace GetGroupQueryInput {
@@ -748,9 +748,9 @@ export namespace GroupResourcesInput {
  */
 export interface FailedResource {
   /**
-   * <p>The ARN of the resource that failed to be added or removed.</p>
+   * <p>The error code associated with the failure.</p>
    */
-  ResourceArn?: string;
+  ErrorCode?: string;
 
   /**
    * <p>The error message text associated with the failure.</p>
@@ -758,9 +758,9 @@ export interface FailedResource {
   ErrorMessage?: string;
 
   /**
-   * <p>The error code associated with the failure.</p>
+   * <p>The ARN of the resource that failed to be added or removed.</p>
    */
-  ErrorCode?: string;
+  ResourceArn?: string;
 }
 
 export namespace FailedResource {
@@ -771,16 +771,16 @@ export namespace FailedResource {
 
 export interface GroupResourcesOutput {
   /**
-   * <p>The ARNs of the resources that were successfully added to the group by this
-   *             operation.</p>
-   */
-  Succeeded?: string[];
-
-  /**
    * <p>The ARNs of the resources that failed to be added to the group by this
    *             operation.</p>
    */
   Failed?: FailedResource[];
+
+  /**
+   * <p>The ARNs of the resources that were successfully added to the group by this
+   *             operation.</p>
+   */
+  Succeeded?: string[];
 }
 
 export namespace GroupResourcesOutput {
@@ -818,16 +818,6 @@ export namespace ResourceFilter {
 
 export interface ListGroupResourcesInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The name or the ARN of the resource group</p>
-   */
-  Group?: string;
-
-  /**
    * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
    *             to a <code>ListGroupResources</code> operation. Filters the results to include only
    *             those of the specified resource types.</p>
@@ -859,6 +849,16 @@ export interface ListGroupResourcesInput {
    *             AWS CloudFormation stack-based queries).</p>
    */
   Filters?: ResourceFilter[];
+
+  /**
+   * <p>The name or the ARN of the resource group</p>
+   */
+  Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -946,12 +946,6 @@ export namespace ResourceIdentifier {
 
 export interface ListGroupResourcesOutput {
   /**
-   * <p>The ARNs and resource types of resources that are members of the group that you
-   *             specified.</p>
-   */
-  ResourceIdentifiers?: ResourceIdentifier[];
-
-  /**
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
    * in a subsequent call to the operation to get the next part of the output. You should repeat this
@@ -966,6 +960,12 @@ export interface ListGroupResourcesOutput {
    *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
   QueryErrors?: QueryError[];
+
+  /**
+   * <p>The ARNs and resource types of resources that are members of the group that you
+   *             specified.</p>
+   */
+  ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace ListGroupResourcesOutput {
@@ -1079,14 +1079,14 @@ export namespace ListGroupsInput {
  */
 export interface GroupIdentifier {
   /**
-   * <p>The name of the resource group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The ARN of the resource group.</p>
    */
   GroupArn?: string;
+
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace GroupIdentifier {
@@ -1125,12 +1125,6 @@ export namespace ListGroupsOutput {
 
 export interface SearchResourcesInput {
   /**
-   * <p>The search query, using the same formats that are supported for resource group
-   *             definition. For more information, see <a>CreateGroup</a>.</p>
-   */
-  ResourceQuery: ResourceQuery | undefined;
-
-  /**
    * <p>The total number of results that you want included on each page of the
    * response. If you do not include this parameter, it defaults to a value that is specific to the
    * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
@@ -1149,6 +1143,12 @@ export interface SearchResourcesInput {
    * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The search query, using the same formats that are supported for resource group
+   *             definition. For more information, see <a>CreateGroup</a>.</p>
+   */
+  ResourceQuery: ResourceQuery | undefined;
 }
 
 export namespace SearchResourcesInput {
@@ -1158,12 +1158,6 @@ export namespace SearchResourcesInput {
 }
 
 export interface SearchResourcesOutput {
-  /**
-   * <p>The ARNs and resource types of resources that are members of the group that you
-   *             specified.</p>
-   */
-  ResourceIdentifiers?: ResourceIdentifier[];
-
   /**
    * <p>If present, indicates that more output is available than is
    * included in the current response. Use this value in the <code>NextToken</code> request parameter
@@ -1179,6 +1173,12 @@ export interface SearchResourcesOutput {
    *                 <code>CLOUDFORMATION_STACK_NOT_EXISTING</code>.</p>
    */
   QueryErrors?: QueryError[];
+
+  /**
+   * <p>The ARNs and resource types of resources that are members of the group that you
+   *             specified.</p>
+   */
+  ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace SearchResourcesOutput {
@@ -1244,14 +1244,14 @@ export namespace UngroupResourcesInput {
 
 export interface UngroupResourcesOutput {
   /**
-   * <p>The ARNs of the resources that were successfully removed from the group.</p>
-   */
-  Succeeded?: string[];
-
-  /**
    * <p>The resources that failed to be removed from the group.</p>
    */
   Failed?: FailedResource[];
+
+  /**
+   * <p>The ARNs of the resources that were successfully removed from the group.</p>
+   */
+  Succeeded?: string[];
 }
 
 export namespace UngroupResourcesOutput {
@@ -1299,9 +1299,10 @@ export namespace UntagOutput {
 
 export interface UpdateGroupInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>The new description that you want to update the resource group with. Descriptions can
+   *             contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
    */
-  GroupName?: string;
+  Description?: string;
 
   /**
    * <p>The name or the ARN of the resource group to modify.</p>
@@ -1309,10 +1310,9 @@ export interface UpdateGroupInput {
   Group?: string;
 
   /**
-   * <p>The new description that you want to update the resource group with. Descriptions can
-   *             contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
-  Description?: string;
+  GroupName?: string;
 }
 
 export namespace UpdateGroupInput {
@@ -1336,14 +1336,14 @@ export namespace UpdateGroupOutput {
 
 export interface UpdateGroupQueryInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The name or the ARN of the resource group to query.</p>
    */
   Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 
   /**
    * <p>The resource query to determine which AWS resources are members of this resource

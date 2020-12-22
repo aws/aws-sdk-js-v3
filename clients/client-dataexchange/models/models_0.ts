@@ -597,14 +597,14 @@ export namespace ImportAssetsFromS3RequestDetails {
  */
 export interface RequestDetails {
   /**
-   * <p>Details about the export to signed URL request.</p>
-   */
-  ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails;
-
-  /**
    * <p>Details about the export to Amazon S3 request.</p>
    */
   ExportAssetsToS3?: ExportAssetsToS3RequestDetails;
+
+  /**
+   * <p>Details about the export to signed URL request.</p>
+   */
+  ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails;
 
   /**
    * <p>Details about the import from signed URL request.</p>
@@ -790,14 +790,14 @@ export namespace ImportAssetsFromS3ResponseDetails {
  */
 export interface ResponseDetails {
   /**
-   * <p>Details for the export to signed URL response.</p>
-   */
-  ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails;
-
-  /**
    * <p>Details for the export to Amazon S3 response.</p>
    */
   ExportAssetsToS3?: ExportAssetsToS3ResponseDetails;
+
+  /**
+   * <p>Details for the export to signed URL response.</p>
+   */
+  ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails;
 
   /**
    * <p>Details for the import from signed URL response.</p>

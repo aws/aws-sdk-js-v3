@@ -58,14 +58,14 @@ export interface LaunchDetails {
   latestLaunchTime?: Date;
 
   /**
-   * <p>The name of the latest stack launched for this application.</p>
-   */
-  stackName?: string;
-
-  /**
    * <p>The ID of the latest stack launched for this application.</p>
    */
   stackId?: string;
+
+  /**
+   * <p>The name of the latest stack launched for this application.</p>
+   */
+  stackName?: string;
 }
 
 export namespace LaunchDetails {
@@ -93,14 +93,9 @@ export interface AppSummary {
   appId?: string;
 
   /**
-   * <p>The ID of the application.</p>
+   * <p>The creation time of the application.</p>
    */
-  importedAppId?: string;
-
-  /**
-   * <p>The name of the application.</p>
-   */
-  name?: string;
+  creationTime?: Date;
 
   /**
    * <p>The description of the application.</p>
@@ -108,14 +103,44 @@ export interface AppSummary {
   description?: string;
 
   /**
-   * <p>Status of the application.</p>
+   * <p>The ID of the application.</p>
    */
-  status?: AppStatus | string;
+  importedAppId?: string;
 
   /**
-   * <p>A message related to the status of the application</p>
+   * <p>The last modified time of the application.</p>
    */
-  statusMessage?: string;
+  lastModified?: Date;
+
+  /**
+   * <p>The timestamp of the application's most recent successful replication.</p>
+   */
+  latestReplicationTime?: Date;
+
+  /**
+   * <p>Status of the launch configuration.</p>
+   */
+  launchConfigurationStatus?: AppLaunchConfigurationStatus | string;
+
+  /**
+   * <p>Details about the latest launch of the application.</p>
+   */
+  launchDetails?: LaunchDetails;
+
+  /**
+   * <p>The launch status of the application.</p>
+   */
+  launchStatus?: AppLaunchStatus | string;
+
+  /**
+   * <p>A message related to the launch status of the application.</p>
+   */
+  launchStatusMessage?: string;
+
+  /**
+   * <p>The name of the application.</p>
+   */
+  name?: string;
 
   /**
    * <p>Status of the replication configuration.</p>
@@ -133,44 +158,19 @@ export interface AppSummary {
   replicationStatusMessage?: string;
 
   /**
-   * <p>The timestamp of the application's most recent successful replication.</p>
-   */
-  latestReplicationTime?: Date;
-
-  /**
-   * <p>Status of the launch configuration.</p>
-   */
-  launchConfigurationStatus?: AppLaunchConfigurationStatus | string;
-
-  /**
-   * <p>The launch status of the application.</p>
-   */
-  launchStatus?: AppLaunchStatus | string;
-
-  /**
-   * <p>A message related to the launch status of the application.</p>
-   */
-  launchStatusMessage?: string;
-
-  /**
-   * <p>Details about the latest launch of the application.</p>
-   */
-  launchDetails?: LaunchDetails;
-
-  /**
-   * <p>The creation time of the application.</p>
-   */
-  creationTime?: Date;
-
-  /**
-   * <p>The last modified time of the application.</p>
-   */
-  lastModified?: Date;
-
-  /**
    * <p>The name of the service role in the customer's account used by AWS SMS.</p>
    */
   roleName?: string;
+
+  /**
+   * <p>Status of the application.</p>
+   */
+  status?: AppStatus | string;
+
+  /**
+   * <p>A message related to the status of the application</p>
+   */
+  statusMessage?: string;
 
   /**
    * <p>The number of server groups present in the application.</p>
@@ -240,21 +240,6 @@ export namespace Source {
  */
 export interface SSMValidationParameters {
   /**
-   * <p>The location of the validation script.</p>
-   */
-  source?: Source;
-
-  /**
-   * <p>The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.</p>
-   */
-  instanceId?: string;
-
-  /**
-   * <p>The type of validation script.</p>
-   */
-  scriptType?: ScriptType | string;
-
-  /**
    * <p>The command to run the validation script</p>
    */
   command?: string;
@@ -265,9 +250,24 @@ export interface SSMValidationParameters {
   executionTimeoutSeconds?: number;
 
   /**
+   * <p>The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.</p>
+   */
+  instanceId?: string;
+
+  /**
    * <p>The name of the S3 bucket for output.</p>
    */
   outputS3BucketName?: string;
+
+  /**
+   * <p>The type of validation script.</p>
+   */
+  scriptType?: ScriptType | string;
+
+  /**
+   * <p>The location of the validation script.</p>
+   */
+  source?: Source;
 }
 
 export namespace SSMValidationParameters {
@@ -281,9 +281,9 @@ export namespace SSMValidationParameters {
  */
 export interface AppValidationConfiguration {
   /**
-   * <p>The ID of the validation.</p>
+   * <p>The validation strategy.</p>
    */
-  validationId?: string;
+  appValidationStrategy?: AppValidationStrategy | string;
 
   /**
    * <p>The name of the configuration.</p>
@@ -291,14 +291,14 @@ export interface AppValidationConfiguration {
   name?: string;
 
   /**
-   * <p>The validation strategy.</p>
-   */
-  appValidationStrategy?: AppValidationStrategy | string;
-
-  /**
    * <p>The validation parameters.</p>
    */
   ssmValidationParameters?: SSMValidationParameters;
+
+  /**
+   * <p>The ID of the validation.</p>
+   */
+  validationId?: string;
 }
 
 export namespace AppValidationConfiguration {
@@ -354,14 +354,14 @@ export enum VmManagerType {
  */
 export interface VmServerAddress {
   /**
-   * <p>The ID of the VM manager.</p>
-   */
-  vmManagerId?: string;
-
-  /**
    * <p>The ID of the VM.</p>
    */
   vmId?: string;
+
+  /**
+   * <p>The ID of the VM manager.</p>
+   */
+  vmManagerId?: string;
 }
 
 export namespace VmServerAddress {
@@ -375,16 +375,6 @@ export namespace VmServerAddress {
  */
 export interface VmServer {
   /**
-   * <p>The VM server location.</p>
-   */
-  vmServerAddress?: VmServerAddress;
-
-  /**
-   * <p>The name of the VM.</p>
-   */
-  vmName?: string;
-
-  /**
    * <p>The name of the VM manager.</p>
    */
   vmManagerName?: string;
@@ -395,9 +385,19 @@ export interface VmServer {
   vmManagerType?: VmManagerType | string;
 
   /**
+   * <p>The name of the VM.</p>
+   */
+  vmName?: string;
+
+  /**
    * <p>The VM folder path in the vCenter Server virtual machine inventory tree.</p>
    */
   vmPath?: string;
+
+  /**
+   * <p>The VM server location.</p>
+   */
+  vmServerAddress?: VmServerAddress;
 }
 
 export namespace VmServer {
@@ -410,6 +410,16 @@ export namespace VmServer {
  * <p>Represents a server.</p>
  */
 export interface Server {
+  /**
+   * <p>The ID of the replication job.</p>
+   */
+  replicationJobId?: string;
+
+  /**
+   * <p>Indicates whether the replication job is deleted or failed.</p>
+   */
+  replicationJobTerminated?: boolean;
+
   /**
    * <p>The ID of the server.</p>
    */
@@ -424,16 +434,6 @@ export interface Server {
    * <p>Information about the VM server.</p>
    */
   vmServer?: VmServer;
-
-  /**
-   * <p>The ID of the replication job.</p>
-   */
-  replicationJobId?: string;
-
-  /**
-   * <p>Indicates whether the replication job is deleted or failed.</p>
-   */
-  replicationJobTerminated?: boolean;
 }
 
 export namespace Server {
@@ -447,14 +447,14 @@ export namespace Server {
  */
 export interface ServerGroup {
   /**
-   * <p>The ID of a server group.</p>
-   */
-  serverGroupId?: string;
-
-  /**
    * <p>The name of a server group.</p>
    */
   name?: string;
+
+  /**
+   * <p>The ID of a server group.</p>
+   */
+  serverGroupId?: string;
 
   /**
    * <p>The servers that belong to a server group.</p>
@@ -491,9 +491,10 @@ export namespace Tag {
 
 export interface CreateAppRequest {
   /**
-   * <p>The name of the new application.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+   *             application creation.</p>
    */
-  name?: string;
+  clientToken?: string;
 
   /**
    * <p>The description of the new application</p>
@@ -501,15 +502,14 @@ export interface CreateAppRequest {
   description?: string;
 
   /**
+   * <p>The name of the new application.</p>
+   */
+  name?: string;
+
+  /**
    * <p>The name of the service role in the customer's account to be used by AWS SMS.</p>
    */
   roleName?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-   *             application creation.</p>
-   */
-  clientToken?: string;
 
   /**
    * <p>The server groups to include in the application.</p>
@@ -634,51 +634,19 @@ export enum LicenseType {
 
 export interface CreateReplicationJobRequest {
   /**
-   * <p>The ID of the server.</p>
-   */
-  serverId: string | undefined;
-
-  /**
-   * <p>The seed replication time.</p>
-   */
-  seedReplicationTime: Date | undefined;
-
-  /**
-   * <p>The time between consecutive replication runs, in hours.</p>
-   */
-  frequency?: number;
-
-  /**
-   * <p>Indicates whether to run the replication job one time.</p>
-   */
-  runOnce?: boolean;
-
-  /**
-   * <p>The license type to be used for the AMI created by a successful replication
-   *             run.</p>
-   */
-  licenseType?: LicenseType | string;
-
-  /**
-   * <p>The name of the IAM role to be used by the AWS SMS.</p>
-   */
-  roleName?: string;
-
-  /**
    * <p>The description of the replication job.</p>
    */
   description?: string;
 
   /**
-   * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
-   *             maximum number is reached and a new AMI is created.</p>
-   */
-  numberOfRecentAmisToKeep?: number;
-
-  /**
    * <p>Indicates whether the replication job produces encrypted AMIs.</p>
    */
   encrypted?: boolean;
+
+  /**
+   * <p>The time between consecutive replication runs, in hours.</p>
+   */
+  frequency?: number;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -701,6 +669,38 @@ export interface CreateReplicationJobRequest {
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
+
+  /**
+   * <p>The license type to be used for the AMI created by a successful replication
+   *             run.</p>
+   */
+  licenseType?: LicenseType | string;
+
+  /**
+   * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
+   *             maximum number is reached and a new AMI is created.</p>
+   */
+  numberOfRecentAmisToKeep?: number;
+
+  /**
+   * <p>The name of the IAM role to be used by the AWS SMS.</p>
+   */
+  roleName?: string;
+
+  /**
+   * <p>Indicates whether to run the replication job one time.</p>
+   */
+  runOnce?: boolean;
+
+  /**
+   * <p>The seed replication time.</p>
+   */
+  seedReplicationTime: Date | undefined;
+
+  /**
+   * <p>The ID of the server.</p>
+   */
+  serverId: string | undefined;
 }
 
 export namespace CreateReplicationJobRequest {
@@ -1088,54 +1088,9 @@ export namespace UserData {
  */
 export interface ServerLaunchConfiguration {
   /**
-   * <p>The ID of the server with which the launch configuration is associated.</p>
-   */
-  server?: Server;
-
-  /**
-   * <p>The logical ID of the server in the AWS CloudFormation template.</p>
-   */
-  logicalId?: string;
-
-  /**
-   * <p>The ID of the VPC into which the server should be launched.</p>
-   */
-  vpc?: string;
-
-  /**
-   * <p>The ID of the subnet the server should be launched into.</p>
-   */
-  subnet?: string;
-
-  /**
-   * <p>The ID of the security group that applies to the launched server.</p>
-   */
-  securityGroup?: string;
-
-  /**
-   * <p>The name of the Amazon EC2 SSH key to be used for connecting to the launched server.</p>
-   */
-  ec2KeyName?: string;
-
-  /**
-   * <p>Location of the user-data script to be executed when launching the server.</p>
-   */
-  userData?: UserData;
-
-  /**
-   * <p>The instance type to use when launching the server.</p>
-   */
-  instanceType?: string;
-
-  /**
    * <p>Indicates whether a publicly accessible IP address is created when launching the server.</p>
    */
   associatePublicIpAddress?: boolean;
-
-  /**
-   * <p>The name of the IAM instance profile.</p>
-   */
-  iamInstanceProfileName?: string;
 
   /**
    * <p>Location of an Amazon S3 object.</p>
@@ -1146,6 +1101,51 @@ export interface ServerLaunchConfiguration {
    * <p>The type of configuration script.</p>
    */
   configureScriptType?: ScriptType | string;
+
+  /**
+   * <p>The name of the Amazon EC2 SSH key to be used for connecting to the launched server.</p>
+   */
+  ec2KeyName?: string;
+
+  /**
+   * <p>The name of the IAM instance profile.</p>
+   */
+  iamInstanceProfileName?: string;
+
+  /**
+   * <p>The instance type to use when launching the server.</p>
+   */
+  instanceType?: string;
+
+  /**
+   * <p>The logical ID of the server in the AWS CloudFormation template.</p>
+   */
+  logicalId?: string;
+
+  /**
+   * <p>The ID of the security group that applies to the launched server.</p>
+   */
+  securityGroup?: string;
+
+  /**
+   * <p>The ID of the server with which the launch configuration is associated.</p>
+   */
+  server?: Server;
+
+  /**
+   * <p>The ID of the subnet the server should be launched into.</p>
+   */
+  subnet?: string;
+
+  /**
+   * <p>Location of the user-data script to be executed when launching the server.</p>
+   */
+  userData?: UserData;
+
+  /**
+   * <p>The ID of the VPC into which the server should be launched.</p>
+   */
+  vpc?: string;
 }
 
 export namespace ServerLaunchConfiguration {
@@ -1159,15 +1159,15 @@ export namespace ServerLaunchConfiguration {
  */
 export interface ServerGroupLaunchConfiguration {
   /**
+   * <p>The launch order of servers in the server group.</p>
+   */
+  launchOrder?: number;
+
+  /**
    * <p>The ID of the server group with which the launch configuration is
    *             associated.</p>
    */
   serverGroupId?: string;
-
-  /**
-   * <p>The launch order of servers in the server group.</p>
-   */
-  launchOrder?: number;
 
   /**
    * <p>The launch configuration for servers in the server group.</p>
@@ -1188,15 +1188,15 @@ export interface GetAppLaunchConfigurationResponse {
   appId?: string;
 
   /**
+   * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
+   */
+  autoLaunch?: boolean;
+
+  /**
    * <p>The name of the service role in the customer's account that AWS CloudFormation uses to launch the
    *             application.</p>
    */
   roleName?: string;
-
-  /**
-   * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
-   */
-  autoLaunch?: boolean;
 
   /**
    * <p>The launch configurations for server groups in this application.</p>
@@ -1228,34 +1228,14 @@ export namespace GetAppReplicationConfigurationRequest {
  */
 export interface ServerReplicationParameters {
   /**
-   * <p>The seed time for creating a replication job for the server.</p>
+   * <p>Indicates whether the replication job produces encrypted AMIs.</p>
    */
-  seedTime?: Date;
+  encrypted?: boolean;
 
   /**
    * <p>The frequency of creating replication jobs for the server.</p>
    */
   frequency?: number;
-
-  /**
-   * <p>Indicates whether to run the replication job one time.</p>
-   */
-  runOnce?: boolean;
-
-  /**
-   * <p>The license type for creating a replication job for the server.</p>
-   */
-  licenseType?: LicenseType | string;
-
-  /**
-   * <p>The number of recent AMIs to keep when creating a replication job for this server.</p>
-   */
-  numberOfRecentAmisToKeep?: number;
-
-  /**
-   * <p>Indicates whether the replication job produces encrypted AMIs.</p>
-   */
-  encrypted?: boolean;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -1278,6 +1258,26 @@ export interface ServerReplicationParameters {
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
+
+  /**
+   * <p>The license type for creating a replication job for the server.</p>
+   */
+  licenseType?: LicenseType | string;
+
+  /**
+   * <p>The number of recent AMIs to keep when creating a replication job for this server.</p>
+   */
+  numberOfRecentAmisToKeep?: number;
+
+  /**
+   * <p>Indicates whether to run the replication job one time.</p>
+   */
+  runOnce?: boolean;
+
+  /**
+   * <p>The seed time for creating a replication job for the server.</p>
+   */
+  seedTime?: Date;
 }
 
 export namespace ServerReplicationParameters {
@@ -1365,14 +1365,14 @@ export enum ServerValidationStrategy {
  */
 export interface UserDataValidationParameters {
   /**
-   * <p>The location of the validation script.</p>
-   */
-  source?: Source;
-
-  /**
    * <p>The type of validation script.</p>
    */
   scriptType?: ScriptType | string;
+
+  /**
+   * <p>The location of the validation script.</p>
+   */
+  source?: Source;
 }
 
 export namespace UserDataValidationParameters {
@@ -1386,19 +1386,14 @@ export namespace UserDataValidationParameters {
  */
 export interface ServerValidationConfiguration {
   /**
-   * <p>Represents a server.</p>
-   */
-  server?: Server;
-
-  /**
-   * <p>The ID of the validation.</p>
-   */
-  validationId?: string;
-
-  /**
    * <p>The name of the configuration.</p>
    */
   name?: string;
+
+  /**
+   * <p>Represents a server.</p>
+   */
+  server?: Server;
 
   /**
    * <p>The validation strategy.</p>
@@ -1409,6 +1404,11 @@ export interface ServerValidationConfiguration {
    * <p>The validation parameters.</p>
    */
   userDataValidationParameters?: UserDataValidationParameters;
+
+  /**
+   * <p>The ID of the validation.</p>
+   */
+  validationId?: string;
 }
 
 export namespace ServerValidationConfiguration {
@@ -1498,14 +1498,24 @@ export enum ValidationStatus {
  */
 export interface ValidationOutput {
   /**
-   * <p>The ID of the validation.</p>
+   * <p>The output from validating an application.</p>
    */
-  validationId?: string;
+  appValidationOutput?: AppValidationOutput;
+
+  /**
+   * <p>The latest time that the validation was performed.</p>
+   */
+  latestValidationTime?: Date;
 
   /**
    * <p>The name of the validation.</p>
    */
   name?: string;
+
+  /**
+   * <p>The output from validation an instance.</p>
+   */
+  serverValidationOutput?: ServerValidationOutput;
 
   /**
    * <p>The status of the validation.</p>
@@ -1518,19 +1528,9 @@ export interface ValidationOutput {
   statusMessage?: string;
 
   /**
-   * <p>The latest time that the validation was performed.</p>
+   * <p>The ID of the validation.</p>
    */
-  latestValidationTime?: Date;
-
-  /**
-   * <p>The output from validating an application.</p>
-   */
-  appValidationOutput?: AppValidationOutput;
-
-  /**
-   * <p>The output from validation an instance.</p>
-   */
-  serverValidationOutput?: ServerValidationOutput;
+  validationId?: string;
 }
 
 export namespace ValidationOutput {
@@ -1554,16 +1554,16 @@ export namespace GetAppValidationOutputResponse {
 
 export interface GetConnectorsRequest {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call. The default value is 50.
    *             To retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetConnectorsRequest {
@@ -1590,19 +1590,9 @@ export enum ConnectorStatus {
  */
 export interface Connector {
   /**
-   * <p>The ID of the connector.</p>
+   * <p>The time the connector was associated.</p>
    */
-  connectorId?: string;
-
-  /**
-   * <p>The connector version.</p>
-   */
-  version?: string;
-
-  /**
-   * <p>The status of the connector.</p>
-   */
-  status?: ConnectorStatus | string;
+  associatedOn?: Date;
 
   /**
    * <p>The capabilities of the connector.</p>
@@ -1610,19 +1600,9 @@ export interface Connector {
   capabilityList?: (ConnectorCapability | string)[];
 
   /**
-   * <p>The name of the VM manager.</p>
+   * <p>The ID of the connector.</p>
    */
-  vmManagerName?: string;
-
-  /**
-   * <p>The VM management product.</p>
-   */
-  vmManagerType?: VmManagerType | string;
-
-  /**
-   * <p>The ID of the VM manager.</p>
-   */
-  vmManagerId?: string;
+  connectorId?: string;
 
   /**
    * <p>The IP address of the connector.</p>
@@ -1635,9 +1615,29 @@ export interface Connector {
   macAddress?: string;
 
   /**
-   * <p>The time the connector was associated.</p>
+   * <p>The status of the connector.</p>
    */
-  associatedOn?: Date;
+  status?: ConnectorStatus | string;
+
+  /**
+   * <p>The connector version.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The ID of the VM manager.</p>
+   */
+  vmManagerId?: string;
+
+  /**
+   * <p>The name of the VM manager.</p>
+   */
+  vmManagerName?: string;
+
+  /**
+   * <p>The VM management product.</p>
+   */
+  vmManagerType?: VmManagerType | string;
 }
 
 export namespace Connector {
@@ -1667,9 +1667,11 @@ export namespace GetConnectorsResponse {
 
 export interface GetReplicationJobsRequest {
   /**
-   * <p>The ID of the replication job.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 50.
+   *             To retrieve the remaining results, make another call with the returned
+   *                 <code>NextToken</code> value.</p>
    */
-  replicationJobId?: string;
+  maxResults?: number;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -1677,11 +1679,9 @@ export interface GetReplicationJobsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 50.
-   *             To retrieve the remaining results, make another call with the returned
-   *                 <code>NextToken</code> value.</p>
+   * <p>The ID of the replication job.</p>
    */
-  maxResults?: number;
+  replicationJobId?: string;
 }
 
 export namespace GetReplicationJobsRequest {
@@ -1731,40 +1731,10 @@ export enum ReplicationRunType {
  */
 export interface ReplicationRun {
   /**
-   * <p>The ID of the replication run.</p>
-   */
-  replicationRunId?: string;
-
-  /**
-   * <p>The state of the replication run.</p>
-   */
-  state?: ReplicationRunState | string;
-
-  /**
-   * <p>The type of replication run.</p>
-   */
-  type?: ReplicationRunType | string;
-
-  /**
-   * <p>Details about the current stage of the replication run.</p>
-   */
-  stageDetails?: ReplicationRunStageDetails;
-
-  /**
-   * <p>The description of the current status of the replication job.</p>
-   */
-  statusMessage?: string;
-
-  /**
    * <p>The ID of the Amazon Machine Image (AMI) from the replication
    *             run.</p>
    */
   amiId?: string;
-
-  /**
-   * <p>The start time of the next replication run.</p>
-   */
-  scheduledStartTime?: Date;
 
   /**
    * <p>The completion time of the last replication run.</p>
@@ -1802,6 +1772,36 @@ export interface ReplicationRun {
    *             customer's default KMS key for Amazon EBS is used. </p>
    */
   kmsKeyId?: string;
+
+  /**
+   * <p>The ID of the replication run.</p>
+   */
+  replicationRunId?: string;
+
+  /**
+   * <p>The start time of the next replication run.</p>
+   */
+  scheduledStartTime?: Date;
+
+  /**
+   * <p>Details about the current stage of the replication run.</p>
+   */
+  stageDetails?: ReplicationRunStageDetails;
+
+  /**
+   * <p>The state of the replication run.</p>
+   */
+  state?: ReplicationRunState | string;
+
+  /**
+   * <p>The description of the current status of the replication job.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The type of replication run.</p>
+   */
+  type?: ReplicationRunType | string;
 }
 
 export namespace ReplicationRun {
@@ -1826,86 +1826,19 @@ export enum ReplicationJobState {
  */
 export interface ReplicationJob {
   /**
-   * <p>The ID of the replication job.</p>
-   */
-  replicationJobId?: string;
-
-  /**
-   * <p>The ID of the server.</p>
-   */
-  serverId?: string;
-
-  /**
-   * <p>The type of server.</p>
-   */
-  serverType?: ServerType | string;
-
-  /**
-   * <p>Information about the VM server.</p>
-   */
-  vmServer?: VmServer;
-
-  /**
-   * <p>The seed replication time.</p>
-   */
-  seedReplicationTime?: Date;
-
-  /**
-   * <p>The time between consecutive replication runs, in hours.</p>
-   */
-  frequency?: number;
-
-  /**
-   * <p>Indicates whether to run the replication job one time.</p>
-   */
-  runOnce?: boolean;
-
-  /**
-   * <p>The start time of the next replication run.</p>
-   */
-  nextReplicationRunStartTime?: Date;
-
-  /**
-   * <p>The license type to be used for the AMI created by a successful replication
-   *             run.</p>
-   */
-  licenseType?: LicenseType | string;
-
-  /**
-   * <p>The name of the IAM role to be used by AWS SMS.</p>
-   */
-  roleName?: string;
-
-  /**
-   * <p>The ID of the latest Amazon Machine Image (AMI).</p>
-   */
-  latestAmiId?: string;
-
-  /**
-   * <p>The state of the replication job.</p>
-   */
-  state?: ReplicationJobState | string;
-
-  /**
-   * <p>The description of the current status of the replication job.</p>
-   */
-  statusMessage?: string;
-
-  /**
    * <p>The description of the replication job.</p>
    */
   description?: string;
 
   /**
-   * <p>The number of recent AMIs to keep in the customer's account for a replication job. By
-   *             default, the value is set to zero, meaning that all AMIs are kept.</p>
-   */
-  numberOfRecentAmisToKeep?: number;
-
-  /**
    * <p>Indicates whether the replication job should produce encrypted AMIs.</p>
    */
   encrypted?: boolean;
+
+  /**
+   * <p>The time between consecutive replication runs, in hours.</p>
+   */
+  frequency?: number;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -1930,9 +1863,76 @@ export interface ReplicationJob {
   kmsKeyId?: string;
 
   /**
+   * <p>The ID of the latest Amazon Machine Image (AMI).</p>
+   */
+  latestAmiId?: string;
+
+  /**
+   * <p>The license type to be used for the AMI created by a successful replication
+   *             run.</p>
+   */
+  licenseType?: LicenseType | string;
+
+  /**
+   * <p>The start time of the next replication run.</p>
+   */
+  nextReplicationRunStartTime?: Date;
+
+  /**
+   * <p>The number of recent AMIs to keep in the customer's account for a replication job. By
+   *             default, the value is set to zero, meaning that all AMIs are kept.</p>
+   */
+  numberOfRecentAmisToKeep?: number;
+
+  /**
+   * <p>The ID of the replication job.</p>
+   */
+  replicationJobId?: string;
+
+  /**
    * <p>Information about the replication runs.</p>
    */
   replicationRunList?: ReplicationRun[];
+
+  /**
+   * <p>The name of the IAM role to be used by AWS SMS.</p>
+   */
+  roleName?: string;
+
+  /**
+   * <p>Indicates whether to run the replication job one time.</p>
+   */
+  runOnce?: boolean;
+
+  /**
+   * <p>The seed replication time.</p>
+   */
+  seedReplicationTime?: Date;
+
+  /**
+   * <p>The ID of the server.</p>
+   */
+  serverId?: string;
+
+  /**
+   * <p>The type of server.</p>
+   */
+  serverType?: ServerType | string;
+
+  /**
+   * <p>The state of the replication job.</p>
+   */
+  state?: ReplicationJobState | string;
+
+  /**
+   * <p>The description of the current status of the replication job.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>Information about the VM server.</p>
+   */
+  vmServer?: VmServer;
 }
 
 export namespace ReplicationJob {
@@ -1943,15 +1943,15 @@ export namespace ReplicationJob {
 
 export interface GetReplicationJobsResponse {
   /**
-   * <p>Information about the replication jobs.</p>
-   */
-  replicationJobList?: ReplicationJob[];
-
-  /**
    * <p>The token required to retrieve the next set of results. This value is null when
    *             there are no more results to return.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the replication jobs.</p>
+   */
+  replicationJobList?: ReplicationJob[];
 }
 
 export namespace GetReplicationJobsResponse {
@@ -1962,9 +1962,11 @@ export namespace GetReplicationJobsResponse {
 
 export interface GetReplicationRunsRequest {
   /**
-   * <p>The ID of the replication job.</p>
+   * <p>The maximum number of results to return in a single call. The default value is 50.
+   *             To retrieve the remaining results, make another call with the returned
+   *                 <code>NextToken</code> value.</p>
    */
-  replicationJobId: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -1972,11 +1974,9 @@ export interface GetReplicationRunsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in a single call. The default value is 50.
-   *             To retrieve the remaining results, make another call with the returned
-   *                 <code>NextToken</code> value.</p>
+   * <p>The ID of the replication job.</p>
    */
-  maxResults?: number;
+  replicationJobId: string | undefined;
 }
 
 export namespace GetReplicationRunsRequest {
@@ -1987,6 +1987,12 @@ export namespace GetReplicationRunsRequest {
 
 export interface GetReplicationRunsResponse {
   /**
+   * <p>The token required to retrieve the next set of results. This value is null when
+   *             there are no more results to return.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>Information about the replication job.</p>
    */
   replicationJob?: ReplicationJob;
@@ -1995,12 +2001,6 @@ export interface GetReplicationRunsResponse {
    * <p>Information about the replication runs.</p>
    */
   replicationRunList?: ReplicationRun[];
-
-  /**
-   * <p>The token required to retrieve the next set of results. This value is null when
-   *             there are no more results to return.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetReplicationRunsResponse {
@@ -2011,16 +2011,16 @@ export namespace GetReplicationRunsResponse {
 
 export interface GetServersRequest {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call. The default value is 50.
    *             To retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The server addresses.</p>
@@ -2049,6 +2049,12 @@ export interface GetServersResponse {
   lastModifiedOn?: Date;
 
   /**
+   * <p>The token required to retrieve the next set of results. This value is null when
+   *             there are no more results to return.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The status of the server catalog.</p>
    */
   serverCatalogStatus?: ServerCatalogStatus | string;
@@ -2057,12 +2063,6 @@ export interface GetServersResponse {
    * <p>Information about the servers.</p>
    */
   serverList?: Server[];
-
-  /**
-   * <p>The token required to retrieve the next set of results. This value is null when
-   *             there are no more results to return.</p>
-   */
-  nextToken?: string;
 }
 
 export namespace GetServersResponse {
@@ -2138,16 +2138,16 @@ export interface ListAppsRequest {
   appIds?: string[];
 
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call. The default value is 100. To
    *             retrieve the remaining results, make another call with the returned
    *                 <code>NextToken</code> value. </p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListAppsRequest {
@@ -2180,11 +2180,6 @@ export namespace ListAppsResponse {
  */
 export interface NotificationContext {
   /**
-   * <p>The ID of the validation.</p>
-   */
-  validationId?: string;
-
-  /**
    * <p>The status of the validation.</p>
    */
   status?: ValidationStatus | string;
@@ -2193,6 +2188,11 @@ export interface NotificationContext {
    * <p>The status message.</p>
    */
   statusMessage?: string;
+
+  /**
+   * <p>The ID of the validation.</p>
+   */
+  validationId?: string;
 }
 
 export namespace NotificationContext {
@@ -2234,15 +2234,15 @@ export interface PutAppLaunchConfigurationRequest {
   appId?: string;
 
   /**
+   * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
+   */
+  autoLaunch?: boolean;
+
+  /**
    * <p>The name of service role in the customer's account that AWS CloudFormation uses to launch the
    *             application.</p>
    */
   roleName?: string;
-
-  /**
-   * <p>Indicates whether the application is configured to launch automatically after replication is complete.</p>
-   */
-  autoLaunch?: boolean;
 
   /**
    * <p>Information about the launch configurations for server groups in the application.</p>
@@ -2402,14 +2402,14 @@ export namespace ReplicationRunLimitExceededException {
 
 export interface StartOnDemandReplicationRunRequest {
   /**
-   * <p>The ID of the replication job.</p>
-   */
-  replicationJobId: string | undefined;
-
-  /**
    * <p>The description of the replication run.</p>
    */
   description?: string;
+
+  /**
+   * <p>The ID of the replication job.</p>
+   */
+  replicationJobId: string | undefined;
 }
 
 export namespace StartOnDemandReplicationRunRequest {
@@ -2480,14 +2480,14 @@ export interface UpdateAppRequest {
   appId?: string;
 
   /**
-   * <p>The new name of the application.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The new description of the application.</p>
    */
   description?: string;
+
+  /**
+   * <p>The new name of the application.</p>
+   */
+  name?: string;
 
   /**
    * <p>The name of the service role in the customer's account used by AWS SMS.</p>
@@ -2536,47 +2536,20 @@ export namespace UpdateAppResponse {
 
 export interface UpdateReplicationJobRequest {
   /**
-   * <p>The ID of the replication job.</p>
-   */
-  replicationJobId: string | undefined;
-
-  /**
-   * <p>The time between consecutive replication runs, in hours.</p>
-   */
-  frequency?: number;
-
-  /**
-   * <p>The start time of the next replication run.</p>
-   */
-  nextReplicationRunStartTime?: Date;
-
-  /**
-   * <p>The license type to be used for the AMI created by a successful replication
-   *             run.</p>
-   */
-  licenseType?: LicenseType | string;
-
-  /**
-   * <p>The name of the IAM role to be used by AWS SMS.</p>
-   */
-  roleName?: string;
-
-  /**
    * <p>The description of the replication job.</p>
    */
   description?: string;
-
-  /**
-   * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
-   *             maximum number is reached and a new AMI is created.</p>
-   */
-  numberOfRecentAmisToKeep?: number;
 
   /**
    * <p>When true, the replication job produces encrypted AMIs. For more information,
    *                 <code>KmsKeyId</code>.</p>
    */
   encrypted?: boolean;
+
+  /**
+   * <p>The time between consecutive replication runs, in hours.</p>
+   */
+  frequency?: number;
 
   /**
    * <p>The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -2599,6 +2572,33 @@ export interface UpdateReplicationJobRequest {
    *             customer's default KMS key for Amazon EBS is used.</p>
    */
   kmsKeyId?: string;
+
+  /**
+   * <p>The license type to be used for the AMI created by a successful replication
+   *             run.</p>
+   */
+  licenseType?: LicenseType | string;
+
+  /**
+   * <p>The start time of the next replication run.</p>
+   */
+  nextReplicationRunStartTime?: Date;
+
+  /**
+   * <p>The maximum number of SMS-created AMIs to retain. The oldest is deleted after the
+   *             maximum number is reached and a new AMI is created.</p>
+   */
+  numberOfRecentAmisToKeep?: number;
+
+  /**
+   * <p>The ID of the replication job.</p>
+   */
+  replicationJobId: string | undefined;
+
+  /**
+   * <p>The name of the IAM role to be used by AWS SMS.</p>
+   */
+  roleName?: string;
 }
 
 export namespace UpdateReplicationJobRequest {

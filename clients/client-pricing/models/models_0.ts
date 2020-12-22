@@ -21,14 +21,6 @@ export namespace AttributeValue {
 
 export interface DescribeServicesRequest {
   /**
-   * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
-   *           You can use
-   *          the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call.
-   *       To retrieve a list of all services, leave this blank.</p>
-   */
-  ServiceCode?: string;
-
-  /**
    * <p>The format version that you want the response to be in.</p>
    *          <p>Valid values are: <code>aws_v1</code>
    *          </p>
@@ -36,14 +28,22 @@ export interface DescribeServicesRequest {
   FormatVersion?: string;
 
   /**
+   * <p>The maximum number of results that you want returned in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results that you want returned in the response.</p>
+   * <p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>.
+   *           You can use
+   *          the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call.
+   *       To retrieve a list of all services, leave this blank.</p>
    */
-  MaxResults?: number;
+  ServiceCode?: string;
 }
 
 export namespace DescribeServicesRequest {
@@ -57,14 +57,14 @@ export namespace DescribeServicesRequest {
  */
 export interface Service {
   /**
-   * <p>The code for the AWS service.</p>
-   */
-  ServiceCode?: string;
-
-  /**
    * <p>The attributes that are available for this service.</p>
    */
   AttributeNames?: string[];
+
+  /**
+   * <p>The code for the AWS service.</p>
+   */
+  ServiceCode?: string;
 }
 
 export namespace Service {
@@ -75,11 +75,6 @@ export namespace Service {
 
 export interface DescribeServicesResponse {
   /**
-   * <p>The service metadata for the service or services in the response.</p>
-   */
-  Services?: Service[];
-
-  /**
    * <p>The format version of the response. For example, <code>aws_v1</code>.</p>
    */
   FormatVersion?: string;
@@ -88,6 +83,11 @@ export interface DescribeServicesResponse {
    * <p>The pagination token for the next set of retreivable results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The service metadata for the service or services in the response.</p>
+   */
+  Services?: Service[];
 }
 
 export namespace DescribeServicesResponse {
@@ -173,15 +173,14 @@ export namespace NotFoundException {
 
 export interface GetAttributeValuesRequest {
   /**
-   * <p>The service code for the service whose attributes you want to retrieve. For example, if you want
-   *           the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</p>
-   */
-  ServiceCode: string | undefined;
-
-  /**
    * <p>The name of the attribute that you want to retrieve the values for, such as <code>volumeType</code>.</p>
    */
   AttributeName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in response.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
@@ -189,9 +188,10 @@ export interface GetAttributeValuesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in response.</p>
+   * <p>The service code for the service whose attributes you want to retrieve. For example, if you want
+   *           the retrieve an EC2 attribute, use <code>AmazonEC2</code>.</p>
    */
-  MaxResults?: number;
+  ServiceCode: string | undefined;
 }
 
 export namespace GetAttributeValuesRequest {
@@ -229,13 +229,6 @@ export enum FilterType {
  */
 export interface Filter {
   /**
-   * <p>The type of filter that you want to use.</p>
-   *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
-   *          products that match both the given filter field and the given value.</p>
-   */
-  Type: FilterType | string | undefined;
-
-  /**
    * <p>The product metadata field that you want to filter on. You can filter by just the
    *          service code to see all products for a specific service, filter
    *          by just the attribute name to see a specific attribute for multiple services, or use both a service code
@@ -246,6 +239,13 @@ export interface Filter {
    *          <code>volumeType</code> attribute name to get the prices for only Amazon EC2 volumes.</p>
    */
   Field: string | undefined;
+
+  /**
+   * <p>The type of filter that you want to use.</p>
+   *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
+   *          products that match both the given filter field and the given value.</p>
+   */
+  Type: FilterType | string | undefined;
 
   /**
    * <p>The service code or attribute value that you want to filter by. If you are filtering by
@@ -264,11 +264,6 @@ export namespace Filter {
 
 export interface GetProductsRequest {
   /**
-   * <p>The code for the service whose products you want to retrieve. </p>
-   */
-  ServiceCode?: string;
-
-  /**
    * <p>The list of filters that limit the returned products. only products that match all filters
    *          are returned.</p>
    */
@@ -282,14 +277,19 @@ export interface GetProductsRequest {
   FormatVersion?: string;
 
   /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * <p>The code for the service whose products you want to retrieve. </p>
    */
-  MaxResults?: number;
+  ServiceCode?: string;
 }
 
 export namespace GetProductsRequest {
@@ -305,15 +305,15 @@ export interface GetProductsResponse {
   FormatVersion?: string;
 
   /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    */
   PriceList?: (__LazyJsonString | string)[];
-
-  /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetProductsResponse {

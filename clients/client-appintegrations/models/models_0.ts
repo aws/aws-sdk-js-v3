@@ -35,9 +35,10 @@ export namespace EventFilter {
 
 export interface CreateEventIntegrationRequest {
   /**
-   * <p>The name of the event integration.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *       request.</p>
    */
-  Name: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>The description of the event integration.</p>
@@ -45,20 +46,19 @@ export interface CreateEventIntegrationRequest {
   Description?: string;
 
   /**
-   * <p>The event filter.</p>
-   */
-  EventFilter: EventFilter | undefined;
-
-  /**
    * <p>The Eventbridge bus.</p>
    */
   EventBridgeBus: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   * <p>The event filter.</p>
    */
-  ClientToken?: string;
+  EventFilter: EventFilter | undefined;
+
+  /**
+   * <p>The name of the event integration.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>One or more tags.</p>
@@ -211,19 +211,9 @@ export namespace GetEventIntegrationRequest {
 
 export interface GetEventIntegrationResponse {
   /**
-   * <p>The name of the event integration. </p>
-   */
-  Name?: string;
-
-  /**
    * <p>The description of the event integration.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the event integration.</p>
-   */
-  EventIntegrationArn?: string;
 
   /**
    * <p>The Eventbridge bus.</p>
@@ -234,6 +224,16 @@ export interface GetEventIntegrationResponse {
    * <p>The event filter.</p>
    */
   EventFilter?: EventFilter;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the event integration.</p>
+   */
+  EventIntegrationArn?: string;
+
+  /**
+   * <p>The name of the event integration. </p>
+   */
+  Name?: string;
 
   /**
    * <p>One or more tags.</p>
@@ -254,15 +254,15 @@ export interface ListEventIntegrationAssociationsRequest {
   EventIntegrationName: string | undefined;
 
   /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListEventIntegrationAssociationsRequest {
@@ -277,6 +277,21 @@ export namespace ListEventIntegrationAssociationsRequest {
  */
 export interface EventIntegrationAssociation {
   /**
+   * <p>The metadata associated with the client.</p>
+   */
+  ClientAssociationMetadata?: { [key: string]: string };
+
+  /**
+   * <p>The identifier for the client that is associated with the event integration.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * <p>The name of the Eventbridge rule.</p>
+   */
+  EventBridgeRuleName?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) for the event integration association.</p>
    */
   EventIntegrationAssociationArn?: string;
@@ -290,21 +305,6 @@ export interface EventIntegrationAssociation {
    * <p>The name of the event integration.</p>
    */
   EventIntegrationName?: string;
-
-  /**
-   * <p>The identifier for the client that is associated with the event integration.</p>
-   */
-  ClientId?: string;
-
-  /**
-   * <p>The name of the Eventbridge rule.</p>
-   */
-  EventBridgeRuleName?: string;
-
-  /**
-   * <p>The metadata associated with the client.</p>
-   */
-  ClientAssociationMetadata?: { [key: string]: string };
 }
 
 export namespace EventIntegrationAssociation {
@@ -333,15 +333,15 @@ export namespace ListEventIntegrationAssociationsResponse {
 
 export interface ListEventIntegrationsRequest {
   /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListEventIntegrationsRequest {
@@ -356,6 +356,21 @@ export namespace ListEventIntegrationsRequest {
  */
 export interface EventIntegration {
   /**
+   * <p>The event integration description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Eventbridge bus for the event integration.</p>
+   */
+  EventBridgeBus?: string;
+
+  /**
+   * <p>The event integration filter.</p>
+   */
+  EventFilter?: EventFilter;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the event integration.</p>
    */
   EventIntegrationArn?: string;
@@ -364,21 +379,6 @@ export interface EventIntegration {
    * <p>The name of the event integration.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The event integration description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The event integration filter.</p>
-   */
-  EventFilter?: EventFilter;
-
-  /**
-   * <p>The Amazon Eventbridge bus for the event integration.</p>
-   */
-  EventBridgeBus?: string;
 
   /**
    * <p>The tags.</p>
@@ -490,14 +490,14 @@ export namespace UntagResourceResponse {
 
 export interface UpdateEventIntegrationRequest {
   /**
-   * <p>The name of the event integration.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The description of the event inegration.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The name of the event integration.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace UpdateEventIntegrationRequest {

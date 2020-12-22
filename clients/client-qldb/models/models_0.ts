@@ -59,14 +59,14 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   $fault: "client";
   Message?: string;
   /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+
+  /**
+   * <p>The type of resource.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -83,14 +83,14 @@ export interface ResourcePreconditionNotMetException extends __SmithyException, 
   $fault: "client";
   Message?: string;
   /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+
+  /**
+   * <p>The type of resource.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace ResourcePreconditionNotMetException {
@@ -105,25 +105,6 @@ export enum PermissionsMode {
 
 export interface CreateLedgerRequest {
   /**
-   * <p>The name of the ledger that you want to create. The name must be unique among all of
-   *          your ledgers in the current AWS Region.</p>
-   *          <p>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas in Amazon QLDB</a>
-   *          in the <i>Amazon QLDB Developer Guide</i>.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The key-value pairs to add as tags to the ledger that you want to create. Tag keys are
-   *          case sensitive. Tag values are case sensitive and can be null.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
-   * <p>The permissions mode to assign to the ledger that you want to create.</p>
-   */
-  PermissionsMode: PermissionsMode | string | undefined;
-
-  /**
    * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
    *          ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
@@ -132,6 +113,25 @@ export interface CreateLedgerRequest {
    *          console disables deletion protection for you when you use it to delete a ledger.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the ledger that you want to create. The name must be unique among all of
+   *          your ledgers in the current AWS Region.</p>
+   *          <p>Naming constraints for ledger names are defined in <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming">Quotas in Amazon QLDB</a>
+   *          in the <i>Amazon QLDB Developer Guide</i>.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The permissions mode to assign to the ledger that you want to create.</p>
+   */
+  PermissionsMode: PermissionsMode | string | undefined;
+
+  /**
+   * <p>The key-value pairs to add as tags to the ledger that you want to create. Tag keys are
+   *          case sensitive. Tag values are case sensitive and can be null.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateLedgerRequest {
@@ -149,19 +149,9 @@ export enum LedgerState {
 
 export interface CreateLedgerResponse {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The current status of the ledger.</p>
-   */
-  State?: LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -178,6 +168,16 @@ export interface CreateLedgerResponse {
    *          console disables deletion protection for you when you use it to delete a ledger.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The current status of the ledger.</p>
+   */
+  State?: LedgerState | string;
 }
 
 export namespace CreateLedgerResponse {
@@ -213,14 +213,14 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   $fault: "client";
   Message?: string;
   /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+
+  /**
+   * <p>The type of resource.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
@@ -237,14 +237,14 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   $fault: "client";
   Message?: string;
   /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
+
+  /**
+   * <p>The type of resource.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace ResourceInUseException {
@@ -295,16 +295,16 @@ export enum ErrorCause {
  */
 export interface KinesisConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream resource.</p>
-   */
-  StreamArn: string | undefined;
-
-  /**
    * <p>Enables QLDB to publish multiple data records in a single Kinesis Data Streams record. To learn more,
    *          see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html">KPL Key
    *             Concepts</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
    */
   AggregationEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream resource.</p>
+   */
+  StreamArn: string | undefined;
 }
 
 export namespace KinesisConfiguration {
@@ -328,9 +328,9 @@ export enum StreamStatus {
  */
 export interface JournalKinesisStreamDescription {
   /**
-   * <p>The name of the ledger.</p>
+   * <p>The Amazon Resource Name (ARN) of the QLDB journal stream.</p>
    */
-  LedgerName: string | undefined;
+  Arn?: string;
 
   /**
    * <p>The date and time, in epoch time format, when the QLDB journal stream was created.
@@ -340,9 +340,11 @@ export interface JournalKinesisStreamDescription {
   CreationTime?: Date;
 
   /**
-   * <p>The inclusive start date and time from which to start streaming journal data.</p>
+   * <p>The error message that describes the reason that a stream has a status of
+   *             <code>IMPAIRED</code> or <code>FAILED</code>. This is not applicable to streams that
+   *          have other status values.</p>
    */
-  InclusiveStartTime?: Date;
+  ErrorCause?: ErrorCause | string;
 
   /**
    * <p>The exclusive date and time that specifies when the stream ends. If this parameter is
@@ -351,25 +353,9 @@ export interface JournalKinesisStreamDescription {
   ExclusiveEndTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
-   *          journal stream to write data records to a Kinesis Data Streams resource.</p>
+   * <p>The inclusive start date and time from which to start streaming journal data.</p>
    */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The unique ID that QLDB assigns to each QLDB journal stream.</p>
-   */
-  StreamId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the QLDB journal stream.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The current state of the QLDB journal stream.</p>
-   */
-  Status: StreamStatus | string | undefined;
+  InclusiveStartTime?: Date;
 
   /**
    * <p>The configuration settings of the Amazon Kinesis Data Streams destination for your QLDB journal
@@ -378,11 +364,25 @@ export interface JournalKinesisStreamDescription {
   KinesisConfiguration: KinesisConfiguration | undefined;
 
   /**
-   * <p>The error message that describes the reason that a stream has a status of
-   *             <code>IMPAIRED</code> or <code>FAILED</code>. This is not applicable to streams that
-   *          have other status values.</p>
+   * <p>The name of the ledger.</p>
    */
-  ErrorCause?: ErrorCause | string;
+  LedgerName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
+   *          journal stream to write data records to a Kinesis Data Streams resource.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The current state of the QLDB journal stream.</p>
+   */
+  Status: StreamStatus | string | undefined;
+
+  /**
+   * <p>The unique ID that QLDB assigns to each QLDB journal stream.</p>
+   */
+  StreamId: string | undefined;
 
   /**
    * <p>The user-defined name of the QLDB journal stream.</p>
@@ -412,14 +412,14 @@ export namespace DescribeJournalKinesisStreamResponse {
 
 export interface DescribeJournalS3ExportRequest {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The unique ID of the journal export job that you want to describe.</p>
    */
   ExportId: string | undefined;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DescribeJournalS3ExportRequest {
@@ -440,14 +440,6 @@ export enum S3ObjectEncryptionType {
  */
 export interface S3EncryptionConfiguration {
   /**
-   * <p>The Amazon S3 object encryption type.</p>
-   *          <p>To learn more about server-side encryption options in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data
-   *             Using Server-Side Encryption</a> in the <i>Amazon S3 Developer
-   *          Guide</i>.</p>
-   */
-  ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for a symmetric customer master key (CMK) in AWS Key
    *          Management Service (AWS KMS). Amazon QLDB does not support asymmetric CMKs.</p>
    *          <p>You must provide a <code>KmsKeyArn</code> if you specify <code>SSE_KMS</code> as the
@@ -457,6 +449,14 @@ export interface S3EncryptionConfiguration {
    *             <code>ObjectEncryptionType</code>.</p>
    */
   KmsKeyArn?: string;
+
+  /**
+   * <p>The Amazon S3 object encryption type.</p>
+   *          <p>To learn more about server-side encryption options in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data
+   *             Using Server-Side Encryption</a> in the <i>Amazon S3 Developer
+   *          Guide</i>.</p>
+   */
+  ObjectEncryptionType: S3ObjectEncryptionType | string | undefined;
 }
 
 export namespace S3EncryptionConfiguration {
@@ -477,6 +477,12 @@ export interface S3ExportConfiguration {
    *             Limitations</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The encryption settings that are used by a journal export job to write data in an Amazon S3
+   *          bucket.</p>
+   */
+  EncryptionConfiguration: S3EncryptionConfiguration | undefined;
 
   /**
    * <p>The prefix for the Amazon S3 bucket in which a journal export job writes the journal
@@ -504,12 +510,6 @@ export interface S3ExportConfiguration {
    *          </ul>
    */
   Prefix: string | undefined;
-
-  /**
-   * <p>The encryption settings that are used by a journal export job to write data in an Amazon S3
-   *          bucket.</p>
-   */
-  EncryptionConfiguration: S3EncryptionConfiguration | undefined;
 }
 
 export namespace S3ExportConfiguration {
@@ -530,14 +530,10 @@ export enum ExportStatus {
  */
 export interface JournalS3ExportDescription {
   /**
-   * <p>The name of the ledger.</p>
+   * <p>The exclusive end date and time for the range of journal contents that are specified in
+   *          the original export request.</p>
    */
-  LedgerName: string | undefined;
-
-  /**
-   * <p>The unique ID of the journal export job.</p>
-   */
-  ExportId: string | undefined;
+  ExclusiveEndTime: Date | undefined;
 
   /**
    * <p>The date and time, in epoch time format, when the export job was created. (Epoch time
@@ -546,9 +542,9 @@ export interface JournalS3ExportDescription {
   ExportCreationTime: Date | undefined;
 
   /**
-   * <p>The current state of the journal export job.</p>
+   * <p>The unique ID of the journal export job.</p>
    */
-  Status: ExportStatus | string | undefined;
+  ExportId: string | undefined;
 
   /**
    * <p>The inclusive start date and time for the range of journal contents that are specified
@@ -557,16 +553,9 @@ export interface JournalS3ExportDescription {
   InclusiveStartTime: Date | undefined;
 
   /**
-   * <p>The exclusive end date and time for the range of journal contents that are specified in
-   *          the original export request.</p>
+   * <p>The name of the ledger.</p>
    */
-  ExclusiveEndTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal
-   *          contents.</p>
-   */
-  S3ExportConfiguration: S3ExportConfiguration | undefined;
+  LedgerName: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
@@ -582,6 +571,17 @@ export interface JournalS3ExportDescription {
    *          </ul>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Simple Storage Service (Amazon S3) bucket location in which a journal export job writes the journal
+   *          contents.</p>
+   */
+  S3ExportConfiguration: S3ExportConfiguration | undefined;
+
+  /**
+   * <p>The current state of the journal export job.</p>
+   */
+  Status: ExportStatus | string | undefined;
 }
 
 export namespace JournalS3ExportDescription {
@@ -619,19 +619,9 @@ export namespace DescribeLedgerRequest {
 
 export interface DescribeLedgerResponse {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The current status of the ledger.</p>
-   */
-  State?: LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -648,6 +638,16 @@ export interface DescribeLedgerResponse {
    *          console disables deletion protection for you when you use it to delete a ledger.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The current status of the ledger.</p>
+   */
+  State?: LedgerState | string;
 }
 
 export namespace DescribeLedgerResponse {
@@ -658,9 +658,16 @@ export namespace DescribeLedgerResponse {
 
 export interface ExportJournalToS3Request {
   /**
-   * <p>The name of the ledger.</p>
+   * <p>The exclusive end date and time for the range of journal contents that you want to
+   *          export.</p>
+   *          <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
+   *          and in Universal Coordinated Time (UTC). For example:
+   *          <code>2019-06-13T21:36:34Z</code>
+   *          </p>
+   *          <p>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date and
+   *          time.</p>
    */
-  Name: string | undefined;
+  ExclusiveEndTime: Date | undefined;
 
   /**
    * <p>The inclusive start date and time for the range of journal contents that you want to
@@ -677,22 +684,9 @@ export interface ExportJournalToS3Request {
   InclusiveStartTime: Date | undefined;
 
   /**
-   * <p>The exclusive end date and time for the range of journal contents that you want to
-   *          export.</p>
-   *          <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
-   *          and in Universal Coordinated Time (UTC). For example:
-   *          <code>2019-06-13T21:36:34Z</code>
-   *          </p>
-   *          <p>The <code>ExclusiveEndTime</code> must be less than or equal to the current UTC date and
-   *          time.</p>
+   * <p>The name of the ledger.</p>
    */
-  ExclusiveEndTime: Date | undefined;
-
-  /**
-   * <p>The configuration settings of the Amazon S3 bucket destination for your export
-   *          request.</p>
-   */
-  S3ExportConfiguration: S3ExportConfiguration | undefined;
+  Name: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
@@ -708,6 +702,12 @@ export interface ExportJournalToS3Request {
    *          </ul>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The configuration settings of the Amazon S3 bucket destination for your export
+   *          request.</p>
+   */
+  S3ExportConfiguration: S3ExportConfiguration | undefined;
 }
 
 export namespace ExportJournalToS3Request {
@@ -750,11 +750,6 @@ export namespace ValueHolder {
 
 export interface GetBlockRequest {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The location of the block that you want to request. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
    *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</code>
@@ -770,6 +765,11 @@ export interface GetBlockRequest {
    *          </p>
    */
   DigestTipAddress?: ValueHolder;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace GetBlockRequest {
@@ -839,22 +839,12 @@ export namespace GetDigestResponse {
 
 export interface GetRevisionRequest {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The block location of the document revision to be verified. An address is an Amazon Ion
    *          structure that has two fields: <code>strandId</code> and <code>sequenceNo</code>.</p>
    *          <p>For example: <code>{strandId:"BlFTjlSXze9BIh1KOszcE3",sequenceNo:14}</code>
    *          </p>
    */
   BlockAddress: ValueHolder | undefined;
-
-  /**
-   * <p>The unique ID of the document to be verified.</p>
-   */
-  DocumentId: string | undefined;
 
   /**
    * <p>The latest block location covered by the digest for which to request a proof. An address
@@ -864,6 +854,16 @@ export interface GetRevisionRequest {
    *          </p>
    */
   DigestTipAddress?: ValueHolder;
+
+  /**
+   * <p>The unique ID of the document to be verified.</p>
+   */
+  DocumentId: string | undefined;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace GetRevisionRequest {
@@ -926,12 +926,6 @@ export namespace ListJournalKinesisStreamsForLedgerRequest {
 
 export interface ListJournalKinesisStreamsForLedgerResponse {
   /**
-   * <p>The array of QLDB journal stream descriptors that are associated with the given
-   *          ledger.</p>
-   */
-  Streams?: JournalKinesisStreamDescription[];
-
-  /**
    * <ul>
    *             <li>
    *                <p>If <code>NextToken</code> is empty, the last page of results has been processed
@@ -946,6 +940,12 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
    *          </ul>
    */
   NextToken?: string;
+
+  /**
+   * <p>The array of QLDB journal stream descriptors that are associated with the given
+   *          ledger.</p>
+   */
+  Streams?: JournalKinesisStreamDescription[];
 }
 
 export namespace ListJournalKinesisStreamsForLedgerResponse {
@@ -1008,16 +1008,16 @@ export namespace ListJournalS3ExportsResponse {
 
 export interface ListJournalS3ExportsForLedgerRequest {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The maximum number of results to return in a single
    *             <code>ListJournalS3ExportsForLedger</code> request. (The actual number of results
    *          returned might be fewer.)</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>A pagination token, indicating that you want to retrieve the next page of results. If
@@ -1090,6 +1090,12 @@ export namespace ListLedgersRequest {
  */
 export interface LedgerSummary {
   /**
+   * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
+   *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
+   */
+  CreationDateTime?: Date;
+
+  /**
    * <p>The name of the ledger.</p>
    */
   Name?: string;
@@ -1098,12 +1104,6 @@ export interface LedgerSummary {
    * <p>The current status of the ledger.</p>
    */
   State?: LedgerState | string;
-
-  /**
-   * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
-   *          is the number of seconds elapsed since 12:00:00 AM January 1, 1970 UTC.)</p>
-   */
-  CreationDateTime?: Date;
 }
 
 export namespace LedgerSummary {
@@ -1173,21 +1173,14 @@ export namespace ListTagsForResourceResponse {
 
 export interface StreamJournalToKinesisRequest {
   /**
-   * <p>The name of the ledger.</p>
+   * <p>The exclusive date and time that specifies when the stream ends. If you don't define
+   *          this parameter, the stream runs indefinitely until you cancel it.</p>
+   *          <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
+   *          and in Universal Coordinated Time (UTC). For example:
+   *          <code>2019-06-13T21:36:34Z</code>
+   *          </p>
    */
-  LedgerName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
-   *          journal stream to write data records to a Kinesis Data Streams resource.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The key-value pairs to add as tags to the stream that you want to create. Tag keys are
-   *          case sensitive. Tag values are case sensitive and can be null.</p>
-   */
-  Tags?: { [key: string]: string };
+  ExclusiveEndTime?: Date;
 
   /**
    * <p>The inclusive start date and time from which to start streaming journal data. This
@@ -1203,19 +1196,20 @@ export interface StreamJournalToKinesisRequest {
   InclusiveStartTime: Date | undefined;
 
   /**
-   * <p>The exclusive date and time that specifies when the stream ends. If you don't define
-   *          this parameter, the stream runs indefinitely until you cancel it.</p>
-   *          <p>The <code>ExclusiveEndTime</code> must be in <code>ISO 8601</code> date and time format
-   *          and in Universal Coordinated Time (UTC). For example:
-   *          <code>2019-06-13T21:36:34Z</code>
-   *          </p>
-   */
-  ExclusiveEndTime?: Date;
-
-  /**
    * <p>The configuration settings of the Kinesis Data Streams destination for your stream request.</p>
    */
   KinesisConfiguration: KinesisConfiguration | undefined;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  LedgerName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a
+   *          journal stream to write data records to a Kinesis Data Streams resource.</p>
+   */
+  RoleArn: string | undefined;
 
   /**
    * <p>The name that you want to assign to the QLDB journal stream. User-defined names can
@@ -1226,6 +1220,12 @@ export interface StreamJournalToKinesisRequest {
    *          Guide</i>.</p>
    */
   StreamName: string | undefined;
+
+  /**
+   * <p>The key-value pairs to add as tags to the stream that you want to create. Tag keys are
+   *          case sensitive. Tag values are case sensitive and can be null.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace StreamJournalToKinesisRequest {
@@ -1310,11 +1310,6 @@ export namespace UntagResourceResponse {
 
 export interface UpdateLedgerRequest {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The flag that prevents a ledger from being deleted by any user. If not provided on
    *          ledger creation, this feature is enabled (<code>true</code>) by default.</p>
    *          <p>If deletion protection is enabled, you must first disable it before you can delete the
@@ -1323,6 +1318,11 @@ export interface UpdateLedgerRequest {
    *          console disables deletion protection for you when you use it to delete a ledger.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace UpdateLedgerRequest {
@@ -1333,19 +1333,9 @@ export namespace UpdateLedgerRequest {
 
 export interface UpdateLedgerResponse {
   /**
-   * <p>The name of the ledger.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the ledger.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The current status of the ledger.</p>
-   */
-  State?: LedgerState | string;
 
   /**
    * <p>The date and time, in epoch time format, when the ledger was created. (Epoch time format
@@ -1362,6 +1352,16 @@ export interface UpdateLedgerResponse {
    *          console disables deletion protection for you when you use it to delete a ledger.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the ledger.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The current status of the ledger.</p>
+   */
+  State?: LedgerState | string;
 }
 
 export namespace UpdateLedgerResponse {

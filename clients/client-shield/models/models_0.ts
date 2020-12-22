@@ -88,14 +88,14 @@ export namespace InvalidOperationException {
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the parameter that failed validation.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The message describing why the parameter failed validation.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>The name of the parameter that failed validation.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace ValidationExceptionField {
@@ -115,16 +115,16 @@ export enum ValidationExceptionReason {
 export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
   $fault: "client";
+  /**
+   * <p>Fields that caused the exception.</p>
+   */
+  fields?: ValidationExceptionField[];
+
   message?: string;
   /**
    * <p>Additional information about the exception.</p>
    */
   reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>Fields that caused the exception.</p>
-   */
-  fields?: ValidationExceptionField[];
 }
 
 export namespace InvalidParameterException {
@@ -143,9 +143,9 @@ export namespace InvalidParameterException {
 export interface LimitsExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitsExceededException";
   $fault: "client";
+  Limit?: number;
   message?: string;
   Type?: string;
-  Limit?: number;
 }
 
 export namespace LimitsExceededException {
@@ -228,14 +228,14 @@ export namespace AssociateDRTRoleResponse {
 
 export interface AssociateHealthCheckRequest {
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
-   */
-  ProtectionId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the health check to associate with the protection.</p>
    */
   HealthCheckArn: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to add the health check association to. </p>
+   */
+  ProtectionId: string | undefined;
 }
 
 export namespace AssociateHealthCheckRequest {
@@ -257,6 +257,11 @@ export namespace AssociateHealthCheckResponse {
  */
 export interface EmergencyContact {
   /**
+   * <p>Additional notes regarding the contact. </p>
+   */
+  ContactNotes?: string;
+
+  /**
    * <p>The email address for the contact.</p>
    */
   EmailAddress: string | undefined;
@@ -265,11 +270,6 @@ export interface EmergencyContact {
    * <p>The phone number for the contact.</p>
    */
   PhoneNumber?: string;
-
-  /**
-   * <p>Additional notes regarding the contact. </p>
-   */
-  ContactNotes?: string;
 }
 
 export namespace EmergencyContact {
@@ -308,9 +308,9 @@ export namespace AssociateProactiveEngagementDetailsResponse {
  */
 export interface SummarizedCounter {
   /**
-   * <p>The counter name.</p>
+   * <p>The average value of the counter for a specified time period.</p>
    */
-  Name?: string;
+  Average?: number;
 
   /**
    * <p>The maximum value of the counter for a specified time period.</p>
@@ -318,19 +318,19 @@ export interface SummarizedCounter {
   Max?: number;
 
   /**
-   * <p>The average value of the counter for a specified time period.</p>
+   * <p>The number of counters for a specified time period.</p>
    */
-  Average?: number;
+  N?: number;
+
+  /**
+   * <p>The counter name.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The total of counter values for a specified time period.</p>
    */
   Sum?: number;
-
-  /**
-   * <p>The number of counters for a specified time period.</p>
-   */
-  N?: number;
 
   /**
    * <p>The unit of the counters.</p>
@@ -412,14 +412,14 @@ export interface AttackProperty {
   TopContributors?: Contributor[];
 
   /**
-   * <p>The unit of the <code>Value</code> of the contributions.</p>
-   */
-  Unit?: Unit | string;
-
-  /**
    * <p>The total contributions made to this attack by all contributors, not just the five listed in the <code>TopContributors</code> list.</p>
    */
   Total?: number;
+
+  /**
+   * <p>The unit of the <code>Value</code> of the contributions.</p>
+   */
+  Unit?: Unit | string;
 }
 
 export namespace AttackProperty {
@@ -449,14 +449,14 @@ export namespace Mitigation {
  */
 export interface SummarizedAttackVector {
   /**
-   * <p>The attack type, for example, SNMP reflection or SYN flood.</p>
-   */
-  VectorType: string | undefined;
-
-  /**
    * <p>The list of counters that describe the details of the attack.</p>
    */
   VectorCounters?: SummarizedCounter[];
+
+  /**
+   * <p>The attack type, for example, SNMP reflection or SYN flood.</p>
+   */
+  VectorType: string | undefined;
 }
 
 export namespace SummarizedAttackVector {
@@ -475,16 +475,6 @@ export enum SubResourceType {
  */
 export interface SubResourceSummary {
   /**
-   * <p>The <code>SubResource</code> type.</p>
-   */
-  Type?: SubResourceType | string;
-
-  /**
-   * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The list of attack types and associated counters.</p>
    */
   AttackVectors?: SummarizedAttackVector[];
@@ -493,6 +483,16 @@ export interface SubResourceSummary {
    * <p>The counters that describe the details of the attack.</p>
    */
   Counters?: SummarizedCounter[];
+
+  /**
+   * <p>The unique identifier (ID) of the <code>SubResource</code>.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The <code>SubResource</code> type.</p>
+   */
+  Type?: SubResourceType | string;
 }
 
 export namespace SubResourceSummary {
@@ -506,34 +506,14 @@ export namespace SubResourceSummary {
  */
 export interface AttackDetail {
   /**
-   * <p>The unique identifier (ID) of the attack.</p>
-   */
-  AttackId?: string;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>If applicable, additional detail about the resource being attacked, for example, IP address or URL.</p>
-   */
-  SubResources?: SubResourceSummary[];
-
-  /**
-   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
    * <p>List of counters that describe the attack for the specified time period.</p>
    */
   AttackCounters?: SummarizedCounter[];
+
+  /**
+   * <p>The unique identifier (ID) of the attack.</p>
+   */
+  AttackId?: string;
 
   /**
    * <p>The array of <a>AttackProperty</a> objects.</p>
@@ -541,9 +521,29 @@ export interface AttackDetail {
   AttackProperties?: AttackProperty[];
 
   /**
+   * <p>The time the attack ended, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
    * <p>List of mitigation actions taken for the attack.</p>
    */
   Mitigations?: Mitigation[];
+
+  /**
+   * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The time the attack started, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>If applicable, additional detail about the resource being attacked, for example, IP address or URL.</p>
+   */
+  SubResources?: SubResourceSummary[];
 }
 
 export namespace AttackDetail {
@@ -599,14 +599,14 @@ export namespace AttackVolume {
  */
 export interface AttackStatisticsDataItem {
   /**
-   * <p>Information about the volume of attacks during the time period. If the accompanying <code>AttackCount</code> is zero, this setting might be empty.</p>
-   */
-  AttackVolume?: AttackVolume;
-
-  /**
    * <p>The number of attacks detected during the time period. This is always present, but might be zero. </p>
    */
   AttackCount: number | undefined;
+
+  /**
+   * <p>Information about the volume of attacks during the time period. If the accompanying <code>AttackCount</code> is zero, this setting might be empty.</p>
+   */
+  AttackVolume?: AttackVolume;
 }
 
 export namespace AttackStatisticsDataItem {
@@ -697,6 +697,16 @@ export interface AttackSummary {
   AttackId?: string;
 
   /**
+   * <p>The list of attacks for a specified time period.</p>
+   */
+  AttackVectors?: AttackVectorDescription[];
+
+  /**
+   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  EndTime?: Date;
+
+  /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked.</p>
    */
   ResourceArn?: string;
@@ -705,16 +715,6 @@ export interface AttackSummary {
    * <p>The start time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>The end time of the attack, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The list of attacks for a specified time period.</p>
-   */
-  AttackVectors?: AttackVectorDescription[];
 }
 
 export namespace AttackSummary {
@@ -849,11 +849,6 @@ export enum ProtectedResourceType {
 
 export interface CreateProtectionGroupRequest {
   /**
-   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-   */
-  ProtectionGroupId: string | undefined;
-
-  /**
    * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
    *          <ul>
    *             <li>
@@ -870,20 +865,25 @@ export interface CreateProtectionGroupRequest {
   Aggregation: ProtectionGroupAggregation | string | undefined;
 
   /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  Members?: string[];
+
+  /**
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p>
    */
   Pattern: ProtectionGroupPattern | string | undefined;
+
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
 
   /**
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
   ResourceType?: ProtectedResourceType | string;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-   */
-  Members?: string[];
 }
 
 export namespace CreateProtectionGroupRequest {
@@ -1047,14 +1047,14 @@ export namespace TimeRange {
 
 export interface DescribeAttackStatisticsResponse {
   /**
-   * <p>The time range. </p>
-   */
-  TimeRange: TimeRange | undefined;
-
-  /**
    * <p>The data that describes the attacks detected during the time period.</p>
    */
   DataItems: AttackStatisticsDataItem[] | undefined;
+
+  /**
+   * <p>The time range. </p>
+   */
+  TimeRange: TimeRange | undefined;
 }
 
 export namespace DescribeAttackStatisticsResponse {
@@ -1073,14 +1073,14 @@ export namespace DescribeDRTAccessRequest {
 
 export interface DescribeDRTAccessResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
-   */
-  RoleArn?: string;
-
-  /**
    * <p>The list of Amazon S3 buckets accessed by the DRT.</p>
    */
   LogBucketList?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.</p>
+   */
+  RoleArn?: string;
 }
 
 export namespace DescribeDRTAccessResponse {
@@ -1135,6 +1135,11 @@ export namespace DescribeProtectionRequest {
  */
 export interface Protection {
   /**
+   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
+   */
+  HealthCheckIds?: string[];
+
+  /**
    * <p>The unique identifier (ID) of the protection.</p>
    */
   Id?: string;
@@ -1148,11 +1153,6 @@ export interface Protection {
    * <p>The ARN (Amazon Resource Name) of the AWS resource that is protected.</p>
    */
   ResourceArn?: string;
-
-  /**
-   * <p>The unique identifier (ID) for the Route 53 health check that's associated with the protection. </p>
-   */
-  HealthCheckIds?: string[];
 }
 
 export namespace Protection {
@@ -1192,11 +1192,6 @@ export namespace DescribeProtectionGroupRequest {
  */
 export interface ProtectionGroup {
   /**
-   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-   */
-  ProtectionGroupId: string | undefined;
-
-  /**
    * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
    *          <ul>
    *             <li>
@@ -1213,20 +1208,25 @@ export interface ProtectionGroup {
   Aggregation: ProtectionGroupAggregation | string | undefined;
 
   /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  Members: string[] | undefined;
+
+  /**
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
    */
   Pattern: ProtectionGroupPattern | string | undefined;
+
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
 
   /**
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
   ResourceType?: ProtectedResourceType | string;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-   */
-  Members: string[] | undefined;
 }
 
 export namespace ProtectionGroup {
@@ -1261,14 +1261,14 @@ export namespace DescribeSubscriptionRequest {
  */
 export interface Limit {
   /**
-   * <p>The type of protection.</p>
-   */
-  Type?: string;
-
-  /**
    * <p>The maximum number of protections that can be created for the specified <code>Type</code>.</p>
    */
   Max?: number;
+
+  /**
+   * <p>The type of protection.</p>
+   */
+  Type?: string;
 }
 
 export namespace Limit {
@@ -1357,14 +1357,14 @@ export namespace ProtectionLimits {
  */
 export interface SubscriptionLimits {
   /**
-   * <p>Limits settings on protections for your subscription. </p>
-   */
-  ProtectionLimits: ProtectionLimits | undefined;
-
-  /**
    * <p>Limits settings on protection groups for your subscription. </p>
    */
   ProtectionGroupLimits: ProtectionGroupLimits | undefined;
+
+  /**
+   * <p>Limits settings on protections for your subscription. </p>
+   */
+  ProtectionLimits: ProtectionLimits | undefined;
 }
 
 export namespace SubscriptionLimits {
@@ -1378,25 +1378,15 @@ export namespace SubscriptionLimits {
  */
 export interface Subscription {
   /**
-   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
+   *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
-  StartTime?: Date;
+  AutoRenew?: AutoRenew | string;
 
   /**
    * <p>The date and time your subscription will end.</p>
    */
   EndTime?: Date;
-
-  /**
-   * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
-   */
-  TimeCommitmentInSeconds?: number;
-
-  /**
-   * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
-   *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
-   */
-  AutoRenew?: AutoRenew | string;
 
   /**
    * <p>Specifies how many protections of a given type you can create.</p>
@@ -1411,9 +1401,19 @@ export interface Subscription {
   ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
 
   /**
+   * <p>The start time of the subscription, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>Limits settings for your subscription. </p>
    */
   SubscriptionLimits: SubscriptionLimits | undefined;
+
+  /**
+   * <p>The length, in seconds, of the AWS Shield Advanced subscription for the account.</p>
+   */
+  TimeCommitmentInSeconds?: number;
 }
 
 export namespace Subscription {
@@ -1490,14 +1490,14 @@ export namespace DisassociateDRTRoleResponse {
 
 export interface DisassociateHealthCheckRequest {
   /**
-   * <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
-   */
-  ProtectionId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the health check that is associated with the protection.</p>
    */
   HealthCheckArn: string | undefined;
+
+  /**
+   * <p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>
+   */
+  ProtectionId: string | undefined;
 }
 
 export namespace DisassociateHealthCheckRequest {
@@ -1558,6 +1558,23 @@ export namespace GetSubscriptionStateResponse {
 
 export interface ListAttacksRequest {
   /**
+   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
+   */
+  EndTime?: TimeRange;
+
+  /**
+   * <p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank,
+   *          Shield Advanced returns the first 20 results.</p>
+   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The ARN (Amazon Resource Name) of the resource that was attacked. If this is left
    *          blank, all applicable resources for this account will be included.</p>
    */
@@ -1567,23 +1584,6 @@ export interface ListAttacksRequest {
    * <p>The start of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
    */
   StartTime?: TimeRange;
-
-  /**
-   * <p>The end of the time period for the attacks. This is a <code>timestamp</code> type. The sample request above indicates a <code>number</code> type because the default used by WAF is Unix time in seconds. However any valid <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp format</a>  is allowed.  </p>
-   */
-  EndTime?: TimeRange;
-
-  /**
-   * <p>The <code>ListAttacksRequest.NextMarker</code> value from a previous call to <code>ListAttacksRequest</code>. Pass null if this is the first call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of <a>AttackSummary</a> objects to return. If you leave this blank,
-   *          Shield Advanced returns the first 20 results.</p>
-   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListAttacksRequest {
@@ -1631,16 +1631,16 @@ export namespace InvalidPaginationTokenException {
 
 export interface ListProtectionGroupsRequest {
   /**
-   * <p>The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of <a>ProtectionGroup</a> objects to return. If you leave this blank,
    *          Shield Advanced returns the first 20 results.</p>
    *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The next token value from a previous call to <code>ListProtectionGroups</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProtectionGroupsRequest {
@@ -1651,14 +1651,14 @@ export namespace ListProtectionGroupsRequest {
 
 export interface ListProtectionGroupsResponse {
   /**
-   * <p></p>
-   */
-  ProtectionGroups: ProtectionGroup[] | undefined;
-
-  /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p></p>
+   */
+  ProtectionGroups: ProtectionGroup[] | undefined;
 }
 
 export namespace ListProtectionGroupsResponse {
@@ -1669,16 +1669,16 @@ export namespace ListProtectionGroupsResponse {
 
 export interface ListProtectionsRequest {
   /**
-   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of <a>Protection</a> objects to return. If you leave this blank,
    *          Shield Advanced returns the first 20 results.</p>
    *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The <code>ListProtectionsRequest.NextToken</code> value from a previous call to <code>ListProtections</code>. Pass null if this is the first call.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProtectionsRequest {
@@ -1689,15 +1689,15 @@ export namespace ListProtectionsRequest {
 
 export interface ListProtectionsResponse {
   /**
-   * <p>The array of enabled <a>Protection</a> objects.</p>
-   */
-  Protections?: Protection[];
-
-  /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.</p>
    *          <p>Shield Advanced might return the list of <a>Protection</a> objects in batches smaller than the number specified by MaxResults. If there are more <a>Protection</a> objects to return, Shield Advanced will always also return a <code>NextToken</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The array of enabled <a>Protection</a> objects.</p>
+   */
+  Protections?: Protection[];
 }
 
 export namespace ListProtectionsResponse {
@@ -1708,9 +1708,11 @@ export namespace ListProtectionsResponse {
 
 export interface ListResourcesInProtectionGroupRequest {
   /**
-   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   * <p>The maximum number of resource ARN objects to return. If you leave this blank,
+   *          Shield Advanced returns the first 20 results.</p>
+   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
    */
-  ProtectionGroupId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The next token value from a previous call to <code>ListResourcesInProtectionGroup</code>. Pass null if this is the first call.</p>
@@ -1718,11 +1720,9 @@ export interface ListResourcesInProtectionGroupRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of resource ARN objects to return. If you leave this blank,
-   *          Shield Advanced returns the first 20 results.</p>
-   *          <p>This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than <code>MaxResults</code>, even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in <code>NextToken</code> that you can use in your next request, to get the next batch of objects.</p>
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
    */
-  MaxResults?: number;
+  ProtectionGroupId: string | undefined;
 }
 
 export namespace ListResourcesInProtectionGroupRequest {
@@ -1733,14 +1733,14 @@ export namespace ListResourcesInProtectionGroupRequest {
 
 export interface ListResourcesInProtectionGroupResponse {
   /**
-   * <p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>
-   */
-  ResourceArns: string[] | undefined;
-
-  /**
    * <p>If you specify a value for <code>MaxResults</code> and you have more resources in the protection group than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the resources that are included in the protection group.</p>
+   */
+  ResourceArns: string[] | undefined;
 }
 
 export namespace ListResourcesInProtectionGroupResponse {
@@ -1773,11 +1773,6 @@ export namespace UpdateEmergencyContactSettingsResponse {
 
 export interface UpdateProtectionGroupRequest {
   /**
-   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
-   */
-  ProtectionGroupId: string | undefined;
-
-  /**
    * <p>Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.</p>
    *          <ul>
    *             <li>
@@ -1794,20 +1789,25 @@ export interface UpdateProtectionGroupRequest {
   Aggregation: ProtectionGroupAggregation | string | undefined;
 
   /**
+   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
+   */
+  Members?: string[];
+
+  /**
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
    */
   Pattern: ProtectionGroupPattern | string | undefined;
+
+  /**
+   * <p>The name of the protection group. You use this to identify the protection group in lists and to manage the protection group, for example to update, delete, or describe it. </p>
+   */
+  ProtectionGroupId: string | undefined;
 
   /**
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
   ResourceType?: ProtectedResourceType | string;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set <code>Pattern</code> to <code>ARBITRARY</code> and you must not set it for any other <code>Pattern</code> setting. </p>
-   */
-  Members?: string[];
 }
 
 export namespace UpdateProtectionGroupRequest {

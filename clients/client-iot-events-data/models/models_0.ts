@@ -6,15 +6,15 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Message {
   /**
+   * <p>The name of the input into which the message payload is transformed.</p>
+   */
+  inputName: string | undefined;
+
+  /**
    * <p>The ID to assign to the message. Within each batch sent, each <code>"messageId"</code> must
    *         be unique.</p>
    */
   messageId: string | undefined;
-
-  /**
-   * <p>The name of the input into which the message payload is transformed.</p>
-   */
-  inputName: string | undefined;
 
   /**
    * <p>The payload of the message. This can be a JSON string or a Base-64-encoded string representing
@@ -57,12 +57,6 @@ export enum ErrorCode {
  */
 export interface BatchPutMessageErrorEntry {
   /**
-   * <p>The ID of the message that caused the error. (See the value corresponding to the
-   *           <code>"messageId"</code> key in the <code>"message"</code> object.)</p>
-   */
-  messageId?: string;
-
-  /**
    * <p>The code associated with the error.</p>
    */
   errorCode?: ErrorCode | string;
@@ -71,6 +65,12 @@ export interface BatchPutMessageErrorEntry {
    * <p>More information about the error.</p>
    */
   errorMessage?: string;
+
+  /**
+   * <p>The ID of the message that caused the error. (See the value corresponding to the
+   *           <code>"messageId"</code> key in the <code>"message"</code> object.)</p>
+   */
+  messageId?: string;
 }
 
 export namespace BatchPutMessageErrorEntry {
@@ -216,15 +216,15 @@ export interface DetectorStateDefinition {
   stateName: string | undefined;
 
   /**
-   * <p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>
-   */
-  variables: VariableDefinition[] | undefined;
-
-  /**
    * <p>The new values of the detector's timers. Any timer whose value isn't specified is
    *        cleared, and its timeout event won't occur.</p>
    */
   timers: TimerDefinition[] | undefined;
+
+  /**
+   * <p>The new values of the detector's variables. Any variable whose value isn't specified is cleared.</p>
+   */
+  variables: VariableDefinition[] | undefined;
 }
 
 export namespace DetectorStateDefinition {
@@ -238,12 +238,6 @@ export namespace DetectorStateDefinition {
  */
 export interface UpdateDetectorRequest {
   /**
-   * <p>The ID to assign to the detector update <code>"message"</code>. Each <code>"messageId"</code>
-   *        must be unique within each batch sent.</p>
-   */
-  messageId: string | undefined;
-
-  /**
    * <p>The name of the detector model that created the detectors (instances).</p>
    */
   detectorModelName: string | undefined;
@@ -253,6 +247,12 @@ export interface UpdateDetectorRequest {
    *        of this detector (instance).</p>
    */
   keyValue?: string;
+
+  /**
+   * <p>The ID to assign to the detector update <code>"message"</code>. Each <code>"messageId"</code>
+   *        must be unique within each batch sent.</p>
+   */
+  messageId: string | undefined;
 
   /**
    * <p>The new state, variable values, and timer settings of the detector (instance).</p>
@@ -284,12 +284,6 @@ export namespace BatchUpdateDetectorRequest {
  */
 export interface BatchUpdateDetectorErrorEntry {
   /**
-   * <p>The <code>"messageId"</code> of the update request that caused the error. (The value of the
-   *        <code>"messageId"</code> in the update request <code>"Detector"</code> object.)</p>
-   */
-  messageId?: string;
-
-  /**
    * <p>The code of the error.</p>
    */
   errorCode?: ErrorCode | string;
@@ -298,6 +292,12 @@ export interface BatchUpdateDetectorErrorEntry {
    * <p>A message describing the error.</p>
    */
   errorMessage?: string;
+
+  /**
+   * <p>The <code>"messageId"</code> of the update request that caused the error. (The value of the
+   *        <code>"messageId"</code> in the update request <code>"Detector"</code> object.)</p>
+   */
+  messageId?: string;
 }
 
 export namespace BatchUpdateDetectorErrorEntry {
@@ -390,14 +390,14 @@ export interface DetectorState {
   stateName: string | undefined;
 
   /**
-   * <p>The current values of the detector's variables.</p>
-   */
-  variables: Variable[] | undefined;
-
-  /**
    * <p>The current state of the detector's timers.</p>
    */
   timers: Timer[] | undefined;
+
+  /**
+   * <p>The current values of the detector's variables.</p>
+   */
+  variables: Variable[] | undefined;
 }
 
 export namespace DetectorState {
@@ -411,9 +411,19 @@ export namespace DetectorState {
  */
 export interface Detector {
   /**
+   * <p>The time the detector (instance) was created.</p>
+   */
+  creationTime?: Date;
+
+  /**
    * <p>The name of the detector model that created this detector (instance).</p>
    */
   detectorModelName?: string;
+
+  /**
+   * <p>The version of the detector model that created this detector (instance).</p>
+   */
+  detectorModelVersion?: string;
 
   /**
    * <p>The value of the key (identifying the device or system) that caused the creation of this
@@ -422,24 +432,14 @@ export interface Detector {
   keyValue?: string;
 
   /**
-   * <p>The version of the detector model that created this detector (instance).</p>
+   * <p>The time the detector (instance) was last updated.</p>
    */
-  detectorModelVersion?: string;
+  lastUpdateTime?: Date;
 
   /**
    * <p>The current state of the detector (instance).</p>
    */
   state?: DetectorState;
-
-  /**
-   * <p>The time the detector (instance) was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
-   * <p>The time the detector (instance) was last updated.</p>
-   */
-  lastUpdateTime?: Date;
 }
 
 export namespace Detector {
@@ -500,9 +500,19 @@ export namespace DetectorStateSummary {
  */
 export interface DetectorSummary {
   /**
+   * <p>The time the detector (instance) was created.</p>
+   */
+  creationTime?: Date;
+
+  /**
    * <p>The name of the detector model that created this detector (instance).</p>
    */
   detectorModelName?: string;
+
+  /**
+   * <p>The version of the detector model that created this detector (instance).</p>
+   */
+  detectorModelVersion?: string;
 
   /**
    * <p>The value of the key (identifying the device or system) that caused the creation of this
@@ -511,24 +521,14 @@ export interface DetectorSummary {
   keyValue?: string;
 
   /**
-   * <p>The version of the detector model that created this detector (instance).</p>
+   * <p>The time the detector (instance) was last updated.</p>
    */
-  detectorModelVersion?: string;
+  lastUpdateTime?: Date;
 
   /**
    * <p>The current state of the detector (instance).</p>
    */
   state?: DetectorStateSummary;
-
-  /**
-   * <p>The time the detector (instance) was created.</p>
-   */
-  creationTime?: Date;
-
-  /**
-   * <p>The time the detector (instance) was last updated.</p>
-   */
-  lastUpdateTime?: Date;
 }
 
 export namespace DetectorSummary {
@@ -544,9 +544,9 @@ export interface ListDetectorsRequest {
   detectorModelName: string | undefined;
 
   /**
-   * <p>A filter that limits results to those detectors (instances) in the given state.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  stateName?: string;
+  maxResults?: number;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -554,9 +554,9 @@ export interface ListDetectorsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>A filter that limits results to those detectors (instances) in the given state.</p>
    */
-  maxResults?: number;
+  stateName?: string;
 }
 
 export namespace ListDetectorsRequest {

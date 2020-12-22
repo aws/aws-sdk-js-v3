@@ -132,12 +132,6 @@ export interface DescribeHumanLoopResponse {
   CreationTime: Date | undefined;
 
   /**
-   * <p>The reason why a human loop failed. The failure reason is returned when the status of the
-   *       human loop is <code>Failed</code>.</p>
-   */
-  FailureReason?: string;
-
-  /**
    * <p>A failure code that identifies
    *       the
    *       type of failure.</p>
@@ -145,9 +139,20 @@ export interface DescribeHumanLoopResponse {
   FailureCode?: string;
 
   /**
-   * <p>The status of the human loop. </p>
+   * <p>The reason why a human loop failed. The failure reason is returned when the status of the
+   *       human loop is <code>Failed</code>.</p>
    */
-  HumanLoopStatus: HumanLoopStatus | string | undefined;
+  FailureReason?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+   */
+  FlowDefinitionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the human loop.</p>
+   */
+  HumanLoopArn: string | undefined;
 
   /**
    * <p>The name of the human loop. The name must be lowercase, unique within the Region in your
@@ -156,19 +161,14 @@ export interface DescribeHumanLoopResponse {
   HumanLoopName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the human loop.</p>
-   */
-  HumanLoopArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition.</p>
-   */
-  FlowDefinitionArn: string | undefined;
-
-  /**
    * <p>An object that contains information about the output of the human loop.</p>
    */
   HumanLoopOutput?: HumanLoopOutput;
+
+  /**
+   * <p>The status of the human loop. </p>
+   */
+  HumanLoopStatus: HumanLoopStatus | string | undefined;
 }
 
 export namespace DescribeHumanLoopResponse {
@@ -199,10 +199,11 @@ export interface ListHumanLoopsRequest {
   FlowDefinitionArn: string | undefined;
 
   /**
-   * <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
-   *         <code>Descending</code>.</p>
+   * <p>The total number of items to return. If the total number of available items is more than
+   *       the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in
+   *       the output. You can use this token to display the next page of results. </p>
    */
-  SortOrder?: SortOrder | string;
+  MaxResults?: number;
 
   /**
    * <p>A token to display the next page of results.</p>
@@ -210,11 +211,10 @@ export interface ListHumanLoopsRequest {
   NextToken?: string;
 
   /**
-   * <p>The total number of items to return. If the total number of available items is more than
-   *       the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in
-   *       the output. You can use this token to display the next page of results. </p>
+   * <p>Optional. The order for displaying results. Valid values: <code>Ascending</code> and
+   *         <code>Descending</code>.</p>
    */
-  MaxResults?: number;
+  SortOrder?: SortOrder | string;
 }
 
 export namespace ListHumanLoopsRequest {
@@ -227,16 +227,6 @@ export namespace ListHumanLoopsRequest {
  * <p>Summary information about the human loop.</p>
  */
 export interface HumanLoopSummary {
-  /**
-   * <p>The name of the human loop.</p>
-   */
-  HumanLoopName?: string;
-
-  /**
-   * <p>The status of the human loop. </p>
-   */
-  HumanLoopStatus?: HumanLoopStatus | string;
-
   /**
    * <p>When Amazon Augmented AI created the human loop.</p>
    */
@@ -253,6 +243,16 @@ export interface HumanLoopSummary {
    *       loop.</p>
    */
   FlowDefinitionArn?: string;
+
+  /**
+   * <p>The name of the human loop.</p>
+   */
+  HumanLoopName?: string;
+
+  /**
+   * <p>The status of the human loop. </p>
+   */
+  HumanLoopStatus?: HumanLoopStatus | string;
 }
 
 export namespace HumanLoopSummary {
@@ -354,9 +354,10 @@ export namespace HumanLoopInput {
 
 export interface StartHumanLoopRequest {
   /**
-   * <p>The name of the human loop.</p>
+   * <p>Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data
+   *       is free of personally identifiable information and/or free of adult content.</p>
    */
-  HumanLoopName: string | undefined;
+  DataAttributes?: HumanLoopDataAttributes;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the flow definition associated with this human
@@ -370,10 +371,9 @@ export interface StartHumanLoopRequest {
   HumanLoopInput: HumanLoopInput | undefined;
 
   /**
-   * <p>Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data
-   *       is free of personally identifiable information and/or free of adult content.</p>
+   * <p>The name of the human loop.</p>
    */
-  DataAttributes?: HumanLoopDataAttributes;
+  HumanLoopName: string | undefined;
 }
 
 export namespace StartHumanLoopRequest {

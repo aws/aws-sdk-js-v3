@@ -62,14 +62,14 @@ export namespace RecipeVersionErrorDetail {
 
 export interface BatchDeleteRecipeVersionResponse {
   /**
-   * <p>The name of the recipe that was modified.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Errors, if any, that were encountered when deleting the recipe versions.</p>
    */
   Errors?: RecipeVersionErrorDetail[];
+
+  /**
+   * <p>The name of the recipe that was modified.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace BatchDeleteRecipeVersionResponse {
@@ -129,14 +129,14 @@ export namespace ValidationException {
  */
 export interface ExcelOptions {
   /**
-   * <p>Specifies one or more named sheets in the Excel file, which will be included in the dataset.</p>
-   */
-  SheetNames?: string[];
-
-  /**
    * <p>Specifies one or more sheet numbers in the Excel file, which will be included in the dataset.</p>
    */
   SheetIndexes?: number[];
+
+  /**
+   * <p>Specifies one or more named sheets in the Excel file, which will be included in the dataset.</p>
+   */
+  SheetNames?: string[];
 }
 
 export namespace ExcelOptions {
@@ -168,14 +168,14 @@ export namespace JsonOptions {
  */
 export interface FormatOptions {
   /**
-   * <p>Options that define how JSON input is to be interpreted by DataBrew.</p>
-   */
-  Json?: JsonOptions;
-
-  /**
    * <p>Options that define how Excel input is to be interpreted by DataBrew.</p>
    */
   Excel?: ExcelOptions;
+
+  /**
+   * <p>Options that define how JSON input is to be interpreted by DataBrew.</p>
+   */
+  Json?: JsonOptions;
 }
 
 export namespace FormatOptions {
@@ -245,14 +245,14 @@ export namespace DataCatalogInputDefinition {
  */
 export interface Input {
   /**
-   * <p>The Amazon S3 location where the data is stored.</p>
-   */
-  S3InputDefinition?: S3Location;
-
-  /**
    * <p>The AWS Glue Data Catalog parameters for the data.</p>
    */
   DataCatalogInputDefinition?: DataCatalogInputDefinition;
+
+  /**
+   * <p>The Amazon S3 location where the data is stored.</p>
+   */
+  S3InputDefinition?: S3Location;
 }
 
 export namespace Input {
@@ -263,11 +263,6 @@ export namespace Input {
 
 export interface CreateDatasetRequest {
   /**
-   * <p>The name of the dataset to be created.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Options that define how Microsoft Excel input is to be interpreted by DataBrew.</p>
    */
   FormatOptions?: FormatOptions;
@@ -277,6 +272,11 @@ export interface CreateDatasetRequest {
    *             Catalog or Amazon S3.</p>
    */
   Input: Input | undefined;
+
+  /**
+   * <p>The name of the dataset to be created.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>Metadata tags to apply to this dataset.</p>
@@ -357,11 +357,6 @@ export interface CreateProfileJobRequest {
   EncryptionMode?: EncryptionMode | string;
 
   /**
-   * <p>The name of the job to be created.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A value that enables or disables Amazon CloudWatch logging for the current AWS
    *             account. If logging is enabled, CloudWatch writes one log stream for each job
    *             run.</p>
@@ -377,6 +372,11 @@ export interface CreateProfileJobRequest {
    * <p>The maximum number of times to retry the job after a job run fails.</p>
    */
   MaxRetries?: number;
+
+  /**
+   * <p>The name of the job to be created.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>An Amazon S3 location (bucket name an object key) where DataBrew can read input data, or write output from a job.</p>
@@ -465,16 +465,16 @@ export interface CreateProjectRequest {
   RecipeName: string | undefined;
 
   /**
-   * <p>Represents the sample size and sampling type for AWS Glue DataBrew to use for
-   *             interactive data analysis.</p>
-   */
-  Sample?: Sample;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to
    *             be assumed for this request.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>Represents the sample size and sampling type for AWS Glue DataBrew to use for
+   *             interactive data analysis.</p>
+   */
+  Sample?: Sample;
 
   /**
    * <p>Metadata tags to apply to this project.</p>
@@ -556,14 +556,14 @@ export interface ConditionExpression {
   Condition: string | undefined;
 
   /**
-   * <p>A value that the condition must evaluate to for the condition to succeed.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>A column to apply this condition to, within an AWS Glue DataBrew dataset.</p>
    */
   TargetColumn: string | undefined;
+
+  /**
+   * <p>A value that the condition must evaluate to for the condition to succeed.</p>
+   */
+  Value?: string;
 }
 
 export namespace ConditionExpression {
@@ -676,11 +676,6 @@ export interface Output {
   Format?: OutputFormat | string;
 
   /**
-   * <p>The names of one or more partition columns for the output of the job.</p>
-   */
-  PartitionColumns?: string[];
-
-  /**
    * <p>The location in Amazon S3 where the job writes its output.</p>
    */
   Location: S3Location | undefined;
@@ -690,6 +685,11 @@ export interface Output {
    *             overwritten with new output.</p>
    */
   Overwrite?: boolean;
+
+  /**
+   * <p>The names of one or more partition columns for the output of the job.</p>
+   */
+  PartitionColumns?: string[];
 }
 
 export namespace Output {
@@ -746,11 +746,6 @@ export interface CreateRecipeJobRequest {
   EncryptionMode?: EncryptionMode | string;
 
   /**
-   * <p>A unique name for the job.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A value that enables or disables Amazon CloudWatch logging for the current AWS
    *             account. If logging is enabled, CloudWatch writes one log stream for each job
    *             run.</p>
@@ -767,6 +762,11 @@ export interface CreateRecipeJobRequest {
    * <p>The maximum number of times to retry the job after a job run fails.</p>
    */
   MaxRetries?: number;
+
+  /**
+   * <p>A unique name for the job.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>One or more artifacts that represent the output from running the job.</p>
@@ -823,25 +823,25 @@ export namespace CreateRecipeJobResponse {
 
 export interface CreateScheduleRequest {
   /**
-   * <p>The name or names of one or more jobs to be run.</p>
-   */
-  JobNames?: string[];
-
-  /**
    * <p>The date or dates and time or times, in <code>cron</code> format, when the jobs are to
    *             be run.</p>
    */
   CronExpression: string | undefined;
 
   /**
-   * <p>Metadata tags to apply to this schedule.</p>
+   * <p>The name or names of one or more jobs to be run.</p>
    */
-  Tags?: { [key: string]: string };
+  JobNames?: string[];
 
   /**
    * <p>A unique name for the schedule.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>Metadata tags to apply to this schedule.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateScheduleRequest {
@@ -1023,19 +1023,14 @@ export enum Source {
 
 export interface DescribeDatasetResponse {
   /**
-   * <p>The identifier (user name) of the user who created the dataset.</p>
-   */
-  CreatedBy?: string;
-
-  /**
    * <p>The date and time that the dataset was created.</p>
    */
   CreateDate?: Date;
 
   /**
-   * <p>The name of the dataset.</p>
+   * <p>The identifier (user name) of the user who created the dataset.</p>
    */
-  Name: string | undefined;
+  CreatedBy?: string;
 
   /**
    * <p>Options that define how Microsoft Excel input is to be interpreted by DataBrew.</p>
@@ -1049,14 +1044,24 @@ export interface DescribeDatasetResponse {
   Input: Input | undefined;
 
   /**
+   * <p>The identifier (user name) of the user who last modified the dataset.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
    * <p>The date and time that the dataset was last modified.</p>
    */
   LastModifiedDate?: Date;
 
   /**
-   * <p>The identifier (user name) of the user who last modified the dataset.</p>
+   * <p>The name of the dataset.</p>
    */
-  LastModifiedBy?: string;
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   */
+  ResourceArn?: string;
 
   /**
    * <p>The location of the data for this dataset, Amazon S3 or the AWS Glue Data
@@ -1068,11 +1073,6 @@ export interface DescribeDatasetResponse {
    * <p>Metadata tags associated with this dataset.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
-   */
-  ResourceArn?: string;
 }
 
 export namespace DescribeDatasetResponse {
@@ -1136,28 +1136,6 @@ export interface DescribeJobResponse {
   EncryptionMode?: EncryptionMode | string;
 
   /**
-   * <p>The name of the job.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The job type, which must be one of the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>PROFILE</code> - The job analyzes the dataset to determine its size,
-   *                     data types, data distribution, and more.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RECIPE</code> - The job applies one or more transformations to a
-   *                     dataset.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type?: JobType | string;
-
-  /**
    * <p>The identifier (user name) of the user who last modified the job.</p>
    */
   LastModifiedBy?: string;
@@ -1182,6 +1160,11 @@ export interface DescribeJobResponse {
    * <p>The maximum number of times to retry the job after a job run fails.</p>
    */
   MaxRetries?: number;
+
+  /**
+   * <p>The name of the job.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>One or more artifacts that represent the output from running the job.</p>
@@ -1219,6 +1202,23 @@ export interface DescribeJobResponse {
    *             period ends with a status of <code>TIMEOUT</code>.</p>
    */
   Timeout?: number;
+
+  /**
+   * <p>The job type, which must be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PROFILE</code> - The job analyzes the dataset to determine its size,
+   *                     data types, data distribution, and more.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RECIPE</code> - The job applies one or more transformations to a
+   *                     dataset.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: JobType | string;
 }
 
 export namespace DescribeJobResponse {
@@ -1270,19 +1270,29 @@ export interface DescribeProjectResponse {
   DatasetName?: string;
 
   /**
-   * <p>The date and time that the project was last modified.</p>
-   */
-  LastModifiedDate?: Date;
-
-  /**
    * <p>The identifier (user name) of the user who last modified the project.</p>
    */
   LastModifiedBy?: string;
 
   /**
+   * <p>The date and time that the project was last modified.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
    * <p>The name of the project.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The date and time when the project was opened. </p>
+   */
+  OpenDate?: Date;
+
+  /**
+   * <p>The identifier (user name) of the user that opened the project for use. </p>
+   */
+  OpenedBy?: string;
 
   /**
    * <p>The recipe associated with this job.</p>
@@ -1295,21 +1305,16 @@ export interface DescribeProjectResponse {
   ResourceArn?: string;
 
   /**
-   * <p>Represents the sample size and sampling type for AWS Glue DataBrew to use for
-   *             interactive data analysis.</p>
-   */
-  Sample?: Sample;
-
-  /**
    * <p>The ARN of the AWS Identity and Access Management (IAM) role that was assumed for this
    *             request.</p>
    */
   RoleArn?: string;
 
   /**
-   * <p>Metadata tags associated with this project.</p>
+   * <p>Represents the sample size and sampling type for AWS Glue DataBrew to use for
+   *             interactive data analysis.</p>
    */
-  Tags?: { [key: string]: string };
+  Sample?: Sample;
 
   /**
    * <p>Describes the current state of the session:</p>
@@ -1331,14 +1336,9 @@ export interface DescribeProjectResponse {
   SessionStatus?: SessionStatus | string;
 
   /**
-   * <p>The identifier (user name) of the user that opened the project for use. </p>
+   * <p>Metadata tags associated with this project.</p>
    */
-  OpenedBy?: string;
-
-  /**
-   * <p>The date and time when the project was opened. </p>
-   */
-  OpenDate?: Date;
+  Tags?: { [key: string]: string };
 }
 
 export namespace DescribeProjectResponse {
@@ -1368,14 +1368,19 @@ export namespace DescribeRecipeRequest {
 
 export interface DescribeRecipeResponse {
   /**
+   * <p>The date and time that the recipe was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
    * <p>The identifier (user name) of the user who created the recipe.</p>
    */
   CreatedBy?: string;
 
   /**
-   * <p>The date and time that the recipe was created.</p>
+   * <p>The description of the recipe.</p>
    */
-  CreateDate?: Date;
+  Description?: string;
 
   /**
    * <p>The identifier (user name) of the user who last modified the recipe.</p>
@@ -1386,6 +1391,11 @@ export interface DescribeRecipeResponse {
    * <p>The date and time that the recipe was last modified.</p>
    */
   LastModifiedDate?: Date;
+
+  /**
+   * <p>The name of the recipe.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The name of the project associated with this recipe.</p>
@@ -1403,14 +1413,14 @@ export interface DescribeRecipeResponse {
   PublishedDate?: Date;
 
   /**
-   * <p>The description of the recipe.</p>
+   * <p>The recipe version identifier.</p>
    */
-  Description?: string;
+  RecipeVersion?: string;
 
   /**
-   * <p>The name of the recipe.</p>
+   * <p>The ARN of the recipe.</p>
    */
-  Name: string | undefined;
+  ResourceArn?: string;
 
   /**
    * <p>One or more steps to be performed by the recipe. Each step consists of an action, and
@@ -1422,16 +1432,6 @@ export interface DescribeRecipeResponse {
    * <p>Metadata tags associated with this project.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The ARN of the recipe.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>The recipe version identifier.</p>
-   */
-  RecipeVersion?: string;
 }
 
 export namespace DescribeRecipeResponse {
@@ -1465,6 +1465,12 @@ export interface DescribeScheduleResponse {
   CreatedBy?: string;
 
   /**
+   * <p>The date or dates and time or times, in <code>cron</code> format, when the jobs are to
+   *             be run for the schedule.</p>
+   */
+  CronExpression?: string;
+
+  /**
    * <p>The name or names of one or more jobs to be run by using the schedule.</p>
    */
   JobNames?: string[];
@@ -1480,25 +1486,19 @@ export interface DescribeScheduleResponse {
   LastModifiedDate?: Date;
 
   /**
+   * <p>The name of the schedule.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the schedule.</p>
    */
   ResourceArn?: string;
 
   /**
-   * <p>The date or dates and time or times, in <code>cron</code> format, when the jobs are to
-   *             be run for the schedule.</p>
-   */
-  CronExpression?: string;
-
-  /**
    * <p>Metadata tags associated with this schedule.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The name of the schedule.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace DescribeScheduleResponse {
@@ -1537,19 +1537,14 @@ export interface Dataset {
   AccountId?: string;
 
   /**
-   * <p>The identifier (the user name) of the user who created the dataset.</p>
-   */
-  CreatedBy?: string;
-
-  /**
    * <p>The date and time that the dataset was created.</p>
    */
   CreateDate?: Date;
 
   /**
-   * <p>The unique name of the dataset.</p>
+   * <p>The identifier (the user name) of the user who created the dataset.</p>
    */
-  Name: string | undefined;
+  CreatedBy?: string;
 
   /**
    * <p>Options that define how DataBrew interprets the data in the dataset.</p>
@@ -1563,14 +1558,24 @@ export interface Dataset {
   Input: Input | undefined;
 
   /**
+   * <p>The identifier (the user name) of the user who last modified the dataset.</p>
+   */
+  LastModifiedBy?: string;
+
+  /**
    * <p>The last modification date and time of the dataset.</p>
    */
   LastModifiedDate?: Date;
 
   /**
-   * <p>The identifier (the user name) of the user who last modified the dataset.</p>
+   * <p>The unique name of the dataset.</p>
    */
-  LastModifiedBy?: string;
+  Name: string | undefined;
+
+  /**
+   * <p>The unique Amazon Resource Name (ARN) for the dataset.</p>
+   */
+  ResourceArn?: string;
 
   /**
    * <p>The location of the data for the dataset, either Amazon S3 or the AWS Glue Data
@@ -1582,11 +1587,6 @@ export interface Dataset {
    * <p>Metadata tags that have been applied to the dataset.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The unique Amazon Resource Name (ARN) for the dataset.</p>
-   */
-  ResourceArn?: string;
 }
 
 export namespace Dataset {
@@ -1617,14 +1617,14 @@ export namespace ListDatasetsResponse {
 
 export interface ListJobRunsRequest {
   /**
-   * <p>The name of the job.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The maximum number of results to return in this request. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The name of the job.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>A token generated by AWS Glue DataBrew that specifies where to continue pagination if
@@ -1685,25 +1685,15 @@ export interface JobRun {
   JobName?: string;
 
   /**
-   * <p>The unique identifier of the job run.</p>
+   * <p>The name of an Amazon CloudWatch log group, where the job writes diagnostic messages
+   *             when it runs.</p>
    */
-  RunId?: string;
-
-  /**
-   * <p>The current state of the job run entity itself.</p>
-   */
-  State?: JobRunState | string;
+  LogGroupName?: string;
 
   /**
    * <p>The current status of Amazon CloudWatch logging for the job run.</p>
    */
   LogSubscription?: LogSubscription | string;
-
-  /**
-   * <p>The name of an Amazon CloudWatch log group, where the job writes diagnostic messages
-   *             when it runs.</p>
-   */
-  LogGroupName?: string;
 
   /**
    * <p>One or more output artifacts from a job run.</p>
@@ -1716,6 +1706,11 @@ export interface JobRun {
   RecipeReference?: RecipeReference;
 
   /**
+   * <p>The unique identifier of the job run.</p>
+   */
+  RunId?: string;
+
+  /**
    * <p>The identifier (the user name) of the user who initiated the job run. </p>
    */
   StartedBy?: string;
@@ -1724,6 +1719,11 @@ export interface JobRun {
    * <p>The date and time when the job run began. </p>
    */
   StartedOn?: Date;
+
+  /**
+   * <p>The current state of the job run entity itself.</p>
+   */
+  State?: JobRunState | string;
 }
 
 export namespace JobRun {
@@ -1794,14 +1794,14 @@ export interface Job {
   AccountId?: string;
 
   /**
-   * <p>The identifier (the user name) of the user who created the job.</p>
-   */
-  CreatedBy?: string;
-
-  /**
    * <p>The date and time that the job was created.</p>
    */
   CreateDate?: Date;
+
+  /**
+   * <p>The identifier (the user name) of the user who created the job.</p>
+   */
+  CreatedBy?: string;
 
   /**
    * <p>A dataset that the job is to process.</p>
@@ -1830,28 +1830,6 @@ export interface Job {
   EncryptionMode?: EncryptionMode | string;
 
   /**
-   * <p>The unique name of the job.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The job type of the job, which must be one of the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>PROFILE</code> - A job to analyze a dataset, to determine its size, data
-   *                     types, data distribution, and more.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RECIPE</code> - A job to apply one or more transformations to a
-   *                     dataset.</p>
-   *             </li>
-   *          </ul>
-   */
-  Type?: JobType | string;
-
-  /**
    * <p>The identifier (the user name) of the user who last modified the job.</p>
    */
   LastModifiedBy?: string;
@@ -1875,6 +1853,11 @@ export interface Job {
    * <p>The maximum number of times to retry the job after a job run fails.</p>
    */
   MaxRetries?: number;
+
+  /**
+   * <p>The unique name of the job.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>One or more artifacts that represent output from running the job.</p>
@@ -1902,15 +1885,32 @@ export interface Job {
   RoleArn?: string;
 
   /**
+   * <p>Metadata tags that have been applied to the job.</p>
+   */
+  Tags?: { [key: string]: string };
+
+  /**
    * <p>The job's timeout in minutes. A job that attempts to run longer than this timeout
    *             period ends with a status of <code>TIMEOUT</code>.</p>
    */
   Timeout?: number;
 
   /**
-   * <p>Metadata tags that have been applied to the job.</p>
+   * <p>The job type of the job, which must be one of the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PROFILE</code> - A job to analyze a dataset, to determine its size, data
+   *                     types, data distribution, and more.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RECIPE</code> - A job to apply one or more transformations to a
+   *                     dataset.</p>
+   *             </li>
+   *          </ul>
    */
-  Tags?: { [key: string]: string };
+  Type?: JobType | string;
 }
 
 export namespace Job {
@@ -1941,14 +1941,14 @@ export namespace ListJobsResponse {
 
 export interface ListProjectsRequest {
   /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in this request. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListProjectsRequest {
@@ -1983,19 +1983,29 @@ export interface Project {
   DatasetName?: string;
 
   /**
-   * <p>The last modification date and time for the project.</p>
-   */
-  LastModifiedDate?: Date;
-
-  /**
    * <p>The identifier (user name) of the user who last modified the project.</p>
    */
   LastModifiedBy?: string;
 
   /**
+   * <p>The last modification date and time for the project.</p>
+   */
+  LastModifiedDate?: Date;
+
+  /**
    * <p>The unique name of a project.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The date and time when the project was opened.</p>
+   */
+  OpenDate?: Date;
+
+  /**
+   * <p>The identifier (the user name) of the user that opened the project for use.</p>
+   */
+  OpenedBy?: string;
 
   /**
    * <p>The name of a recipe that will be developed during a project session.</p>
@@ -2008,6 +2018,11 @@ export interface Project {
   ResourceArn?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the role that will be assumed for this project.</p>
+   */
+  RoleArn?: string;
+
+  /**
    * <p>The sample size and sampling type to apply to the data.  If this parameter isn't specified, then the sample will consiste of the first 500 rows from the dataset.</p>
    */
   Sample?: Sample;
@@ -2016,21 +2031,6 @@ export interface Project {
    * <p>Metadata tags that have been applied to the project.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the role that will be assumed for this project.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>The identifier (the user name) of the user that opened the project for use.</p>
-   */
-  OpenedBy?: string;
-
-  /**
-   * <p>The date and time when the project was opened.</p>
-   */
-  OpenDate?: Date;
 }
 
 export namespace Project {
@@ -2041,16 +2041,16 @@ export namespace Project {
 
 export interface ListProjectsResponse {
   /**
-   * <p>A list of projects that are defined in the current AWS account.</p>
-   */
-  Projects: Project[] | undefined;
-
-  /**
    * <p>A token generated by DataBrew that specifies where to continue pagination if a
    *             previous request was truncated. To get the next set of pages, pass in the NextToken
    *             value from the response object of the previous page call. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of projects that are defined in the current AWS account.</p>
+   */
+  Projects: Project[] | undefined;
 }
 
 export namespace ListProjectsResponse {
@@ -2088,14 +2088,19 @@ export namespace ListRecipesRequest {
  */
 export interface Recipe {
   /**
+   * <p>The date and time that the recipe was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
    * <p>The identifier (the user name) of the user who created the recipe.</p>
    */
   CreatedBy?: string;
 
   /**
-   * <p>The date and time that the recipe was created.</p>
+   * <p>The description of the recipe.</p>
    */
-  CreateDate?: Date;
+  Description?: string;
 
   /**
    * <p>The identifier (user name) of the user who last modified the recipe.</p>
@@ -2106,6 +2111,11 @@ export interface Recipe {
    * <p>The last modification date and time of the recipe.</p>
    */
   LastModifiedDate?: Date;
+
+  /**
+   * <p>The unique name for the recipe.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The name of the project that the recipe is associated with.</p>
@@ -2123,14 +2133,9 @@ export interface Recipe {
   PublishedDate?: Date;
 
   /**
-   * <p>The description of the recipe.</p>
+   * <p>The identifier for the version for the recipe. </p>
    */
-  Description?: string;
-
-  /**
-   * <p>The unique name for the recipe.</p>
-   */
-  Name: string | undefined;
+  RecipeVersion?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the recipe.</p>
@@ -2146,11 +2151,6 @@ export interface Recipe {
    * <p>Metadata tags that have been applied to the recipe.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The identifier for the version for the recipe. </p>
-   */
-  RecipeVersion?: string;
 }
 
 export namespace Recipe {
@@ -2161,16 +2161,16 @@ export namespace Recipe {
 
 export interface ListRecipesResponse {
   /**
-   * <p>A list of recipes that are defined in the current AWS account.</p>
-   */
-  Recipes: Recipe[] | undefined;
-
-  /**
    * <p>A token generated by DataBrew that specifies where to continue pagination if a
    *             previous request was truncated. To get the next set of pages, pass in the NextToken
    *             value from the response object of the previous page call. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of recipes that are defined in the current AWS account.</p>
+   */
+  Recipes: Recipe[] | undefined;
 }
 
 export namespace ListRecipesResponse {
@@ -2186,14 +2186,14 @@ export interface ListRecipeVersionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The name of the recipe for which to return version information.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListRecipeVersionsRequest {
@@ -2255,14 +2255,19 @@ export interface Schedule {
   AccountId?: string;
 
   /**
+   * <p>The date and time that the schedule was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
    * <p>The identifier (the user name) of the user who created the schedule.</p>
    */
   CreatedBy?: string;
 
   /**
-   * <p>The date and time that the schedule was created.</p>
+   * <p>The date(s) and time(s), in <code>cron</code> format, when the job will run.</p>
    */
-  CreateDate?: Date;
+  CronExpression?: string;
 
   /**
    * <p>A list of jobs to be run, according to the schedule.</p>
@@ -2280,24 +2285,19 @@ export interface Schedule {
   LastModifiedDate?: Date;
 
   /**
+   * <p>The name of the schedule.</p>
+   */
+  Name: string | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the schedule.</p>
    */
   ResourceArn?: string;
 
   /**
-   * <p>The date(s) and time(s), in <code>cron</code> format, when the job will run.</p>
-   */
-  CronExpression?: string;
-
-  /**
    * <p>Metadata tags that have been applied to the schedule.</p>
    */
   Tags?: { [key: string]: string };
-
-  /**
-   * <p>The name of the schedule.</p>
-   */
-  Name: string | undefined;
 }
 
 export namespace Schedule {
@@ -2308,16 +2308,16 @@ export namespace Schedule {
 
 export interface ListSchedulesResponse {
   /**
-   * <p>A list of schedules in the current AWS account.</p>
-   */
-  Schedules: Schedule[] | undefined;
-
-  /**
    * <p>A token generated by DataBrew that specifies where to continue pagination if a
    *             previous request was truncated. To get the next set of pages, pass in the NextToken
    *             value from the response object of the previous page call. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of schedules in the current AWS account.</p>
+   */
+  Schedules: Schedule[] | undefined;
 }
 
 export namespace ListSchedulesResponse {
@@ -2388,12 +2388,6 @@ export namespace PublishRecipeResponse {
  */
 export interface ViewFrame {
   /**
-   * <p>The starting index for the range of columns to return in the view
-   *             frame.</p>
-   */
-  StartColumnIndex: number | undefined;
-
-  /**
    * <p>The number of columns to include in the view frame, beginning with the
    *             <code>StartColumnIndex</code> value and ignoring any columns in the
    *             <code>HiddenColumns</code> list.</p>
@@ -2404,6 +2398,12 @@ export interface ViewFrame {
    * <p>A list of columns to hide in the view frame.</p>
    */
   HiddenColumns?: string[];
+
+  /**
+   * <p>The starting index for the range of columns to return in the view
+   *             frame.</p>
+   */
+  StartColumnIndex: number | undefined;
 }
 
 export namespace ViewFrame {
@@ -2414,15 +2414,21 @@ export namespace ViewFrame {
 
 export interface SendProjectSessionActionRequest {
   /**
-   * <p>Returns the result of the recipe step, without applying it. The result isn't
-   *             added to the view frame stack.</p>
+   * <p>A unique identifier for an interactive session that's currently open and ready for
+   *             work. The action will be performed on this session.</p>
    */
-  Preview?: boolean;
+  ClientSessionId?: string;
 
   /**
    * <p>The name of the project to apply the action to.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>Returns the result of the recipe step, without applying it. The result isn't
+   *             added to the view frame stack.</p>
+   */
+  Preview?: boolean;
 
   /**
    * <p>Represents a single step to be performed in an AWS Glue DataBrew recipe.</p>
@@ -2435,12 +2441,6 @@ export interface SendProjectSessionActionRequest {
    *             in the view frame stack.</p>
    */
   StepIndex?: number;
-
-  /**
-   * <p>A unique identifier for an interactive session that's currently open and ready for
-   *             work. The action will be performed on this session.</p>
-   */
-  ClientSessionId?: string;
 
   /**
    * <p>Represents the data being being transformed during an AWS Glue DataBrew project session.</p>
@@ -2456,9 +2456,9 @@ export namespace SendProjectSessionActionRequest {
 
 export interface SendProjectSessionActionResponse {
   /**
-   * <p>A message indicating the result of performing the action.</p>
+   * <p>A unique identifier for the action that was performed.</p>
    */
-  Result?: string;
+  ActionId?: number;
 
   /**
    * <p>The name of the project that was affected by the action.</p>
@@ -2466,9 +2466,9 @@ export interface SendProjectSessionActionResponse {
   Name: string | undefined;
 
   /**
-   * <p>A unique identifier for the action that was performed.</p>
+   * <p>A message indicating the result of performing the action.</p>
    */
-  ActionId?: number;
+  Result?: string;
 }
 
 export namespace SendProjectSessionActionResponse {
@@ -2505,15 +2505,15 @@ export namespace StartJobRunResponse {
 
 export interface StartProjectSessionRequest {
   /**
-   * <p>The name of the project to act upon.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A value that, if true, enables you to take control of a session, even if a different client is
    *             currently accessing the project.</p>
    */
   AssumeControl?: boolean;
+
+  /**
+   * <p>The name of the project to act upon.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace StartProjectSessionRequest {
@@ -2524,14 +2524,14 @@ export namespace StartProjectSessionRequest {
 
 export interface StartProjectSessionResponse {
   /**
-   * <p>The name of the project to be acted upon.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A system-generated identifier for the session.</p>
    */
   ClientSessionId?: string;
+
+  /**
+   * <p>The name of the project to be acted upon.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace StartProjectSessionResponse {
@@ -2628,11 +2628,6 @@ export namespace UntagResourceResponse {
 
 export interface UpdateDatasetRequest {
   /**
-   * <p>The name of the dataset to be updated.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Options that define how Microsoft Excel input is to be interpreted by DataBrew.</p>
    */
   FormatOptions?: FormatOptions;
@@ -2642,6 +2637,11 @@ export interface UpdateDatasetRequest {
    *             Catalog or Amazon S3.</p>
    */
   Input: Input | undefined;
+
+  /**
+   * <p>The name of the dataset to be updated.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace UpdateDatasetRequest {
@@ -2685,11 +2685,6 @@ export interface UpdateProfileJobRequest {
   EncryptionMode?: EncryptionMode | string;
 
   /**
-   * <p>The name of the job to be updated.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A value that enables or disables Amazon CloudWatch logging for the current AWS
    *             account. If logging is enabled, CloudWatch writes one log stream for each job
    *             run.</p>
@@ -2705,6 +2700,11 @@ export interface UpdateProfileJobRequest {
    * <p>The maximum number of times to retry the job after a job run fails.</p>
    */
   MaxRetries?: number;
+
+  /**
+   * <p>The name of the job to be updated.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>An Amazon S3 location (bucket name an object key) where DataBrew can read input data, or write output from a job.</p>
@@ -2745,10 +2745,9 @@ export namespace UpdateProfileJobResponse {
 
 export interface UpdateProjectRequest {
   /**
-   * <p>Represents the sample size and sampling type for AWS Glue DataBrew to use for
-   *             interactive data analysis.</p>
+   * <p>The name of the project to be updated.</p>
    */
-  Sample?: Sample;
+  Name: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed for this request.</p>
@@ -2756,9 +2755,10 @@ export interface UpdateProjectRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>The name of the project to be updated.</p>
+   * <p>Represents the sample size and sampling type for AWS Glue DataBrew to use for
+   *             interactive data analysis.</p>
    */
-  Name: string | undefined;
+  Sample?: Sample;
 }
 
 export namespace UpdateProjectRequest {
@@ -2844,11 +2844,6 @@ export interface UpdateRecipeJobRequest {
   EncryptionMode?: EncryptionMode | string;
 
   /**
-   * <p>The name of the job to update.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A value that enables or disables Amazon CloudWatch logging for the current AWS
    *             account. If logging is enabled, CloudWatch writes one log stream for each job
    *             run.</p>
@@ -2865,6 +2860,11 @@ export interface UpdateRecipeJobRequest {
    * <p>The maximum number of times to retry the job after a job run fails.</p>
    */
   MaxRetries?: number;
+
+  /**
+   * <p>The name of the job to update.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>One or more artifacts that represent the output from running the job. </p>
@@ -2905,15 +2905,15 @@ export namespace UpdateRecipeJobResponse {
 
 export interface UpdateScheduleRequest {
   /**
-   * <p>The name or names of one or more jobs to be run for this schedule.</p>
-   */
-  JobNames?: string[];
-
-  /**
    * <p>The date or dates and time or times, in <code>cron</code> format, when the jobs are to
    *             be run.</p>
    */
   CronExpression: string | undefined;
+
+  /**
+   * <p>The name or names of one or more jobs to be run for this schedule.</p>
+   */
+  JobNames?: string[];
 
   /**
    * <p>The name of the schedule to update.</p>

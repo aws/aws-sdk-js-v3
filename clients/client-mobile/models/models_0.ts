@@ -54,6 +54,15 @@ export namespace BadRequestException {
 export interface CreateProjectRequest {
   /**
    * <p>
+   *             ZIP or YAML file which contains configuration settings to be used when creating
+   *             the project. This may be the contents of the file downloaded from the URL provided
+   *             in an export project operation.
+   *         </p>
+   */
+  contents?: Uint8Array;
+
+  /**
+   * <p>
    *             Name of the project.
    *         </p>
    */
@@ -65,15 +74,6 @@ export interface CreateProjectRequest {
    *         </p>
    */
   region?: string;
-
-  /**
-   * <p>
-   *             ZIP or YAML file which contains configuration settings to be used when creating
-   *             the project. This may be the contents of the file downloaded from the URL provided
-   *             in an export project operation.
-   *         </p>
-   */
-  contents?: Uint8Array;
 
   /**
    * <p>
@@ -98,24 +98,17 @@ export namespace CreateProjectRequest {
 export interface Resource {
   /**
    * <p>
-   *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
-   *         </p>
-   */
-  type?: string;
-
-  /**
-   * <p>
-   *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
-   *         </p>
-   */
-  name?: string;
-
-  /**
-   * <p>
    *             AWS resource name which uniquely identifies the resource in AWS systems.
    *         </p>
    */
   arn?: string;
+
+  /**
+   * <p>
+   *             Key-value attribute pairs.
+   *         </p>
+   */
+  attributes?: { [key: string]: string };
 
   /**
    * <p>
@@ -126,10 +119,17 @@ export interface Resource {
 
   /**
    * <p>
-   *             Key-value attribute pairs.
+   *             Name of the AWS resource (e.g., for an Amazon S3 bucket this is the name of the bucket).
    *         </p>
    */
-  attributes?: { [key: string]: string };
+  name?: string;
+
+  /**
+   * <p>
+   *             Simplified name for type of AWS resource (e.g., bucket is an Amazon S3 bucket).
+   *         </p>
+   */
+  type?: string;
 }
 
 export namespace Resource {
@@ -150,6 +150,27 @@ export enum ProjectState {
  *         </p>
  */
 export interface ProjectDetails {
+  /**
+   * <p>
+   *             Website URL for this project in the AWS Mobile Hub console.
+   *         </p>
+   */
+  consoleUrl?: string;
+
+  /**
+   * <p>
+   *             Date the project was created.
+   *         </p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>
+   *             Date of the last modification of the project.
+   *         </p>
+   */
+  lastUpdatedDate?: Date;
+
   /**
    * <p>
    *             Name of the project.
@@ -173,38 +194,17 @@ export interface ProjectDetails {
 
   /**
    * <p>
-   *             Synchronization state for a project.
-   *         </p>
-   */
-  state?: ProjectState | string;
-
-  /**
-   * <p>
-   *             Date the project was created.
-   *         </p>
-   */
-  createdDate?: Date;
-
-  /**
-   * <p>
-   *             Date of the last modification of the project.
-   *         </p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>
-   *             Website URL for this project in the AWS Mobile Hub console.
-   *         </p>
-   */
-  consoleUrl?: string;
-
-  /**
-   * <p>
    *             List of AWS resources associated with a project.
    *         </p>
    */
   resources?: Resource[];
+
+  /**
+   * <p>
+   *             Synchronization state for a project.
+   *         </p>
+   */
+  state?: ProjectState | string;
 }
 
 export namespace ProjectDetails {
@@ -272,14 +272,14 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 }
 
 export namespace LimitExceededException {
@@ -324,14 +324,14 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 }
 
 export namespace ServiceUnavailableException {
@@ -354,14 +354,14 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    *             The Exception Error Message.
    *         </p>
    */
-  retryAfterSeconds?: string;
+  message?: string;
 
   /**
    * <p>
    *             The Exception Error Message.
    *         </p>
    */
-  message?: string;
+  retryAfterSeconds?: string;
 }
 
 export namespace TooManyRequestsException {
@@ -478,24 +478,17 @@ export enum Platform {
 export interface BundleDetails {
   /**
    * <p>
+   *             Developer desktop or mobile app or website platforms.
+   *         </p>
+   */
+  availablePlatforms?: (Platform | string)[];
+
+  /**
+   * <p>
    *             Unique bundle identifier.
    *         </p>
    */
   bundleId?: string;
-
-  /**
-   * <p>
-   *             Title of the download bundle.
-   *         </p>
-   */
-  title?: string;
-
-  /**
-   * <p>
-   *             Version of the download bundle.
-   *         </p>
-   */
-  version?: string;
 
   /**
    * <p>
@@ -513,10 +506,17 @@ export interface BundleDetails {
 
   /**
    * <p>
-   *             Developer desktop or mobile app or website platforms.
+   *             Title of the download bundle.
    *         </p>
    */
-  availablePlatforms?: (Platform | string)[];
+  title?: string;
+
+  /**
+   * <p>
+   *             Version of the download bundle.
+   *         </p>
+   */
+  version?: string;
 }
 
 export namespace BundleDetails {
@@ -608,17 +608,17 @@ export interface ExportBundleRequest {
 
   /**
    * <p>
-   *             Unique project identifier.
-   *         </p>
-   */
-  projectId?: string;
-
-  /**
-   * <p>
    *             Developer desktop or target application platform.
    *         </p>
    */
   platform?: Platform | string;
+
+  /**
+   * <p>
+   *             Unique project identifier.
+   *         </p>
+   */
+  projectId?: string;
 }
 
 export namespace ExportBundleRequest {
@@ -832,19 +832,19 @@ export namespace ProjectSummary {
 export interface ListProjectsResult {
   /**
    * <p>
-   *             List of projects.
-   *         </p>
-   */
-  projects?: ProjectSummary[];
-
-  /**
-   * <p>
    *             Pagination token. Set to null to start listing records from start.
    *             If non-null pagination token is returned in a result, then pass its
    *             value in here in another request to list more entries.
    *         </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *             List of projects.
+   *         </p>
+   */
+  projects?: ProjectSummary[];
 }
 
 export namespace ListProjectsResult {

@@ -169,14 +169,10 @@ export enum SubscriptionType {
  */
 export interface CreateHsmRequest {
   /**
-   * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
+   * <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the
+   *       same token will be ignored.</p>
    */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>The SSH public key to install on the HSM.</p>
-   */
-  SshKey: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>The IP address to assign to the HSM's ENI.</p>
@@ -186,15 +182,25 @@ export interface CreateHsmRequest {
   EniIp?: string;
 
   /**
+   * <p>The external ID from <code>IamRoleArn</code>, if present.</p>
+   */
+  ExternalId?: string;
+
+  /**
    * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI on your
    *       behalf.</p>
    */
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The external ID from <code>IamRoleArn</code>, if present.</p>
+   * <p>The SSH public key to install on the HSM.</p>
    */
-  ExternalId?: string;
+  SshKey: string | undefined;
+
+  /**
+   * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
+   */
+  SubnetId: string | undefined;
 
   /**
    * <p>Specifies the type of subscription for the HSM.</p>
@@ -212,12 +218,6 @@ export interface CreateHsmRequest {
    *          </ul>
    */
   SubscriptionType: SubscriptionType | string | undefined;
-
-  /**
-   * <p>A user-defined token to ensure idempotence. Subsequent calls to this operation with the
-   *       same token will be ignored.</p>
-   */
-  ClientToken?: string;
 
   /**
    * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service only supports one
@@ -253,15 +253,15 @@ export namespace CreateHsmResponse {
  */
 export interface CreateLunaClientRequest {
   /**
-   * <p>The label for the client.</p>
-   */
-  Label?: string;
-
-  /**
    * <p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the HSMs used
    *       by this client.</p>
    */
   Certificate: string | undefined;
+
+  /**
+   * <p>The label for the client.</p>
+   */
+  Label?: string;
 }
 
 export namespace CreateLunaClientRequest {
@@ -493,21 +493,6 @@ export enum HsmStatus {
  */
 export interface DescribeHsmResponse {
   /**
-   * <p>The ARN of the HSM.</p>
-   */
-  HsmArn?: string;
-
-  /**
-   * <p>The status of the HSM.</p>
-   */
-  Status?: HsmStatus | string;
-
-  /**
-   * <p>Contains additional information about the status of the HSM.</p>
-   */
-  StatusDetails?: string;
-
-  /**
    * <p>The Availability Zone that the HSM is in.</p>
    */
   AvailabilityZone?: string;
@@ -521,6 +506,81 @@ export interface DescribeHsmResponse {
    * <p>The IP address assigned to the HSM's ENI.</p>
    */
   EniIp?: string;
+
+  /**
+   * <p>The ARN of the HSM.</p>
+   */
+  HsmArn?: string;
+
+  /**
+   * <p>The HSM model type.</p>
+   */
+  HsmType?: string;
+
+  /**
+   * <p>The ARN of the IAM role assigned to the HSM.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The list of partitions on the HSM.</p>
+   */
+  Partitions?: string[];
+
+  /**
+   * <p>The serial number of the HSM.</p>
+   */
+  SerialNumber?: string;
+
+  /**
+   * <p>The date and time that the server certificate was last updated.</p>
+   */
+  ServerCertLastUpdated?: string;
+
+  /**
+   * <p>The URI of the certificate server.</p>
+   */
+  ServerCertUri?: string;
+
+  /**
+   * <p>The HSM software version.</p>
+   */
+  SoftwareVersion?: string;
+
+  /**
+   * <p>The date and time that the SSH key was last updated.</p>
+   */
+  SshKeyLastUpdated?: string;
+
+  /**
+   * <p>The public SSH key.</p>
+   */
+  SshPublicKey?: string;
+
+  /**
+   * <p>The status of the HSM.</p>
+   */
+  Status?: HsmStatus | string;
+
+  /**
+   * <p>Contains additional information about the status of the HSM.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * <p>The identifier of the subnet that the HSM is in.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The subscription end date.</p>
+   */
+  SubscriptionEndDate?: string;
+
+  /**
+   * <p>The subscription start date.</p>
+   */
+  SubscriptionStartDate?: string;
 
   /**
    * <p>Specifies the type of subscription for the HSM.</p>
@@ -540,74 +600,14 @@ export interface DescribeHsmResponse {
   SubscriptionType?: SubscriptionType | string;
 
   /**
-   * <p>The subscription start date.</p>
-   */
-  SubscriptionStartDate?: string;
-
-  /**
-   * <p>The subscription end date.</p>
-   */
-  SubscriptionEndDate?: string;
-
-  /**
-   * <p>The identifier of the VPC that the HSM is in.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The identifier of the subnet that the HSM is in.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ARN of the IAM role assigned to the HSM.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The serial number of the HSM.</p>
-   */
-  SerialNumber?: string;
-
-  /**
    * <p>The name of the HSM vendor.</p>
    */
   VendorName?: string;
 
   /**
-   * <p>The HSM model type.</p>
+   * <p>The identifier of the VPC that the HSM is in.</p>
    */
-  HsmType?: string;
-
-  /**
-   * <p>The HSM software version.</p>
-   */
-  SoftwareVersion?: string;
-
-  /**
-   * <p>The public SSH key.</p>
-   */
-  SshPublicKey?: string;
-
-  /**
-   * <p>The date and time that the SSH key was last updated.</p>
-   */
-  SshKeyLastUpdated?: string;
-
-  /**
-   * <p>The URI of the certificate server.</p>
-   */
-  ServerCertUri?: string;
-
-  /**
-   * <p>The date and time that the server certificate was last updated.</p>
-   */
-  ServerCertLastUpdated?: string;
-
-  /**
-   * <p>The list of partitions on the HSM.</p>
-   */
-  Partitions?: string[];
+  VpcId?: string;
 }
 
 export namespace DescribeHsmResponse {
@@ -618,14 +618,14 @@ export namespace DescribeHsmResponse {
 
 export interface DescribeLunaClientRequest {
   /**
-   * <p>The ARN of the client.</p>
-   */
-  ClientArn?: string;
-
-  /**
    * <p>The certificate fingerprint.</p>
    */
   CertificateFingerprint?: string;
+
+  /**
+   * <p>The ARN of the client.</p>
+   */
+  ClientArn?: string;
 }
 
 export namespace DescribeLunaClientRequest {
@@ -635,11 +635,6 @@ export namespace DescribeLunaClientRequest {
 }
 
 export interface DescribeLunaClientResponse {
-  /**
-   * <p>The ARN of the client.</p>
-   */
-  ClientArn?: string;
-
   /**
    * <p>The certificate installed on the HSMs used by this client.</p>
    */
@@ -651,14 +646,19 @@ export interface DescribeLunaClientResponse {
   CertificateFingerprint?: string;
 
   /**
-   * <p>The date and time the client was last modified.</p>
+   * <p>The ARN of the client.</p>
    */
-  LastModifiedTimestamp?: string;
+  ClientArn?: string;
 
   /**
    * <p>The label of the client.</p>
    */
   Label?: string;
+
+  /**
+   * <p>The date and time the client was last modified.</p>
+   */
+  LastModifiedTimestamp?: string;
 }
 
 export namespace DescribeLunaClientResponse {
@@ -693,9 +693,9 @@ export namespace GetConfigRequest {
 
 export interface GetConfigResponse {
   /**
-   * <p>The type of credentials.</p>
+   * <p>The certificate file containing the server.pem files of the HSMs.</p>
    */
-  ConfigType?: string;
+  ConfigCred?: string;
 
   /**
    * <p>The chrystoki.conf configuration file.</p>
@@ -703,9 +703,9 @@ export interface GetConfigResponse {
   ConfigFile?: string;
 
   /**
-   * <p>The certificate file containing the server.pem files of the HSMs.</p>
+   * <p>The type of credentials.</p>
    */
-  ConfigCred?: string;
+  ConfigType?: string;
 }
 
 export namespace GetConfigResponse {
@@ -908,17 +908,6 @@ export namespace ModifyHapgResponse {
  */
 export interface ModifyHsmRequest {
   /**
-   * <p>The ARN of the HSM to modify.</p>
-   */
-  HsmArn: string | undefined;
-
-  /**
-   * <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same
-   *       Availability Zone as the current subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
    * <p>The new IP address for the elastic network interface (ENI) attached to the
    *       HSM.</p>
    *          <p>If the HSM is moved to a different subnet, and an IP address is not specified, an IP
@@ -927,14 +916,25 @@ export interface ModifyHsmRequest {
   EniIp?: string;
 
   /**
+   * <p>The new external ID.</p>
+   */
+  ExternalId?: string;
+
+  /**
+   * <p>The ARN of the HSM to modify.</p>
+   */
+  HsmArn: string | undefined;
+
+  /**
    * <p>The new IAM role ARN.</p>
    */
   IamRoleArn?: string;
 
   /**
-   * <p>The new external ID.</p>
+   * <p>The new identifier of the subnet that the HSM is in. The new subnet must be in the same
+   *       Availability Zone as the current subnet.</p>
    */
-  ExternalId?: string;
+  SubnetId?: string;
 
   /**
    * <p>The new IP address for the syslog monitoring server. The AWS CloudHSM service only supports
@@ -967,14 +967,14 @@ export namespace ModifyHsmResponse {
 
 export interface ModifyLunaClientRequest {
   /**
-   * <p>The ARN of the client.</p>
-   */
-  ClientArn: string | undefined;
-
-  /**
    * <p>The new certificate for the client.</p>
    */
   Certificate: string | undefined;
+
+  /**
+   * <p>The ARN of the client.</p>
+   */
+  ClientArn: string | undefined;
 }
 
 export namespace ModifyLunaClientRequest {

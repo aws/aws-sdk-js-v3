@@ -24,13 +24,6 @@ export namespace AccessDeniedException {
 export interface ThirdPartySourceRepository {
   /**
    * <p>
-   *          The name of the third party source repository.
-   *       </p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>
    *          The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is
    *          <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">
@@ -40,6 +33,13 @@ export interface ThirdPartySourceRepository {
    *       </p>
    */
   ConnectionArn: string | undefined;
+
+  /**
+   * <p>
+   *          The name of the third party source repository.
+   *       </p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>
@@ -84,16 +84,16 @@ export namespace CodeCommitRepository {
  */
 export interface Repository {
   /**
-   * <p>Information about an AWS CodeCommit repository.</p>
-   */
-  CodeCommit?: CodeCommitRepository;
-
-  /**
    * <p>
    *          Information about a Bitbucket repository.
    *       </p>
    */
   Bitbucket?: ThirdPartySourceRepository;
+
+  /**
+   * <p>Information about an AWS CodeCommit repository.</p>
+   */
+  CodeCommit?: CodeCommitRepository;
 
   /**
    * <p>
@@ -111,15 +111,15 @@ export namespace Repository {
 
 export interface AssociateRepositoryRequest {
   /**
-   * <p>The repository to associate.</p>
-   */
-  Repository: Repository | undefined;
-
-  /**
    * <p>Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate repository
    *         associations if there are failures and retries. </p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The repository to associate.</p>
+   */
+  Repository: Repository | undefined;
 
   /**
    * <p>
@@ -172,14 +172,14 @@ export enum RepositoryAssociationState {
  */
 export interface RepositoryAssociation {
   /**
-   * <p>The ID of the repository association.</p>
-   */
-  AssociationId?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) identifying the repository association.</p>
    */
   AssociationArn?: string;
+
+  /**
+   * <p>The ID of the repository association.</p>
+   */
+  AssociationId?: string;
 
   /**
    * <p>
@@ -192,6 +192,16 @@ export interface RepositoryAssociation {
    *       </p>
    */
   ConnectionArn?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the repository association was created.</p>
+   */
+  CreatedTimeStamp?: Date;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the repository association was last updated.</p>
+   */
+  LastUpdatedTimeStamp?: Date;
 
   /**
    * <p>The name of the repository.</p>
@@ -272,16 +282,6 @@ export interface RepositoryAssociation {
    * <p>A description of why the repository association is in the current state.</p>
    */
   StateReason?: string;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the repository association was last updated.</p>
-   */
-  LastUpdatedTimeStamp?: Date;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the repository association was created.</p>
-   */
-  CreatedTimeStamp?: Date;
 }
 
 export namespace RepositoryAssociation {
@@ -478,6 +478,14 @@ export namespace CodeReviewType {
 export interface CreateCodeReviewRequest {
   /**
    * <p>
+   *          Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate code
+   *          reviews if there are failures and retries.
+   *       </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>
    *          The name of the code review. The name of each code review in your AWS account must be unique.
    *       </p>
    */
@@ -511,14 +519,6 @@ export interface CreateCodeReviewRequest {
    *       </p>
    */
   Type: CodeReviewType | undefined;
-
-  /**
-   * <p>
-   *          Amazon CodeGuru Reviewer uses this value to prevent the accidental creation of duplicate code
-   *          reviews if there are failures and retries.
-   *       </p>
-   */
-  ClientRequestToken?: string;
 }
 
 export namespace CreateCodeReviewRequest {
@@ -535,6 +535,13 @@ export namespace CreateCodeReviewRequest {
 export interface Metrics {
   /**
    * <p>
+   *          Total number of recommendations found in the code review.
+   *       </p>
+   */
+  FindingsCount?: number;
+
+  /**
+   * <p>
    *         Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions,
    *         this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already
    *         existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments
@@ -545,13 +552,6 @@ export interface Metrics {
    *       </p>
    */
   MeteredLinesOfCodeCount?: number;
-
-  /**
-   * <p>
-   *          Total number of recommendations found in the code review.
-   *       </p>
-   */
-  FindingsCount?: number;
 }
 
 export namespace Metrics {
@@ -571,17 +571,17 @@ export namespace Metrics {
 export interface CommitDiffSourceCodeType {
   /**
    * <p>
-   *          The SHA of the source commit used to generate a commit diff.
-   *       </p>
-   */
-  SourceCommit?: string;
-
-  /**
-   * <p>
    *          The SHA of the destination commit used to generate a commit diff.
    *       </p>
    */
   DestinationCommit?: string;
+
+  /**
+   * <p>
+   *          The SHA of the source commit used to generate a commit diff.
+   *       </p>
+   */
+  SourceCommit?: string;
 }
 
 export namespace CommitDiffSourceCodeType {
@@ -644,10 +644,17 @@ export enum Type {
 export interface CodeReview {
   /**
    * <p>
-   *          The name of the code review.
-   *       </p>
+   * 			The Amazon Resource Name (ARN) of the
+   * 			<a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
+   *                <code>RepositoryAssociation</code>
+   *             </a> that contains
+   * 			the reviewed source code. You can retrieve associated repository ARNs by calling
+   * 			<a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">
+   *                <code>ListRepositoryAssociations</code>
+   *             </a>.
+   * 		</p>
    */
-  Name?: string;
+  AssociationArn?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
@@ -659,10 +666,31 @@ export interface CodeReview {
 
   /**
    * <p>
-   *          The name of the repository.
+   *          The time, in milliseconds since the epoch, when the code review was created.
    *       </p>
    */
-  RepositoryName?: string;
+  CreatedTimeStamp?: Date;
+
+  /**
+   * <p>
+   *          The time, in milliseconds since the epoch, when the code review was last updated.
+   *       </p>
+   */
+  LastUpdatedTimeStamp?: Date;
+
+  /**
+   * <p>
+   *          The statistics from the code review.
+   *       </p>
+   */
+  Metrics?: Metrics;
+
+  /**
+   * <p>
+   *          The name of the code review.
+   *       </p>
+   */
+  Name?: string;
 
   /**
    * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
@@ -676,6 +704,27 @@ export interface CodeReview {
    *       </p>
    */
   ProviderType?: ProviderType | string;
+
+  /**
+   * <p>
+   *          The pull request ID for the code review.
+   *       </p>
+   */
+  PullRequestId?: string;
+
+  /**
+   * <p>
+   *          The name of the repository.
+   *       </p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>
+   *          The type of the source code for the code review.
+   *       </p>
+   */
+  SourceCodeType?: SourceCodeType;
 
   /**
    * <p>The valid code review states are:</p>
@@ -713,59 +762,10 @@ export interface CodeReview {
 
   /**
    * <p>
-   *          The time, in milliseconds since the epoch, when the code review was created.
-   *       </p>
-   */
-  CreatedTimeStamp?: Date;
-
-  /**
-   * <p>
-   *          The time, in milliseconds since the epoch, when the code review was last updated.
-   *       </p>
-   */
-  LastUpdatedTimeStamp?: Date;
-
-  /**
-   * <p>
    *          The type of code review.
    *       </p>
    */
   Type?: Type | string;
-
-  /**
-   * <p>
-   *          The pull request ID for the code review.
-   *       </p>
-   */
-  PullRequestId?: string;
-
-  /**
-   * <p>
-   *          The type of the source code for the code review.
-   *       </p>
-   */
-  SourceCodeType?: SourceCodeType;
-
-  /**
-   * <p>
-   * 			The Amazon Resource Name (ARN) of the
-   * 			<a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">
-   *                <code>RepositoryAssociation</code>
-   *             </a> that contains
-   * 			the reviewed source code. You can retrieve associated repository ARNs by calling
-   * 			<a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html">
-   *                <code>ListRepositoryAssociations</code>
-   *             </a>.
-   * 		</p>
-   */
-  AssociationArn?: string;
-
-  /**
-   * <p>
-   *          The statistics from the code review.
-   *       </p>
-   */
-  Metrics?: Metrics;
 }
 
 export namespace CodeReview {
@@ -893,10 +893,17 @@ export interface RecommendationFeedback {
 
   /**
    * <p>
-   *          The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback.
+   *          The time at which the feedback was created.
    *       </p>
    */
-  RecommendationId?: string;
+  CreatedTimeStamp?: Date;
+
+  /**
+   * <p>
+   *          The time at which the feedback was last updated.
+   *       </p>
+   */
+  LastUpdatedTimeStamp?: Date;
 
   /**
    * <p>
@@ -904,6 +911,13 @@ export interface RecommendationFeedback {
    *       </p>
    */
   Reactions?: (Reaction | string)[];
+
+  /**
+   * <p>
+   *          The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback.
+   *       </p>
+   */
+  RecommendationId?: string;
 
   /**
    * <p>
@@ -916,20 +930,6 @@ export interface RecommendationFeedback {
    *       </p>
    */
   UserId?: string;
-
-  /**
-   * <p>
-   *          The time at which the feedback was created.
-   *       </p>
-   */
-  CreatedTimeStamp?: Date;
-
-  /**
-   * <p>
-   *          The time at which the feedback was last updated.
-   *       </p>
-   */
-  LastUpdatedTimeStamp?: Date;
 }
 
 export namespace RecommendationFeedback {
@@ -1081,10 +1081,32 @@ export namespace DisassociateRepositoryResponse {
 export interface ListCodeReviewsRequest {
   /**
    * <p>
+   *          The maximum number of results that are returned per call. The default is 100.
+   *       </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>
+   *          If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
    *          List of provider types for filtering that needs to be applied before displaying the result. For example, <code>providerTypes=[GitHub]</code>  lists code reviews from GitHub.
    *       </p>
    */
   ProviderTypes?: (ProviderType | string)[];
+
+  /**
+   * <p>
+   *          List of repository names for filtering that needs to be applied before displaying the result.
+   *       </p>
+   */
+  RepositoryNames?: string[];
 
   /**
    * <p>
@@ -1118,32 +1140,10 @@ export interface ListCodeReviewsRequest {
 
   /**
    * <p>
-   *          List of repository names for filtering that needs to be applied before displaying the result.
-   *       </p>
-   */
-  RepositoryNames?: string[];
-
-  /**
-   * <p>
    *          The type of code reviews to list in the response.
    *       </p>
    */
   Type: Type | string | undefined;
-
-  /**
-   * <p>
-   *          The maximum number of results that are returned per call. The default is 100.
-   *       </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>
-   *          If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
-   *       </p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListCodeReviewsRequest {
@@ -1160,6 +1160,13 @@ export namespace ListCodeReviewsRequest {
 export interface MetricsSummary {
   /**
    * <p>
+   *          Total number of recommendations found in the code review.
+   *       </p>
+   */
+  FindingsCount?: number;
+
+  /**
+   * <p>
    *          Lines of code metered in the code review. For the initial code review pull request and all subsequent revisions,
    *          this includes all lines of code in the files added to the pull request. In subsequent revisions, for files that already
    *          existed in the pull request, this includes only the changed lines of code. In both cases, this does not include non-code lines such as comments
@@ -1170,13 +1177,6 @@ export interface MetricsSummary {
    *       </p>
    */
   MeteredLinesOfCodeCount?: number;
-
-  /**
-   * <p>
-   *          Total number of recommendations found in the code review.
-   *       </p>
-   */
-  FindingsCount?: number;
 }
 
 export namespace MetricsSummary {
@@ -1192,13 +1192,6 @@ export namespace MetricsSummary {
  */
 export interface CodeReviewSummary {
   /**
-   * <p>
-   *          The name of the code review.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
    *                <code>CodeReview</code>
    *             </a> object.
@@ -1208,10 +1201,31 @@ export interface CodeReviewSummary {
 
   /**
    * <p>
-   *          The name of the repository.
+   *          The time, in milliseconds since the epoch, when the code review was created.
    *       </p>
    */
-  RepositoryName?: string;
+  CreatedTimeStamp?: Date;
+
+  /**
+   * <p>
+   *          The time, in milliseconds since the epoch, when the code review was last updated.
+   *       </p>
+   */
+  LastUpdatedTimeStamp?: Date;
+
+  /**
+   * <p>
+   *          The statistics from the code review.
+   *       </p>
+   */
+  MetricsSummary?: MetricsSummary;
+
+  /**
+   * <p>
+   *          The name of the code review.
+   *       </p>
+   */
+  Name?: string;
 
   /**
    * <p>The owner of the repository. For an AWS CodeCommit repository, this is the AWS account ID of the
@@ -1225,6 +1239,20 @@ export interface CodeReviewSummary {
    *       </p>
    */
   ProviderType?: ProviderType | string;
+
+  /**
+   * <p>
+   *          The pull request ID for the code review.
+   *       </p>
+   */
+  PullRequestId?: string;
+
+  /**
+   * <p>
+   *          The name of the repository.
+   *       </p>
+   */
+  RepositoryName?: string;
 
   /**
    * <p>
@@ -1258,38 +1286,10 @@ export interface CodeReviewSummary {
 
   /**
    * <p>
-   *          The time, in milliseconds since the epoch, when the code review was created.
-   *       </p>
-   */
-  CreatedTimeStamp?: Date;
-
-  /**
-   * <p>
-   *          The time, in milliseconds since the epoch, when the code review was last updated.
-   *       </p>
-   */
-  LastUpdatedTimeStamp?: Date;
-
-  /**
-   * <p>
    *          The type of the code review.
    *       </p>
    */
   Type?: Type | string;
-
-  /**
-   * <p>
-   *          The pull request ID for the code review.
-   *       </p>
-   */
-  PullRequestId?: string;
-
-  /**
-   * <p>
-   *          The statistics from the code review.
-   *       </p>
-   */
-  MetricsSummary?: MetricsSummary;
 }
 
 export namespace CodeReviewSummary {
@@ -1322,12 +1322,12 @@ export namespace ListCodeReviewsResponse {
 
 export interface ListRecommendationFeedbackRequest {
   /**
-   * <p>
-   *          If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
-   *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
+   * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
+   *                <code>CodeReview</code>
+   *             </a> object.
    *       </p>
    */
-  NextToken?: string;
+  CodeReviewArn: string | undefined;
 
   /**
    * <p>
@@ -1337,12 +1337,19 @@ export interface ListRecommendationFeedbackRequest {
   MaxResults?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
-   *                <code>CodeReview</code>
-   *             </a> object.
+   * <p>
+   *          If <code>nextToken</code> is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
+   *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
    *       </p>
    */
-  CodeReviewArn: string | undefined;
+  NextToken?: string;
+
+  /**
+   * <p>
+   *          Used to query the recommendation feedback for a given recommendation.
+   *       </p>
+   */
+  RecommendationIds?: string[];
 
   /**
    * <p>
@@ -1355,13 +1362,6 @@ export interface ListRecommendationFeedbackRequest {
    *       </p>
    */
   UserIds?: string[];
-
-  /**
-   * <p>
-   *          Used to query the recommendation feedback for a given recommendation.
-   *       </p>
-   */
-  RecommendationIds?: string[];
 }
 
 export namespace ListRecommendationFeedbackRequest {
@@ -1378,17 +1378,17 @@ export namespace ListRecommendationFeedbackRequest {
 export interface RecommendationFeedbackSummary {
   /**
    * <p>
-   *          The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback.
-   *       </p>
-   */
-  RecommendationId?: string;
-
-  /**
-   * <p>
    *          List for storing reactions. Reactions are utf-8 text code for emojis.
    *       </p>
    */
   Reactions?: (Reaction | string)[];
+
+  /**
+   * <p>
+   *          The recommendation ID that can be used to track the provided recommendations. Later on it can be used to collect the feedback.
+   *       </p>
+   */
+  RecommendationId?: string;
 
   /**
    * <p>
@@ -1411,17 +1411,17 @@ export namespace RecommendationFeedbackSummary {
 
 export interface ListRecommendationFeedbackResponse {
   /**
-   * <p> Recommendation feedback summaries corresponding to the code review ARN. </p>
-   */
-  RecommendationFeedbackSummaries?: RecommendationFeedbackSummary[];
-
-  /**
    * <p>
    *          If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page.
    *          Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.
    *       </p>
    */
   NextToken?: string;
+
+  /**
+   * <p> Recommendation feedback summaries corresponding to the code review ARN. </p>
+   */
+  RecommendationFeedbackSummaries?: RecommendationFeedbackSummary[];
 }
 
 export namespace ListRecommendationFeedbackResponse {
@@ -1432,11 +1432,12 @@ export namespace ListRecommendationFeedbackResponse {
 
 export interface ListRecommendationsRequest {
   /**
-   * <p>
-   *          Pagination token.
+   * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
+   *                <code>CodeReview</code>
+   *             </a> object.
    *       </p>
    */
-  NextToken?: string;
+  CodeReviewArn: string | undefined;
 
   /**
    * <p>
@@ -1446,12 +1447,11 @@ export interface ListRecommendationsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html">
-   *                <code>CodeReview</code>
-   *             </a> object.
+   * <p>
+   *          Pagination token.
    *       </p>
    */
-  CodeReviewArn: string | undefined;
+  NextToken?: string;
 }
 
 export namespace ListRecommendationsRequest {
@@ -1466,6 +1466,20 @@ export namespace ListRecommendationsRequest {
  *       </p>
  */
 export interface RecommendationSummary {
+  /**
+   * <p>
+   *          A description of the recommendation generated by CodeGuru Reviewer for the lines of code between the start line and the end line.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *          Last line where the recommendation is applicable in the source commit or source branch. For a single line comment the start line and end line values are the same.
+   *       </p>
+   */
+  EndLine?: number;
+
   /**
    * <p>Name of the file on which a recommendation is provided.</p>
    */
@@ -1484,20 +1498,6 @@ export interface RecommendationSummary {
    *       </p>
    */
   StartLine?: number;
-
-  /**
-   * <p>
-   *          Last line where the recommendation is applicable in the source commit or source branch. For a single line comment the start line and end line values are the same.
-   *       </p>
-   */
-  EndLine?: number;
-
-  /**
-   * <p>
-   *          A description of the recommendation generated by CodeGuru Reviewer for the lines of code between the start line and the end line.
-   *       </p>
-   */
-  Description?: string;
 }
 
 export namespace RecommendationSummary {
@@ -1509,17 +1509,17 @@ export namespace RecommendationSummary {
 export interface ListRecommendationsResponse {
   /**
    * <p>
-   *          List of recommendations for the requested code review.
-   *       </p>
-   */
-  RecommendationSummaries?: RecommendationSummary[];
-
-  /**
-   * <p>
    *          Pagination token.
    *       </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>
+   *          List of recommendations for the requested code review.
+   *       </p>
+   */
+  RecommendationSummaries?: RecommendationSummary[];
 }
 
 export namespace ListRecommendationsResponse {
@@ -1529,6 +1529,44 @@ export namespace ListRecommendationsResponse {
 }
 
 export interface ListRepositoryAssociationsRequest {
+  /**
+   * <p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code>
+   *          in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns
+   *          <code>maxResults</code> results in a single page with a <code>nextToken</code> response
+   *          element. The remaining results of the initial request
+   *          can be seen by sending another <code>ListRepositoryAssociations</code> request with the returned
+   *          <code>nextToken</code> value.
+   *          This value can be between 1 and 100. If this parameter is not used, <code>ListRepositoryAssociations</code>
+   *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>List of repository names to use as a filter.</p>
+   */
+  Names?: string[];
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated
+   *          <code>ListRepositoryAssociations</code> request where <code>maxResults</code> was used and the results
+   *          exceeded the value of that parameter. Pagination continues from the end of the previous results
+   *          that returned the <code>nextToken</code> value.
+   *       </p>
+   *          <note>
+   *             <p>Treat this token as an opaque identifier that is only used to retrieve
+   *          the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>List of owners to use as a filter.
+   *         For AWS CodeCommit, it is the name of the CodeCommit account that was
+   *         used to associate the repository. For other repository source providers, such as Bitbucket and GitHub Enterprise Server, this is name of the account
+   *         that was used to associate the repository. </p>
+   */
+  Owners?: string[];
+
   /**
    * <p>List of provider types to use as a filter.</p>
    */
@@ -1592,44 +1630,6 @@ export interface ListRepositoryAssociationsRequest {
    *          </ul>
    */
   States?: (RepositoryAssociationState | string)[];
-
-  /**
-   * <p>List of repository names to use as a filter.</p>
-   */
-  Names?: string[];
-
-  /**
-   * <p>List of owners to use as a filter.
-   *         For AWS CodeCommit, it is the name of the CodeCommit account that was
-   *         used to associate the repository. For other repository source providers, such as Bitbucket and GitHub Enterprise Server, this is name of the account
-   *         that was used to associate the repository. </p>
-   */
-  Owners?: string[];
-
-  /**
-   * <p>The maximum number of repository association results returned by <code>ListRepositoryAssociations</code>
-   *          in paginated output. When this parameter is used, <code>ListRepositoryAssociations</code> only returns
-   *          <code>maxResults</code> results in a single page with a <code>nextToken</code> response
-   *          element. The remaining results of the initial request
-   *          can be seen by sending another <code>ListRepositoryAssociations</code> request with the returned
-   *          <code>nextToken</code> value.
-   *          This value can be between 1 and 100. If this parameter is not used, <code>ListRepositoryAssociations</code>
-   *          returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The <code>nextToken</code> value returned from a previous paginated
-   *          <code>ListRepositoryAssociations</code> request where <code>maxResults</code> was used and the results
-   *          exceeded the value of that parameter. Pagination continues from the end of the previous results
-   *          that returned the <code>nextToken</code> value.
-   *       </p>
-   *          <note>
-   *             <p>Treat this token as an opaque identifier that is only used to retrieve
-   *          the next items in a list and not for other programmatic purposes.</p>
-   *          </note>
-   */
-  NextToken?: string;
 }
 
 export namespace ListRepositoryAssociationsRequest {
@@ -1662,6 +1662,13 @@ export interface RepositoryAssociationSummary {
 
   /**
    * <p>
+   *          The repository association ID.
+   *       </p>
+   */
+  AssociationId?: string;
+
+  /**
+   * <p>
    *          The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection. Its format is
    *          <code>arn:aws:codestar-connections:region-id:aws-account_id:connection/connection-id</code>. For more information, see
    *          <a href="https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_Connection.html">
@@ -1678,13 +1685,6 @@ export interface RepositoryAssociationSummary {
    *       </p>
    */
   LastUpdatedTimeStamp?: Date;
-
-  /**
-   * <p>
-   *          The repository association ID.
-   *       </p>
-   */
-  AssociationId?: string;
 
   /**
    * <p>The name of the repository association.</p>
@@ -1770,17 +1770,17 @@ export namespace RepositoryAssociationSummary {
 
 export interface ListRepositoryAssociationsResponse {
   /**
-   * <p>A list of repository associations that meet the criteria of the request.</p>
-   */
-  RepositoryAssociationSummaries?: RepositoryAssociationSummary[];
-
-  /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListRecommendations</code> request.
    *          When the results of a <code>ListRecommendations</code> request exceed <code>maxResults</code>, this
    *          value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more
    *          results to return. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of repository associations that meet the criteria of the request.</p>
+   */
+  RepositoryAssociationSummaries?: RepositoryAssociationSummary[];
 }
 
 export namespace ListRepositoryAssociationsResponse {
@@ -1850,17 +1850,17 @@ export interface PutRecommendationFeedbackRequest {
 
   /**
    * <p>
-   *          The recommendation ID that can be used to track the provided recommendations and then to collect the feedback.
-   *       </p>
-   */
-  RecommendationId: string | undefined;
-
-  /**
-   * <p>
    *          List for storing reactions. Reactions are utf-8 text code for emojis. If you send an empty list it clears all your feedback.
    *       </p>
    */
   Reactions: (Reaction | string)[] | undefined;
+
+  /**
+   * <p>
+   *          The recommendation ID that can be used to track the provided recommendations and then to collect the feedback.
+   *       </p>
+   */
+  RecommendationId: string | undefined;
 }
 
 export namespace PutRecommendationFeedbackRequest {

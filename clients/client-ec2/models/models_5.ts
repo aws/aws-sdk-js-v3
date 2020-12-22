@@ -32,6 +32,11 @@ import { CapacityReservationSpecification, InstanceMonitoring } from "./models_4
 
 export interface RestoreManagedPrefixListVersionRequest {
   /**
+   * <p>The current version number for the prefix list.</p>
+   */
+  CurrentVersion: number | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -47,11 +52,6 @@ export interface RestoreManagedPrefixListVersionRequest {
    * <p>The version to restore.</p>
    */
   PreviousVersion: number | undefined;
-
-  /**
-   * <p>The current version number for the prefix list.</p>
-   */
-  CurrentVersion: number | undefined;
 }
 
 export namespace RestoreManagedPrefixListVersionRequest {
@@ -75,19 +75,19 @@ export namespace RestoreManagedPrefixListVersionResult {
 
 export interface RevokeClientVpnIngressRequest {
   /**
+   * <p>The ID of the Active Directory group for which to revoke access. </p>
+   */
+  AccessGroupId?: string;
+
+  /**
    * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
    */
   ClientVpnEndpointId: string | undefined;
 
   /**
-   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  TargetNetworkCidr: string | undefined;
-
-  /**
-   * <p>The ID of the Active Directory group for which to revoke access. </p>
-   */
-  AccessGroupId?: string;
+  DryRun?: boolean;
 
   /**
    * <p>Indicates whether access should be revoked for all clients.</p>
@@ -95,9 +95,9 @@ export interface RevokeClientVpnIngressRequest {
   RevokeAllGroups?: boolean;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
    */
-  DryRun?: boolean;
+  TargetNetworkCidr: string | undefined;
 }
 
 export namespace RevokeClientVpnIngressRequest {
@@ -121,11 +121,21 @@ export namespace RevokeClientVpnIngressResult {
 
 export interface RevokeSecurityGroupEgressRequest {
   /**
+   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
+   */
+  CidrIp?: string;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  FromPort?: number;
 
   /**
    * <p>The ID of the security group.</p>
@@ -138,25 +148,10 @@ export interface RevokeSecurityGroupEgressRequest {
   IpPermissions?: IpPermission[];
 
   /**
-   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
-   */
-  CidrIp?: string;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
-   */
-  FromPort?: number;
-
-  /**
    * <p>Not supported. Use a set of IP permissions to specify the protocol name or
    *             number.</p>
    */
   IpProtocol?: string;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
-   */
-  ToPort?: number;
 
   /**
    * <p>Not supported. Use a set of IP permissions to specify a
@@ -169,6 +164,11 @@ export interface RevokeSecurityGroupEgressRequest {
    *             group.</p>
    */
   SourceSecurityGroupOwnerId?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  ToPort?: number;
 }
 
 export namespace RevokeSecurityGroupEgressRequest {
@@ -202,6 +202,13 @@ export interface RevokeSecurityGroupIngressRequest {
    * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
    */
   CidrIp?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 
   /**
    * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number,
@@ -249,13 +256,6 @@ export interface RevokeSecurityGroupIngressRequest {
    *         use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
    */
   ToPort?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace RevokeSecurityGroupIngressRequest {
@@ -316,18 +316,18 @@ export namespace CpuOptionsRequest {
 export interface ElasticInferenceAccelerator {
   /**
    * <p>
-   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
-   *         </p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>
    *             The number of elastic inference accelerators to attach to the instance.
    *         </p>
    *          <p>Default: 1</p>
    */
   Count?: number;
+
+  /**
+   * <p>
+   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
+   *         </p>
+   */
+  Type: string | undefined;
 }
 
 export namespace ElasticInferenceAccelerator {
@@ -382,19 +382,6 @@ export namespace HibernationOptionsRequest {
  */
 export interface SpotMarketOptions {
   /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is
-   *             the On-Demand price.</p>
-   */
-  MaxPrice?: string;
-
-  /**
-   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot
-   *             Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or
-   *                 <code>stop</code>.</p>
-   */
-  SpotInstanceType?: SpotInstanceType | string;
-
-  /**
    * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
    *             This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
    *         <p>The duration period starts as soon as your Spot Instance receives its instance ID. At
@@ -407,6 +394,25 @@ export interface SpotMarketOptions {
    *             for Spot Instances with a defined duration (also known as Spot blocks).</p>
    */
   BlockDurationMinutes?: number;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is
+   *                 <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+
+  /**
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is
+   *             the On-Demand price.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot
+   *             Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or
+   *                 <code>stop</code>.</p>
+   */
+  SpotInstanceType?: SpotInstanceType | string;
 
   /**
    * <p>The end date of the request, in UTC format
@@ -425,12 +431,6 @@ export interface SpotMarketOptions {
    *          </ul>
    */
   ValidUntil?: Date;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is
-   *                 <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 }
 
 export namespace SpotMarketOptions {
@@ -509,6 +509,24 @@ export namespace LicenseConfigurationRequest {
  */
 export interface InstanceMetadataOptionsRequest {
   /**
+   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
+   *             the parameter is not specified, the default state is <code>enabled</code>.</p>
+   *         <note>
+   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
+   *                 instance metadata.</p>
+   *         </note>
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel.</p>
+   *         <p>Default: 1</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
    * <p>The state of token usage for your instance metadata requests. If the parameter is not
    *             specified in the request, the default state is <code>optional</code>.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
@@ -522,24 +540,6 @@ export interface InstanceMetadataOptionsRequest {
    *             available.</p>
    */
   HttpTokens?: HttpTokensState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel.</p>
-   *         <p>Default: 1</p>
-   *         <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-   *             the parameter is not specified, the default state is <code>enabled</code>.</p>
-   *         <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
-   *                 instance metadata.</p>
-   *         </note>
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
 }
 
 export namespace InstanceMetadataOptionsRequest {
@@ -550,15 +550,138 @@ export namespace InstanceMetadataOptionsRequest {
 
 export interface RunInstancesRequest {
   /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
    * <p>The block device mapping entries.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>Information about the Capacity Reservation targeting option. If you do not specify this parameter, the
+   *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
+   *             it to run in any open Capacity Reservation that has matching attributes (instance type,
+   *             platform, Availability Zone).</p>
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecification;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. If you do not specify a client token, a randomly generated token is used for the
+   *             request to ensure idempotency.</p>
+   *
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 Idempotency</a>.</p>
+   *         <p>Constraints: Maximum 64 ASCII characters</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  CpuOptions?: CpuOptionsRequest;
+
+  /**
+   * <p>The credit option for CPU usage of the burstable performance instance. Valid values
+   *             are <code>standard</code> and <code>unlimited</code>. To change this attribute after
+   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
+   *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *                 performance instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a
+   *             instances)</p>
+   */
+  CreditSpecification?: CreditSpecificationRequest;
+
+  /**
+   * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
+   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch,
+   *             use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+   *             Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+   *                 <code>terminate</code>, you can terminate the instance by running the shutdown
+   *             command from the instance.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  DisableApiTermination?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
+   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+   *             provide optimal Amazon EBS I/O performance. This optimization isn't available with all
+   *             instance types. Additional usage charges apply when using an EBS-optimized
+   *             instance.</p>
+   *         <p>Default: <code>false</code>
+   *         </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
+   *             you can attach to your Windows instance to accelerate the graphics performance of your
+   *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html"> Amazon EC2 Elastic
+   *                 GPUs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ElasticGpuSpecification?: ElasticGpuSpecification[];
+
+  /**
+   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *         <p>You cannot specify accelerators from different generations in the same request.</p>
+   */
+  ElasticInferenceAccelerators?: ElasticInferenceAccelerator[];
+
+  /**
+   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
+   * 				What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
+   * 		       <p>You can't enable AWS Nitro Enclaves and hibernation on the same instance.</p>
+   */
+  EnclaveOptions?: EnclaveOptionsRequest;
+
+  /**
+   * <p>Indicates whether an instance is enabled for hibernation. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	    <p>You can't enable hibernation and AWS Nitro Enclaves on the same instance.</p>
+   */
+  HibernationOptions?: HibernationOptionsRequest;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   */
+  IamInstanceProfile?: IamInstanceProfileSpecification;
 
   /**
    * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be
    *         	specified here or in a launch template.</p>
    */
   ImageId?: string;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   *         <p>Default: <code>stop</code>
+   *         </p>
+   */
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+
+  /**
+   * <p>The market (purchasing) option for the instances.</p>
+   *         <p>For <a>RunInstances</a>, persistent Spot Instance requests are
+   *             only supported when <b>InstanceInterruptionBehavior</b> is set
+   *             to either <code>hibernate</code> or <code>stop</code>.</p>
+   */
+  InstanceMarketOptions?: InstanceMarketOptionsRequest;
 
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
@@ -610,6 +733,18 @@ export interface RunInstancesRequest {
   KeyName?: string;
 
   /**
+   * <p>The launch template to use to launch the instances. Any parameters that you specify in
+   *                 <a>RunInstances</a> override the same parameters in the launch template.
+   *             You can specify either the name or ID of a launch template, but not both.</p>
+   */
+  LaunchTemplate?: LaunchTemplateSpecification;
+
+  /**
+   * <p>The license configurations.</p>
+   */
+  LicenseSpecifications?: LicenseConfigurationRequest[];
+
+  /**
    * <p>The maximum number of instances to launch. If you specify more instances than Amazon
    *             EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible
    *             number of instances above <code>MinCount</code>.</p>
@@ -619,6 +754,11 @@ export interface RunInstancesRequest {
    *                 run in Amazon EC2</a> in the Amazon EC2 FAQ.</p>
    */
   MaxCount: number | undefined;
+
+  /**
+   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>.</p>
+   */
+  MetadataOptions?: InstanceMetadataOptionsRequest;
 
   /**
    * <p>The minimum number of instances to launch. If you specify a minimum that is more
@@ -637,9 +777,27 @@ export interface RunInstancesRequest {
   Monitoring?: RunInstancesMonitoringEnabled;
 
   /**
+   * <p>The network interfaces to associate with the instance. If you specify a network interface,
+   *             you must specify any security groups and subnets as part of the network interface.</p>
+   */
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
+
+  /**
    * <p>The placement for the instance.</p>
    */
   Placement?: Placement;
+
+  /**
+   * <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
+   *             range of the subnet.</p>
+   *         <p>Only one private IP address can be designated as primary. You can't specify this
+   *             option if you've specified the option to designate a private IP address as the primary
+   *             IP address in a network interface specification. You cannot specify this option if
+   *             you're launching more than one instance in the request.</p>
+   *         <p>You cannot specify this option and the network interfaces option in the same
+   *             request.</p>
+   */
+  PrivateIpAddress?: string;
 
   /**
    * <p>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
@@ -677,107 +835,6 @@ export interface RunInstancesRequest {
   SubnetId?: string;
 
   /**
-   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running commands
-   *                 on your Linux instance at launch</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows). If you are using a command line tool,
-   *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
-   *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
-   */
-  UserData?: string;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If you do not specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
-   *
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
-   *         <p>Constraints: Maximum 64 ASCII characters</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>If you set this parameter to <code>true</code>, you can't terminate the instance using
-   *             the Amazon EC2 console, CLI, or API; otherwise, you can. To change this attribute after launch,
-   *             use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
-   *             Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
-   *                 <code>terminate</code>, you can terminate the instance by running the shutdown
-   *             command from the instance.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  DisableApiTermination?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal Amazon EBS I/O performance. This optimization isn't available with all
-   *             instance types. Additional usage charges apply when using an EBS-optimized
-   *             instance.</p>
-   *         <p>Default: <code>false</code>
-   *         </p>
-   */
-  EbsOptimized?: boolean;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   *         <p>Default: <code>stop</code>
-   *         </p>
-   */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
-
-  /**
-   * <p>The network interfaces to associate with the instance. If you specify a network interface,
-   *             you must specify any security groups and subnets as part of the network interface.</p>
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
-
-  /**
-   * <p>[EC2-VPC] The primary IPv4 address. You must specify a value from the IPv4 address
-   *             range of the subnet.</p>
-   *         <p>Only one private IP address can be designated as primary. You can't specify this
-   *             option if you've specified the option to designate a private IP address as the primary
-   *             IP address in a network interface specification. You cannot specify this option if
-   *             you're launching more than one instance in the request.</p>
-   *         <p>You cannot specify this option and the network interfaces option in the same
-   *             request.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>An elastic GPU to associate with the instance. An Elastic GPU is a GPU resource that
-   *             you can attach to your Windows instance to accelerate the graphics performance of your
-   *             applications. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html"> Amazon EC2 Elastic
-   *                 GPUs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  ElasticGpuSpecification?: ElasticGpuSpecification[];
-
-  /**
-   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
-   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
-   *             your Deep Learning (DL) inference workloads.</p>
-   *         <p>You cannot specify accelerators from different generations in the same request.</p>
-   */
-  ElasticInferenceAccelerators?: ElasticInferenceAccelerator[];
-
-  /**
    * <p>The tags to apply to the resources during launch. You can only tag instances and
    *             volumes on launch. The specified tags are applied to all instances or volumes that are
    *             created during launch. To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
@@ -785,69 +842,12 @@ export interface RunInstancesRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>The launch template to use to launch the instances. Any parameters that you specify in
-   *                 <a>RunInstances</a> override the same parameters in the launch template.
-   *             You can specify either the name or ID of a launch template, but not both.</p>
+   * <p>The user data to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running commands
+   *                 on your Linux instance at launch</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding User Data</a> (Windows). If you are using a command line tool,
+   *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
+   *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
    */
-  LaunchTemplate?: LaunchTemplateSpecification;
-
-  /**
-   * <p>The market (purchasing) option for the instances.</p>
-   *         <p>For <a>RunInstances</a>, persistent Spot Instance requests are
-   *             only supported when <b>InstanceInterruptionBehavior</b> is set
-   *             to either <code>hibernate</code> or <code>stop</code>.</p>
-   */
-  InstanceMarketOptions?: InstanceMarketOptionsRequest;
-
-  /**
-   * <p>The credit option for CPU usage of the burstable performance instance. Valid values
-   *             are <code>standard</code> and <code>unlimited</code>. To change this attribute after
-   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
-   *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                 performance instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a
-   *             instances)</p>
-   */
-  CreditSpecification?: CreditSpecificationRequest;
-
-  /**
-   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  CpuOptions?: CpuOptionsRequest;
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option. If you do not specify this parameter, the
-   *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
-   *             it to run in any open Capacity Reservation that has matching attributes (instance type,
-   *             platform, Availability Zone).</p>
-   */
-  CapacityReservationSpecification?: CapacityReservationSpecification;
-
-  /**
-   * <p>Indicates whether an instance is enabled for hibernation. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *     	    <p>You can't enable hibernation and AWS Nitro Enclaves on the same instance.</p>
-   */
-  HibernationOptions?: HibernationOptionsRequest;
-
-  /**
-   * <p>The license configurations.</p>
-   */
-  LicenseSpecifications?: LicenseConfigurationRequest[];
-
-  /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>.</p>
-   */
-  MetadataOptions?: InstanceMetadataOptionsRequest;
-
-  /**
-   * <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
-   * 				What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
-   * 		       <p>You can't enable AWS Nitro Enclaves and hibernation on the same instance.</p>
-   */
-  EnclaveOptions?: EnclaveOptionsRequest;
+  UserData?: string;
 }
 
 export namespace RunInstancesRequest {
@@ -1258,14 +1258,21 @@ export namespace RunScheduledInstancesResult {
 
 export interface SearchLocalGatewayRoutesRequest {
   /**
-   * <p>The ID of the local gateway route table.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  LocalGatewayRouteTableId: string | undefined;
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters.</p>
    */
   Filters: Filter[] | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call.
@@ -1277,13 +1284,6 @@ export interface SearchLocalGatewayRoutesRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace SearchLocalGatewayRoutesRequest {
@@ -1294,14 +1294,14 @@ export namespace SearchLocalGatewayRoutesRequest {
 
 export interface SearchLocalGatewayRoutesResult {
   /**
-   * <p>Information about the routes.</p>
-   */
-  Routes?: LocalGatewayRoute[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the routes.</p>
+   */
+  Routes?: LocalGatewayRoute[];
 }
 
 export namespace SearchLocalGatewayRoutesResult {
@@ -1312,9 +1312,11 @@ export namespace SearchLocalGatewayRoutesResult {
 
 export interface SearchTransitGatewayMulticastGroupsRequest {
   /**
-   * <p>The ID of the transit gateway multicast domain.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  TransitGatewayMulticastDomainId?: string;
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -1375,11 +1377,9 @@ export interface SearchTransitGatewayMulticastGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the transit gateway multicast domain.</p>
    */
-  DryRun?: boolean;
+  TransitGatewayMulticastDomainId?: string;
 }
 
 export namespace SearchTransitGatewayMulticastGroupsRequest {
@@ -1400,36 +1400,6 @@ export interface TransitGatewayMulticastGroup {
   GroupIpAddress?: string;
 
   /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The type of resource, for example a VPC attachment.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p> The ID of the AWS account that owns the transit gateway multicast domain group resource.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
    * <p>Indicates that the resource is a  transit gateway multicast group member.</p>
    */
   GroupMember?: boolean;
@@ -1445,9 +1415,39 @@ export interface TransitGatewayMulticastGroup {
   MemberType?: MembershipType | string;
 
   /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p> The ID of the AWS account that owns the transit gateway multicast domain group resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The type of resource, for example a VPC attachment.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
    * <p>The source type.</p>
    */
   SourceType?: MembershipType | string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
 }
 
 export namespace TransitGatewayMulticastGroup {
@@ -1476,9 +1476,11 @@ export namespace SearchTransitGatewayMulticastGroupsResult {
 
 export interface SearchTransitGatewayRoutesRequest {
   /**
-   * <p>The ID of the transit gateway route table.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  TransitGatewayRouteTableId: string | undefined;
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -1536,11 +1538,9 @@ export interface SearchTransitGatewayRoutesRequest {
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the transit gateway route table.</p>
    */
-  DryRun?: boolean;
+  TransitGatewayRouteTableId: string | undefined;
 }
 
 export namespace SearchTransitGatewayRoutesRequest {
@@ -1551,14 +1551,14 @@ export namespace SearchTransitGatewayRoutesRequest {
 
 export interface SearchTransitGatewayRoutesResult {
   /**
-   * <p>Information about the routes.</p>
-   */
-  Routes?: TransitGatewayRoute[];
-
-  /**
    * <p>Indicates whether there are additional routes available.</p>
    */
   AdditionalRoutesAvailable?: boolean;
+
+  /**
+   * <p>Information about the routes.</p>
+   */
+  Routes?: TransitGatewayRoute[];
 }
 
 export namespace SearchTransitGatewayRoutesResult {
@@ -1569,16 +1569,16 @@ export namespace SearchTransitGatewayRoutesResult {
 
 export interface SendDiagnosticInterruptRequest {
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
 }
 
 export namespace SendDiagnosticInterruptRequest {
@@ -1588,11 +1588,6 @@ export namespace SendDiagnosticInterruptRequest {
 }
 
 export interface StartInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
   /**
    * <p>Reserved.</p>
    */
@@ -1604,6 +1599,11 @@ export interface StartInstancesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
 }
 
 export namespace StartInstancesRequest {
@@ -1653,14 +1653,10 @@ export namespace StartInstancesResult {
 
 export interface StartNetworkInsightsAnalysisRequest {
   /**
-   * <p>The ID of the path.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
    */
-  NetworkInsightsPathId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
-   */
-  FilterInArns?: string[];
+  ClientToken?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -1670,15 +1666,19 @@ export interface StartNetworkInsightsAnalysisRequest {
   DryRun?: boolean;
 
   /**
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
+   */
+  FilterInArns?: string[];
+
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+
+  /**
    * <p>The tags to apply.</p>
    */
   TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
-   */
-  ClientToken?: string;
 }
 
 export namespace StartNetworkInsightsAnalysisRequest {
@@ -1735,21 +1735,6 @@ export namespace StartVpcEndpointServicePrivateDnsVerificationResult {
 
 export interface StopInstancesRequest {
   /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
-   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *         <p> Default: <code>false</code>
-   *          </p>
-   */
-  Hibernate?: boolean;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -1765,6 +1750,21 @@ export interface StopInstancesRequest {
    *         </p>
    */
   Force?: boolean;
+
+  /**
+   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
+   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p> Default: <code>false</code>
+   *          </p>
+   */
+  Hibernate?: boolean;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
 }
 
 export namespace StopInstancesRequest {
@@ -1798,15 +1798,15 @@ export interface TerminateClientVpnConnectionsRequest {
   ConnectionId?: string;
 
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The name of the user who initiated the connection. Use this option to terminate all active connections for
    * 			the specified user. This option can only be used if the user has established up to five connections.</p>
    */
   Username?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace TerminateClientVpnConnectionsRequest {
@@ -1825,14 +1825,14 @@ export interface TerminateConnectionStatus {
   ConnectionId?: string;
 
   /**
-   * <p>The state of the client connection.</p>
-   */
-  PreviousStatus?: ClientVpnConnectionStatus;
-
-  /**
    * <p>A message about the status of the client connection, if applicable.</p>
    */
   CurrentStatus?: ClientVpnConnectionStatus;
+
+  /**
+   * <p>The state of the client connection.</p>
+   */
+  PreviousStatus?: ClientVpnConnectionStatus;
 }
 
 export namespace TerminateConnectionStatus {
@@ -1848,14 +1848,14 @@ export interface TerminateClientVpnConnectionsResult {
   ClientVpnEndpointId?: string;
 
   /**
-   * <p>The user who established the terminated client connections.</p>
-   */
-  Username?: string;
-
-  /**
    * <p>The current state of the client connections.</p>
    */
   ConnectionStatuses?: TerminateConnectionStatus[];
+
+  /**
+   * <p>The user who established the terminated client connections.</p>
+   */
+  Username?: string;
 }
 
 export namespace TerminateClientVpnConnectionsResult {
@@ -1866,18 +1866,18 @@ export namespace TerminateClientVpnConnectionsResult {
 
 export interface TerminateInstancesRequest {
   /**
-   * <p>The IDs of the instances.</p>
-   *         <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
-   *             smaller batches.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   *         <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
+   *             smaller batches.</p>
+   */
+  InstanceIds: string[] | undefined;
 }
 
 export namespace TerminateInstancesRequest {
@@ -1958,16 +1958,16 @@ export namespace UnassignPrivateIpAddressesRequest {
 
 export interface UnmonitorInstancesRequest {
   /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
 }
 
 export namespace UnmonitorInstancesRequest {

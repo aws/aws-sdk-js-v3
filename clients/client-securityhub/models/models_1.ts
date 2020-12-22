@@ -45,15 +45,15 @@ export namespace GetInsightResultsRequest {
  */
 export interface InsightResultValue {
   /**
+   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
+   */
+  Count: number | undefined;
+
+  /**
    * <p>The value of the attribute that the findings are grouped by for the insight whose
    *          results are returned by the <code>GetInsightResults</code> operation.</p>
    */
   GroupByAttributeValue: string | undefined;
-
-  /**
-   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
-   */
-  Count: number | undefined;
 }
 
 export namespace InsightResultValue {
@@ -67,16 +67,16 @@ export namespace InsightResultValue {
  */
 export interface InsightResults {
   /**
-   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
-   *          operation.</p>
-   */
-  InsightArn: string | undefined;
-
-  /**
    * <p>The attribute that the findings are grouped by for the insight whose results are
    *          returned by the <code>GetInsightResults</code> operation.</p>
    */
   GroupByAttribute: string | undefined;
+
+  /**
+   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
+   *          operation.</p>
+   */
+  InsightArn: string | undefined;
 
   /**
    * <p>The list of insight result values returned by the <code>GetInsightResults</code>
@@ -113,6 +113,11 @@ export interface GetInsightsRequest {
   InsightArns?: string[];
 
   /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>GetInsights</code> operation, set the value of this parameter to
    *          <code>NULL</code>.</p>
@@ -120,11 +125,6 @@ export interface GetInsightsRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace GetInsightsRequest {
@@ -138,16 +138,6 @@ export namespace GetInsightsRequest {
  */
 export interface Insight {
   /**
-   * <p>The ARN of a Security Hub insight.</p>
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The name of a Security Hub insight.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>One or more attributes used to filter the findings included in the insight. The insight
    *          only includes findings that match the criteria defined in the filters.</p>
    */
@@ -160,6 +150,16 @@ export interface Insight {
    *          identifiers.</p>
    */
   GroupByAttribute: string | undefined;
+
+  /**
+   * <p>The ARN of a Security Hub insight.</p>
+   */
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The name of a Security Hub insight.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace Insight {
@@ -289,6 +289,12 @@ export interface Member {
   Email?: string;
 
   /**
+   * <p>A timestamp for the date and time when the invitation was sent to the member
+   *          account.</p>
+   */
+  InvitedAt?: Date;
+
+  /**
    * <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
    */
   MasterId?: string;
@@ -332,12 +338,6 @@ export interface Member {
    *          </ul>
    */
   MemberStatus?: string;
-
-  /**
-   * <p>A timestamp for the date and time when the invitation was sent to the member
-   *          account.</p>
-   */
-  InvitedAt?: Date;
 
   /**
    * <p>The timestamp for the date and time when the member account was updated.</p>
@@ -399,6 +399,11 @@ export namespace InviteMembersResponse {
 
 export interface ListEnabledProductsForImportRequest {
   /**
+   * <p>The maximum number of items to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token that is required for pagination. On your first call to the
    *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
    *             <code>NULL</code>.</p>
@@ -406,11 +411,6 @@ export interface ListEnabledProductsForImportRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListEnabledProductsForImportRequest {
@@ -421,14 +421,14 @@ export namespace ListEnabledProductsForImportRequest {
 
 export interface ListEnabledProductsForImportResponse {
   /**
-   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
-   */
-  ProductSubscriptions?: string[];
-
-  /**
    * <p>The pagination token to use to request the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
+   */
+  ProductSubscriptions?: string[];
 }
 
 export namespace ListEnabledProductsForImportResponse {
@@ -479,16 +479,6 @@ export namespace ListInvitationsResponse {
 
 export interface ListMembersRequest {
   /**
-   * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the master account. The default value is <code>TRUE</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the master is set to <code>ENABLED</code>.</p>
-   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
-   *          existing member accounts. </p>
-   */
-  OnlyAssociated?: boolean;
-
-  /**
    * <p>The maximum number of items to return in the response. </p>
    */
   MaxResults?: number;
@@ -501,6 +491,16 @@ export interface ListMembersRequest {
    *          parameter to the value returned from the previous response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Specifies which member accounts to include in the response based on their relationship
+   *          status with the master account. The default value is <code>TRUE</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
+   *          accounts whose relationship status with the master is set to <code>ENABLED</code>.</p>
+   *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
+   *          existing member accounts. </p>
+   */
+  OnlyAssociated?: boolean;
 }
 
 export namespace ListMembersRequest {
@@ -651,14 +651,14 @@ export interface UpdateActionTargetRequest {
   ActionTargetArn: string | undefined;
 
   /**
-   * <p>The updated name of the custom action target.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The updated description for the custom action target.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The updated name of the custom action target.</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateActionTargetRequest {
@@ -708,16 +708,6 @@ export namespace UpdateFindingsResponse {
 
 export interface UpdateInsightRequest {
   /**
-   * <p>The ARN of the insight that you want to update.</p>
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The updated name for the insight.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The updated filters that define this insight.</p>
    */
   Filters?: AwsSecurityFindingFilters;
@@ -726,6 +716,16 @@ export interface UpdateInsightRequest {
    * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
    */
   GroupByAttribute?: string;
+
+  /**
+   * <p>The ARN of the insight that you want to update.</p>
+   */
+  InsightArn: string | undefined;
+
+  /**
+   * <p>The updated name for the insight.</p>
+   */
+  Name?: string;
 }
 
 export namespace UpdateInsightRequest {
@@ -793,11 +793,6 @@ export namespace UpdateSecurityHubConfigurationResponse {
 
 export interface UpdateStandardsControlRequest {
   /**
-   * <p>The ARN of the security standard control to enable or disable.</p>
-   */
-  StandardsControlArn: string | undefined;
-
-  /**
    * <p>The updated status of the security standard control.</p>
    */
   ControlStatus?: ControlStatus | string;
@@ -807,6 +802,11 @@ export interface UpdateStandardsControlRequest {
    *          are disabling a control, then this is required.</p>
    */
   DisabledReason?: string;
+
+  /**
+   * <p>The ARN of the security standard control to enable or disable.</p>
+   */
+  StandardsControlArn: string | undefined;
 }
 
 export namespace UpdateStandardsControlRequest {

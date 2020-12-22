@@ -66,6 +66,19 @@ export enum StartSelectorType {
  */
 export interface StartSelector {
   /**
+   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
+   *       start returning the fragments. </p>
+   */
+  AfterFragmentNumber?: string;
+
+  /**
+   * <p>Continuation token that Kinesis Video Streams returned in the previous
+   *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
+   *       identified by the continuation token.</p>
+   */
+  ContinuationToken?: string;
+
+  /**
    * <p>Identifies the fragment on the Kinesis video stream where you want to start getting the
    *       data from.</p>
    *          <ul>
@@ -97,24 +110,11 @@ export interface StartSelector {
   StartSelectorType: StartSelectorType | string | undefined;
 
   /**
-   * <p>Specifies the fragment number from where you want the <code>GetMedia</code> API to
-   *       start returning the fragments. </p>
-   */
-  AfterFragmentNumber?: string;
-
-  /**
    * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
    *       SERVER_TIMESTAMP as the <code>startSelectorType</code>. The <code>GetMedia</code> API then
    *       starts with the chunk containing the fragment that has the specified timestamp.</p>
    */
   StartTimestamp?: Date;
-
-  /**
-   * <p>Continuation token that Kinesis Video Streams returned in the previous
-   *         <code>GetMedia</code> response. The <code>GetMedia</code> API then starts with the chunk
-   *       identified by the continuation token.</p>
-   */
-  ContinuationToken?: string;
 }
 
 export namespace StartSelector {
@@ -125,11 +125,9 @@ export namespace StartSelector {
 
 export interface GetMediaInput {
   /**
-   * <p>The Kinesis video stream name from where you want to get the media content. If you
-   *       don't specify the <code>streamName</code>, you must specify the
-   *       <code>streamARN</code>.</p>
+   * <p>Identifies the starting chunk to get from the specified stream. </p>
    */
-  StreamName?: string;
+  StartSelector: StartSelector | undefined;
 
   /**
    * <p>The ARN of the stream from where you want to get the media content. If you don't
@@ -138,9 +136,11 @@ export interface GetMediaInput {
   StreamARN?: string;
 
   /**
-   * <p>Identifies the starting chunk to get from the specified stream. </p>
+   * <p>The Kinesis video stream name from where you want to get the media content. If you
+   *       don't specify the <code>streamName</code>, you must specify the
+   *       <code>streamARN</code>.</p>
    */
-  StartSelector: StartSelector | undefined;
+  StreamName?: string;
 }
 
 export namespace GetMediaInput {

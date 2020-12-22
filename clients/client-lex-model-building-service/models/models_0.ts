@@ -36,12 +36,6 @@ export namespace ConflictException {
 
 export interface CreateBotVersionRequest {
   /**
-   * <p>The name of the bot that you want to create a new version of. The
-   *       name is case sensitive. </p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>Identifies a specific revision of the <code>$LATEST</code> version
    *       of the bot. If you specify a checksum and the <code>$LATEST</code> version
    *       of the bot has a different checksum, a
@@ -50,6 +44,12 @@ export interface CreateBotVersionRequest {
    *       publishes the <code>$LATEST</code> version.</p>
    */
   checksum?: string;
+
+  /**
+   * <p>The name of the bot that you want to create a new version of. The
+   *       name is case sensitive. </p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateBotVersionRequest {
@@ -70,14 +70,14 @@ export enum ContentType {
  */
 export interface Message {
   /**
-   * <p>The content type of the message string.</p>
-   */
-  contentType: ContentType | string | undefined;
-
-  /**
    * <p>The text of the message.</p>
    */
   content: string | undefined;
+
+  /**
+   * <p>The content type of the message string.</p>
+   */
+  contentType: ContentType | string | undefined;
 
   /**
    * <p>Identifies the message group that the message belongs to. When a group
@@ -125,16 +125,16 @@ export namespace Statement {
  */
 export interface Prompt {
   /**
+   * <p>The number of times to prompt the user for information.</p>
+   */
+  maxAttempts: number | undefined;
+
+  /**
    * <p>An array of objects, each of which provides a message string and
    *       its type. You can specify the message string in plain text or in Speech
    *       Synthesis Markup Language (SSML).</p>
    */
   messages: Message[] | undefined;
-
-  /**
-   * <p>The number of times to prompt the user for information.</p>
-   */
-  maxAttempts: number | undefined;
 
   /**
    * <p>A response card. Amazon Lex uses this prompt at runtime, in the
@@ -195,87 +195,16 @@ export enum Status {
 
 export interface CreateBotVersionResponse {
   /**
-   * <p>The name of the bot.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the bot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An array of <code>Intent</code> objects. For more information, see
-   *         <a>PutBot</a>.</p>
-   */
-  intents?: Intent[];
-
-  /**
-   * <p>The message that Amazon Lex uses when it doesn't understand the user's
-   *       request. For more information, see <a>PutBot</a>. </p>
-   */
-  clarificationPrompt?: Prompt;
-
-  /**
    * <p>The message that Amazon Lex uses to cancel a conversation. For more
    *       information, see <a>PutBot</a>.</p>
    */
   abortStatement?: Statement;
 
   /**
-   * <p> When you send a request to create or update a bot, Amazon Lex sets the
-   *         <code>status</code> response element to <code>BUILDING</code>. After
-   *       Amazon Lex builds the bot, it sets <code>status</code> to <code>READY</code>.
-   *       If Amazon Lex can't build the bot, it sets <code>status</code> to
-   *         <code>FAILED</code>. Amazon Lex returns the reason for the failure in the
-   *         <code>failureReason</code> response element. </p>
-   */
-  status?: Status | string;
-
-  /**
-   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
-   *       reason that it failed to build the bot.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The date when the <code>$LATEST</code> version of this bot was
-   *       updated. </p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>The date when the bot version was created.</p>
-   */
-  createdDate?: Date;
-
-  /**
-   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
-   *       a conversation. For more information, see <a>PutBot</a>.</p>
-   */
-  idleSessionTTLInSeconds?: number;
-
-  /**
-   * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interactions
-   *       with the user.</p>
-   */
-  voiceId?: string;
-
-  /**
    * <p>Checksum identifying the version of the bot that was
    *       created.</p>
    */
   checksum?: string;
-
-  /**
-   * <p>The version of the bot. </p>
-   */
-  version?: string;
-
-  /**
-   * <p> Specifies the target locale for the bot. </p>
-   */
-  locale?: Locale | string;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -308,6 +237,28 @@ export interface CreateBotVersionResponse {
   childDirected?: boolean;
 
   /**
+   * <p>The message that Amazon Lex uses when it doesn't understand the user's
+   *       request. For more information, see <a>PutBot</a>. </p>
+   */
+  clarificationPrompt?: Prompt;
+
+  /**
+   * <p>The date when the bot version was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>A description of the bot.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates whether utterances entered by the user should be sent to
+   *       Amazon Comprehend for sentiment analysis.</p>
+   */
+  detectSentiment?: boolean;
+
+  /**
    * <p>Indicates whether the bot uses accuracy improvements.
    *         <code>true</code> indicates that the bot is using the improvements,
    *       otherwise, <code>false</code>.</p>
@@ -315,10 +266,59 @@ export interface CreateBotVersionResponse {
   enableModelImprovements?: boolean;
 
   /**
-   * <p>Indicates whether utterances entered by the user should be sent to
-   *       Amazon Comprehend for sentiment analysis.</p>
+   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
+   *       reason that it failed to build the bot.</p>
    */
-  detectSentiment?: boolean;
+  failureReason?: string;
+
+  /**
+   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
+   *       a conversation. For more information, see <a>PutBot</a>.</p>
+   */
+  idleSessionTTLInSeconds?: number;
+
+  /**
+   * <p>An array of <code>Intent</code> objects. For more information, see
+   *         <a>PutBot</a>.</p>
+   */
+  intents?: Intent[];
+
+  /**
+   * <p>The date when the <code>$LATEST</code> version of this bot was
+   *       updated. </p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p> Specifies the target locale for the bot. </p>
+   */
+  locale?: Locale | string;
+
+  /**
+   * <p>The name of the bot.</p>
+   */
+  name?: string;
+
+  /**
+   * <p> When you send a request to create or update a bot, Amazon Lex sets the
+   *         <code>status</code> response element to <code>BUILDING</code>. After
+   *       Amazon Lex builds the bot, it sets <code>status</code> to <code>READY</code>.
+   *       If Amazon Lex can't build the bot, it sets <code>status</code> to
+   *         <code>FAILED</code>. Amazon Lex returns the reason for the failure in the
+   *         <code>failureReason</code> response element. </p>
+   */
+  status?: Status | string;
+
+  /**
+   * <p>The version of the bot. </p>
+   */
+  version?: string;
+
+  /**
+   * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interactions
+   *       with the user.</p>
+   */
+  voiceId?: string;
 }
 
 export namespace CreateBotVersionResponse {
@@ -348,8 +348,8 @@ export namespace InternalFailureException {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  retryAfterSeconds?: string;
   message?: string;
+  retryAfterSeconds?: string;
 }
 
 export namespace LimitExceededException {
@@ -393,12 +393,6 @@ export namespace PreconditionFailedException {
 
 export interface CreateIntentVersionRequest {
   /**
-   * <p>The name of the intent that you want to create a new version of.
-   *       The name is case sensitive. </p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>Checksum of the <code>$LATEST</code> version of the intent that
    *       should be used to create the new version. If you specify a checksum and
    *       the <code>$LATEST</code> version of the intent has a different checksum,
@@ -407,6 +401,12 @@ export interface CreateIntentVersionRequest {
    *       publishes the <code>$LATEST</code> version.</p>
    */
   checksum?: string;
+
+  /**
+   * <p>The name of the intent that you want to create a new version of.
+   *       The name is case sensitive. </p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateIntentVersionRequest {
@@ -421,15 +421,15 @@ export namespace CreateIntentVersionRequest {
  */
 export interface CodeHook {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
-   */
-  uri: string | undefined;
-
-  /**
    * <p>The version of the request-response that you want Amazon Lex to use to
    *       invoke your Lambda function. For more information, see <a>using-lambda</a>.</p>
    */
   messageVersion: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
+   */
+  uri: string | undefined;
 }
 
 export namespace CodeHook {
@@ -497,17 +497,17 @@ export enum FulfillmentActivityType {
  */
 export interface FulfillmentActivity {
   /**
+   * <p> A description of the Lambda function that is run to fulfill the
+   *       intent. </p>
+   */
+  codeHook?: CodeHook;
+
+  /**
    * <p> How the intent should be fulfilled, either by running a Lambda
    *       function or by returning the slot data to the client application.
    *     </p>
    */
   type: FulfillmentActivityType | string | undefined;
-
-  /**
-   * <p> A description of the Lambda function that is run to fulfill the
-   *       intent. </p>
-   */
-  codeHook?: CodeHook;
 }
 
 export namespace FulfillmentActivity {
@@ -678,14 +678,55 @@ export enum SlotConstraint {
  */
 export interface Slot {
   /**
-   * <p>The name of the slot.</p>
+   * <p>A list of default values for the slot. Default values are used when
+   *       Amazon Lex hasn't determined a value for a slot. You can specify default values
+   *       from context variables, session attributes, and defined values.</p>
    */
-  name: string | undefined;
+  defaultValueSpec?: SlotDefaultValueSpec;
 
   /**
    * <p>A description of the slot.</p>
    */
   description?: string;
+
+  /**
+   * <p>The name of the slot.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Determines whether a slot is obfuscated in conversation logs and
+   *       stored utterances. When you obfuscate a slot, the value is replaced by the
+   *       slot name in curly braces ({}). For example, if the slot name is
+   *       "full_name", obfuscated values are replaced with "{full_name}". For more
+   *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html"> Slot Obfuscation </a>.
+   *     </p>
+   */
+  obfuscationSetting?: ObfuscationSetting | string;
+
+  /**
+   * <p> Directs Amazon Lex the order in which to elicit this slot value from
+   *       the user. For example, if the intent has two slots with priorities 1 and
+   *       2, AWS Amazon Lex first elicits a value for the slot with priority 1.</p>
+   *          <p>If multiple slots share the same priority, the order in which Amazon Lex
+   *       elicits values is arbitrary.</p>
+   */
+  priority?: number;
+
+  /**
+   * <p> A set of possible responses for the slot type used by text-based
+   *       clients. A user chooses an option from the response card, instead of using
+   *       text to reply. </p>
+   */
+  responseCard?: string;
+
+  /**
+   * <p> If you know a specific pattern with which users might respond to
+   *       an Amazon Lex request for a slot value, you can provide those utterances to
+   *       improve accuracy. This is optional. In most cases, Amazon Lex is capable of
+   *       understanding user utterances. </p>
+   */
+  sampleUtterances?: string[];
 
   /**
    * <p>Specifies whether the slot is required or optional. </p>
@@ -708,47 +749,6 @@ export interface Slot {
    *       user.</p>
    */
   valueElicitationPrompt?: Prompt;
-
-  /**
-   * <p> Directs Amazon Lex the order in which to elicit this slot value from
-   *       the user. For example, if the intent has two slots with priorities 1 and
-   *       2, AWS Amazon Lex first elicits a value for the slot with priority 1.</p>
-   *          <p>If multiple slots share the same priority, the order in which Amazon Lex
-   *       elicits values is arbitrary.</p>
-   */
-  priority?: number;
-
-  /**
-   * <p> If you know a specific pattern with which users might respond to
-   *       an Amazon Lex request for a slot value, you can provide those utterances to
-   *       improve accuracy. This is optional. In most cases, Amazon Lex is capable of
-   *       understanding user utterances. </p>
-   */
-  sampleUtterances?: string[];
-
-  /**
-   * <p> A set of possible responses for the slot type used by text-based
-   *       clients. A user chooses an option from the response card, instead of using
-   *       text to reply. </p>
-   */
-  responseCard?: string;
-
-  /**
-   * <p>Determines whether a slot is obfuscated in conversation logs and
-   *       stored utterances. When you obfuscate a slot, the value is replaced by the
-   *       slot name in curly braces ({}). For example, if the slot name is
-   *       "full_name", obfuscated values are replaced with "{full_name}". For more
-   *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html"> Slot Obfuscation </a>.
-   *     </p>
-   */
-  obfuscationSetting?: ObfuscationSetting | string;
-
-  /**
-   * <p>A list of default values for the slot. Default values are used when
-   *       Amazon Lex hasn't determined a value for a slot. You can specify default values
-   *       from context variables, session attributes, and defined values.</p>
-   */
-  defaultValueSpec?: SlotDefaultValueSpec;
 }
 
 export namespace Slot {
@@ -759,44 +759,9 @@ export namespace Slot {
 
 export interface CreateIntentVersionResponse {
   /**
-   * <p>The name of the intent.</p>
+   * <p>Checksum of the intent version created.</p>
    */
-  name?: string;
-
-  /**
-   * <p>A description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An array of slot types that defines the information required to
-   *       fulfill the intent.</p>
-   */
-  slots?: Slot[];
-
-  /**
-   * <p>An array of sample utterances configured for the intent. </p>
-   */
-  sampleUtterances?: string[];
-
-  /**
-   * <p>If defined, the prompt that Amazon Lex uses to confirm the user's
-   *       intent before fulfilling it. </p>
-   */
-  confirmationPrompt?: Prompt;
-
-  /**
-   * <p>If the user answers "no" to the question defined in
-   *         <code>confirmationPrompt</code>, Amazon Lex responds with this statement to
-   *       acknowledge that the intent was canceled. </p>
-   */
-  rejectionStatement?: Statement;
-
-  /**
-   * <p>If defined, Amazon Lex uses this prompt to solicit additional user
-   *       activity after the intent is fulfilled. </p>
-   */
-  followUpPrompt?: FollowUpPrompt;
+  checksum?: string;
 
   /**
    * <p>After the Lambda function specified in the
@@ -806,25 +771,10 @@ export interface CreateIntentVersionResponse {
   conclusionStatement?: Statement;
 
   /**
-   * <p>If defined, Amazon Lex invokes this Lambda function for each user
-   *       input.</p>
+   * <p>If defined, the prompt that Amazon Lex uses to confirm the user's
+   *       intent before fulfilling it. </p>
    */
-  dialogCodeHook?: CodeHook;
-
-  /**
-   * <p> Describes how the intent is fulfilled. </p>
-   */
-  fulfillmentActivity?: FulfillmentActivity;
-
-  /**
-   * <p>A unique identifier for a built-in intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The date that the intent was updated. </p>
-   */
-  lastUpdatedDate?: Date;
+  confirmationPrompt?: Prompt;
 
   /**
    * <p>The date that the intent was created.</p>
@@ -832,21 +782,26 @@ export interface CreateIntentVersionResponse {
   createdDate?: Date;
 
   /**
-   * <p>The version number assigned to the new version of the
-   *       intent.</p>
+   * <p>A description of the intent.</p>
    */
-  version?: string;
+  description?: string;
 
   /**
-   * <p>Checksum of the intent version created.</p>
+   * <p>If defined, Amazon Lex invokes this Lambda function for each user
+   *       input.</p>
    */
-  checksum?: string;
+  dialogCodeHook?: CodeHook;
 
   /**
-   * <p>Configuration information, if any, for connecting an Amazon Kendra
-   *       index with the <code>AMAZON.KendraSearchIntent</code> intent.</p>
+   * <p>If defined, Amazon Lex uses this prompt to solicit additional user
+   *       activity after the intent is fulfilled. </p>
    */
-  kendraConfiguration?: KendraConfiguration;
+  followUpPrompt?: FollowUpPrompt;
+
+  /**
+   * <p> Describes how the intent is fulfilled. </p>
+   */
+  fulfillmentActivity?: FulfillmentActivity;
 
   /**
    * <p>An array of <code>InputContext</code> objects that lists the contexts
@@ -856,10 +811,55 @@ export interface CreateIntentVersionResponse {
   inputContexts?: InputContext[];
 
   /**
+   * <p>Configuration information, if any, for connecting an Amazon Kendra
+   *       index with the <code>AMAZON.KendraSearchIntent</code> intent.</p>
+   */
+  kendraConfiguration?: KendraConfiguration;
+
+  /**
+   * <p>The date that the intent was updated. </p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The name of the intent.</p>
+   */
+  name?: string;
+
+  /**
    * <p>An array of <code>OutputContext</code> objects that lists the contexts
    *       that the intent activates when the intent is fulfilled.</p>
    */
   outputContexts?: OutputContext[];
+
+  /**
+   * <p>A unique identifier for a built-in intent.</p>
+   */
+  parentIntentSignature?: string;
+
+  /**
+   * <p>If the user answers "no" to the question defined in
+   *         <code>confirmationPrompt</code>, Amazon Lex responds with this statement to
+   *       acknowledge that the intent was canceled. </p>
+   */
+  rejectionStatement?: Statement;
+
+  /**
+   * <p>An array of sample utterances configured for the intent. </p>
+   */
+  sampleUtterances?: string[];
+
+  /**
+   * <p>An array of slot types that defines the information required to
+   *       fulfill the intent.</p>
+   */
+  slots?: Slot[];
+
+  /**
+   * <p>The version number assigned to the new version of the
+   *       intent.</p>
+   */
+  version?: string;
 }
 
 export namespace CreateIntentVersionResponse {
@@ -870,12 +870,6 @@ export namespace CreateIntentVersionResponse {
 
 export interface CreateSlotTypeVersionRequest {
   /**
-   * <p>The name of the slot type that you want to create a new version
-   *       for. The name is case sensitive. </p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>Checksum for the <code>$LATEST</code> version of the slot type that
    *       you want to publish. If you specify a checksum and the
    *         <code>$LATEST</code> version of the slot type has a different checksum,
@@ -884,6 +878,12 @@ export interface CreateSlotTypeVersionRequest {
    *       publishes the <code>$LATEST</code> version.</p>
    */
   checksum?: string;
+
+  /**
+   * <p>The name of the slot type that you want to create a new version
+   *       for. The name is case sensitive. </p>
+   */
+  name: string | undefined;
 }
 
 export namespace CreateSlotTypeVersionRequest {
@@ -912,14 +912,14 @@ export namespace CreateSlotTypeVersionRequest {
  */
 export interface EnumerationValue {
   /**
-   * <p>The value of the slot type.</p>
-   */
-  value: string | undefined;
-
-  /**
    * <p>Additional values related to the slot type value.</p>
    */
   synonyms?: string[];
+
+  /**
+   * <p>The value of the slot type.</p>
+   */
+  value: string | undefined;
 }
 
 export namespace EnumerationValue {
@@ -992,9 +992,15 @@ export enum SlotValueSelectionStrategy {
 
 export interface CreateSlotTypeVersionResponse {
   /**
-   * <p>The name of the slot type.</p>
+   * <p>Checksum of the <code>$LATEST</code> version of the slot
+   *       type.</p>
    */
-  name?: string;
+  checksum?: string;
+
+  /**
+   * <p>The date that the slot type was created.</p>
+   */
+  createdDate?: Date;
 
   /**
    * <p>A description of the slot type.</p>
@@ -1014,26 +1020,9 @@ export interface CreateSlotTypeVersionResponse {
   lastUpdatedDate?: Date;
 
   /**
-   * <p>The date that the slot type was created.</p>
+   * <p>The name of the slot type.</p>
    */
-  createdDate?: Date;
-
-  /**
-   * <p>The version assigned to the new slot type version. </p>
-   */
-  version?: string;
-
-  /**
-   * <p>Checksum of the <code>$LATEST</code> version of the slot
-   *       type.</p>
-   */
-  checksum?: string;
-
-  /**
-   * <p>The strategy that Amazon Lex uses to determine the value of the slot.
-   *       For more information, see <a>PutSlotType</a>.</p>
-   */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  name?: string;
 
   /**
    * <p>The built-in slot type used a the parent of the slot type.</p>
@@ -1045,6 +1034,17 @@ export interface CreateSlotTypeVersionResponse {
    *       type.</p>
    */
   slotTypeConfigurations?: SlotTypeConfiguration[];
+
+  /**
+   * <p>The strategy that Amazon Lex uses to determine the value of the slot.
+   *       For more information, see <a>PutSlotType</a>.</p>
+   */
+  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+
+  /**
+   * <p>The version assigned to the new slot type version. </p>
+   */
+  version?: string;
 }
 
 export namespace CreateSlotTypeVersionResponse {
@@ -1119,13 +1119,14 @@ export enum ReferenceType {
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
-  referenceType?: ReferenceType | string;
   /**
    * <p>Describes the resource that refers to the resource that you are
    *       attempting to delete. This object is returned as part of the
    *         <code>ResourceInUseException</code> exception. </p>
    */
   exampleReference?: ResourceReference;
+
+  referenceType?: ReferenceType | string;
 }
 
 export namespace ResourceInUseException {
@@ -1136,15 +1137,15 @@ export namespace ResourceInUseException {
 
 export interface DeleteBotAliasRequest {
   /**
+   * <p>The name of the bot that the alias points to.</p>
+   */
+  botName: string | undefined;
+
+  /**
    * <p>The name of the alias to delete. The name is case sensitive.
    *     </p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The name of the bot that the alias points to.</p>
-   */
-  botName: string | undefined;
 }
 
 export namespace DeleteBotAliasRequest {
@@ -1155,9 +1156,10 @@ export namespace DeleteBotAliasRequest {
 
 export interface DeleteBotChannelAssociationRequest {
   /**
-   * <p>The name of the association. The name is case sensitive. </p>
+   * <p>An alias that points to the specific version of the Amazon Lex bot to
+   *       which this association is being made.</p>
    */
-  name: string | undefined;
+  botAlias: string | undefined;
 
   /**
    * <p>The name of the Amazon Lex bot.</p>
@@ -1165,10 +1167,9 @@ export interface DeleteBotChannelAssociationRequest {
   botName: string | undefined;
 
   /**
-   * <p>An alias that points to the specific version of the Amazon Lex bot to
-   *       which this association is being made.</p>
+   * <p>The name of the association. The name is case sensitive. </p>
    */
-  botAlias: string | undefined;
+  name: string | undefined;
 }
 
 export namespace DeleteBotChannelAssociationRequest {
@@ -1306,114 +1307,16 @@ export namespace GetBotRequest {
 
 export interface GetBotResponse {
   /**
-   * <p>The name of the bot.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the bot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An array of <code>intent</code> objects. For more information, see
-   *         <a>PutBot</a>.</p>
-   */
-  intents?: Intent[];
-
-  /**
-   * <p>Indicates whether the bot uses accuracy improvements.
-   *         <code>true</code> indicates that the bot is using the improvements,
-   *       otherwise, <code>false</code>.</p>
-   */
-  enableModelImprovements?: boolean;
-
-  /**
-   * <p>The score that determines where Amazon Lex inserts the
-   *         <code>AMAZON.FallbackIntent</code>,
-   *         <code>AMAZON.KendraSearchIntent</code>, or both when returning
-   *       alternative intents in a <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a> or
-   *         <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a> response.
-   *         <code>AMAZON.FallbackIntent</code> is inserted if the confidence score
-   *       for all intents is below this value.
-   *         <code>AMAZON.KendraSearchIntent</code> is only inserted if it is
-   *       configured for the bot.</p>
-   */
-  nluIntentConfidenceThreshold?: number;
-
-  /**
-   * <p>The message Amazon Lex uses when it doesn't understand the user's
-   *       request. For more information, see <a>PutBot</a>. </p>
-   */
-  clarificationPrompt?: Prompt;
-
-  /**
    * <p>The message that Amazon Lex returns when the user elects to end the
    *       conversation without completing it. For more information, see <a>PutBot</a>.</p>
    */
   abortStatement?: Statement;
 
   /**
-   * <p>The status of the bot. </p>
-   *          <p>When the status is <code>BUILDING</code> Amazon Lex is building the bot
-   *       for testing and use.</p>
-   *          <p>If the status of the bot is <code>READY_BASIC_TESTING</code>, you
-   *       can test the bot using the exact utterances specified in the bot's
-   *       intents. When the bot is ready for full testing or to run, the status is
-   *         <code>READY</code>.</p>
-   *          <p>If there was a problem with building the bot, the status is
-   *         <code>FAILED</code> and the <code>failureReason</code> field explains
-   *       why the bot did not build.</p>
-   *          <p>If the bot was saved but not built, the status is
-   *         <code>NOT_BUILT</code>.</p>
-   */
-  status?: Status | string;
-
-  /**
-   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex explains why
-   *       it failed to build the bot.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The date that the bot was updated. When you create a resource, the
-   *       creation date and last updated date are the same. </p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>The date that the bot was created.</p>
-   */
-  createdDate?: Date;
-
-  /**
-   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
-   *       a conversation. For more information, see <a>PutBot</a>.</p>
-   */
-  idleSessionTTLInSeconds?: number;
-
-  /**
-   * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction
-   *       with the user. For more information, see <a>PutBot</a>.</p>
-   */
-  voiceId?: string;
-
-  /**
    * <p>Checksum of the bot used to identify a specific revision of the
    *       bot's <code>$LATEST</code> version.</p>
    */
   checksum?: string;
-
-  /**
-   * <p>The version of the bot. For a new bot, the version is always
-   *         <code>$LATEST</code>.</p>
-   */
-  version?: string;
-
-  /**
-   * <p> The target locale for the bot. </p>
-   */
-  locale?: Locale | string;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -1446,10 +1349,108 @@ export interface GetBotResponse {
   childDirected?: boolean;
 
   /**
+   * <p>The message Amazon Lex uses when it doesn't understand the user's
+   *       request. For more information, see <a>PutBot</a>. </p>
+   */
+  clarificationPrompt?: Prompt;
+
+  /**
+   * <p>The date that the bot was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>A description of the bot.</p>
+   */
+  description?: string;
+
+  /**
    * <p>Indicates whether user utterances should be sent to Amazon Comprehend
    *       for sentiment analysis.</p>
    */
   detectSentiment?: boolean;
+
+  /**
+   * <p>Indicates whether the bot uses accuracy improvements.
+   *         <code>true</code> indicates that the bot is using the improvements,
+   *       otherwise, <code>false</code>.</p>
+   */
+  enableModelImprovements?: boolean;
+
+  /**
+   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex explains why
+   *       it failed to build the bot.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
+   *       a conversation. For more information, see <a>PutBot</a>.</p>
+   */
+  idleSessionTTLInSeconds?: number;
+
+  /**
+   * <p>An array of <code>intent</code> objects. For more information, see
+   *         <a>PutBot</a>.</p>
+   */
+  intents?: Intent[];
+
+  /**
+   * <p>The date that the bot was updated. When you create a resource, the
+   *       creation date and last updated date are the same. </p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p> The target locale for the bot. </p>
+   */
+  locale?: Locale | string;
+
+  /**
+   * <p>The name of the bot.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The score that determines where Amazon Lex inserts the
+   *         <code>AMAZON.FallbackIntent</code>,
+   *         <code>AMAZON.KendraSearchIntent</code>, or both when returning
+   *       alternative intents in a <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a> or
+   *         <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a> response.
+   *         <code>AMAZON.FallbackIntent</code> is inserted if the confidence score
+   *       for all intents is below this value.
+   *         <code>AMAZON.KendraSearchIntent</code> is only inserted if it is
+   *       configured for the bot.</p>
+   */
+  nluIntentConfidenceThreshold?: number;
+
+  /**
+   * <p>The status of the bot. </p>
+   *          <p>When the status is <code>BUILDING</code> Amazon Lex is building the bot
+   *       for testing and use.</p>
+   *          <p>If the status of the bot is <code>READY_BASIC_TESTING</code>, you
+   *       can test the bot using the exact utterances specified in the bot's
+   *       intents. When the bot is ready for full testing or to run, the status is
+   *         <code>READY</code>.</p>
+   *          <p>If there was a problem with building the bot, the status is
+   *         <code>FAILED</code> and the <code>failureReason</code> field explains
+   *       why the bot did not build.</p>
+   *          <p>If the bot was saved but not built, the status is
+   *         <code>NOT_BUILT</code>.</p>
+   */
+  status?: Status | string;
+
+  /**
+   * <p>The version of the bot. For a new bot, the version is always
+   *         <code>$LATEST</code>.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction
+   *       with the user. For more information, see <a>PutBot</a>.</p>
+   */
+  voiceId?: string;
 }
 
 export namespace GetBotResponse {
@@ -1460,14 +1461,14 @@ export namespace GetBotResponse {
 
 export interface GetBotAliasRequest {
   /**
-   * <p>The name of the bot alias. The name is case sensitive.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The name of the bot.</p>
    */
   botName: string | undefined;
+
+  /**
+   * <p>The name of the bot alias. The name is case sensitive.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace GetBotAliasRequest {
@@ -1491,11 +1492,6 @@ export enum LogType {
  */
 export interface LogSettingsResponse {
   /**
-   * <p>The type of logging that is enabled.</p>
-   */
-  logType?: LogType | string;
-
-  /**
    * <p>The destination where logs are delivered.</p>
    */
   destination?: Destination | string;
@@ -1505,6 +1501,11 @@ export interface LogSettingsResponse {
    *       in an S3 bucket.</p>
    */
   kmsKeyArn?: string;
+
+  /**
+   * <p>The type of logging that is enabled.</p>
+   */
+  logType?: LogType | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3
@@ -1532,16 +1533,16 @@ export namespace LogSettingsResponse {
  */
 export interface ConversationLogsResponse {
   /**
-   * <p>The settings for your conversation logs. You can log text, audio, or
-   *       both.</p>
-   */
-  logSettings?: LogSettingsResponse[];
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to write your logs
    *       to CloudWatch Logs or an S3 bucket.</p>
    */
   iamRoleArn?: string;
+
+  /**
+   * <p>The settings for your conversation logs. You can log text, audio, or
+   *       both.</p>
+   */
+  logSettings?: LogSettingsResponse[];
 }
 
 export namespace ConversationLogsResponse {
@@ -1552,36 +1553,14 @@ export namespace ConversationLogsResponse {
 
 export interface GetBotAliasResponse {
   /**
-   * <p>The name of the bot alias.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the bot alias.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The version of the bot that the alias points to.</p>
-   */
-  botVersion?: string;
-
-  /**
    * <p>The name of the bot that the alias points to.</p>
    */
   botName?: string;
 
   /**
-   * <p>The date that the bot alias was updated. When you create a
-   *       resource, the creation date and the last updated date are the
-   *       same.</p>
+   * <p>The version of the bot that the alias points to.</p>
    */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>The date that the bot alias was created.</p>
-   */
-  createdDate?: Date;
+  botVersion?: string;
 
   /**
    * <p>Checksum of the bot alias.</p>
@@ -1593,6 +1572,28 @@ export interface GetBotAliasResponse {
    *       alias.</p>
    */
   conversationLogs?: ConversationLogsResponse;
+
+  /**
+   * <p>The date that the bot alias was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>A description of the bot alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date that the bot alias was updated. When you create a
+   *       resource, the creation date and the last updated date are the
+   *       same.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The name of the bot alias.</p>
+   */
+  name?: string;
 }
 
 export namespace GetBotAliasResponse {
@@ -1608,14 +1609,6 @@ export interface GetBotAliasesRequest {
   botName: string | undefined;
 
   /**
-   * <p>A pagination token for fetching the next page of aliases. If the
-   *       response to this call is truncated, Amazon Lex returns a pagination token in
-   *       the response. To fetch the next page of aliases, specify the pagination
-   *       token in the next request. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of aliases to return in the response. The
    *       default is 50. . </p>
    */
@@ -1627,6 +1620,14 @@ export interface GetBotAliasesRequest {
    *       both "xyzabc" and "abcxyz."</p>
    */
   nameContains?: string;
+
+  /**
+   * <p>A pagination token for fetching the next page of aliases. If the
+   *       response to this call is truncated, Amazon Lex returns a pagination token in
+   *       the response. To fetch the next page of aliases, specify the pagination
+   *       token in the next request. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetBotAliasesRequest {
@@ -1640,35 +1641,14 @@ export namespace GetBotAliasesRequest {
  */
 export interface BotAliasMetadata {
   /**
-   * <p>The name of the bot alias.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the bot alias.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The version of the Amazon Lex bot to which the alias points.</p>
-   */
-  botVersion?: string;
-
-  /**
    * <p>The name of the bot to which the alias points.</p>
    */
   botName?: string;
 
   /**
-   * <p>The date that the bot alias was updated. When you create a
-   *       resource, the creation date and last updated date are the same.</p>
+   * <p>The version of the Amazon Lex bot to which the alias points.</p>
    */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>The date that the bot alias was created.</p>
-   */
-  createdDate?: Date;
+  botVersion?: string;
 
   /**
    * <p>Checksum of the bot alias.</p>
@@ -1680,6 +1660,27 @@ export interface BotAliasMetadata {
    *       alias.</p>
    */
   conversationLogs?: ConversationLogsResponse;
+
+  /**
+   * <p>The date that the bot alias was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>A description of the bot alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date that the bot alias was updated. When you create a
+   *       resource, the creation date and last updated date are the same.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The name of the bot alias.</p>
+   */
+  name?: string;
 }
 
 export namespace BotAliasMetadata {
@@ -1712,10 +1713,10 @@ export namespace GetBotAliasesResponse {
 
 export interface GetBotChannelAssociationRequest {
   /**
-   * <p>The name of the association between the bot and the channel. The
-   *       name is case sensitive. </p>
+   * <p>An alias pointing to the specific version of the Amazon Lex bot to which
+   *       this association is being made.</p>
    */
-  name: string | undefined;
+  botAlias: string | undefined;
 
   /**
    * <p>The name of the Amazon Lex bot.</p>
@@ -1723,10 +1724,10 @@ export interface GetBotChannelAssociationRequest {
   botName: string | undefined;
 
   /**
-   * <p>An alias pointing to the specific version of the Amazon Lex bot to which
-   *       this association is being made.</p>
+   * <p>The name of the association between the bot and the channel. The
+   *       name is case sensitive. </p>
    */
-  botAlias: string | undefined;
+  name: string | undefined;
 }
 
 export namespace GetBotChannelAssociationRequest {
@@ -1750,22 +1751,16 @@ export enum ChannelType {
 
 export interface GetBotChannelAssociationResponse {
   /**
-   * <p>The name of the association between the bot and the
-   *       channel.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the association between the bot and the
-   *       channel.</p>
-   */
-  description?: string;
-
-  /**
    * <p>An alias pointing to the specific version of the Amazon Lex bot to which
    *       this association is being made.</p>
    */
   botAlias?: string;
+
+  /**
+   * <p>Provides information that the messaging platform needs to
+   *       communicate with the Amazon Lex bot.</p>
+   */
+  botConfiguration?: { [key: string]: string };
 
   /**
    * <p>The name of the Amazon Lex bot.</p>
@@ -1779,15 +1774,22 @@ export interface GetBotChannelAssociationResponse {
   createdDate?: Date;
 
   /**
-   * <p>The type of the messaging platform.</p>
+   * <p>A description of the association between the bot and the
+   *       channel.</p>
    */
-  type?: ChannelType | string;
+  description?: string;
 
   /**
-   * <p>Provides information that the messaging platform needs to
-   *       communicate with the Amazon Lex bot.</p>
+   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
+   *       reason that it failed to create the association.</p>
    */
-  botConfiguration?: { [key: string]: string };
+  failureReason?: string;
+
+  /**
+   * <p>The name of the association between the bot and the
+   *       channel.</p>
+   */
+  name?: string;
 
   /**
    * <p>The status of the bot channel. </p>
@@ -1813,10 +1815,9 @@ export interface GetBotChannelAssociationResponse {
   status?: ChannelStatus | string;
 
   /**
-   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
-   *       reason that it failed to create the association.</p>
+   * <p>The type of the messaging platform.</p>
    */
-  failureReason?: string;
+  type?: ChannelType | string;
 }
 
 export namespace GetBotChannelAssociationResponse {
@@ -1828,23 +1829,15 @@ export namespace GetBotChannelAssociationResponse {
 
 export interface GetBotChannelAssociationsRequest {
   /**
-   * <p>The name of the Amazon Lex bot in the association.</p>
-   */
-  botName: string | undefined;
-
-  /**
    * <p>An alias pointing to the specific version of the Amazon Lex bot to which
    *       this association is being made.</p>
    */
   botAlias: string | undefined;
 
   /**
-   * <p>A pagination token for fetching the next page of associations. If
-   *       the response to this call is truncated, Amazon Lex returns a pagination token
-   *       in the response. To fetch the next page of associations, specify the
-   *       pagination token in the next request. </p>
+   * <p>The name of the Amazon Lex bot in the association.</p>
    */
-  nextToken?: string;
+  botName: string | undefined;
 
   /**
    * <p>The maximum number of associations to return in the response. The
@@ -1860,6 +1853,14 @@ export interface GetBotChannelAssociationsRequest {
    *       parameter.</p>
    */
   nameContains?: string;
+
+  /**
+   * <p>A pagination token for fetching the next page of associations. If
+   *       the response to this call is truncated, Amazon Lex returns a pagination token
+   *       in the response. To fetch the next page of associations, specify the
+   *       pagination token in the next request. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetBotChannelAssociationsRequest {
@@ -1874,21 +1875,16 @@ export namespace GetBotChannelAssociationsRequest {
  */
 export interface BotChannelAssociation {
   /**
-   * <p>The name of the association between the bot and the channel.
-   *     </p>
-   */
-  name?: string;
-
-  /**
-   * <p>A text description of the association you are creating. </p>
-   */
-  description?: string;
-
-  /**
    * <p>An alias pointing to the specific version of the Amazon Lex bot to which
    *       this association is being made. </p>
    */
   botAlias?: string;
+
+  /**
+   * <p>Provides information necessary to communicate with the messaging
+   *       platform. </p>
+   */
+  botConfiguration?: { [key: string]: string };
 
   /**
    * <p>The name of the Amazon Lex bot to which this association is being made. </p>
@@ -1907,17 +1903,21 @@ export interface BotChannelAssociation {
   createdDate?: Date;
 
   /**
-   * <p>Specifies the type of association by indicating the type of channel
-   *       being established between the Amazon Lex bot and the external messaging
-   *       platform.</p>
+   * <p>A text description of the association you are creating. </p>
    */
-  type?: ChannelType | string;
+  description?: string;
 
   /**
-   * <p>Provides information necessary to communicate with the messaging
-   *       platform. </p>
+   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
+   *       reason that it failed to create the association.</p>
    */
-  botConfiguration?: { [key: string]: string };
+  failureReason?: string;
+
+  /**
+   * <p>The name of the association between the bot and the channel.
+   *     </p>
+   */
+  name?: string;
 
   /**
    * <p>The status of the bot channel. </p>
@@ -1943,10 +1943,11 @@ export interface BotChannelAssociation {
   status?: ChannelStatus | string;
 
   /**
-   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
-   *       reason that it failed to create the association.</p>
+   * <p>Specifies the type of association by indicating the type of channel
+   *       being established between the Amazon Lex bot and the external messaging
+   *       platform.</p>
    */
-  failureReason?: string;
+  type?: ChannelType | string;
 }
 
 export namespace BotChannelAssociation {
@@ -1984,14 +1985,6 @@ export namespace GetBotChannelAssociationsResponse {
 
 export interface GetBotsRequest {
   /**
-   * <p>A pagination token that fetches the next page of bots. If the
-   *       response to this call is truncated, Amazon Lex returns a pagination token in
-   *       the response. To fetch the next page of bots, specify the pagination token
-   *       in the next request. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of bots to return in the response that the
    *       request will return. The default is 10.</p>
    */
@@ -2003,6 +1996,14 @@ export interface GetBotsRequest {
    *       "xyzabc" and "abcxyz."</p>
    */
   nameContains?: string;
+
+  /**
+   * <p>A pagination token that fetches the next page of bots. If the
+   *       response to this call is truncated, Amazon Lex returns a pagination token in
+   *       the response. To fetch the next page of bots, specify the pagination token
+   *       in the next request. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetBotsRequest {
@@ -2016,19 +2017,14 @@ export namespace GetBotsRequest {
  */
 export interface BotMetadata {
   /**
-   * <p>The name of the bot. </p>
+   * <p>The date that the bot was created.</p>
    */
-  name?: string;
+  createdDate?: Date;
 
   /**
    * <p>A description of the bot.</p>
    */
   description?: string;
-
-  /**
-   * <p>The status of the bot.</p>
-   */
-  status?: Status | string;
 
   /**
    * <p>The date that the bot was updated. When you create a bot, the
@@ -2037,9 +2033,14 @@ export interface BotMetadata {
   lastUpdatedDate?: Date;
 
   /**
-   * <p>The date that the bot was created.</p>
+   * <p>The name of the bot. </p>
    */
-  createdDate?: Date;
+  name?: string;
+
+  /**
+   * <p>The status of the bot.</p>
+   */
+  status?: Status | string;
 
   /**
    * <p>The version of the bot. For a new bot, the version is always
@@ -2077,6 +2078,12 @@ export namespace GetBotsResponse {
 
 export interface GetBotVersionsRequest {
   /**
+   * <p>The maximum number of bot versions to return in the response. The
+   *       default is 10.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The name of the bot for which versions should be
    *       returned.</p>
    */
@@ -2089,12 +2096,6 @@ export interface GetBotVersionsRequest {
    *       pagination token in the next request. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of bot versions to return in the response. The
-   *       default is 10.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace GetBotVersionsRequest {
@@ -2165,15 +2166,15 @@ export interface GetBuiltinIntentResponse {
   signature?: string;
 
   /**
-   * <p>A list of locales that the intent supports.</p>
-   */
-  supportedLocales?: (Locale | string)[];
-
-  /**
    * <p>An array of <code>BuiltinIntentSlot</code> objects, one entry for
    *       each slot type in the intent.</p>
    */
   slots?: BuiltinIntentSlot[];
+
+  /**
+   * <p>A list of locales that the intent supports.</p>
+   */
+  supportedLocales?: (Locale | string)[];
 }
 
 export namespace GetBuiltinIntentResponse {
@@ -2189,13 +2190,10 @@ export interface GetBuiltinIntentsRequest {
   locale?: Locale | string;
 
   /**
-   * <p>Substring to match in built-in intent signatures. An intent will be
-   *       returned if any part of its signature matches the substring. For example,
-   *       "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an
-   *       intent, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
-   *         Kit</i>.</p>
+   * <p>The maximum number of intents to return in the response. The
+   *       default is 10.</p>
    */
-  signatureContains?: string;
+  maxResults?: number;
 
   /**
    * <p>A pagination token that fetches the next page of intents. If this
@@ -2206,10 +2204,13 @@ export interface GetBuiltinIntentsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of intents to return in the response. The
-   *       default is 10.</p>
+   * <p>Substring to match in built-in intent signatures. An intent will be
+   *       returned if any part of its signature matches the substring. For example,
+   *       "xyz" matches both "xyzabc" and "abcxyz." To find the signature for an
+   *       intent, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
+   *         Kit</i>.</p>
    */
-  maxResults?: number;
+  signatureContains?: string;
 }
 
 export namespace GetBuiltinIntentsRequest {
@@ -2271,11 +2272,10 @@ export interface GetBuiltinSlotTypesRequest {
   locale?: Locale | string;
 
   /**
-   * <p>Substring to match in built-in slot type signatures. A slot type
-   *       will be returned if any part of its signature matches the substring. For
-   *       example, "xyz" matches both "xyzabc" and "abcxyz."</p>
+   * <p>The maximum number of slot types to return in the response. The
+   *       default is 10.</p>
    */
-  signatureContains?: string;
+  maxResults?: number;
 
   /**
    * <p>A pagination token that fetches the next page of slot types. If the
@@ -2286,10 +2286,11 @@ export interface GetBuiltinSlotTypesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of slot types to return in the response. The
-   *       default is 10.</p>
+   * <p>Substring to match in built-in slot type signatures. A slot type
+   *       will be returned if any part of its signature matches the substring. For
+   *       example, "xyz" matches both "xyzabc" and "abcxyz."</p>
    */
-  maxResults?: number;
+  signatureContains?: string;
 }
 
 export namespace GetBuiltinSlotTypesRequest {
@@ -2323,17 +2324,17 @@ export namespace BuiltinSlotTypeMetadata {
 
 export interface GetBuiltinSlotTypesResponse {
   /**
-   * <p>An array of <code>BuiltInSlotTypeMetadata</code> objects, one entry
-   *       for each slot type returned.</p>
-   */
-  slotTypes?: BuiltinSlotTypeMetadata[];
-
-  /**
    * <p>If the response is truncated, the response includes a pagination
    *       token that you can use in your next request to fetch the next page of slot
    *       types.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of <code>BuiltInSlotTypeMetadata</code> objects, one entry
+   *       for each slot type returned.</p>
+   */
+  slotTypes?: BuiltinSlotTypeMetadata[];
 }
 
 export namespace GetBuiltinSlotTypesResponse {
@@ -2355,14 +2356,14 @@ export enum ResourceType {
 
 export interface GetExportRequest {
   /**
+   * <p>The format of the exported data.</p>
+   */
+  exportType: ExportType | string | undefined;
+
+  /**
    * <p>The name of the bot to export.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The version of the bot to export.</p>
-   */
-  version: string | undefined;
 
   /**
    * <p>The type of resource to export. </p>
@@ -2370,9 +2371,9 @@ export interface GetExportRequest {
   resourceType: ResourceType | string | undefined;
 
   /**
-   * <p>The format of the exported data.</p>
+   * <p>The version of the bot to export.</p>
    */
-  exportType: ExportType | string | undefined;
+  version: string | undefined;
 }
 
 export namespace GetExportRequest {
@@ -2388,26 +2389,6 @@ export enum ExportStatus {
 }
 
 export interface GetExportResponse {
-  /**
-   * <p>The name of the bot being exported.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The version of the bot being exported.</p>
-   */
-  version?: string;
-
-  /**
-   * <p>The type of the exported resource.</p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
-   * <p>The format of the exported data.</p>
-   */
-  exportType?: ExportType | string;
-
   /**
    * <p>The status of the export. </p>
    *          <ul>
@@ -2429,10 +2410,25 @@ export interface GetExportResponse {
   exportStatus?: ExportStatus | string;
 
   /**
+   * <p>The format of the exported data.</p>
+   */
+  exportType?: ExportType | string;
+
+  /**
    * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
    *       reason that it failed to export the resource.</p>
    */
   failureReason?: string;
+
+  /**
+   * <p>The name of the bot being exported.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of the exported resource.</p>
+   */
+  resourceType?: ResourceType | string;
 
   /**
    * <p>An S3 pre-signed URL that provides the location of the exported
@@ -2441,6 +2437,11 @@ export interface GetExportResponse {
    *       Your code should not rely on the archive structure.</p>
    */
   url?: string;
+
+  /**
+   * <p>The version of the bot being exported.</p>
+   */
+  version?: string;
 }
 
 export namespace GetExportResponse {
@@ -2475,20 +2476,16 @@ export enum MergeStrategy {
 
 export interface GetImportResponse {
   /**
-   * <p>The name given to the import job.</p>
+   * <p>A timestamp for the date and time that the import job was
+   *       created.</p>
    */
-  name?: string;
+  createdDate?: Date;
 
   /**
-   * <p>The type of resource imported.</p>
+   * <p>A string that describes why an import job failed to
+   *       complete.</p>
    */
-  resourceType?: ResourceType | string;
-
-  /**
-   * <p>The action taken when there was a conflict between an existing
-   *       resource and a resource in the import file.</p>
-   */
-  mergeStrategy?: MergeStrategy | string;
+  failureReason?: string[];
 
   /**
    * <p>The identifier for the specific import job.</p>
@@ -2503,16 +2500,20 @@ export interface GetImportResponse {
   importStatus?: ImportStatus | string;
 
   /**
-   * <p>A string that describes why an import job failed to
-   *       complete.</p>
+   * <p>The action taken when there was a conflict between an existing
+   *       resource and a resource in the import file.</p>
    */
-  failureReason?: string[];
+  mergeStrategy?: MergeStrategy | string;
 
   /**
-   * <p>A timestamp for the date and time that the import job was
-   *       created.</p>
+   * <p>The name given to the import job.</p>
    */
-  createdDate?: Date;
+  name?: string;
+
+  /**
+   * <p>The type of resource imported.</p>
+   */
+  resourceType?: ResourceType | string;
 }
 
 export namespace GetImportResponse {
@@ -2541,44 +2542,9 @@ export namespace GetIntentRequest {
 
 export interface GetIntentResponse {
   /**
-   * <p>The name of the intent.</p>
+   * <p>Checksum of the intent.</p>
    */
-  name?: string;
-
-  /**
-   * <p>A description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An array of intent slots configured for the intent.</p>
-   */
-  slots?: Slot[];
-
-  /**
-   * <p>An array of sample utterances configured for the intent.</p>
-   */
-  sampleUtterances?: string[];
-
-  /**
-   * <p>If defined in the bot, Amazon Lex uses prompt to confirm the intent
-   *       before fulfilling the user's request. For more information, see <a>PutIntent</a>. </p>
-   */
-  confirmationPrompt?: Prompt;
-
-  /**
-   * <p>If the user answers "no" to the question defined in
-   *         <code>confirmationPrompt</code>, Amazon Lex responds with this statement to
-   *       acknowledge that the intent was canceled. </p>
-   */
-  rejectionStatement?: Statement;
-
-  /**
-   * <p>If defined in the bot, Amazon Lex uses this prompt to solicit additional
-   *       user activity after the intent is fulfilled. For more information, see
-   *         <a>PutIntent</a>.</p>
-   */
-  followUpPrompt?: FollowUpPrompt;
+  checksum?: string;
 
   /**
    * <p>After the Lambda function specified in the
@@ -2588,27 +2554,10 @@ export interface GetIntentResponse {
   conclusionStatement?: Statement;
 
   /**
-   * <p>If defined in the bot, Amazon Amazon Lex invokes this Lambda function
-   *       for each user input. For more information, see <a>PutIntent</a>. </p>
+   * <p>If defined in the bot, Amazon Lex uses prompt to confirm the intent
+   *       before fulfilling the user's request. For more information, see <a>PutIntent</a>. </p>
    */
-  dialogCodeHook?: CodeHook;
-
-  /**
-   * <p>Describes how the intent is fulfilled. For more information, see
-   *         <a>PutIntent</a>. </p>
-   */
-  fulfillmentActivity?: FulfillmentActivity;
-
-  /**
-   * <p>A unique identifier for a built-in intent.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The date that the intent was updated. When you create a resource,
-   *       the creation date and the last updated date are the same. </p>
-   */
-  lastUpdatedDate?: Date;
+  confirmationPrompt?: Prompt;
 
   /**
    * <p>The date that the intent was created.</p>
@@ -2616,20 +2565,28 @@ export interface GetIntentResponse {
   createdDate?: Date;
 
   /**
-   * <p>The version of the intent.</p>
+   * <p>A description of the intent.</p>
    */
-  version?: string;
+  description?: string;
 
   /**
-   * <p>Checksum of the intent.</p>
+   * <p>If defined in the bot, Amazon Amazon Lex invokes this Lambda function
+   *       for each user input. For more information, see <a>PutIntent</a>. </p>
    */
-  checksum?: string;
+  dialogCodeHook?: CodeHook;
 
   /**
-   * <p>Configuration information, if any, to connect to an Amazon Kendra
-   *       index with the <code>AMAZON.KendraSearchIntent</code> intent.</p>
+   * <p>If defined in the bot, Amazon Lex uses this prompt to solicit additional
+   *       user activity after the intent is fulfilled. For more information, see
+   *         <a>PutIntent</a>.</p>
    */
-  kendraConfiguration?: KendraConfiguration;
+  followUpPrompt?: FollowUpPrompt;
+
+  /**
+   * <p>Describes how the intent is fulfilled. For more information, see
+   *         <a>PutIntent</a>. </p>
+   */
+  fulfillmentActivity?: FulfillmentActivity;
 
   /**
    * <p>An array of <code>InputContext</code> objects that lists the contexts
@@ -2639,10 +2596,54 @@ export interface GetIntentResponse {
   inputContexts?: InputContext[];
 
   /**
+   * <p>Configuration information, if any, to connect to an Amazon Kendra
+   *       index with the <code>AMAZON.KendraSearchIntent</code> intent.</p>
+   */
+  kendraConfiguration?: KendraConfiguration;
+
+  /**
+   * <p>The date that the intent was updated. When you create a resource,
+   *       the creation date and the last updated date are the same. </p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The name of the intent.</p>
+   */
+  name?: string;
+
+  /**
    * <p>An array of <code>OutputContext</code> objects that lists the contexts
    *       that the intent activates when the intent is fulfilled.</p>
    */
   outputContexts?: OutputContext[];
+
+  /**
+   * <p>A unique identifier for a built-in intent.</p>
+   */
+  parentIntentSignature?: string;
+
+  /**
+   * <p>If the user answers "no" to the question defined in
+   *         <code>confirmationPrompt</code>, Amazon Lex responds with this statement to
+   *       acknowledge that the intent was canceled. </p>
+   */
+  rejectionStatement?: Statement;
+
+  /**
+   * <p>An array of sample utterances configured for the intent.</p>
+   */
+  sampleUtterances?: string[];
+
+  /**
+   * <p>An array of intent slots configured for the intent.</p>
+   */
+  slots?: Slot[];
+
+  /**
+   * <p>The version of the intent.</p>
+   */
+  version?: string;
 }
 
 export namespace GetIntentResponse {
@@ -2652,14 +2653,6 @@ export namespace GetIntentResponse {
 }
 
 export interface GetIntentsRequest {
-  /**
-   * <p>A pagination token that fetches the next page of intents. If the
-   *       response to this API call is truncated, Amazon Lex returns a pagination token
-   *       in the response. To fetch the next page of intents, specify the pagination
-   *       token in the next request. </p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The maximum number of intents to return in the response. The
    *       default is 10.</p>
@@ -2672,6 +2665,14 @@ export interface GetIntentsRequest {
    *       both "xyzabc" and "abcxyz."</p>
    */
   nameContains?: string;
+
+  /**
+   * <p>A pagination token that fetches the next page of intents. If the
+   *       response to this API call is truncated, Amazon Lex returns a pagination token
+   *       in the response. To fetch the next page of intents, specify the pagination
+   *       token in the next request. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetIntentsRequest {
@@ -2685,9 +2686,9 @@ export namespace GetIntentsRequest {
  */
 export interface IntentMetadata {
   /**
-   * <p>The name of the intent.</p>
+   * <p>The date that the intent was created.</p>
    */
-  name?: string;
+  createdDate?: Date;
 
   /**
    * <p>A description of the intent.</p>
@@ -2701,9 +2702,9 @@ export interface IntentMetadata {
   lastUpdatedDate?: Date;
 
   /**
-   * <p>The date that the intent was created.</p>
+   * <p>The name of the intent.</p>
    */
-  createdDate?: Date;
+  name?: string;
 
   /**
    * <p>The version of the intent.</p>
@@ -2740,6 +2741,12 @@ export namespace GetIntentsResponse {
 
 export interface GetIntentVersionsRequest {
   /**
+   * <p>The maximum number of intent versions to return in the response.
+   *       The default is 10.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The name of the intent for which versions should be
    *       returned.</p>
    */
@@ -2752,12 +2759,6 @@ export interface GetIntentVersionsRequest {
    *       pagination token in the next request. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of intent versions to return in the response.
-   *       The default is 10.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace GetIntentVersionsRequest {
@@ -2809,9 +2810,15 @@ export namespace GetSlotTypeRequest {
 
 export interface GetSlotTypeResponse {
   /**
-   * <p>The name of the slot type.</p>
+   * <p>Checksum of the <code>$LATEST</code> version of the slot
+   *       type.</p>
    */
-  name?: string;
+  checksum?: string;
+
+  /**
+   * <p>The date that the slot type was created.</p>
+   */
+  createdDate?: Date;
 
   /**
    * <p>A description of the slot type.</p>
@@ -2831,26 +2838,9 @@ export interface GetSlotTypeResponse {
   lastUpdatedDate?: Date;
 
   /**
-   * <p>The date that the slot type was created.</p>
+   * <p>The name of the slot type.</p>
    */
-  createdDate?: Date;
-
-  /**
-   * <p>The version of the slot type.</p>
-   */
-  version?: string;
-
-  /**
-   * <p>Checksum of the <code>$LATEST</code> version of the slot
-   *       type.</p>
-   */
-  checksum?: string;
-
-  /**
-   * <p>The strategy that Amazon Lex uses to determine the value of the slot.
-   *       For more information, see <a>PutSlotType</a>.</p>
-   */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+  name?: string;
 
   /**
    * <p>The built-in slot type used as a parent for the slot type.</p>
@@ -2862,6 +2852,17 @@ export interface GetSlotTypeResponse {
    *       type.</p>
    */
   slotTypeConfigurations?: SlotTypeConfiguration[];
+
+  /**
+   * <p>The strategy that Amazon Lex uses to determine the value of the slot.
+   *       For more information, see <a>PutSlotType</a>.</p>
+   */
+  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+
+  /**
+   * <p>The version of the slot type.</p>
+   */
+  version?: string;
 }
 
 export namespace GetSlotTypeResponse {
@@ -2871,14 +2872,6 @@ export namespace GetSlotTypeResponse {
 }
 
 export interface GetSlotTypesRequest {
-  /**
-   * <p>A pagination token that fetches the next page of slot types. If the
-   *       response to this API call is truncated, Amazon Lex returns a pagination token
-   *       in the response. To fetch next page of slot types, specify the pagination
-   *       token in the next request.</p>
-   */
-  nextToken?: string;
-
   /**
    * <p>The maximum number of slot types to return in the response. The
    *       default is 10.</p>
@@ -2891,6 +2884,14 @@ export interface GetSlotTypesRequest {
    *       both "xyzabc" and "abcxyz."</p>
    */
   nameContains?: string;
+
+  /**
+   * <p>A pagination token that fetches the next page of slot types. If the
+   *       response to this API call is truncated, Amazon Lex returns a pagination token
+   *       in the response. To fetch next page of slot types, specify the pagination
+   *       token in the next request.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace GetSlotTypesRequest {
@@ -2904,9 +2905,9 @@ export namespace GetSlotTypesRequest {
  */
 export interface SlotTypeMetadata {
   /**
-   * <p>The name of the slot type.</p>
+   * <p>The date that the slot type was created.</p>
    */
-  name?: string;
+  createdDate?: Date;
 
   /**
    * <p>A description of the slot type.</p>
@@ -2920,9 +2921,9 @@ export interface SlotTypeMetadata {
   lastUpdatedDate?: Date;
 
   /**
-   * <p>The date that the slot type was created.</p>
+   * <p>The name of the slot type.</p>
    */
-  createdDate?: Date;
+  name?: string;
 
   /**
    * <p>The version of the slot type.</p>
@@ -2938,18 +2939,18 @@ export namespace SlotTypeMetadata {
 
 export interface GetSlotTypesResponse {
   /**
-   * <p>An array of objects, one for each slot type, that provides
-   *       information such as the name of the slot type, the version, and a
-   *       description.</p>
-   */
-  slotTypes?: SlotTypeMetadata[];
-
-  /**
    * <p>If the response is truncated, it includes a pagination token that
    *       you can specify in your next request to fetch the next page of slot
    *       types.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of objects, one for each slot type, that provides
+   *       information such as the name of the slot type, the version, and a
+   *       description.</p>
+   */
+  slotTypes?: SlotTypeMetadata[];
 }
 
 export namespace GetSlotTypesResponse {
@@ -2959,6 +2960,12 @@ export namespace GetSlotTypesResponse {
 }
 
 export interface GetSlotTypeVersionsRequest {
+  /**
+   * <p>The maximum number of slot type versions to return in the response.
+   *       The default is 10.</p>
+   */
+  maxResults?: number;
+
   /**
    * <p>The name of the slot type for which versions should be
    *       returned.</p>
@@ -2972,12 +2979,6 @@ export interface GetSlotTypeVersionsRequest {
    *       specify the pagination token in the next request. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of slot type versions to return in the response.
-   *       The default is 10.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace GetSlotTypeVersionsRequest {
@@ -2988,19 +2989,19 @@ export namespace GetSlotTypeVersionsRequest {
 
 export interface GetSlotTypeVersionsResponse {
   /**
-   * <p>An array of <code>SlotTypeMetadata</code> objects, one for each
-   *       numbered version of the slot type plus one for the <code>$LATEST</code>
-   *       version.</p>
-   */
-  slotTypes?: SlotTypeMetadata[];
-
-  /**
    * <p>A pagination token for fetching the next page of slot type
    *       versions. If the response to this call is truncated, Amazon Lex returns a
    *       pagination token in the response. To fetch the next page of versions,
    *       specify the pagination token in the next request. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of <code>SlotTypeMetadata</code> objects, one for each
+   *       numbered version of the slot type plus one for the <code>$LATEST</code>
+   *       version.</p>
+   */
+  slotTypes?: SlotTypeMetadata[];
 }
 
 export namespace GetSlotTypeVersionsResponse {
@@ -3047,12 +3048,6 @@ export namespace GetUtterancesViewRequest {
  */
 export interface UtteranceData {
   /**
-   * <p>The text that was entered by the user or the text representation of
-   *       an audio clip.</p>
-   */
-  utteranceString?: string;
-
-  /**
    * <p>The number of times that the utterance was processed.</p>
    */
   count?: number;
@@ -3071,6 +3066,12 @@ export interface UtteranceData {
    * <p>The date that the utterance was last recorded.</p>
    */
   lastUtteredDate?: Date;
+
+  /**
+   * <p>The text that was entered by the user or the text representation of
+   *       an audio clip.</p>
+   */
+  utteranceString?: string;
 }
 
 export namespace UtteranceData {
@@ -3187,10 +3188,119 @@ export enum ProcessBehavior {
 
 export interface PutBotRequest {
   /**
-   * <p>The name of the bot. The name is <i>not</i> case
-   *       sensitive. </p>
+   * <p>When Amazon Lex can't understand the user's input in context, it tries
+   *       to elicit the information a few times. After that, Amazon Lex sends the message
+   *       defined in <code>abortStatement</code> to the user, and then cancels the
+   *       conversation. To set the number of retries, use the
+   *         <code>valueElicitationPrompt</code> field for the slot type. </p>
+   *          <p>For example, in a pizza ordering bot, Amazon Lex might ask a user "What
+   *       type of crust would you like?" If the user's response is not one of the
+   *       expected responses (for example, "thin crust, "deep dish," etc.), Amazon Lex
+   *       tries to elicit a correct response a few more times. </p>
+   *          <p>For example, in a pizza ordering application,
+   *         <code>OrderPizza</code> might be one of the intents. This intent might
+   *       require the <code>CrustType</code> slot. You specify the
+   *         <code>valueElicitationPrompt</code> field when you create the
+   *         <code>CrustType</code> slot.</p>
+   *          <p>If you have defined a fallback intent the cancel statement will not be
+   *       sent to the user, the fallback intent is used instead. For more
+   *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html">
+   *         AMAZON.FallbackIntent</a>.</p>
    */
-  name: string | undefined;
+  abortStatement?: Statement;
+
+  /**
+   * <p>Identifies a specific revision of the <code>$LATEST</code>
+   *       version.</p>
+   *          <p>When you create a new bot, leave the <code>checksum</code> field
+   *       blank. If you specify a checksum you get a
+   *         <code>BadRequestException</code> exception.</p>
+   *          <p>When you want to update a bot, set the <code>checksum</code> field
+   *       to the checksum of the most recent revision of the <code>$LATEST</code>
+   *       version. If you don't specify the <code> checksum</code> field, or if the
+   *       checksum does not match the <code>$LATEST</code> version, you get a
+   *         <code>PreconditionFailedException</code> exception.</p>
+   */
+  checksum?: string;
+
+  /**
+   * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
+   *       you must specify whether your use of Amazon Lex is related to a website,
+   *       program, or other application that is directed or targeted, in whole or in
+   *       part, to children under age 13 and subject to the Children's Online
+   *       Privacy Protection Act (COPPA) by specifying <code>true</code> or
+   *         <code>false</code> in the <code>childDirected</code> field. By
+   *       specifying <code>true</code> in the <code>childDirected</code> field, you
+   *       confirm that your use of Amazon Lex <b>is</b> related
+   *       to a website, program, or other application that is directed or targeted,
+   *       in whole or in part, to children under age 13 and subject to COPPA. By
+   *       specifying <code>false</code> in the <code>childDirected</code> field, you
+   *       confirm that your use of Amazon Lex <b>is not</b>
+   *       related to a website, program, or other application that is directed or
+   *       targeted, in whole or in part, to children under age 13 and subject to
+   *       COPPA. You may not specify a default value for the
+   *         <code>childDirected</code> field that does not accurately reflect
+   *       whether your use of Amazon Lex is related to a website, program, or other
+   *       application that is directed or targeted, in whole or in part, to children
+   *       under age 13 and subject to COPPA.</p>
+   *          <p>If your use of Amazon Lex relates to a website, program, or other
+   *       application that is directed in whole or in part, to children under age
+   *       13, you must obtain any required verifiable parental consent under COPPA.
+   *       For information regarding the use of Amazon Lex in connection with websites,
+   *       programs, or other applications that are directed or targeted, in whole or
+   *       in part, to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon Lex FAQ.</a>
+   *          </p>
+   */
+  childDirected: boolean | undefined;
+
+  /**
+   * <p>When Amazon Lex doesn't understand the user's intent, it uses this
+   *       message to get clarification. To specify how many times Amazon Lex should
+   *       repeat the clarification prompt, use the <code>maxAttempts</code> field.
+   *       If Amazon Lex still doesn't understand, it sends the message in the
+   *         <code>abortStatement</code> field. </p>
+   *          <p>When you create a clarification prompt, make sure that it suggests
+   *       the correct response from the user. for example, for a bot that orders
+   *       pizza and drinks, you might create this clarification prompt: "What would
+   *       you like to do? You can say 'Order a pizza' or 'Order a drink.'"</p>
+   *          <p>If you have defined a fallback intent, it will be invoked if the
+   *       clarification prompt is repeated the number of times defined in the
+   *         <code>maxAttempts</code> field. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html">
+   *         AMAZON.FallbackIntent</a>.</p>
+   *          <p>If you don't define a clarification prompt, at runtime Amazon Lex will
+   *       return a 400 Bad Request exception in three cases: </p>
+   *          <ul>
+   *             <li>
+   *                <p>Follow-up prompt - When the user responds to a follow-up prompt
+   *           but does not provide an intent. For example, in response to a
+   *           follow-up prompt that says "Would you like anything else today?" the
+   *           user says "Yes." Amazon Lex will return a 400 Bad Request exception because
+   *           it does not have a clarification prompt to send to the user to get an
+   *           intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>Lambda function - When using a Lambda function, you return an
+   *             <code>ElicitIntent</code> dialog type. Since Amazon Lex does not have a
+   *           clarification prompt to get an intent from the user, it returns a 400
+   *           Bad Request exception.</p>
+   *             </li>
+   *             <li>
+   *                <p>PutSession operation - When using the <code>PutSession</code>
+   *           operation, you send an <code>ElicitIntent</code> dialog type. Since
+   *           Amazon Lex does not have a clarification prompt to get an intent from the
+   *           user, it returns a 400 Bad Request exception.</p>
+   *             </li>
+   *          </ul>
+   */
+  clarificationPrompt?: Prompt;
+
+  /**
+   * <p>When set to <code>true</code> a new numbered version of the bot is
+   *       created. This is the same as calling the <code>CreateBotVersion</code>
+   *       operation. If you don't specify <code>createVersion</code>, the default is
+   *         <code>false</code>.</p>
+   */
+  createVersion?: boolean;
 
   /**
    * <p>A description of the bot.</p>
@@ -3198,11 +3308,11 @@ export interface PutBotRequest {
   description?: string;
 
   /**
-   * <p>An array of <code>Intent</code> objects. Each intent represents a
-   *       command that a user can express. For example, a pizza ordering bot might
-   *       support an OrderPizza intent. For more information, see <a>how-it-works</a>.</p>
+   * <p>When set to <code>true</code> user utterances are sent to Amazon
+   *       Comprehend for sentiment analysis. If you don't specify
+   *         <code>detectSentiment</code>, the default is <code>false</code>.</p>
    */
-  intents?: Intent[];
+  detectSentiment?: boolean;
 
   /**
    * <p>Set to <code>true</code> to enable access to natural language
@@ -3236,6 +3346,45 @@ export interface PutBotRequest {
    *       exception.</p>
    */
   enableModelImprovements?: boolean;
+
+  /**
+   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
+   *       a conversation.</p>
+   *          <p>A user interaction session remains active for the amount of time
+   *       specified. If no conversation occurs during this time, the session expires
+   *       and Amazon Lex deletes any data provided before the timeout.</p>
+   *          <p>For example, suppose that a user chooses the OrderPizza intent, but
+   *       gets sidetracked halfway through placing an order. If the user doesn't
+   *       complete the order within the specified time, Amazon Lex discards the slot
+   *       information that it gathered, and the user must start over.</p>
+   *          <p>If you don't include the <code>idleSessionTTLInSeconds</code>
+   *       element in a <code>PutBot</code> operation request, Amazon Lex uses the default
+   *       value. This is also true if the request replaces an existing
+   *       bot.</p>
+   *          <p>The default is 300 seconds (5 minutes).</p>
+   */
+  idleSessionTTLInSeconds?: number;
+
+  /**
+   * <p>An array of <code>Intent</code> objects. Each intent represents a
+   *       command that a user can express. For example, a pizza ordering bot might
+   *       support an OrderPizza intent. For more information, see <a>how-it-works</a>.</p>
+   */
+  intents?: Intent[];
+
+  /**
+   * <p> Specifies the target locale for the bot. Any intent used in the
+   *       bot must be compatible with the locale of the bot. </p>
+   *
+   *          <p>The default is <code>en-US</code>.</p>
+   */
+  locale: Locale | string | undefined;
+
+  /**
+   * <p>The name of the bot. The name is <i>not</i> case
+   *       sensitive. </p>
+   */
+  name: string | undefined;
 
   /**
    * <p>Determines the threshold where Amazon Lex will insert the
@@ -3288,110 +3437,6 @@ export interface PutBotRequest {
   nluIntentConfidenceThreshold?: number;
 
   /**
-   * <p>When Amazon Lex doesn't understand the user's intent, it uses this
-   *       message to get clarification. To specify how many times Amazon Lex should
-   *       repeat the clarification prompt, use the <code>maxAttempts</code> field.
-   *       If Amazon Lex still doesn't understand, it sends the message in the
-   *         <code>abortStatement</code> field. </p>
-   *          <p>When you create a clarification prompt, make sure that it suggests
-   *       the correct response from the user. for example, for a bot that orders
-   *       pizza and drinks, you might create this clarification prompt: "What would
-   *       you like to do? You can say 'Order a pizza' or 'Order a drink.'"</p>
-   *          <p>If you have defined a fallback intent, it will be invoked if the
-   *       clarification prompt is repeated the number of times defined in the
-   *         <code>maxAttempts</code> field. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html">
-   *         AMAZON.FallbackIntent</a>.</p>
-   *          <p>If you don't define a clarification prompt, at runtime Amazon Lex will
-   *       return a 400 Bad Request exception in three cases: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Follow-up prompt - When the user responds to a follow-up prompt
-   *           but does not provide an intent. For example, in response to a
-   *           follow-up prompt that says "Would you like anything else today?" the
-   *           user says "Yes." Amazon Lex will return a 400 Bad Request exception because
-   *           it does not have a clarification prompt to send to the user to get an
-   *           intent.</p>
-   *             </li>
-   *             <li>
-   *                <p>Lambda function - When using a Lambda function, you return an
-   *             <code>ElicitIntent</code> dialog type. Since Amazon Lex does not have a
-   *           clarification prompt to get an intent from the user, it returns a 400
-   *           Bad Request exception.</p>
-   *             </li>
-   *             <li>
-   *                <p>PutSession operation - When using the <code>PutSession</code>
-   *           operation, you send an <code>ElicitIntent</code> dialog type. Since
-   *           Amazon Lex does not have a clarification prompt to get an intent from the
-   *           user, it returns a 400 Bad Request exception.</p>
-   *             </li>
-   *          </ul>
-   */
-  clarificationPrompt?: Prompt;
-
-  /**
-   * <p>When Amazon Lex can't understand the user's input in context, it tries
-   *       to elicit the information a few times. After that, Amazon Lex sends the message
-   *       defined in <code>abortStatement</code> to the user, and then cancels the
-   *       conversation. To set the number of retries, use the
-   *         <code>valueElicitationPrompt</code> field for the slot type. </p>
-   *          <p>For example, in a pizza ordering bot, Amazon Lex might ask a user "What
-   *       type of crust would you like?" If the user's response is not one of the
-   *       expected responses (for example, "thin crust, "deep dish," etc.), Amazon Lex
-   *       tries to elicit a correct response a few more times. </p>
-   *          <p>For example, in a pizza ordering application,
-   *         <code>OrderPizza</code> might be one of the intents. This intent might
-   *       require the <code>CrustType</code> slot. You specify the
-   *         <code>valueElicitationPrompt</code> field when you create the
-   *         <code>CrustType</code> slot.</p>
-   *          <p>If you have defined a fallback intent the cancel statement will not be
-   *       sent to the user, the fallback intent is used instead. For more
-   *       information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/built-in-intent-fallback.html">
-   *         AMAZON.FallbackIntent</a>.</p>
-   */
-  abortStatement?: Statement;
-
-  /**
-   * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
-   *       a conversation.</p>
-   *          <p>A user interaction session remains active for the amount of time
-   *       specified. If no conversation occurs during this time, the session expires
-   *       and Amazon Lex deletes any data provided before the timeout.</p>
-   *          <p>For example, suppose that a user chooses the OrderPizza intent, but
-   *       gets sidetracked halfway through placing an order. If the user doesn't
-   *       complete the order within the specified time, Amazon Lex discards the slot
-   *       information that it gathered, and the user must start over.</p>
-   *          <p>If you don't include the <code>idleSessionTTLInSeconds</code>
-   *       element in a <code>PutBot</code> operation request, Amazon Lex uses the default
-   *       value. This is also true if the request replaces an existing
-   *       bot.</p>
-   *          <p>The default is 300 seconds (5 minutes).</p>
-   */
-  idleSessionTTLInSeconds?: number;
-
-  /**
-   * <p>The Amazon Polly voice ID that you want Amazon Lex to use for voice
-   *       interactions with the user. The locale configured for the voice must match
-   *       the locale of the bot. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices
-   *         in Amazon Polly</a> in the <i>Amazon Polly Developer
-   *         Guide</i>.</p>
-   */
-  voiceId?: string;
-
-  /**
-   * <p>Identifies a specific revision of the <code>$LATEST</code>
-   *       version.</p>
-   *          <p>When you create a new bot, leave the <code>checksum</code> field
-   *       blank. If you specify a checksum you get a
-   *         <code>BadRequestException</code> exception.</p>
-   *          <p>When you want to update a bot, set the <code>checksum</code> field
-   *       to the checksum of the most recent revision of the <code>$LATEST</code>
-   *       version. If you don't specify the <code> checksum</code> field, or if the
-   *       checksum does not match the <code>$LATEST</code> version, you get a
-   *         <code>PreconditionFailedException</code> exception.</p>
-   */
-  checksum?: string;
-
-  /**
    * <p>If you set the <code>processBehavior</code> element to
    *         <code>BUILD</code>, Amazon Lex builds the bot so that it can be run. If you
    *       set the element to <code>SAVE</code> Amazon Lex saves the bot, but doesn't
@@ -3402,65 +3447,21 @@ export interface PutBotRequest {
   processBehavior?: ProcessBehavior | string;
 
   /**
-   * <p> Specifies the target locale for the bot. Any intent used in the
-   *       bot must be compatible with the locale of the bot. </p>
-   *
-   *          <p>The default is <code>en-US</code>.</p>
-   */
-  locale: Locale | string | undefined;
-
-  /**
-   * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
-   *       you must specify whether your use of Amazon Lex is related to a website,
-   *       program, or other application that is directed or targeted, in whole or in
-   *       part, to children under age 13 and subject to the Children's Online
-   *       Privacy Protection Act (COPPA) by specifying <code>true</code> or
-   *         <code>false</code> in the <code>childDirected</code> field. By
-   *       specifying <code>true</code> in the <code>childDirected</code> field, you
-   *       confirm that your use of Amazon Lex <b>is</b> related
-   *       to a website, program, or other application that is directed or targeted,
-   *       in whole or in part, to children under age 13 and subject to COPPA. By
-   *       specifying <code>false</code> in the <code>childDirected</code> field, you
-   *       confirm that your use of Amazon Lex <b>is not</b>
-   *       related to a website, program, or other application that is directed or
-   *       targeted, in whole or in part, to children under age 13 and subject to
-   *       COPPA. You may not specify a default value for the
-   *         <code>childDirected</code> field that does not accurately reflect
-   *       whether your use of Amazon Lex is related to a website, program, or other
-   *       application that is directed or targeted, in whole or in part, to children
-   *       under age 13 and subject to COPPA.</p>
-   *          <p>If your use of Amazon Lex relates to a website, program, or other
-   *       application that is directed in whole or in part, to children under age
-   *       13, you must obtain any required verifiable parental consent under COPPA.
-   *       For information regarding the use of Amazon Lex in connection with websites,
-   *       programs, or other applications that are directed or targeted, in whole or
-   *       in part, to children under age 13, see the <a href="https://aws.amazon.com/lex/faqs#data-security">Amazon Lex FAQ.</a>
-   *          </p>
-   */
-  childDirected: boolean | undefined;
-
-  /**
-   * <p>When set to <code>true</code> user utterances are sent to Amazon
-   *       Comprehend for sentiment analysis. If you don't specify
-   *         <code>detectSentiment</code>, the default is <code>false</code>.</p>
-   */
-  detectSentiment?: boolean;
-
-  /**
-   * <p>When set to <code>true</code> a new numbered version of the bot is
-   *       created. This is the same as calling the <code>CreateBotVersion</code>
-   *       operation. If you don't specify <code>createVersion</code>, the default is
-   *         <code>false</code>.</p>
-   */
-  createVersion?: boolean;
-
-  /**
    * <p>A list of tags to add to the bot. You can only add tags when you
    *       create a bot, you can't use the <code>PutBot</code> operation to update
    *       the tags on a bot. To update tags, use the <code>TagResource</code>
    *       operation.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The Amazon Polly voice ID that you want Amazon Lex to use for voice
+   *       interactions with the user. The locale configured for the voice must match
+   *       the locale of the bot. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Voices
+   *         in Amazon Polly</a> in the <i>Amazon Polly Developer
+   *         Guide</i>.</p>
+   */
+  voiceId?: string;
 }
 
 export namespace PutBotRequest {
@@ -3471,114 +3472,15 @@ export namespace PutBotRequest {
 
 export interface PutBotResponse {
   /**
-   * <p>The name of the bot.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the bot.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An array of <code>Intent</code> objects. For more information, see
-   *         <a>PutBot</a>.</p>
-   */
-  intents?: Intent[];
-
-  /**
-   * <p>Indicates whether the bot uses accuracy improvements.
-   *         <code>true</code> indicates that the bot is using the improvements,
-   *       otherwise, <code>false</code>.</p>
-   */
-  enableModelImprovements?: boolean;
-
-  /**
-   * <p>The score that determines where Amazon Lex inserts the
-   *         <code>AMAZON.FallbackIntent</code>,
-   *         <code>AMAZON.KendraSearchIntent</code>, or both when returning
-   *       alternative intents in a <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a> or
-   *         <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a> response.
-   *         <code>AMAZON.FallbackIntent</code> is inserted if the confidence score
-   *       for all intents is below this value.
-   *         <code>AMAZON.KendraSearchIntent</code> is only inserted if it is
-   *       configured for the bot.</p>
-   */
-  nluIntentConfidenceThreshold?: number;
-
-  /**
-   * <p> The prompts that Amazon Lex uses when it doesn't understand the user's
-   *       intent. For more information, see <a>PutBot</a>. </p>
-   */
-  clarificationPrompt?: Prompt;
-
-  /**
    * <p>The message that Amazon Lex uses to cancel a conversation. For more
    *       information, see <a>PutBot</a>.</p>
    */
   abortStatement?: Statement;
 
   /**
-   * <p> When you send a request to create a bot with
-   *         <code>processBehavior</code> set to <code>BUILD</code>, Amazon Lex sets the
-   *         <code>status</code> response element to <code>BUILDING</code>.</p>
-   *          <p>In the <code>READY_BASIC_TESTING</code> state you can test the bot
-   *       with user inputs that exactly match the utterances configured for the
-   *       bot's intents and values in the slot types.</p>
-   *          <p>If Amazon Lex can't build the bot, Amazon Lex sets <code>status</code> to
-   *         <code>FAILED</code>. Amazon Lex returns the reason for the failure in the
-   *         <code>failureReason</code> response element. </p>
-   *          <p>When you set <code>processBehavior</code> to <code>SAVE</code>,
-   *       Amazon Lex sets the status code to <code>NOT BUILT</code>.</p>
-   *          <p>When the bot is in the <code>READY</code> state you can test and
-   *       publish the bot.</p>
-   */
-  status?: Status | string;
-
-  /**
-   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
-   *       reason that it failed to build the bot.</p>
-   */
-  failureReason?: string;
-
-  /**
-   * <p>The date that the bot was updated. When you create a resource, the
-   *       creation date and last updated date are the same.</p>
-   */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>The date that the bot was created.</p>
-   */
-  createdDate?: Date;
-
-  /**
-   * <p>The maximum length of time that Amazon Lex retains the data gathered in
-   *       a conversation. For more information, see <a>PutBot</a>.</p>
-   */
-  idleSessionTTLInSeconds?: number;
-
-  /**
-   * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction
-   *       with the user. For more information, see <a>PutBot</a>.</p>
-   */
-  voiceId?: string;
-
-  /**
    * <p>Checksum of the bot that you created.</p>
    */
   checksum?: string;
-
-  /**
-   * <p>The version of the bot. For a new bot, the version is always
-   *         <code>$LATEST</code>.</p>
-   */
-  version?: string;
-
-  /**
-   * <p> The target locale for the bot. </p>
-   */
-  locale?: Locale | string;
 
   /**
    * <p>For each Amazon Lex bot created with the Amazon Lex Model Building Service,
@@ -3611,6 +3513,17 @@ export interface PutBotResponse {
   childDirected?: boolean;
 
   /**
+   * <p> The prompts that Amazon Lex uses when it doesn't understand the user's
+   *       intent. For more information, see <a>PutBot</a>. </p>
+   */
+  clarificationPrompt?: Prompt;
+
+  /**
+   * <p>The date that the bot was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
    * <p>
    *             <code>True</code> if a new version of the bot was created. If the
    *         <code>createVersion</code> field was not specified in the request, the
@@ -3618,6 +3531,11 @@ export interface PutBotResponse {
    *       response.</p>
    */
   createVersion?: boolean;
+
+  /**
+   * <p>A description of the bot.</p>
+   */
+  description?: string;
 
   /**
    * <p>
@@ -3630,9 +3548,92 @@ export interface PutBotResponse {
   detectSentiment?: boolean;
 
   /**
+   * <p>Indicates whether the bot uses accuracy improvements.
+   *         <code>true</code> indicates that the bot is using the improvements,
+   *       otherwise, <code>false</code>.</p>
+   */
+  enableModelImprovements?: boolean;
+
+  /**
+   * <p>If <code>status</code> is <code>FAILED</code>, Amazon Lex provides the
+   *       reason that it failed to build the bot.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>The maximum length of time that Amazon Lex retains the data gathered in
+   *       a conversation. For more information, see <a>PutBot</a>.</p>
+   */
+  idleSessionTTLInSeconds?: number;
+
+  /**
+   * <p>An array of <code>Intent</code> objects. For more information, see
+   *         <a>PutBot</a>.</p>
+   */
+  intents?: Intent[];
+
+  /**
+   * <p>The date that the bot was updated. When you create a resource, the
+   *       creation date and last updated date are the same.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p> The target locale for the bot. </p>
+   */
+  locale?: Locale | string;
+
+  /**
+   * <p>The name of the bot.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The score that determines where Amazon Lex inserts the
+   *         <code>AMAZON.FallbackIntent</code>,
+   *         <code>AMAZON.KendraSearchIntent</code>, or both when returning
+   *       alternative intents in a <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a> or
+   *         <a href="https://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a> response.
+   *         <code>AMAZON.FallbackIntent</code> is inserted if the confidence score
+   *       for all intents is below this value.
+   *         <code>AMAZON.KendraSearchIntent</code> is only inserted if it is
+   *       configured for the bot.</p>
+   */
+  nluIntentConfidenceThreshold?: number;
+
+  /**
+   * <p> When you send a request to create a bot with
+   *         <code>processBehavior</code> set to <code>BUILD</code>, Amazon Lex sets the
+   *         <code>status</code> response element to <code>BUILDING</code>.</p>
+   *          <p>In the <code>READY_BASIC_TESTING</code> state you can test the bot
+   *       with user inputs that exactly match the utterances configured for the
+   *       bot's intents and values in the slot types.</p>
+   *          <p>If Amazon Lex can't build the bot, Amazon Lex sets <code>status</code> to
+   *         <code>FAILED</code>. Amazon Lex returns the reason for the failure in the
+   *         <code>failureReason</code> response element. </p>
+   *          <p>When you set <code>processBehavior</code> to <code>SAVE</code>,
+   *       Amazon Lex sets the status code to <code>NOT BUILT</code>.</p>
+   *          <p>When the bot is in the <code>READY</code> state you can test and
+   *       publish the bot.</p>
+   */
+  status?: Status | string;
+
+  /**
    * <p>A list of tags associated with the bot.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The version of the bot. For a new bot, the version is always
+   *         <code>$LATEST</code>.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction
+   *       with the user. For more information, see <a>PutBot</a>.</p>
+   */
+  voiceId?: string;
 }
 
 export namespace PutBotResponse {
@@ -3647,12 +3648,6 @@ export namespace PutBotResponse {
  */
 export interface LogSettingsRequest {
   /**
-   * <p>The type of logging to enable. Text logs are delivered to a CloudWatch
-   *       Logs log group. Audio logs are delivered to an S3 bucket.</p>
-   */
-  logType: LogType | string | undefined;
-
-  /**
    * <p>Where the logs will be delivered. Text logs are delivered to a
    *       CloudWatch Logs log group. Audio logs are delivered to an S3
    *       bucket.</p>
@@ -3665,6 +3660,12 @@ export interface LogSettingsRequest {
    *       CloudWatch Logs and is optional for S3 buckets.</p>
    */
   kmsKeyArn?: string;
+
+  /**
+   * <p>The type of logging to enable. Text logs are delivered to a CloudWatch
+   *       Logs log group. Audio logs are delivered to an S3 bucket.</p>
+   */
+  logType: LogType | string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3
@@ -3684,12 +3685,6 @@ export namespace LogSettingsRequest {
  */
 export interface ConversationLogsRequest {
   /**
-   * <p>The settings for your conversation logs. You can log the conversation
-   *       text, conversation audio, or both.</p>
-   */
-  logSettings: LogSettingsRequest[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of an IAM role with permission to write
    *       to your CloudWatch Logs for text logs and your S3 bucket for audio logs.
    *       If audio encryption is enabled, this role also provides access permission
@@ -3698,6 +3693,12 @@ export interface ConversationLogsRequest {
    *         IAM Role and Policy for Conversation Logs</a>.</p>
    */
   iamRoleArn: string | undefined;
+
+  /**
+   * <p>The settings for your conversation logs. You can log the conversation
+   *       text, conversation audio, or both.</p>
+   */
+  logSettings: LogSettingsRequest[] | undefined;
 }
 
 export namespace ConversationLogsRequest {
@@ -3708,25 +3709,14 @@ export namespace ConversationLogsRequest {
 
 export interface PutBotAliasRequest {
   /**
-   * <p>The name of the alias. The name is <i>not</i> case
-   *       sensitive.</p>
+   * <p>The name of the bot.</p>
    */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the alias.</p>
-   */
-  description?: string;
+  botName: string | undefined;
 
   /**
    * <p>The version of the bot.</p>
    */
   botVersion: string | undefined;
-
-  /**
-   * <p>The name of the bot.</p>
-   */
-  botName: string | undefined;
 
   /**
    * <p>Identifies a specific revision of the <code>$LATEST</code>
@@ -3749,6 +3739,17 @@ export interface PutBotAliasRequest {
   conversationLogs?: ConversationLogsRequest;
 
   /**
+   * <p>A description of the alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the alias. The name is <i>not</i> case
+   *       sensitive.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>A list of tags to add to the bot alias. You can only add tags when you
    *       create an alias, you can't use the <code>PutBotAlias</code> operation to
    *       update the tags on a bot alias. To update tags, use the
@@ -3765,36 +3766,14 @@ export namespace PutBotAliasRequest {
 
 export interface PutBotAliasResponse {
   /**
-   * <p>The name of the alias.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>A description of the alias.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The version of the bot that the alias points to.</p>
-   */
-  botVersion?: string;
-
-  /**
    * <p>The name of the bot that the alias points to.</p>
    */
   botName?: string;
 
   /**
-   * <p>The date that the bot alias was updated. When you create a
-   *       resource, the creation date and the last updated date are the
-   *       same.</p>
+   * <p>The version of the bot that the alias points to.</p>
    */
-  lastUpdatedDate?: Date;
-
-  /**
-   * <p>The date that the bot alias was created.</p>
-   */
-  createdDate?: Date;
+  botVersion?: string;
 
   /**
    * <p>The checksum for the current version of the alias.</p>
@@ -3806,6 +3785,28 @@ export interface PutBotAliasResponse {
    *       alias.</p>
    */
   conversationLogs?: ConversationLogsResponse;
+
+  /**
+   * <p>The date that the bot alias was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>A description of the alias.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The date that the bot alias was updated. When you create a
+   *       resource, the creation date and the last updated date are the
+   *       same.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The name of the alias.</p>
+   */
+  name?: string;
 
   /**
    * <p>A list of tags associated with a bot.</p>
@@ -3821,38 +3822,33 @@ export namespace PutBotAliasResponse {
 
 export interface PutIntentRequest {
   /**
-   * <p>The name of the intent. The name is <i>not</i> case
-   *       sensitive. </p>
-   *          <p>The name can't match a built-in intent name, or a built-in intent
-   *       name with "AMAZON." removed. For example, because there is a built-in
-   *       intent called <code>AMAZON.HelpIntent</code>, you can't create a custom
-   *       intent called <code>HelpIntent</code>.</p>
-   *          <p>For a list of built-in intents, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
-   *         Kit</i>.</p>
+   * <p>Identifies a specific revision of the <code>$LATEST</code>
+   *       version.</p>
+   *          <p>When you create a new intent, leave the <code>checksum</code> field
+   *       blank. If you specify a checksum you get a
+   *         <code>BadRequestException</code> exception.</p>
+   *          <p>When you want to update a intent, set the <code>checksum</code>
+   *       field to the checksum of the most recent revision of the
+   *         <code>$LATEST</code> version. If you don't specify the <code>
+   *         checksum</code> field, or if the checksum does not match the
+   *         <code>$LATEST</code> version, you get a
+   *         <code>PreconditionFailedException</code> exception.</p>
    */
-  name: string | undefined;
+  checksum?: string;
 
   /**
-   * <p>A description of the intent.</p>
+   * <p> The statement that you want Amazon Lex to convey to the user after the
+   *       intent is successfully fulfilled by the Lambda function. </p>
+   *          <p>This element is relevant only if you provide a Lambda function in
+   *       the <code>fulfillmentActivity</code>. If you return the intent to the
+   *       client application, you can't specify this element.</p>
+   *          <note>
+   *             <p>The <code>followUpPrompt</code> and
+   *           <code>conclusionStatement</code> are mutually exclusive. You can
+   *         specify only one.</p>
+   *          </note>
    */
-  description?: string;
-
-  /**
-   * <p>An array of intent slots. At runtime, Amazon Lex elicits required slot
-   *       values from the user using prompts defined in the slots. For more
-   *       information, see <a>how-it-works</a>. </p>
-   */
-  slots?: Slot[];
-
-  /**
-   * <p>An array of utterances (strings) that a user might say to signal
-   *       the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity}
-   *       {PizzaSize} pizzas". </p>
-   *
-   *          <p>In each utterance, a slot name is enclosed in curly braces.
-   *     </p>
-   */
-  sampleUtterances?: string[];
+  conclusionStatement?: Statement;
 
   /**
    * <p>Prompts the user to confirm the intent. This question should have a
@@ -3871,15 +3867,29 @@ export interface PutIntentRequest {
   confirmationPrompt?: Prompt;
 
   /**
-   * <p>When the user answers "no" to the question defined in
-   *         <code>confirmationPrompt</code>, Amazon Lex responds with this statement to
-   *       acknowledge that the intent was canceled. </p>
-   *          <note>
-   *             <p>You must provide both the <code>rejectionStatement</code> and the
-   *           <code>confirmationPrompt</code>, or neither.</p>
-   *          </note>
+   * <p>When set to <code>true</code> a new numbered version of the intent
+   *       is created. This is the same as calling the
+   *         <code>CreateIntentVersion</code> operation. If you do not specify
+   *         <code>createVersion</code>, the default is <code>false</code>.</p>
    */
-  rejectionStatement?: Statement;
+  createVersion?: boolean;
+
+  /**
+   * <p>A description of the intent.</p>
+   */
+  description?: string;
+
+  /**
+   * <p> Specifies a Lambda function to invoke for each user input. You can
+   *       invoke this Lambda function to personalize user interaction. </p>
+   *          <p>For example, suppose your bot determines that the user is John.
+   *       Your Lambda function might retrieve John's information from a backend
+   *       database and prepopulate some of the values. For example, if you find that
+   *       John is gluten intolerant, you might set the corresponding intent slot,
+   *         <code>GlutenIntolerant</code>, to true. You might find John's phone
+   *       number and set the corresponding session attribute. </p>
+   */
+  dialogCodeHook?: CodeHook;
 
   /**
    * <p>Amazon Lex uses this prompt to solicit additional activity after
@@ -3913,32 +3923,6 @@ export interface PutIntentRequest {
   followUpPrompt?: FollowUpPrompt;
 
   /**
-   * <p> The statement that you want Amazon Lex to convey to the user after the
-   *       intent is successfully fulfilled by the Lambda function. </p>
-   *          <p>This element is relevant only if you provide a Lambda function in
-   *       the <code>fulfillmentActivity</code>. If you return the intent to the
-   *       client application, you can't specify this element.</p>
-   *          <note>
-   *             <p>The <code>followUpPrompt</code> and
-   *           <code>conclusionStatement</code> are mutually exclusive. You can
-   *         specify only one.</p>
-   *          </note>
-   */
-  conclusionStatement?: Statement;
-
-  /**
-   * <p> Specifies a Lambda function to invoke for each user input. You can
-   *       invoke this Lambda function to personalize user interaction. </p>
-   *          <p>For example, suppose your bot determines that the user is John.
-   *       Your Lambda function might retrieve John's information from a backend
-   *       database and prepopulate some of the values. For example, if you find that
-   *       John is gluten intolerant, you might set the corresponding intent slot,
-   *         <code>GlutenIntolerant</code>, to true. You might find John's phone
-   *       number and set the corresponding session attribute. </p>
-   */
-  dialogCodeHook?: CodeHook;
-
-  /**
    * <p>Required. Describes how the intent is fulfilled. For example, after
    *       a user provides all of the information for a pizza order,
    *         <code>fulfillmentActivity</code> defines how the bot places an order
@@ -3951,34 +3935,11 @@ export interface PutIntentRequest {
   fulfillmentActivity?: FulfillmentActivity;
 
   /**
-   * <p>A unique identifier for the built-in intent to base this intent on.
-   *       To find the signature for an intent, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
-   *         Kit</i>.</p>
+   * <p>An array of <code>InputContext</code> objects that lists the contexts
+   *       that must be active for Amazon Lex to choose the intent in a conversation with
+   *       the user.</p>
    */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>Identifies a specific revision of the <code>$LATEST</code>
-   *       version.</p>
-   *          <p>When you create a new intent, leave the <code>checksum</code> field
-   *       blank. If you specify a checksum you get a
-   *         <code>BadRequestException</code> exception.</p>
-   *          <p>When you want to update a intent, set the <code>checksum</code>
-   *       field to the checksum of the most recent revision of the
-   *         <code>$LATEST</code> version. If you don't specify the <code>
-   *         checksum</code> field, or if the checksum does not match the
-   *         <code>$LATEST</code> version, you get a
-   *         <code>PreconditionFailedException</code> exception.</p>
-   */
-  checksum?: string;
-
-  /**
-   * <p>When set to <code>true</code> a new numbered version of the intent
-   *       is created. This is the same as calling the
-   *         <code>CreateIntentVersion</code> operation. If you do not specify
-   *         <code>createVersion</code>, the default is <code>false</code>.</p>
-   */
-  createVersion?: boolean;
+  inputContexts?: InputContext[];
 
   /**
    * <p>Configuration information required to use the
@@ -3989,17 +3950,57 @@ export interface PutIntentRequest {
   kendraConfiguration?: KendraConfiguration;
 
   /**
-   * <p>An array of <code>InputContext</code> objects that lists the contexts
-   *       that must be active for Amazon Lex to choose the intent in a conversation with
-   *       the user.</p>
+   * <p>The name of the intent. The name is <i>not</i> case
+   *       sensitive. </p>
+   *          <p>The name can't match a built-in intent name, or a built-in intent
+   *       name with "AMAZON." removed. For example, because there is a built-in
+   *       intent called <code>AMAZON.HelpIntent</code>, you can't create a custom
+   *       intent called <code>HelpIntent</code>.</p>
+   *          <p>For a list of built-in intents, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
+   *         Kit</i>.</p>
    */
-  inputContexts?: InputContext[];
+  name: string | undefined;
 
   /**
    * <p>An array of <code>OutputContext</code> objects that lists the contexts
    *       that the intent activates when the intent is fulfilled.</p>
    */
   outputContexts?: OutputContext[];
+
+  /**
+   * <p>A unique identifier for the built-in intent to base this intent on.
+   *       To find the signature for an intent, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard Built-in Intents</a> in the <i>Alexa Skills
+   *         Kit</i>.</p>
+   */
+  parentIntentSignature?: string;
+
+  /**
+   * <p>When the user answers "no" to the question defined in
+   *         <code>confirmationPrompt</code>, Amazon Lex responds with this statement to
+   *       acknowledge that the intent was canceled. </p>
+   *          <note>
+   *             <p>You must provide both the <code>rejectionStatement</code> and the
+   *           <code>confirmationPrompt</code>, or neither.</p>
+   *          </note>
+   */
+  rejectionStatement?: Statement;
+
+  /**
+   * <p>An array of utterances (strings) that a user might say to signal
+   *       the intent. For example, "I want {PizzaSize} pizza", "Order {Quantity}
+   *       {PizzaSize} pizzas". </p>
+   *
+   *          <p>In each utterance, a slot name is enclosed in curly braces.
+   *     </p>
+   */
+  sampleUtterances?: string[];
+
+  /**
+   * <p>An array of intent slots. At runtime, Amazon Lex elicits required slot
+   *       values from the user using prompts defined in the slots. For more
+   *       information, see <a>how-it-works</a>. </p>
+   */
+  slots?: Slot[];
 }
 
 export namespace PutIntentRequest {
@@ -4010,45 +4011,10 @@ export namespace PutIntentRequest {
 
 export interface PutIntentResponse {
   /**
-   * <p>The name of the intent.</p>
+   * <p>Checksum of the <code>$LATEST</code>version of the intent created
+   *       or updated.</p>
    */
-  name?: string;
-
-  /**
-   * <p>A description of the intent.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>An array of intent slots that are configured for the
-   *       intent.</p>
-   */
-  slots?: Slot[];
-
-  /**
-   * <p> An array of sample utterances that are configured for the intent.
-   *     </p>
-   */
-  sampleUtterances?: string[];
-
-  /**
-   * <p>If defined in the intent, Amazon Lex prompts the user to confirm the
-   *       intent before fulfilling it.</p>
-   */
-  confirmationPrompt?: Prompt;
-
-  /**
-   * <p>If the user answers "no" to the question defined in
-   *         <code>confirmationPrompt</code> Amazon Lex responds with this statement to
-   *       acknowledge that the intent was canceled. </p>
-   */
-  rejectionStatement?: Statement;
-
-  /**
-   * <p>If defined in the intent, Amazon Lex uses this prompt to solicit
-   *       additional user activity after the intent is fulfilled.</p>
-   */
-  followUpPrompt?: FollowUpPrompt;
+  checksum?: string;
 
   /**
    * <p>After the Lambda function specified in
@@ -4058,46 +4024,15 @@ export interface PutIntentResponse {
   conclusionStatement?: Statement;
 
   /**
-   * <p>If defined in the intent, Amazon Lex invokes this Lambda function for
-   *       each user input.</p>
+   * <p>If defined in the intent, Amazon Lex prompts the user to confirm the
+   *       intent before fulfilling it.</p>
    */
-  dialogCodeHook?: CodeHook;
-
-  /**
-   * <p>If defined in the intent, Amazon Lex invokes this Lambda function to
-   *       fulfill the intent after the user provides all of the information required
-   *       by the intent.</p>
-   */
-  fulfillmentActivity?: FulfillmentActivity;
-
-  /**
-   * <p>A unique identifier for the built-in intent that this intent is
-   *       based on.</p>
-   */
-  parentIntentSignature?: string;
-
-  /**
-   * <p>The date that the intent was updated. When you create a resource,
-   *       the creation date and last update dates are the same.</p>
-   */
-  lastUpdatedDate?: Date;
+  confirmationPrompt?: Prompt;
 
   /**
    * <p>The date that the intent was created.</p>
    */
   createdDate?: Date;
-
-  /**
-   * <p>The version of the intent. For a new intent, the version is always
-   *         <code>$LATEST</code>.</p>
-   */
-  version?: string;
-
-  /**
-   * <p>Checksum of the <code>$LATEST</code>version of the intent created
-   *       or updated.</p>
-   */
-  checksum?: string;
 
   /**
    * <p>
@@ -4109,11 +4044,28 @@ export interface PutIntentResponse {
   createVersion?: boolean;
 
   /**
-   * <p>Configuration information, if any, required to connect to an Amazon
-   *       Kendra index and use the <code>AMAZON.KendraSearchIntent</code>
-   *       intent.</p>
+   * <p>A description of the intent.</p>
    */
-  kendraConfiguration?: KendraConfiguration;
+  description?: string;
+
+  /**
+   * <p>If defined in the intent, Amazon Lex invokes this Lambda function for
+   *       each user input.</p>
+   */
+  dialogCodeHook?: CodeHook;
+
+  /**
+   * <p>If defined in the intent, Amazon Lex uses this prompt to solicit
+   *       additional user activity after the intent is fulfilled.</p>
+   */
+  followUpPrompt?: FollowUpPrompt;
+
+  /**
+   * <p>If defined in the intent, Amazon Lex invokes this Lambda function to
+   *       fulfill the intent after the user provides all of the information required
+   *       by the intent.</p>
+   */
+  fulfillmentActivity?: FulfillmentActivity;
 
   /**
    * <p>An array of <code>InputContext</code> objects that lists the contexts
@@ -4123,10 +4075,59 @@ export interface PutIntentResponse {
   inputContexts?: InputContext[];
 
   /**
+   * <p>Configuration information, if any, required to connect to an Amazon
+   *       Kendra index and use the <code>AMAZON.KendraSearchIntent</code>
+   *       intent.</p>
+   */
+  kendraConfiguration?: KendraConfiguration;
+
+  /**
+   * <p>The date that the intent was updated. When you create a resource,
+   *       the creation date and last update dates are the same.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * <p>The name of the intent.</p>
+   */
+  name?: string;
+
+  /**
    * <p>An array of <code>OutputContext</code> objects that lists the contexts
    *       that the intent activates when the intent is fulfilled.</p>
    */
   outputContexts?: OutputContext[];
+
+  /**
+   * <p>A unique identifier for the built-in intent that this intent is
+   *       based on.</p>
+   */
+  parentIntentSignature?: string;
+
+  /**
+   * <p>If the user answers "no" to the question defined in
+   *         <code>confirmationPrompt</code> Amazon Lex responds with this statement to
+   *       acknowledge that the intent was canceled. </p>
+   */
+  rejectionStatement?: Statement;
+
+  /**
+   * <p> An array of sample utterances that are configured for the intent.
+   *     </p>
+   */
+  sampleUtterances?: string[];
+
+  /**
+   * <p>An array of intent slots that are configured for the
+   *       intent.</p>
+   */
+  slots?: Slot[];
+
+  /**
+   * <p>The version of the intent. For a new intent, the version is always
+   *         <code>$LATEST</code>.</p>
+   */
+  version?: string;
 }
 
 export namespace PutIntentResponse {
@@ -4137,16 +4138,27 @@ export namespace PutIntentResponse {
 
 export interface PutSlotTypeRequest {
   /**
-   * <p>The name of the slot type. The name is <i>not</i>
-   *       case sensitive. </p>
-   *          <p>The name can't match a built-in slot type name, or a built-in slot
-   *       type name with "AMAZON." removed. For example, because there is a built-in
-   *       slot type called <code>AMAZON.DATE</code>, you can't create a custom slot
-   *       type called <code>DATE</code>.</p>
-   *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
-   *         Kit</i>.</p>
+   * <p>Identifies a specific revision of the <code>$LATEST</code>
+   *       version.</p>
+   *          <p>When you create a new slot type, leave the <code>checksum</code>
+   *       field blank. If you specify a checksum you get a
+   *         <code>BadRequestException</code> exception.</p>
+   *          <p>When you want to update a slot type, set the <code>checksum</code>
+   *       field to the checksum of the most recent revision of the
+   *         <code>$LATEST</code> version. If you don't specify the <code>
+   *         checksum</code> field, or if the checksum does not match the
+   *         <code>$LATEST</code> version, you get a
+   *         <code>PreconditionFailedException</code> exception.</p>
    */
-  name: string | undefined;
+  checksum?: string;
+
+  /**
+   * <p>When set to <code>true</code> a new numbered version of the slot
+   *       type is created. This is the same as calling the
+   *         <code>CreateSlotTypeVersion</code> operation. If you do not specify
+   *         <code>createVersion</code>, the default is <code>false</code>.</p>
+   */
+  createVersion?: boolean;
 
   /**
    * <p>A description of the slot type.</p>
@@ -4171,19 +4183,31 @@ export interface PutSlotTypeRequest {
   enumerationValues?: EnumerationValue[];
 
   /**
-   * <p>Identifies a specific revision of the <code>$LATEST</code>
-   *       version.</p>
-   *          <p>When you create a new slot type, leave the <code>checksum</code>
-   *       field blank. If you specify a checksum you get a
-   *         <code>BadRequestException</code> exception.</p>
-   *          <p>When you want to update a slot type, set the <code>checksum</code>
-   *       field to the checksum of the most recent revision of the
-   *         <code>$LATEST</code> version. If you don't specify the <code>
-   *         checksum</code> field, or if the checksum does not match the
-   *         <code>$LATEST</code> version, you get a
-   *         <code>PreconditionFailedException</code> exception.</p>
+   * <p>The name of the slot type. The name is <i>not</i>
+   *       case sensitive. </p>
+   *          <p>The name can't match a built-in slot type name, or a built-in slot
+   *       type name with "AMAZON." removed. For example, because there is a built-in
+   *       slot type called <code>AMAZON.DATE</code>, you can't create a custom slot
+   *       type called <code>DATE</code>.</p>
+   *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
+   *         Kit</i>.</p>
    */
-  checksum?: string;
+  name: string | undefined;
+
+  /**
+   * <p>The built-in slot type used as the parent of the slot type. When you
+   *       define a parent slot type, the new slot type has all of the same
+   *       configuration as the parent.</p>
+   *          <p>Only <code>AMAZON.AlphaNumeric</code> is supported.</p>
+   */
+  parentSlotTypeSignature?: string;
+
+  /**
+   * <p>Configuration information that extends the parent built-in slot type.
+   *       The configuration is added to the settings for the parent slot
+   *       type.</p>
+   */
+  slotTypeConfigurations?: SlotTypeConfiguration[];
 
   /**
    * <p>Determines the slot resolution strategy that Amazon Lex uses to return
@@ -4207,29 +4231,6 @@ export interface PutSlotTypeRequest {
    *       default is <code>ORIGINAL_VALUE</code>.</p>
    */
   valueSelectionStrategy?: SlotValueSelectionStrategy | string;
-
-  /**
-   * <p>When set to <code>true</code> a new numbered version of the slot
-   *       type is created. This is the same as calling the
-   *         <code>CreateSlotTypeVersion</code> operation. If you do not specify
-   *         <code>createVersion</code>, the default is <code>false</code>.</p>
-   */
-  createVersion?: boolean;
-
-  /**
-   * <p>The built-in slot type used as the parent of the slot type. When you
-   *       define a parent slot type, the new slot type has all of the same
-   *       configuration as the parent.</p>
-   *          <p>Only <code>AMAZON.AlphaNumeric</code> is supported.</p>
-   */
-  parentSlotTypeSignature?: string;
-
-  /**
-   * <p>Configuration information that extends the parent built-in slot type.
-   *       The configuration is added to the settings for the parent slot
-   *       type.</p>
-   */
-  slotTypeConfigurations?: SlotTypeConfiguration[];
 }
 
 export namespace PutSlotTypeRequest {
@@ -4240,9 +4241,24 @@ export namespace PutSlotTypeRequest {
 
 export interface PutSlotTypeResponse {
   /**
-   * <p>The name of the slot type.</p>
+   * <p>Checksum of the <code>$LATEST</code> version of the slot
+   *       type.</p>
    */
-  name?: string;
+  checksum?: string;
+
+  /**
+   * <p>The date that the slot type was created.</p>
+   */
+  createdDate?: Date;
+
+  /**
+   * <p>
+   *             <code>True</code> if a new version of the slot type was created. If
+   *       the <code>createVersion</code> field was not specified in the request, the
+   *         <code>createVersion</code> field is set to false in the
+   *       response.</p>
+   */
+  createVersion?: boolean;
 
   /**
    * <p>A description of the slot type.</p>
@@ -4262,36 +4278,9 @@ export interface PutSlotTypeResponse {
   lastUpdatedDate?: Date;
 
   /**
-   * <p>The date that the slot type was created.</p>
+   * <p>The name of the slot type.</p>
    */
-  createdDate?: Date;
-
-  /**
-   * <p>The version of the slot type. For a new slot type, the version is
-   *       always <code>$LATEST</code>. </p>
-   */
-  version?: string;
-
-  /**
-   * <p>Checksum of the <code>$LATEST</code> version of the slot
-   *       type.</p>
-   */
-  checksum?: string;
-
-  /**
-   * <p>The slot resolution strategy that Amazon Lex uses to determine the value
-   *       of the slot. For more information, see <a>PutSlotType</a>.</p>
-   */
-  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
-
-  /**
-   * <p>
-   *             <code>True</code> if a new version of the slot type was created. If
-   *       the <code>createVersion</code> field was not specified in the request, the
-   *         <code>createVersion</code> field is set to false in the
-   *       response.</p>
-   */
-  createVersion?: boolean;
+  name?: string;
 
   /**
    * <p>The built-in slot type used as the parent of the slot type.</p>
@@ -4303,6 +4292,18 @@ export interface PutSlotTypeResponse {
    *       type.</p>
    */
   slotTypeConfigurations?: SlotTypeConfiguration[];
+
+  /**
+   * <p>The slot resolution strategy that Amazon Lex uses to determine the value
+   *       of the slot. For more information, see <a>PutSlotType</a>.</p>
+   */
+  valueSelectionStrategy?: SlotValueSelectionStrategy | string;
+
+  /**
+   * <p>The version of the slot type. For a new slot type, the version is
+   *       always <code>$LATEST</code>. </p>
+   */
+  version?: string;
 }
 
 export namespace PutSlotTypeResponse {
@@ -4312,6 +4313,26 @@ export namespace PutSlotTypeResponse {
 }
 
 export interface StartImportRequest {
+  /**
+   * <p>Specifies the action that the <code>StartImport</code> operation
+   *       should take when there is an existing resource with the same
+   *       name.</p>
+   *          <ul>
+   *             <li>
+   *                <p>FAIL_ON_CONFLICT - The import operation is stopped on the first
+   *           conflict between a resource in the import file and an existing
+   *           resource. The name of the resource causing the conflict is in the
+   *             <code>failureReason</code> field of the response to the
+   *             <code>GetImport</code> operation.</p>
+   *                <p>OVERWRITE_LATEST - The import operation proceeds even if there
+   *           is a conflict with an existing resource. The $LASTEST version of the
+   *           existing resource is overwritten with the data from the import
+   *           file.</p>
+   *             </li>
+   *          </ul>
+   */
+  mergeStrategy: MergeStrategy | string | undefined;
+
   /**
    * <p>A zip archive in binary format. The archive should contain one file, a
    *       JSON file containing the resource to import. The resource should match the
@@ -4334,26 +4355,6 @@ export interface StartImportRequest {
   resourceType: ResourceType | string | undefined;
 
   /**
-   * <p>Specifies the action that the <code>StartImport</code> operation
-   *       should take when there is an existing resource with the same
-   *       name.</p>
-   *          <ul>
-   *             <li>
-   *                <p>FAIL_ON_CONFLICT - The import operation is stopped on the first
-   *           conflict between a resource in the import file and an existing
-   *           resource. The name of the resource causing the conflict is in the
-   *             <code>failureReason</code> field of the response to the
-   *             <code>GetImport</code> operation.</p>
-   *                <p>OVERWRITE_LATEST - The import operation proceeds even if there
-   *           is a conflict with an existing resource. The $LASTEST version of the
-   *           existing resource is overwritten with the data from the import
-   *           file.</p>
-   *             </li>
-   *          </ul>
-   */
-  mergeStrategy: MergeStrategy | string | undefined;
-
-  /**
    * <p>A list of tags to add to the imported bot. You can only add tags when
    *       you import a bot, you can't add tags to an intent or slot type.</p>
    */
@@ -4368,19 +4369,10 @@ export namespace StartImportRequest {
 
 export interface StartImportResponse {
   /**
-   * <p>The name given to the import job.</p>
+   * <p>A timestamp for the date and time that the import job was
+   *       requested.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The type of resource to import.</p>
-   */
-  resourceType?: ResourceType | string;
-
-  /**
-   * <p>The action to take when there is a merge conflict.</p>
-   */
-  mergeStrategy?: MergeStrategy | string;
+  createdDate?: Date;
 
   /**
    * <p>The identifier for the specific import job.</p>
@@ -4395,15 +4387,24 @@ export interface StartImportResponse {
   importStatus?: ImportStatus | string;
 
   /**
+   * <p>The action to take when there is a merge conflict.</p>
+   */
+  mergeStrategy?: MergeStrategy | string;
+
+  /**
+   * <p>The name given to the import job.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of resource to import.</p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
    * <p>A list of tags added to the imported bot.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>A timestamp for the date and time that the import job was
-   *       requested.</p>
-   */
-  createdDate?: Date;
 }
 
 export namespace StartImportResponse {

@@ -3,14 +3,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface GetDeviceRegistrationRequest {
   /**
-   * <p>The unique name of the device you want to get the registration status from.</p>
-   */
-  DeviceName: string | undefined;
-
-  /**
    * <p>The name of the fleet that the device belongs to.</p>
    */
   DeviceFleetName: string | undefined;
+
+  /**
+   * <p>The unique name of the device you want to get the registration status from.</p>
+   */
+  DeviceName: string | undefined;
 }
 
 export namespace GetDeviceRegistrationRequest {
@@ -21,14 +21,14 @@ export namespace GetDeviceRegistrationRequest {
 
 export interface GetDeviceRegistrationResult {
   /**
-   * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
-   */
-  DeviceRegistration?: string;
-
-  /**
    * <p>The amount of time, in seconds, that the registration status is stored on the device’s cache before it is refreshed.</p>
    */
   CacheTTL?: string;
+
+  /**
+   * <p>Describes if the device is currently registered with SageMaker Edge Manager.</p>
+   */
+  DeviceRegistration?: string;
 }
 
 export namespace GetDeviceRegistrationResult {
@@ -68,14 +68,14 @@ export interface EdgeMetric {
   MetricName?: string;
 
   /**
-   * <p>Returns the value of the metric.</p>
-   */
-  Value?: number;
-
-  /**
    * <p>Timestamp of when the metric was requested.</p>
    */
   Timestamp?: Date;
+
+  /**
+   * <p>Returns the value of the metric.</p>
+   */
+  Value?: number;
 }
 
 export namespace EdgeMetric {
@@ -89,6 +89,21 @@ export namespace EdgeMetric {
  */
 export interface Model {
   /**
+   * <p>The timestamp of the last inference that was made.</p>
+   */
+  LatestInference?: Date;
+
+  /**
+   * <p>The timestamp of the last data sample taken.</p>
+   */
+  LatestSampleTime?: Date;
+
+  /**
+   * <p>Information required for model metrics.</p>
+   */
+  ModelMetrics?: EdgeMetric[];
+
+  /**
    * <p>The name of the model.</p>
    */
   ModelName?: string;
@@ -97,21 +112,6 @@ export interface Model {
    * <p>The version of the model.</p>
    */
   ModelVersion?: string;
-
-  /**
-   * <p>The timestamp of the last data sample taken.</p>
-   */
-  LatestSampleTime?: Date;
-
-  /**
-   * <p>The timestamp of the last inference that was made.</p>
-   */
-  LatestInference?: Date;
-
-  /**
-   * <p>Information required for model metrics.</p>
-   */
-  ModelMetrics?: EdgeMetric[];
 }
 
 export namespace Model {
@@ -127,14 +127,14 @@ export interface SendHeartbeatRequest {
   AgentMetrics?: EdgeMetric[];
 
   /**
-   * <p>Returns a list of models deployed on the the device.</p>
-   */
-  Models?: Model[];
-
-  /**
    * <p>Returns the version of the agent.</p>
    */
   AgentVersion: string | undefined;
+
+  /**
+   * <p>The name of the fleet that the device belongs to.</p>
+   */
+  DeviceFleetName: string | undefined;
 
   /**
    * <p>The unique name of the device.</p>
@@ -142,9 +142,9 @@ export interface SendHeartbeatRequest {
   DeviceName: string | undefined;
 
   /**
-   * <p>The name of the fleet that the device belongs to.</p>
+   * <p>Returns a list of models deployed on the the device.</p>
    */
-  DeviceFleetName: string | undefined;
+  Models?: Model[];
 }
 
 export namespace SendHeartbeatRequest {

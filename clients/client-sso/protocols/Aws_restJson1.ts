@@ -58,9 +58,9 @@ export const serializeAws_restJson1ListAccountRolesCommand = async (
   };
   let resolvedPath = "/assignment/roles";
   const query: any = {
+    ...(input.nextToken !== undefined && { next_token: input.nextToken }),
     ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.accountId !== undefined && { account_id: input.accountId }),
-    ...(input.nextToken !== undefined && { next_token: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -85,8 +85,8 @@ export const serializeAws_restJson1ListAccountsCommand = async (
   };
   let resolvedPath = "/assignment/accounts";
   const query: any = {
-    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { next_token: input.nextToken }),
+    ...(input.maxResults !== undefined && { max_result: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();

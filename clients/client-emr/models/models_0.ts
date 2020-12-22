@@ -20,11 +20,6 @@ export enum InstanceFleetType {
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp2, io1, standard.</p>
-   */
-  VolumeType: string | undefined;
-
-  /**
    * <p>The number of I/O operations per second (IOPS) that the volume supports.</p>
    */
   Iops?: number;
@@ -34,6 +29,11 @@ export interface VolumeSpecification {
    *          type is EBS-optimized, the minimum value is 10.</p>
    */
   SizeInGB: number | undefined;
+
+  /**
+   * <p>The volume type. Volume types supported are gp2, io1, standard.</p>
+   */
+  VolumeType: string | undefined;
 }
 
 export namespace VolumeSpecification {
@@ -131,22 +131,11 @@ export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_C
  */
 export interface SpotProvisioningSpecification {
   /**
-   * <p>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
-   *          within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and
-   *          maximum value is 1440. The timeout applies only during initial provisioning, when the
-   *          cluster is first created.</p>
+   * <p> Specifies the strategy to use in launching Spot Instance fleets. Currently, the only
+   *          option is capacity-optimized (the default), which launches instances from Spot Instance
+   *          pools with optimal capacity for the number of instances that are launching. </p>
    */
-  TimeoutDurationMinutes: number | undefined;
-
-  /**
-   * <p>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when the
-   *             <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot Instances could
-   *          not be provisioned within the Spot provisioning timeout. Valid values are
-   *             <code>TERMINATE_CLUSTER</code> and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND
-   *          specifies that if no Spot Instances are available, On-Demand Instances should be
-   *          provisioned to fulfill any remaining Spot capacity.</p>
-   */
-  TimeoutAction: SpotProvisioningTimeoutAction | string | undefined;
+  AllocationStrategy?: SpotProvisioningAllocationStrategy | string;
 
   /**
    * <p>The defined duration for Spot Instances (also known as Spot blocks) in minutes. When
@@ -160,11 +149,22 @@ export interface SpotProvisioningSpecification {
   BlockDurationMinutes?: number;
 
   /**
-   * <p> Specifies the strategy to use in launching Spot Instance fleets. Currently, the only
-   *          option is capacity-optimized (the default), which launches instances from Spot Instance
-   *          pools with optimal capacity for the number of instances that are launching. </p>
+   * <p>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when the
+   *             <code>TimeoutDurationMinutes</code> has expired; that is, when all Spot Instances could
+   *          not be provisioned within the Spot provisioning timeout. Valid values are
+   *             <code>TERMINATE_CLUSTER</code> and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND
+   *          specifies that if no Spot Instances are available, On-Demand Instances should be
+   *          provisioned to fulfill any remaining Spot capacity.</p>
    */
-  AllocationStrategy?: SpotProvisioningAllocationStrategy | string;
+  TimeoutAction: SpotProvisioningTimeoutAction | string | undefined;
+
+  /**
+   * <p>The spot provisioning timeout period in minutes. If Spot Instances are not provisioned
+   *          within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and
+   *          maximum value is 1440. The timeout applies only during initial provisioning, when the
+   *          cluster is first created.</p>
+   */
+  TimeoutDurationMinutes: number | undefined;
 }
 
 export namespace SpotProvisioningSpecification {
@@ -184,12 +184,6 @@ export namespace SpotProvisioningSpecification {
  */
 export interface InstanceFleetProvisioningSpecifications {
   /**
-   * <p>The launch specification for Spot Instances in the fleet, which determines the defined
-   *          duration, provisioning timeout behavior, and allocation strategy.</p>
-   */
-  SpotSpecification?: SpotProvisioningSpecification;
-
-  /**
    * <p> The launch specification for On-Demand Instances in the instance fleet, which
    *          determines the allocation strategy. </p>
    *          <note>
@@ -199,6 +193,12 @@ export interface InstanceFleetProvisioningSpecifications {
    *          </note>
    */
   OnDemandSpecification?: OnDemandProvisioningSpecification;
+
+  /**
+   * <p>The launch specification for Spot Instances in the fleet, which determines the defined
+   *          duration, provisioning timeout behavior, and allocation strategy.</p>
+   */
+  SpotSpecification?: SpotProvisioningSpecification;
 }
 
 export namespace InstanceFleetProvisioningSpecifications {
@@ -209,6 +209,11 @@ export namespace InstanceFleetProvisioningSpecifications {
 
 export interface AddInstanceFleetOutput {
   /**
+   * <p>The Amazon Resource Name of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
    * <p>The unique identifier of the cluster.</p>
    */
   ClusterId?: string;
@@ -217,11 +222,6 @@ export interface AddInstanceFleetOutput {
    * <p>The unique identifier of the instance fleet.</p>
    */
   InstanceFleetId?: string;
-
-  /**
-   * <p>The Amazon Resource Name of the cluster.</p>
-   */
-  ClusterArn?: string;
 }
 
 export namespace AddInstanceFleetOutput {
@@ -278,18 +278,18 @@ export namespace InvalidRequestException {
  */
 export interface ScalingConstraints {
   /**
-   * <p>The lower boundary of EC2 instances in an instance group below which scaling activities
-   *          are not allowed to shrink. Scale-in activities will not terminate instances below this
-   *          boundary.</p>
-   */
-  MinCapacity: number | undefined;
-
-  /**
    * <p>The upper boundary of EC2 instances in an instance group beyond which scaling activities
    *          are not allowed to grow. Scale-out activities will not add instances beyond this
    *          boundary.</p>
    */
   MaxCapacity: number | undefined;
+
+  /**
+   * <p>The lower boundary of EC2 instances in an instance group below which scaling activities
+   *          are not allowed to shrink. Scale-in activities will not terminate instances below this
+   *          boundary.</p>
+   */
+  MinCapacity: number | undefined;
 }
 
 export namespace ScalingConstraints {
@@ -331,6 +331,12 @@ export interface SimpleScalingPolicyConfiguration {
   AdjustmentType?: AdjustmentType | string;
 
   /**
+   * <p>The amount of time, in seconds, after a scaling activity completes before any further
+   *          trigger-related scaling activities can start. The default value is 0.</p>
+   */
+  CoolDown?: number;
+
+  /**
    * <p>The amount by which to scale in or scale out, based on the specified
    *             <code>AdjustmentType</code>. A positive value adds to the instance group's EC2 instance
    *          count while a negative number removes instances. If <code>AdjustmentType</code> is set to
@@ -340,12 +346,6 @@ export interface SimpleScalingPolicyConfiguration {
    *          increments of cluster capacity.</p>
    */
   ScalingAdjustment: number | undefined;
-
-  /**
-   * <p>The amount of time, in seconds, after a scaling activity completes before any further
-   *          trigger-related scaling activities can start. The default value is 0.</p>
-   */
-  CoolDown?: number;
 }
 
 export namespace SimpleScalingPolicyConfiguration {
@@ -461,6 +461,11 @@ export interface CloudWatchAlarmDefinition {
   ComparisonOperator: ComparisonOperator | string | undefined;
 
   /**
+   * <p>A CloudWatch metric dimension.</p>
+   */
+  Dimensions?: MetricDimension[];
+
+  /**
    * <p>The number of periods, in five-minute increments, during which the alarm condition must
    *          exist before the alarm triggers automatic scaling activity. The default value is
    *             <code>1</code>.</p>
@@ -503,11 +508,6 @@ export interface CloudWatchAlarmDefinition {
    *          metric.</p>
    */
   Unit?: Unit | string;
-
-  /**
-   * <p>A CloudWatch metric dimension.</p>
-   */
-  Dimensions?: MetricDimension[];
 }
 
 export namespace CloudWatchAlarmDefinition {
@@ -541,10 +541,9 @@ export namespace ScalingTrigger {
  */
 export interface ScalingRule {
   /**
-   * <p>The name used to identify an automatic scaling rule. Rule names must be unique within a
-   *          scaling policy.</p>
+   * <p>The conditions that trigger an automatic scaling activity.</p>
    */
-  Name: string | undefined;
+  Action: ScalingAction | undefined;
 
   /**
    * <p>A friendly, more verbose description of the automatic scaling rule.</p>
@@ -552,9 +551,10 @@ export interface ScalingRule {
   Description?: string;
 
   /**
-   * <p>The conditions that trigger an automatic scaling activity.</p>
+   * <p>The name used to identify an automatic scaling rule. Rule names must be unique within a
+   *          scaling policy.</p>
    */
-  Action: ScalingAction | undefined;
+  Name: string | undefined;
 
   /**
    * <p>The CloudWatch alarm definition that determines when automatic scaling activity is
@@ -602,9 +602,9 @@ export type InstanceRoleType = "CORE" | "MASTER" | "TASK";
  */
 export interface AddInstanceGroupsOutput {
   /**
-   * <p>The job flow ID in which the instance groups are added.</p>
+   * <p>The Amazon Resource Name of the cluster.</p>
    */
-  JobFlowId?: string;
+  ClusterArn?: string;
 
   /**
    * <p>Instance group IDs of the newly created instance groups.</p>
@@ -612,9 +612,9 @@ export interface AddInstanceGroupsOutput {
   InstanceGroupIds?: string[];
 
   /**
-   * <p>The Amazon Resource Name of the cluster.</p>
+   * <p>The job flow ID in which the instance groups are added.</p>
    */
-  ClusterArn?: string;
+  JobFlowId?: string;
 }
 
 export namespace AddInstanceGroupsOutput {
@@ -666,10 +666,10 @@ export namespace KeyValue {
  */
 export interface HadoopJarStepConfig {
   /**
-   * <p>A list of Java properties that are set when the step runs. You can use these properties
-   *          to pass key value pairs to your main function.</p>
+   * <p>A list of command line arguments passed to the JAR file's main function when
+   *          executed.</p>
    */
-  Properties?: KeyValue[];
+  Args?: string[];
 
   /**
    * <p>A path to a JAR file run during the step.</p>
@@ -683,10 +683,10 @@ export interface HadoopJarStepConfig {
   MainClass?: string;
 
   /**
-   * <p>A list of command line arguments passed to the JAR file's main function when
-   *          executed.</p>
+   * <p>A list of Java properties that are set when the step runs. You can use these properties
+   *          to pass key value pairs to your main function.</p>
    */
-  Args?: string[];
+  Properties?: KeyValue[];
 }
 
 export namespace HadoopJarStepConfig {
@@ -700,11 +700,6 @@ export namespace HadoopJarStepConfig {
  */
 export interface StepConfig {
   /**
-   * <p>The name of the step.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
    *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility.
    *          We recommend using TERMINATE_CLUSTER instead.</p>
@@ -715,6 +710,11 @@ export interface StepConfig {
    * <p>The JAR file used for the step.</p>
    */
   HadoopJarStep: HadoopJarStepConfig | undefined;
+
+  /**
+   * <p>The name of the step.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace StepConfig {
@@ -836,6 +836,17 @@ export namespace AddTagsOutput {
  */
 export interface Application {
   /**
+   * <p>This option is for advanced users only. This is meta information about third-party
+   *          applications that third-party vendors use for testing purposes.</p>
+   */
+  AdditionalInfo?: { [key: string]: string };
+
+  /**
+   * <p>Arguments for Amazon EMR to pass to the application.</p>
+   */
+  Args?: string[];
+
+  /**
    * <p>The name of the application.</p>
    */
   Name?: string;
@@ -844,17 +855,6 @@ export interface Application {
    * <p>The version of the application.</p>
    */
   Version?: string;
-
-  /**
-   * <p>Arguments for Amazon EMR to pass to the application.</p>
-   */
-  Args?: string[];
-
-  /**
-   * <p>This option is for advanced users only. This is meta information about third-party
-   *          applications that third-party vendors use for testing purposes.</p>
-   */
-  AdditionalInfo?: { [key: string]: string };
 }
 
 export namespace Application {
@@ -938,11 +938,6 @@ export namespace AutoScalingPolicyStatus {
  */
 export interface AutoScalingPolicyDescription {
   /**
-   * <p>The status of an automatic scaling policy. </p>
-   */
-  Status?: AutoScalingPolicyStatus;
-
-  /**
    * <p>The upper and lower EC2 instance limits for an automatic scaling policy. Automatic
    *          scaling activity will not cause an instance group to grow above or below these
    *          limits.</p>
@@ -953,6 +948,11 @@ export interface AutoScalingPolicyDescription {
    * <p>The scale-in and scale-out rules that comprise the automatic scaling policy.</p>
    */
   Rules?: ScalingRule[];
+
+  /**
+   * <p>The status of an automatic scaling policy. </p>
+   */
+  Status?: AutoScalingPolicyStatus;
 }
 
 export namespace AutoScalingPolicyDescription {
@@ -970,12 +970,12 @@ export interface PortRange {
   /**
    * <p>The smallest port number in a specified range of port numbers.</p>
    */
-  MinRange: number | undefined;
+  MaxRange?: number;
 
   /**
    * <p>The smallest port number in a specified range of port numbers.</p>
    */
-  MaxRange?: number;
+  MinRange: number | undefined;
 }
 
 export namespace PortRange {
@@ -993,14 +993,14 @@ export namespace PortRange {
  */
 export interface BlockPublicAccessConfigurationMetadata {
   /**
-   * <p>The date and time that the configuration was created.</p>
-   */
-  CreationDateTime: Date | undefined;
-
-  /**
    * <p>The Amazon Resource Name that created or last modified the configuration.</p>
    */
   CreatedByArn: string | undefined;
+
+  /**
+   * <p>The date and time that the configuration was created.</p>
+   */
+  CreationDateTime: Date | undefined;
 }
 
 export namespace BlockPublicAccessConfigurationMetadata {
@@ -1014,15 +1014,15 @@ export namespace BlockPublicAccessConfigurationMetadata {
  */
 export interface ScriptBootstrapActionConfig {
   /**
+   * <p>A list of command line arguments to pass to the bootstrap action script.</p>
+   */
+  Args?: string[];
+
+  /**
    * <p>Location of the script to run during a bootstrap action. Can be either a location in
    *          Amazon S3 or on a local file system.</p>
    */
   Path: string | undefined;
-
-  /**
-   * <p>A list of command line arguments to pass to the bootstrap action script.</p>
-   */
-  Args?: string[];
 }
 
 export namespace ScriptBootstrapActionConfig {
@@ -1080,16 +1080,16 @@ export interface CancelStepsInput {
   ClusterId: string | undefined;
 
   /**
-   * <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps
-   *          and their states for the specified cluster.</p>
-   */
-  StepIds: string[] | undefined;
-
-  /**
    * <p>The option to choose to cancel <code>RUNNING</code> steps. By default, the value is
    *             <code>SEND_INTERRUPT</code>.</p>
    */
   StepCancellationOption?: StepCancellationOption | string;
+
+  /**
+   * <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps
+   *          and their states for the specified cluster.</p>
+   */
+  StepIds: string[] | undefined;
 }
 
 export namespace CancelStepsInput {
@@ -1109,9 +1109,9 @@ export enum CancelStepsRequestStatus {
  */
 export interface CancelStepsInfo {
   /**
-   * <p>The encrypted StepId of a step.</p>
+   * <p>The reason for the failure if the CancelSteps request fails.</p>
    */
-  StepId?: string;
+  Reason?: string;
 
   /**
    * <p>The status of a CancelSteps Request. The value may be SUBMITTED or FAILED.</p>
@@ -1119,9 +1119,9 @@ export interface CancelStepsInfo {
   Status?: CancelStepsRequestStatus | string;
 
   /**
-   * <p>The reason for the failure if the CancelSteps request fails.</p>
+   * <p>The encrypted StepId of a step.</p>
    */
-  Reason?: string;
+  StepId?: string;
 }
 
 export namespace CancelStepsInfo {
@@ -1153,6 +1153,21 @@ export namespace CancelStepsOutput {
  */
 export interface Ec2InstanceAttributes {
   /**
+   * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
+   */
+  AdditionalMasterSecurityGroups?: string[];
+
+  /**
+   * <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
+   */
+  AdditionalSlaveSecurityGroups?: string[];
+
+  /**
+   * <p>The Availability Zone in which the cluster will run. </p>
+   */
+  Ec2AvailabilityZone?: string;
+
+  /**
    * <p>The name of the Amazon EC2 key pair to use when connecting with SSH into the master node
    *          as a user named "hadoop".</p>
    */
@@ -1164,6 +1179,33 @@ export interface Ec2InstanceAttributes {
    *          cluster launches in EC2-Classic.</p>
    */
   Ec2SubnetId?: string;
+
+  /**
+   * <p>The identifier of the Amazon EC2 security group for the master node.</p>
+   */
+  EmrManagedMasterSecurityGroup?: string;
+
+  /**
+   * <p>The identifier of the Amazon EC2 security group for the core and task nodes.</p>
+   */
+  EmrManagedSlaveSecurityGroup?: string;
+
+  /**
+   * <p>The IAM role that was specified when the cluster was launched. The EC2 instances of the
+   *          cluster assume this role.</p>
+   */
+  IamInstanceProfile?: string;
+
+  /**
+   * <p>Applies to clusters configured with the instance fleets option. Specifies one or more
+   *          Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network
+   *          configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from
+   *          among the list of <code>RequestedEc2AvailabilityZones</code>, and then launches all cluster
+   *          instances within that Availability Zone. If you do not specify this value, Amazon EMR
+   *          chooses the Availability Zone for you. <code>RequestedEc2SubnetIDs</code> and
+   *             <code>RequestedEc2AvailabilityZones</code> cannot be specified together.</p>
+   */
+  RequestedEc2AvailabilityZones?: string[];
 
   /**
    * <p>Applies to clusters configured with the instance fleets option. Specifies the unique
@@ -1180,52 +1222,10 @@ export interface Ec2InstanceAttributes {
   RequestedEc2SubnetIds?: string[];
 
   /**
-   * <p>The Availability Zone in which the cluster will run. </p>
-   */
-  Ec2AvailabilityZone?: string;
-
-  /**
-   * <p>Applies to clusters configured with the instance fleets option. Specifies one or more
-   *          Availability Zones in which to launch EC2 cluster instances when the EC2-Classic network
-   *          configuration is supported. Amazon EMR chooses the Availability Zone with the best fit from
-   *          among the list of <code>RequestedEc2AvailabilityZones</code>, and then launches all cluster
-   *          instances within that Availability Zone. If you do not specify this value, Amazon EMR
-   *          chooses the Availability Zone for you. <code>RequestedEc2SubnetIDs</code> and
-   *             <code>RequestedEc2AvailabilityZones</code> cannot be specified together.</p>
-   */
-  RequestedEc2AvailabilityZones?: string[];
-
-  /**
-   * <p>The IAM role that was specified when the cluster was launched. The EC2 instances of the
-   *          cluster assume this role.</p>
-   */
-  IamInstanceProfile?: string;
-
-  /**
-   * <p>The identifier of the Amazon EC2 security group for the master node.</p>
-   */
-  EmrManagedMasterSecurityGroup?: string;
-
-  /**
-   * <p>The identifier of the Amazon EC2 security group for the core and task nodes.</p>
-   */
-  EmrManagedSlaveSecurityGroup?: string;
-
-  /**
    * <p>The identifier of the Amazon EC2 security group for the Amazon EMR service to access
    *          clusters in VPC private subnets.</p>
    */
   ServiceAccessSecurityGroup?: string;
-
-  /**
-   * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
-   */
-  AdditionalMasterSecurityGroups?: string[];
-
-  /**
-   * <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
-   */
-  AdditionalSlaveSecurityGroups?: string[];
 }
 
 export namespace Ec2InstanceAttributes {
@@ -1246,10 +1246,21 @@ export enum InstanceCollectionType {
  */
 export interface KerberosAttributes {
   /**
-   * <p>The name of the Kerberos realm to which all nodes in a cluster belong. For example,
-   *             <code>EC2.INTERNAL</code>. </p>
+   * <p>The Active Directory password for <code>ADDomainJoinUser</code>.</p>
    */
-  Realm: string | undefined;
+  ADDomainJoinPassword?: string;
+
+  /**
+   * <p>Required only when establishing a cross-realm trust with an Active Directory domain. A
+   *          user with sufficient privileges to join resources to the domain.</p>
+   */
+  ADDomainJoinUser?: string;
+
+  /**
+   * <p>Required only when establishing a cross-realm trust with a KDC in a different realm. The
+   *          cross-realm principal password, which must be identical across realms.</p>
+   */
+  CrossRealmTrustPrincipalPassword?: string;
 
   /**
    * <p>The password used within the cluster for the kadmin service on the cluster-dedicated
@@ -1259,21 +1270,10 @@ export interface KerberosAttributes {
   KdcAdminPassword: string | undefined;
 
   /**
-   * <p>Required only when establishing a cross-realm trust with a KDC in a different realm. The
-   *          cross-realm principal password, which must be identical across realms.</p>
+   * <p>The name of the Kerberos realm to which all nodes in a cluster belong. For example,
+   *             <code>EC2.INTERNAL</code>. </p>
    */
-  CrossRealmTrustPrincipalPassword?: string;
-
-  /**
-   * <p>Required only when establishing a cross-realm trust with an Active Directory domain. A
-   *          user with sufficient privileges to join resources to the domain.</p>
-   */
-  ADDomainJoinUser?: string;
-
-  /**
-   * <p>The Active Directory password for <code>ADDomainJoinUser</code>.</p>
-   */
-  ADDomainJoinPassword?: string;
+  Realm: string | undefined;
 }
 
 export namespace KerberosAttributes {
@@ -1379,14 +1379,14 @@ export interface ClusterTimeline {
   CreationDateTime?: Date;
 
   /**
-   * <p>The date and time when the cluster was ready to run steps.</p>
-   */
-  ReadyDateTime?: Date;
-
-  /**
    * <p>The date and time when the cluster was terminated.</p>
    */
   EndDateTime?: Date;
+
+  /**
+   * <p>The date and time when the cluster was ready to run steps.</p>
+   */
+  ReadyDateTime?: Date;
 }
 
 export namespace ClusterTimeline {
@@ -1427,6 +1427,11 @@ export namespace ClusterStatus {
  */
 export interface ClusterSummary {
   /**
+   * <p>The Amazon Resource Name of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
    * <p>The unique identifier for the cluster.</p>
    */
   Id?: string;
@@ -1435,11 +1440,6 @@ export interface ClusterSummary {
    * <p>The name of the cluster.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The details about the current status of the cluster.</p>
-   */
-  Status?: ClusterStatus;
 
   /**
    * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
@@ -1451,14 +1451,14 @@ export interface ClusterSummary {
   NormalizedInstanceHours?: number;
 
   /**
-   * <p>The Amazon Resource Name of the cluster.</p>
-   */
-  ClusterArn?: string;
-
-  /**
    * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched. </p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>The details about the current status of the cluster.</p>
+   */
+  Status?: ClusterStatus;
 }
 
 export namespace ClusterSummary {
@@ -1472,6 +1472,11 @@ export namespace ClusterSummary {
  */
 export interface Command {
   /**
+   * <p>Arguments for Amazon EMR to pass to the command for execution.</p>
+   */
+  Args?: string[];
+
+  /**
    * <p>The name of the command.</p>
    */
   Name?: string;
@@ -1480,11 +1485,6 @@ export interface Command {
    * <p>The Amazon S3 location of the command script.</p>
    */
   ScriptPath?: string;
-
-  /**
-   * <p>Arguments for Amazon EMR to pass to the command for execution.</p>
-   */
-  Args?: string[];
 }
 
 export namespace Command {
@@ -1506,25 +1506,20 @@ export enum ComputeLimitsUnitType {
  */
 export interface ComputeLimits {
   /**
-   * <p> The unit type used for specifying a managed scaling policy. </p>
-   */
-  UnitType: ComputeLimitsUnitType | string | undefined;
-
-  /**
-   * <p> The lower boundary of EC2 units. It is measured through vCPU cores or instances for
-   *          instance groups and measured through units for instance fleets. Managed scaling activities
-   *          are not allowed beyond this boundary. The limit only applies to the core and task nodes.
-   *          The master node cannot be scaled after initial configuration. </p>
-   */
-  MinimumCapacityUnits: number | undefined;
-
-  /**
    * <p> The upper boundary of EC2 units. It is measured through vCPU cores or instances for
    *          instance groups and measured through units for instance fleets. Managed scaling activities
    *          are not allowed beyond this boundary. The limit only applies to the core and task nodes.
    *          The master node cannot be scaled after initial configuration. </p>
    */
   MaximumCapacityUnits: number | undefined;
+
+  /**
+   * <p> The upper boundary of EC2 units for core node type in a cluster. It is measured through
+   *          vCPU cores or instances for instance groups and measured through units for instance fleets.
+   *          The core units are not allowed to scale beyond this boundary. The parameter is used to
+   *          split capacity allocation between core and task nodes. </p>
+   */
+  MaximumCoreCapacityUnits?: number;
 
   /**
    * <p> The upper boundary of On-Demand EC2 units. It is measured through vCPU cores or
@@ -1535,12 +1530,17 @@ export interface ComputeLimits {
   MaximumOnDemandCapacityUnits?: number;
 
   /**
-   * <p> The upper boundary of EC2 units for core node type in a cluster. It is measured through
-   *          vCPU cores or instances for instance groups and measured through units for instance fleets.
-   *          The core units are not allowed to scale beyond this boundary. The parameter is used to
-   *          split capacity allocation between core and task nodes. </p>
+   * <p> The lower boundary of EC2 units. It is measured through vCPU cores or instances for
+   *          instance groups and measured through units for instance fleets. Managed scaling activities
+   *          are not allowed beyond this boundary. The limit only applies to the core and task nodes.
+   *          The master node cannot be scaled after initial configuration. </p>
    */
-  MaximumCoreCapacityUnits?: number;
+  MinimumCapacityUnits: number | undefined;
+
+  /**
+   * <p> The unit type used for specifying a managed scaling policy. </p>
+   */
+  UnitType: ComputeLimitsUnitType | string | undefined;
 }
 
 export namespace ComputeLimits {
@@ -1572,14 +1572,14 @@ export namespace CreateSecurityConfigurationInput {
 
 export interface CreateSecurityConfigurationOutput {
   /**
-   * <p>The name of the security configuration.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The date and time the security configuration was created.</p>
    */
   CreationDateTime: Date | undefined;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateSecurityConfigurationOutput {
@@ -1590,53 +1590,21 @@ export namespace CreateSecurityConfigurationOutput {
 
 export interface CreateStudioInput {
   /**
-   * <p>A descriptive name for the Amazon EMR Studio.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A detailed description of the Studio.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM.
    *          Amazon EMR Studio currently only supports SSO authentication.</p>
    */
   AuthMode: AuthMode | string | undefined;
 
   /**
-   * <p>The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the
-   *          Studio.</p>
+   * <p>The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A
+   *          Studio user can select an alternative Amazon S3 location when creating a Workspace.</p>
    */
-  VpcId: string | undefined;
+  DefaultS3Location?: string;
 
   /**
-   * <p>A list of subnet IDs to associate with the Studio. The subnets must belong to the VPC
-   *          specified by <code>VpcId</code>. Studio users can create a Workspace in any of the
-   *          specified subnets.</p>
+   * <p>A detailed description of the Studio.</p>
    */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a
-   *          way for Amazon EMR Studio to interoperate with other AWS services.</p>
-   */
-  ServiceRole: string | undefined;
-
-  /**
-   * <p>The IAM user role that will be assumed by users and groups logged in to a Studio. The
-   *          permissions attached to this IAM role can be scoped down for each user or group using
-   *          session policies.</p>
-   */
-  UserRole: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon EMR Studio Workspace security group. The Workspace security group
-   *          allows outbound network traffic to resources in the Engine security group, and it must be
-   *          in the same VPC specified by <code>VpcId</code>.</p>
-   */
-  WorkspaceSecurityGroupId: string | undefined;
+  Description?: string;
 
   /**
    * <p>The ID of the Amazon EMR Studio Engine security group. The Engine security group allows
@@ -1646,10 +1614,22 @@ export interface CreateStudioInput {
   EngineSecurityGroupId: string | undefined;
 
   /**
-   * <p>The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A
-   *          Studio user can select an alternative Amazon S3 location when creating a Workspace.</p>
+   * <p>A descriptive name for the Amazon EMR Studio.</p>
    */
-  DefaultS3Location?: string;
+  Name: string | undefined;
+
+  /**
+   * <p>The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a
+   *          way for Amazon EMR Studio to interoperate with other AWS services.</p>
+   */
+  ServiceRole: string | undefined;
+
+  /**
+   * <p>A list of subnet IDs to associate with the Studio. The subnets must belong to the VPC
+   *          specified by <code>VpcId</code>. Studio users can create a Workspace in any of the
+   *          specified subnets.</p>
+   */
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>A list of tags to associate with the Studio. Tags are user-defined key-value pairs that
@@ -1657,6 +1637,26 @@ export interface CreateStudioInput {
    *          string with a maximum of 256 characters.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The IAM user role that will be assumed by users and groups logged in to a Studio. The
+   *          permissions attached to this IAM role can be scoped down for each user or group using
+   *          session policies.</p>
+   */
+  UserRole: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the
+   *          Studio.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon EMR Studio Workspace security group. The Workspace security group
+   *          allows outbound network traffic to resources in the Engine security group, and it must be
+   *          in the same VPC specified by <code>VpcId</code>.</p>
+   */
+  WorkspaceSecurityGroupId: string | undefined;
 }
 
 export namespace CreateStudioInput {
@@ -1690,11 +1690,6 @@ export enum IdentityType {
 
 export interface CreateStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio to which the user or group will be mapped.</p>
-   */
-  StudioId: string | undefined;
-
-  /**
    * <p>The globally unique identifier (GUID) of the user or group from the AWS SSO Identity
    *          Store. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
@@ -1718,6 +1713,11 @@ export interface CreateStudioSessionMappingInput {
    *          IAM user roles.</p>
    */
   SessionPolicyArn: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon EMR Studio to which the user or group will be mapped.</p>
+   */
+  StudioId: string | undefined;
 }
 
 export namespace CreateStudioSessionMappingInput {
@@ -1762,11 +1762,6 @@ export namespace DeleteStudioInput {
 
 export interface DeleteStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
-   */
-  StudioId: string | undefined;
-
-  /**
    * <p>The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR
    *          Studio. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
@@ -1784,6 +1779,11 @@ export interface DeleteStudioSessionMappingInput {
    * <p>Specifies whether the identity to delete from the Studio is a user or a group.</p>
    */
   IdentityType: IdentityType | string | undefined;
+
+  /**
+   * <p>The ID of the Amazon EMR Studio.</p>
+   */
+  StudioId: string | undefined;
 }
 
 export namespace DeleteStudioSessionMappingInput {
@@ -1855,24 +1855,9 @@ export namespace DescribeJobFlowsInput {
  */
 export interface JobFlowExecutionStatusDetail {
   /**
-   * <p>The state of the job flow.</p>
-   */
-  State: JobFlowExecutionState | string | undefined;
-
-  /**
    * <p>The creation date and time of the job flow.</p>
    */
   CreationDateTime: Date | undefined;
-
-  /**
-   * <p>The start date and time of the job flow.</p>
-   */
-  StartDateTime?: Date;
-
-  /**
-   * <p>The date and time when the job flow was ready to start running bootstrap actions.</p>
-   */
-  ReadyDateTime?: Date;
 
   /**
    * <p>The completion date and time of the job flow.</p>
@@ -1883,6 +1868,21 @@ export interface JobFlowExecutionStatusDetail {
    * <p>Description of the job flow last changed state.</p>
    */
   LastStateChangeReason?: string;
+
+  /**
+   * <p>The date and time when the job flow was ready to start running bootstrap actions.</p>
+   */
+  ReadyDateTime?: Date;
+
+  /**
+   * <p>The start date and time of the job flow.</p>
+   */
+  StartDateTime?: Date;
+
+  /**
+   * <p>The state of the job flow.</p>
+   */
+  State: JobFlowExecutionState | string | undefined;
 }
 
 export namespace JobFlowExecutionStatusDetail {
@@ -1910,26 +1910,6 @@ export enum InstanceGroupState {
  */
 export interface InstanceGroupDetail {
   /**
-   * <p>Unique identifier for the instance group.</p>
-   */
-  InstanceGroupId?: string;
-
-  /**
-   * <p>Friendly name for the instance group.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Market type of the EC2 instances used to create a cluster node.</p>
-   */
-  Market: MarketType | string | undefined;
-
-  /**
-   * <p>Instance group role in the cluster</p>
-   */
-  InstanceRole: InstanceRoleType | string | undefined;
-
-  /**
    * <p>The bid price for each EC2 Spot Instance type as defined by <code>InstanceType</code>.
    *          Expressed in USD. If neither <code>BidPrice</code> nor
    *             <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
@@ -1938,9 +1918,19 @@ export interface InstanceGroupDetail {
   BidPrice?: string;
 
   /**
-   * <p>EC2 instance type.</p>
+   * <p>The date/time the instance group was created.</p>
    */
-  InstanceType: string | undefined;
+  CreationDateTime: Date | undefined;
+
+  /**
+   * <p>The date/time the instance group was terminated.</p>
+   */
+  EndDateTime?: Date;
+
+  /**
+   * <p>Unique identifier for the instance group.</p>
+   */
+  InstanceGroupId?: string;
 
   /**
    * <p>Target number of instances to run in the instance group.</p>
@@ -1948,15 +1938,19 @@ export interface InstanceGroupDetail {
   InstanceRequestCount: number | undefined;
 
   /**
+   * <p>Instance group role in the cluster</p>
+   */
+  InstanceRole: InstanceRoleType | string | undefined;
+
+  /**
    * <p>Actual count of running instances.</p>
    */
   InstanceRunningCount: number | undefined;
 
   /**
-   * <p>State of instance group. The following values are deprecated: STARTING, TERMINATED, and
-   *          FAILED.</p>
+   * <p>EC2 instance type.</p>
    */
-  State: InstanceGroupState | string | undefined;
+  InstanceType: string | undefined;
 
   /**
    * <p>Details regarding the state of the instance group.</p>
@@ -1964,14 +1958,14 @@ export interface InstanceGroupDetail {
   LastStateChangeReason?: string;
 
   /**
-   * <p>The date/time the instance group was created.</p>
+   * <p>Market type of the EC2 instances used to create a cluster node.</p>
    */
-  CreationDateTime: Date | undefined;
+  Market: MarketType | string | undefined;
 
   /**
-   * <p>The date/time the instance group was started.</p>
+   * <p>Friendly name for the instance group.</p>
    */
-  StartDateTime?: Date;
+  Name?: string;
 
   /**
    * <p>The date/time the instance group was available to the cluster.</p>
@@ -1979,9 +1973,15 @@ export interface InstanceGroupDetail {
   ReadyDateTime?: Date;
 
   /**
-   * <p>The date/time the instance group was terminated.</p>
+   * <p>The date/time the instance group was started.</p>
    */
-  EndDateTime?: Date;
+  StartDateTime?: Date;
+
+  /**
+   * <p>State of instance group. The following values are deprecated: STARTING, TERMINATED, and
+   *          FAILED.</p>
+   */
+  State: InstanceGroupState | string | undefined;
 }
 
 export namespace InstanceGroupDetail {
@@ -2025,25 +2025,21 @@ export namespace PlacementType {
  */
 export interface JobFlowInstancesDetail {
   /**
-   * <p>The Amazon EC2 master node instance type.</p>
+   * <p>The name of an Amazon EC2 key pair that can be used to connect to the master node using
+   *          SSH.</p>
    */
-  MasterInstanceType: string | undefined;
+  Ec2KeyName?: string;
 
   /**
-   * <p>The DNS name of the master node. If the cluster is on a private subnet, this is the
-   *          private DNS name. On a public subnet, this is the public DNS name.</p>
+   * <p>For clusters launched within Amazon Virtual Private Cloud, this is the identifier of the
+   *          subnet where the cluster was launched.</p>
    */
-  MasterPublicDnsName?: string;
+  Ec2SubnetId?: string;
 
   /**
-   * <p>The Amazon EC2 instance identifier of the master node.</p>
+   * <p>The Hadoop version for the cluster.</p>
    */
-  MasterInstanceId?: string;
-
-  /**
-   * <p>The Amazon EC2 core and task node instance type.</p>
-   */
-  SlaveInstanceType: string | undefined;
+  HadoopVersion?: string;
 
   /**
    * <p>The number of Amazon EC2 instances in the cluster. If the value is 1, the same instance
@@ -2058,6 +2054,27 @@ export interface JobFlowInstancesDetail {
   InstanceGroups?: InstanceGroupDetail[];
 
   /**
+   * <p>Specifies whether the cluster should remain available after completing all steps.</p>
+   */
+  KeepJobFlowAliveWhenNoSteps?: boolean;
+
+  /**
+   * <p>The Amazon EC2 instance identifier of the master node.</p>
+   */
+  MasterInstanceId?: string;
+
+  /**
+   * <p>The Amazon EC2 master node instance type.</p>
+   */
+  MasterInstanceType: string | undefined;
+
+  /**
+   * <p>The DNS name of the master node. If the cluster is on a private subnet, this is the
+   *          private DNS name. On a public subnet, this is the public DNS name.</p>
+   */
+  MasterPublicDnsName?: string;
+
+  /**
    * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
    *          is increased one time for every hour that an m1.small instance runs. Larger instances are
    *          weighted more heavily, so an Amazon EC2 instance that is roughly four times more expensive
@@ -2067,37 +2084,20 @@ export interface JobFlowInstancesDetail {
   NormalizedInstanceHours?: number;
 
   /**
-   * <p>The name of an Amazon EC2 key pair that can be used to connect to the master node using
-   *          SSH.</p>
-   */
-  Ec2KeyName?: string;
-
-  /**
-   * <p>For clusters launched within Amazon Virtual Private Cloud, this is the identifier of the
-   *          subnet where the cluster was launched.</p>
-   */
-  Ec2SubnetId?: string;
-
-  /**
    * <p>The Amazon EC2 Availability Zone for the cluster.</p>
    */
   Placement?: PlacementType;
 
   /**
-   * <p>Specifies whether the cluster should remain available after completing all steps.</p>
+   * <p>The Amazon EC2 core and task node instance type.</p>
    */
-  KeepJobFlowAliveWhenNoSteps?: boolean;
+  SlaveInstanceType: string | undefined;
 
   /**
    * <p>Specifies whether the Amazon EC2 instances in the cluster are protected from termination
    *          by API calls, user intervention, or in the event of a job-flow error.</p>
    */
   TerminationProtected?: boolean;
-
-  /**
-   * <p>The Hadoop version for the cluster.</p>
-   */
-  HadoopVersion?: string;
 }
 
 export namespace JobFlowInstancesDetail {
@@ -2120,19 +2120,9 @@ export type StepExecutionState =
  */
 export interface StepExecutionStatusDetail {
   /**
-   * <p>The state of the step.</p>
-   */
-  State: StepExecutionState | string | undefined;
-
-  /**
    * <p>The creation date and time of the step.</p>
    */
   CreationDateTime: Date | undefined;
-
-  /**
-   * <p>The start date and time of the step.</p>
-   */
-  StartDateTime?: Date;
 
   /**
    * <p>The completion date and time of the step.</p>
@@ -2143,6 +2133,16 @@ export interface StepExecutionStatusDetail {
    * <p>A description of the step's current state.</p>
    */
   LastStateChangeReason?: string;
+
+  /**
+   * <p>The start date and time of the step.</p>
+   */
+  StartDateTime?: Date;
+
+  /**
+   * <p>The state of the step.</p>
+   */
+  State: StepExecutionState | string | undefined;
 }
 
 export namespace StepExecutionStatusDetail {
@@ -2156,14 +2156,14 @@ export namespace StepExecutionStatusDetail {
  */
 export interface StepDetail {
   /**
-   * <p>The step configuration.</p>
-   */
-  StepConfig: StepConfig | undefined;
-
-  /**
    * <p>The description of the step status.</p>
    */
   ExecutionStatusDetail: StepExecutionStatusDetail | undefined;
+
+  /**
+   * <p>The step configuration.</p>
+   */
+  StepConfig: StepConfig | undefined;
 }
 
 export namespace StepDetail {
@@ -2177,32 +2177,24 @@ export namespace StepDetail {
  */
 export interface JobFlowDetail {
   /**
-   * <p>The job flow identifier.</p>
-   */
-  JobFlowId: string | undefined;
-
-  /**
-   * <p>The name of the job flow.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The location in Amazon S3 where log files for the job are stored.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The AWS KMS customer master key (CMK) used for encrypting log files. This attribute is
-   *          only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.</p>
-   */
-  LogEncryptionKmsKeyId?: string;
-
-  /**
    * <p>Applies only to Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and
    *          later, <code>ReleaseLabel</code> is used. To specify a custom AMI, use
    *             <code>CustomAmiID</code>.</p>
    */
   AmiVersion?: string;
+
+  /**
+   * <p>An IAM role for automatic scaling policies. The default role is
+   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides a way for the automatic
+   *          scaling feature to get the required permissions it needs to launch and terminate EC2
+   *          instances in an instance group.</p>
+   */
+  AutoScalingRole?: string;
+
+  /**
+   * <p>A list of the bootstrap actions run by the job flow.</p>
+   */
+  BootstrapActions?: BootstrapActionDetail[];
 
   /**
    * <p>Describes the execution status of the job flow.</p>
@@ -2215,14 +2207,57 @@ export interface JobFlowDetail {
   Instances: JobFlowInstancesDetail | undefined;
 
   /**
+   * <p>The job flow identifier.</p>
+   */
+  JobFlowId: string | undefined;
+
+  /**
+   * <p>The IAM role that was specified when the job flow was launched. The EC2 instances of the
+   *          job flow assume this role.</p>
+   */
+  JobFlowRole?: string;
+
+  /**
+   * <p>The AWS KMS customer master key (CMK) used for encrypting log files. This attribute is
+   *          only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.</p>
+   */
+  LogEncryptionKmsKeyId?: string;
+
+  /**
+   * <p>The location in Amazon S3 where log files for the job are stored.</p>
+   */
+  LogUri?: string;
+
+  /**
+   * <p>The name of the job flow.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The way that individual Amazon EC2 instances terminate when an automatic scale-in
+   *          activity occurs or an instance group is resized. <code>TERMINATE_AT_INSTANCE_HOUR</code>
+   *          indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of
+   *          when the request to terminate the instance was submitted. This option is only available
+   *          with Amazon EMR 5.1.0 and later and is the default for clusters created using that version.
+   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes to a deny
+   *          list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of
+   *          the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes
+   *          first and blocks instance termination if it could lead to HDFS corruption.
+   *             <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR version 4.1.0 and
+   *          later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
+   */
+  ScaleDownBehavior?: ScaleDownBehavior | string;
+
+  /**
+   * <p>The IAM role that is assumed by the Amazon EMR service to access AWS resources on your
+   *          behalf.</p>
+   */
+  ServiceRole?: string;
+
+  /**
    * <p>A list of steps run by the job flow.</p>
    */
   Steps?: StepDetail[];
-
-  /**
-   * <p>A list of the bootstrap actions run by the job flow.</p>
-   */
-  BootstrapActions?: BootstrapActionDetail[];
 
   /**
    * <p>A list of strings set by third-party software when the job flow is launched. If you are
@@ -2240,41 +2275,6 @@ export interface JobFlowDetail {
    *          parameter of the <code>RunJobFlow</code> action.</p>
    */
   VisibleToAllUsers?: boolean;
-
-  /**
-   * <p>The IAM role that was specified when the job flow was launched. The EC2 instances of the
-   *          job flow assume this role.</p>
-   */
-  JobFlowRole?: string;
-
-  /**
-   * <p>The IAM role that is assumed by the Amazon EMR service to access AWS resources on your
-   *          behalf.</p>
-   */
-  ServiceRole?: string;
-
-  /**
-   * <p>An IAM role for automatic scaling policies. The default role is
-   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides a way for the automatic
-   *          scaling feature to get the required permissions it needs to launch and terminate EC2
-   *          instances in an instance group.</p>
-   */
-  AutoScalingRole?: string;
-
-  /**
-   * <p>The way that individual Amazon EC2 instances terminate when an automatic scale-in
-   *          activity occurs or an instance group is resized. <code>TERMINATE_AT_INSTANCE_HOUR</code>
-   *          indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of
-   *          when the request to terminate the instance was submitted. This option is only available
-   *          with Amazon EMR 5.1.0 and later and is the default for clusters created using that version.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes to a deny
-   *          list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of
-   *          the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes
-   *          first and blocks instance termination if it could lead to HDFS corruption.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> available only in Amazon EMR version 4.1.0 and
-   *          later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
-   */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
 }
 
 export namespace JobFlowDetail {
@@ -2328,18 +2328,18 @@ export interface ExecutionEngineConfig {
   Id: string | undefined;
 
   /**
-   * <p>The type of execution engine. A value of <code>EMR</code> specifies an EMR
-   *          cluster.</p>
-   */
-  Type?: ExecutionEngineType | string;
-
-  /**
    * <p>An optional unique ID of an EC2 security group to associate with the master instance of
    *          the EMR cluster for this notebook execution. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
    *             EC2 Security Groups for EMR Notebooks</a> in the <i>EMR Management
    *             Guide</i>.</p>
    */
   MasterInstanceSecurityGroupId?: string;
+
+  /**
+   * <p>The type of execution engine. A value of <code>EMR</code> specifies an EMR
+   *          cluster.</p>
+   */
+  Type?: ExecutionEngineType | string;
 }
 
 export namespace ExecutionEngineConfig {
@@ -2367,9 +2367,9 @@ export enum NotebookExecutionStatus {
  */
 export interface NotebookExecution {
   /**
-   * <p>The unique identifier of a notebook execution.</p>
+   * <p>The Amazon Resource Name (ARN) of the notebook execution.</p>
    */
-  NotebookExecutionId?: string;
+  Arn?: string;
 
   /**
    * <p>The unique identifier of the EMR Notebook that is used for the notebook
@@ -2378,10 +2378,25 @@ export interface NotebookExecution {
   EditorId?: string;
 
   /**
+   * <p>The timestamp when notebook execution ended.</p>
+   */
+  EndTime?: Date;
+
+  /**
    * <p>The execution engine, such as an EMR cluster, used to run the EMR notebook and perform
    *          the notebook execution.</p>
    */
   ExecutionEngine?: ExecutionEngineConfig;
+
+  /**
+   * <p>The reason for the latest status change of the notebook execution.</p>
+   */
+  LastStateChangeReason?: string;
+
+  /**
+   * <p>The unique identifier of a notebook execution.</p>
+   */
+  NotebookExecutionId?: string;
 
   /**
    * <p>A name for the notebook execution.</p>
@@ -2389,10 +2404,28 @@ export interface NotebookExecution {
   NotebookExecutionName?: string;
 
   /**
+   * <p>The unique identifier of the EC2 security group associated with the EMR Notebook
+   *          instance. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
+   *             EC2 Security Groups for EMR Notebooks</a> in the <i>EMR Management
+   *             Guide</i>.</p>
+   */
+  NotebookInstanceSecurityGroupId?: string;
+
+  /**
    * <p>Input parameters in JSON format passed to the EMR Notebook at runtime for
    *          execution.</p>
    */
   NotebookParams?: string;
+
+  /**
+   * <p>The location of the notebook execution's output file in Amazon S3.</p>
+   */
+  OutputNotebookURI?: string;
+
+  /**
+   * <p>The timestamp when notebook execution started.</p>
+   */
+  StartTime?: Date;
 
   /**
    * <p>The status of the notebook execution.</p>
@@ -2451,39 +2484,6 @@ export interface NotebookExecution {
   Status?: NotebookExecutionStatus | string;
 
   /**
-   * <p>The timestamp when notebook execution started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The timestamp when notebook execution ended.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook execution.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The location of the notebook execution's output file in Amazon S3.</p>
-   */
-  OutputNotebookURI?: string;
-
-  /**
-   * <p>The reason for the latest status change of the notebook execution.</p>
-   */
-  LastStateChangeReason?: string;
-
-  /**
-   * <p>The unique identifier of the EC2 security group associated with the EMR Notebook
-   *          instance. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html">Specifying
-   *             EC2 Security Groups for EMR Notebooks</a> in the <i>EMR Management
-   *             Guide</i>.</p>
-   */
-  NotebookInstanceSecurityGroupId?: string;
-
-  /**
    * <p>A list of tags associated with a notebook execution. Tags are user-defined key-value
    *          pairs that consist of a required key string with a maximum of 128 characters and an
    *          optional value string with a maximum of 256 characters.</p>
@@ -2525,6 +2525,11 @@ export namespace DescribeSecurityConfigurationInput {
 
 export interface DescribeSecurityConfigurationOutput {
   /**
+   * <p>The date and time the security configuration was created</p>
+   */
+  CreationDateTime?: Date;
+
+  /**
    * <p>The name of the security configuration.</p>
    */
   Name?: string;
@@ -2533,11 +2538,6 @@ export interface DescribeSecurityConfigurationOutput {
    * <p>The security configuration details in JSON format.</p>
    */
   SecurityConfiguration?: string;
-
-  /**
-   * <p>The date and time the security configuration was created</p>
-   */
-  CreationDateTime?: Date;
 }
 
 export namespace DescribeSecurityConfigurationOutput {
@@ -2574,15 +2574,15 @@ export namespace DescribeStepInput {
  */
 export interface HadoopStepConfig {
   /**
+   * <p>The list of command line arguments to pass to the JAR file's main function for
+   *          execution.</p>
+   */
+  Args?: string[];
+
+  /**
    * <p>The path to the JAR file that runs during the step.</p>
    */
   Jar?: string;
-
-  /**
-   * <p>The list of Java properties that are set when the step runs. You can use these
-   *          properties to pass key-value pairs to your main function.</p>
-   */
-  Properties?: { [key: string]: string };
 
   /**
    * <p>The name of the main class in the specified Java file. If not specified, the JAR file
@@ -2591,10 +2591,10 @@ export interface HadoopStepConfig {
   MainClass?: string;
 
   /**
-   * <p>The list of command line arguments to pass to the JAR file's main function for
-   *          execution.</p>
+   * <p>The list of Java properties that are set when the step runs. You can use these
+   *          properties to pass key-value pairs to your main function.</p>
    */
-  Args?: string[];
+  Properties?: { [key: string]: string };
 }
 
 export namespace HadoopStepConfig {
@@ -2609,10 +2609,10 @@ export namespace HadoopStepConfig {
  */
 export interface FailureDetails {
   /**
-   * <p>The reason for the step failure. In the case where the service cannot successfully
-   *          determine the root cause of the failure, it returns "Unknown Error" as a reason.</p>
+   * <p>The path to the log file where the step failure root cause was originally
+   *          recorded.</p>
    */
-  Reason?: string;
+  LogFile?: string;
 
   /**
    * <p>The descriptive message including the error the Amazon EMR service has identified as the
@@ -2622,10 +2622,10 @@ export interface FailureDetails {
   Message?: string;
 
   /**
-   * <p>The path to the log file where the step failure root cause was originally
-   *          recorded.</p>
+   * <p>The reason for the step failure. In the case where the service cannot successfully
+   *          determine the root cause of the failure, it returns "Unknown Error" as a reason.</p>
    */
-  LogFile?: string;
+  Reason?: string;
 }
 
 export namespace FailureDetails {
@@ -2678,14 +2678,14 @@ export interface StepTimeline {
   CreationDateTime?: Date;
 
   /**
-   * <p>The date and time when the cluster step execution started.</p>
-   */
-  StartDateTime?: Date;
-
-  /**
    * <p>The date and time when the cluster step execution completed or failed.</p>
    */
   EndDateTime?: Date;
+
+  /**
+   * <p>The date and time when the cluster step execution started.</p>
+   */
+  StartDateTime?: Date;
 }
 
 export namespace StepTimeline {
@@ -2699,6 +2699,12 @@ export namespace StepTimeline {
  */
 export interface StepStatus {
   /**
+   * <p>The details for the step failure including reason, message, and log file path where the
+   *          root cause was identified.</p>
+   */
+  FailureDetails?: FailureDetails;
+
+  /**
    * <p>The execution state of the cluster step.</p>
    */
   State?: StepState | string;
@@ -2707,12 +2713,6 @@ export interface StepStatus {
    * <p>The reason for the step execution status change.</p>
    */
   StateChangeReason?: StepStateChangeReason;
-
-  /**
-   * <p>The details for the step failure including reason, message, and log file path where the
-   *          root cause was identified.</p>
-   */
-  FailureDetails?: FailureDetails;
 
   /**
    * <p>The timeline of the cluster step status over time.</p>
@@ -2731,6 +2731,18 @@ export namespace StepStatus {
  */
 export interface Step {
   /**
+   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
+   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility.
+   *          We recommend using TERMINATE_CLUSTER instead.</p>
+   */
+  ActionOnFailure?: ActionOnFailure | string;
+
+  /**
+   * <p>The Hadoop job configuration of the cluster step.</p>
+   */
+  Config?: HadoopStepConfig;
+
+  /**
    * <p>The identifier of the cluster step.</p>
    */
   Id?: string;
@@ -2739,18 +2751,6 @@ export interface Step {
    * <p>The name of the cluster step.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The Hadoop job configuration of the cluster step.</p>
-   */
-  Config?: HadoopStepConfig;
-
-  /**
-   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
-   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is provided for backward compatibility.
-   *          We recommend using TERMINATE_CLUSTER instead.</p>
-   */
-  ActionOnFailure?: ActionOnFailure | string;
 
   /**
    * <p>The current execution status details of the cluster step.</p>
@@ -2798,69 +2798,10 @@ export namespace DescribeStudioInput {
  */
 export interface Studio {
   /**
-   * <p>The ID of the EMR Studio.</p>
-   */
-  StudioId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the EMR Studio.</p>
-   */
-  StudioArn?: string;
-
-  /**
-   * <p>The name of the EMR Studio.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The detailed description of the EMR Studio.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>Specifies whether the Studio authenticates users using single sign-on (SSO) or
    *          IAM.</p>
    */
   AuthMode?: AuthMode | string;
-
-  /**
-   * <p>The ID of the VPC associated with the EMR Studio.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The list of IDs of the subnets associated with the Amazon EMR Studio.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>The name of the IAM role assumed by the Amazon EMR Studio.</p>
-   */
-  ServiceRole?: string;
-
-  /**
-   * <p>The name of the IAM role assumed by users logged in to the Amazon EMR Studio.</p>
-   */
-  UserRole?: string;
-
-  /**
-   * <p>The ID of the Workspace security group associated with the Amazon EMR Studio. The
-   *          Workspace security group allows outbound network traffic to resources in the Engine
-   *          security group and to the internet.</p>
-   */
-  WorkspaceSecurityGroupId?: string;
-
-  /**
-   * <p>The ID of the Engine security group associated with the Amazon EMR Studio. The Engine
-   *          security group allows inbound network traffic from resources in the Workspace security
-   *          group.</p>
-   */
-  EngineSecurityGroupId?: string;
-
-  /**
-   * <p>The unique access URL of the Amazon EMR Studio.</p>
-   */
-  Url?: string;
 
   /**
    * <p>The time the Amazon EMR Studio was created.</p>
@@ -2874,9 +2815,68 @@ export interface Studio {
   DefaultS3Location?: string;
 
   /**
+   * <p>The detailed description of the EMR Studio.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the Engine security group associated with the Amazon EMR Studio. The Engine
+   *          security group allows inbound network traffic from resources in the Workspace security
+   *          group.</p>
+   */
+  EngineSecurityGroupId?: string;
+
+  /**
+   * <p>The name of the EMR Studio.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the IAM role assumed by the Amazon EMR Studio.</p>
+   */
+  ServiceRole?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the EMR Studio.</p>
+   */
+  StudioArn?: string;
+
+  /**
+   * <p>The ID of the EMR Studio.</p>
+   */
+  StudioId?: string;
+
+  /**
+   * <p>The list of IDs of the subnets associated with the Amazon EMR Studio.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
    * <p>A list of tags associated with the Amazon EMR Studio.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The unique access URL of the Amazon EMR Studio.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The name of the IAM role assumed by users logged in to the Amazon EMR Studio.</p>
+   */
+  UserRole?: string;
+
+  /**
+   * <p>The ID of the VPC associated with the EMR Studio.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The ID of the Workspace security group associated with the Amazon EMR Studio. The
+   *          Workspace security group allows outbound network traffic to resources in the Engine
+   *          security group and to the internet.</p>
+   */
+  WorkspaceSecurityGroupId?: string;
 }
 
 export namespace Studio {
@@ -2903,15 +2903,15 @@ export namespace DescribeStudioOutput {
  */
 export interface EbsBlockDevice {
   /**
+   * <p>The device name that is exposed to the instance, such as /dev/sdh.</p>
+   */
+  Device?: string;
+
+  /**
    * <p>EBS volume specifications such as volume type, IOPS, and size (GiB) that will be
    *          requested for the EBS volume attached to an EC2 instance in the cluster.</p>
    */
   VolumeSpecification?: VolumeSpecification;
-
-  /**
-   * <p>The device name that is exposed to the instance, such as /dev/sdh.</p>
-   */
-  Device?: string;
 }
 
 export namespace EbsBlockDevice {
@@ -2998,11 +2998,6 @@ export namespace GetManagedScalingPolicyOutput {
 
 export interface GetStudioSessionMappingInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
-   */
-  StudioId: string | undefined;
-
-  /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
    *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
@@ -3019,6 +3014,11 @@ export interface GetStudioSessionMappingInput {
    * <p>Specifies whether the identity to fetch is a user or a group.</p>
    */
   IdentityType: IdentityType | string | undefined;
+
+  /**
+   * <p>The ID of the Amazon EMR Studio.</p>
+   */
+  StudioId: string | undefined;
 }
 
 export namespace GetStudioSessionMappingInput {
@@ -3033,9 +3033,9 @@ export namespace GetStudioSessionMappingInput {
  */
 export interface SessionMappingDetail {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * <p>The time the session mapping was created.</p>
    */
-  StudioId?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group.</p>
@@ -3054,20 +3054,20 @@ export interface SessionMappingDetail {
   IdentityType?: IdentityType | string;
 
   /**
+   * <p>The time the session mapping was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the session policy associated with the user or
    *          group.</p>
    */
   SessionPolicyArn?: string;
 
   /**
-   * <p>The time the session mapping was created.</p>
+   * <p>The ID of the Amazon EMR Studio.</p>
    */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time the session mapping was last modified.</p>
-   */
-  LastModifiedTime?: Date;
+  StudioId?: string;
 }
 
 export namespace SessionMappingDetail {
@@ -3138,6 +3138,11 @@ export namespace ListBootstrapActionsOutput {
  */
 export interface ListClustersInput {
   /**
+   * <p>The cluster state filters to apply when listing clusters.</p>
+   */
+  ClusterStates?: (ClusterState | string)[];
+
+  /**
    * <p>The creation date and time beginning value filter for listing clusters.</p>
    */
   CreatedAfter?: Date;
@@ -3146,11 +3151,6 @@ export interface ListClustersInput {
    * <p>The creation date and time end value filter for listing clusters.</p>
    */
   CreatedBefore?: Date;
-
-  /**
-   * <p>The cluster state filters to apply when listing clusters.</p>
-   */
-  ClusterStates?: (ClusterState | string)[];
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
@@ -3261,14 +3261,14 @@ export interface InstanceFleetTimeline {
   CreationDateTime?: Date;
 
   /**
-   * <p>The time and date the instance fleet was ready to run jobs.</p>
-   */
-  ReadyDateTime?: Date;
-
-  /**
    * <p>The time and date the instance fleet terminated.</p>
    */
   EndDateTime?: Date;
+
+  /**
+   * <p>The time and date the instance fleet was ready to run jobs.</p>
+   */
+  ReadyDateTime?: Date;
 }
 
 export namespace InstanceFleetTimeline {
@@ -3377,14 +3377,14 @@ export enum InstanceGroupType {
  */
 export interface InstanceResizePolicy {
   /**
-   * <p>Specific list of instances to be terminated when shrinking an instance group.</p>
-   */
-  InstancesToTerminate?: string[];
-
-  /**
    * <p>Specific list of instances to be protected when shrinking an instance group.</p>
    */
   InstancesToProtect?: string[];
+
+  /**
+   * <p>Specific list of instances to be terminated when shrinking an instance group.</p>
+   */
+  InstancesToTerminate?: string[];
 
   /**
    * <p>Decommissioning timeout override for the specific list of instances to be
@@ -3461,14 +3461,14 @@ export interface InstanceGroupTimeline {
   CreationDateTime?: Date;
 
   /**
-   * <p>The date and time when the instance group became ready to perform tasks.</p>
-   */
-  ReadyDateTime?: Date;
-
-  /**
    * <p>The date and time when the instance group terminated.</p>
    */
   EndDateTime?: Date;
+
+  /**
+   * <p>The date and time when the instance group became ready to perform tasks.</p>
+   */
+  ReadyDateTime?: Date;
 }
 
 export namespace InstanceGroupTimeline {
@@ -3521,16 +3521,6 @@ export interface ListInstancesInput {
   ClusterId: string | undefined;
 
   /**
-   * <p>The identifier of the instance group for which to list the instances.</p>
-   */
-  InstanceGroupId?: string;
-
-  /**
-   * <p>The type of instance group for which to list the instances.</p>
-   */
-  InstanceGroupTypes?: (InstanceGroupType | string)[];
-
-  /**
    * <p>The unique identifier of the instance fleet.</p>
    */
   InstanceFleetId?: string;
@@ -3539,6 +3529,16 @@ export interface ListInstancesInput {
    * <p>The node type of the instance fleet. For example MASTER, CORE, or TASK.</p>
    */
   InstanceFleetType?: InstanceFleetType | string;
+
+  /**
+   * <p>The identifier of the instance group for which to list the instances.</p>
+   */
+  InstanceGroupId?: string;
+
+  /**
+   * <p>The type of instance group for which to list the instances.</p>
+   */
+  InstanceGroupTypes?: (InstanceGroupType | string)[];
 
   /**
    * <p>A list of instance states that will filter the instances returned with this
@@ -3597,14 +3597,14 @@ export interface InstanceTimeline {
   CreationDateTime?: Date;
 
   /**
-   * <p>The date and time when the instance was ready to perform tasks.</p>
-   */
-  ReadyDateTime?: Date;
-
-  /**
    * <p>The date and time when the instance was terminated.</p>
    */
   EndDateTime?: Date;
+
+  /**
+   * <p>The date and time when the instance was ready to perform tasks.</p>
+   */
+  ReadyDateTime?: Date;
 }
 
 export namespace InstanceTimeline {
@@ -3644,9 +3644,9 @@ export namespace InstanceStatus {
  */
 export interface Instance {
   /**
-   * <p>The unique identifier for the instance in Amazon EMR.</p>
+   * <p>The list of EBS volumes that are attached to this instance.</p>
    */
-  Id?: string;
+  EbsVolumes?: EbsVolume[];
 
   /**
    * <p>The unique identifier of the instance in Amazon EC2.</p>
@@ -3654,14 +3654,30 @@ export interface Instance {
   Ec2InstanceId?: string;
 
   /**
-   * <p>The public DNS name of the instance.</p>
+   * <p>The unique identifier for the instance in Amazon EMR.</p>
    */
-  PublicDnsName?: string;
+  Id?: string;
 
   /**
-   * <p>The public IP address of the instance.</p>
+   * <p>The unique identifier of the instance fleet to which an EC2 instance belongs.</p>
    */
-  PublicIpAddress?: string;
+  InstanceFleetId?: string;
+
+  /**
+   * <p>The identifier of the instance group to which this instance belongs.</p>
+   */
+  InstanceGroupId?: string;
+
+  /**
+   * <p>The EC2 instance type, for example <code>m3.xlarge</code>.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The instance purchasing option. Valid values are <code>ON_DEMAND</code> or
+   *             <code>SPOT</code>. </p>
+   */
+  Market?: MarketType | string;
 
   /**
    * <p>The private DNS name of the instance.</p>
@@ -3674,35 +3690,19 @@ export interface Instance {
   PrivateIpAddress?: string;
 
   /**
+   * <p>The public DNS name of the instance.</p>
+   */
+  PublicDnsName?: string;
+
+  /**
+   * <p>The public IP address of the instance.</p>
+   */
+  PublicIpAddress?: string;
+
+  /**
    * <p>The current status of the instance.</p>
    */
   Status?: InstanceStatus;
-
-  /**
-   * <p>The identifier of the instance group to which this instance belongs.</p>
-   */
-  InstanceGroupId?: string;
-
-  /**
-   * <p>The unique identifier of the instance fleet to which an EC2 instance belongs.</p>
-   */
-  InstanceFleetId?: string;
-
-  /**
-   * <p>The instance purchasing option. Valid values are <code>ON_DEMAND</code> or
-   *             <code>SPOT</code>. </p>
-   */
-  Market?: MarketType | string;
-
-  /**
-   * <p>The EC2 instance type, for example <code>m3.xlarge</code>.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The list of EBS volumes that are attached to this instance.</p>
-   */
-  EbsVolumes?: EbsVolume[];
 }
 
 export namespace Instance {
@@ -3737,6 +3737,19 @@ export interface ListNotebookExecutionsInput {
    * <p>The unique ID of the editor associated with the notebook execution.</p>
    */
   EditorId?: string;
+
+  /**
+   * <p>The beginning of time range filter for listing notebook executions. The default is the
+   *          timestamp of 30 days ago.</p>
+   */
+  From?: Date;
+
+  /**
+   * <p>The pagination token, returned by a previous <code>ListNotebookExecutions</code> call,
+   *          that indicates the start of the list for this <code>ListNotebookExecutions</code>
+   *          call.</p>
+   */
+  Marker?: string;
 
   /**
    * <p>The status filter for listing notebook executions.</p>
@@ -3795,23 +3808,10 @@ export interface ListNotebookExecutionsInput {
   Status?: NotebookExecutionStatus | string;
 
   /**
-   * <p>The beginning of time range filter for listing notebook executions. The default is the
-   *          timestamp of 30 days ago.</p>
-   */
-  From?: Date;
-
-  /**
    * <p>The end of time range filter for listing notebook executions. The default is the current
    *          timestamp.</p>
    */
   To?: Date;
-
-  /**
-   * <p>The pagination token, returned by a previous <code>ListNotebookExecutions</code> call,
-   *          that indicates the start of the list for this <code>ListNotebookExecutions</code>
-   *          call.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListNotebookExecutionsInput {
@@ -3825,19 +3825,29 @@ export namespace ListNotebookExecutionsInput {
  */
 export interface NotebookExecutionSummary {
   /**
-   * <p>The unique identifier of the notebook execution.</p>
-   */
-  NotebookExecutionId?: string;
-
-  /**
    * <p>The unique identifier of the editor associated with the notebook execution.</p>
    */
   EditorId?: string;
 
   /**
+   * <p>The timestamp when notebook execution started.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The unique identifier of the notebook execution.</p>
+   */
+  NotebookExecutionId?: string;
+
+  /**
    * <p>The name of the notebook execution.</p>
    */
   NotebookExecutionName?: string;
+
+  /**
+   * <p>The timestamp when notebook execution started.</p>
+   */
+  StartTime?: Date;
 
   /**
    * <p>The status of the notebook execution.</p>
@@ -3894,16 +3904,6 @@ export interface NotebookExecutionSummary {
    *          </ul>
    */
   Status?: NotebookExecutionStatus | string;
-
-  /**
-   * <p>The timestamp when notebook execution started.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The timestamp when notebook execution started.</p>
-   */
-  EndTime?: Date;
 }
 
 export namespace NotebookExecutionSummary {
@@ -3914,15 +3914,15 @@ export namespace NotebookExecutionSummary {
 
 export interface ListNotebookExecutionsOutput {
   /**
-   * <p>A list of notebook executions.</p>
-   */
-  NotebookExecutions?: NotebookExecutionSummary[];
-
-  /**
    * <p>A pagination token that a subsequent <code>ListNotebookExecutions</code> can use to
    *          determine the next set of results to retrieve.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of notebook executions.</p>
+   */
+  NotebookExecutions?: NotebookExecutionSummary[];
 }
 
 export namespace ListNotebookExecutionsOutput {
@@ -3949,14 +3949,14 @@ export namespace ListSecurityConfigurationsInput {
  */
 export interface SecurityConfigurationSummary {
   /**
-   * <p>The name of the security configuration.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The date and time the security configuration was created.</p>
    */
   CreationDateTime?: Date;
+
+  /**
+   * <p>The name of the security configuration.</p>
+   */
+  Name?: string;
 }
 
 export namespace SecurityConfigurationSummary {
@@ -3967,16 +3967,16 @@ export namespace SecurityConfigurationSummary {
 
 export interface ListSecurityConfigurationsOutput {
   /**
-   * <p>The creation date and time, and name, of each security configuration.</p>
-   */
-  SecurityConfigurations?: SecurityConfigurationSummary[];
-
-  /**
    * <p>A pagination token that indicates the next set of results to retrieve. Include the
    *          marker in the next ListSecurityConfiguration call to retrieve the next page of results, if
    *          required.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The creation date and time, and name, of each security configuration.</p>
+   */
+  SecurityConfigurations?: SecurityConfigurationSummary[];
 }
 
 export namespace ListSecurityConfigurationsOutput {
@@ -3995,9 +3995,9 @@ export interface ListStepsInput {
   ClusterId: string | undefined;
 
   /**
-   * <p>The filter to limit the step list based on certain states.</p>
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
-  StepStates?: (StepState | string)[];
+  Marker?: string;
 
   /**
    * <p>The filter to limit the step list based on the identifier of the steps. You can specify
@@ -4007,9 +4007,9 @@ export interface ListStepsInput {
   StepIds?: string[];
 
   /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   * <p>The filter to limit the step list based on certain states.</p>
    */
-  Marker?: string;
+  StepStates?: (StepState | string)[];
 }
 
 export namespace ListStepsInput {
@@ -4023,6 +4023,18 @@ export namespace ListStepsInput {
  */
 export interface StepSummary {
   /**
+   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
+   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility.
+   *          We recommend using TERMINATE_CLUSTER instead.</p>
+   */
+  ActionOnFailure?: ActionOnFailure | string;
+
+  /**
+   * <p>The Hadoop job configuration of the cluster step.</p>
+   */
+  Config?: HadoopStepConfig;
+
+  /**
    * <p>The identifier of the cluster step.</p>
    */
   Id?: string;
@@ -4031,18 +4043,6 @@ export interface StepSummary {
    * <p>The name of the cluster step.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The Hadoop job configuration of the cluster step.</p>
-   */
-  Config?: HadoopStepConfig;
-
-  /**
-   * <p>The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER,
-   *          CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility.
-   *          We recommend using TERMINATE_CLUSTER instead.</p>
-   */
-  ActionOnFailure?: ActionOnFailure | string;
 
   /**
    * <p>The current execution status details of the cluster step.</p>
@@ -4062,14 +4062,14 @@ export namespace StepSummary {
  */
 export interface ListStepsOutput {
   /**
-   * <p>The filtered list of steps for the cluster.</p>
-   */
-  Steps?: StepSummary[];
-
-  /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The filtered list of steps for the cluster.</p>
+   */
+  Steps?: StepSummary[];
 }
 
 export namespace ListStepsOutput {
@@ -4098,20 +4098,9 @@ export namespace ListStudiosInput {
  */
 export interface StudioSummary {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * <p>The time when the Amazon EMR Studio was created.</p>
    */
-  StudioId?: string;
-
-  /**
-   * <p>The name of the Amazon EMR Studio.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR
-   *          Studio.</p>
-   */
-  VpcId?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The detailed description of the EMR Studio.</p>
@@ -4119,14 +4108,25 @@ export interface StudioSummary {
   Description?: string;
 
   /**
+   * <p>The name of the Amazon EMR Studio.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the Amazon EMR Studio.</p>
+   */
+  StudioId?: string;
+
+  /**
    * <p>The unique access URL of the Amazon EMR Studio.</p>
    */
   Url?: string;
 
   /**
-   * <p>The time when the Amazon EMR Studio was created.</p>
+   * <p>The ID of the Virtual Private Cloud (Amazon VPC) associated with the Amazon EMR
+   *          Studio.</p>
    */
-  CreationTime?: Date;
+  VpcId?: string;
 }
 
 export namespace StudioSummary {
@@ -4137,14 +4137,14 @@ export namespace StudioSummary {
 
 export interface ListStudiosOutput {
   /**
-   * <p>The list of Studio summary objects.</p>
-   */
-  Studios?: StudioSummary[];
-
-  /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The list of Studio summary objects.</p>
+   */
+  Studios?: StudioSummary[];
 }
 
 export namespace ListStudiosOutput {
@@ -4155,11 +4155,6 @@ export namespace ListStudiosOutput {
 
 export interface ListStudioSessionMappingsInput {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
-   */
-  StudioId?: string;
-
-  /**
    * <p>Specifies whether to return session mappings for users or groups. If not specified, the
    *          results include session mapping details for both users and groups.</p>
    */
@@ -4169,6 +4164,11 @@ export interface ListStudioSessionMappingsInput {
    * <p>The pagination token that indicates the set of results to retrieve.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>The ID of the Amazon EMR Studio.</p>
+   */
+  StudioId?: string;
 }
 
 export namespace ListStudioSessionMappingsInput {
@@ -4183,9 +4183,9 @@ export namespace ListStudioSessionMappingsInput {
  */
 export interface SessionMappingSummary {
   /**
-   * <p>The ID of the Amazon EMR Studio.</p>
+   * <p>The time the session mapping was created.</p>
    */
-  StudioId?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The globally unique identifier (GUID) of the user or group from the AWS SSO Identity
@@ -4211,9 +4211,9 @@ export interface SessionMappingSummary {
   SessionPolicyArn?: string;
 
   /**
-   * <p>The time the session mapping was created.</p>
+   * <p>The ID of the Amazon EMR Studio.</p>
    */
-  CreationTime?: Date;
+  StudioId?: string;
 }
 
 export namespace SessionMappingSummary {
@@ -4224,15 +4224,15 @@ export namespace SessionMappingSummary {
 
 export interface ListStudioSessionMappingsOutput {
   /**
+   * <p>The pagination token that indicates the next set of results to retrieve.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A list of session mapping summary objects. Each object includes session mapping details
    *          such as creation time, identity type (user or group), and Studio ID.</p>
    */
   SessionMappings?: SessionMappingSummary[];
-
-  /**
-   * <p>The pagination token that indicates the next set of results to retrieve.</p>
-   */
-  Marker?: string;
 }
 
 export namespace ListStudioSessionMappingsOutput {
@@ -4325,6 +4325,11 @@ export namespace ModifyInstanceFleetInput {
 
 export interface PutAutoScalingPolicyInput {
   /**
+   * <p>Specifies the definition of the automatic scaling policy.</p>
+   */
+  AutoScalingPolicy: AutoScalingPolicy | undefined;
+
+  /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
    *          is applied is within this cluster.</p>
    */
@@ -4335,11 +4340,6 @@ export interface PutAutoScalingPolicyInput {
    *          applied.</p>
    */
   InstanceGroupId: string | undefined;
-
-  /**
-   * <p>Specifies the definition of the automatic scaling policy.</p>
-   */
-  AutoScalingPolicy: AutoScalingPolicy | undefined;
 }
 
 export namespace PutAutoScalingPolicyInput {
@@ -4350,6 +4350,16 @@ export namespace PutAutoScalingPolicyInput {
 
 export interface PutAutoScalingPolicyOutput {
   /**
+   * <p>The automatic scaling policy definition.</p>
+   */
+  AutoScalingPolicy?: AutoScalingPolicyDescription;
+
+  /**
+   * <p>The Amazon Resource Name of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
    * <p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy
    *          is applied is within this cluster.</p>
    */
@@ -4359,16 +4369,6 @@ export interface PutAutoScalingPolicyOutput {
    * <p>Specifies the ID of the instance group to which the scaling policy is applied.</p>
    */
   InstanceGroupId?: string;
-
-  /**
-   * <p>The automatic scaling policy definition.</p>
-   */
-  AutoScalingPolicy?: AutoScalingPolicyDescription;
-
-  /**
-   * <p>The Amazon Resource Name of the cluster.</p>
-   */
-  ClusterArn?: string;
 }
 
 export namespace PutAutoScalingPolicyOutput {
@@ -4500,14 +4500,14 @@ export namespace RemoveTagsOutput {
  */
 export interface SupportedProductConfig {
   /**
-   * <p>The name of the product configuration.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The list of user-supplied arguments.</p>
    */
   Args?: string[];
+
+  /**
+   * <p>The name of the product configuration.</p>
+   */
+  Name?: string;
 }
 
 export namespace SupportedProductConfig {
@@ -4521,14 +4521,14 @@ export namespace SupportedProductConfig {
  */
 export interface RunJobFlowOutput {
   /**
-   * <p>An unique identifier for the job flow.</p>
-   */
-  JobFlowId?: string;
-
-  /**
    * <p>The Amazon Resource Name of the cluster.</p>
    */
   ClusterArn?: string;
+
+  /**
+   * <p>An unique identifier for the job flow.</p>
+   */
+  JobFlowId?: string;
 }
 
 export namespace RunJobFlowOutput {
@@ -4592,6 +4592,28 @@ export interface StartNotebookExecutionInput {
   EditorId: string | undefined;
 
   /**
+   * <p>Specifies the execution engine (cluster) that runs the notebook execution.</p>
+   */
+  ExecutionEngine: ExecutionEngineConfig | undefined;
+
+  /**
+   * <p>An optional name for the notebook execution.</p>
+   */
+  NotebookExecutionName?: string;
+
+  /**
+   * <p>The unique identifier of the Amazon EC2 security group to associate with the EMR
+   *          Notebook for this notebook execution.</p>
+   */
+  NotebookInstanceSecurityGroupId?: string;
+
+  /**
+   * <p>Input parameters in JSON format passed to the EMR Notebook at runtime for
+   *          execution.</p>
+   */
+  NotebookParams?: string;
+
+  /**
    * <p>The path and file name of the notebook file for this execution, relative to the path
    *          specified for the EMR Notebook. For example, if you specify a path of
    *             <code>s3://MyBucket/MyNotebooks</code> when you create an EMR Notebook for a notebook
@@ -4604,32 +4626,10 @@ export interface StartNotebookExecutionInput {
   RelativePath: string | undefined;
 
   /**
-   * <p>An optional name for the notebook execution.</p>
-   */
-  NotebookExecutionName?: string;
-
-  /**
-   * <p>Input parameters in JSON format passed to the EMR Notebook at runtime for
-   *          execution.</p>
-   */
-  NotebookParams?: string;
-
-  /**
-   * <p>Specifies the execution engine (cluster) that runs the notebook execution.</p>
-   */
-  ExecutionEngine: ExecutionEngineConfig | undefined;
-
-  /**
    * <p>The name or ARN of the IAM role that is used as the service role for Amazon EMR (the EMR
    *          role) for the notebook execution.</p>
    */
   ServiceRole: string | undefined;
-
-  /**
-   * <p>The unique identifier of the Amazon EC2 security group to associate with the EMR
-   *          Notebook for this notebook execution.</p>
-   */
-  NotebookInstanceSecurityGroupId?: string;
 
   /**
    * <p>A list of tags associated with a notebook execution. Tags are user-defined key-value
@@ -4689,11 +4689,6 @@ export namespace TerminateJobFlowsInput {
 
 export interface UpdateStudioSessionMappingInput {
   /**
-   * <p>The ID of the EMR Studio.</p>
-   */
-  StudioId: string | undefined;
-
-  /**
    * <p>The globally unique identifier (GUID) of the user or group. For more information, see
    *             <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId">UserId</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId">GroupId</a> in the <i>AWS SSO Identity Store API Reference</i>.
    *          Either <code>IdentityName</code> or <code>IdentityId</code> must be specified.</p>
@@ -4716,6 +4711,11 @@ export interface UpdateStudioSessionMappingInput {
    *          user or group.</p>
    */
   SessionPolicyArn: string | undefined;
+
+  /**
+   * <p>The ID of the EMR Studio.</p>
+   */
+  StudioId: string | undefined;
 }
 
 export namespace UpdateStudioSessionMappingInput {
@@ -4775,6 +4775,16 @@ export interface BlockPublicAccessConfiguration {
   BlockPublicSecurityGroupRules: boolean | undefined;
 
   /**
+   * <p>The classification within a configuration.</p>
+   */
+  Classification?: string;
+
+  /**
+   * <p>A list of additional configurations to apply within a configuration object.</p>
+   */
+  Configurations?: Configuration[];
+
+  /**
    * <p>Specifies ports and port ranges that are permitted to have security group rules that
    *          allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is
    *          specified for <code>PermittedPublicSecurityGroupRuleRanges</code>, Amazon EMR allows
@@ -4784,16 +4794,6 @@ export interface BlockPublicAccessConfiguration {
    *          the list of <code>PermittedPublicSecurityGroupRuleRanges</code>.</p>
    */
   PermittedPublicSecurityGroupRuleRanges?: PortRange[];
-
-  /**
-   * <p>The classification within a configuration.</p>
-   */
-  Classification?: string;
-
-  /**
-   * <p>A list of additional configurations to apply within a configuration object.</p>
-   */
-  Configurations?: Configuration[];
 
   /**
    * <p>A set of properties specified within a configuration classification.</p>
@@ -4812,25 +4812,56 @@ export namespace BlockPublicAccessConfiguration {
  */
 export interface Cluster {
   /**
-   * <p>The unique identifier for the cluster.</p>
+   * <p>The applications installed on this cluster.</p>
    */
-  Id?: string;
+  Applications?: Application[];
 
   /**
-   * <p>The name of the cluster.</p>
+   * <p>An IAM role for automatic scaling policies. The default role is
+   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the
+   *          automatic scaling feature requires to launch and terminate EC2 instances in an instance
+   *          group.</p>
    */
-  Name?: string;
+  AutoScalingRole?: string;
 
   /**
-   * <p>The current status details about the cluster.</p>
+   * <p>Specifies whether the cluster should terminate after completing all steps.</p>
    */
-  Status?: ClusterStatus;
+  AutoTerminate?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name of the cluster.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * <p>Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied
+   *          to the EMR cluster.</p>
+   */
+  Configurations?: Configuration[];
+
+  /**
+   * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon
+   *          EBS-backed Linux AMI if the cluster uses a custom AMI.</p>
+   */
+  CustomAmiId?: string;
+
+  /**
+   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for
+   *          each EC2 instance. Available in Amazon EMR version 4.x and later.</p>
+   */
+  EbsRootVolumeSize?: number;
 
   /**
    * <p>Provides information about the EC2 instances in a cluster grouped by category. For
    *          example, key name, subnet ID, IAM instance profile, and so on.</p>
    */
   Ec2InstanceAttributes?: Ec2InstanceAttributes;
+
+  /**
+   * <p>The unique identifier for the cluster.</p>
+   */
+  Id?: string;
 
   /**
    * <note>
@@ -4844,9 +4875,11 @@ export interface Cluster {
   InstanceCollectionType?: InstanceCollectionType | string;
 
   /**
-   * <p>The path to the Amazon S3 location where logs for this cluster are stored.</p>
+   * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
+   *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
+   *          in the <i>Amazon EMR Management Guide</i>.</p>
    */
-  LogUri?: string;
+  KerberosAttributes?: KerberosAttributes;
 
   /**
    * <p> The AWS KMS customer master key (CMK) used for encrypting log files. This attribute is
@@ -4855,14 +4888,39 @@ export interface Cluster {
   LogEncryptionKmsKeyId?: string;
 
   /**
-   * <p>The AMI version requested for this cluster.</p>
+   * <p>The path to the Amazon S3 location where logs for this cluster are stored.</p>
    */
-  RequestedAmiVersion?: string;
+  LogUri?: string;
 
   /**
-   * <p>The AMI version running on this cluster.</p>
+   * <p>The DNS name of the master node. If the cluster is on a private subnet, this is the
+   *          private DNS name. On a public subnet, this is the public DNS name.</p>
    */
-  RunningAmiVersion?: string;
+  MasterPublicDnsName?: string;
+
+  /**
+   * <p>The name of the cluster.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
+   *          is incremented one time for every hour an m1.small instance runs. Larger instances are
+   *          weighted more, so an EC2 instance that is roughly four times more expensive would result in
+   *          the normalized instance hours being incremented by four. This result is only an
+   *          approximation and does not reflect the actual billing rate.</p>
+   */
+  NormalizedInstanceHours?: number;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched. </p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Placement group configured for an Amazon EMR cluster.</p>
+   */
+  PlacementGroups?: PlacementGroupConfig[];
 
   /**
    * <p>The Amazon EMR release label, which determines the version of open-source application
@@ -4876,9 +4934,62 @@ export interface Cluster {
   ReleaseLabel?: string;
 
   /**
-   * <p>Specifies whether the cluster should terminate after completing all steps.</p>
+   * <p>Applies only when <code>CustomAmiID</code> is used. Specifies the type of updates that
+   *          are applied from the Amazon Linux AMI package repositories when an instance boots using the
+   *          AMI.</p>
    */
-  AutoTerminate?: boolean;
+  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
+
+  /**
+   * <p>The AMI version requested for this cluster.</p>
+   */
+  RequestedAmiVersion?: string;
+
+  /**
+   * <p>The AMI version running on this cluster.</p>
+   */
+  RunningAmiVersion?: string;
+
+  /**
+   * <p>The way that individual Amazon EC2 instances terminate when an automatic scale-in
+   *          activity occurs or an instance group is resized. <code>TERMINATE_AT_INSTANCE_HOUR</code>
+   *          indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of
+   *          when the request to terminate the instance was submitted. This option is only available
+   *          with Amazon EMR 5.1.0 and later and is the default for clusters created using that version.
+   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes to a deny
+   *          list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of
+   *          the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes
+   *          first and blocks instance termination if it could lead to HDFS corruption.
+   *             <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR version 4.1.0
+   *          and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
+   */
+  ScaleDownBehavior?: ScaleDownBehavior | string;
+
+  /**
+   * <p>The name of the security configuration applied to the cluster.</p>
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * <p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on
+   *          your behalf.</p>
+   */
+  ServiceRole?: string;
+
+  /**
+   * <p>The current status details about the cluster.</p>
+   */
+  Status?: ClusterStatus;
+
+  /**
+   * <p>Specifies the number of steps that can be executed concurrently.</p>
+   */
+  StepConcurrencyLevel?: number;
+
+  /**
+   * <p>A list of tags associated with a cluster.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>Indicates whether Amazon EMR will lock the cluster to prevent the EC2 instances from
@@ -4897,117 +5008,6 @@ export interface Cluster {
    *          parameter of the <code>RunJobFlow</code> action.</p>
    */
   VisibleToAllUsers?: boolean;
-
-  /**
-   * <p>The applications installed on this cluster.</p>
-   */
-  Applications?: Application[];
-
-  /**
-   * <p>A list of tags associated with a cluster.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on
-   *          your behalf.</p>
-   */
-  ServiceRole?: string;
-
-  /**
-   * <p>An approximation of the cost of the cluster, represented in m1.small/hours. This value
-   *          is incremented one time for every hour an m1.small instance runs. Larger instances are
-   *          weighted more, so an EC2 instance that is roughly four times more expensive would result in
-   *          the normalized instance hours being incremented by four. This result is only an
-   *          approximation and does not reflect the actual billing rate.</p>
-   */
-  NormalizedInstanceHours?: number;
-
-  /**
-   * <p>The DNS name of the master node. If the cluster is on a private subnet, this is the
-   *          private DNS name. On a public subnet, this is the public DNS name.</p>
-   */
-  MasterPublicDnsName?: string;
-
-  /**
-   * <p>Applies only to Amazon EMR releases 4.x and later. The list of Configurations supplied
-   *          to the EMR cluster.</p>
-   */
-  Configurations?: Configuration[];
-
-  /**
-   * <p>The name of the security configuration applied to the cluster.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>An IAM role for automatic scaling policies. The default role is
-   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the
-   *          automatic scaling feature requires to launch and terminate EC2 instances in an instance
-   *          group.</p>
-   */
-  AutoScalingRole?: string;
-
-  /**
-   * <p>The way that individual Amazon EC2 instances terminate when an automatic scale-in
-   *          activity occurs or an instance group is resized. <code>TERMINATE_AT_INSTANCE_HOUR</code>
-   *          indicates that Amazon EMR terminates nodes at the instance-hour boundary, regardless of
-   *          when the request to terminate the instance was submitted. This option is only available
-   *          with Amazon EMR 5.1.0 and later and is the default for clusters created using that version.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> indicates that Amazon EMR adds nodes to a deny
-   *          list and drains tasks from nodes before terminating the Amazon EC2 instances, regardless of
-   *          the instance-hour boundary. With either behavior, Amazon EMR removes the least active nodes
-   *          first and blocks instance termination if it could lead to HDFS corruption.
-   *             <code>TERMINATE_AT_TASK_COMPLETION</code> is available only in Amazon EMR version 4.1.0
-   *          and later, and is the default for versions of Amazon EMR earlier than 5.1.0.</p>
-   */
-  ScaleDownBehavior?: ScaleDownBehavior | string;
-
-  /**
-   * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon
-   *          EBS-backed Linux AMI if the cluster uses a custom AMI.</p>
-   */
-  CustomAmiId?: string;
-
-  /**
-   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for
-   *          each EC2 instance. Available in Amazon EMR version 4.x and later.</p>
-   */
-  EbsRootVolumeSize?: number;
-
-  /**
-   * <p>Applies only when <code>CustomAmiID</code> is used. Specifies the type of updates that
-   *          are applied from the Amazon Linux AMI package repositories when an instance boots using the
-   *          AMI.</p>
-   */
-  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
-
-  /**
-   * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
-   *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
-   *          in the <i>Amazon EMR Management Guide</i>.</p>
-   */
-  KerberosAttributes?: KerberosAttributes;
-
-  /**
-   * <p>The Amazon Resource Name of the cluster.</p>
-   */
-  ClusterArn?: string;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched. </p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Specifies the number of steps that can be executed concurrently.</p>
-   */
-  StepConcurrencyLevel?: number;
-
-  /**
-   * <p>Placement group configured for an Amazon EMR cluster.</p>
-   */
-  PlacementGroups?: PlacementGroupConfig[];
 }
 
 export namespace Cluster {
@@ -5021,19 +5021,12 @@ export namespace Cluster {
  */
 export interface InstanceGroupConfig {
   /**
-   * <p>Friendly name given to the instance group.</p>
+   * <p>An automatic scaling policy for a core instance group or task instance group in an
+   *          Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically
+   *          adds and terminates EC2 instances in response to the value of a CloudWatch metric. See
+   *             <a>PutAutoScalingPolicy</a>.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>Market type of the EC2 instances used to create a cluster node.</p>
-   */
-  Market?: MarketType | string;
-
-  /**
-   * <p>The role of the instance group in the cluster.</p>
-   */
-  InstanceRole: InstanceRoleType | string | undefined;
+  AutoScalingPolicy?: AutoScalingPolicy;
 
   /**
    * <p>The bid price for each EC2 Spot Instance type as defined by <code>InstanceType</code>.
@@ -5042,16 +5035,6 @@ export interface InstanceGroupConfig {
    *             <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
    */
   BidPrice?: string;
-
-  /**
-   * <p>The EC2 instance type for all instances in the instance group.</p>
-   */
-  InstanceType: string | undefined;
-
-  /**
-   * <p>Target number of instances for the instance group.</p>
-   */
-  InstanceCount: number | undefined;
 
   /**
    * <note>
@@ -5069,12 +5052,29 @@ export interface InstanceGroupConfig {
   EbsConfiguration?: EbsConfiguration;
 
   /**
-   * <p>An automatic scaling policy for a core instance group or task instance group in an
-   *          Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically
-   *          adds and terminates EC2 instances in response to the value of a CloudWatch metric. See
-   *             <a>PutAutoScalingPolicy</a>.</p>
+   * <p>Target number of instances for the instance group.</p>
    */
-  AutoScalingPolicy?: AutoScalingPolicy;
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>The role of the instance group in the cluster.</p>
+   */
+  InstanceRole: InstanceRoleType | string | undefined;
+
+  /**
+   * <p>The EC2 instance type for all instances in the instance group.</p>
+   */
+  InstanceType: string | undefined;
+
+  /**
+   * <p>Market type of the EC2 instances used to create a cluster node.</p>
+   */
+  Market?: MarketType | string;
+
+  /**
+   * <p>Friendly name given to the instance group.</p>
+   */
+  Name?: string;
 }
 
 export namespace InstanceGroupConfig {
@@ -5088,14 +5088,9 @@ export namespace InstanceGroupConfig {
  */
 export interface InstanceGroupModifyConfig {
   /**
-   * <p>Unique ID of the instance group to modify.</p>
+   * <p>A list of new or modified configurations to apply for an instance group.</p>
    */
-  InstanceGroupId: string | undefined;
-
-  /**
-   * <p>Target size for the instance group.</p>
-   */
-  InstanceCount?: number;
+  Configurations?: Configuration[];
 
   /**
    * <p>The EC2 InstanceIds to terminate. After you terminate the instances, the instance group
@@ -5104,14 +5099,19 @@ export interface InstanceGroupModifyConfig {
   EC2InstanceIdsToTerminate?: string[];
 
   /**
+   * <p>Target size for the instance group.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>Unique ID of the instance group to modify.</p>
+   */
+  InstanceGroupId: string | undefined;
+
+  /**
    * <p>Policy for customizing shrink operations.</p>
    */
   ShrinkPolicy?: ShrinkPolicy;
-
-  /**
-   * <p>A list of new or modified configurations to apply for an instance group.</p>
-   */
-  Configurations?: Configuration[];
 }
 
 export namespace InstanceGroupModifyConfig {
@@ -5132,19 +5132,6 @@ export namespace InstanceGroupModifyConfig {
  */
 export interface InstanceTypeConfig {
   /**
-   * <p>An EC2 instance type, such as <code>m3.xlarge</code>. </p>
-   */
-  InstanceType: string | undefined;
-
-  /**
-   * <p>The number of units that a provisioned instance of this type provides toward fulfilling
-   *          the target capacities defined in <a>InstanceFleetConfig</a>. This value is 1 for
-   *          a master instance fleet, and must be 1 or greater for core and task instance fleets.
-   *          Defaults to 1 if not specified. </p>
-   */
-  WeightedCapacity?: number;
-
-  /**
    * <p>The bid price for each EC2 Spot Instance type as defined by <code>InstanceType</code>.
    *          Expressed in USD. If neither <code>BidPrice</code> nor
    *             <code>BidPriceAsPercentageOfOnDemandPrice</code> is provided,
@@ -5161,16 +5148,29 @@ export interface InstanceTypeConfig {
   BidPriceAsPercentageOfOnDemandPrice?: number;
 
   /**
+   * <p>A configuration classification that applies when provisioning cluster instances, which
+   *          can include configurations for applications and software that run on the cluster.</p>
+   */
+  Configurations?: Configuration[];
+
+  /**
    * <p>The configuration of Amazon Elastic Block Storage (Amazon EBS) attached to each instance
    *          as defined by <code>InstanceType</code>. </p>
    */
   EbsConfiguration?: EbsConfiguration;
 
   /**
-   * <p>A configuration classification that applies when provisioning cluster instances, which
-   *          can include configurations for applications and software that run on the cluster.</p>
+   * <p>An EC2 instance type, such as <code>m3.xlarge</code>. </p>
    */
-  Configurations?: Configuration[];
+  InstanceType: string | undefined;
+
+  /**
+   * <p>The number of units that a provisioned instance of this type provides toward fulfilling
+   *          the target capacities defined in <a>InstanceFleetConfig</a>. This value is 1 for
+   *          a master instance fleet, and must be 1 or greater for core and task instance fleets.
+   *          Defaults to 1 if not specified. </p>
+   */
+  WeightedCapacity?: number;
 }
 
 export namespace InstanceTypeConfig {
@@ -5187,19 +5187,6 @@ export namespace InstanceTypeConfig {
  *          </note>
  */
 export interface InstanceTypeSpecification {
-  /**
-   * <p>The EC2 instance type, for example <code>m3.xlarge</code>.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The number of units that a provisioned instance of this type provides toward fulfilling
-   *          the target capacities defined in <a>InstanceFleetConfig</a>. Capacity values
-   *          represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the
-   *          default value is 1.</p>
-   */
-  WeightedCapacity?: number;
-
   /**
    * <p>The bid price for each EC2 Spot Instance type as defined by <code>InstanceType</code>.
    *          Expressed in USD.</p>
@@ -5229,6 +5216,19 @@ export interface InstanceTypeSpecification {
    *          EBS-optimized.</p>
    */
   EbsOptimized?: boolean;
+
+  /**
+   * <p>The EC2 instance type, for example <code>m3.xlarge</code>.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The number of units that a provisioned instance of this type provides toward fulfilling
+   *          the target capacities defined in <a>InstanceFleetConfig</a>. Capacity values
+   *          represent performance characteristics such as vCPUs, memory, or I/O. If not specified, the
+   *          default value is 1.</p>
+   */
+  WeightedCapacity?: number;
 }
 
 export namespace InstanceTypeSpecification {
@@ -5354,20 +5354,45 @@ export interface InstanceFleet {
   Id?: string;
 
   /**
+   * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
+   *       </p>
+   */
+  InstanceFleetType?: InstanceFleetType | string;
+
+  /**
+   * <p>The specification for the instance types that comprise an instance fleet. Up to five
+   *          unique instance specifications may be defined for each instance fleet. </p>
+   */
+  InstanceTypeSpecifications?: InstanceTypeSpecification[];
+
+  /**
+   * <p>Describes the launch specification for an instance fleet. </p>
+   */
+  LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
    * <p>A friendly name for the instance fleet.</p>
    */
   Name?: string;
 
   /**
+   * <p>The number of On-Demand units that have been provisioned for the instance fleet to
+   *          fulfill <code>TargetOnDemandCapacity</code>. This provisioned capacity might be less than
+   *          or greater than <code>TargetOnDemandCapacity</code>.</p>
+   */
+  ProvisionedOnDemandCapacity?: number;
+
+  /**
+   * <p>The number of Spot units that have been provisioned for this instance fleet to fulfill
+   *             <code>TargetSpotCapacity</code>. This provisioned capacity might be less than or greater
+   *          than <code>TargetSpotCapacity</code>.</p>
+   */
+  ProvisionedSpotCapacity?: number;
+
+  /**
    * <p>The current status of the instance fleet. </p>
    */
   Status?: InstanceFleetStatus;
-
-  /**
-   * <p>The node type that the instance fleet hosts. Valid values are MASTER, CORE, or TASK.
-   *       </p>
-   */
-  InstanceFleetType?: InstanceFleetType | string;
 
   /**
    * <p>The target capacity of On-Demand units for the instance fleet, which determines how many
@@ -5413,31 +5438,6 @@ export interface InstanceFleet {
    *          </note>
    */
   TargetSpotCapacity?: number;
-
-  /**
-   * <p>The number of On-Demand units that have been provisioned for the instance fleet to
-   *          fulfill <code>TargetOnDemandCapacity</code>. This provisioned capacity might be less than
-   *          or greater than <code>TargetOnDemandCapacity</code>.</p>
-   */
-  ProvisionedOnDemandCapacity?: number;
-
-  /**
-   * <p>The number of Spot units that have been provisioned for this instance fleet to fulfill
-   *             <code>TargetSpotCapacity</code>. This provisioned capacity might be less than or greater
-   *          than <code>TargetSpotCapacity</code>.</p>
-   */
-  ProvisionedSpotCapacity?: number;
-
-  /**
-   * <p>The specification for the instance types that comprise an instance fleet. Up to five
-   *          unique instance specifications may be defined for each instance fleet. </p>
-   */
-  InstanceTypeSpecifications?: InstanceTypeSpecification[];
-
-  /**
-   * <p>Describes the launch specification for an instance fleet. </p>
-   */
-  LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
 }
 
 export namespace InstanceFleet {
@@ -5455,15 +5455,26 @@ export namespace InstanceFleet {
  */
 export interface InstanceFleetConfig {
   /**
-   * <p>The friendly name of the instance fleet.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The node type that the instance fleet hosts. Valid values are MASTER,CORE,and
    *          TASK.</p>
    */
   InstanceFleetType: InstanceFleetType | string | undefined;
+
+  /**
+   * <p>The instance type configurations that define the EC2 instances in the instance
+   *          fleet.</p>
+   */
+  InstanceTypeConfigs?: InstanceTypeConfig[];
+
+  /**
+   * <p>The launch specification for the instance fleet.</p>
+   */
+  LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
+
+  /**
+   * <p>The friendly name of the instance fleet.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The target capacity of On-Demand units for the instance fleet, which determines how many
@@ -5507,17 +5518,6 @@ export interface InstanceFleetConfig {
    *          </note>
    */
   TargetSpotCapacity?: number;
-
-  /**
-   * <p>The instance type configurations that define the EC2 instances in the instance
-   *          fleet.</p>
-   */
-  InstanceTypeConfigs?: InstanceTypeConfig[];
-
-  /**
-   * <p>The launch specification for the instance fleet.</p>
-   */
-  LaunchSpecifications?: InstanceFleetProvisioningSpecifications;
 }
 
 export namespace InstanceFleetConfig {
@@ -5571,25 +5571,12 @@ export namespace AddInstanceFleetInput {
  */
 export interface InstanceGroup {
   /**
-   * <p>The identifier of the instance group.</p>
+   * <p>An automatic scaling policy for a core instance group or task instance group in an
+   *          Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically
+   *          adds and terminates EC2 instances in response to the value of a CloudWatch metric. See
+   *          PutAutoScalingPolicy.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>The name of the instance group.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The marketplace to provision instances for this group. Valid values are ON_DEMAND or
-   *          SPOT.</p>
-   */
-  Market?: MarketType | string;
-
-  /**
-   * <p>The type of the instance group. Valid values are MASTER, CORE or TASK.</p>
-   */
-  InstanceGroupType?: InstanceGroupType | string;
+  AutoScalingPolicy?: AutoScalingPolicyDescription;
 
   /**
    * <p>The bid price for each EC2 Spot Instance type as defined by <code>InstanceType</code>.
@@ -5598,26 +5585,6 @@ export interface InstanceGroup {
    *             <code>BidPriceAsPercentageOfOnDemandPrice</code> defaults to 100%.</p>
    */
   BidPrice?: string;
-
-  /**
-   * <p>The EC2 instance type for all instances in the instance group.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The target number of instances for the instance group.</p>
-   */
-  RequestedInstanceCount?: number;
-
-  /**
-   * <p>The number of instances currently running in this instance group.</p>
-   */
-  RunningInstanceCount?: number;
-
-  /**
-   * <p>The current status of the instance group.</p>
-   */
-  Status?: InstanceGroupStatus;
 
   /**
    * <note>
@@ -5635,18 +5602,6 @@ export interface InstanceGroup {
   ConfigurationsVersion?: number;
 
   /**
-   * <p>A list of configurations that were successfully applied for an instance group last
-   *          time.</p>
-   */
-  LastSuccessfullyAppliedConfigurations?: Configuration[];
-
-  /**
-   * <p>The version number of a configuration specification that was successfully applied for an
-   *          instance group last time. </p>
-   */
-  LastSuccessfullyAppliedConfigurationsVersion?: number;
-
-  /**
    * <p>The EBS block devices that are mapped to this instance group.</p>
    */
   EbsBlockDevices?: EbsBlockDevice[];
@@ -5659,17 +5614,62 @@ export interface InstanceGroup {
   EbsOptimized?: boolean;
 
   /**
+   * <p>The identifier of the instance group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The type of the instance group. Valid values are MASTER, CORE or TASK.</p>
+   */
+  InstanceGroupType?: InstanceGroupType | string;
+
+  /**
+   * <p>The EC2 instance type for all instances in the instance group.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>A list of configurations that were successfully applied for an instance group last
+   *          time.</p>
+   */
+  LastSuccessfullyAppliedConfigurations?: Configuration[];
+
+  /**
+   * <p>The version number of a configuration specification that was successfully applied for an
+   *          instance group last time. </p>
+   */
+  LastSuccessfullyAppliedConfigurationsVersion?: number;
+
+  /**
+   * <p>The marketplace to provision instances for this group. Valid values are ON_DEMAND or
+   *          SPOT.</p>
+   */
+  Market?: MarketType | string;
+
+  /**
+   * <p>The name of the instance group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The target number of instances for the instance group.</p>
+   */
+  RequestedInstanceCount?: number;
+
+  /**
+   * <p>The number of instances currently running in this instance group.</p>
+   */
+  RunningInstanceCount?: number;
+
+  /**
    * <p>Policy for customizing shrink operations.</p>
    */
   ShrinkPolicy?: ShrinkPolicy;
 
   /**
-   * <p>An automatic scaling policy for a core instance group or task instance group in an
-   *          Amazon EMR cluster. The automatic scaling policy defines how an instance group dynamically
-   *          adds and terminates EC2 instances in response to the value of a CloudWatch metric. See
-   *          PutAutoScalingPolicy.</p>
+   * <p>The current status of the instance group.</p>
    */
-  AutoScalingPolicy?: AutoScalingPolicyDescription;
+  Status?: InstanceGroupStatus;
 }
 
 export namespace InstanceGroup {
@@ -5725,66 +5725,20 @@ export namespace ListInstanceGroupsOutput {
  */
 export interface JobFlowInstancesConfig {
   /**
-   * <p>The EC2 instance type of the master node.</p>
+   * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
    */
-  MasterInstanceType?: string;
+  AdditionalMasterSecurityGroups?: string[];
 
   /**
-   * <p>The EC2 instance type of the core and task nodes.</p>
+   * <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
    */
-  SlaveInstanceType?: string;
-
-  /**
-   * <p>The number of EC2 instances in the cluster.</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>Configuration for the instance groups in a cluster.</p>
-   */
-  InstanceGroups?: InstanceGroupConfig[];
-
-  /**
-   * <note>
-   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
-   *             later, excluding 5.0.x versions.</p>
-   *          </note>
-   *          <p>Describes the EC2 instances and instance configurations for clusters that use the
-   *          instance fleet configuration.</p>
-   */
-  InstanceFleets?: InstanceFleetConfig[];
+  AdditionalSlaveSecurityGroups?: string[];
 
   /**
    * <p>The name of the EC2 key pair that can be used to connect to the master node using SSH as
    *          the user called "hadoop."</p>
    */
   Ec2KeyName?: string;
-
-  /**
-   * <p>The Availability Zone in which the cluster runs.</p>
-   */
-  Placement?: PlacementType;
-
-  /**
-   * <p>Specifies whether the cluster should remain available after completing all steps.</p>
-   */
-  KeepJobFlowAliveWhenNoSteps?: boolean;
-
-  /**
-   * <p>Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being
-   *          terminated by API call, user intervention, or in the event of a job-flow error.</p>
-   */
-  TerminationProtected?: boolean;
-
-  /**
-   * <p>Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the
-   *          cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained),
-   *          "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this
-   *          value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in
-   *          the RunJobFlow call, in which case the default version of Hadoop for that AMI version is
-   *          used.</p>
-   */
-  HadoopVersion?: string;
 
   /**
    * <p>Applies to clusters that use the uniform instance group configuration. To launch the
@@ -5816,20 +5770,66 @@ export interface JobFlowInstancesConfig {
   EmrManagedSlaveSecurityGroup?: string;
 
   /**
+   * <p>Applies only to Amazon EMR release versions earlier than 4.0. The Hadoop version for the
+   *          cluster. Valid inputs are "0.18" (no longer maintained), "0.20" (no longer maintained),
+   *          "0.20.205" (no longer maintained), "1.0.3", "2.2.0", or "2.4.0". If you do not set this
+   *          value, the default of 0.18 is used, unless the <code>AmiVersion</code> parameter is set in
+   *          the RunJobFlow call, in which case the default version of Hadoop for that AMI version is
+   *          used.</p>
+   */
+  HadoopVersion?: string;
+
+  /**
+   * <p>The number of EC2 instances in the cluster.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <note>
+   *             <p>The instance fleet configuration is available only in Amazon EMR versions 4.8.0 and
+   *             later, excluding 5.0.x versions.</p>
+   *          </note>
+   *          <p>Describes the EC2 instances and instance configurations for clusters that use the
+   *          instance fleet configuration.</p>
+   */
+  InstanceFleets?: InstanceFleetConfig[];
+
+  /**
+   * <p>Configuration for the instance groups in a cluster.</p>
+   */
+  InstanceGroups?: InstanceGroupConfig[];
+
+  /**
+   * <p>Specifies whether the cluster should remain available after completing all steps.</p>
+   */
+  KeepJobFlowAliveWhenNoSteps?: boolean;
+
+  /**
+   * <p>The EC2 instance type of the master node.</p>
+   */
+  MasterInstanceType?: string;
+
+  /**
+   * <p>The Availability Zone in which the cluster runs.</p>
+   */
+  Placement?: PlacementType;
+
+  /**
    * <p>The identifier of the Amazon EC2 security group for the Amazon EMR service to access
    *          clusters in VPC private subnets.</p>
    */
   ServiceAccessSecurityGroup?: string;
 
   /**
-   * <p>A list of additional Amazon EC2 security group IDs for the master node.</p>
+   * <p>The EC2 instance type of the core and task nodes.</p>
    */
-  AdditionalMasterSecurityGroups?: string[];
+  SlaveInstanceType?: string;
 
   /**
-   * <p>A list of additional Amazon EC2 security group IDs for the core and task nodes.</p>
+   * <p>Specifies whether to lock the cluster to prevent the Amazon EC2 instances from being
+   *          terminated by API call, user intervention, or in the event of a job-flow error.</p>
    */
-  AdditionalSlaveSecurityGroups?: string[];
+  TerminationProtected?: boolean;
 }
 
 export namespace JobFlowInstancesConfig {
@@ -5843,24 +5843,6 @@ export namespace JobFlowInstancesConfig {
  */
 export interface RunJobFlowInput {
   /**
-   * <p>The name of the job flow.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The location in Amazon S3 to write the log files of the job flow. If a value is not
-   *          provided, logs are not created.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not
-   *          provided, the logs remain encrypted by AES-256. This attribute is only available with
-   *          Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.</p>
-   */
-  LogEncryptionKmsKeyId?: string;
-
-  /**
    * <p>A JSON string for selecting additional features.</p>
    */
   AdditionalInfo?: string;
@@ -5873,25 +5855,20 @@ export interface RunJobFlowInput {
   AmiVersion?: string;
 
   /**
-   * <p>The Amazon EMR release label, which determines the version of open-source application
-   *          packages installed on the cluster. Release labels are in the form <code>emr-x.x.x</code>,
-   *          where x.x.x is an Amazon EMR release version such as <code>emr-5.14.0</code>. For more
-   *          information about Amazon EMR release versions and included application versions and
-   *          features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release
-   *          label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use
-   *             <code>AmiVersion</code>.</p>
+   * <p>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
+   *          for Amazon EMR to install and configure when launching the cluster. For a list of
+   *          applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release
+   *          Guide</a>.</p>
    */
-  ReleaseLabel?: string;
+  Applications?: Application[];
 
   /**
-   * <p>A specification of the number and type of Amazon EC2 instances.</p>
+   * <p>An IAM role for automatic scaling policies. The default role is
+   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the
+   *          automatic scaling feature requires to launch and terminate EC2 instances in an instance
+   *          group.</p>
    */
-  Instances: JobFlowInstancesConfig | undefined;
-
-  /**
-   * <p>A list of steps to run.</p>
-   */
-  Steps?: StepConfig[];
+  AutoScalingRole?: string;
 
   /**
    * <p>A list of bootstrap actions to run before Hadoop starts on the cluster nodes.</p>
@@ -5899,23 +5876,73 @@ export interface RunJobFlowInput {
   BootstrapActions?: BootstrapActionConfig[];
 
   /**
-   * <note>
-   *             <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use
-   *             Applications.</p>
-   *          </note>
-   *          <p>A list of strings that indicates third-party software to use. For more information, see
-   *          the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR
-   *             Developer Guide</a>. Currently supported values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p>
-   *             </li>
-   *             <li>
-   *                <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p>
-   *             </li>
-   *          </ul>
+   * <p>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR
+   *          cluster you are creating.</p>
    */
-  SupportedProducts?: string[];
+  Configurations?: Configuration[];
+
+  /**
+   * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon
+   *          EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2
+   *          instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom
+   *             AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the
+   *          cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
+   *          versions 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
+   *          <p>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating an Amazon EBS-Backed
+   *             Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux
+   *             Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux
+   *             AMI</a>. </p>
+   */
+  CustomAmiId?: string;
+
+  /**
+   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for
+   *          each EC2 instance. Available in Amazon EMR version 4.x and later.</p>
+   */
+  EbsRootVolumeSize?: number;
+
+  /**
+   * <p>A specification of the number and type of Amazon EC2 instances.</p>
+   */
+  Instances: JobFlowInstancesConfig | undefined;
+
+  /**
+   * <p>Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2
+   *          instances of the cluster assume this role. The default role is
+   *             <code>EMR_EC2_DefaultRole</code>. In order to use the default role, you must have
+   *          already created it using the CLI or console.</p>
+   */
+  JobFlowRole?: string;
+
+  /**
+   * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
+   *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
+   *          in the <i>Amazon EMR Management Guide</i>.</p>
+   */
+  KerberosAttributes?: KerberosAttributes;
+
+  /**
+   * <p>The AWS KMS customer master key (CMK) used for encrypting log files. If a value is not
+   *          provided, the logs remain encrypted by AES-256. This attribute is only available with
+   *          Amazon EMR version 5.30.0 and later, excluding Amazon EMR 6.0.0.</p>
+   */
+  LogEncryptionKmsKeyId?: string;
+
+  /**
+   * <p>The location in Amazon S3 to write the log files of the job flow. If a value is not
+   *          provided, logs are not created.</p>
+   */
+  LogUri?: string;
+
+  /**
+   * <p> The specified managed scaling policy for an Amazon EMR cluster. </p>
+   */
+  ManagedScalingPolicy?: ManagedScalingPolicy;
+
+  /**
+   * <p>The name of the job flow.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <note>
@@ -5959,58 +5986,29 @@ export interface RunJobFlowInput {
   NewSupportedProducts?: SupportedProductConfig[];
 
   /**
-   * <p>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
-   *          for Amazon EMR to install and configure when launching the cluster. For a list of
-   *          applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release
-   *          Guide</a>.</p>
+   * <p>The specified placement group configuration for an Amazon EMR cluster.</p>
    */
-  Applications?: Application[];
+  PlacementGroupConfigs?: PlacementGroupConfig[];
 
   /**
-   * <p>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the EMR
-   *          cluster you are creating.</p>
+   * <p>The Amazon EMR release label, which determines the version of open-source application
+   *          packages installed on the cluster. Release labels are in the form <code>emr-x.x.x</code>,
+   *          where x.x.x is an Amazon EMR release version such as <code>emr-5.14.0</code>. For more
+   *          information about Amazon EMR release versions and included application versions and
+   *          features, see <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>. The release
+   *          label applies only to Amazon EMR releases version 4.0 and later. Earlier versions use
+   *             <code>AmiVersion</code>.</p>
    */
-  Configurations?: Configuration[];
+  ReleaseLabel?: string;
 
   /**
-   * <p>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
-   *          cluster actions if they have the proper IAM policy permissions. This is the default. A
-   *          value of <code>false</code> indicates that only the IAM user who created the cluster can
-   *          perform actions.</p>
+   * <p>Applies only when <code>CustomAmiID</code> is used. Specifies which updates from the
+   *          Amazon Linux AMI package repositories to apply automatically when the instance boots using
+   *          the AMI. If omitted, the default is <code>SECURITY</code>, which indicates that only
+   *          security updates are applied. If <code>NONE</code> is specified, no updates are applied,
+   *          and all updates must be applied manually.</p>
    */
-  VisibleToAllUsers?: boolean;
-
-  /**
-   * <p>Also called instance profile and EC2 role. An IAM role for an EMR cluster. The EC2
-   *          instances of the cluster assume this role. The default role is
-   *             <code>EMR_EC2_DefaultRole</code>. In order to use the default role, you must have
-   *          already created it using the CLI or console.</p>
-   */
-  JobFlowRole?: string;
-
-  /**
-   * <p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on
-   *          your behalf.</p>
-   */
-  ServiceRole?: string;
-
-  /**
-   * <p>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of a security configuration to apply to the cluster.</p>
-   */
-  SecurityConfiguration?: string;
-
-  /**
-   * <p>An IAM role for automatic scaling policies. The default role is
-   *             <code>EMR_AutoScaling_DefaultRole</code>. The IAM role provides permissions that the
-   *          automatic scaling feature requires to launch and terminate EC2 instances in an instance
-   *          group.</p>
-   */
-  AutoScalingRole?: string;
+  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
 
   /**
    * <p>Specifies the way that individual Amazon EC2 instances terminate when an automatic
@@ -6029,40 +6027,15 @@ export interface RunJobFlowInput {
   ScaleDownBehavior?: ScaleDownBehavior | string;
 
   /**
-   * <p>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon
-   *          EBS-backed Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2
-   *          instances. For more information about custom AMIs in Amazon EMR, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using a Custom
-   *             AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the
-   *          cluster uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
-   *          versions 2.x and 3.x, use <code>AmiVersion</code> instead.</p>
-   *          <p>For information about creating a custom AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating an Amazon EBS-Backed
-   *             Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux
-   *             Instances</i>. For information about finding an AMI ID, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux
-   *             AMI</a>. </p>
+   * <p>The name of a security configuration to apply to the cluster.</p>
    */
-  CustomAmiId?: string;
+  SecurityConfiguration?: string;
 
   /**
-   * <p>The size, in GiB, of the Amazon EBS root device volume of the Linux AMI that is used for
-   *          each EC2 instance. Available in Amazon EMR version 4.x and later.</p>
+   * <p>The IAM role that will be assumed by the Amazon EMR service to access AWS resources on
+   *          your behalf.</p>
    */
-  EbsRootVolumeSize?: number;
-
-  /**
-   * <p>Applies only when <code>CustomAmiID</code> is used. Specifies which updates from the
-   *          Amazon Linux AMI package repositories to apply automatically when the instance boots using
-   *          the AMI. If omitted, the default is <code>SECURITY</code>, which indicates that only
-   *          security updates are applied. If <code>NONE</code> is specified, no updates are applied,
-   *          and all updates must be applied manually.</p>
-   */
-  RepoUpgradeOnBoot?: RepoUpgradeOnBoot | string;
-
-  /**
-   * <p>Attributes for Kerberos configuration when Kerberos authentication is enabled using a
-   *          security configuration. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html">Use Kerberos Authentication</a>
-   *          in the <i>Amazon EMR Management Guide</i>.</p>
-   */
-  KerberosAttributes?: KerberosAttributes;
+  ServiceRole?: string;
 
   /**
    * <p>Specifies the number of steps that can be executed concurrently. The default value is
@@ -6071,14 +6044,41 @@ export interface RunJobFlowInput {
   StepConcurrencyLevel?: number;
 
   /**
-   * <p> The specified managed scaling policy for an Amazon EMR cluster. </p>
+   * <p>A list of steps to run.</p>
    */
-  ManagedScalingPolicy?: ManagedScalingPolicy;
+  Steps?: StepConfig[];
 
   /**
-   * <p>The specified placement group configuration for an Amazon EMR cluster.</p>
+   * <note>
+   *             <p>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use
+   *             Applications.</p>
+   *          </note>
+   *          <p>A list of strings that indicates third-party software to use. For more information, see
+   *          the <a href="https://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon EMR
+   *             Developer Guide</a>. Currently supported values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>"mapr-m3" - launch the job flow using MapR M3 Edition.</p>
+   *             </li>
+   *             <li>
+   *                <p>"mapr-m5" - launch the job flow using MapR M5 Edition.</p>
+   *             </li>
+   *          </ul>
    */
-  PlacementGroupConfigs?: PlacementGroupConfig[];
+  SupportedProducts?: string[];
+
+  /**
+   * <p>A list of tags to associate with a cluster and propagate to Amazon EC2 instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A value of <code>true</code> indicates that all IAM users in the AWS account can perform
+   *          cluster actions if they have the proper IAM policy permissions. This is the default. A
+   *          value of <code>false</code> indicates that only the IAM user who created the cluster can
+   *          perform actions.</p>
+   */
+  VisibleToAllUsers?: boolean;
 }
 
 export namespace RunJobFlowInput {

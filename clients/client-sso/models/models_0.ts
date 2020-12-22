@@ -6,6 +6,11 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface AccountInfo {
   /**
+   * <p>The identifier of the AWS account that is assigned to the user.</p>
+   */
+  accountId?: string;
+
+  /**
    * <p>The display name of the AWS account that is assigned to the user.</p>
    */
   accountName?: string;
@@ -14,11 +19,6 @@ export interface AccountInfo {
    * <p>The email address of the AWS account that is assigned to the user.</p>
    */
   emailAddress?: string;
-
-  /**
-   * <p>The identifier of the AWS account that is assigned to the user.</p>
-   */
-  accountId?: string;
 }
 
 export namespace AccountInfo {
@@ -29,11 +29,6 @@ export namespace AccountInfo {
 
 export interface GetRoleCredentialsRequest {
   /**
-   * <p>The friendly name of the role that is assigned to the user.</p>
-   */
-  roleName: string | undefined;
-
-  /**
    * <p>The token issued by the <code>CreateToken</code> API call. For more information, see
    *         <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
    */
@@ -43,6 +38,11 @@ export interface GetRoleCredentialsRequest {
    * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The friendly name of the role that is assigned to the user.</p>
+   */
+  roleName: string | undefined;
 }
 
 export namespace GetRoleCredentialsRequest {
@@ -57,17 +57,6 @@ export namespace GetRoleCredentialsRequest {
  */
 export interface RoleCredentials {
   /**
-   * <p>The date on which temporary security credentials expire.</p>
-   */
-  expiration?: number;
-
-  /**
-   * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
-   *         <i>AWS IAM User Guide</i>.</p>
-   */
-  sessionToken?: string;
-
-  /**
    * <p>The identifier used for the temporary security credentials. For more information, see
    *         <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
@@ -75,17 +64,28 @@ export interface RoleCredentials {
   accessKeyId?: string;
 
   /**
+   * <p>The date on which temporary security credentials expire.</p>
+   */
+  expiration?: number;
+
+  /**
    * <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
    *         <i>AWS IAM User Guide</i>.</p>
    */
   secretAccessKey?: string;
+
+  /**
+   * <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
+   *         <i>AWS IAM User Guide</i>.</p>
+   */
+  sessionToken?: string;
 }
 
 export namespace RoleCredentials {
   export const filterSensitiveLog = (obj: RoleCredentials): any => ({
     ...obj,
-    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
     ...(obj.secretAccessKey && { secretAccessKey: SENSITIVE_STRING }),
+    ...(obj.sessionToken && { sessionToken: SENSITIVE_STRING }),
   });
 }
 
@@ -172,14 +172,14 @@ export interface ListAccountRolesRequest {
   accessToken: string | undefined;
 
   /**
-   * <p>The number of items that clients can request per page.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The identifier for the AWS account that is assigned to the user.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The number of items that clients can request per page.</p>
+   */
+  maxResults?: number;
 
   /**
    * <p>The page token from the previous response output when you request subsequent pages.</p>
@@ -217,14 +217,14 @@ export namespace RoleInfo {
 
 export interface ListAccountRolesResponse {
   /**
-   * <p>A paginated response with the list of roles and the next token if more results are available.</p>
-   */
-  roleList?: RoleInfo[];
-
-  /**
    * <p>The page token client that is used to retrieve the list of accounts.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A paginated response with the list of roles and the next token if more results are available.</p>
+   */
+  roleList?: RoleInfo[];
 }
 
 export namespace ListAccountRolesResponse {

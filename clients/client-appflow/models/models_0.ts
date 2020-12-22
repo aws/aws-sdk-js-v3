@@ -428,6 +428,13 @@ export interface ConnectorMetadata {
 
   /**
    * <p>
+   *       The connector metadata specific to Amazon EventBridge.
+   *     </p>
+   */
+  EventBridge?: EventBridgeMetadata;
+
+  /**
+   * <p>
    *   The connector metadata specific to Google Analytics.
    * </p>
    */
@@ -505,6 +512,13 @@ export interface ConnectorMetadata {
 
   /**
    * <p>
+   *       The connector metadata specific to Upsolver.
+   *     </p>
+   */
+  Upsolver?: UpsolverMetadata;
+
+  /**
+   * <p>
    *   The connector metadata specific to Veeva.
    * </p>
    */
@@ -516,20 +530,6 @@ export interface ConnectorMetadata {
    * </p>
    */
   Zendesk?: ZendeskMetadata;
-
-  /**
-   * <p>
-   *       The connector metadata specific to Amazon EventBridge.
-   *     </p>
-   */
-  EventBridge?: EventBridgeMetadata;
-
-  /**
-   * <p>
-   *       The connector metadata specific to Upsolver.
-   *     </p>
-   */
-  Upsolver?: UpsolverMetadata;
 }
 
 export namespace ConnectorMetadata {
@@ -582,13 +582,6 @@ export enum TriggerType {
 export interface ConnectorConfiguration {
   /**
    * <p>
-   *   Specifies whether the connector can be used as a source.
-   * </p>
-   */
-  canUseAsSource?: boolean;
-
-  /**
-   * <p>
    * Specifies whether the connector can be used as a destination.
    * </p>
    */
@@ -596,17 +589,17 @@ export interface ConnectorConfiguration {
 
   /**
    * <p>
-   * Lists the connectors that are available for use as destinations.
+   *   Specifies whether the connector can be used as a source.
    * </p>
    */
-  supportedDestinationConnectors?: (ConnectorType | string)[];
+  canUseAsSource?: boolean;
 
   /**
    * <p>
-   *     Specifies the supported flow frequency for that connector.
-   *     </p>
+   * Specifies connector-specific metadata such as <code>oAuthScopes</code>, <code>supportedRegions</code>, <code>privateLinkServiceUrl</code>, and so on.
+   * </p>
    */
-  supportedSchedulingFrequencies?: (ScheduleFrequencyType | string)[];
+  connectorMetadata?: ConnectorMetadata;
 
   /**
    * <p>
@@ -624,17 +617,24 @@ export interface ConnectorConfiguration {
 
   /**
    * <p>
+   * Lists the connectors that are available for use as destinations.
+   * </p>
+   */
+  supportedDestinationConnectors?: (ConnectorType | string)[];
+
+  /**
+   * <p>
+   *     Specifies the supported flow frequency for that connector.
+   *     </p>
+   */
+  supportedSchedulingFrequencies?: (ScheduleFrequencyType | string)[];
+
+  /**
+   * <p>
    * Specifies the supported trigger types for the flow.
    * </p>
    */
   supportedTriggerTypes?: (TriggerType | string)[];
-
-  /**
-   * <p>
-   * Specifies connector-specific metadata such as <code>oAuthScopes</code>, <code>supportedRegions</code>, <code>privateLinkServiceUrl</code>, and so on.
-   * </p>
-   */
-  connectorMetadata?: ConnectorMetadata;
 }
 
 export namespace ConnectorConfiguration {
@@ -652,10 +652,10 @@ export namespace ConnectorConfiguration {
 export interface ConnectorEntity {
   /**
    * <p>
-   * The name of the connector entity.
+   * Specifies whether the connector entity is a parent or a category and has more entities nested underneath it. If another call is made with <code>entitiesPath = "the_current_entity_name_with_hasNestedEntities_true"</code>, then it returns the nested entities underneath it. This provides a way to retrieve all supported entities in a recursive fashion.
    * </p>
    */
-  name: string | undefined;
+  hasNestedEntities?: boolean;
 
   /**
    * <p>
@@ -666,10 +666,10 @@ export interface ConnectorEntity {
 
   /**
    * <p>
-   * Specifies whether the connector entity is a parent or a category and has more entities nested underneath it. If another call is made with <code>entitiesPath = "the_current_entity_name_with_hasNestedEntities_true"</code>, then it returns the nested entities underneath it. This provides a way to retrieve all supported entities in a recursive fashion.
+   * The name of the connector entity.
    * </p>
    */
-  hasNestedEntities?: boolean;
+  name: string | undefined;
 }
 
 export namespace ConnectorEntity {
@@ -706,17 +706,17 @@ export interface DestinationFieldProperties {
 
   /**
    * <p>
-   *       Specifies if the flow run can either insert new rows in the destination field if they do not already exist, or update them if they do.
-   *     </p>
-   */
-  isUpsertable?: boolean;
-
-  /**
-   * <p>
    *       Specifies whether the field can be updated during an <code>UPDATE</code> or <code>UPSERT</code> write operation.
    *     </p>
    */
   isUpdatable?: boolean;
+
+  /**
+   * <p>
+   *       Specifies if the flow run can either insert new rows in the destination field if they do not already exist, or update them if they do.
+   *     </p>
+   */
+  isUpsertable?: boolean;
 
   /**
    * <p>
@@ -740,17 +740,17 @@ export namespace DestinationFieldProperties {
 export interface SourceFieldProperties {
   /**
    * <p>
-   * Indicates whether the field can be returned in a search result.
-   * </p>
-   */
-  isRetrievable?: boolean;
-
-  /**
-   * <p>
    *  Indicates if the field can be queried.
    * </p>
    */
   isQueryable?: boolean;
+
+  /**
+   * <p>
+   * Indicates whether the field can be returned in a search result.
+   * </p>
+   */
+  isRetrievable?: boolean;
 }
 
 export namespace SourceFieldProperties {
@@ -845,6 +845,20 @@ export namespace SupportedFieldTypeDetails {
 export interface ConnectorEntityField {
   /**
    * <p>
+   *   A description of the connector entity field.
+   * </p>
+   */
+  description?: string;
+
+  /**
+   * <p>
+   *   The properties applied to a field when the connector is being used as a destination.
+   * </p>
+   */
+  destinationProperties?: DestinationFieldProperties;
+
+  /**
+   * <p>
    * The unique identifier of the connector field.
    * </p>
    */
@@ -859,20 +873,6 @@ export interface ConnectorEntityField {
 
   /**
    * <p>
-   *  Contains details regarding the supported <code>FieldType</code>, including the corresponding <code>filterOperators</code> and <code>supportedValues</code>.
-   * </p>
-   */
-  supportedFieldTypeDetails?: SupportedFieldTypeDetails;
-
-  /**
-   * <p>
-   *   A description of the connector entity field.
-   * </p>
-   */
-  description?: string;
-
-  /**
-   * <p>
    *   The properties that can be applied to a field when the connector is being used as a source.
    * </p>
    */
@@ -880,10 +880,10 @@ export interface ConnectorEntityField {
 
   /**
    * <p>
-   *   The properties applied to a field when the connector is being used as a destination.
+   *  Contains details regarding the supported <code>FieldType</code>, including the corresponding <code>filterOperators</code> and <code>supportedValues</code>.
    * </p>
    */
-  destinationProperties?: DestinationFieldProperties;
+  supportedFieldTypeDetails?: SupportedFieldTypeDetails;
 }
 
 export namespace ConnectorEntityField {
@@ -1377,13 +1377,6 @@ export namespace MarketoConnectorProfileProperties {
 export interface RedshiftConnectorProfileProperties {
   /**
    * <p>
-   * The JDBC URL of the Amazon Redshift cluster.
-   * </p>
-   */
-  databaseUrl: string | undefined;
-
-  /**
-   * <p>
    *   A name for the associated Amazon S3 bucket.
    * </p>
    */
@@ -1395,6 +1388,13 @@ export interface RedshiftConnectorProfileProperties {
    * </p>
    */
   bucketPrefix?: string;
+
+  /**
+   * <p>
+   * The JDBC URL of the Amazon Redshift cluster.
+   * </p>
+   */
+  databaseUrl: string | undefined;
 
   /**
    * <p>
@@ -1498,17 +1498,10 @@ export namespace SlackConnectorProfileProperties {
 export interface SnowflakeConnectorProfileProperties {
   /**
    * <p>
-   * The name of the Snowflake warehouse.
+   * The name of the account.
    * </p>
    */
-  warehouse: string | undefined;
-
-  /**
-   * <p>
-   *   The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: < Database>< Schema><Stage Name>.
-   * </p>
-   */
-  stage: string | undefined;
+  accountName?: string;
 
   /**
    * <p>
@@ -1533,17 +1526,24 @@ export interface SnowflakeConnectorProfileProperties {
 
   /**
    * <p>
-   * The name of the account.
-   * </p>
-   */
-  accountName?: string;
-
-  /**
-   * <p>
    * The AWS Region of the Snowflake account.
    * </p>
    */
   region?: string;
+
+  /**
+   * <p>
+   *   The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: < Database>< Schema><Stage Name>.
+   * </p>
+   */
+  stage: string | undefined;
+
+  /**
+   * <p>
+   * The name of the Snowflake warehouse.
+   * </p>
+   */
+  warehouse: string | undefined;
 }
 
 export namespace SnowflakeConnectorProfileProperties {
@@ -1731,6 +1731,13 @@ export namespace ConnectorProfileProperties {
 export interface ConnectorProfile {
   /**
    * <p>
+   *   Indicates the connection mode and if it is public or private.
+   * </p>
+   */
+  connectionMode?: ConnectionMode | string;
+
+  /**
+   * <p>
    * The Amazon Resource Name (ARN) of the connector profile.
    * </p>
    */
@@ -1745,27 +1752,6 @@ export interface ConnectorProfile {
 
   /**
    * <p>
-   *   The type of connector, such as Salesforce, Amplitude, and so on.
-   * </p>
-   */
-  connectorType?: ConnectorType | string;
-
-  /**
-   * <p>
-   *   Indicates the connection mode and if it is public or private.
-   * </p>
-   */
-  connectionMode?: ConnectionMode | string;
-
-  /**
-   * <p>
-   *   The Amazon Resource Name (ARN) of the connector profile credentials.
-   * </p>
-   */
-  credentialsArn?: string;
-
-  /**
-   * <p>
    * The connector-specific properties of the profile configuration.
    * </p>
    */
@@ -1773,10 +1759,24 @@ export interface ConnectorProfile {
 
   /**
    * <p>
+   *   The type of connector, such as Salesforce, Amplitude, and so on.
+   * </p>
+   */
+  connectorType?: ConnectorType | string;
+
+  /**
+   * <p>
    *   Specifies when the connector profile was created.
    * </p>
    */
   createdAt?: Date;
+
+  /**
+   * <p>
+   *   The Amazon Resource Name (ARN) of the connector profile credentials.
+   * </p>
+   */
+  credentialsArn?: string;
 
   /**
    * <p>
@@ -1847,6 +1847,13 @@ export namespace DynatraceConnectorProfileCredentials {
 export interface GoogleAnalyticsConnectorProfileCredentials {
   /**
    * <p>
+   * The credentials used to access protected Google Analytics resources.
+   * </p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>
    *   The identifier for the desired client.
    * </p>
    */
@@ -1861,10 +1868,10 @@ export interface GoogleAnalyticsConnectorProfileCredentials {
 
   /**
    * <p>
-   * The credentials used to access protected Google Analytics resources.
+   *   The OAuth requirement needed to request security tokens from the connector endpoint.
    * </p>
    */
-  accessToken?: string;
+  oAuthRequest?: ConnectorOAuthRequest;
 
   /**
    * <p>
@@ -1872,20 +1879,13 @@ export interface GoogleAnalyticsConnectorProfileCredentials {
    * </p>
    */
   refreshToken?: string;
-
-  /**
-   * <p>
-   *   The OAuth requirement needed to request security tokens from the connector endpoint.
-   * </p>
-   */
-  oAuthRequest?: ConnectorOAuthRequest;
 }
 
 export namespace GoogleAnalyticsConnectorProfileCredentials {
   export const filterSensitiveLog = (obj: GoogleAnalyticsConnectorProfileCredentials): any => ({
     ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
   });
 }
 
@@ -1904,10 +1904,10 @@ export interface InforNexusConnectorProfileCredentials {
 
   /**
    * <p>
-   *   The identifier for the user.
+   *   The encryption keys used to encrypt data.
    * </p>
    */
-  userId: string | undefined;
+  datakey: string | undefined;
 
   /**
    * <p>
@@ -1918,10 +1918,10 @@ export interface InforNexusConnectorProfileCredentials {
 
   /**
    * <p>
-   *   The encryption keys used to encrypt data.
+   *   The identifier for the user.
    * </p>
    */
-  datakey: string | undefined;
+  userId: string | undefined;
 }
 
 export namespace InforNexusConnectorProfileCredentials {
@@ -1939,6 +1939,13 @@ export namespace InforNexusConnectorProfileCredentials {
 export interface MarketoConnectorProfileCredentials {
   /**
    * <p>
+   *   The credentials used to access protected Marketo resources.
+   * </p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>
    *   The identifier for the desired client.
    * </p>
    */
@@ -1953,13 +1960,6 @@ export interface MarketoConnectorProfileCredentials {
 
   /**
    * <p>
-   *   The credentials used to access protected Marketo resources.
-   * </p>
-   */
-  accessToken?: string;
-
-  /**
-   * <p>
    *   The OAuth requirement needed to request security tokens from the connector endpoint.
    * </p>
    */
@@ -1969,8 +1969,8 @@ export interface MarketoConnectorProfileCredentials {
 export namespace MarketoConnectorProfileCredentials {
   export const filterSensitiveLog = (obj: MarketoConnectorProfileCredentials): any => ({
     ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
   });
 }
 
@@ -1982,17 +1982,17 @@ export namespace MarketoConnectorProfileCredentials {
 export interface RedshiftConnectorProfileCredentials {
   /**
    * <p>
-   *   The name of the user.
-   * </p>
-   */
-  username: string | undefined;
-
-  /**
-   * <p>
    *   The password that corresponds to the user name.
    * </p>
    */
   password: string | undefined;
+
+  /**
+   * <p>
+   *   The name of the user.
+   * </p>
+   */
+  username: string | undefined;
 }
 
 export namespace RedshiftConnectorProfileCredentials {
@@ -2017,10 +2017,10 @@ export interface SalesforceConnectorProfileCredentials {
 
   /**
    * <p>
-   *   The credentials used to acquire new access tokens.
-   * </p>
+   *       The secret manager ARN, which contains the client ID and client secret of the connected app.
+   *     </p>
    */
-  refreshToken?: string;
+  clientCredentialsArn?: string;
 
   /**
    * <p>
@@ -2031,10 +2031,10 @@ export interface SalesforceConnectorProfileCredentials {
 
   /**
    * <p>
-   *       The secret manager ARN, which contains the client ID and client secret of the connected app.
-   *     </p>
+   *   The credentials used to acquire new access tokens.
+   * </p>
    */
-  clientCredentialsArn?: string;
+  refreshToken?: string;
 }
 
 export namespace SalesforceConnectorProfileCredentials {
@@ -2053,17 +2053,17 @@ export namespace SalesforceConnectorProfileCredentials {
 export interface ServiceNowConnectorProfileCredentials {
   /**
    * <p>
-   *   The name of the user.
-   * </p>
-   */
-  username: string | undefined;
-
-  /**
-   * <p>
    *   The password that corresponds to the user name.
    * </p>
    */
   password: string | undefined;
+
+  /**
+   * <p>
+   *   The name of the user.
+   * </p>
+   */
+  username: string | undefined;
 }
 
 export namespace ServiceNowConnectorProfileCredentials {
@@ -2100,6 +2100,13 @@ export namespace SingularConnectorProfileCredentials {
 export interface SlackConnectorProfileCredentials {
   /**
    * <p>
+   *   The credentials used to access protected Slack resources.
+   * </p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>
    *   The identifier for the client.
    * </p>
    */
@@ -2114,13 +2121,6 @@ export interface SlackConnectorProfileCredentials {
 
   /**
    * <p>
-   *   The credentials used to access protected Slack resources.
-   * </p>
-   */
-  accessToken?: string;
-
-  /**
-   * <p>
    *   The OAuth requirement needed to request security tokens from the connector endpoint.
    * </p>
    */
@@ -2130,8 +2130,8 @@ export interface SlackConnectorProfileCredentials {
 export namespace SlackConnectorProfileCredentials {
   export const filterSensitiveLog = (obj: SlackConnectorProfileCredentials): any => ({
     ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
   });
 }
 
@@ -2143,17 +2143,17 @@ export namespace SlackConnectorProfileCredentials {
 export interface SnowflakeConnectorProfileCredentials {
   /**
    * <p>
-   *   The name of the user.
-   * </p>
-   */
-  username: string | undefined;
-
-  /**
-   * <p>
    * The password that corresponds to the user name.
    * </p>
    */
   password: string | undefined;
+
+  /**
+   * <p>
+   *   The name of the user.
+   * </p>
+   */
+  username: string | undefined;
 }
 
 export namespace SnowflakeConnectorProfileCredentials {
@@ -2192,17 +2192,17 @@ export namespace TrendmicroConnectorProfileCredentials {
 export interface VeevaConnectorProfileCredentials {
   /**
    * <p>
-   *   The name of the user.
-   * </p>
-   */
-  username: string | undefined;
-
-  /**
-   * <p>
    *   The password that corresponds to the user name.
    * </p>
    */
   password: string | undefined;
+
+  /**
+   * <p>
+   *   The name of the user.
+   * </p>
+   */
+  username: string | undefined;
 }
 
 export namespace VeevaConnectorProfileCredentials {
@@ -2220,6 +2220,13 @@ export namespace VeevaConnectorProfileCredentials {
 export interface ZendeskConnectorProfileCredentials {
   /**
    * <p>
+   *   The credentials used to access protected Zendesk resources.
+   * </p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>
    *   The identifier for the desired client.
    * </p>
    */
@@ -2234,13 +2241,6 @@ export interface ZendeskConnectorProfileCredentials {
 
   /**
    * <p>
-   *   The credentials used to access protected Zendesk resources.
-   * </p>
-   */
-  accessToken?: string;
-
-  /**
-   * <p>
    *  The OAuth requirement needed to request security tokens from the connector endpoint.
    * </p>
    */
@@ -2250,8 +2250,8 @@ export interface ZendeskConnectorProfileCredentials {
 export namespace ZendeskConnectorProfileCredentials {
   export const filterSensitiveLog = (obj: ZendeskConnectorProfileCredentials): any => ({
     ...obj,
-    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
     ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
   });
 }
 
@@ -2395,17 +2395,17 @@ export namespace ConnectorProfileCredentials {
 export interface ConnectorProfileConfig {
   /**
    * <p>
-   *   The connector-specific properties of the profile configuration.
-   * </p>
-   */
-  connectorProfileProperties: ConnectorProfileProperties | undefined;
-
-  /**
-   * <p>
    *  The connector-specific credentials required by each connector.
    * </p>
    */
   connectorProfileCredentials: ConnectorProfileCredentials | undefined;
+
+  /**
+   * <p>
+   *   The connector-specific properties of the profile configuration.
+   * </p>
+   */
+  connectorProfileProperties: ConnectorProfileProperties | undefined;
 }
 
 export namespace ConnectorProfileConfig {
@@ -2437,27 +2437,6 @@ export namespace ConnectorServerException {
 export interface CreateConnectorProfileRequest {
   /**
    * <p>
-   *   The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in your AWS account.
-   * </p>
-   */
-  connectorProfileName: string | undefined;
-
-  /**
-   * <p>
-   *   The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-   * </p>
-   */
-  kmsArn?: string;
-
-  /**
-   * <p>
-   * The type of connector, such as Salesforce, Amplitude, and so on.
-   * </p>
-   */
-  connectorType: ConnectorType | string | undefined;
-
-  /**
-   * <p>
    *   Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet.
    * </p>
    */
@@ -2469,6 +2448,27 @@ export interface CreateConnectorProfileRequest {
    * </p>
    */
   connectorProfileConfig: ConnectorProfileConfig | undefined;
+
+  /**
+   * <p>
+   *   The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in your AWS account.
+   * </p>
+   */
+  connectorProfileName: string | undefined;
+
+  /**
+   * <p>
+   * The type of connector, such as Salesforce, Amplitude, and so on.
+   * </p>
+   */
+  connectorType: ConnectorType | string | undefined;
+
+  /**
+   * <p>
+   *   The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+   * </p>
+   */
+  kmsArn?: string;
 }
 
 export namespace CreateConnectorProfileRequest {
@@ -2552,10 +2552,10 @@ export namespace ValidationException {
 export interface ErrorHandlingConfig {
   /**
    * <p>
-   * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+   * Specifies the name of the Amazon S3 bucket.
    * </p>
    */
-  failOnFirstDestinationError?: boolean;
+  bucketName?: string;
 
   /**
    * <p>
@@ -2566,10 +2566,10 @@ export interface ErrorHandlingConfig {
 
   /**
    * <p>
-   * Specifies the name of the Amazon S3 bucket.
+   * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
    * </p>
    */
-  bucketName?: string;
+  failOnFirstDestinationError?: boolean;
 }
 
 export namespace ErrorHandlingConfig {
@@ -2586,18 +2586,18 @@ export namespace ErrorHandlingConfig {
 export interface EventBridgeDestinationProperties {
   /**
    * <p>
-   *       The object specified in the Amazon EventBridge flow destination.
-   *     </p>
-   */
-  object: string | undefined;
-
-  /**
-   * <p>
    *   The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    *
    * </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
+
+  /**
+   * <p>
+   *       The object specified in the Amazon EventBridge flow destination.
+   *     </p>
+   */
+  object: string | undefined;
 }
 
 export namespace EventBridgeDestinationProperties {
@@ -2614,20 +2614,6 @@ export namespace EventBridgeDestinationProperties {
 export interface RedshiftDestinationProperties {
   /**
    * <p>
-   *   The object specified in the Amazon Redshift flow destination.
-   * </p>
-   */
-  object: string | undefined;
-
-  /**
-   * <p>
-   *  The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
-   * </p>
-   */
-  intermediateBucketName: string | undefined;
-
-  /**
-   * <p>
    *   The object key for the bucket in which Amazon AppFlow places the destination files.
    * </p>
    */
@@ -2639,6 +2625,20 @@ export interface RedshiftDestinationProperties {
    * </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
+
+  /**
+   * <p>
+   *  The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
+   * </p>
+   */
+  intermediateBucketName: string | undefined;
+
+  /**
+   * <p>
+   *   The object specified in the Amazon Redshift flow destination.
+   * </p>
+   */
+  object: string | undefined;
 }
 
 export namespace RedshiftDestinationProperties {
@@ -2675,17 +2675,17 @@ export enum PrefixType {
 export interface PrefixConfig {
   /**
    * <p>
-   *       Determines the level of granularity that's included in the prefix.
-   *     </p>
-   */
-  prefixType?: PrefixType | string;
-
-  /**
-   * <p>
    * Determines the format of the prefix, and whether it applies to the file name, file path, or both.
    *     </p>
    */
   prefixFormat?: PrefixFormat | string;
+
+  /**
+   * <p>
+   *       Determines the level of granularity that's included in the prefix.
+   *     </p>
+   */
+  prefixType?: PrefixType | string;
 }
 
 export namespace PrefixConfig {
@@ -2702,6 +2702,13 @@ export namespace PrefixConfig {
 export interface S3OutputFormatConfig {
   /**
    * <p>
+   * The aggregation settings that you can use to customize the output format of your flow data.
+   * </p>
+   */
+  aggregationConfig?: AggregationConfig;
+
+  /**
+   * <p>
    * Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
    *     </p>
    */
@@ -2713,13 +2720,6 @@ export interface S3OutputFormatConfig {
    *     </p>
    */
   prefixConfig?: PrefixConfig;
-
-  /**
-   * <p>
-   * The aggregation settings that you can use to customize the output format of your flow data.
-   * </p>
-   */
-  aggregationConfig?: AggregationConfig;
 }
 
 export namespace S3OutputFormatConfig {
@@ -2770,10 +2770,10 @@ export namespace S3DestinationProperties {
 export interface SalesforceDestinationProperties {
   /**
    * <p>
-   *   The object specified in the Salesforce flow destination.
+   *   The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
    * </p>
    */
-  object: string | undefined;
+  errorHandlingConfig?: ErrorHandlingConfig;
 
   /**
    * <p>
@@ -2784,10 +2784,10 @@ export interface SalesforceDestinationProperties {
 
   /**
    * <p>
-   *   The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
+   *   The object specified in the Salesforce flow destination.
    * </p>
    */
-  errorHandlingConfig?: ErrorHandlingConfig;
+  object: string | undefined;
 
   /**
    * <p>
@@ -2811,20 +2811,6 @@ export namespace SalesforceDestinationProperties {
 export interface SnowflakeDestinationProperties {
   /**
    * <p>
-   *   The object specified in the Snowflake flow destination.
-   * </p>
-   */
-  object: string | undefined;
-
-  /**
-   * <p>
-   *  The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
-   * </p>
-   */
-  intermediateBucketName: string | undefined;
-
-  /**
-   * <p>
    *   The object key for the destination bucket in which Amazon AppFlow places the files.
    * </p>
    */
@@ -2836,6 +2822,20 @@ export interface SnowflakeDestinationProperties {
    * </p>
    */
   errorHandlingConfig?: ErrorHandlingConfig;
+
+  /**
+   * <p>
+   *  The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
+   * </p>
+   */
+  intermediateBucketName: string | undefined;
+
+  /**
+   * <p>
+   *   The object specified in the Snowflake flow destination.
+   * </p>
+   */
+  object: string | undefined;
 }
 
 export namespace SnowflakeDestinationProperties {
@@ -2852,6 +2852,13 @@ export namespace SnowflakeDestinationProperties {
 export interface UpsolverS3OutputFormatConfig {
   /**
    * <p>
+   * The aggregation settings that you can use to customize the output format of your flow data.
+   * </p>
+   */
+  aggregationConfig?: AggregationConfig;
+
+  /**
+   * <p>
    *       Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket.
    *     </p>
    */
@@ -2863,13 +2870,6 @@ export interface UpsolverS3OutputFormatConfig {
    *     </p>
    */
   prefixConfig: PrefixConfig | undefined;
-
-  /**
-   * <p>
-   * The aggregation settings that you can use to customize the output format of your flow data.
-   * </p>
-   */
-  aggregationConfig?: AggregationConfig;
 }
 
 export namespace UpsolverS3OutputFormatConfig {
@@ -2920,6 +2920,13 @@ export namespace UpsolverDestinationProperties {
 export interface DestinationConnectorProperties {
   /**
    * <p>
+   *       The properties required to query Amazon EventBridge.
+   *     </p>
+   */
+  EventBridge?: EventBridgeDestinationProperties;
+
+  /**
+   * <p>
    *   The properties required to query Amazon Redshift.
    * </p>
    */
@@ -2948,13 +2955,6 @@ export interface DestinationConnectorProperties {
 
   /**
    * <p>
-   *       The properties required to query Amazon EventBridge.
-   *     </p>
-   */
-  EventBridge?: EventBridgeDestinationProperties;
-
-  /**
-   * <p>
    *       The properties required to query Upsolver.
    *     </p>
    */
@@ -2975,17 +2975,17 @@ export namespace DestinationConnectorProperties {
 export interface DestinationFlowConfig {
   /**
    * <p>
-   *   The type of connector, such as Salesforce, Amplitude, and so on.
-   * </p>
-   */
-  connectorType: ConnectorType | string | undefined;
-
-  /**
-   * <p>
    *   The name of the connector profile. This name must be unique for each connector profile in the AWS account.
    * </p>
    */
   connectorProfileName?: string;
+
+  /**
+   * <p>
+   *   The type of connector, such as Salesforce, Amplitude, and so on.
+   * </p>
+   */
+  connectorType: ConnectorType | string | undefined;
 
   /**
    * <p>
@@ -3156,13 +3156,6 @@ export namespace S3SourceProperties {
 export interface SalesforceSourceProperties {
   /**
    * <p>
-   *   The object specified in the Salesforce flow source.
-   * </p>
-   */
-  object: string | undefined;
-
-  /**
-   * <p>
    * The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
    *      </p>
    */
@@ -3174,6 +3167,13 @@ export interface SalesforceSourceProperties {
    *     </p>
    */
   includeDeletedRecords?: boolean;
+
+  /**
+   * <p>
+   *   The object specified in the Salesforce flow source.
+   * </p>
+   */
+  object: string | undefined;
 }
 
 export namespace SalesforceSourceProperties {
@@ -3421,13 +3421,6 @@ export namespace SourceConnectorProperties {
 export interface SourceFlowConfig {
   /**
    * <p>
-   *   The type of connector, such as Salesforce, Amplitude, and so on.
-   * </p>
-   */
-  connectorType: ConnectorType | string | undefined;
-
-  /**
-   * <p>
    *   The name of the connector profile. This name must be unique for each connector profile in the AWS account.
    * </p>
    */
@@ -3435,10 +3428,10 @@ export interface SourceFlowConfig {
 
   /**
    * <p>
-   *   Specifies the information that is required to query a particular source connector.
+   *   The type of connector, such as Salesforce, Amplitude, and so on.
    * </p>
    */
-  sourceConnectorProperties: SourceConnectorProperties | undefined;
+  connectorType: ConnectorType | string | undefined;
 
   /**
    * <p>
@@ -3446,6 +3439,13 @@ export interface SourceFlowConfig {
    *     </p>
    */
   incrementalPullConfig?: IncrementalPullConfig;
+
+  /**
+   * <p>
+   *   Specifies the information that is required to query a particular source connector.
+   * </p>
+   */
+  sourceConnectorProperties: SourceConnectorProperties | undefined;
 }
 
 export namespace SourceFlowConfig {
@@ -3489,13 +3489,6 @@ export enum TaskType {
 export interface Task {
   /**
    * <p>
-   * The source fields to which a particular task is applied.
-   * </p>
-   */
-  sourceFields: string[] | undefined;
-
-  /**
-   * <p>
    * The operation to be performed on the provided source fields.
    * </p>
    */
@@ -3510,10 +3503,10 @@ export interface Task {
 
   /**
    * <p>
-   * Specifies the particular task implementation that Amazon AppFlow performs.
+   * The source fields to which a particular task is applied.
    * </p>
    */
-  taskType: TaskType | string | undefined;
+  sourceFields: string[] | undefined;
 
   /**
    * <p>
@@ -3521,6 +3514,13 @@ export interface Task {
    * </p>
    */
   taskProperties?: { [key: string]: string };
+
+  /**
+   * <p>
+   * Specifies the particular task implementation that Amazon AppFlow performs.
+   * </p>
+   */
+  taskType: TaskType | string | undefined;
 }
 
 export namespace Task {
@@ -3542,13 +3542,6 @@ export enum DataPullMode {
 export interface ScheduledTriggerProperties {
   /**
    * <p>
-   *   The scheduling expression that determines the rate at which the schedule will run, for example <code>rate(5minutes)</code>.
-   * </p>
-   */
-  scheduleExpression: string | undefined;
-
-  /**
-   * <p>
    *  Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run.
    * </p>
    */
@@ -3556,17 +3549,24 @@ export interface ScheduledTriggerProperties {
 
   /**
    * <p>
-   * Specifies the scheduled start time for a schedule-triggered flow.
-   * </p>
-   */
-  scheduleStartTime?: Date;
-
-  /**
-   * <p>
    *  Specifies the scheduled end time for a schedule-triggered flow.
    * </p>
    */
   scheduleEndTime?: Date;
+
+  /**
+   * <p>
+   *   The scheduling expression that determines the rate at which the schedule will run, for example <code>rate(5minutes)</code>.
+   * </p>
+   */
+  scheduleExpression: string | undefined;
+
+  /**
+   * <p>
+   * Specifies the scheduled start time for a schedule-triggered flow.
+   * </p>
+   */
+  scheduleStartTime?: Date;
 
   /**
    * <p>
@@ -3612,17 +3612,17 @@ export namespace TriggerProperties {
 export interface TriggerConfig {
   /**
    * <p>
-   *   Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.
-   * </p>
-   */
-  triggerType: TriggerType | string | undefined;
-
-  /**
-   * <p>
    *   Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the <code>Scheduled</code> trigger type.
    * </p>
    */
   triggerProperties?: TriggerProperties;
+
+  /**
+   * <p>
+   *   Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.
+   * </p>
+   */
+  triggerType: TriggerType | string | undefined;
 }
 
 export namespace TriggerConfig {
@@ -3634,38 +3634,10 @@ export namespace TriggerConfig {
 export interface CreateFlowRequest {
   /**
    * <p>
-   * The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
-   * </p>
-   */
-  flowName: string | undefined;
-
-  /**
-   * <p>
    *  A description of the flow you want to create.
    * </p>
    */
   description?: string;
-
-  /**
-   * <p>
-   *   The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-   * </p>
-   */
-  kmsArn?: string;
-
-  /**
-   * <p>
-   *  The trigger settings that determine how and when the flow runs.
-   * </p>
-   */
-  triggerConfig: TriggerConfig | undefined;
-
-  /**
-   * <p>
-   * The configuration that controls how Amazon AppFlow retrieves data from the source connector.
-   * </p>
-   */
-  sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
    * <p>
@@ -3676,10 +3648,24 @@ export interface CreateFlowRequest {
 
   /**
    * <p>
-   *  A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
+   * The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
    * </p>
    */
-  tasks: Task[] | undefined;
+  flowName: string | undefined;
+
+  /**
+   * <p>
+   *   The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+   * </p>
+   */
+  kmsArn?: string;
+
+  /**
+   * <p>
+   * The configuration that controls how Amazon AppFlow retrieves data from the source connector.
+   * </p>
+   */
+  sourceFlowConfig: SourceFlowConfig | undefined;
 
   /**
    * <p>
@@ -3687,6 +3673,20 @@ export interface CreateFlowRequest {
    * </p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>
+   *  A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
+   * </p>
+   */
+  tasks: Task[] | undefined;
+
+  /**
+   * <p>
+   *  The trigger settings that determine how and when the flow runs.
+   * </p>
+   */
+  triggerConfig: TriggerConfig | undefined;
 }
 
 export namespace CreateFlowRequest {
@@ -3813,17 +3813,17 @@ export interface DescribeConnectorEntityRequest {
 
   /**
    * <p>
-   *   The type of connector application, such as Salesforce, Amplitude, and so on.
-   * </p>
-   */
-  connectorType?: ConnectorType | string;
-
-  /**
-   * <p>
    *   The name of the connector profile. The name is unique for each <code>ConnectorProfile</code> in the AWS account.
    * </p>
    */
   connectorProfileName?: string;
+
+  /**
+   * <p>
+   *   The type of connector application, such as Salesforce, Amplitude, and so on.
+   * </p>
+   */
+  connectorType?: ConnectorType | string;
 }
 
 export namespace DescribeConnectorEntityRequest {
@@ -3985,17 +3985,17 @@ export interface ExecutionDetails {
 
   /**
    * <p>
-   *   Specifies the time of the most recent flow run.
-   * </p>
-   */
-  mostRecentExecutionTime?: Date;
-
-  /**
-   * <p>
    *   Specifies the status of the most recent flow run.
    * </p>
    */
   mostRecentExecutionStatus?: ExecutionStatus | string;
+
+  /**
+   * <p>
+   *   Specifies the time of the most recent flow run.
+   * </p>
+   */
+  mostRecentExecutionTime?: Date;
 }
 
 export namespace ExecutionDetails {
@@ -4007,10 +4007,17 @@ export namespace ExecutionDetails {
 export interface DescribeFlowResponse {
   /**
    * <p>
-   *   The flow's Amazon Resource Name (ARN).
+   * Specifies when the flow was created.
    * </p>
    */
-  flowArn?: string;
+  createdAt?: Date;
+
+  /**
+   * <p>
+   *   The ARN of the user who created the flow.
+   * </p>
+   */
+  createdBy?: string;
 
   /**
    * <p>
@@ -4021,17 +4028,24 @@ export interface DescribeFlowResponse {
 
   /**
    * <p>
+   *   The configuration that controls how Amazon AppFlow transfers data to the destination connector.
+   * </p>
+   */
+  destinationFlowConfigList?: DestinationFlowConfig[];
+
+  /**
+   * <p>
+   *   The flow's Amazon Resource Name (ARN).
+   * </p>
+   */
+  flowArn?: string;
+
+  /**
+   * <p>
    *   The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
    * </p>
    */
   flowName?: string;
-
-  /**
-   * <p>
-   *   The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
-   * </p>
-   */
-  kmsArn?: string;
 
   /**
    * <p>
@@ -4049,17 +4063,10 @@ export interface DescribeFlowResponse {
 
   /**
    * <p>
-   *   The configuration that controls how Amazon AppFlow retrieves data from the source connector.
+   *   The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
    * </p>
    */
-  sourceFlowConfig?: SourceFlowConfig;
-
-  /**
-   * <p>
-   *   The configuration that controls how Amazon AppFlow transfers data to the destination connector.
-   * </p>
-   */
-  destinationFlowConfigList?: DestinationFlowConfig[];
+  kmsArn?: string;
 
   /**
    * <p>
@@ -4070,38 +4077,10 @@ export interface DescribeFlowResponse {
 
   /**
    * <p>
-   *   The trigger settings that determine how and when the flow runs.
-   * </p>
-   */
-  triggerConfig?: TriggerConfig;
-
-  /**
-   * <p>
-   *   A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
-   * </p>
-   */
-  tasks?: Task[];
-
-  /**
-   * <p>
-   * Specifies when the flow was created.
-   * </p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>
    *   Specifies when the flow was last updated.
    * </p>
    */
   lastUpdatedAt?: Date;
-
-  /**
-   * <p>
-   *   The ARN of the user who created the flow.
-   * </p>
-   */
-  createdBy?: string;
 
   /**
    * <p>
@@ -4112,10 +4091,31 @@ export interface DescribeFlowResponse {
 
   /**
    * <p>
+   *   The configuration that controls how Amazon AppFlow retrieves data from the source connector.
+   * </p>
+   */
+  sourceFlowConfig?: SourceFlowConfig;
+
+  /**
+   * <p>
    *   The tags used to organize, track, or control access for your flow.
    * </p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>
+   *   A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
+   * </p>
+   */
+  tasks?: Task[];
+
+  /**
+   * <p>
+   *   The trigger settings that determine how and when the flow runs.
+   * </p>
+   */
+  triggerConfig?: TriggerConfig;
 }
 
 export namespace DescribeFlowResponse {
@@ -4161,17 +4161,17 @@ export namespace DescribeFlowExecutionRecordsRequest {
 export interface ErrorInfo {
   /**
    * <p>
-   * Specifies the failure count for the attempted flow.
-   * </p>
-   */
-  putFailuresCount?: number;
-
-  /**
-   * <p>
    * Specifies the error message that appears if a flow fails.
    * </p>
    */
   executionMessage?: string;
+
+  /**
+   * <p>
+   * Specifies the failure count for the attempted flow.
+   * </p>
+   */
+  putFailuresCount?: number;
 }
 
 export namespace ErrorInfo {
@@ -4188,13 +4188,6 @@ export namespace ErrorInfo {
 export interface ExecutionResult {
   /**
    * <p>
-   * Provides any error message information related to the flow run.
-   * </p>
-   */
-  errorInfo?: ErrorInfo;
-
-  /**
-   * <p>
    *   The total number of bytes processed by the flow run.
    * </p>
    */
@@ -4206,6 +4199,13 @@ export interface ExecutionResult {
    * </p>
    */
   bytesWritten?: number;
+
+  /**
+   * <p>
+   * Provides any error message information related to the flow run.
+   * </p>
+   */
+  errorInfo?: ErrorInfo;
 
   /**
    * <p>
@@ -4236,13 +4236,6 @@ export interface ExecutionRecord {
 
   /**
    * <p>
-   * Specifies the flow run status and whether it is in progress, has completed successfully, or has failed.
-   * </p>
-   */
-  executionStatus?: ExecutionStatus | string;
-
-  /**
-   * <p>
    * Describes the result of the given flow run.
    * </p>
    */
@@ -4250,10 +4243,10 @@ export interface ExecutionRecord {
 
   /**
    * <p>
-   * Specifies the start time of the flow run.
+   * Specifies the flow run status and whether it is in progress, has completed successfully, or has failed.
    * </p>
    */
-  startedAt?: Date;
+  executionStatus?: ExecutionStatus | string;
 
   /**
    * <p>
@@ -4261,6 +4254,13 @@ export interface ExecutionRecord {
    * </p>
    */
   lastUpdatedAt?: Date;
+
+  /**
+   * <p>
+   * Specifies the start time of the flow run.
+   * </p>
+   */
+  startedAt?: Date;
 }
 
 export namespace ExecutionRecord {
@@ -4299,10 +4299,17 @@ export namespace DescribeFlowExecutionRecordsResponse {
 export interface FlowDefinition {
   /**
    * <p>
-   *   The flow's Amazon Resource Name (ARN).
+   *   Specifies when the flow was created.
    * </p>
    */
-  flowArn?: string;
+  createdAt?: Date;
+
+  /**
+   * <p>
+   *   The ARN of the user who created the flow.
+   * </p>
+   */
+  createdBy?: string;
 
   /**
    * <p>
@@ -4310,6 +4317,20 @@ export interface FlowDefinition {
    * </p>
    */
   description?: string;
+
+  /**
+   * <p>
+   *   Specifies the destination connector type, such as Salesforce, Amazon S3, Amplitude, and so on.
+   * </p>
+   */
+  destinationConnectorType?: ConnectorType | string;
+
+  /**
+   * <p>
+   *   The flow's Amazon Resource Name (ARN).
+   * </p>
+   */
+  flowArn?: string;
 
   /**
    * <p>
@@ -4327,31 +4348,10 @@ export interface FlowDefinition {
 
   /**
    * <p>
-   *   Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude, and so on.
+   *   Describes the details of the most recent flow run.
    * </p>
    */
-  sourceConnectorType?: ConnectorType | string;
-
-  /**
-   * <p>
-   *   Specifies the destination connector type, such as Salesforce, Amazon S3, Amplitude, and so on.
-   * </p>
-   */
-  destinationConnectorType?: ConnectorType | string;
-
-  /**
-   * <p>
-   *   Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.
-   * </p>
-   */
-  triggerType?: TriggerType | string;
-
-  /**
-   * <p>
-   *   Specifies when the flow was created.
-   * </p>
-   */
-  createdAt?: Date;
+  lastRunExecutionDetails?: ExecutionDetails;
 
   /**
    * <p>
@@ -4362,17 +4362,17 @@ export interface FlowDefinition {
 
   /**
    * <p>
-   *   The ARN of the user who created the flow.
-   * </p>
-   */
-  createdBy?: string;
-
-  /**
-   * <p>
    *   Specifies the account user name that most recently updated the flow.
    * </p>
    */
   lastUpdatedBy?: string;
+
+  /**
+   * <p>
+   *   Specifies the source connector type, such as Salesforce, Amazon S3, Amplitude, and so on.
+   * </p>
+   */
+  sourceConnectorType?: ConnectorType | string;
 
   /**
    * <p>
@@ -4383,10 +4383,10 @@ export interface FlowDefinition {
 
   /**
    * <p>
-   *   Describes the details of the most recent flow run.
+   *   Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>.
    * </p>
    */
-  lastRunExecutionDetails?: ExecutionDetails;
+  triggerType?: TriggerType | string;
 }
 
 export namespace FlowDefinition {
@@ -4531,6 +4531,13 @@ export namespace StartFlowRequest {
 export interface StartFlowResponse {
   /**
    * <p>
+   *       Returns the internal execution ID of an on-demand flow when the flow is started. For scheduled or event-triggered flows, this value is null.
+   *     </p>
+   */
+  executionId?: string;
+
+  /**
+   * <p>
    *   The flow's Amazon Resource Name (ARN).
    * </p>
    */
@@ -4543,13 +4550,6 @@ export interface StartFlowResponse {
    * </p>
    */
   flowStatus?: FlowStatus | string;
-
-  /**
-   * <p>
-   *       Returns the internal execution ID of an on-demand flow when the flow is started. For scheduled or event-triggered flows, this value is null.
-   *     </p>
-   */
-  executionId?: string;
 }
 
 export namespace StartFlowResponse {
@@ -4675,13 +4675,6 @@ export namespace UntagResourceResponse {
 export interface UpdateConnectorProfileRequest {
   /**
    * <p>
-   *   The name of the connector profile and is unique for each <code>ConnectorProfile</code> in the AWS Account.
-   * </p>
-   */
-  connectorProfileName: string | undefined;
-
-  /**
-   * <p>
    *   Indicates the connection mode and if it is public or private.
    * </p>
    */
@@ -4693,6 +4686,13 @@ export interface UpdateConnectorProfileRequest {
    * </p>
    */
   connectorProfileConfig: ConnectorProfileConfig | undefined;
+
+  /**
+   * <p>
+   *   The name of the connector profile and is unique for each <code>ConnectorProfile</code> in the AWS Account.
+   * </p>
+   */
+  connectorProfileName: string | undefined;
 }
 
 export namespace UpdateConnectorProfileRequest {
@@ -4719,31 +4719,10 @@ export namespace UpdateConnectorProfileResponse {
 export interface UpdateFlowRequest {
   /**
    * <p>
-   *   The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
-   * </p>
-   */
-  flowName: string | undefined;
-
-  /**
-   * <p>
    *   A description of the flow.
    * </p>
    */
   description?: string;
-
-  /**
-   * <p>
-   *   The trigger settings that determine how and when the flow runs.
-   * </p>
-   */
-  triggerConfig: TriggerConfig | undefined;
-
-  /**
-   * <p>
-   *  Contains information about the configuration of the source connector used in the flow.
-   * </p>
-   */
-  sourceFlowConfig?: SourceFlowConfig;
 
   /**
    * <p>
@@ -4754,10 +4733,31 @@ export interface UpdateFlowRequest {
 
   /**
    * <p>
+   *   The specified name of the flow. Spaces are not allowed. Use underscores (_) or hyphens (-) only.
+   * </p>
+   */
+  flowName: string | undefined;
+
+  /**
+   * <p>
+   *  Contains information about the configuration of the source connector used in the flow.
+   * </p>
+   */
+  sourceFlowConfig?: SourceFlowConfig;
+
+  /**
+   * <p>
    *   A list of tasks that Amazon AppFlow performs while transferring the data in the flow run.
    * </p>
    */
   tasks: Task[] | undefined;
+
+  /**
+   * <p>
+   *   The trigger settings that determine how and when the flow runs.
+   * </p>
+   */
+  triggerConfig: TriggerConfig | undefined;
 }
 
 export namespace UpdateFlowRequest {

@@ -10,24 +10,24 @@ export enum FooEnum {
 }
 
 export interface AllQueryStringTypesInput {
-  queryString?: string;
-  queryStringList?: string[];
-  queryStringSet?: string[];
+  queryBoolean?: boolean;
+  queryBooleanList?: boolean[];
   queryByte?: number;
-  queryShort?: number;
+  queryDouble?: number;
+  queryDoubleList?: number[];
+  queryEnum?: FooEnum | string;
+  queryEnumList?: (FooEnum | string)[];
+  queryFloat?: number;
   queryInteger?: number;
   queryIntegerList?: number[];
   queryIntegerSet?: number[];
   queryLong?: number;
-  queryFloat?: number;
-  queryDouble?: number;
-  queryDoubleList?: number[];
-  queryBoolean?: boolean;
-  queryBooleanList?: boolean[];
+  queryShort?: number;
+  queryString?: string;
+  queryStringList?: string[];
+  queryStringSet?: string[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
-  queryEnum?: FooEnum | string;
-  queryEnumList?: (FooEnum | string)[];
 }
 
 export namespace AllQueryStringTypesInput {
@@ -53,8 +53,8 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
   name: "ComplexError";
   $fault: "client";
   Header?: string;
-  TopLevel?: string;
   Nested?: ComplexNestedErrorData;
+  TopLevel?: string;
 }
 
 export namespace ComplexError {
@@ -156,8 +156,8 @@ export namespace InvalidGreeting {
 }
 
 export interface HttpPayloadTraitsInputOutput {
-  foo?: string;
   blob?: Uint8Array;
+  foo?: string;
 }
 
 export namespace HttpPayloadTraitsInputOutput {
@@ -167,8 +167,8 @@ export namespace HttpPayloadTraitsInputOutput {
 }
 
 export interface HttpPayloadTraitsWithMediaTypeInputOutput {
-  foo?: string;
   blob?: Uint8Array;
+  foo?: string;
 }
 
 export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
@@ -270,8 +270,8 @@ export namespace HttpPrefixHeadersInputOutput {
 }
 
 export interface HttpRequestWithGreedyLabelInPathInput {
-  foo: string | undefined;
   baz: string | undefined;
+  foo: string | undefined;
 }
 
 export namespace HttpRequestWithGreedyLabelInPathInput {
@@ -281,17 +281,17 @@ export namespace HttpRequestWithGreedyLabelInPathInput {
 }
 
 export interface HttpRequestWithLabelsInput {
-  string: string | undefined;
-  short: number | undefined;
-  integer: number | undefined;
-  long: number | undefined;
-  float: number | undefined;
-  double: number | undefined;
   /**
    * Serialized in the path as true or false.
    */
   boolean: boolean | undefined;
 
+  double: number | undefined;
+  float: number | undefined;
+  integer: number | undefined;
+  long: number | undefined;
+  short: number | undefined;
+  string: string | undefined;
   /**
    * Note that this member has no format, so it's serialized as an RFC 3399 date-time.
    */
@@ -305,13 +305,13 @@ export namespace HttpRequestWithLabelsInput {
 }
 
 export interface HttpRequestWithLabelsAndTimestampFormatInput {
+  defaultFormat: Date | undefined;
+  memberDateTime: Date | undefined;
   memberEpochSeconds: Date | undefined;
   memberHttpDate: Date | undefined;
-  memberDateTime: Date | undefined;
-  defaultFormat: Date | undefined;
+  targetDateTime: Date | undefined;
   targetEpochSeconds: Date | undefined;
   targetHttpDate: Date | undefined;
-  targetDateTime: Date | undefined;
 }
 
 export namespace HttpRequestWithLabelsAndTimestampFormatInput {
@@ -341,22 +341,22 @@ export namespace IgnoreQueryParamsInResponseOutput {
 }
 
 export interface InputAndOutputWithHeadersIO {
-  headerString?: string;
-  headerByte?: number;
-  headerShort?: number;
-  headerInteger?: number;
-  headerLong?: number;
-  headerFloat?: number;
-  headerDouble?: number;
-  headerTrueBool?: boolean;
-  headerFalseBool?: boolean;
-  headerStringList?: string[];
-  headerStringSet?: string[];
-  headerIntegerList?: number[];
   headerBooleanList?: boolean[];
-  headerTimestampList?: Date[];
+  headerByte?: number;
+  headerDouble?: number;
   headerEnum?: FooEnum | string;
   headerEnumList?: (FooEnum | string)[];
+  headerFalseBool?: boolean;
+  headerFloat?: number;
+  headerInteger?: number;
+  headerIntegerList?: number[];
+  headerLong?: number;
+  headerShort?: number;
+  headerString?: string;
+  headerStringList?: string[];
+  headerStringSet?: string[];
+  headerTimestampList?: Date[];
+  headerTrueBool?: boolean;
 }
 
 export namespace InputAndOutputWithHeadersIO {
@@ -386,8 +386,8 @@ export namespace NullAndEmptyHeadersIO {
 }
 
 export interface OmitsNullSerializesEmptyStringInput {
-  nullValue?: string;
   emptyString?: string;
+  nullValue?: string;
 }
 
 export namespace OmitsNullSerializesEmptyStringInput {
@@ -407,16 +407,16 @@ export namespace QueryIdempotencyTokenAutoFillInput {
 }
 
 export interface SimpleScalarPropertiesInputOutput {
-  foo?: string;
-  stringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
   byteValue?: number;
-  shortValue?: number;
+  doubleValue?: number;
+  falseBooleanValue?: boolean;
+  floatValue?: number;
+  foo?: string;
   integerValue?: number;
   longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  shortValue?: number;
+  stringValue?: string;
+  trueBooleanValue?: boolean;
 }
 
 export namespace SimpleScalarPropertiesInputOutput {
@@ -426,13 +426,13 @@ export namespace SimpleScalarPropertiesInputOutput {
 }
 
 export interface TimestampFormatHeadersIO {
+  defaultFormat?: Date;
+  memberDateTime?: Date;
   memberEpochSeconds?: Date;
   memberHttpDate?: Date;
-  memberDateTime?: Date;
-  defaultFormat?: Date;
+  targetDateTime?: Date;
   targetEpochSeconds?: Date;
   targetHttpDate?: Date;
-  targetDateTime?: Date;
 }
 
 export namespace TimestampFormatHeadersIO {
@@ -442,8 +442,8 @@ export namespace TimestampFormatHeadersIO {
 }
 
 export interface XmlAttributesInputOutput {
-  foo?: string;
   attr?: string;
+  foo?: string;
 }
 
 export namespace XmlAttributesInputOutput {
@@ -484,23 +484,23 @@ export namespace StructureListMember {
 }
 
 export interface XmlListsInputOutput {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
   booleanList?: boolean[];
-  timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
+  integerList?: number[];
   /**
    * A list of lists of strings.
    */
   nestedStringList?: string[][];
 
   renamedListMembers?: string[];
-  flattenedList?: string[];
-  flattenedList2?: string[];
-  flattenedListWithMemberNamespace?: string[];
-  flattenedListWithNamespace?: string[];
+  stringList?: string[];
+  stringSet?: string[];
   structureList?: StructureListMember[];
+  timestampList?: Date[];
 }
 
 export namespace XmlListsInputOutput {
@@ -544,8 +544,8 @@ export interface XmlEnumsInputOutput {
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumSet?: (FooEnum | string)[];
 }
 
 export namespace XmlEnumsInputOutput {
@@ -586,10 +586,10 @@ export namespace XmlNamespacesInputOutput {
 }
 
 export interface XmlTimestampsInputOutput {
-  normal?: Date;
   dateTime?: Date;
   epochSeconds?: Date;
   httpDate?: Date;
+  normal?: Date;
 }
 
 export namespace XmlTimestampsInputOutput {

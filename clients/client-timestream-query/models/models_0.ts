@@ -205,13 +205,6 @@ export namespace QueryExecutionException {
 export interface QueryRequest {
   /**
    * <p>
-   *             The query to be executed by Timestream.
-   *         </p>
-   */
-  QueryString: string | undefined;
-
-  /**
-   * <p>
    *        Unique, case-sensitive string of up to 64 ASCII characters that you specify when you make a Query request.
    *        Providing a <code>ClientToken</code> makes the call to <code>Query</code> idempotent, meaning that multiple identical calls
    *        have the same effect as one single call.
@@ -239,13 +232,6 @@ export interface QueryRequest {
 
   /**
    * <p>
-   *        A pagination token passed to get a set of results.
-   *     </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>
    *       The total number of rows to return in the output. If the total number of rows available
    *       is more than the value specified, a NextToken is provided in the command's output.
    *       To resume pagination, provide the NextToken value in the starting-token argument of a
@@ -253,13 +239,27 @@ export interface QueryRequest {
    *     </p>
    */
   MaxRows?: number;
+
+  /**
+   * <p>
+   *        A pagination token passed to get a set of results.
+   *     </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>
+   *             The query to be executed by Timestream.
+   *         </p>
+   */
+  QueryString: string | undefined;
 }
 
 export namespace QueryRequest {
   export const filterSensitiveLog = (obj: QueryRequest): any => ({
     ...obj,
-    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
     ...(obj.ClientToken && { ClientToken: SENSITIVE_STRING }),
+    ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
   });
 }
 
@@ -267,18 +267,6 @@ export namespace QueryRequest {
  * <p>Information about the status of the query, including progress and bytes scannned.</p>
  */
 export interface QueryStatus {
-  /**
-   * <p>The progress of the query, expressed as a percentage.</p>
-   */
-  ProgressPercentage?: number;
-
-  /**
-   * <p>The amount of data scanned by the query in bytes.
-   *             This is a cumulative sum and represents the total amount of bytes scanned since the query was started.
-   *         </p>
-   */
-  CumulativeBytesScanned?: number;
-
   /**
    * <p>The amount of data scanned by the query in bytes that you will be charged for.
    *             This is a cumulative sum and represents the total amount of data that you will be charged
@@ -288,6 +276,18 @@ export interface QueryStatus {
    *         </p>
    */
   CumulativeBytesMetered?: number;
+
+  /**
+   * <p>The amount of data scanned by the query in bytes.
+   *             This is a cumulative sum and represents the total amount of bytes scanned since the query was started.
+   *         </p>
+   */
+  CumulativeBytesScanned?: number;
+
+  /**
+   * <p>The progress of the query, expressed as a percentage.</p>
+   */
+  ProgressPercentage?: number;
 }
 
 export namespace QueryStatus {
@@ -328,24 +328,24 @@ export namespace ColumnInfo {
  */
 export interface Type {
   /**
-   * <p>Indicates if the column is of type string, integer, boolean, double, timestamp, date, time. </p>
-   */
-  ScalarType?: ScalarType | string;
-
-  /**
    * <p>Indicates if the column is an array.</p>
    */
   ArrayColumnInfo?: ColumnInfo;
 
   /**
-   * <p>Indicates if the column is a timeseries data type.</p>
-   */
-  TimeSeriesMeasureValueColumnInfo?: ColumnInfo;
-
-  /**
    * <p>Indicates if the column is a row.</p>
    */
   RowColumnInfo?: ColumnInfo[];
+
+  /**
+   * <p>Indicates if the column is of type string, integer, boolean, double, timestamp, date, time. </p>
+   */
+  ScalarType?: ScalarType | string;
+
+  /**
+   * <p>Indicates if the column is a timeseries data type.</p>
+   */
+  TimeSeriesMeasureValueColumnInfo?: ColumnInfo;
 }
 
 export namespace Type {
@@ -362,6 +362,27 @@ export namespace Type {
 export interface Datum {
   /**
    * <p>
+   *             Indicates if the data point is an array.
+   *         </p>
+   */
+  ArrayValue?: Datum[];
+
+  /**
+   * <p>
+   *             Indicates if the data point is null.
+   *         </p>
+   */
+  NullValue?: boolean;
+
+  /**
+   * <p>
+   *             Indicates if the data point is a row.
+   *         </p>
+   */
+  RowValue?: Row;
+
+  /**
+   * <p>
    *             Indicates if the data point is a scalar value such as integer, string, double, or boolean.
    *         </p>
    */
@@ -373,27 +394,6 @@ export interface Datum {
    *         </p>
    */
   TimeSeriesValue?: TimeSeriesDataPoint[];
-
-  /**
-   * <p>
-   *             Indicates if the data point is an array.
-   *         </p>
-   */
-  ArrayValue?: Datum[];
-
-  /**
-   * <p>
-   *             Indicates if the data point is a row.
-   *         </p>
-   */
-  RowValue?: Row;
-
-  /**
-   * <p>
-   *             Indicates if the data point is null.
-   *         </p>
-   */
-  NullValue?: boolean;
 }
 
 export namespace Datum {
@@ -442,10 +442,10 @@ export namespace Row {
 export interface QueryResponse {
   /**
    * <p>
-   *        A unique ID for the given query.
-   *     </p>
+   *             The column data types of the returned result set.
+   *         </p>
    */
-  QueryId: string | undefined;
+  ColumnInfo: ColumnInfo[] | undefined;
 
   /**
    * <p>
@@ -456,22 +456,22 @@ export interface QueryResponse {
 
   /**
    * <p>
-   *             The result set rows returned by the query.
-   *         </p>
+   *        A unique ID for the given query.
+   *     </p>
    */
-  Rows: Row[] | undefined;
-
-  /**
-   * <p>
-   *             The column data types of the returned result set.
-   *         </p>
-   */
-  ColumnInfo: ColumnInfo[] | undefined;
+  QueryId: string | undefined;
 
   /**
    * <p>Information about the status of the query, including progress and bytes scannned.</p>
    */
   QueryStatus?: QueryStatus;
+
+  /**
+   * <p>
+   *             The result set rows returned by the query.
+   *         </p>
+   */
+  Rows: Row[] | undefined;
 }
 
 export namespace QueryResponse {

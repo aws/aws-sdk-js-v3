@@ -98,14 +98,14 @@ export interface Database {
   Arn?: string;
 
   /**
+   * <p>The time when the database was created, calculated from the Unix epoch time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>The name of the Timestream database.</p>
    */
   DatabaseName?: string;
-
-  /**
-   * <p>The total number of tables found within a Timestream database. </p>
-   */
-  TableCount?: number;
 
   /**
    * <p>The identifier of the KMS key used to encrypt the data stored in the database.</p>
@@ -113,16 +113,16 @@ export interface Database {
   KmsKeyId?: string;
 
   /**
-   * <p>The time when the database was created, calculated from the Unix epoch time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
    * <p>
    *    The last time that this database was updated.
    *    </p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>The total number of tables found within a Timestream database. </p>
+   */
+  TableCount?: number;
 }
 
 export namespace Database {
@@ -225,14 +225,14 @@ export namespace ValidationException {
  */
 export interface RetentionProperties {
   /**
-   * <p>The duration for which data must be stored in the memory store. </p>
-   */
-  MemoryStoreRetentionPeriodInHours: number | undefined;
-
-  /**
    * <p>The duration for which data must be stored in the magnetic store. </p>
    */
   MagneticStoreRetentionPeriodInDays: number | undefined;
+
+  /**
+   * <p>The duration for which data must be stored in the memory store. </p>
+   */
+  MemoryStoreRetentionPeriodInHours: number | undefined;
 }
 
 export namespace RetentionProperties {
@@ -248,14 +248,14 @@ export interface CreateTableRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the Timestream table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>The duration for which your time series data must be stored in the memory store and the magnetic store.</p>
    */
   RetentionProperties?: RetentionProperties;
+
+  /**
+   * <p>The name of the Timestream table.</p>
+   */
+  TableName: string | undefined;
 
   /**
    * <p>
@@ -287,14 +287,29 @@ export interface Table {
   Arn?: string;
 
   /**
-   * <p>The name of the Timestream table.</p>
+   * <p>The time when the Timestream table was created. </p>
    */
-  TableName?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The name of the Timestream database that contains this table.</p>
    */
   DatabaseName?: string;
+
+  /**
+   * <p>The time when the Timestream table was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The retention duration for the memory store and magnetic store.</p>
+   */
+  RetentionProperties?: RetentionProperties;
+
+  /**
+   * <p>The name of the Timestream table.</p>
+   */
+  TableName?: string;
 
   /**
    * <p>The current state of the table:</p>
@@ -310,21 +325,6 @@ export interface Table {
    *          </ul>
    */
   TableStatus?: TableStatus | string;
-
-  /**
-   * <p>The retention duration for the memory store and magnetic store.</p>
-   */
-  RetentionProperties?: RetentionProperties;
-
-  /**
-   * <p>The time when the Timestream table was created. </p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The time when the Timestream table was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
 }
 
 export namespace Table {
@@ -500,6 +500,11 @@ export enum DimensionValueType {
  */
 export interface Dimension {
   /**
+   * <p>The data type of the dimension for the time series data point.</p>
+   */
+  DimensionValueType?: DimensionValueType | string;
+
+  /**
    * <p>
    *          Dimension represents the meta data attributes of the time series.
    *          For example, the name and availability zone of an EC2 instance or
@@ -515,11 +520,6 @@ export interface Dimension {
    * <p>The value of the dimension.</p>
    */
   Value: string | undefined;
-
-  /**
-   * <p>The data type of the dimension for the time series data point.</p>
-   */
-  DimensionValueType?: DimensionValueType | string;
 }
 
 export namespace Dimension {
@@ -530,14 +530,14 @@ export namespace Dimension {
 
 export interface ListDatabasesRequest {
   /**
-   * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDatabasesRequest {
@@ -571,14 +571,14 @@ export interface ListTablesRequest {
   DatabaseName?: string;
 
   /**
-   * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The total number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTablesRequest {
@@ -589,14 +589,14 @@ export namespace ListTablesRequest {
 
 export interface ListTablesResponse {
   /**
-   * <p>A list of tables.</p>
-   */
-  Tables?: Table[];
-
-  /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously truncated response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of tables.</p>
+   */
+  Tables?: Table[];
 }
 
 export namespace ListTablesResponse {
@@ -725,11 +725,10 @@ export namespace _Record {
  */
 export interface RejectedRecord {
   /**
-   * <p>
-   * The index of the record in the input request for WriteRecords. Indexes begin with 0.
-   * </p>
+   * <p>The existing version of the record.
+   *          This value is populated in scenarios where an identical record exists with a higher version than the version in the write request.</p>
    */
-  RecordIndex?: number;
+  ExistingVersion?: number;
 
   /**
    * <p>
@@ -772,10 +771,11 @@ export interface RejectedRecord {
   Reason?: string;
 
   /**
-   * <p>The existing version of the record.
-   *          This value is populated in scenarios where an identical record exists with a higher version than the version in the write request.</p>
+   * <p>
+   * The index of the record in the input request for WriteRecords. Indexes begin with 0.
+   * </p>
    */
-  ExistingVersion?: number;
+  RecordIndex?: number;
 }
 
 export namespace RejectedRecord {
@@ -951,14 +951,14 @@ export interface UpdateTableRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the Timesream table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>The retention duration of the memory store and the magnetic store.</p>
    */
   RetentionProperties: RetentionProperties | undefined;
+
+  /**
+   * <p>The name of the Timesream table.</p>
+   */
+  TableName: string | undefined;
 }
 
 export namespace UpdateTableRequest {
@@ -982,16 +982,6 @@ export namespace UpdateTableResponse {
 
 export interface WriteRecordsRequest {
   /**
-   * <p>The name of the Timestream database.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the Timesream table.</p>
-   */
-  TableName: string | undefined;
-
-  /**
    * <p>A record containing the common measure and dimension attributes
    *        shared across all the records in the request. The measure and dimension
    *        attributes specified in here will be merged with the measure and dimension
@@ -1001,11 +991,21 @@ export interface WriteRecordsRequest {
   CommonAttributes?: _Record;
 
   /**
+   * <p>The name of the Timestream database.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
    * <p>An array of records containing the unique dimension and measure
    *        attributes for each time series data point.
    *        </p>
    */
   Records: _Record[] | undefined;
+
+  /**
+   * <p>The name of the Timesream table.</p>
+   */
+  TableName: string | undefined;
 }
 
 export namespace WriteRecordsRequest {

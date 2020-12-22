@@ -7,24 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  */
 export interface Application {
   /**
-   * <p>The identifier of the application.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The description of the application.</p>
-   */
-  description?: string;
 
   /**
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
@@ -32,9 +17,24 @@ export interface Application {
   creationTime?: Date;
 
   /**
+   * <p>The description of the application.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of the application.</p>
+   */
+  id?: string;
+
+  /**
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
+   */
+  name?: string;
 
   /**
    * <p>Key-value pairs you can use to associate with the application.</p>
@@ -53,24 +53,9 @@ export namespace Application {
  */
 export interface ApplicationSummary {
   /**
-   * <p>The identifier of the application.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The description of the application.</p>
-   */
-  description?: string;
 
   /**
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
@@ -78,9 +63,24 @@ export interface ApplicationSummary {
   creationTime?: Date;
 
   /**
+   * <p>The description of the application.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of the application.</p>
+   */
+  id?: string;
+
+  /**
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
+   */
+  name?: string;
 }
 
 export namespace ApplicationSummary {
@@ -196,14 +196,14 @@ export interface AssociateResourceRequest {
   application: string | undefined;
 
   /**
-   * <p>The type of resource of which the application will be associated.</p>
-   */
-  resourceType: ResourceType | string | undefined;
-
-  /**
    * <p>The name or ID of the resource of which the application will be associated.</p>
    */
   resource: string | undefined;
+
+  /**
+   * <p>The type of resource of which the application will be associated.</p>
+   */
+  resourceType: ResourceType | string | undefined;
 }
 
 export namespace AssociateResourceRequest {
@@ -251,24 +251,9 @@ export namespace ConflictException {
  */
 export interface AttributeGroup {
   /**
-   * <p>The globally unique attribute group identifier of the attribute group.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The name of the attribute group.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The description of the attribute group that the user provides.</p>
-   */
-  description?: string;
 
   /**
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
@@ -276,9 +261,24 @@ export interface AttributeGroup {
   creationTime?: Date;
 
   /**
+   * <p>The description of the attribute group that the user provides.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The globally unique attribute group identifier of the attribute group.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>The name of the attribute group.</p>
+   */
+  name?: string;
 
   /**
    * <p>Key-value pairs you can use to associate with the attribute group.</p>
@@ -297,24 +297,9 @@ export namespace AttributeGroup {
  */
 export interface AttributeGroupSummary {
   /**
-   * <p>The globally unique attribute group identifier of the attribute group.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The name of the attribute group.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The description of the attribute group that the user provides.</p>
-   */
-  description?: string;
 
   /**
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was created.</p>
@@ -322,9 +307,24 @@ export interface AttributeGroupSummary {
   creationTime?: Date;
 
   /**
+   * <p>The description of the attribute group that the user provides.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The globally unique attribute group identifier of the attribute group.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>The name of the attribute group.</p>
+   */
+  name?: string;
 }
 
 export namespace AttributeGroupSummary {
@@ -335,9 +335,12 @@ export namespace AttributeGroupSummary {
 
 export interface CreateApplicationRequest {
   /**
-   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
+   * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
+   *       completed successfully using the same client token and the same parameters, the retry succeeds
+   *       without performing any further actions. If you retry a successful request using the same
+   *       client token, but one or more of the parameters are different, the retry fails.</p>
    */
-  name: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The description of the application.</p>
@@ -345,17 +348,14 @@ export interface CreateApplicationRequest {
   description?: string;
 
   /**
+   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
   tags?: { [key: string]: string };
-
-  /**
-   * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
-   *       completed successfully using the same client token and the same parameters, the retry succeeds
-   *       without performing any further actions. If you retry a successful request using the same
-   *       client token, but one or more of the parameters are different, the retry fails.</p>
-   */
-  clientToken?: string;
 }
 
 export namespace CreateApplicationRequest {
@@ -379,24 +379,9 @@ export namespace CreateApplicationResponse {
 
 export interface CreateAttributeGroupRequest {
   /**
-   * <p>The name of the attribute group.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the attribute group that the user provides.</p>
-   */
-  description?: string;
-
-  /**
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
   attributes: string | undefined;
-
-  /**
-   * <p>Key-value pairs you can use to associate with the attribute group.</p>
-   */
-  tags?: { [key: string]: string };
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If you retry a request that
@@ -405,6 +390,21 @@ export interface CreateAttributeGroupRequest {
    *       client token, but one or more of the parameters are different, the retry fails.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The description of the attribute group that the user provides.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The name of the attribute group.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Key-value pairs you can use to associate with the attribute group.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateAttributeGroupRequest {
@@ -521,14 +521,14 @@ export interface DisassociateResourceRequest {
   application: string | undefined;
 
   /**
-   * <p>The type of the resource that is being disassociated.</p>
-   */
-  resourceType: ResourceType | string | undefined;
-
-  /**
    * <p>The name or ID of the resource.</p>
    */
   resource: string | undefined;
+
+  /**
+   * <p>The type of the resource that is being disassociated.</p>
+   */
+  resourceType: ResourceType | string | undefined;
 }
 
 export namespace DisassociateResourceRequest {
@@ -570,24 +570,14 @@ export namespace GetApplicationRequest {
 
 export interface GetApplicationResponse {
   /**
-   * <p>The identifier of the application.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the application across services.</p>
    */
   arn?: string;
 
   /**
-   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
+   * <p>The number of top-level resources that were registered as part of this application.</p>
    */
-  name?: string;
-
-  /**
-   * <p>The description of the application.</p>
-   */
-  description?: string;
+  associatedResourceCount?: number;
 
   /**
    * <p>The ISO-8601 formatted timestamp of the moment when the application was created.</p>
@@ -595,14 +585,24 @@ export interface GetApplicationResponse {
   creationTime?: Date;
 
   /**
+   * <p>The description of the application.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of the application.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
 
   /**
-   * <p>The number of top-level resources that were registered as part of this application.</p>
+   * <p>The name of the application. The name must be unique in the region in which you are creating the application.</p>
    */
-  associatedResourceCount?: number;
+  name?: string;
 
   /**
    * <p>Key-value pairs associated with the application.</p>
@@ -631,24 +631,9 @@ export namespace GetAttributeGroupRequest {
 
 export interface GetAttributeGroupResponse {
   /**
-   * <p>The identifier of the attribute group.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the attribute group across services.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The name of the attribute group.</p>
-   */
-  name?: string;
-
-  /**
-   * <p>The description of the attribute group that the user provides.</p>
-   */
-  description?: string;
 
   /**
    * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
@@ -661,9 +646,24 @@ export interface GetAttributeGroupResponse {
   creationTime?: Date;
 
   /**
+   * <p>The description of the attribute group that the user provides.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The identifier of the attribute group.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The ISO-8601 formatted timestamp of the moment the attribute group was last updated. This time is the same as the creationTime for a newly created attribute group.</p>
    */
   lastUpdateTime?: Date;
+
+  /**
+   * <p>The name of the attribute group.</p>
+   */
+  name?: string;
 
   /**
    * <p>Key-value pairs associated with the attribute group.</p>
@@ -679,14 +679,14 @@ export namespace GetAttributeGroupResponse {
 
 export interface ListApplicationsRequest {
   /**
-   * <p>The token to use to get the next page of results after a previous API call. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListApplicationsRequest {
@@ -720,14 +720,14 @@ export interface ListAssociatedAttributeGroupsRequest {
   application: string | undefined;
 
   /**
-   * <p>The token to use to get the next page of results after a previous API call. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListAssociatedAttributeGroupsRequest {
@@ -761,14 +761,14 @@ export interface ListAssociatedResourcesRequest {
   application: string | undefined;
 
   /**
-   * <p>The token to use to get the next page of results after a previous API call. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListAssociatedResourcesRequest {
@@ -782,14 +782,14 @@ export namespace ListAssociatedResourcesRequest {
  */
 export interface ResourceInfo {
   /**
-   * <p>The name of the resource.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The Amazon resource name (ARN) that specifies the resource across services.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The name of the resource.</p>
+   */
+  name?: string;
 }
 
 export namespace ResourceInfo {
@@ -800,14 +800,14 @@ export namespace ResourceInfo {
 
 export interface ListAssociatedResourcesResponse {
   /**
-   * <p>Information about the resources.</p>
-   */
-  resources?: ResourceInfo[];
-
-  /**
    * <p>The token to use to get the next page of results after a previous API call. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Information about the resources.</p>
+   */
+  resources?: ResourceInfo[];
 }
 
 export namespace ListAssociatedResourcesResponse {
@@ -818,14 +818,14 @@ export namespace ListAssociatedResourcesResponse {
 
 export interface ListAttributeGroupsRequest {
   /**
-   * <p>The token to use to get the next page of results after a previous API call. </p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The upper bound of the number of results to return (cannot exceed 25). If this parameter is omitted, it defaults to 25. This value is optional.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to use to get the next page of results after a previous API call. </p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListAttributeGroupsRequest {
@@ -937,14 +937,14 @@ export interface UpdateApplicationRequest {
   application: string | undefined;
 
   /**
-   * <p>The new name of the application. The name must be unique in the region in which you are updating the application.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The new description of the application.</p>
    */
   description?: string;
+
+  /**
+   * <p>The new name of the application. The name must be unique in the region in which you are updating the application.</p>
+   */
+  name?: string;
 }
 
 export namespace UpdateApplicationRequest {
@@ -973,10 +973,9 @@ export interface UpdateAttributeGroupRequest {
   attributeGroup: string | undefined;
 
   /**
-   * <p>The new name of the attribute group. The name must be unique in the region in which you are
-   *        updating the attribute group.</p>
+   * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
    */
-  name?: string;
+  attributes?: string;
 
   /**
    * <p>The description of the attribute group that the user provides.</p>
@@ -984,9 +983,10 @@ export interface UpdateAttributeGroupRequest {
   description?: string;
 
   /**
-   * <p>A JSON string in the form of nested key-value pairs that represent the attributes in the group and describes an application and its components.</p>
+   * <p>The new name of the attribute group. The name must be unique in the region in which you are
+   *        updating the attribute group.</p>
    */
-  attributes?: string;
+  name?: string;
 }
 
 export namespace UpdateAttributeGroupRequest {

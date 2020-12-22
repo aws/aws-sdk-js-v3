@@ -57,6 +57,11 @@ export namespace PreloadDataConfig {
 
 export interface CreateFHIRDatastoreRequest {
   /**
+   * <p>Optional user provided token used for ensuring idempotency.</p>
+   */
+  ClientToken?: string;
+
+  /**
    * <p>The user generated name for the datastore.</p>
    */
   DatastoreName?: string;
@@ -71,11 +76,6 @@ export interface CreateFHIRDatastoreRequest {
    *          supported preloaded data is synthetic data generated from Synthea.</p>
    */
   PreloadDataConfig?: PreloadDataConfig;
-
-  /**
-   * <p>Optional user provided token used for ensuring idempotency.</p>
-   */
-  ClientToken?: string;
 }
 
 export namespace CreateFHIRDatastoreRequest {
@@ -93,28 +93,28 @@ export enum DatastoreStatus {
 
 export interface CreateFHIRDatastoreResponse {
   /**
-   * <p>The AWS-generated datastore id. This id is in the output from the initial datastore
-   *          creation call.</p>
-   */
-  DatastoreId: string | undefined;
-
-  /**
    * <p>The datastore ARN is generated during the creation of the datastore and can be found in
    *          the output from the initial datastore creation call.</p>
    */
   DatastoreArn: string | undefined;
 
   /**
-   * <p>The status of the FHIR datastore. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’,
-   *          ‘DELETED’.</p>
-   */
-  DatastoreStatus: DatastoreStatus | string | undefined;
-
-  /**
    * <p>The AWS endpoint for the created datastore. For preview, only US-east-1 endpoints are
    *          supported.</p>
    */
   DatastoreEndpoint: string | undefined;
+
+  /**
+   * <p>The AWS-generated datastore id. This id is in the output from the initial datastore
+   *          creation call.</p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>The status of the FHIR datastore. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’,
+   *          ‘DELETED’.</p>
+   */
+  DatastoreStatus: DatastoreStatus | string | undefined;
 }
 
 export namespace CreateFHIRDatastoreResponse {
@@ -173,14 +173,10 @@ export namespace ValidationException {
  */
 export interface DatastoreFilter {
   /**
-   * <p>Allows the user to filter datastore results by name.</p>
+   * <p>A filter that allows the user to set cutoff dates for records. All datastores created
+   *          after the specified date will be included in the results.</p>
    */
-  DatastoreName?: string;
-
-  /**
-   * <p>Allows the user to filter datastore results by status.</p>
-   */
-  DatastoreStatus?: DatastoreStatus | string;
+  CreatedAfter?: Date;
 
   /**
    * <p>A filter that allows the user to set cutoff dates for records. All datastores created
@@ -189,10 +185,14 @@ export interface DatastoreFilter {
   CreatedBefore?: Date;
 
   /**
-   * <p>A filter that allows the user to set cutoff dates for records. All datastores created
-   *          after the specified date will be included in the results.</p>
+   * <p>Allows the user to filter datastore results by name.</p>
    */
-  CreatedAfter?: Date;
+  DatastoreName?: string;
+
+  /**
+   * <p>Allows the user to filter datastore results by status.</p>
+   */
+  DatastoreStatus?: DatastoreStatus | string;
 }
 
 export namespace DatastoreFilter {
@@ -206,14 +206,24 @@ export namespace DatastoreFilter {
  */
 export interface DatastoreProperties {
   /**
-   * <p>The AWS-generated ID number for the datastore.</p>
+   * <p>The time that a datastore was created. </p>
    */
-  DatastoreId: string | undefined;
+  CreatedAt?: Date;
 
   /**
    * <p>The Amazon Resource Name used in the creation of the datastore.</p>
    */
   DatastoreArn: string | undefined;
+
+  /**
+   * <p>The AWS endpoint for the datastore. Each datastore will have it's own endpoint with datastore ID in the endpoint URL.</p>
+   */
+  DatastoreEndpoint: string | undefined;
+
+  /**
+   * <p>The AWS-generated ID number for the datastore.</p>
+   */
+  DatastoreId: string | undefined;
 
   /**
    * <p>The user-generated name for the datastore.</p>
@@ -226,19 +236,9 @@ export interface DatastoreProperties {
   DatastoreStatus: DatastoreStatus | string | undefined;
 
   /**
-   * <p>The time that a datastore was created. </p>
-   */
-  CreatedAt?: Date;
-
-  /**
    * <p>The FHIR version. Only R4 version data is supported.</p>
    */
   DatastoreTypeVersion: FHIRVersion | string | undefined;
-
-  /**
-   * <p>The AWS endpoint for the datastore. Each datastore will have it's own endpoint with datastore ID in the endpoint URL.</p>
-   */
-  DatastoreEndpoint: string | undefined;
 
   /**
    * <p>The preloaded data configuration for the datastore. Only data preloaded from Synthea is supported.</p>
@@ -267,25 +267,25 @@ export namespace DeleteFHIRDatastoreRequest {
 
 export interface DeleteFHIRDatastoreResponse {
   /**
-   * <p>The AWS-generated ID for the datastore to be deleted.</p>
-   */
-  DatastoreId: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission.</p>
    */
   DatastoreArn: string | undefined;
+
+  /**
+   * <p>The AWS endpoint for the datastore the user has requested to be deleted.</p>
+   */
+  DatastoreEndpoint: string | undefined;
+
+  /**
+   * <p>The AWS-generated ID for the datastore to be deleted.</p>
+   */
+  DatastoreId: string | undefined;
 
   /**
    * <p>The status of the datastore that the user has requested to be deleted.
    *       </p>
    */
   DatastoreStatus: DatastoreStatus | string | undefined;
-
-  /**
-   * <p>The AWS endpoint for the datastore the user has requested to be deleted.</p>
-   */
-  DatastoreEndpoint: string | undefined;
 }
 
 export namespace DeleteFHIRDatastoreResponse {
@@ -402,6 +402,26 @@ export enum JobStatus {
  */
 export interface ImportJobProperties {
   /**
+   * <p>The Amazon Resource Name (ARN) that gives Amazon HealthLake access to your input data.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>The datastore id used when the Import job was created. </p>
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>The time that the Import job was completed.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The input data configuration that was supplied when  the Import job was created.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
    * <p>The AWS-generated id number for the Import job.</p>
    */
   JobId: string | undefined;
@@ -417,34 +437,14 @@ export interface ImportJobProperties {
   JobStatus: JobStatus | string | undefined;
 
   /**
-   * <p>The time that the Import job was submitted for processing.</p>
-   */
-  SubmitTime: Date | undefined;
-
-  /**
-   * <p>The time that the Import job was completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The datastore id used when the Import job was created. </p>
-   */
-  DatastoreId: string | undefined;
-
-  /**
-   * <p>The input data configuration that was supplied when  the Import job was created.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that gives Amazon HealthLake access to your input data.</p>
-   */
-  DataAccessRoleArn?: string;
-
-  /**
    * <p>An explanation of any errors that may have occurred during the FHIR import job. </p>
    */
   Message?: string;
+
+  /**
+   * <p>The time that the Import job was submitted for processing.</p>
+   */
+  SubmitTime: Date | undefined;
 }
 
 export namespace ImportJobProperties {
@@ -477,15 +477,15 @@ export interface ListFHIRDatastoresRequest {
   Filter?: DatastoreFilter;
 
   /**
-   * <p>Fetches the next page of datastores when results are paginated.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of datastores returned in a single page of a
    *          ListFHIRDatastoresRequest call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Fetches the next page of datastores when results are paginated.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListFHIRDatastoresRequest {
@@ -514,19 +514,9 @@ export namespace ListFHIRDatastoresResponse {
 
 export interface StartFHIRImportJobRequest {
   /**
-   * <p>The name of the FHIR Import job in the StartFHIRImport job request.</p>
+   * <p>Optional user provided token used for ensuring idempotency.</p>
    */
-  JobName?: string;
-
-  /**
-   * <p>The input properties of the FHIR Import job in the StartFHIRImport job request.</p>
-   */
-  InputDataConfig: InputDataConfig | undefined;
-
-  /**
-   * <p>The AWS-generated datastore ID.</p>
-   */
-  DatastoreId: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) that gives Amazon HealthLake access permission.</p>
@@ -534,9 +524,19 @@ export interface StartFHIRImportJobRequest {
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>Optional user provided token used for ensuring idempotency.</p>
+   * <p>The AWS-generated datastore ID.</p>
    */
-  ClientToken?: string;
+  DatastoreId: string | undefined;
+
+  /**
+   * <p>The input properties of the FHIR Import job in the StartFHIRImport job request.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>The name of the FHIR Import job in the StartFHIRImport job request.</p>
+   */
+  JobName?: string;
 }
 
 export namespace StartFHIRImportJobRequest {
@@ -548,6 +548,11 @@ export namespace StartFHIRImportJobRequest {
 
 export interface StartFHIRImportJobResponse {
   /**
+   * <p>The AWS-generated datastore ID.</p>
+   */
+  DatastoreId?: string;
+
+  /**
    * <p>The AWS-generated job ID.</p>
    */
   JobId: string | undefined;
@@ -556,11 +561,6 @@ export interface StartFHIRImportJobResponse {
    * <p>The status of an import job.</p>
    */
   JobStatus: JobStatus | string | undefined;
-
-  /**
-   * <p>The AWS-generated datastore ID.</p>
-   */
-  DatastoreId?: string;
 }
 
 export namespace StartFHIRImportJobResponse {

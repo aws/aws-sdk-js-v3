@@ -31,11 +31,6 @@ export namespace Tag {
 
 export interface AddTagsInput {
   /**
-   * <p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>
-   */
-  Tags: Tag[] | undefined;
-
-  /**
    * <p>The ID of the ML object to tag. For example, <code>exampleModelId</code>.</p>
    */
   ResourceId: string | undefined;
@@ -44,6 +39,11 @@ export interface AddTagsInput {
    * <p>The type of the ML object to tag.</p>
    */
   ResourceType: TaggableResourceType | string | undefined;
+
+  /**
+   * <p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>
+   */
+  Tags: Tag[] | undefined;
 }
 
 export namespace AddTagsInput {
@@ -79,8 +79,8 @@ export namespace AddTagsOutput {
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
-  message?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace InternalServerException {
@@ -95,8 +95,8 @@ export namespace InternalServerException {
 export interface InvalidInputException extends __SmithyException, $MetadataBearer {
   name: "InvalidInputException";
   $fault: "client";
-  message?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace InvalidInputException {
@@ -126,8 +126,8 @@ export namespace InvalidTagException {
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
-  message?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -157,6 +157,11 @@ export enum Algorithm {
 
 export interface CreateBatchPredictionInput {
   /**
+   * <p>The ID of the <code>DataSource</code> that points to the group of observations to predict.</p>
+   */
+  BatchPredictionDataSourceId: string | undefined;
+
+  /**
    * <p>A user-supplied ID that uniquely identifies the
    *                 <code>BatchPrediction</code>.</p>
    */
@@ -171,11 +176,6 @@ export interface CreateBatchPredictionInput {
    * <p>The ID of the <code>MLModel</code> that will generate predictions for the group of observations. </p>
    */
   MLModelId: string | undefined;
-
-  /**
-   * <p>The ID of the <code>DataSource</code> that points to the group of observations to predict.</p>
-   */
-  BatchPredictionDataSourceId: string | undefined;
 
   /**
    * <p>The location of an Amazon Simple Storage Service (Amazon S3) bucket or directory to store the batch prediction results. The following substrings are not allowed in the <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./', '/../'.</p>
@@ -216,8 +216,8 @@ export namespace CreateBatchPredictionOutput {
 export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
-  message?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace IdempotentParameterMismatchException {
@@ -231,16 +231,16 @@ export namespace IdempotentParameterMismatchException {
  */
 export interface RDSDatabaseCredentials {
   /**
-   * <p>The username to be used by Amazon ML to connect to database on an Amazon RDS instance.
-   *             The username should have sufficient permissions to execute an <code>RDSSelectSqlQuery</code> query.</p>
-   */
-  Username: string | undefined;
-
-  /**
    * <p>The password to be used by Amazon ML to connect to a database on an RDS DB instance.
    *             The password should have sufficient permissions to execute the <code>RDSSelectQuery</code> query.</p>
    */
   Password: string | undefined;
+
+  /**
+   * <p>The username to be used by Amazon ML to connect to database on an Amazon RDS instance.
+   *             The username should have sufficient permissions to execute an <code>RDSSelectSqlQuery</code> query.</p>
+   */
+  Username: string | undefined;
 }
 
 export namespace RDSDatabaseCredentials {
@@ -254,14 +254,14 @@ export namespace RDSDatabaseCredentials {
  */
 export interface RDSDatabase {
   /**
-   * <p>The ID of an RDS DB instance.</p>
-   */
-  InstanceIdentifier: string | undefined;
-
-  /**
    * <p>The name of a database hosted on an RDS DB instance.</p>
    */
   DatabaseName: string | undefined;
+
+  /**
+   * <p>The ID of an RDS DB instance.</p>
+   */
+  InstanceIdentifier: string | undefined;
 }
 
 export namespace RDSDatabase {
@@ -275,24 +275,14 @@ export namespace RDSDatabase {
  */
 export interface RDSDataSpec {
   /**
-   * <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
-   */
-  DatabaseInformation: RDSDatabase | undefined;
-
-  /**
-   * <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>
-   */
-  SelectSqlQuery: string | undefined;
-
-  /**
    * <p>The AWS Identity and Access Management (IAM) credentials that are used connect to the Amazon RDS database.</p>
    */
   DatabaseCredentials: RDSDatabaseCredentials | undefined;
 
   /**
-   * <p>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p>
+   * <p>Describes the <code>DatabaseName</code> and <code>InstanceIdentifier</code> of an Amazon RDS database.</p>
    */
-  S3StagingLocation: string | undefined;
+  DatabaseInformation: RDSDatabase | undefined;
 
   /**
    * <p>A JSON string that represents the splitting and rearrangement
@@ -418,6 +408,21 @@ export interface RDSDataSpec {
   ResourceRole: string | undefined;
 
   /**
+   * <p>The Amazon S3 location for staging Amazon RDS data. The data retrieved from Amazon RDS using <code>SelectSqlQuery</code> is stored in this location.</p>
+   */
+  S3StagingLocation: string | undefined;
+
+  /**
+   * <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The query that is used to retrieve the observation data for the <code>DataSource</code>.</p>
+   */
+  SelectSqlQuery: string | undefined;
+
+  /**
    * <p>The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
    */
   ServiceRole: string | undefined;
@@ -426,11 +431,6 @@ export interface RDSDataSpec {
    * <p>The subnet ID to be used to access a VPC-based RDS DB instance. This attribute is used by Data Pipeline to carry out the copy task from Amazon RDS to Amazon S3.</p>
    */
   SubnetId: string | undefined;
-
-  /**
-   * <p>The security group IDs to be used to access a VPC-based RDS DB instance. Ensure that there are appropriate ingress rules set up to allow access to the RDS DB instance. This attribute is used by Data Pipeline to carry out the copy operation from Amazon RDS to an Amazon S3 task.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
 }
 
 export namespace RDSDataSpec {
@@ -440,6 +440,14 @@ export namespace RDSDataSpec {
 }
 
 export interface CreateDataSourceFromRDSInput {
+  /**
+   * <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by
+   *             a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training.
+   *             This parameter must be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be used for <code>MLModel</code> training.
+   *             </p>
+   */
+  ComputeStatistics?: boolean;
+
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>. Typically, an Amazon Resource Number (ARN)
    *             becomes the ID for a <code>DataSource</code>.</p>
@@ -509,14 +517,6 @@ export interface CreateDataSourceFromRDSInput {
    *         <p></p>
    */
   RoleARN: string | undefined;
-
-  /**
-   * <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by
-   *             a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training.
-   *             This parameter must be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be used for <code>MLModel</code> training.
-   *             </p>
-   */
-  ComputeStatistics?: boolean;
 }
 
 export namespace CreateDataSourceFromRDSInput {
@@ -553,16 +553,16 @@ export namespace CreateDataSourceFromRDSOutput {
  */
 export interface RedshiftDatabaseCredentials {
   /**
-   * <p>A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster.
-   *           The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
-   */
-  Username: string | undefined;
-
-  /**
    * <p>A password to be used by Amazon ML to connect to a database on an Amazon Redshift cluster.
    *           The password should have sufficient permissions to execute a <code>RedshiftSelectSqlQuery</code> query. The password should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
    */
   Password: string | undefined;
+
+  /**
+   * <p>A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster.
+   *           The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
+   */
+  Username: string | undefined;
 }
 
 export namespace RedshiftDatabaseCredentials {
@@ -576,14 +576,14 @@ export namespace RedshiftDatabaseCredentials {
  */
 export interface RedshiftDatabase {
   /**
-   * <p>The name of a database hosted on an Amazon Redshift cluster.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
    * <p>The ID of an Amazon Redshift cluster.</p>
    */
   ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of a database hosted on an Amazon Redshift cluster.</p>
+   */
+  DatabaseName: string | undefined;
 }
 
 export namespace RedshiftDatabase {
@@ -597,24 +597,14 @@ export namespace RedshiftDatabase {
  */
 export interface RedshiftDataSpec {
   /**
-   * <p>Describes the <code>DatabaseName</code> and <code>ClusterIdentifier</code> for an Amazon Redshift <code>DataSource</code>.</p>
-   */
-  DatabaseInformation: RedshiftDatabase | undefined;
-
-  /**
-   * <p>Describes the SQL Query to execute on an Amazon Redshift database for an Amazon Redshift <code>DataSource</code>.</p>
-   */
-  SelectSqlQuery: string | undefined;
-
-  /**
    * <p>Describes AWS Identity and Access Management (IAM) credentials that are used connect to the Amazon Redshift database.</p>
    */
   DatabaseCredentials: RedshiftDatabaseCredentials | undefined;
 
   /**
-   * <p>Describes an Amazon S3 location to store the result set of the <code>SelectSqlQuery</code> query.</p>
+   * <p>Describes the <code>DatabaseName</code> and <code>ClusterIdentifier</code> for an Amazon Redshift <code>DataSource</code>.</p>
    */
-  S3StagingLocation: string | undefined;
+  DatabaseInformation: RedshiftDatabase | undefined;
 
   /**
    * <p>A JSON string that represents the splitting and rearrangement
@@ -732,6 +722,16 @@ export interface RedshiftDataSpec {
    * <p>Describes the schema location for an Amazon Redshift <code>DataSource</code>.</p>
    */
   DataSchemaUri?: string;
+
+  /**
+   * <p>Describes an Amazon S3 location to store the result set of the <code>SelectSqlQuery</code> query.</p>
+   */
+  S3StagingLocation: string | undefined;
+
+  /**
+   * <p>Describes the SQL Query to execute on an Amazon Redshift database for an Amazon Redshift <code>DataSource</code>.</p>
+   */
+  SelectSqlQuery: string | undefined;
 }
 
 export namespace RedshiftDataSpec {
@@ -741,6 +741,14 @@ export namespace RedshiftDataSpec {
 }
 
 export interface CreateDataSourceFromRedshiftInput {
+  /**
+   * <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by
+   *             a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training.
+   *            This parameter must be set to <code>true</code> if the <code>DataSource</code> needs to
+   *           be used for <code>MLModel</code> training.</p>
+   */
+  ComputeStatistics?: boolean;
+
   /**
    * <p>A user-supplied ID that uniquely identifies the <code>DataSource</code>.</p>
    */
@@ -809,14 +817,6 @@ export interface CreateDataSourceFromRedshiftInput {
    *          </ul>
    */
   RoleARN: string | undefined;
-
-  /**
-   * <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by
-   *             a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training.
-   *            This parameter must be set to <code>true</code> if the <code>DataSource</code> needs to
-   *           be used for <code>MLModel</code> training.</p>
-   */
-  ComputeStatistics?: boolean;
 }
 
 export namespace CreateDataSourceFromRedshiftInput {
@@ -981,6 +981,13 @@ export namespace S3DataSpec {
 
 export interface CreateDataSourceFromS3Input {
   /**
+   * <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by
+   *             a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training.
+   *             This parameter must be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be used for <code>MLModel</code> training.</p>
+   */
+  ComputeStatistics?: boolean;
+
+  /**
    * <p>A user-supplied identifier that uniquely identifies the <code>DataSource</code>. </p>
    */
   DataSourceId: string | undefined;
@@ -1011,13 +1018,6 @@ export interface CreateDataSourceFromS3Input {
    *          </ul>
    */
   DataSpec: S3DataSpec | undefined;
-
-  /**
-   * <p>The compute statistics for a <code>DataSource</code>. The statistics are generated from the observation data referenced by
-   *             a <code>DataSource</code>. Amazon ML uses the statistics internally during <code>MLModel</code> training.
-   *             This parameter must be set to <code>true</code> if the <code></code>DataSource<code></code> needs to be used for <code>MLModel</code> training.</p>
-   */
-  ComputeStatistics?: boolean;
 }
 
 export namespace CreateDataSourceFromS3Input {
@@ -1048,6 +1048,12 @@ export namespace CreateDataSourceFromS3Output {
 
 export interface CreateEvaluationInput {
   /**
+   * <p>The ID of the <code>DataSource</code> for the evaluation. The schema of the <code>DataSource</code>
+   *             must match the schema used to create the <code>MLModel</code>.</p>
+   */
+  EvaluationDataSourceId: string | undefined;
+
+  /**
    * <p>A user-supplied ID that uniquely identifies the <code>Evaluation</code>.</p>
    */
   EvaluationId: string | undefined;
@@ -1062,12 +1068,6 @@ export interface CreateEvaluationInput {
    *         <p>The schema used in creating the <code>MLModel</code> must match the schema of the <code>DataSource</code> used in the <code>Evaluation</code>.</p>
    */
   MLModelId: string | undefined;
-
-  /**
-   * <p>The ID of the <code>DataSource</code> for the evaluation. The schema of the <code>DataSource</code>
-   *             must match the schema used to create the <code>MLModel</code>.</p>
-   */
-  EvaluationDataSourceId: string | undefined;
 }
 
 export namespace CreateEvaluationInput {
@@ -1182,11 +1182,6 @@ export interface CreateMLModelInput {
   Parameters?: { [key: string]: string };
 
   /**
-   * <p>The <code>DataSource</code> that points to the training data.</p>
-   */
-  TrainingDataSourceId: string | undefined;
-
-  /**
    * <p>The data recipe for creating the <code>MLModel</code>. You must specify either the recipe
    *             or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.</p>
    */
@@ -1196,6 +1191,11 @@ export interface CreateMLModelInput {
    * <p>The Amazon Simple Storage Service (Amazon S3) location and file name that contains the <code>MLModel</code> recipe. You must specify either the recipe or its URI. If you don't specify a recipe or its URI, Amazon ML creates a default.</p>
    */
   RecipeUri?: string;
+
+  /**
+   * <p>The <code>DataSource</code> that points to the training data.</p>
+   */
+  TrainingDataSourceId: string | undefined;
 }
 
 export namespace CreateMLModelInput {
@@ -1250,21 +1250,9 @@ export enum RealtimeEndpointStatus {
  */
 export interface RealtimeEndpointInfo {
   /**
-   * <p> The maximum processing rate for the real-time endpoint for <code>MLModel</code>, measured in incoming requests per second.</p>
-   */
-  PeakRequestsPerSecond?: number;
-
-  /**
    * <p>The time that the request to create the real-time endpoint for the <code>MLModel</code> was received. The time is expressed in epoch time.</p>
    */
   CreatedAt?: Date;
-
-  /**
-   * <p>The URI that specifies where to send real-time prediction requests for the <code>MLModel</code>.</p>
-   *         <p>
-   *             <b>Note:</b> The application must wait until the real-time endpoint is ready before using this URI.</p>
-   */
-  EndpointUrl?: string;
 
   /**
    * <p> The current status of the real-time endpoint for the <code>MLModel</code>. This element can have one of the following values: </p>
@@ -1284,6 +1272,18 @@ export interface RealtimeEndpointInfo {
    *          </ul>
    */
   EndpointStatus?: RealtimeEndpointStatus | string;
+
+  /**
+   * <p>The URI that specifies where to send real-time prediction requests for the <code>MLModel</code>.</p>
+   *         <p>
+   *             <b>Note:</b> The application must wait until the real-time endpoint is ready before using this URI.</p>
+   */
+  EndpointUrl?: string;
+
+  /**
+   * <p> The maximum processing rate for the real-time endpoint for <code>MLModel</code>, measured in incoming requests per second.</p>
+   */
+  PeakRequestsPerSecond?: number;
 }
 
 export namespace RealtimeEndpointInfo {
@@ -1479,11 +1479,6 @@ export namespace DeleteRealtimeEndpointOutput {
 
 export interface DeleteTagsInput {
   /**
-   * <p>One or more tags to delete.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The ID of the tagged ML object. For example, <code>exampleModelId</code>.</p>
    */
   ResourceId: string | undefined;
@@ -1492,6 +1487,11 @@ export interface DeleteTagsInput {
    * <p>The type of the tagged ML object.</p>
    */
   ResourceType: TaggableResourceType | string | undefined;
+
+  /**
+   * <p>One or more tags to delete.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsInput {
@@ -1539,6 +1539,12 @@ export enum SortOrder {
 
 export interface DescribeBatchPredictionsInput {
   /**
+   * <p>The equal to operator. The <code>BatchPrediction</code> results will have
+   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   */
+  EQ?: string;
+
+  /**
    * <p>Use one of the following variables to filter a list of <code>BatchPrediction</code>:</p>
    *         <ul>
    *             <li>
@@ -1576,10 +1582,10 @@ export interface DescribeBatchPredictionsInput {
   FilterVariable?: BatchPredictionFilterVariable | string;
 
   /**
-   * <p>The equal to operator. The <code>BatchPrediction</code> results will have
-   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   * <p>The greater than or equal to operator. The <code>BatchPrediction</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
+   *         </p>
    */
-  EQ?: string;
+  GE?: string;
 
   /**
    * <p>The greater than operator. The <code>BatchPrediction</code> results will
@@ -1588,26 +1594,30 @@ export interface DescribeBatchPredictionsInput {
   GT?: string;
 
   /**
+   * <p>The less than or equal to operator. The <code>BatchPrediction</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
+   */
+  LE?: string;
+
+  /**
+   * <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The less than operator. The <code>BatchPrediction</code> results will
    *             have <code>FilterVariable</code> values that are less than the value specified with <code>LT</code>.</p>
    */
   LT?: string;
 
   /**
-   * <p>The greater than or equal to operator. The <code>BatchPrediction</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
-   *         </p>
-   */
-  GE?: string;
-
-  /**
-   * <p>The less than or equal to operator. The <code>BatchPrediction</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
-   */
-  LE?: string;
-
-  /**
    * <p>The not equal to operator. The <code>BatchPrediction</code> results will have <code>FilterVariable</code> values not equal to the value specified with <code>NE</code>.</p>
    */
   NE?: string;
+
+  /**
+   * <p>An ID of the page in the paginated results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>A string that is found at the beginning of a variable, such as <code>Name</code> or <code>Id</code>.</p>
@@ -1646,16 +1656,6 @@ export interface DescribeBatchPredictionsInput {
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
   SortOrder?: SortOrder | string;
-
-  /**
-   * <p>An ID of the page in the paginated results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
-   */
-  Limit?: number;
 }
 
 export namespace DescribeBatchPredictionsInput {
@@ -1679,6 +1679,11 @@ export enum EntityStatus {
  */
 export interface BatchPrediction {
   /**
+   * <p>The ID of the <code>DataSource</code> that points to the group of observations to predict.</p>
+   */
+  BatchPredictionDataSourceId?: string;
+
+  /**
    * <p>The ID assigned to the <code>BatchPrediction</code> at creation. This value should be identical to the value of the <code>BatchPredictionID</code>
    *             in the request.
    *         </p>
@@ -1686,24 +1691,9 @@ export interface BatchPrediction {
   BatchPredictionId?: string;
 
   /**
-   * <p>The ID of the <code>MLModel</code> that generated predictions for the <code>BatchPrediction</code> request.</p>
+   * <p>Long integer type that is a 64-bit signed number.</p>
    */
-  MLModelId?: string;
-
-  /**
-   * <p>The ID of the <code>DataSource</code> that points to the group of observations to predict.</p>
-   */
-  BatchPredictionDataSourceId?: string;
-
-  /**
-   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
-   */
-  InputDataLocationS3?: string;
-
-  /**
-   * <p>The AWS user account that invoked the <code>BatchPrediction</code>. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
-   */
-  CreatedByIamUser?: string;
+  ComputeTime?: number;
 
   /**
    * <p>The time that the <code>BatchPrediction</code> was created. The time is expressed in epoch time.</p>
@@ -1711,14 +1701,54 @@ export interface BatchPrediction {
   CreatedAt?: Date;
 
   /**
+   * <p>The AWS user account that invoked the <code>BatchPrediction</code>. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  FinishedAt?: Date;
+
+  /**
+   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
+   */
+  InputDataLocationS3?: string;
+
+  /**
+   * <p>Long integer type that is a 64-bit signed number.</p>
+   */
+  InvalidRecordCount?: number;
+
+  /**
    * <p>The time of the most recent edit to the <code>BatchPrediction</code>. The time is expressed in epoch time.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>A description of the most recent details about processing the batch prediction request.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The ID of the <code>MLModel</code> that generated predictions for the <code>BatchPrediction</code> request.</p>
+   */
+  MLModelId?: string;
+
+  /**
    * <p>A user-supplied name or description of the <code>BatchPrediction</code>.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./', '/../'.</p>
+   */
+  OutputUri?: string;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The status of the <code>BatchPrediction</code>. This element can have one of the following values:</p>
@@ -1748,39 +1778,9 @@ export interface BatchPrediction {
   Status?: EntityStatus | string;
 
   /**
-   * <p>The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the <code>s3 key</code> portion of the <code>outputURI</code> field: ':', '//', '/./', '/../'.</p>
-   */
-  OutputUri?: string;
-
-  /**
-   * <p>A description of the most recent details about processing the batch prediction request.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  StartedAt?: Date;
-
-  /**
    * <p>Long integer type that is a 64-bit signed number.</p>
    */
   TotalRecordCount?: number;
-
-  /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
-   */
-  InvalidRecordCount?: number;
 }
 
 export namespace BatchPrediction {
@@ -1794,15 +1794,15 @@ export namespace BatchPrediction {
  */
 export interface DescribeBatchPredictionsOutput {
   /**
+   * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>A list of <code>BatchPrediction</code> objects that meet the search criteria.
    *         </p>
    */
   Results?: BatchPrediction[];
-
-  /**
-   * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeBatchPredictionsOutput {
@@ -1821,6 +1821,12 @@ export enum DataSourceFilterVariable {
 }
 
 export interface DescribeDataSourcesInput {
+  /**
+   * <p>The equal to operator. The <code>DataSource</code> results will have
+   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   */
+  EQ?: string;
+
   /**
    * <p>Use one of the following variables to filter a list of <code>DataSource</code>:</p>
    *         <ul>
@@ -1850,10 +1856,10 @@ export interface DescribeDataSourcesInput {
   FilterVariable?: DataSourceFilterVariable | string;
 
   /**
-   * <p>The equal to operator. The <code>DataSource</code> results will have
-   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   * <p>The greater than or equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
+   *         </p>
    */
-  EQ?: string;
+  GE?: string;
 
   /**
    * <p>The greater than operator. The <code>DataSource</code> results will
@@ -1862,26 +1868,30 @@ export interface DescribeDataSourcesInput {
   GT?: string;
 
   /**
+   * <p>The less than or equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
+   */
+  LE?: string;
+
+  /**
+   * <p> The maximum number of <code>DataSource</code> to include in the result.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The less than operator. The <code>DataSource</code> results will
    *             have <code>FilterVariable</code> values that are less than the value specified with <code>LT</code>.</p>
    */
   LT?: string;
 
   /**
-   * <p>The greater than or equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
-   *         </p>
-   */
-  GE?: string;
-
-  /**
-   * <p>The less than or equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
-   */
-  LE?: string;
-
-  /**
    * <p>The not equal to operator. The <code>DataSource</code> results will have <code>FilterVariable</code> values not equal to the value specified with <code>NE</code>.</p>
    */
   NE?: string;
+
+  /**
+   * <p>The ID of the page in the paginated results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>A string that is found at the beginning of a variable, such as <code>Name</code> or <code>Id</code>.</p>
@@ -1920,16 +1930,6 @@ export interface DescribeDataSourcesInput {
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
   SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The ID of the page in the paginated results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p> The maximum number of <code>DataSource</code> to include in the result.</p>
-   */
-  Limit?: number;
 }
 
 export namespace DescribeDataSourcesInput {
@@ -1954,9 +1954,9 @@ export interface RDSMetadata {
   DatabaseUserName?: string;
 
   /**
-   * <p>The SQL query that is supplied during <a>CreateDataSourceFromRDS</a>. Returns only if <code>Verbose</code> is true in <code>GetDataSourceInput</code>. </p>
+   * <p>The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.</p>
    */
-  SelectSqlQuery?: string;
+  DataPipelineId?: string;
 
   /**
    * <p>The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2 instance to carry out the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
@@ -1964,14 +1964,14 @@ export interface RDSMetadata {
   ResourceRole?: string;
 
   /**
+   * <p>The SQL query that is supplied during <a>CreateDataSourceFromRDS</a>. Returns only if <code>Verbose</code> is true in <code>GetDataSourceInput</code>. </p>
+   */
+  SelectSqlQuery?: string;
+
+  /**
    * <p>The role (DataPipelineDefaultRole) assumed by the Data Pipeline service to monitor the progress of the copy task from Amazon RDS to Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html">Role templates</a> for data pipelines.</p>
    */
   ServiceRole?: string;
-
-  /**
-   * <p>The ID of the Data Pipeline instance that is used to carry to copy data from Amazon RDS to Amazon S3. You can use the ID to find details about the instance in the Data Pipeline console.</p>
-   */
-  DataPipelineId?: string;
 }
 
 export namespace RDSMetadata {
@@ -1985,15 +1985,15 @@ export namespace RDSMetadata {
  */
 export interface RedshiftMetadata {
   /**
-   * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
-   */
-  RedshiftDatabase?: RedshiftDatabase;
-
-  /**
    * <p>A username to be used by Amazon Machine Learning (Amazon ML)to connect to a database on an Amazon Redshift cluster.
    *           The username should have sufficient permissions to execute the <code>RedshiftSelectSqlQuery</code> query. The username should be valid for an Amazon Redshift <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">USER</a>.</p>
    */
   DatabaseUserName?: string;
+
+  /**
+   * <p>Describes the database details required to connect to an Amazon Redshift database.</p>
+   */
+  RedshiftDatabase?: RedshiftDatabase;
 
   /**
    * <p> The SQL query that is specified during <a>CreateDataSourceFromRedshift</a>. Returns only if <code>Verbose</code> is true in GetDataSourceInput. </p>
@@ -2013,9 +2013,26 @@ export namespace RedshiftMetadata {
  */
 export interface DataSource {
   /**
-   * <p>The ID that is assigned to the <code>DataSource</code> during creation.</p>
+   * <p>
+   *           The parameter is <code>true</code> if statistics need to be generated from the observation data.
+   *       </p>
    */
-  DataSourceId?: string;
+  ComputeStatistics?: boolean;
+
+  /**
+   * <p>Long integer type that is a 64-bit signed number.</p>
+   */
+  ComputeTime?: number;
+
+  /**
+   * <p>The time that the <code>DataSource</code> was created. The time is expressed in epoch time.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The AWS user account from which the <code>DataSource</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
 
   /**
    * <p>The location and name of the data in Amazon Simple Storage Service (Amazon S3) that is used by a <code>DataSource</code>.</p>
@@ -2029,14 +2046,19 @@ export interface DataSource {
   DataRearrangement?: string;
 
   /**
-   * <p>The AWS user account from which the <code>DataSource</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   * <p>The total number of observations contained in the data files that the <code>DataSource</code> references.</p>
    */
-  CreatedByIamUser?: string;
+  DataSizeInBytes?: number;
 
   /**
-   * <p>The time that the <code>DataSource</code> was created. The time is expressed in epoch time.</p>
+   * <p>The ID that is assigned to the <code>DataSource</code> during creation.</p>
    */
-  CreatedAt?: Date;
+  DataSourceId?: string;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  FinishedAt?: Date;
 
   /**
    * <p>The time of the most recent edit to the
@@ -2045,9 +2067,14 @@ export interface DataSource {
   LastUpdatedAt?: Date;
 
   /**
-   * <p>The total number of observations contained in the data files that the <code>DataSource</code> references.</p>
+   * <p>A description of the most recent details about creating the <code>DataSource</code>.</p>
    */
-  DataSizeInBytes?: number;
+  Message?: string;
+
+  /**
+   * <p>A user-supplied name or description of the <code>DataSource</code>.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The number of data files referenced by the <code>DataSource</code>.</p>
@@ -2055,9 +2082,24 @@ export interface DataSource {
   NumberOfFiles?: number;
 
   /**
-   * <p>A user-supplied name or description of the <code>DataSource</code>.</p>
+   * <p>The datasource details that are specific to Amazon RDS.</p>
    */
-  Name?: string;
+  RDSMetadata?: RDSMetadata;
+
+  /**
+   * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
+   */
+  RedshiftMetadata?: RedshiftMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts">AWS IAM Role</a>, such as the following: arn:aws:iam::account:role/rolename. </p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The current status of the <code>DataSource</code>. This element can have one of the following values: </p>
@@ -2080,48 +2122,6 @@ export interface DataSource {
    *          </ul>
    */
   Status?: EntityStatus | string;
-
-  /**
-   * <p>A description of the most recent details about creating the <code>DataSource</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
-   */
-  RedshiftMetadata?: RedshiftMetadata;
-
-  /**
-   * <p>The datasource details that are specific to Amazon RDS.</p>
-   */
-  RDSMetadata?: RDSMetadata;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts">AWS IAM Role</a>, such as the following: arn:aws:iam::account:role/rolename. </p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>
-   *           The parameter is <code>true</code> if statistics need to be generated from the observation data.
-   *       </p>
-   */
-  ComputeStatistics?: boolean;
-
-  /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  StartedAt?: Date;
 }
 
 export namespace DataSource {
@@ -2135,15 +2135,15 @@ export namespace DataSource {
  */
 export interface DescribeDataSourcesOutput {
   /**
+   * <p>An ID of the next page in the paginated results that indicates at least one more page follows.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>A list of <code>DataSource</code> that meet the search criteria.
    *          </p>
    */
   Results?: DataSource[];
-
-  /**
-   * <p>An ID of the next page in the paginated results that indicates at least one more page follows.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeDataSourcesOutput {
@@ -2164,6 +2164,12 @@ export enum EvaluationFilterVariable {
 }
 
 export interface DescribeEvaluationsInput {
+  /**
+   * <p>The equal to operator. The <code>Evaluation</code> results will have
+   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   */
+  EQ?: string;
+
   /**
    * <p>Use one of the following variable to filter a list of <code>Evaluation</code> objects:</p>
    *         <ul>
@@ -2202,10 +2208,10 @@ export interface DescribeEvaluationsInput {
   FilterVariable?: EvaluationFilterVariable | string;
 
   /**
-   * <p>The equal to operator. The <code>Evaluation</code> results will have
-   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   * <p>The greater than or equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
+   *         </p>
    */
-  EQ?: string;
+  GE?: string;
 
   /**
    * <p>The greater than operator. The <code>Evaluation</code> results will
@@ -2214,26 +2220,30 @@ export interface DescribeEvaluationsInput {
   GT?: string;
 
   /**
+   * <p>The less than or equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
+   */
+  LE?: string;
+
+  /**
+   * <p> The maximum number of <code>Evaluation</code> to include in the result.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The less than operator. The <code>Evaluation</code> results will
    *             have <code>FilterVariable</code> values that are less than the value specified with <code>LT</code>.</p>
    */
   LT?: string;
 
   /**
-   * <p>The greater than or equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
-   *         </p>
-   */
-  GE?: string;
-
-  /**
-   * <p>The less than or equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
-   */
-  LE?: string;
-
-  /**
    * <p>The not equal to operator. The <code>Evaluation</code> results will have <code>FilterVariable</code> values not equal to the value specified with <code>NE</code>.</p>
    */
   NE?: string;
+
+  /**
+   * <p>The ID of the page in the paginated results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>A string that is found at the beginning of a variable, such as <code>Name</code> or <code>Id</code>.</p>
@@ -2272,16 +2282,6 @@ export interface DescribeEvaluationsInput {
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
   SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The ID of the page in the paginated results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p> The maximum number of <code>Evaluation</code> to include in the result.</p>
-   */
-  Limit?: number;
 }
 
 export namespace DescribeEvaluationsInput {
@@ -2328,29 +2328,9 @@ export namespace PerformanceMetrics {
  */
 export interface Evaluation {
   /**
-   * <p>The ID that is assigned to the <code>Evaluation</code> at creation.</p>
+   * <p>Long integer type that is a 64-bit signed number.</p>
    */
-  EvaluationId?: string;
-
-  /**
-   * <p>The ID of the <code>MLModel</code> that is the focus of the evaluation.</p>
-   */
-  MLModelId?: string;
-
-  /**
-   * <p>The ID of the <code>DataSource</code> that is used to evaluate the <code>MLModel</code>.</p>
-   */
-  EvaluationDataSourceId?: string;
-
-  /**
-   * <p>The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.</p>
-   */
-  InputDataLocationS3?: string;
-
-  /**
-   * <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
-   */
-  CreatedByIamUser?: string;
+  ComputeTime?: number;
 
   /**
    * <p>The time that the <code>Evaluation</code> was created. The time is expressed in epoch time.</p>
@@ -2358,14 +2338,75 @@ export interface Evaluation {
   CreatedAt?: Date;
 
   /**
+   * <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
+
+  /**
+   * <p>The ID of the <code>DataSource</code> that is used to evaluate the <code>MLModel</code>.</p>
+   */
+  EvaluationDataSourceId?: string;
+
+  /**
+   * <p>The ID that is assigned to the <code>Evaluation</code> at creation.</p>
+   */
+  EvaluationId?: string;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  FinishedAt?: Date;
+
+  /**
+   * <p>The location and name of the data in Amazon Simple Storage Server (Amazon S3) that is used in the evaluation.</p>
+   */
+  InputDataLocationS3?: string;
+
+  /**
    * <p>The time of the most recent edit to the <code>Evaluation</code>. The time is expressed in epoch time.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The ID of the <code>MLModel</code> that is the focus of the evaluation.</p>
+   */
+  MLModelId?: string;
+
+  /**
    * <p>A user-supplied name or description of the <code>Evaluation</code>. </p>
    */
   Name?: string;
+
+  /**
+   * <p>Measurements of how well the <code>MLModel</code> performed, using observations referenced
+   *         by the <code>DataSource</code>. One of the following metrics is returned, based on the type of the <code>MLModel</code>:
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p>
+   *             </li>
+   *             <li>
+   *                <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p>
+   *             </li>
+   *             <li>
+   *                <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *             For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>.
+   *         </p>
+   */
+  PerformanceMetrics?: PerformanceMetrics;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The status of the evaluation. This element can have one of the following values:</p>
@@ -2393,47 +2434,6 @@ export interface Evaluation {
    *          </ul>
    */
   Status?: EntityStatus | string;
-
-  /**
-   * <p>Measurements of how well the <code>MLModel</code> performed, using observations referenced
-   *         by the <code>DataSource</code>. One of the following metrics is returned, based on the type of the <code>MLModel</code>:
-   *         </p>
-   *         <ul>
-   *             <li>
-   *                <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p>
-   *             </li>
-   *             <li>
-   *                <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p>
-   *             </li>
-   *             <li>
-   *                <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p>
-   *             </li>
-   *          </ul>
-   *         <p>
-   *             For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>.
-   *         </p>
-   */
-  PerformanceMetrics?: PerformanceMetrics;
-
-  /**
-   * <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  StartedAt?: Date;
 }
 
 export namespace Evaluation {
@@ -2447,15 +2447,15 @@ export namespace Evaluation {
  */
 export interface DescribeEvaluationsOutput {
   /**
+   * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>A list of <code>Evaluation</code> that meet the search criteria.
    *         </p>
    */
   Results?: Evaluation[];
-
-  /**
-   * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeEvaluationsOutput {
@@ -2478,6 +2478,12 @@ export enum MLModelFilterVariable {
 }
 
 export interface DescribeMLModelsInput {
+  /**
+   * <p>The equal to operator. The <code>MLModel</code> results will have
+   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   */
+  EQ?: string;
+
   /**
    * <p>Use one of the following variables to filter a list of <code>MLModel</code>:</p>
    *         <ul>
@@ -2524,10 +2530,10 @@ export interface DescribeMLModelsInput {
   FilterVariable?: MLModelFilterVariable | string;
 
   /**
-   * <p>The equal to operator. The <code>MLModel</code> results will have
-   *             <code>FilterVariable</code> values that exactly match the value specified with <code>EQ</code>.</p>
+   * <p>The greater than or equal to operator. The <code>MLModel</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
+   *         </p>
    */
-  EQ?: string;
+  GE?: string;
 
   /**
    * <p>The greater than operator. The <code>MLModel</code> results will
@@ -2536,26 +2542,30 @@ export interface DescribeMLModelsInput {
   GT?: string;
 
   /**
+   * <p>The less than or equal to operator. The <code>MLModel</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
+   */
+  LE?: string;
+
+  /**
+   * <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>The less than operator. The <code>MLModel</code> results will
    *             have <code>FilterVariable</code> values that are less than the value specified with <code>LT</code>.</p>
    */
   LT?: string;
 
   /**
-   * <p>The greater than or equal to operator. The <code>MLModel</code> results will have <code>FilterVariable</code> values that are greater than or equal to the value specified with <code>GE</code>.
-   *         </p>
-   */
-  GE?: string;
-
-  /**
-   * <p>The less than or equal to operator. The <code>MLModel</code> results will have <code>FilterVariable</code> values that are less than or equal to the value specified with <code>LE</code>.</p>
-   */
-  LE?: string;
-
-  /**
    * <p>The not equal to operator. The <code>MLModel</code> results will have <code>FilterVariable</code> values not equal to the value specified with <code>NE</code>.</p>
    */
   NE?: string;
+
+  /**
+   * <p>The ID of the page in the paginated results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>A string that is found at the beginning of a variable, such as <code>Name</code> or <code>Id</code>.</p>
@@ -2594,16 +2604,6 @@ export interface DescribeMLModelsInput {
    *         <p>Results are sorted by <code>FilterVariable</code>.</p>
    */
   SortOrder?: SortOrder | string;
-
-  /**
-   * <p>The ID of the page in the paginated results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The number of pages of information to include in the result. The range of acceptable values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</p>
-   */
-  Limit?: number;
 }
 
 export namespace DescribeMLModelsInput {
@@ -2618,19 +2618,20 @@ export namespace DescribeMLModelsInput {
  */
 export interface MLModel {
   /**
-   * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
+   * <p>The algorithm used to train the <code>MLModel</code>. The following algorithm is supported:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SGD</code> -- Stochastic gradient descent. The goal of <code>SGD</code> is to minimize the gradient of the loss function. </p>
+   *             </li>
+   *          </ul>
    */
-  MLModelId?: string;
+  Algorithm?: Algorithm | string;
 
   /**
-   * <p>The ID of the training <code>DataSource</code>. The <code>CreateMLModel</code> operation uses the <code>TrainingDataSourceId</code>.</p>
+   * <p>Long integer type that is a 64-bit signed number.</p>
    */
-  TrainingDataSourceId?: string;
-
-  /**
-   * <p>The AWS user account from which the <code>MLModel</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
-   */
-  CreatedByIamUser?: string;
+  ComputeTime?: number;
 
   /**
    * <p>The time that the <code>MLModel</code> was created. The time is expressed in epoch time.</p>
@@ -2638,14 +2639,86 @@ export interface MLModel {
   CreatedAt?: Date;
 
   /**
+   * <p>The AWS user account from which the <code>MLModel</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
+
+  /**
+   * <p>The current endpoint of the <code>MLModel</code>.</p>
+   */
+  EndpointInfo?: RealtimeEndpointInfo;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  FinishedAt?: Date;
+
+  /**
+   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
+   */
+  InputDataLocationS3?: string;
+
+  /**
    * <p>The time of the most recent edit to the <code>MLModel</code>. The time is expressed in epoch time.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>A description of the most recent details about accessing the <code>MLModel</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
+   */
+  MLModelId?: string;
+
+  /**
+   * <p>Identifies the <code>MLModel</code> category. The following are the available types:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>REGRESSION</code> - Produces a numeric result. For example, "What price should a
+   *                 house be listed at?"</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BINARY</code> - Produces one of two possible results. For example, "Is this a
+   *                 child-friendly web site?".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTICLASS</code> - Produces one of several possible results. For example, "Is
+   *                 this a HIGH-, LOW-, or MEDIUM-risk trade?".</p>
+   *             </li>
+   *          </ul>
+   */
+  MLModelType?: MLModelType | string;
+
+  /**
    * <p>A user-supplied name or description of the <code>MLModel</code>.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The score threshold for the <code>MLModel</code>.</p>
+   */
+  ScoreThreshold?: number;
+
+  /**
+   * <p>The time of the most recent edit to the <code>ScoreThreshold</code>. The time is expressed in epoch time.</p>
+   */
+  ScoreThresholdLastUpdatedAt?: Date;
+
+  /**
+   * <p>Long integer type that is a 64-bit signed number.</p>
+   */
+  SizeInBytes?: number;
+
+  /**
+   * <p>A timestamp represented in epoch time.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The current status of an <code>MLModel</code>. This element can have one of the following values: </p>
@@ -2677,14 +2750,9 @@ export interface MLModel {
   Status?: EntityStatus | string;
 
   /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
+   * <p>The ID of the training <code>DataSource</code>. The <code>CreateMLModel</code> operation uses the <code>TrainingDataSourceId</code>.</p>
    */
-  SizeInBytes?: number;
-
-  /**
-   * <p>The current endpoint of the <code>MLModel</code>.</p>
-   */
-  EndpointInfo?: RealtimeEndpointInfo;
+  TrainingDataSourceId?: string;
 
   /**
    * <p>A list of the training parameters in the <code>MLModel</code>. The list is implemented as
@@ -2734,74 +2802,6 @@ export interface MLModel {
    *          </ul>
    */
   TrainingParameters?: { [key: string]: string };
-
-  /**
-   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
-   */
-  InputDataLocationS3?: string;
-
-  /**
-   * <p>The algorithm used to train the <code>MLModel</code>. The following algorithm is supported:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SGD</code> -- Stochastic gradient descent. The goal of <code>SGD</code> is to minimize the gradient of the loss function. </p>
-   *             </li>
-   *          </ul>
-   */
-  Algorithm?: Algorithm | string;
-
-  /**
-   * <p>Identifies the <code>MLModel</code> category. The following are the available types:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>REGRESSION</code> - Produces a numeric result. For example, "What price should a
-   *                 house be listed at?"</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BINARY</code> - Produces one of two possible results. For example, "Is this a
-   *                 child-friendly web site?".</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTICLASS</code> - Produces one of several possible results. For example, "Is
-   *                 this a HIGH-, LOW-, or MEDIUM-risk trade?".</p>
-   *             </li>
-   *          </ul>
-   */
-  MLModelType?: MLModelType | string;
-
-  /**
-   * <p>The score threshold for the <code>MLModel</code>.</p>
-   */
-  ScoreThreshold?: number;
-
-  /**
-   * <p>The time of the most recent edit to the <code>ScoreThreshold</code>. The time is expressed in epoch time.</p>
-   */
-  ScoreThresholdLastUpdatedAt?: Date;
-
-  /**
-   * <p>A description of the most recent details about accessing the <code>MLModel</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>A timestamp represented in epoch time.</p>
-   */
-  StartedAt?: Date;
 }
 
 export namespace MLModel {
@@ -2815,14 +2815,14 @@ export namespace MLModel {
  */
 export interface DescribeMLModelsOutput {
   /**
-   * <p>A list of <code>MLModel</code> that meet the search criteria.</p>
-   */
-  Results?: MLModel[];
-
-  /**
    * <p>The ID of the next page in the paginated results that indicates at least one more page follows.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of <code>MLModel</code> that meet the search criteria.</p>
+   */
+  Results?: MLModel[];
 }
 
 export namespace DescribeMLModelsOutput {
@@ -2893,31 +2893,21 @@ export namespace GetBatchPredictionInput {
  */
 export interface GetBatchPredictionOutput {
   /**
-   * <p>An ID assigned to the <code>BatchPrediction</code> at creation. This value should be identical to the value of the <code>BatchPredictionID</code>
-   *             in the request.</p>
-   */
-  BatchPredictionId?: string;
-
-  /**
-   * <p>The ID of the <code>MLModel</code> that generated predictions for the <code>BatchPrediction</code> request.</p>
-   */
-  MLModelId?: string;
-
-  /**
    * <p>The ID of the <code>DataSource</code> that was used to create the <code>BatchPrediction</code>.
    *         </p>
    */
   BatchPredictionDataSourceId?: string;
 
   /**
-   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
+   * <p>An ID assigned to the <code>BatchPrediction</code> at creation. This value should be identical to the value of the <code>BatchPredictionID</code>
+   *             in the request.</p>
    */
-  InputDataLocationS3?: string;
+  BatchPredictionId?: string;
 
   /**
-   * <p>The AWS user account that invoked the <code>BatchPrediction</code>. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>BatchPrediction</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>BatchPrediction</code> is in the <code>COMPLETED</code> state.</p>
    */
-  CreatedByIamUser?: string;
+  ComputeTime?: number;
 
   /**
    * <p>The time when the <code>BatchPrediction</code> was created. The time is expressed in epoch time.</p>
@@ -2925,14 +2915,59 @@ export interface GetBatchPredictionOutput {
   CreatedAt?: Date;
 
   /**
+   * <p>The AWS user account that invoked the <code>BatchPrediction</code>. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>BatchPrediction</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>BatchPrediction</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
+   */
+  FinishedAt?: Date;
+
+  /**
+   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
+   */
+  InputDataLocationS3?: string;
+
+  /**
+   * <p>The number of invalid records that Amazon Machine Learning saw while processing the <code>BatchPrediction</code>.</p>
+   */
+  InvalidRecordCount?: number;
+
+  /**
    * <p>The time of the most recent edit to <code>BatchPrediction</code>. The time is expressed in epoch time.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>A link to the file that contains logs of the <code>CreateBatchPrediction</code> operation.</p>
+   */
+  LogUri?: string;
+
+  /**
+   * <p>A description of the most recent details about processing the batch prediction request.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The ID of the <code>MLModel</code> that generated predictions for the <code>BatchPrediction</code> request.</p>
+   */
+  MLModelId?: string;
+
+  /**
    * <p>A user-supplied name or description of the <code>BatchPrediction</code>.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The location of an Amazon S3 bucket or directory to receive the operation results.</p>
+   */
+  OutputUri?: string;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>BatchPrediction</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>BatchPrediction</code> is in the <code>PENDING</code> state.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The status of the <code>BatchPrediction</code>, which can be one of the following values:</p>
@@ -2962,44 +2997,9 @@ export interface GetBatchPredictionOutput {
   Status?: EntityStatus | string;
 
   /**
-   * <p>The location of an Amazon S3 bucket or directory to receive the operation results.</p>
-   */
-  OutputUri?: string;
-
-  /**
-   * <p>A link to the file that contains logs of the <code>CreateBatchPrediction</code> operation.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>A description of the most recent details about processing the batch prediction request.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>BatchPrediction</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>BatchPrediction</code> is in the <code>COMPLETED</code> state.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>BatchPrediction</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>BatchPrediction</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>BatchPrediction</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>BatchPrediction</code> is in the <code>PENDING</code> state.</p>
-   */
-  StartedAt?: Date;
-
-  /**
    * <p>The number of total records that Amazon Machine Learning saw while processing the <code>BatchPrediction</code>.</p>
    */
   TotalRecordCount?: number;
-
-  /**
-   * <p>The number of invalid records that Amazon Machine Learning saw while processing the <code>BatchPrediction</code>.</p>
-   */
-  InvalidRecordCount?: number;
 }
 
 export namespace GetBatchPredictionOutput {
@@ -3033,9 +3033,26 @@ export namespace GetDataSourceInput {
  */
 export interface GetDataSourceOutput {
   /**
-   * <p>The ID assigned to the <code>DataSource</code> at creation.  This value should be identical to the value of the <code>DataSourceId</code> in the request.</p>
+   * <p>
+   *             The parameter is <code>true</code> if statistics need to be generated from the observation data.
+   *         </p>
    */
-  DataSourceId?: string;
+  ComputeStatistics?: boolean;
+
+  /**
+   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>DataSource</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>DataSource</code> is in the <code>COMPLETED</code> state and the <code>ComputeStatistics</code> is set to true.</p>
+   */
+  ComputeTime?: number;
+
+  /**
+   * <p>The time that the <code>DataSource</code> was created. The time is expressed in epoch time.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The AWS user account from which the <code>DataSource</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
 
   /**
    * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
@@ -3049,14 +3066,26 @@ export interface GetDataSourceOutput {
   DataRearrangement?: string;
 
   /**
-   * <p>The AWS user account from which the <code>DataSource</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   * <p>The total size of observations in the data files.</p>
    */
-  CreatedByIamUser?: string;
+  DataSizeInBytes?: number;
 
   /**
-   * <p>The time that the <code>DataSource</code> was created. The time is expressed in epoch time.</p>
+   * <p>The ID assigned to the <code>DataSource</code> at creation.  This value should be identical to the value of the <code>DataSourceId</code> in the request.</p>
    */
-  CreatedAt?: Date;
+  DataSourceId?: string;
+
+  /**
+   * <p>The schema used by all of the data files of this <code>DataSource</code>.</p>
+   *         <p>
+   *             <b>Note:</b> This parameter is provided as part of the verbose format.</p>
+   */
+  DataSourceSchema?: string;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>DataSource</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>DataSource</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
+   */
+  FinishedAt?: Date;
 
   /**
    * <p>The time of the most recent edit to the <code>DataSource</code>. The time is expressed in epoch time.</p>
@@ -3064,9 +3093,19 @@ export interface GetDataSourceOutput {
   LastUpdatedAt?: Date;
 
   /**
-   * <p>The total size of observations in the data files.</p>
+   * <p>A link to the file containing logs of <code>CreateDataSourceFrom*</code> operations.</p>
    */
-  DataSizeInBytes?: number;
+  LogUri?: string;
+
+  /**
+   * <p>The user-supplied description of the most recent details about creating the <code>DataSource</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>A user-supplied name or description of the <code>DataSource</code>.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The number of data files referenced by the <code>DataSource</code>.</p>
@@ -3074,9 +3113,24 @@ export interface GetDataSourceOutput {
   NumberOfFiles?: number;
 
   /**
-   * <p>A user-supplied name or description of the <code>DataSource</code>.</p>
+   * <p>The datasource details that are specific to Amazon RDS.</p>
    */
-  Name?: string;
+  RDSMetadata?: RDSMetadata;
+
+  /**
+   * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
+   */
+  RedshiftMetadata?: RedshiftMetadata;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts">AWS IAM Role</a>, such as the following: arn:aws:iam::account:role/rolename. </p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>DataSource</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>DataSource</code> is in the <code>PENDING</code> state.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The current status of the <code>DataSource</code>. This element can have one of the following values:</p>
@@ -3104,60 +3158,6 @@ export interface GetDataSourceOutput {
    *          </ul>
    */
   Status?: EntityStatus | string;
-
-  /**
-   * <p>A link to the file containing logs of <code>CreateDataSourceFrom*</code> operations.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>The user-supplied description of the most recent details about creating the <code>DataSource</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>Describes the <code>DataSource</code> details specific to Amazon Redshift.</p>
-   */
-  RedshiftMetadata?: RedshiftMetadata;
-
-  /**
-   * <p>The datasource details that are specific to Amazon RDS.</p>
-   */
-  RDSMetadata?: RDSMetadata;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html#roles-about-termsandconcepts">AWS IAM Role</a>, such as the following: arn:aws:iam::account:role/rolename. </p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>
-   *             The parameter is <code>true</code> if statistics need to be generated from the observation data.
-   *         </p>
-   */
-  ComputeStatistics?: boolean;
-
-  /**
-   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>DataSource</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>DataSource</code> is in the <code>COMPLETED</code> state and the <code>ComputeStatistics</code> is set to true.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>DataSource</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>DataSource</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>DataSource</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>DataSource</code> is in the <code>PENDING</code> state.</p>
-   */
-  StartedAt?: Date;
-
-  /**
-   * <p>The schema used by all of the data files of this <code>DataSource</code>.</p>
-   *         <p>
-   *             <b>Note:</b> This parameter is provided as part of the verbose format.</p>
-   */
-  DataSourceSchema?: string;
 }
 
 export namespace GetDataSourceOutput {
@@ -3184,29 +3184,9 @@ export namespace GetEvaluationInput {
  */
 export interface GetEvaluationOutput {
   /**
-   * <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
+   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>Evaluation</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>Evaluation</code> is in the <code>COMPLETED</code> state.</p>
    */
-  EvaluationId?: string;
-
-  /**
-   * <p>The ID of the <code>MLModel</code> that was the focus of the evaluation.</p>
-   */
-  MLModelId?: string;
-
-  /**
-   * <p>The <code>DataSource</code> used for this evaluation.</p>
-   */
-  EvaluationDataSourceId?: string;
-
-  /**
-   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
-   */
-  InputDataLocationS3?: string;
-
-  /**
-   * <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
-   */
-  CreatedByIamUser?: string;
+  ComputeTime?: number;
 
   /**
    * <p>The time that the <code>Evaluation</code> was created. The time is expressed in epoch time.</p>
@@ -3214,14 +3194,79 @@ export interface GetEvaluationOutput {
   CreatedAt?: Date;
 
   /**
+   * <p>The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
+
+  /**
+   * <p>The <code>DataSource</code> used for this evaluation.</p>
+   */
+  EvaluationDataSourceId?: string;
+
+  /**
+   * <p>The evaluation ID which is same as the <code>EvaluationId</code> in the request.</p>
+   */
+  EvaluationId?: string;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>Evaluation</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
+   */
+  FinishedAt?: Date;
+
+  /**
+   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
+   */
+  InputDataLocationS3?: string;
+
+  /**
    * <p>The time of the most recent edit to the <code>Evaluation</code>. The time is expressed in epoch time.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>A link to the file that contains logs of the <code>CreateEvaluation</code> operation.</p>
+   */
+  LogUri?: string;
+
+  /**
+   * <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The ID of the <code>MLModel</code> that was the focus of the evaluation.</p>
+   */
+  MLModelId?: string;
+
+  /**
    * <p>A user-supplied name or description of the <code>Evaluation</code>. </p>
    */
   Name?: string;
+
+  /**
+   * <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>:
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p>
+   *             </li>
+   *             <li>
+   *                <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p>
+   *             </li>
+   *             <li>
+   *                <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p>
+   *             </li>
+   *          </ul>
+   *         <p>
+   *                         For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>.
+   *         </p>
+   */
+  PerformanceMetrics?: PerformanceMetrics;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>Evaluation</code> is in the <code>PENDING</code> state.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The status of the evaluation. This element can have one of the following values:</p>
@@ -3249,51 +3294,6 @@ export interface GetEvaluationOutput {
    *          </ul>
    */
   Status?: EntityStatus | string;
-
-  /**
-   * <p>Measurements of how well the <code>MLModel</code> performed using observations referenced by the <code>DataSource</code>. One of the following metric is returned based on the type of the <code>MLModel</code>:
-   *         </p>
-   *         <ul>
-   *             <li>
-   *                <p>BinaryAUC: A binary <code>MLModel</code> uses the Area Under the Curve (AUC) technique to measure performance. </p>
-   *             </li>
-   *             <li>
-   *                <p>RegressionRMSE: A regression <code>MLModel</code> uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.</p>
-   *             </li>
-   *             <li>
-   *                <p>MulticlassAvgFScore: A multiclass <code>MLModel</code> uses the F1 score technique to measure performance. </p>
-   *             </li>
-   *          </ul>
-   *         <p>
-   *                         For more information about performance metrics, please see the <a href="https://docs.aws.amazon.com/machine-learning/latest/dg">Amazon Machine Learning Developer Guide</a>.
-   *         </p>
-   */
-  PerformanceMetrics?: PerformanceMetrics;
-
-  /**
-   * <p>A link to the file that contains logs of the <code>CreateEvaluation</code> operation.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>A description of the most recent details about evaluating the <code>MLModel</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>Evaluation</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>Evaluation</code> is in the <code>COMPLETED</code> state.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>Evaluation</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>Evaluation</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>Evaluation</code> is in the <code>PENDING</code> state.</p>
-   */
-  StartedAt?: Date;
 }
 
 export namespace GetEvaluationOutput {
@@ -3327,20 +3327,9 @@ export namespace GetMLModelInput {
  */
 export interface GetMLModelOutput {
   /**
-   * <p>The MLModel ID,
-   *             which is same as the <code>MLModelId</code> in the request.</p>
+   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>MLModel</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>MLModel</code> is in the <code>COMPLETED</code> state.</p>
    */
-  MLModelId?: string;
-
-  /**
-   * <p>The ID of the training <code>DataSource</code>.</p>
-   */
-  TrainingDataSourceId?: string;
-
-  /**
-   * <p>The AWS user account from which the <code>MLModel</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
-   */
-  CreatedByIamUser?: string;
+  ComputeTime?: number;
 
   /**
    * <p>The time that the <code>MLModel</code> was created. The time is expressed in epoch time.</p>
@@ -3348,14 +3337,108 @@ export interface GetMLModelOutput {
   CreatedAt?: Date;
 
   /**
+   * <p>The AWS user account from which the <code>MLModel</code> was created. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.</p>
+   */
+  CreatedByIamUser?: string;
+
+  /**
+   * <p>The current endpoint of the <code>MLModel</code>
+   *          </p>
+   */
+  EndpointInfo?: RealtimeEndpointInfo;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>MLModel</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>MLModel</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
+   */
+  FinishedAt?: Date;
+
+  /**
+   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
+   */
+  InputDataLocationS3?: string;
+
+  /**
    * <p>The time of the most recent edit to the <code>MLModel</code>. The time is expressed in epoch time.</p>
    */
   LastUpdatedAt?: Date;
 
   /**
+   * <p>A link to the file that contains logs of the <code>CreateMLModel</code> operation.</p>
+   */
+  LogUri?: string;
+
+  /**
+   * <p>A description of the most recent details about accessing the <code>MLModel</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The MLModel ID,
+   *             which is same as the <code>MLModelId</code> in the request.</p>
+   */
+  MLModelId?: string;
+
+  /**
+   * <p>Identifies the <code>MLModel</code> category. The following are the available types: </p>
+   *         <ul>
+   *             <li>
+   *                <p>REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"</p>
+   *             </li>
+   *             <li>
+   *                <p>BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"</p>
+   *             </li>
+   *             <li>
+   *                <p>MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"</p>
+   *             </li>
+   *          </ul>
+   */
+  MLModelType?: MLModelType | string;
+
+  /**
    * <p>A user-supplied name or description of the <code>MLModel</code>.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The recipe to use when training the <code>MLModel</code>. The <code>Recipe</code>
+   *             provides detailed information about the observation data to use during training, and
+   *             manipulations to perform on the observation data during training.</p>
+   *         <p>
+   *             <b>Note:</b> This parameter is provided as part of the verbose format.</p>
+   */
+  Recipe?: string;
+
+  /**
+   * <p>The schema used by all of the data files referenced by the <code>DataSource</code>.</p>
+   *         <p>
+   *             <b>Note:</b> This parameter is provided as part of the verbose format.</p>
+   */
+  Schema?: string;
+
+  /**
+   * <p>The scoring threshold is used in binary classification <code>MLModel</code>
+   *             models. It marks the boundary between a positive prediction and a
+   *             negative prediction.</p>
+   *         <p>Output values greater than or equal to the threshold receive a positive result from the MLModel, such as
+   *             <code>true</code>. Output values less than the threshold receive a negative response from the MLModel,
+   *             such as <code>false</code>.</p>
+   */
+  ScoreThreshold?: number;
+
+  /**
+   * <p>The time of the most recent edit to the <code>ScoreThreshold</code>. The time is expressed in epoch time.</p>
+   */
+  ScoreThresholdLastUpdatedAt?: Date;
+
+  /**
+   * <p>Long integer type that is a 64-bit signed number.</p>
+   */
+  SizeInBytes?: number;
+
+  /**
+   * <p>The epoch time when Amazon Machine Learning marked the <code>MLModel</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>MLModel</code> is in the <code>PENDING</code> state.</p>
+   */
+  StartedAt?: Date;
 
   /**
    * <p>The current status of the <code>MLModel</code>. This element can have one of the following values:</p>
@@ -3387,15 +3470,9 @@ export interface GetMLModelOutput {
   Status?: EntityStatus | string;
 
   /**
-   * <p>Long integer type that is a 64-bit signed number.</p>
+   * <p>The ID of the training <code>DataSource</code>.</p>
    */
-  SizeInBytes?: number;
-
-  /**
-   * <p>The current endpoint of the <code>MLModel</code>
-   *          </p>
-   */
-  EndpointInfo?: RealtimeEndpointInfo;
+  TrainingDataSourceId?: string;
 
   /**
    * <p>A list of the training parameters in the <code>MLModel</code>. The list is implemented as
@@ -3445,83 +3522,6 @@ export interface GetMLModelOutput {
    *          </ul>
    */
   TrainingParameters?: { [key: string]: string };
-
-  /**
-   * <p>The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).</p>
-   */
-  InputDataLocationS3?: string;
-
-  /**
-   * <p>Identifies the <code>MLModel</code> category. The following are the available types: </p>
-   *         <ul>
-   *             <li>
-   *                <p>REGRESSION -- Produces a numeric result. For example, "What price should a house be listed at?"</p>
-   *             </li>
-   *             <li>
-   *                <p>BINARY -- Produces one of two possible results. For example, "Is this an e-commerce website?"</p>
-   *             </li>
-   *             <li>
-   *                <p>MULTICLASS -- Produces one of several possible results. For example, "Is this a HIGH, LOW or MEDIUM risk trade?"</p>
-   *             </li>
-   *          </ul>
-   */
-  MLModelType?: MLModelType | string;
-
-  /**
-   * <p>The scoring threshold is used in binary classification <code>MLModel</code>
-   *             models. It marks the boundary between a positive prediction and a
-   *             negative prediction.</p>
-   *         <p>Output values greater than or equal to the threshold receive a positive result from the MLModel, such as
-   *             <code>true</code>. Output values less than the threshold receive a negative response from the MLModel,
-   *             such as <code>false</code>.</p>
-   */
-  ScoreThreshold?: number;
-
-  /**
-   * <p>The time of the most recent edit to the <code>ScoreThreshold</code>. The time is expressed in epoch time.</p>
-   */
-  ScoreThresholdLastUpdatedAt?: Date;
-
-  /**
-   * <p>A link to the file that contains logs of the <code>CreateMLModel</code> operation.</p>
-   */
-  LogUri?: string;
-
-  /**
-   * <p>A description of the most recent details about accessing the <code>MLModel</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the <code>MLModel</code>, normalized and scaled on computation resources. <code>ComputeTime</code> is only available if the <code>MLModel</code> is in the <code>COMPLETED</code> state.</p>
-   */
-  ComputeTime?: number;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>MLModel</code> as <code>COMPLETED</code> or <code>FAILED</code>. <code>FinishedAt</code> is only available when the <code>MLModel</code> is in the <code>COMPLETED</code> or <code>FAILED</code> state.</p>
-   */
-  FinishedAt?: Date;
-
-  /**
-   * <p>The epoch time when Amazon Machine Learning marked the <code>MLModel</code> as <code>INPROGRESS</code>. <code>StartedAt</code> isn't available if the <code>MLModel</code> is in the <code>PENDING</code> state.</p>
-   */
-  StartedAt?: Date;
-
-  /**
-   * <p>The recipe to use when training the <code>MLModel</code>. The <code>Recipe</code>
-   *             provides detailed information about the observation data to use during training, and
-   *             manipulations to perform on the observation data during training.</p>
-   *         <p>
-   *             <b>Note:</b> This parameter is provided as part of the verbose format.</p>
-   */
-  Recipe?: string;
-
-  /**
-   * <p>The schema used by all of the data files referenced by the <code>DataSource</code>.</p>
-   *         <p>
-   *             <b>Note:</b> This parameter is provided as part of the verbose format.</p>
-   */
-  Schema?: string;
 }
 
 export namespace GetMLModelOutput {
@@ -3536,8 +3536,8 @@ export namespace GetMLModelOutput {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  message?: string;
   code?: number;
+  message?: string;
 }
 
 export namespace LimitExceededException {
@@ -3553,14 +3553,14 @@ export interface PredictInput {
   MLModelId: string | undefined;
 
   /**
-   * <p>A map of variable name-value pairs that represent an observation.</p>
-   */
-  Record: { [key: string]: string } | undefined;
-
-  /**
    * <p>The predicted endpoint for the input.</p>
    */
   PredictEndpoint: string | undefined;
+
+  /**
+   * <p>A map of variable name-value pairs that represent an observation.</p>
+   */
+  Record: { [key: string]: string } | undefined;
 }
 
 export namespace PredictInput {
@@ -3621,16 +3621,15 @@ export enum DetailsAttributes {
  */
 export interface Prediction {
   /**
+   * <p>Provides any additional details regarding the prediction.</p>
+   */
+  details?: { [key: string]: string };
+
+  /**
    * <p>The prediction label for either a <code>BINARY</code> or <code>MULTICLASS</code>
    *             <code>MLModel</code>.</p>
    */
   predictedLabel?: string;
-
-  /**
-   * <p>The prediction value for <code>REGRESSION</code>
-   *             <code>MLModel</code>.</p>
-   */
-  predictedValue?: number;
 
   /**
    * <p>Provides the raw classification score corresponding to each label.</p>
@@ -3638,9 +3637,10 @@ export interface Prediction {
   predictedScores?: { [key: string]: number };
 
   /**
-   * <p>Provides any additional details regarding the prediction.</p>
+   * <p>The prediction value for <code>REGRESSION</code>
+   *             <code>MLModel</code>.</p>
    */
-  details?: { [key: string]: string };
+  predictedValue?: number;
 }
 
 export namespace Prediction {

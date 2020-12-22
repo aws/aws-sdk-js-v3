@@ -56,17 +56,6 @@ export namespace GetIceServerConfigRequest {
  */
 export interface IceServer {
   /**
-   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
-   *             addresses and/or protocols that can be used to reach the TURN server.</p>
-   */
-  Uris?: string[];
-
-  /**
-   * <p>A username to login to the ICE server.</p>
-   */
-  Username?: string;
-
-  /**
    * <p>A password to login to the ICE server.</p>
    */
   Password?: string;
@@ -76,6 +65,17 @@ export interface IceServer {
    *             valid.</p>
    */
   Ttl?: number;
+
+  /**
+   * <p>An array of URIs, in the form specified in the <a href="https://tools.ietf.org/html/draft-petithuguenin-behave-turn-uris-03">I-D.petithuguenin-behave-turn-uris</a> spec. These URIs provide the different
+   *             addresses and/or protocols that can be used to reach the TURN server.</p>
+   */
+  Uris?: string[];
+
+  /**
+   * <p>A username to login to the ICE server.</p>
+   */
+  Username?: string;
 }
 
 export namespace IceServer {
@@ -182,14 +182,14 @@ export interface SendAlexaOfferToMasterRequest {
   ChannelARN: string | undefined;
 
   /**
-   * <p>The unique identifier for the sender client.</p>
-   */
-  SenderClientId: string | undefined;
-
-  /**
    * <p>The base64-encoded SDP offer content.</p>
    */
   MessagePayload: string | undefined;
+
+  /**
+   * <p>The unique identifier for the sender client.</p>
+   */
+  SenderClientId: string | undefined;
 }
 
 export namespace SendAlexaOfferToMasterRequest {

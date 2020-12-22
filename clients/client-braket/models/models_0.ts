@@ -46,19 +46,14 @@ export interface GetDeviceResponse {
   deviceArn: string | undefined;
 
   /**
+   * <p>Details about the capabilities of the device.</p>
+   */
+  deviceCapabilities: __LazyJsonString | string | undefined;
+
+  /**
    * <p>The name of the device.</p>
    */
   deviceName: string | undefined;
-
-  /**
-   * <p>The name of the partner company for the device.</p>
-   */
-  providerName: string | undefined;
-
-  /**
-   * <p>The type of the device.</p>
-   */
-  deviceType: DeviceType | string | undefined;
 
   /**
    * <p>The status of the device.</p>
@@ -66,9 +61,14 @@ export interface GetDeviceResponse {
   deviceStatus: DeviceStatus | string | undefined;
 
   /**
-   * <p>Details about the capabilities of the device.</p>
+   * <p>The type of the device.</p>
    */
-  deviceCapabilities: __LazyJsonString | string | undefined;
+  deviceType: DeviceType | string | undefined;
+
+  /**
+   * <p>The name of the partner company for the device.</p>
+   */
+  providerName: string | undefined;
 }
 
 export namespace GetDeviceResponse {
@@ -160,9 +160,9 @@ export namespace SearchDevicesFilter {
 
 export interface SearchDevicesRequest {
   /**
-   * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
+   * <p>The filter values to use to search for a device.</p>
    */
-  nextToken?: string;
+  filters: SearchDevicesFilter[] | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
@@ -170,9 +170,9 @@ export interface SearchDevicesRequest {
   maxResults?: number;
 
   /**
-   * <p>The filter values to use to search for a device.</p>
+   * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
    */
-  filters: SearchDevicesFilter[] | undefined;
+  nextToken?: string;
 }
 
 export namespace SearchDevicesRequest {
@@ -196,9 +196,9 @@ export interface DeviceSummary {
   deviceName: string | undefined;
 
   /**
-   * <p>The provider of the device.</p>
+   * <p>The status of the device.</p>
    */
-  providerName: string | undefined;
+  deviceStatus: DeviceStatus | string | undefined;
 
   /**
    * <p>The type of the device.</p>
@@ -206,9 +206,9 @@ export interface DeviceSummary {
   deviceType: DeviceType | string | undefined;
 
   /**
-   * <p>The status of the device.</p>
+   * <p>The provider of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  providerName: string | undefined;
 }
 
 export namespace DeviceSummary {
@@ -237,14 +237,14 @@ export namespace SearchDevicesResponse {
 
 export interface CancelQuantumTaskRequest {
   /**
-   * <p>The ARN of the task to cancel.</p>
-   */
-  quantumTaskArn: string | undefined;
-
-  /**
    * <p>The client token associated with the request.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ARN of the task to cancel.</p>
+   */
+  quantumTaskArn: string | undefined;
 }
 
 export namespace CancelQuantumTaskRequest {
@@ -260,14 +260,14 @@ export enum CancellationStatus {
 
 export interface CancelQuantumTaskResponse {
   /**
-   * <p>The ARN of the task.</p>
-   */
-  quantumTaskArn: string | undefined;
-
-  /**
    * <p>The status of the cancellation request.</p>
    */
   cancellationStatus: CancellationStatus | string | undefined;
+
+  /**
+   * <p>The ARN of the task.</p>
+   */
+  quantumTaskArn: string | undefined;
 }
 
 export namespace CancelQuantumTaskResponse {
@@ -293,6 +293,11 @@ export namespace ConflictException {
 
 export interface CreateQuantumTaskRequest {
   /**
+   * <p>The action associated with the task.</p>
+   */
+  action: __LazyJsonString | string | undefined;
+
+  /**
    * <p>The client token associated with the request.</p>
    */
   clientToken?: string;
@@ -308,11 +313,6 @@ export interface CreateQuantumTaskRequest {
   deviceParameters?: __LazyJsonString | string;
 
   /**
-   * <p>The number of shots to use for the task.</p>
-   */
-  shots: number | undefined;
-
-  /**
    * <p>The S3 bucket to store task result files in.</p>
    */
   outputS3Bucket: string | undefined;
@@ -323,9 +323,9 @@ export interface CreateQuantumTaskRequest {
   outputS3KeyPrefix: string | undefined;
 
   /**
-   * <p>The action associated with the task.</p>
+   * <p>The number of shots to use for the task.</p>
    */
-  action: __LazyJsonString | string | undefined;
+  shots: number | undefined;
 }
 
 export namespace CreateQuantumTaskRequest {
@@ -402,19 +402,9 @@ export enum QuantumTaskStatus {
 
 export interface GetQuantumTaskResponse {
   /**
-   * <p>The ARN of the task.</p>
+   * <p>The time at which the task was created.</p>
    */
-  quantumTaskArn: string | undefined;
-
-  /**
-   * <p>The status of the task.</p>
-   */
-  status: QuantumTaskStatus | string | undefined;
-
-  /**
-   * <p>The reason that a task failed.</p>
-   */
-  failureReason?: string;
+  createdAt: Date | undefined;
 
   /**
    * <p>The ARN of the device the task was run on.</p>
@@ -427,9 +417,14 @@ export interface GetQuantumTaskResponse {
   deviceParameters: __LazyJsonString | string | undefined;
 
   /**
-   * <p>The number of shots used in the task.</p>
+   * <p>The time at which the task ended.</p>
    */
-  shots: number | undefined;
+  endedAt?: Date;
+
+  /**
+   * <p>The reason that a task failed.</p>
+   */
+  failureReason?: string;
 
   /**
    * <p>The S3 bucket where task results are stored.</p>
@@ -442,14 +437,19 @@ export interface GetQuantumTaskResponse {
   outputS3Directory: string | undefined;
 
   /**
-   * <p>The time at which the task was created.</p>
+   * <p>The ARN of the task.</p>
    */
-  createdAt: Date | undefined;
+  quantumTaskArn: string | undefined;
 
   /**
-   * <p>The time at which the task ended.</p>
+   * <p>The number of shots used in the task.</p>
    */
-  endedAt?: Date;
+  shots: number | undefined;
+
+  /**
+   * <p>The status of the task.</p>
+   */
+  status: QuantumTaskStatus | string | undefined;
 }
 
 export namespace GetQuantumTaskResponse {
@@ -477,14 +477,14 @@ export interface SearchQuantumTasksFilter {
   name: string | undefined;
 
   /**
-   * <p>The values to use for the filter.</p>
-   */
-  values: string[] | undefined;
-
-  /**
    * <p>An operator to use in the filter.</p>
    */
   operator: SearchQuantumTasksFilterOperator | string | undefined;
+
+  /**
+   * <p>The values to use for the filter.</p>
+   */
+  values: string[] | undefined;
 }
 
 export namespace SearchQuantumTasksFilter {
@@ -495,9 +495,9 @@ export namespace SearchQuantumTasksFilter {
 
 export interface SearchQuantumTasksRequest {
   /**
-   * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
+   * <p>Array of <code>SearchQuantumTasksFilter</code> objects.</p>
    */
-  nextToken?: string;
+  filters: SearchQuantumTasksFilter[] | undefined;
 
   /**
    * <p>Maximum number of results to return in the response.</p>
@@ -505,9 +505,9 @@ export interface SearchQuantumTasksRequest {
   maxResults?: number;
 
   /**
-   * <p>Array of <code>SearchQuantumTasksFilter</code> objects.</p>
+   * <p>A token used for pagination of results returned in the response. Use the token returned from the previous request continue results where the previous request ended.</p>
    */
-  filters: SearchQuantumTasksFilter[] | undefined;
+  nextToken?: string;
 }
 
 export namespace SearchQuantumTasksRequest {
@@ -521,14 +521,9 @@ export namespace SearchQuantumTasksRequest {
  */
 export interface QuantumTaskSummary {
   /**
-   * <p>The ARN of the task.</p>
+   * <p>The time at which the task was created.</p>
    */
-  quantumTaskArn: string | undefined;
-
-  /**
-   * <p>The status of the task.</p>
-   */
-  status: QuantumTaskStatus | string | undefined;
+  createdAt: Date | undefined;
 
   /**
    * <p>The ARN of the device the task ran on.</p>
@@ -536,9 +531,9 @@ export interface QuantumTaskSummary {
   deviceArn: string | undefined;
 
   /**
-   * <p>The shots used for the task.</p>
+   * <p>The time at which the task finished.</p>
    */
-  shots: number | undefined;
+  endedAt?: Date;
 
   /**
    * <p>The S3 bucket where the task result file is stored..</p>
@@ -551,14 +546,19 @@ export interface QuantumTaskSummary {
   outputS3Directory: string | undefined;
 
   /**
-   * <p>The time at which the task was created.</p>
+   * <p>The ARN of the task.</p>
    */
-  createdAt: Date | undefined;
+  quantumTaskArn: string | undefined;
 
   /**
-   * <p>The time at which the task finished.</p>
+   * <p>The shots used for the task.</p>
    */
-  endedAt?: Date;
+  shots: number | undefined;
+
+  /**
+   * <p>The status of the task.</p>
+   */
+  status: QuantumTaskStatus | string | undefined;
 }
 
 export namespace QuantumTaskSummary {
@@ -569,14 +569,14 @@ export namespace QuantumTaskSummary {
 
 export interface SearchQuantumTasksResponse {
   /**
-   * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified filters.</p>
-   */
-  quantumTasks: QuantumTaskSummary[] | undefined;
-
-  /**
    * <p>A token used for pagination of results, or null if there are no additional results. Use the token value in a subsequent request to continue results where the previous request ended.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of <code>QuantumTaskSummary</code> objects for tasks that match the specified filters.</p>
+   */
+  quantumTasks: QuantumTaskSummary[] | undefined;
 }
 
 export namespace SearchQuantumTasksResponse {

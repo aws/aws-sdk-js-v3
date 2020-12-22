@@ -9,17 +9,6 @@ export interface GetPersonalizedRankingRequest {
   campaignArn: string | undefined;
 
   /**
-   * <p>A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset,
-   *       the item is appended to the end of the reranked list. The maximum is 500.</p>
-   */
-  inputList: string[] | undefined;
-
-  /**
-   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
-   */
-  userId: string | undefined;
-
-  /**
    * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
    *       any interaction information that might be relevant when getting a user's recommendations, such
    *       as the user's current location or device type.</p>
@@ -46,6 +35,17 @@ export interface GetPersonalizedRankingRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    */
   filterValues?: { [key: string]: string };
+
+  /**
+   * <p>A list of items (by <code>itemId</code>) to rank. If an item was not included in the training dataset,
+   *       the item is appended to the end of the reranked list. The maximum is 500.</p>
+   */
+  inputList: string[] | undefined;
+
+  /**
+   * <p>The user for which you want the campaign to provide a personalized ranking.</p>
+   */
+  userId: string | undefined;
 }
 
 export namespace GetPersonalizedRankingRequest {
@@ -135,23 +135,6 @@ export interface GetRecommendationsRequest {
   campaignArn: string | undefined;
 
   /**
-   * <p>The item ID to provide recommendations for.</p>
-   *          <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>
-   */
-  itemId?: string;
-
-  /**
-   * <p>The user ID to provide recommendations for.</p>
-   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
-   */
-  userId?: string;
-
-  /**
-   * <p>The number of results to return. The default is 25. The maximum is 500.</p>
-   */
-  numResults?: number;
-
-  /**
    * <p>The contextual metadata to use when getting recommendations. Contextual metadata includes
    *       any interaction information that might be relevant when getting a user's recommendations, such
    *       as the user's current location or device type.</p>
@@ -178,6 +161,23 @@ export interface GetRecommendationsRequest {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter.html">Filtering Recommendations</a>.</p>
    */
   filterValues?: { [key: string]: string };
+
+  /**
+   * <p>The item ID to provide recommendations for.</p>
+   *          <p>Required for <code>RELATED_ITEMS</code> recipe type.</p>
+   */
+  itemId?: string;
+
+  /**
+   * <p>The number of results to return. The default is 25. The maximum is 500.</p>
+   */
+  numResults?: number;
+
+  /**
+   * <p>The user ID to provide recommendations for.</p>
+   *          <p>Required for <code>USER_PERSONALIZATION</code> recipe type.</p>
+   */
+  userId?: string;
 }
 
 export namespace GetRecommendationsRequest {

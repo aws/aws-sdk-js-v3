@@ -64,11 +64,6 @@ export namespace UserIdentity {
  */
 export interface Identity {
   /**
-   * <p>An AWS SSO user identity.</p>
-   */
-  user?: UserIdentity;
-
-  /**
    * <p>An AWS SSO group identity.</p>
    */
   group?: GroupIdentity;
@@ -77,6 +72,11 @@ export interface Identity {
    * <p>An IAM user identity.</p>
    */
   iamUser?: IAMUserIdentity;
+
+  /**
+   * <p>An AWS SSO user identity.</p>
+   */
+  user?: UserIdentity;
 }
 
 export namespace Identity {
@@ -149,6 +149,11 @@ export namespace Resource {
  */
 export interface AccessPolicySummary {
   /**
+   * <p>The date the access policy was created, in Unix epoch time.</p>
+   */
+  creationDate?: Date;
+
+  /**
    * <p>The ID of the access policy.</p>
    */
   id: string | undefined;
@@ -159,9 +164,9 @@ export interface AccessPolicySummary {
   identity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource (a portal or project).</p>
+   * <p>The date the access policy was last updated, in Unix epoch time.</p>
    */
-  resource: Resource | undefined;
+  lastUpdateDate?: Date;
 
   /**
    * <p>The permissions for the access policy. Note that a project <code>ADMINISTRATOR</code> is
@@ -170,14 +175,9 @@ export interface AccessPolicySummary {
   permission: Permission | string | undefined;
 
   /**
-   * <p>The date the access policy was created, in Unix epoch time.</p>
+   * <p>The AWS IoT SiteWise Monitor resource (a portal or project).</p>
    */
-  creationDate?: Date;
-
-  /**
-   * <p>The date the access policy was last updated, in Unix epoch time.</p>
-   */
-  lastUpdateDate?: Date;
+  resource: Resource | undefined;
 }
 
 export namespace AccessPolicySummary {
@@ -217,14 +217,14 @@ export interface Aggregates {
   minimum?: number;
 
   /**
-   * <p>The sum of the time series over a time interval window.</p>
-   */
-  sum?: number;
-
-  /**
    * <p>The standard deviation of the time series over a time interval window.</p>
    */
   standardDeviation?: number;
+
+  /**
+   * <p>The sum of the time series over a time interval window.</p>
+   */
+  sum?: number;
 }
 
 export namespace Aggregates {
@@ -239,14 +239,14 @@ export namespace Aggregates {
  */
 export interface AggregatedValue {
   /**
-   * <p>The date the aggregating computations occurred, in Unix epoch time.</p>
-   */
-  timestamp: Date | undefined;
-
-  /**
    * <p>The quality of the aggregated data.</p>
    */
   quality?: Quality | string;
+
+  /**
+   * <p>The date the aggregating computations occurred, in Unix epoch time.</p>
+   */
+  timestamp: Date | undefined;
 
   /**
    * <p>The value of the aggregates.</p>
@@ -288,14 +288,14 @@ export enum PropertyNotificationState {
  */
 export interface PropertyNotification {
   /**
-   * <p>The MQTT topic to which AWS IoT SiteWise publishes property value update notifications.</p>
-   */
-  topic: string | undefined;
-
-  /**
    * <p>The current notification state.</p>
    */
   state: PropertyNotificationState | string | undefined;
+
+  /**
+   * <p>The MQTT topic to which AWS IoT SiteWise publishes property value update notifications.</p>
+   */
+  topic: string | undefined;
 }
 
 export namespace PropertyNotification {
@@ -309,27 +309,12 @@ export namespace PropertyNotification {
  */
 export interface AssetProperty {
   /**
-   * <p>The ID of the asset property.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the property.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   alias?: string;
-
-  /**
-   * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
-   */
-  notification?: PropertyNotification;
 
   /**
    * <p>The data type of the asset property.</p>
@@ -341,6 +326,21 @@ export interface AssetProperty {
    *       have the <code>STRUCT</code> data type.</p>
    */
   dataTypeSpec?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the property.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+   */
+  notification?: PropertyNotification;
 
   /**
    * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
@@ -360,25 +360,25 @@ export namespace AssetProperty {
  */
 export interface AssetCompositeModel {
   /**
+   * <p>The description of the composite model.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The name of the composite model.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the composite model.</p>
+   * <p>The asset properties that this composite model defines.</p>
    */
-  description?: string;
+  properties: AssetProperty[] | undefined;
 
   /**
    * <p>The type of the composite model. For alarm composite models, this type is
    *         <code>AWS/ALARM</code>.</p>
    */
   type: string | undefined;
-
-  /**
-   * <p>The asset properties that this composite model defines.</p>
-   */
-  properties: AssetProperty[] | undefined;
 }
 
 export namespace AssetCompositeModel {
@@ -445,14 +445,14 @@ export namespace AssetHierarchy {
  */
 export interface AssetHierarchyInfo {
   /**
-   * <p>The ID of the parent asset in this asset relationship.</p>
-   */
-  parentAssetId?: string;
-
-  /**
    * <p>The ID of the child asset in this asset relationship.</p>
    */
   childAssetId?: string;
+
+  /**
+   * <p>The ID of the parent asset in this asset relationship.</p>
+   */
+  parentAssetId?: string;
 }
 
 export namespace AssetHierarchyInfo {
@@ -498,12 +498,6 @@ export namespace Measurement {
  */
 export interface VariableValue {
   /**
-   * <p>The ID of the property to use as the variable. You can use the property <code>name</code>
-   *       if it's from the same asset model.</p>
-   */
-  propertyId: string | undefined;
-
-  /**
    * <p>The ID of the hierarchy to query for the property ID. You can use the hierarchy's name
    *       instead of the hierarchy's ID.</p>
    *          <p>You use a hierarchy ID instead of a model ID because you can have several hierarchies
@@ -512,6 +506,12 @@ export interface VariableValue {
    *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   hierarchyId?: string;
+
+  /**
+   * <p>The ID of the property to use as the variable. You can use the property <code>name</code>
+   *       if it's from the same asset model.</p>
+   */
+  propertyId: string | undefined;
 }
 
 export namespace VariableValue {
@@ -667,18 +667,18 @@ export interface PropertyType {
   measurement?: Measurement;
 
   /**
-   * <p>Specifies an asset transform property. A transform contains a mathematical expression that
-   *       maps a property's data points from one form to another, such as a unit conversion from Celsius
-   *       to Fahrenheit.</p>
-   */
-  transform?: Transform;
-
-  /**
    * <p>Specifies an asset metric property. A metric contains a mathematical expression that uses
    *       aggregate functions to process all input data points over a time interval and output a single
    *       data point, such as to calculate the average hourly temperature.</p>
    */
   metric?: Metric;
+
+  /**
+   * <p>Specifies an asset transform property. A transform contains a mathematical expression that
+   *       maps a property's data points from one form to another, such as a unit conversion from Celsius
+   *       to Fahrenheit.</p>
+   */
+  transform?: Transform;
 }
 
 export namespace PropertyType {
@@ -692,16 +692,6 @@ export namespace PropertyType {
  */
 export interface AssetModelProperty {
   /**
-   * <p>The ID of the asset model property.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The name of the asset model property.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The data type of the asset model property.</p>
    */
   dataType: PropertyDataType | string | undefined;
@@ -713,15 +703,25 @@ export interface AssetModelProperty {
   dataTypeSpec?: string;
 
   /**
-   * <p>The unit of the asset model property, such as <code>Newtons</code> or
-   *       <code>RPM</code>.</p>
+   * <p>The ID of the asset model property.</p>
    */
-  unit?: string;
+  id?: string;
+
+  /**
+   * <p>The name of the asset model property.</p>
+   */
+  name: string | undefined;
 
   /**
    * <p>The property type (see <code>PropertyType</code>).</p>
    */
   type: PropertyType | undefined;
+
+  /**
+   * <p>The unit of the asset model property, such as <code>Newtons</code> or
+   *       <code>RPM</code>.</p>
+   */
+  unit?: string;
 }
 
 export namespace AssetModelProperty {
@@ -736,25 +736,25 @@ export namespace AssetModelProperty {
  */
 export interface AssetModelCompositeModel {
   /**
+   * <p>The description of the composite model.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The name of the composite model.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the composite model.</p>
+   * <p>The asset property definitions for this composite model.</p>
    */
-  description?: string;
+  properties?: AssetModelProperty[];
 
   /**
    * <p>The type of the composite model. For alarm composite models, this type is
    *       <code>AWS/ALARM</code>.</p>
    */
   type: string | undefined;
-
-  /**
-   * <p>The asset property definitions for this composite model.</p>
-   */
-  properties?: AssetModelProperty[];
 }
 
 export namespace AssetModelCompositeModel {
@@ -768,11 +768,6 @@ export namespace AssetModelCompositeModel {
  *       assets created from the asset model.</p>
  */
 export interface AssetModelPropertyDefinition {
-  /**
-   * <p>The name of the property definition.</p>
-   */
-  name: string | undefined;
-
   /**
    * <p>The data type of the property definition.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
@@ -790,16 +785,21 @@ export interface AssetModelPropertyDefinition {
   dataTypeSpec?: string;
 
   /**
-   * <p>The unit of the property definition, such as <code>Newtons</code> or
-   *       <code>RPM</code>.</p>
+   * <p>The name of the property definition.</p>
    */
-  unit?: string;
+  name: string | undefined;
 
   /**
    * <p>The property definition type (see <code>PropertyType</code>). You can only specify one
    *       type in a property definition.</p>
    */
   type: PropertyType | undefined;
+
+  /**
+   * <p>The unit of the property definition, such as <code>Newtons</code> or
+   *       <code>RPM</code>.</p>
+   */
+  unit?: string;
 }
 
 export namespace AssetModelPropertyDefinition {
@@ -814,25 +814,25 @@ export namespace AssetModelPropertyDefinition {
  */
 export interface AssetModelCompositeModelDefinition {
   /**
+   * <p>The description of the composite model.</p>
+   */
+  description?: string;
+
+  /**
    * <p>The name of the composite model.</p>
    */
   name: string | undefined;
 
   /**
-   * <p>The description of the composite model.</p>
+   * <p>The asset property definitions for this composite model.</p>
    */
-  description?: string;
+  properties?: AssetModelPropertyDefinition[];
 
   /**
    * <p>The type of the composite model. For alarm composite models, this type is
    *       <code>AWS/ALARM</code>.</p>
    */
   type: string | undefined;
-
-  /**
-   * <p>The asset property definitions for this composite model.</p>
-   */
-  properties?: AssetModelPropertyDefinition[];
 }
 
 export namespace AssetModelCompositeModelDefinition {
@@ -847,6 +847,12 @@ export namespace AssetModelCompositeModelDefinition {
  */
 export interface AssetModelHierarchy {
   /**
+   * <p>The ID of the asset model. All assets in this hierarchy must be instances of the
+   *         <code>childAssetModelId</code> asset model.</p>
+   */
+  childAssetModelId: string | undefined;
+
+  /**
    * <p>The ID of the asset model hierarchy. This ID is a <code>hierarchyId</code>.</p>
    */
   id?: string;
@@ -856,12 +862,6 @@ export interface AssetModelHierarchy {
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation.</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The ID of the asset model. All assets in this hierarchy must be instances of the
-   *         <code>childAssetModelId</code> asset model.</p>
-   */
-  childAssetModelId: string | undefined;
 }
 
 export namespace AssetModelHierarchy {
@@ -876,15 +876,15 @@ export namespace AssetModelHierarchy {
  */
 export interface AssetModelHierarchyDefinition {
   /**
+   * <p>The ID of an asset model for this hierarchy.</p>
+   */
+  childAssetModelId: string | undefined;
+
+  /**
    * <p>The name of the asset model hierarchy definition (as specified in the <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModel.html">CreateAssetModel</a> or
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetModel.html">UpdateAssetModel</a> API operation).</p>
    */
   name: string | undefined;
-
-  /**
-   * <p>The ID of an asset model for this hierarchy.</p>
-   */
-  childAssetModelId: string | undefined;
 }
 
 export namespace AssetModelHierarchyDefinition {
@@ -934,14 +934,14 @@ export namespace ErrorDetails {
  */
 export interface AssetModelStatus {
   /**
-   * <p>The current state of the asset model.</p>
-   */
-  state: AssetModelState | string | undefined;
-
-  /**
    * <p>Contains associated error information, if any.</p>
    */
   error?: ErrorDetails;
+
+  /**
+   * <p>The current state of the asset model.</p>
+   */
+  state: AssetModelState | string | undefined;
 }
 
 export namespace AssetModelStatus {
@@ -955,11 +955,6 @@ export namespace AssetModelStatus {
  */
 export interface AssetModelSummary {
   /**
-   * <p>The ID of the asset model (used with AWS IoT SiteWise APIs).</p>
-   */
-  id: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>
@@ -968,9 +963,9 @@ export interface AssetModelSummary {
   arn: string | undefined;
 
   /**
-   * <p>The name of the asset model.</p>
+   * <p>The date the asset model was created, in Unix epoch time.</p>
    */
-  name: string | undefined;
+  creationDate: Date | undefined;
 
   /**
    * <p>The asset model description.</p>
@@ -978,14 +973,19 @@ export interface AssetModelSummary {
   description: string | undefined;
 
   /**
-   * <p>The date the asset model was created, in Unix epoch time.</p>
+   * <p>The ID of the asset model (used with AWS IoT SiteWise APIs).</p>
    */
-  creationDate: Date | undefined;
+  id: string | undefined;
 
   /**
    * <p>The date the asset model was last updated, in Unix epoch time.</p>
    */
   lastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The name of the asset model.</p>
+   */
+  name: string | undefined;
 
   /**
    * <p>The current status of the asset model.</p>
@@ -1004,15 +1004,15 @@ export namespace AssetModelSummary {
  */
 export interface TimeInNanos {
   /**
+   * <p>The nanosecond offset from <code>timeInSeconds</code>.</p>
+   */
+  offsetInNanos?: number;
+
+  /**
    * <p>The timestamp date, in seconds, in the Unix epoch format. Fractional nanosecond data is
    *       provided by <code>offsetInNanos</code>.</p>
    */
   timeInSeconds: number | undefined;
-
-  /**
-   * <p>The nanosecond offset from <code>timeInSeconds</code>.</p>
-   */
-  offsetInNanos?: number;
 }
 
 export namespace TimeInNanos {
@@ -1026,14 +1026,9 @@ export namespace TimeInNanos {
  */
 export interface Variant {
   /**
-   * <p>Asset property data of type string (sequence of characters).</p>
+   * <p>Asset property data of type Boolean (true or false).</p>
    */
-  stringValue?: string;
-
-  /**
-   * <p>Asset property data of type integer (whole number).</p>
-   */
-  integerValue?: number;
+  booleanValue?: boolean;
 
   /**
    * <p>Asset property data of type double (floating point number).</p>
@@ -1041,9 +1036,14 @@ export interface Variant {
   doubleValue?: number;
 
   /**
-   * <p>Asset property data of type Boolean (true or false).</p>
+   * <p>Asset property data of type integer (whole number).</p>
    */
-  booleanValue?: boolean;
+  integerValue?: number;
+
+  /**
+   * <p>Asset property data of type string (sequence of characters).</p>
+   */
+  stringValue?: string;
 }
 
 export namespace Variant {
@@ -1057,9 +1057,9 @@ export namespace Variant {
  */
 export interface AssetPropertyValue {
   /**
-   * <p>The value of the asset property (see <code>Variant</code>).</p>
+   * <p>The quality of the asset property value.</p>
    */
-  value: Variant | undefined;
+  quality?: Quality | string;
 
   /**
    * <p>The timestamp of the asset property value.</p>
@@ -1067,9 +1067,9 @@ export interface AssetPropertyValue {
   timestamp: TimeInNanos | undefined;
 
   /**
-   * <p>The quality of the asset property value.</p>
+   * <p>The value of the asset property (see <code>Variant</code>).</p>
    */
-  quality?: Quality | string;
+  value: Variant | undefined;
 }
 
 export namespace AssetPropertyValue {
@@ -1129,14 +1129,14 @@ export enum AssetState {
  */
 export interface AssetStatus {
   /**
-   * <p>The current status of the asset.</p>
-   */
-  state: AssetState | string | undefined;
-
-  /**
    * <p>Contains associated error information, if any.</p>
    */
   error?: ErrorDetails;
+
+  /**
+   * <p>The current status of the asset.</p>
+   */
+  state: AssetState | string | undefined;
 }
 
 export namespace AssetStatus {
@@ -1150,22 +1150,12 @@ export namespace AssetStatus {
  */
 export interface AssetSummary {
   /**
-   * <p>The ID of the asset.</p>
-   */
-  id: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
   arn: string | undefined;
-
-  /**
-   * <p>The name of the asset.</p>
-   */
-  name: string | undefined;
 
   /**
    * <p>The ID of the asset model used to create this asset.</p>
@@ -1178,19 +1168,29 @@ export interface AssetSummary {
   creationDate: Date | undefined;
 
   /**
+   * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
+   */
+  hierarchies: AssetHierarchy[] | undefined;
+
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  id: string | undefined;
+
+  /**
    * <p>The date the asset was last updated, in Unix epoch time.</p>
    */
   lastUpdateDate: Date | undefined;
 
   /**
+   * <p>The name of the asset.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The current status of the asset.</p>
    */
   status: AssetStatus | undefined;
-
-  /**
-   * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
-   */
-  hierarchies: AssetHierarchy[] | undefined;
 }
 
 export namespace AssetSummary {
@@ -1206,13 +1206,6 @@ export interface AssociateAssetsRequest {
   assetId: string | undefined;
 
   /**
-   * <p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings
-   *       of assets to be formed that all come from the same asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  hierarchyId: string | undefined;
-
-  /**
    * <p>The ID of the child asset to be associated.</p>
    */
   childAssetId: string | undefined;
@@ -1221,6 +1214,13 @@ export interface AssociateAssetsRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings
+   *       of assets to be formed that all come from the same asset model. For more information, see
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  hierarchyId: string | undefined;
 }
 
 export namespace AssociateAssetsRequest {
@@ -1238,14 +1238,14 @@ export interface ConflictingOperationException extends __SmithyException, $Metad
   $fault: "client";
   message: string | undefined;
   /**
-   * <p>The ID of the resource that conflicts with this operation.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
    * <p>The ARN of the resource that conflicts with this operation.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The ID of the resource that conflicts with this operation.</p>
+   */
+  resourceId: string | undefined;
 }
 
 export namespace ConflictingOperationException {
@@ -1341,22 +1341,12 @@ export namespace ThrottlingException {
  */
 export interface AssociatedAssetsSummary {
   /**
-   * <p>The ID of the asset.</p>
-   */
-  id: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
   arn: string | undefined;
-
-  /**
-   * <p>The name of the asset.</p>
-   */
-  name: string | undefined;
 
   /**
    * <p>The ID of the asset model used to create the asset.</p>
@@ -1369,19 +1359,29 @@ export interface AssociatedAssetsSummary {
   creationDate: Date | undefined;
 
   /**
+   * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
+   */
+  hierarchies: AssetHierarchy[] | undefined;
+
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  id: string | undefined;
+
+  /**
    * <p>The date the asset was last updated, in Unix epoch time.</p>
    */
   lastUpdateDate: Date | undefined;
 
   /**
+   * <p>The name of the asset.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The current status of the asset.</p>
    */
   status: AssetStatus | undefined;
-
-  /**
-   * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
-   */
-  hierarchies: AssetHierarchy[] | undefined;
 }
 
 export namespace AssociatedAssetsSummary {
@@ -1397,11 +1397,6 @@ export enum AuthMode {
 
 export interface BatchAssociateProjectAssetsRequest {
   /**
-   * <p>The ID of the project to which to associate the assets.</p>
-   */
-  projectId: string | undefined;
-
-  /**
    * <p>The IDs of the assets to be associated to the project.</p>
    */
   assetIds: string[] | undefined;
@@ -1410,6 +1405,11 @@ export interface BatchAssociateProjectAssetsRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of the project to which to associate the assets.</p>
+   */
+  projectId: string | undefined;
 }
 
 export namespace BatchAssociateProjectAssetsRequest {
@@ -1433,11 +1433,6 @@ export namespace BatchAssociateProjectAssetsResponse {
 
 export interface BatchDisassociateProjectAssetsRequest {
   /**
-   * <p>The ID of the project from which to disassociate the assets.</p>
-   */
-  projectId: string | undefined;
-
-  /**
    * <p>The IDs of the assets to be disassociated from the project.</p>
    */
   assetIds: string[] | undefined;
@@ -1446,6 +1441,11 @@ export interface BatchDisassociateProjectAssetsRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of the project from which to disassociate the assets.</p>
+   */
+  projectId: string | undefined;
 }
 
 export namespace BatchDisassociateProjectAssetsRequest {
@@ -1474,20 +1474,15 @@ export namespace BatchDisassociateProjectAssetsResponse {
  */
 export interface PutAssetPropertyValueEntry {
   /**
-   * <p>The user specified ID for the entry. You can use this ID to identify which entries
-   *       failed.</p>
-   */
-  entryId: string | undefined;
-
-  /**
    * <p>The ID of the asset to update.</p>
    */
   assetId?: string;
 
   /**
-   * <p>The ID of the asset property for this entry.</p>
+   * <p>The user specified ID for the entry. You can use this ID to identify which entries
+   *       failed.</p>
    */
-  propertyId?: string;
+  entryId: string | undefined;
 
   /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
@@ -1496,6 +1491,11 @@ export interface PutAssetPropertyValueEntry {
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
+
+  /**
+   * <p>The ID of the asset property for this entry.</p>
+   */
+  propertyId?: string;
 
   /**
    * <p>The list of property values to upload. You can specify up to 10
@@ -1620,14 +1620,14 @@ export interface CreateAccessPolicyRequest {
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
-   */
-  accessPolicyResource: Resource | undefined;
-
-  /**
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
   accessPolicyPermission: Permission | string | undefined;
+
+  /**
+   * <p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
+   */
+  accessPolicyResource: Resource | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -1650,17 +1650,17 @@ export namespace CreateAccessPolicyRequest {
 
 export interface CreateAccessPolicyResponse {
   /**
-   * <p>The ID of the access policy.</p>
-   */
-  accessPolicyId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the access policy, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code>
    *          </p>
    */
   accessPolicyArn: string | undefined;
+
+  /**
+   * <p>The ID of the access policy.</p>
+   */
+  accessPolicyId: string | undefined;
 }
 
 export namespace CreateAccessPolicyResponse {
@@ -1671,14 +1671,14 @@ export namespace CreateAccessPolicyResponse {
 
 export interface CreateAssetRequest {
   /**
-   * <p>A unique, friendly name for the asset.</p>
-   */
-  assetName: string | undefined;
-
-  /**
    * <p>The ID of the asset model from which to create the asset.</p>
    */
   assetModelId: string | undefined;
+
+  /**
+   * <p>A unique, friendly name for the asset.</p>
+   */
+  assetName: string | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -1701,18 +1701,18 @@ export namespace CreateAssetRequest {
 
 export interface CreateAssetResponse {
   /**
-   * <p>The ID of the asset. This ID uniquely identifies the asset within AWS IoT SiteWise and can be used with other
-   *       AWS IoT SiteWise APIs.</p>
-   */
-  assetId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
   assetArn: string | undefined;
+
+  /**
+   * <p>The ID of the asset. This ID uniquely identifies the asset within AWS IoT SiteWise and can be used with other
+   *       AWS IoT SiteWise APIs.</p>
+   */
+  assetId: string | undefined;
 
   /**
    * <p>The status of the asset, which contains a state (<code>CREATING</code> after successfully
@@ -1735,14 +1735,14 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   $fault: "client";
   message: string | undefined;
   /**
-   * <p>The ID of the resource that already exists.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
    * <p>The ARN of the resource that already exists.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The ID of the resource that already exists.</p>
+   */
+  resourceId: string | undefined;
 }
 
 export namespace ResourceAlreadyExistsException {
@@ -1753,22 +1753,17 @@ export namespace ResourceAlreadyExistsException {
 
 export interface CreateAssetModelRequest {
   /**
-   * <p>A unique, friendly name for the asset model.</p>
+   * <p>The composite asset models that are part of this asset model.
+   *       Composite asset models are asset models that contain specific properties. Each composite model
+   *       has a type that defines the properties that the composite model supports. Use composite asset
+   *       models to define alarms on this asset model.</p>
    */
-  assetModelName: string | undefined;
+  assetModelCompositeModels?: AssetModelCompositeModelDefinition[];
 
   /**
    * <p>A description for the asset model.</p>
    */
   assetModelDescription?: string;
-
-  /**
-   * <p>The property definitions of the asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   *          <p>You can specify up to 200 properties per asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  assetModelProperties?: AssetModelPropertyDefinition[];
 
   /**
    * <p>The hierarchy definitions of the asset model. Each hierarchy specifies an asset model
@@ -1780,12 +1775,17 @@ export interface CreateAssetModelRequest {
   assetModelHierarchies?: AssetModelHierarchyDefinition[];
 
   /**
-   * <p>The composite asset models that are part of this asset model.
-   *       Composite asset models are asset models that contain specific properties. Each composite model
-   *       has a type that defines the properties that the composite model supports. Use composite asset
-   *       models to define alarms on this asset model.</p>
+   * <p>A unique, friendly name for the asset model.</p>
    */
-  assetModelCompositeModels?: AssetModelCompositeModelDefinition[];
+  assetModelName: string | undefined;
+
+  /**
+   * <p>The property definitions of the asset model. For more information, see
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *          <p>You can specify up to 200 properties per asset model. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  assetModelProperties?: AssetModelPropertyDefinition[];
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -1808,17 +1808,17 @@ export namespace CreateAssetModelRequest {
 
 export interface CreateAssetModelResponse {
   /**
-   * <p>The ID of the asset model. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
-   */
-  assetModelId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>
    *          </p>
    */
   assetModelArn: string | undefined;
+
+  /**
+   * <p>The ID of the asset model. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
+   */
+  assetModelId: string | undefined;
 
   /**
    * <p>The status of the asset model, which contains a state (<code>CREATING</code> after
@@ -1835,19 +1835,9 @@ export namespace CreateAssetModelResponse {
 
 export interface CreateDashboardRequest {
   /**
-   * <p>The ID of the project in which to create the dashboard.</p>
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
-  projectId: string | undefined;
-
-  /**
-   * <p>A friendly name for the dashboard.</p>
-   */
-  dashboardName: string | undefined;
-
-  /**
-   * <p>A description for the dashboard.</p>
-   */
-  dashboardDescription?: string;
+  clientToken?: string;
 
   /**
    * <p>The dashboard definition specified in a JSON literal. For detailed information, see
@@ -1856,9 +1846,19 @@ export interface CreateDashboardRequest {
   dashboardDefinition: string | undefined;
 
   /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * <p>A description for the dashboard.</p>
    */
-  clientToken?: string;
+  dashboardDescription?: string;
+
+  /**
+   * <p>A friendly name for the dashboard.</p>
+   */
+  dashboardName: string | undefined;
+
+  /**
+   * <p>The ID of the project in which to create the dashboard.</p>
+   */
+  projectId: string | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the dashboard. For more information,
@@ -1876,17 +1876,17 @@ export namespace CreateDashboardRequest {
 
 export interface CreateDashboardResponse {
   /**
-   * <p>The ID of the dashboard.</p>
-   */
-  dashboardId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the dashboard, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code>
    *          </p>
    */
   dashboardArn: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard.</p>
+   */
+  dashboardId: string | undefined;
 }
 
 export namespace CreateDashboardResponse {
@@ -1959,17 +1959,17 @@ export namespace CreateGatewayRequest {
 
 export interface CreateGatewayResponse {
   /**
-   * <p>The ID of the gateway device. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
-   */
-  gatewayId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the gateway, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code>
    *          </p>
    */
   gatewayArn: string | undefined;
+
+  /**
+   * <p>The ID of the gateway device. You can use this ID when you call other AWS IoT SiteWise APIs.</p>
+   */
+  gatewayId: string | undefined;
 }
 
 export namespace CreateGatewayResponse {
@@ -2006,44 +2006,9 @@ export namespace ImageFile {
 
 export interface CreatePortalRequest {
   /**
-   * <p>A friendly name for the portal.</p>
-   */
-  portalName: string | undefined;
-
-  /**
-   * <p>A description for the portal.</p>
-   */
-  portalDescription?: string;
-
-  /**
-   * <p>The AWS administrator's contact email address.</p>
-   */
-  portalContactEmail: string | undefined;
-
-  /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
-
-  /**
-   * <p>A logo image to display in the portal. Upload a square, high-resolution image. The
-   *       image is displayed on a dark background.</p>
-   */
-  portalLogoImageFile?: ImageFile;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your AWS IoT SiteWise
-   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
-   * <p>A list of key-value pairs that contain metadata for the portal. For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
-   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  tags?: { [key: string]: string };
 
   /**
    * <p>The service to use to authenticate users to the portal. Choose from the following
@@ -2068,6 +2033,41 @@ export interface CreatePortalRequest {
    *          </p>
    */
   portalAuthMode?: AuthMode | string;
+
+  /**
+   * <p>The AWS administrator's contact email address.</p>
+   */
+  portalContactEmail: string | undefined;
+
+  /**
+   * <p>A description for the portal.</p>
+   */
+  portalDescription?: string;
+
+  /**
+   * <p>A logo image to display in the portal. Upload a square, high-resolution image. The
+   *       image is displayed on a dark background.</p>
+   */
+  portalLogoImageFile?: ImageFile;
+
+  /**
+   * <p>A friendly name for the portal.</p>
+   */
+  portalName: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your AWS IoT SiteWise
+   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
+   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the portal. For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise
+   *         resources</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreatePortalRequest {
@@ -2116,14 +2116,14 @@ export enum PortalState {
  */
 export interface PortalStatus {
   /**
-   * <p>The current state of the portal.</p>
-   */
-  state: PortalState | string | undefined;
-
-  /**
    * <p>Contains associated error information, if any.</p>
    */
   error?: MonitorErrorDetails;
+
+  /**
+   * <p>The current state of the portal.</p>
+   */
+  state: PortalState | string | undefined;
 }
 
 export namespace PortalStatus {
@@ -2134,17 +2134,17 @@ export namespace PortalStatus {
 
 export interface CreatePortalResponse {
   /**
-   * <p>The ID of the created portal.</p>
-   */
-  portalId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the portal, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code>
    *          </p>
    */
   portalArn: string | undefined;
+
+  /**
+   * <p>The ID of the created portal.</p>
+   */
+  portalId: string | undefined;
 
   /**
    * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
@@ -2173,14 +2173,14 @@ export namespace CreatePortalResponse {
 
 export interface CreateProjectRequest {
   /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+
+  /**
    * <p>The ID of the portal in which to create the project.</p>
    */
   portalId: string | undefined;
-
-  /**
-   * <p>A friendly name for the project.</p>
-   */
-  projectName: string | undefined;
 
   /**
    * <p>A description for the project.</p>
@@ -2188,9 +2188,9 @@ export interface CreateProjectRequest {
   projectDescription?: string;
 
   /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * <p>A friendly name for the project.</p>
    */
-  clientToken?: string;
+  projectName: string | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the project. For more information, see
@@ -2208,17 +2208,17 @@ export namespace CreateProjectRequest {
 
 export interface CreateProjectResponse {
   /**
-   * <p>The ID of the project.</p>
-   */
-  projectId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:project/${ProjectId}</code>
    *          </p>
    */
   projectArn: string | undefined;
+
+  /**
+   * <p>The ID of the project.</p>
+   */
+  projectId: string | undefined;
 }
 
 export namespace CreateProjectResponse {
@@ -2319,14 +2319,14 @@ export namespace DeleteAssetModelResponse {
 
 export interface DeleteDashboardRequest {
   /**
-   * <p>The ID of the dashboard to delete.</p>
-   */
-  dashboardId: string | undefined;
-
-  /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of the dashboard to delete.</p>
+   */
+  dashboardId: string | undefined;
 }
 
 export namespace DeleteDashboardRequest {
@@ -2358,14 +2358,14 @@ export namespace DeleteGatewayRequest {
 
 export interface DeletePortalRequest {
   /**
-   * <p>The ID of the portal to delete.</p>
-   */
-  portalId: string | undefined;
-
-  /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of the portal to delete.</p>
+   */
+  portalId: string | undefined;
 }
 
 export namespace DeletePortalRequest {
@@ -2390,14 +2390,14 @@ export namespace DeletePortalResponse {
 
 export interface DeleteProjectRequest {
   /**
-   * <p>The ID of the project.</p>
-   */
-  projectId: string | undefined;
-
-  /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of the project.</p>
+   */
+  projectId: string | undefined;
 }
 
 export namespace DeleteProjectRequest {
@@ -2429,11 +2429,6 @@ export namespace DescribeAccessPolicyRequest {
 
 export interface DescribeAccessPolicyResponse {
   /**
-   * <p>The ID of the access policy.</p>
-   */
-  accessPolicyId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the access policy, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code>
@@ -2442,16 +2437,25 @@ export interface DescribeAccessPolicyResponse {
   accessPolicyArn: string | undefined;
 
   /**
+   * <p>The date the access policy was created, in Unix epoch time.</p>
+   */
+  accessPolicyCreationDate: Date | undefined;
+
+  /**
+   * <p>The ID of the access policy.</p>
+   */
+  accessPolicyId: string | undefined;
+
+  /**
    * <p>The identity (AWS SSO user, AWS SSO group, or IAM user) to which this access policy
    *       applies.</p>
    */
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource (portal or project) to which this access policy provides
-   *       access.</p>
+   * <p>The date the access policy was last updated, in Unix epoch time.</p>
    */
-  accessPolicyResource: Resource | undefined;
+  accessPolicyLastUpdateDate: Date | undefined;
 
   /**
    * <p>The access policy permission. Note that a project <code>ADMINISTRATOR</code> is also known
@@ -2460,14 +2464,10 @@ export interface DescribeAccessPolicyResponse {
   accessPolicyPermission: Permission | string | undefined;
 
   /**
-   * <p>The date the access policy was created, in Unix epoch time.</p>
+   * <p>The AWS IoT SiteWise Monitor resource (portal or project) to which this access policy provides
+   *       access.</p>
    */
-  accessPolicyCreationDate: Date | undefined;
-
-  /**
-   * <p>The date the access policy was last updated, in Unix epoch time.</p>
-   */
-  accessPolicyLastUpdateDate: Date | undefined;
+  accessPolicyResource: Resource | undefined;
 }
 
 export namespace DescribeAccessPolicyResponse {
@@ -2491,39 +2491,12 @@ export namespace DescribeAssetRequest {
 
 export interface DescribeAssetResponse {
   /**
-   * <p>The ID of the asset.</p>
-   */
-  assetId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
   assetArn: string | undefined;
-
-  /**
-   * <p>The name of the asset.</p>
-   */
-  assetName: string | undefined;
-
-  /**
-   * <p>The ID of the asset model that was used to create the asset.</p>
-   */
-  assetModelId: string | undefined;
-
-  /**
-   * <p>The list of asset properties for the asset.</p>
-   *          <p>This object doesn't include properties that you define in composite models. You can find
-   *       composite model properties in the <code>assetCompositeModels</code> object.</p>
-   */
-  assetProperties: AssetProperty[] | undefined;
-
-  /**
-   * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
-   */
-  assetHierarchies: AssetHierarchy[] | undefined;
 
   /**
    * <p>The composite models for the asset.</p>
@@ -2536,9 +2509,36 @@ export interface DescribeAssetResponse {
   assetCreationDate: Date | undefined;
 
   /**
+   * <p>A list of asset hierarchies that each contain a <code>hierarchyId</code>. A hierarchy specifies allowed parent/child asset relationships.</p>
+   */
+  assetHierarchies: AssetHierarchy[] | undefined;
+
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  assetId: string | undefined;
+
+  /**
    * <p>The date the asset was last updated, in Unix epoch time.</p>
    */
   assetLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The ID of the asset model that was used to create the asset.</p>
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The name of the asset.</p>
+   */
+  assetName: string | undefined;
+
+  /**
+   * <p>The list of asset properties for the asset.</p>
+   *          <p>This object doesn't include properties that you define in composite models. You can find
+   *       composite model properties in the <code>assetCompositeModels</code> object.</p>
+   */
+  assetProperties: AssetProperty[] | undefined;
 
   /**
    * <p>The current status of the asset, which contains a state and any error message.</p>
@@ -2567,41 +2567,12 @@ export namespace DescribeAssetModelRequest {
 
 export interface DescribeAssetModelResponse {
   /**
-   * <p>The ID of the asset model.</p>
-   */
-  assetModelId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>
    *          </p>
    */
   assetModelArn: string | undefined;
-
-  /**
-   * <p>The name of the asset model.</p>
-   */
-  assetModelName: string | undefined;
-
-  /**
-   * <p>The asset model's description.</p>
-   */
-  assetModelDescription: string | undefined;
-
-  /**
-   * <p>The list of asset properties for the asset model.</p>
-   *          <p>This object doesn't include properties that you define in composite models. You can find
-   *       composite model properties in the <code>assetModelCompositeModels</code> object.</p>
-   */
-  assetModelProperties: AssetModelProperty[] | undefined;
-
-  /**
-   * <p>A list of asset model hierarchies that each contain a <code>childAssetModelId</code> and a
-   *         <code>hierarchyId</code> (named <code>id</code>). A hierarchy specifies allowed parent/child
-   *       asset relationships for an asset model.</p>
-   */
-  assetModelHierarchies: AssetModelHierarchy[] | undefined;
 
   /**
    * <p>The list of composite asset models for the asset model.</p>
@@ -2614,9 +2585,38 @@ export interface DescribeAssetModelResponse {
   assetModelCreationDate: Date | undefined;
 
   /**
+   * <p>The asset model's description.</p>
+   */
+  assetModelDescription: string | undefined;
+
+  /**
+   * <p>A list of asset model hierarchies that each contain a <code>childAssetModelId</code> and a
+   *         <code>hierarchyId</code> (named <code>id</code>). A hierarchy specifies allowed parent/child
+   *       asset relationships for an asset model.</p>
+   */
+  assetModelHierarchies: AssetModelHierarchy[] | undefined;
+
+  /**
+   * <p>The ID of the asset model.</p>
+   */
+  assetModelId: string | undefined;
+
+  /**
    * <p>The date the asset model was last updated, in Unix epoch time.</p>
    */
   assetModelLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The name of the asset model.</p>
+   */
+  assetModelName: string | undefined;
+
+  /**
+   * <p>The list of asset properties for the asset model.</p>
+   *          <p>This object doesn't include properties that you define in composite models. You can find
+   *       composite model properties in the <code>assetModelCompositeModels</code> object.</p>
+   */
+  assetModelProperties: AssetModelProperty[] | undefined;
 
   /**
    * <p>The current status of the asset model, which contains a state and any error
@@ -2654,6 +2654,19 @@ export namespace DescribeAssetPropertyRequest {
  */
 export interface Property {
   /**
+   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  alias?: string;
+
+  /**
+   * <p>The property data type.</p>
+   */
+  dataType: PropertyDataType | string | undefined;
+
+  /**
    * <p>The ID of the asset property.</p>
    */
   id: string | undefined;
@@ -2664,32 +2677,19 @@ export interface Property {
   name: string | undefined;
 
   /**
-   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
-   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  alias?: string;
-
-  /**
    * <p>The asset property's notification topic and state. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
    */
   notification?: PropertyNotification;
 
   /**
-   * <p>The property data type.</p>
+   * <p>The property type (see <code>PropertyType</code>). A property contains one type.</p>
    */
-  dataType: PropertyDataType | string | undefined;
+  type?: PropertyType;
 
   /**
    * <p>The unit (such as <code>Newtons</code> or <code>RPM</code>) of the asset property.</p>
    */
   unit?: string;
-
-  /**
-   * <p>The property type (see <code>PropertyType</code>). A property contains one type.</p>
-   */
-  type?: PropertyType;
 }
 
 export namespace Property {
@@ -2703,6 +2703,11 @@ export namespace Property {
  */
 export interface CompositeModelProperty {
   /**
+   * <p>Contains asset property information.</p>
+   */
+  assetProperty: Property | undefined;
+
+  /**
    * <p>The name of the property.</p>
    */
   name: string | undefined;
@@ -2711,11 +2716,6 @@ export interface CompositeModelProperty {
    * <p>The type of the composite model that defines this property.</p>
    */
   type: string | undefined;
-
-  /**
-   * <p>Contains asset property information.</p>
-   */
-  assetProperty: Property | undefined;
 }
 
 export namespace CompositeModelProperty {
@@ -2731,14 +2731,14 @@ export interface DescribeAssetPropertyResponse {
   assetId: string | undefined;
 
   /**
-   * <p>The name of the asset.</p>
-   */
-  assetName: string | undefined;
-
-  /**
    * <p>The ID of the asset model.</p>
    */
   assetModelId: string | undefined;
+
+  /**
+   * <p>The name of the asset.</p>
+   */
+  assetName: string | undefined;
 
   /**
    * <p>The asset property's definition, alias, and notification state.</p>
@@ -2776,17 +2776,38 @@ export namespace DescribeDashboardRequest {
 
 export interface DescribeDashboardResponse {
   /**
-   * <p>The ID of the dashboard.</p>
-   */
-  dashboardId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the dashboard, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code>
    *          </p>
    */
   dashboardArn: string | undefined;
+
+  /**
+   * <p>The date the dashboard was created, in Unix epoch time.</p>
+   */
+  dashboardCreationDate: Date | undefined;
+
+  /**
+   * <p>The dashboard's definition JSON literal. For detailed information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating
+   *         dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  dashboardDefinition: string | undefined;
+
+  /**
+   * <p>The dashboard's description.</p>
+   */
+  dashboardDescription?: string;
+
+  /**
+   * <p>The ID of the dashboard.</p>
+   */
+  dashboardId: string | undefined;
+
+  /**
+   * <p>The date the dashboard was last updated, in Unix epoch time.</p>
+   */
+  dashboardLastUpdateDate: Date | undefined;
 
   /**
    * <p>The name of the dashboard.</p>
@@ -2797,27 +2818,6 @@ export interface DescribeDashboardResponse {
    * <p>The ID of the project that the dashboard is in.</p>
    */
   projectId: string | undefined;
-
-  /**
-   * <p>The dashboard's description.</p>
-   */
-  dashboardDescription?: string;
-
-  /**
-   * <p>The dashboard's definition JSON literal. For detailed information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating
-   *         dashboards (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  dashboardDefinition: string | undefined;
-
-  /**
-   * <p>The date the dashboard was created, in Unix epoch time.</p>
-   */
-  dashboardCreationDate: Date | undefined;
-
-  /**
-   * <p>The date the dashboard was last updated, in Unix epoch time.</p>
-   */
-  dashboardLastUpdateDate: Date | undefined;
 }
 
 export namespace DescribeDashboardResponse {
@@ -2866,14 +2866,14 @@ export enum ConfigurationState {
  */
 export interface ConfigurationStatus {
   /**
-   * <p>The current state of the configuration.</p>
-   */
-  state: ConfigurationState | string | undefined;
-
-  /**
    * <p>Contains associated error information, if any.</p>
    */
   error?: ConfigurationErrorDetails;
+
+  /**
+   * <p>The current state of the configuration.</p>
+   */
+  state: ConfigurationState | string | undefined;
 }
 
 export namespace ConfigurationStatus {
@@ -2889,6 +2889,13 @@ export enum EncryptionType {
 
 export interface DescribeDefaultEncryptionConfigurationResponse {
   /**
+   * <p>The status of the account configuration. This contains the
+   *       <code>ConfigurationState</code>. If
+   *       there's an error, it also contains the <code>ErrorDetails</code>.</p>
+   */
+  configurationStatus: ConfigurationStatus | undefined;
+
+  /**
    * <p>The type of encryption used for the encryption configuration.</p>
    */
   encryptionType: EncryptionType | string | undefined;
@@ -2898,13 +2905,6 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
    *       if you use <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyArn?: string;
-
-  /**
-   * <p>The status of the account configuration. This contains the
-   *       <code>ConfigurationState</code>. If
-   *       there's an error, it also contains the <code>ErrorDetails</code>.</p>
-   */
-  configurationStatus: ConfigurationStatus | undefined;
 }
 
 export namespace DescribeDefaultEncryptionConfigurationResponse {
@@ -2973,14 +2973,9 @@ export namespace GatewayCapabilitySummary {
 
 export interface DescribeGatewayResponse {
   /**
-   * <p>The ID of the gateway device.</p>
+   * <p>The date the gateway was created, in Unix epoch time.</p>
    */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>The name of the gateway.</p>
-   */
-  gatewayName: string | undefined;
+  creationDate: Date | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the gateway, which has the following format.</p>
@@ -2991,11 +2986,6 @@ export interface DescribeGatewayResponse {
   gatewayArn: string | undefined;
 
   /**
-   * <p>The gateway's platform.</p>
-   */
-  gatewayPlatform?: GatewayPlatform;
-
-  /**
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each
    *       gateway capability defines data sources for the gateway. To retrieve a capability
    *       configuration's definition, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html">DescribeGatewayCapabilityConfiguration</a>.</p>
@@ -3003,9 +2993,19 @@ export interface DescribeGatewayResponse {
   gatewayCapabilitySummaries: GatewayCapabilitySummary[] | undefined;
 
   /**
-   * <p>The date the gateway was created, in Unix epoch time.</p>
+   * <p>The ID of the gateway device.</p>
    */
-  creationDate: Date | undefined;
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The name of the gateway.</p>
+   */
+  gatewayName: string | undefined;
+
+  /**
+   * <p>The gateway's platform.</p>
+   */
+  gatewayPlatform?: GatewayPlatform;
 
   /**
    * <p>The date the gateway was last updated, in Unix epoch time.</p>
@@ -3021,11 +3021,6 @@ export namespace DescribeGatewayResponse {
 
 export interface DescribeGatewayCapabilityConfigurationRequest {
   /**
-   * <p>The ID of the gateway that defines the capability configuration.</p>
-   */
-  gatewayId: string | undefined;
-
-  /**
    * <p>The namespace of the capability configuration.
    *       For example, if you configure OPC-UA
    *       sources from the AWS IoT SiteWise console, your OPC-UA capability configuration has the namespace
@@ -3033,6 +3028,11 @@ export interface DescribeGatewayCapabilityConfigurationRequest {
    *         <code>1</code>.</p>
    */
   capabilityNamespace: string | undefined;
+
+  /**
+   * <p>The ID of the gateway that defines the capability configuration.</p>
+   */
+  gatewayId: string | undefined;
 }
 
 export namespace DescribeGatewayCapabilityConfigurationRequest {
@@ -3043,20 +3043,15 @@ export namespace DescribeGatewayCapabilityConfigurationRequest {
 
 export interface DescribeGatewayCapabilityConfigurationResponse {
   /**
-   * <p>The ID of the gateway that defines the capability configuration.</p>
+   * <p>The JSON document that defines the gateway capability's configuration. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    */
-  gatewayId: string | undefined;
+  capabilityConfiguration: string | undefined;
 
   /**
    * <p>The namespace of the gateway capability.</p>
    */
   capabilityNamespace: string | undefined;
-
-  /**
-   * <p>The JSON document that defines the gateway capability's configuration. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  capabilityConfiguration: string | undefined;
 
   /**
    * <p>The synchronization status of the capability configuration. The sync status can be one of the following:</p>
@@ -3076,6 +3071,11 @@ export interface DescribeGatewayCapabilityConfigurationResponse {
    *          </ul>
    */
   capabilitySyncStatus: CapabilitySyncStatus | string | undefined;
+
+  /**
+   * <p>The ID of the gateway that defines the capability configuration.</p>
+   */
+  gatewayId: string | undefined;
 }
 
 export namespace DescribeGatewayCapabilityConfigurationResponse {
@@ -3164,11 +3164,6 @@ export namespace ImageLocation {
 
 export interface DescribePortalResponse {
   /**
-   * <p>The ID of the portal.</p>
-   */
-  portalId: string | undefined;
-
-  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the portal, which has the following format.</p>
    *         <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code>
@@ -3177,14 +3172,9 @@ export interface DescribePortalResponse {
   portalArn: string | undefined;
 
   /**
-   * <p>The name of the portal.</p>
+   * <p>The service to use to authenticate users to the portal.</p>
    */
-  portalName: string | undefined;
-
-  /**
-   * <p>The portal's description.</p>
-   */
-  portalDescription?: string;
+  portalAuthMode?: AuthMode | string;
 
   /**
    * <p>The AWS SSO application generated client ID (used with AWS SSO APIs). AWS IoT SiteWise includes
@@ -3193,26 +3183,24 @@ export interface DescribePortalResponse {
   portalClientId: string | undefined;
 
   /**
-   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
-   */
-  portalStartUrl: string | undefined;
-
-  /**
    * <p>The AWS administrator's contact email address.</p>
    */
   portalContactEmail: string | undefined;
 
   /**
-   * <p>The current status of the portal, which contains a state and any error message.</p>
-   */
-  portalStatus: PortalStatus | undefined;
-
-  /**
    * <p>The date the portal was created, in Unix epoch time.</p>
    */
   portalCreationDate: Date | undefined;
+
+  /**
+   * <p>The portal's description.</p>
+   */
+  portalDescription?: string;
+
+  /**
+   * <p>The ID of the portal.</p>
+   */
+  portalId: string | undefined;
 
   /**
    * <p>The date the portal was last updated, in Unix epoch time.</p>
@@ -3225,16 +3213,28 @@ export interface DescribePortalResponse {
   portalLogoImageLocation?: ImageLocation;
 
   /**
+   * <p>The name of the portal.</p>
+   */
+  portalName: string | undefined;
+
+  /**
+   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
+   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   */
+  portalStartUrl: string | undefined;
+
+  /**
+   * <p>The current status of the portal, which contains a state and any error message.</p>
+   */
+  portalStatus: PortalStatus | undefined;
+
+  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your AWS IoT SiteWise
    *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   roleArn?: string;
-
-  /**
-   * <p>The service to use to authenticate users to the portal.</p>
-   */
-  portalAuthMode?: AuthMode | string;
 }
 
 export namespace DescribePortalResponse {
@@ -3258,9 +3258,9 @@ export namespace DescribeProjectRequest {
 
 export interface DescribeProjectResponse {
   /**
-   * <p>The ID of the project.</p>
+   * <p>The ID of the portal that the project is in.</p>
    */
-  projectId: string | undefined;
+  portalId: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
@@ -3271,14 +3271,9 @@ export interface DescribeProjectResponse {
   projectArn: string | undefined;
 
   /**
-   * <p>The name of the project.</p>
+   * <p>The date the project was created, in Unix epoch time.</p>
    */
-  projectName: string | undefined;
-
-  /**
-   * <p>The ID of the portal that the project is in.</p>
-   */
-  portalId: string | undefined;
+  projectCreationDate: Date | undefined;
 
   /**
    * <p>The project's description.</p>
@@ -3286,14 +3281,19 @@ export interface DescribeProjectResponse {
   projectDescription?: string;
 
   /**
-   * <p>The date the project was created, in Unix epoch time.</p>
+   * <p>The ID of the project.</p>
    */
-  projectCreationDate: Date | undefined;
+  projectId: string | undefined;
 
   /**
    * <p>The date the project was last updated, in Unix epoch time.</p>
    */
   projectLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  projectName: string | undefined;
 }
 
 export namespace DescribeProjectResponse {
@@ -3309,14 +3309,6 @@ export interface DisassociateAssetsRequest {
   assetId: string | undefined;
 
   /**
-   * <p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings
-   *       of assets to be formed that all come from the same asset model. You can use the hierarchy ID
-   *       to identify the correct asset to disassociate. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  hierarchyId: string | undefined;
-
-  /**
    * <p>The ID of the child asset to disassociate.</p>
    */
   childAssetId: string | undefined;
@@ -3325,6 +3317,14 @@ export interface DisassociateAssetsRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The ID of a hierarchy in the parent asset's model. Hierarchies allow different groupings
+   *       of assets to be formed that all come from the same asset model. You can use the hierarchy ID
+   *       to identify the correct asset to disassociate. For more information, see
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  hierarchyId: string | undefined;
 }
 
 export namespace DisassociateAssetsRequest {
@@ -3340,14 +3340,30 @@ export enum TimeOrdering {
 
 export interface GetAssetPropertyAggregatesRequest {
   /**
+   * <p>The data aggregating function.</p>
+   */
+  aggregateTypes: (AggregateType | string)[] | undefined;
+
+  /**
    * <p>The ID of the asset.</p>
    */
   assetId?: string;
 
   /**
-   * <p>The ID of the asset property.</p>
+   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
    */
-  propertyId?: string;
+  endDate: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 100</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
@@ -3358,14 +3374,9 @@ export interface GetAssetPropertyAggregatesRequest {
   propertyAlias?: string;
 
   /**
-   * <p>The data aggregating function.</p>
+   * <p>The ID of the asset property.</p>
    */
-  aggregateTypes: (AggregateType | string)[] | undefined;
-
-  /**
-   * <p>The time interval over which to aggregate data.</p>
-   */
-  resolution: string | undefined;
+  propertyId?: string;
 
   /**
    * <p>The quality by which to filter asset data.</p>
@@ -3373,14 +3384,14 @@ export interface GetAssetPropertyAggregatesRequest {
   qualities?: (Quality | string)[];
 
   /**
+   * <p>The time interval over which to aggregate data.</p>
+   */
+  resolution: string | undefined;
+
+  /**
    * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
    */
   startDate: Date | undefined;
-
-  /**
-   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
-   */
-  endDate: Date | undefined;
 
   /**
    * <p>The chronological sorting order of the requested information.</p>
@@ -3388,17 +3399,6 @@ export interface GetAssetPropertyAggregatesRequest {
    *          </p>
    */
   timeOrdering?: TimeOrdering | string;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 100</p>
-   */
-  maxResults?: number;
 }
 
 export namespace GetAssetPropertyAggregatesRequest {
@@ -3432,17 +3432,17 @@ export interface GetAssetPropertyValueRequest {
   assetId?: string;
 
   /**
-   * <p>The ID of the asset property.</p>
-   */
-  propertyId?: string;
-
-  /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
    *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
    *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   propertyAlias?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
 }
 
 export namespace GetAssetPropertyValueRequest {
@@ -3471,9 +3471,20 @@ export interface GetAssetPropertyValueHistoryRequest {
   assetId?: string;
 
   /**
-   * <p>The ID of the asset property.</p>
+   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
    */
-  propertyId?: string;
+  endDate?: Date;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 100</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
@@ -3484,14 +3495,9 @@ export interface GetAssetPropertyValueHistoryRequest {
   propertyAlias?: string;
 
   /**
-   * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   * <p>The ID of the asset property.</p>
    */
-  startDate?: Date;
-
-  /**
-   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
-   */
-  endDate?: Date;
+  propertyId?: string;
 
   /**
    * <p>The quality by which to filter asset data.</p>
@@ -3499,22 +3505,16 @@ export interface GetAssetPropertyValueHistoryRequest {
   qualities?: (Quality | string)[];
 
   /**
+   * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
+   */
+  startDate?: Date;
+
+  /**
    * <p>The chronological sorting order of the requested information.</p>
    *          <p>Default: <code>ASCENDING</code>
    *          </p>
    */
   timeOrdering?: TimeOrdering | string;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 100</p>
-   */
-  maxResults?: number;
 }
 
 export namespace GetAssetPropertyValueHistoryRequest {
@@ -3554,10 +3554,11 @@ export enum ResourceType {
 
 export interface ListAccessPoliciesRequest {
   /**
-   * <p>The type of identity (AWS SSO user, AWS SSO group, or IAM user). This parameter is required
-   *       if you specify <code>identityId</code>.</p>
+   * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
+   *         <i>IAM User Guide</i>. This parameter is required if you specify
+   *         <code>IAM</code> for <code>identityType</code>.</p>
    */
-  identityType?: IdentityType | string;
+  iamArn?: string;
 
   /**
    * <p>The ID of the identity. This parameter is required if you specify <code>USER</code> or
@@ -3566,10 +3567,21 @@ export interface ListAccessPoliciesRequest {
   identityId?: string;
 
   /**
-   * <p>The type of resource (portal or project). This parameter is required if you specify
-   *         <code>resourceId</code>.</p>
+   * <p>The type of identity (AWS SSO user, AWS SSO group, or IAM user). This parameter is required
+   *       if you specify <code>identityId</code>.</p>
    */
-  resourceType?: ResourceType | string;
+  identityType?: IdentityType | string;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 50</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The ID of the resource. This parameter is required if you specify
@@ -3578,22 +3590,10 @@ export interface ListAccessPoliciesRequest {
   resourceId?: string;
 
   /**
-   * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
-   *         <i>IAM User Guide</i>. This parameter is required if you specify
-   *         <code>IAM</code> for <code>identityType</code>.</p>
+   * <p>The type of resource (portal or project). This parameter is required if you specify
+   *         <code>resourceId</code>.</p>
    */
-  iamArn?: string;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 50</p>
-   */
-  maxResults?: number;
+  resourceType?: ResourceType | string;
 }
 
 export namespace ListAccessPoliciesRequest {
@@ -3622,15 +3622,15 @@ export namespace ListAccessPoliciesResponse {
 
 export interface ListAssetModelsRequest {
   /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListAssetModelsRequest {
@@ -3668,6 +3668,16 @@ export interface ListAssetRelationshipsRequest {
   assetId: string | undefined;
 
   /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The type of traversal to use to identify asset relationships. Choose the following
    *       option:</p>
    *          <ul>
@@ -3680,16 +3690,6 @@ export interface ListAssetRelationshipsRequest {
    *          </ul>
    */
   traversalType: TraversalType | string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListAssetRelationshipsRequest {
@@ -3723,17 +3723,6 @@ export enum ListAssetsFilter {
 
 export interface ListAssetsRequest {
   /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 50</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The ID of the asset model by which to filter the list of assets. This parameter is
    *       required if you choose <code>ALL</code> for <code>filter</code>.</p>
    */
@@ -3758,6 +3747,17 @@ export interface ListAssetsRequest {
    *          </p>
    */
   filter?: ListAssetsFilter | string;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 50</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListAssetsRequest {
@@ -3805,6 +3805,17 @@ export interface ListAssociatedAssetsRequest {
   hierarchyId?: string;
 
   /**
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 50</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
    * <p>The direction to list associated assets. Choose one of the following options:</p>
    *          <ul>
    *             <li>
@@ -3822,17 +3833,6 @@ export interface ListAssociatedAssetsRequest {
    *          </p>
    */
   traversalDirection?: TraversalDirection | string;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 50</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListAssociatedAssetsRequest {
@@ -3861,9 +3861,10 @@ export namespace ListAssociatedAssetsResponse {
 
 export interface ListDashboardsRequest {
   /**
-   * <p>The ID of the project.</p>
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 50</p>
    */
-  projectId: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -3871,10 +3872,9 @@ export interface ListDashboardsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 50</p>
+   * <p>The ID of the project.</p>
    */
-  maxResults?: number;
+  projectId: string | undefined;
 }
 
 export namespace ListDashboardsRequest {
@@ -3888,14 +3888,9 @@ export namespace ListDashboardsRequest {
  */
 export interface DashboardSummary {
   /**
-   * <p>The ID of the dashboard.</p>
+   * <p>The date the dashboard was created, in Unix epoch time.</p>
    */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the dashboard</p>
-   */
-  name: string | undefined;
+  creationDate?: Date;
 
   /**
    * <p>The dashboard's description.</p>
@@ -3903,14 +3898,19 @@ export interface DashboardSummary {
   description?: string;
 
   /**
-   * <p>The date the dashboard was created, in Unix epoch time.</p>
+   * <p>The ID of the dashboard.</p>
    */
-  creationDate?: Date;
+  id: string | undefined;
 
   /**
    * <p>The date the dashboard was last updated, in Unix epoch time.</p>
    */
   lastUpdateDate?: Date;
+
+  /**
+   * <p>The name of the dashboard</p>
+   */
+  name: string | undefined;
 }
 
 export namespace DashboardSummary {
@@ -3939,15 +3939,15 @@ export namespace ListDashboardsResponse {
 
 export interface ListGatewaysRequest {
   /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListGatewaysRequest {
@@ -3961,14 +3961,9 @@ export namespace ListGatewaysRequest {
  */
 export interface GatewaySummary {
   /**
-   * <p>The ID of the gateway device.</p>
+   * <p>The date the gateway was created, in Unix epoch time.</p>
    */
-  gatewayId: string | undefined;
-
-  /**
-   * <p>The name of the asset.</p>
-   */
-  gatewayName: string | undefined;
+  creationDate: Date | undefined;
 
   /**
    * <p>A list of gateway capability summaries that each contain a namespace and status. Each
@@ -3978,9 +3973,14 @@ export interface GatewaySummary {
   gatewayCapabilitySummaries?: GatewayCapabilitySummary[];
 
   /**
-   * <p>The date the gateway was created, in Unix epoch time.</p>
+   * <p>The ID of the gateway device.</p>
    */
-  creationDate: Date | undefined;
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The name of the asset.</p>
+   */
+  gatewayName: string | undefined;
 
   /**
    * <p>The date the gateway was last updated, in Unix epoch time.</p>
@@ -4014,15 +4014,15 @@ export namespace ListGatewaysResponse {
 
 export interface ListPortalsRequest {
   /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    *          <p>Default: 50</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPortalsRequest {
@@ -4036,14 +4036,9 @@ export namespace ListPortalsRequest {
  */
 export interface PortalSummary {
   /**
-   * <p>The ID of the portal.</p>
+   * <p>The date the portal was created, in Unix epoch time.</p>
    */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the portal.</p>
-   */
-  name: string | undefined;
+  creationDate?: Date;
 
   /**
    * <p>The portal's description.</p>
@@ -4051,16 +4046,9 @@ export interface PortalSummary {
   description?: string;
 
   /**
-   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
-   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
-   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * <p>The ID of the portal.</p>
    */
-  startUrl: string | undefined;
-
-  /**
-   * <p>The date the portal was created, in Unix epoch time.</p>
-   */
-  creationDate?: Date;
+  id: string | undefined;
 
   /**
    * <p>The date the portal was last updated, in Unix epoch time.</p>
@@ -4068,11 +4056,23 @@ export interface PortalSummary {
   lastUpdateDate?: Date;
 
   /**
+   * <p>The name of the portal.</p>
+   */
+  name: string | undefined;
+
+  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your AWS IoT SiteWise
    *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The URL for the AWS IoT SiteWise Monitor portal. You can use this URL to access portals that
+   *       use AWS SSO for authentication. For portals that use IAM for authentication, you must use the
+   *       AWS IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   */
+  startUrl: string | undefined;
 
   /**
    * <p>Contains information about the current status of a portal.</p>
@@ -4088,14 +4088,14 @@ export namespace PortalSummary {
 
 export interface ListPortalsResponse {
   /**
-   * <p>A list that summarizes each portal.</p>
-   */
-  portalSummaries?: PortalSummary[];
-
-  /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list that summarizes each portal.</p>
+   */
+  portalSummaries?: PortalSummary[];
 }
 
 export namespace ListPortalsResponse {
@@ -4106,9 +4106,10 @@ export namespace ListPortalsResponse {
 
 export interface ListProjectAssetsRequest {
   /**
-   * <p>The ID of the project.</p>
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 50</p>
    */
-  projectId: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -4116,10 +4117,9 @@ export interface ListProjectAssetsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 50</p>
+   * <p>The ID of the project.</p>
    */
-  maxResults?: number;
+  projectId: string | undefined;
 }
 
 export namespace ListProjectAssetsRequest {
@@ -4148,9 +4148,10 @@ export namespace ListProjectAssetsResponse {
 
 export interface ListProjectsRequest {
   /**
-   * <p>The ID of the portal.</p>
+   * <p>The maximum number of results to be returned per paginated request.</p>
+   *          <p>Default: 50</p>
    */
-  portalId: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
@@ -4158,10 +4159,9 @@ export interface ListProjectsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to be returned per paginated request.</p>
-   *          <p>Default: 50</p>
+   * <p>The ID of the portal.</p>
    */
-  maxResults?: number;
+  portalId: string | undefined;
 }
 
 export namespace ListProjectsRequest {
@@ -4175,14 +4175,9 @@ export namespace ListProjectsRequest {
  */
 export interface ProjectSummary {
   /**
-   * <p>The ID of the project.</p>
+   * <p>The date the project was created, in Unix epoch time.</p>
    */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the project.</p>
-   */
-  name: string | undefined;
+  creationDate?: Date;
 
   /**
    * <p>The project's description.</p>
@@ -4190,14 +4185,19 @@ export interface ProjectSummary {
   description?: string;
 
   /**
-   * <p>The date the project was created, in Unix epoch time.</p>
+   * <p>The ID of the project.</p>
    */
-  creationDate?: Date;
+  id: string | undefined;
 
   /**
    * <p>The date the project was last updated, in Unix epoch time.</p>
    */
   lastUpdateDate?: Date;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace ProjectSummary {
@@ -4208,14 +4208,14 @@ export namespace ProjectSummary {
 
 export interface ListProjectsResponse {
   /**
-   * <p>A list that summarizes each project in the portal.</p>
-   */
-  projectSummaries: ProjectSummary[] | undefined;
-
-  /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list that summarizes each project in the portal.</p>
+   */
+  projectSummaries: ProjectSummary[] | undefined;
 }
 
 export namespace ListProjectsResponse {
@@ -4288,6 +4288,13 @@ export namespace PutDefaultEncryptionConfigurationRequest {
 
 export interface PutDefaultEncryptionConfigurationResponse {
   /**
+   * <p>The status of the account configuration. This contains the
+   *       <code>ConfigurationState</code>. If there is an error, it also contains the
+   *         <code>ErrorDetails</code>.</p>
+   */
+  configurationStatus: ConfigurationStatus | undefined;
+
+  /**
    * <p>The type of encryption used for the encryption configuration.</p>
    */
   encryptionType: EncryptionType | string | undefined;
@@ -4297,13 +4304,6 @@ export interface PutDefaultEncryptionConfigurationResponse {
    *       <code>KMS_BASED_ENCRYPTION</code>.</p>
    */
   kmsKeyArn?: string;
-
-  /**
-   * <p>The status of the account configuration. This contains the
-   *       <code>ConfigurationState</code>. If there is an error, it also contains the
-   *         <code>ErrorDetails</code>.</p>
-   */
-  configurationStatus: ConfigurationStatus | undefined;
 }
 
 export namespace PutDefaultEncryptionConfigurationResponse {
@@ -4420,14 +4420,14 @@ export interface UpdateAccessPolicyRequest {
   accessPolicyIdentity: Identity | undefined;
 
   /**
-   * <p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
-   */
-  accessPolicyResource: Resource | undefined;
-
-  /**
    * <p>The permission level for this access policy. Note that a project <code>ADMINISTRATOR</code> is also known as a project owner.</p>
    */
   accessPolicyPermission: Permission | string | undefined;
+
+  /**
+   * <p>The AWS IoT SiteWise Monitor resource for this access policy. Choose either a portal or a project.</p>
+   */
+  accessPolicyResource: Resource | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -4488,27 +4488,17 @@ export namespace UpdateAssetResponse {
 
 export interface UpdateAssetModelRequest {
   /**
-   * <p>The ID of the asset model to update.</p>
+   * <p>The composite asset models that are part of this asset model.
+   *       Composite asset models are asset models that contain specific properties. Each composite model
+   *       has a type that defines the properties that the composite model supports. Use composite asset
+   *       models to define alarms on this asset model.</p>
    */
-  assetModelId: string | undefined;
-
-  /**
-   * <p>A unique, friendly name for the asset model.</p>
-   */
-  assetModelName: string | undefined;
+  assetModelCompositeModels?: AssetModelCompositeModel[];
 
   /**
    * <p>A description for the asset model.</p>
    */
   assetModelDescription?: string;
-
-  /**
-   * <p>The updated property definitions of the asset model. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   *          <p>You can specify up to 200 properties per asset model. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
-   */
-  assetModelProperties?: AssetModelProperty[];
 
   /**
    * <p>The updated hierarchy definitions of the asset model. Each hierarchy specifies an asset
@@ -4520,12 +4510,22 @@ export interface UpdateAssetModelRequest {
   assetModelHierarchies?: AssetModelHierarchy[];
 
   /**
-   * <p>The composite asset models that are part of this asset model.
-   *       Composite asset models are asset models that contain specific properties. Each composite model
-   *       has a type that defines the properties that the composite model supports. Use composite asset
-   *       models to define alarms on this asset model.</p>
+   * <p>The ID of the asset model to update.</p>
    */
-  assetModelCompositeModels?: AssetModelCompositeModel[];
+  assetModelId: string | undefined;
+
+  /**
+   * <p>A unique, friendly name for the asset model.</p>
+   */
+  assetModelName: string | undefined;
+
+  /**
+   * <p>The updated property definitions of the asset model. For more information, see
+   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html">Asset properties</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   *          <p>You can specify up to 200 properties per asset model. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  assetModelProperties?: AssetModelProperty[];
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
@@ -4560,9 +4560,9 @@ export interface UpdateAssetPropertyRequest {
   assetId: string | undefined;
 
   /**
-   * <p>The ID of the asset property to be updated.</p>
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
-  propertyId: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
@@ -4574,17 +4574,17 @@ export interface UpdateAssetPropertyRequest {
   propertyAlias?: string;
 
   /**
+   * <p>The ID of the asset property to be updated.</p>
+   */
+  propertyId: string | undefined;
+
+  /**
    * <p>The MQTT notification state (enabled or disabled) for this asset property.
    *       When the notification state is enabled, AWS IoT SiteWise publishes property value
    *       updates to a unique MQTT topic. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/interact-with-other-services.html">Interacting with other services</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    *          <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>
    */
   propertyNotificationState?: PropertyNotificationState | string;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   */
-  clientToken?: string;
 }
 
 export namespace UpdateAssetPropertyRequest {
@@ -4595,19 +4595,9 @@ export namespace UpdateAssetPropertyRequest {
 
 export interface UpdateDashboardRequest {
   /**
-   * <p>The ID of the dashboard to update.</p>
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
-  dashboardId: string | undefined;
-
-  /**
-   * <p>A new friendly name for the dashboard.</p>
-   */
-  dashboardName: string | undefined;
-
-  /**
-   * <p>A new description for the dashboard.</p>
-   */
-  dashboardDescription?: string;
+  clientToken?: string;
 
   /**
    * <p>The new dashboard definition, as specified in a JSON literal. For detailed information,
@@ -4616,9 +4606,19 @@ export interface UpdateDashboardRequest {
   dashboardDefinition: string | undefined;
 
   /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * <p>A new description for the dashboard.</p>
    */
-  clientToken?: string;
+  dashboardDescription?: string;
+
+  /**
+   * <p>The ID of the dashboard to update.</p>
+   */
+  dashboardId: string | undefined;
+
+  /**
+   * <p>A new friendly name for the dashboard.</p>
+   */
+  dashboardName: string | undefined;
 }
 
 export namespace UpdateDashboardRequest {
@@ -4655,9 +4655,10 @@ export namespace UpdateGatewayRequest {
 
 export interface UpdateGatewayCapabilityConfigurationRequest {
   /**
-   * <p>The ID of the gateway to be updated.</p>
+   * <p>The JSON document that defines the configuration for the gateway capability. For more
+   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
    */
-  gatewayId: string | undefined;
+  capabilityConfiguration: string | undefined;
 
   /**
    * <p>The namespace of the gateway capability configuration to be updated.
@@ -4669,10 +4670,9 @@ export interface UpdateGatewayCapabilityConfigurationRequest {
   capabilityNamespace: string | undefined;
 
   /**
-   * <p>The JSON document that defines the configuration for the gateway capability. For more
-   *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/configure-sources.html#configure-source-cli">Configuring data sources (CLI)</a> in the <i>AWS IoT SiteWise User Guide</i>.</p>
+   * <p>The ID of the gateway to be updated.</p>
    */
-  capabilityConfiguration: string | undefined;
+  gatewayId: string | undefined;
 }
 
 export namespace UpdateGatewayCapabilityConfigurationRequest {
@@ -4728,14 +4728,14 @@ export namespace UpdateGatewayCapabilityConfigurationResponse {
  */
 export interface Image {
   /**
-   * <p>The ID of an existing image. Specify this parameter to keep an existing image.</p>
-   */
-  id?: string;
-
-  /**
    * <p>Contains an image file.</p>
    */
   file?: ImageFile;
+
+  /**
+   * <p>The ID of an existing image. Specify this parameter to keep an existing image.</p>
+   */
+  id?: string;
 }
 
 export namespace Image {
@@ -4746,14 +4746,14 @@ export namespace Image {
 
 export interface UpdatePortalRequest {
   /**
-   * <p>The ID of the portal to update.</p>
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    */
-  portalId: string | undefined;
+  clientToken?: string;
 
   /**
-   * <p>A new friendly name for the portal.</p>
+   * <p>The AWS administrator's contact email address.</p>
    */
-  portalName: string | undefined;
+  portalContactEmail: string | undefined;
 
   /**
    * <p>A new description for the portal.</p>
@@ -4761,9 +4761,9 @@ export interface UpdatePortalRequest {
   portalDescription?: string;
 
   /**
-   * <p>The AWS administrator's contact email address.</p>
+   * <p>The ID of the portal to update.</p>
    */
-  portalContactEmail: string | undefined;
+  portalId: string | undefined;
 
   /**
    * <p>Contains an image that is one of the following:</p>
@@ -4779,16 +4779,16 @@ export interface UpdatePortalRequest {
   portalLogoImage?: Image;
 
   /**
+   * <p>A new friendly name for the portal.</p>
+   */
+  portalName: string | undefined;
+
+  /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your AWS IoT SiteWise
    *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for AWS IoT SiteWise Monitor</a> in the
    *         <i>AWS IoT SiteWise User Guide</i>.</p>
    */
   roleArn: string | undefined;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   */
-  clientToken?: string;
 }
 
 export namespace UpdatePortalRequest {
@@ -4813,6 +4813,16 @@ export namespace UpdatePortalResponse {
 
 export interface UpdateProjectRequest {
   /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>A new description for the project.</p>
+   */
+  projectDescription?: string;
+
+  /**
    * <p>The ID of the project to update.</p>
    */
   projectId: string | undefined;
@@ -4821,16 +4831,6 @@ export interface UpdateProjectRequest {
    * <p>A new friendly name for the project.</p>
    */
   projectName: string | undefined;
-
-  /**
-   * <p>A new description for the project.</p>
-   */
-  projectDescription?: string;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   */
-  clientToken?: string;
 }
 
 export namespace UpdateProjectRequest {

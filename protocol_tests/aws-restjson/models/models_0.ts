@@ -15,24 +15,24 @@ export enum FooEnum {
 }
 
 export interface AllQueryStringTypesInput {
-  queryString?: string;
-  queryStringList?: string[];
-  queryStringSet?: string[];
+  queryBoolean?: boolean;
+  queryBooleanList?: boolean[];
   queryByte?: number;
-  queryShort?: number;
+  queryDouble?: number;
+  queryDoubleList?: number[];
+  queryEnum?: FooEnum | string;
+  queryEnumList?: (FooEnum | string)[];
+  queryFloat?: number;
   queryInteger?: number;
   queryIntegerList?: number[];
   queryIntegerSet?: number[];
   queryLong?: number;
-  queryFloat?: number;
-  queryDouble?: number;
-  queryDoubleList?: number[];
-  queryBoolean?: boolean;
-  queryBooleanList?: boolean[];
+  queryShort?: number;
+  queryString?: string;
+  queryStringList?: string[];
+  queryStringSet?: string[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
-  queryEnum?: FooEnum | string;
-  queryEnumList?: (FooEnum | string)[];
 }
 
 export namespace AllQueryStringTypesInput {
@@ -58,8 +58,8 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
   name: "ComplexError";
   $fault: "client";
   Header?: string;
-  TopLevel?: string;
   Nested?: ComplexNestedErrorData;
+  TopLevel?: string;
 }
 
 export namespace ComplexError {
@@ -156,8 +156,8 @@ export namespace InvalidGreeting {
 }
 
 export interface HttpPayloadTraitsInputOutput {
-  foo?: string;
   blob?: Uint8Array;
+  foo?: string;
 }
 
 export namespace HttpPayloadTraitsInputOutput {
@@ -167,8 +167,8 @@ export namespace HttpPayloadTraitsInputOutput {
 }
 
 export interface HttpPayloadTraitsWithMediaTypeInputOutput {
-  foo?: string;
   blob?: Uint8Array;
+  foo?: string;
 }
 
 export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
@@ -220,8 +220,8 @@ export namespace HttpPrefixHeadersResponseOutput {
 }
 
 export interface HttpRequestWithGreedyLabelInPathInput {
-  foo: string | undefined;
   baz: string | undefined;
+  foo: string | undefined;
 }
 
 export namespace HttpRequestWithGreedyLabelInPathInput {
@@ -231,17 +231,17 @@ export namespace HttpRequestWithGreedyLabelInPathInput {
 }
 
 export interface HttpRequestWithLabelsInput {
-  string: string | undefined;
-  short: number | undefined;
-  integer: number | undefined;
-  long: number | undefined;
-  float: number | undefined;
-  double: number | undefined;
   /**
    * Serialized in the path as true or false.
    */
   boolean: boolean | undefined;
 
+  double: number | undefined;
+  float: number | undefined;
+  integer: number | undefined;
+  long: number | undefined;
+  short: number | undefined;
+  string: string | undefined;
   /**
    * Note that this member has no format, so it's serialized as an RFC 3399 date-time.
    */
@@ -255,13 +255,13 @@ export namespace HttpRequestWithLabelsInput {
 }
 
 export interface HttpRequestWithLabelsAndTimestampFormatInput {
+  defaultFormat: Date | undefined;
+  memberDateTime: Date | undefined;
   memberEpochSeconds: Date | undefined;
   memberHttpDate: Date | undefined;
-  memberDateTime: Date | undefined;
-  defaultFormat: Date | undefined;
+  targetDateTime: Date | undefined;
   targetEpochSeconds: Date | undefined;
   targetHttpDate: Date | undefined;
-  targetDateTime: Date | undefined;
 }
 
 export namespace HttpRequestWithLabelsAndTimestampFormatInput {
@@ -291,8 +291,8 @@ export namespace IgnoreQueryParamsInResponseOutput {
 }
 
 export interface InlineDocumentInputOutput {
-  stringValue?: string;
   documentValue?: __DocumentType.Value;
+  stringValue?: string;
 }
 
 export namespace InlineDocumentInputOutput {
@@ -312,22 +312,22 @@ export namespace InlineDocumentAsPayloadInputOutput {
 }
 
 export interface InputAndOutputWithHeadersIO {
-  headerString?: string;
-  headerByte?: number;
-  headerShort?: number;
-  headerInteger?: number;
-  headerLong?: number;
-  headerFloat?: number;
-  headerDouble?: number;
-  headerTrueBool?: boolean;
-  headerFalseBool?: boolean;
-  headerStringList?: string[];
-  headerStringSet?: string[];
-  headerIntegerList?: number[];
   headerBooleanList?: boolean[];
-  headerTimestampList?: Date[];
+  headerByte?: number;
+  headerDouble?: number;
   headerEnum?: FooEnum | string;
   headerEnumList?: (FooEnum | string)[];
+  headerFalseBool?: boolean;
+  headerFloat?: number;
+  headerInteger?: number;
+  headerIntegerList?: number[];
+  headerLong?: number;
+  headerShort?: number;
+  headerString?: string;
+  headerStringList?: string[];
+  headerStringSet?: string[];
+  headerTimestampList?: Date[];
+  headerTrueBool?: boolean;
 }
 
 export namespace InputAndOutputWithHeadersIO {
@@ -351,8 +351,8 @@ export interface JsonEnumsInputOutput {
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumSet?: (FooEnum | string)[];
 }
 
 export namespace JsonEnumsInputOutput {
@@ -373,19 +373,19 @@ export namespace StructureListMember {
 }
 
 export interface JsonListsInputOutput {
-  stringList?: string[];
-  sparseStringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
   booleanList?: boolean[];
-  timestampList?: Date[];
   enumList?: (FooEnum | string)[];
+  integerList?: number[];
   /**
    * A list of lists of strings.
    */
   nestedStringList?: string[][];
 
+  sparseStringList?: string[];
+  stringList?: string[];
+  stringSet?: string[];
   structureList?: StructureListMember[];
+  timestampList?: Date[];
 }
 
 export namespace JsonListsInputOutput {
@@ -395,14 +395,14 @@ export namespace JsonListsInputOutput {
 }
 
 export interface JsonMapsInputOutput {
-  denseStructMap?: { [key: string]: GreetingStruct };
-  sparseStructMap?: { [key: string]: GreetingStruct };
-  denseNumberMap?: { [key: string]: number };
   denseBooleanMap?: { [key: string]: boolean };
+  denseNumberMap?: { [key: string]: number };
   denseStringMap?: { [key: string]: string };
-  sparseNumberMap?: { [key: string]: number };
+  denseStructMap?: { [key: string]: GreetingStruct };
   sparseBooleanMap?: { [key: string]: boolean };
+  sparseNumberMap?: { [key: string]: number };
   sparseStringMap?: { [key: string]: string };
+  sparseStructMap?: { [key: string]: GreetingStruct };
 }
 
 export namespace JsonMapsInputOutput {
@@ -412,10 +412,10 @@ export namespace JsonMapsInputOutput {
 }
 
 export interface JsonTimestampsInputOutput {
-  normal?: Date;
   dateTime?: Date;
   epochSeconds?: Date;
   httpDate?: Date;
+  normal?: Date;
 }
 
 export namespace JsonTimestampsInputOutput {
@@ -669,8 +669,8 @@ export namespace NullAndEmptyHeadersIO {
 }
 
 export interface OmitsNullSerializesEmptyStringInput {
-  nullValue?: string;
   emptyString?: string;
+  nullValue?: string;
 }
 
 export namespace OmitsNullSerializesEmptyStringInput {
@@ -690,16 +690,16 @@ export namespace QueryIdempotencyTokenAutoFillInput {
 }
 
 export interface SimpleScalarPropertiesInputOutput {
-  foo?: string;
-  stringValue?: string;
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
   byteValue?: number;
-  shortValue?: number;
+  doubleValue?: number;
+  falseBooleanValue?: boolean;
+  floatValue?: number;
+  foo?: string;
   integerValue?: number;
   longValue?: number;
-  floatValue?: number;
-  doubleValue?: number;
+  shortValue?: number;
+  stringValue?: string;
+  trueBooleanValue?: boolean;
 }
 
 export namespace SimpleScalarPropertiesInputOutput {
@@ -709,8 +709,8 @@ export namespace SimpleScalarPropertiesInputOutput {
 }
 
 export interface StreamingTraitsInputOutput {
-  foo?: string;
   blob?: Readable | ReadableStream | Blob;
+  foo?: string;
 }
 
 export namespace StreamingTraitsInputOutput {
@@ -720,8 +720,8 @@ export namespace StreamingTraitsInputOutput {
 }
 
 export interface StreamingTraitsRequireLengthInputOutput {
-  foo?: string;
   blob?: Readable | ReadableStream | Blob;
+  foo?: string;
 }
 
 export namespace StreamingTraitsRequireLengthInputOutput {
@@ -731,8 +731,8 @@ export namespace StreamingTraitsRequireLengthInputOutput {
 }
 
 export interface StreamingTraitsWithMediaTypeInputOutput {
-  foo?: string;
   blob?: Readable | ReadableStream | Blob;
+  foo?: string;
 }
 
 export namespace StreamingTraitsWithMediaTypeInputOutput {
@@ -742,13 +742,13 @@ export namespace StreamingTraitsWithMediaTypeInputOutput {
 }
 
 export interface TimestampFormatHeadersIO {
+  defaultFormat?: Date;
+  memberDateTime?: Date;
   memberEpochSeconds?: Date;
   memberHttpDate?: Date;
-  memberDateTime?: Date;
-  defaultFormat?: Date;
+  targetDateTime?: Date;
   targetEpochSeconds?: Date;
   targetHttpDate?: Date;
-  targetDateTime?: Date;
 }
 
 export namespace TimestampFormatHeadersIO {

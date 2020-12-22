@@ -3,14 +3,10 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddPermissionInput {
   /**
-   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
+   * <p>The action you want to allow for the specified principal(s).</p>
+   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
    */
-  TopicArn: string | undefined;
-
-  /**
-   * <p>A unique identifier for the new policy statement.</p>
-   */
-  Label: string | undefined;
+  ActionName: string[] | undefined;
 
   /**
    * <p>The AWS account IDs of the users (principals) who will be given access to the
@@ -20,10 +16,14 @@ export interface AddPermissionInput {
   AWSAccountId: string[] | undefined;
 
   /**
-   * <p>The action you want to allow for the specified principal(s).</p>
-   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
+   * <p>A unique identifier for the new policy statement.</p>
    */
-  ActionName: string[] | undefined;
+  Label: string | undefined;
+
+  /**
+   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
+   */
+  TopicArn: string | undefined;
 }
 
 export namespace AddPermissionInput {
@@ -161,9 +161,12 @@ export namespace ThrottledException {
  */
 export interface ConfirmSubscriptionInput {
   /**
-   * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
+   * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
+   *             parameter is <code>true</code> and the request has an AWS signature, then only the topic
+   *             owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action
+   *             requires AWS authentication. </p>
    */
-  TopicArn: string | undefined;
+  AuthenticateOnUnsubscribe?: string;
 
   /**
    * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
@@ -171,12 +174,9 @@ export interface ConfirmSubscriptionInput {
   Token: string | undefined;
 
   /**
-   * <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this
-   *             parameter is <code>true</code> and the request has an AWS signature, then only the topic
-   *             owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action
-   *             requires AWS authentication. </p>
+   * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
    */
-  AuthenticateOnUnsubscribe?: string;
+  TopicArn: string | undefined;
 }
 
 export namespace ConfirmSubscriptionInput {
@@ -239,6 +239,12 @@ export namespace SubscriptionLimitExceededException {
  */
 export interface CreatePlatformApplicationInput {
   /**
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
+   *         </p>
+   */
+  Attributes: { [key: string]: string } | undefined;
+
+  /**
    * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
    *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
    *             long.</p>
@@ -250,12 +256,6 @@ export interface CreatePlatformApplicationInput {
    *             Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
    */
   Platform: string | undefined;
-
-  /**
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
-   *         </p>
-   */
-  Attributes: { [key: string]: string } | undefined;
 }
 
 export namespace CreatePlatformApplicationInput {
@@ -301,6 +301,17 @@ export namespace CreateEndpointResponse {
  */
 export interface CreatePlatformEndpointInput {
   /**
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
+   *             data must be in UTF-8 format and less than 2KB.</p>
+   */
+  CustomUserData?: string;
+
+  /**
    * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
    *             endpoint.</p>
    */
@@ -314,17 +325,6 @@ export interface CreatePlatformEndpointInput {
    *             equivalent is called the registration ID.</p>
    */
   Token: string | undefined;
-
-  /**
-   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
-   *             data must be in UTF-8 format and less than 2KB.</p>
-   */
-  CustomUserData?: string;
-
-  /**
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
-   */
-  Attributes?: { [key: string]: string };
 }
 
 export namespace CreatePlatformEndpointInput {
@@ -374,15 +374,6 @@ export namespace Tag {
  * <p>Input for CreateTopic action.</p>
  */
 export interface CreateTopicInput {
-  /**
-   * <p>The name of the topic you want to create.</p>
-   *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
-   *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
-   *             long.</p>
-   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
@@ -454,6 +445,15 @@ export interface CreateTopicInput {
    *          </ul>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The name of the topic you want to create.</p>
+   *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
+   *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
+   *             long.</p>
+   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>The list of tags to add to a new topic.</p>
@@ -971,15 +971,15 @@ export namespace GetTopicAttributesResponse {
  */
 export interface ListEndpointsByPlatformApplicationInput {
   /**
-   * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
-   */
-  PlatformApplicationArn: string | undefined;
-
-  /**
    * <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to
    *             retrieve additional records that are available after the first page results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
+   */
+  PlatformApplicationArn: string | undefined;
 }
 
 export namespace ListEndpointsByPlatformApplicationInput {
@@ -993,14 +993,14 @@ export namespace ListEndpointsByPlatformApplicationInput {
  */
 export interface Endpoint {
   /**
-   * <p>EndpointArn for mobile app and device.</p>
-   */
-  EndpointArn?: string;
-
-  /**
    * <p>Attributes for endpoint.</p>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>EndpointArn for mobile app and device.</p>
+   */
+  EndpointArn?: string;
 }
 
 export namespace Endpoint {
@@ -1054,17 +1054,17 @@ export namespace ListPhoneNumbersOptedOutInput {
  */
 export interface ListPhoneNumbersOptedOutResponse {
   /**
-   * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
-   *             paginated, and each page can contain up to 100 phone numbers.</p>
-   */
-  phoneNumbers?: string[];
-
-  /**
    * <p>A <code>NextToken</code> string is returned when you call the
    *                 <code>ListPhoneNumbersOptedOut</code> action if additional records are available
    *             after the first page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
+   *             paginated, and each page can contain up to 100 phone numbers.</p>
+   */
+  phoneNumbers?: string[];
 }
 
 export namespace ListPhoneNumbersOptedOutResponse {
@@ -1095,14 +1095,14 @@ export namespace ListPlatformApplicationsInput {
  */
 export interface PlatformApplication {
   /**
-   * <p>PlatformApplicationArn for platform application object.</p>
-   */
-  PlatformApplicationArn?: string;
-
-  /**
    * <p>Attributes for platform application object.</p>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>PlatformApplicationArn for platform application object.</p>
+   */
+  PlatformApplicationArn?: string;
 }
 
 export namespace PlatformApplication {
@@ -1116,15 +1116,15 @@ export namespace PlatformApplication {
  */
 export interface ListPlatformApplicationsResponse {
   /**
-   * <p>Platform applications returned when calling ListPlatformApplications action.</p>
-   */
-  PlatformApplications?: PlatformApplication[];
-
-  /**
    * <p>NextToken string is returned when calling ListPlatformApplications action if
    *             additional records are available after the first page results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Platform applications returned when calling ListPlatformApplications action.</p>
+   */
+  PlatformApplications?: PlatformApplication[];
 }
 
 export namespace ListPlatformApplicationsResponse {
@@ -1154,9 +1154,9 @@ export namespace ListSubscriptionsInput {
  */
 export interface Subscription {
   /**
-   * <p>The subscription's ARN.</p>
+   * <p>The subscription's endpoint (format depends on the protocol).</p>
    */
-  SubscriptionArn?: string;
+  Endpoint?: string;
 
   /**
    * <p>The subscription's owner.</p>
@@ -1169,9 +1169,9 @@ export interface Subscription {
   Protocol?: string;
 
   /**
-   * <p>The subscription's endpoint (format depends on the protocol).</p>
+   * <p>The subscription's ARN.</p>
    */
-  Endpoint?: string;
+  SubscriptionArn?: string;
 
   /**
    * <p>The ARN of the subscription's topic.</p>
@@ -1190,15 +1190,15 @@ export namespace Subscription {
  */
 export interface ListSubscriptionsResponse {
   /**
-   * <p>A list of subscriptions.</p>
-   */
-  Subscriptions?: Subscription[];
-
-  /**
    * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
    *             is returned if there are more subscriptions to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsResponse {
@@ -1212,14 +1212,14 @@ export namespace ListSubscriptionsResponse {
  */
 export interface ListSubscriptionsByTopicInput {
   /**
-   * <p>The ARN of the topic for which you wish to find subscriptions.</p>
-   */
-  TopicArn: string | undefined;
-
-  /**
    * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The ARN of the topic for which you wish to find subscriptions.</p>
+   */
+  TopicArn: string | undefined;
 }
 
 export namespace ListSubscriptionsByTopicInput {
@@ -1233,15 +1233,15 @@ export namespace ListSubscriptionsByTopicInput {
  */
 export interface ListSubscriptionsByTopicResponse {
   /**
-   * <p>A list of subscriptions.</p>
-   */
-  Subscriptions?: Subscription[];
-
-  /**
    * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
    *             element is returned if there are more subscriptions to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsByTopicResponse {
@@ -1326,15 +1326,15 @@ export namespace Topic {
  */
 export interface ListTopicsResponse {
   /**
-   * <p>A list of topic ARNs.</p>
-   */
-  Topics?: Topic[];
-
-  /**
    * <p>Token to pass along to the next <code>ListTopics</code> request. This element is
    *             returned if there are additional topics to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of topic ARNs.</p>
+   */
+  Topics?: Topic[];
 }
 
 export namespace ListTopicsResponse {
@@ -1538,6 +1538,12 @@ export namespace PlatformApplicationDisabledException {
  */
 export interface MessageAttributeValue {
   /**
+   * <p>Binary type attributes can store any binary data, for example, compressed data,
+   *             encrypted data, or images.</p>
+   */
+  BinaryValue?: Uint8Array;
+
+  /**
    * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
    *             Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
    *                 Attribute Data Types</a>.</p>
@@ -1549,12 +1555,6 @@ export interface MessageAttributeValue {
    *                 Characters</a>.</p>
    */
   StringValue?: string;
-
-  /**
-   * <p>Binary type attributes can store any binary data, for example, compressed data,
-   *             encrypted data, or images.</p>
-   */
-  BinaryValue?: Uint8Array;
 }
 
 export namespace MessageAttributeValue {
@@ -1567,28 +1567,6 @@ export namespace MessageAttributeValue {
  * <p>Input for Publish action.</p>
  */
 export interface PublishInput {
-  /**
-   * <p>The topic you want to publish to.</p>
-   *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
-   *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
-   */
-  TopicArn?: string;
-
-  /**
-   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
-   *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
-   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
-   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  PhoneNumber?: string;
-
   /**
    * <p>The message you want to send.</p>
    *         <p>If you are publishing to a topic and you want to send the same message to all
@@ -1655,38 +1633,6 @@ export interface PublishInput {
   Message: string | undefined;
 
   /**
-   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
-   *             email endpoints. This field will also be included, if present, in the standard JSON
-   *             messages delivered to other endpoints.</p>
-   *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
-   *             punctuation mark; must not include line breaks or control characters; and must be less
-   *             than 100 characters long.</p>
-   */
-  Subject?: string;
-
-  /**
-   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
-   *             message for each protocol. For example, using one publish action, you can send a short
-   *             message to your SMS subscribers and a longer message to your email subscribers. If you
-   *             set <code>MessageStructure</code> to <code>json</code>, the value of the
-   *                 <code>Message</code> parameter must: </p>
-   *         <ul>
-   *             <li>
-   *                 <p>be a syntactically valid JSON object; and</p>
-   *             </li>
-   *             <li>
-   *                 <p>contain at least a top-level JSON key of "default" with a value that is a
-   *                     string.</p>
-   *             </li>
-   *          </ul>
-   *         <p>You can define other top-level keys that define the message you want to send to a
-   *             specific transport protocol (e.g., "http").</p>
-   *         <p>Valid value: <code>json</code>
-   *         </p>
-   */
-  MessageStructure?: string;
-
-  /**
    * <p>Message attributes for Publish action.</p>
    */
   MessageAttributes?: { [key: string]: MessageAttributeValue };
@@ -1711,6 +1657,60 @@ export interface PublishInput {
    *             Every message must include a <code>MessageGroupId</code>.</p>
    */
   MessageGroupId?: string;
+
+  /**
+   * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
+   *             message for each protocol. For example, using one publish action, you can send a short
+   *             message to your SMS subscribers and a longer message to your email subscribers. If you
+   *             set <code>MessageStructure</code> to <code>json</code>, the value of the
+   *                 <code>Message</code> parameter must: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>be a syntactically valid JSON object; and</p>
+   *             </li>
+   *             <li>
+   *                 <p>contain at least a top-level JSON key of "default" with a value that is a
+   *                     string.</p>
+   *             </li>
+   *          </ul>
+   *         <p>You can define other top-level keys that define the message you want to send to a
+   *             specific transport protocol (e.g., "http").</p>
+   *         <p>Valid value: <code>json</code>
+   *         </p>
+   */
+  MessageStructure?: string;
+
+  /**
+   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
+   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
+   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
+   *             parameters.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>Optional parameter to be used as the "Subject" line when the message is delivered to
+   *             email endpoints. This field will also be included, if present, in the standard JSON
+   *             messages delivered to other endpoints.</p>
+   *         <p>Constraints: Subjects must be ASCII text that begins with a letter, number, or
+   *             punctuation mark; must not include line breaks or control characters; and must be less
+   *             than 100 characters long.</p>
+   */
+  Subject?: string;
+
+  /**
+   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
+   *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
+   *             parameters.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The topic you want to publish to.</p>
+   *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
+   *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
+   */
+  TopicArn?: string;
 }
 
 export namespace PublishInput {
@@ -1748,14 +1748,14 @@ export namespace PublishResponse {
  */
 export interface RemovePermissionInput {
   /**
-   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
-   */
-  TopicArn: string | undefined;
-
-  /**
    * <p>The unique label of the statement you want to remove.</p>
    */
   Label: string | undefined;
+
+  /**
+   * <p>The ARN of the topic whose access control policy you wish to modify.</p>
+   */
+  TopicArn: string | undefined;
 }
 
 export namespace RemovePermissionInput {
@@ -1768,11 +1768,6 @@ export namespace RemovePermissionInput {
  * <p>Input for SetEndpointAttributes action.</p>
  */
 export interface SetEndpointAttributesInput {
-  /**
-   * <p>EndpointArn used for SetEndpointAttributes action.</p>
-   */
-  EndpointArn: string | undefined;
-
   /**
    * <p>A map of the endpoint attributes. Attributes in this map include the following:</p>
    *         <ul>
@@ -1799,6 +1794,11 @@ export interface SetEndpointAttributesInput {
    *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
+
+  /**
+   * <p>EndpointArn used for SetEndpointAttributes action.</p>
+   */
+  EndpointArn: string | undefined;
 }
 
 export namespace SetEndpointAttributesInput {
@@ -1811,11 +1811,6 @@ export namespace SetEndpointAttributesInput {
  * <p>Input for SetPlatformApplicationAttributes action.</p>
  */
 export interface SetPlatformApplicationAttributesInput {
-  /**
-   * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
-   */
-  PlatformApplicationArn: string | undefined;
-
   /**
    * <p>A map of the platform application attributes. Attributes in this map include the
    *             following:</p>
@@ -1878,6 +1873,11 @@ export interface SetPlatformApplicationAttributesInput {
    *          </ul>
    */
   Attributes: { [key: string]: string } | undefined;
+
+  /**
+   * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
+   */
+  PlatformApplicationArn: string | undefined;
 }
 
 export namespace SetPlatformApplicationAttributesInput {
@@ -2003,11 +2003,6 @@ export namespace SetSMSAttributesResponse {
  */
 export interface SetSubscriptionAttributesInput {
   /**
-   * <p>The ARN of the subscription to modify.</p>
-   */
-  SubscriptionArn: string | undefined;
-
-  /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that this action uses:</p>
@@ -2045,6 +2040,11 @@ export interface SetSubscriptionAttributesInput {
    * <p>The new value for the attribute in JSON format.</p>
    */
   AttributeValue?: string;
+
+  /**
+   * <p>The ARN of the subscription to modify.</p>
+   */
+  SubscriptionArn: string | undefined;
 }
 
 export namespace SetSubscriptionAttributesInput {
@@ -2057,11 +2057,6 @@ export namespace SetSubscriptionAttributesInput {
  * <p>Input for SetTopicAttributes action.</p>
  */
 export interface SetTopicAttributesInput {
-  /**
-   * <p>The ARN of the topic to modify.</p>
-   */
-  TopicArn: string | undefined;
-
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
@@ -2129,6 +2124,11 @@ export interface SetTopicAttributesInput {
    * <p>The new value for the attribute.</p>
    */
   AttributeValue?: string;
+
+  /**
+   * <p>The ARN of the topic to modify.</p>
+   */
+  TopicArn: string | undefined;
 }
 
 export namespace SetTopicAttributesInput {
@@ -2142,9 +2142,79 @@ export namespace SetTopicAttributesInput {
  */
 export interface SubscribeInput {
   /**
-   * <p>The ARN of the topic you want to subscribe to.</p>
+   * <p>A map of attributes with their corresponding values.</p>
+   *         <p>The following lists the names, descriptions, and values of the special request
+   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
+   *                     failed deliveries to HTTP/S endpoints.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
+   *                     subscriber receive only a subset of messages, rather than receiving every
+   *                     message published to the topic.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
+   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
+   *                     need for the endpoints to process JSON formatting, which is otherwise created
+   *                     for Amazon SNS metadata.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
+   *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
+   *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
+   *     in the dead-letter queue for further analysis or reprocessing.</p>
+   *             </li>
+   *          </ul>
    */
-  TopicArn: string | undefined;
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The endpoint that you want to receive notifications. Endpoints vary by
+   *             protocol:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning
+   *                     with <code>http://</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning
+   *                     with <code>https://</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>email</code> protocol, the endpoint is an email address</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>email-json</code> protocol, the endpoint is an email
+   *                     address</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>sms</code> protocol, the endpoint is a phone number of an
+   *                     SMS-enabled device</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS
+   *                     queue</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of
+   *                     a mobile app and device.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
+   *                     function.</p>
+   *             </li>
+   *          </ul>
+   */
+  Endpoint?: string;
 
   /**
    * <p>The protocol you want to use. Supported protocols include:</p>
@@ -2191,81 +2261,6 @@ export interface SubscribeInput {
   Protocol: string | undefined;
 
   /**
-   * <p>The endpoint that you want to receive notifications. Endpoints vary by
-   *             protocol:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For the <code>http</code> protocol, the (public) endpoint is a URL beginning
-   *                     with <code>http://</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>https</code> protocol, the (public) endpoint is a URL beginning
-   *                     with <code>https://</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>email</code> protocol, the endpoint is an email address</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>email-json</code> protocol, the endpoint is an email
-   *                     address</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>sms</code> protocol, the endpoint is a phone number of an
-   *                     SMS-enabled device</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>sqs</code> protocol, the endpoint is the ARN of an Amazon SQS
-   *                     queue</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>application</code> protocol, the endpoint is the EndpointArn of
-   *                     a mobile app and device.</p>
-   *             </li>
-   *             <li>
-   *                 <p>For the <code>lambda</code> protocol, the endpoint is the ARN of an Amazon Lambda
-   *                     function.</p>
-   *             </li>
-   *          </ul>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>A map of attributes with their corresponding values.</p>
-   *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
-   *                     failed deliveries to HTTP/S endpoints.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>FilterPolicy</code> – The simple JSON object that lets your
-   *                     subscriber receive only a subset of messages, rather than receiving every
-   *                     message published to the topic.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RawMessageDelivery</code> – When set to <code>true</code>,
-   *                     enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the
-   *                     need for the endpoints to process JSON formatting, which is otherwise created
-   *                     for Amazon SNS metadata.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue.
-   *     Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable)
-   *     or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held
-   *     in the dead-letter queue for further analysis or reprocessing.</p>
-   *             </li>
-   *          </ul>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the
    *             subscription ARN, even if the subscription is not yet confirmed.</p>
    *           <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
@@ -2277,6 +2272,11 @@ export interface SubscribeInput {
    *         <p>The default value is <code>false</code>.</p>
    */
   ReturnSubscriptionArn?: boolean;
+
+  /**
+   * <p>The ARN of the topic you want to subscribe to.</p>
+   */
+  TopicArn: string | undefined;
 }
 
 export namespace SubscribeInput {

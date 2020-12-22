@@ -27,15 +27,15 @@ export enum TargetType {
  */
 export interface Target {
   /**
-   * <p>The target type is always an <code>ACCOUNT</code>.</p>
-   */
-  Type: TargetType | string | undefined;
-
-  /**
    * <p>The <code>TargetID</code> is a 12-character identifier of the <code>ACCOUNT</code> for
    *       which the control was created. (This must be the current account.) </p>
    */
   Id?: string;
+
+  /**
+   * <p>The target type is always an <code>ACCOUNT</code>.</p>
+   */
+  Type: TargetType | string | undefined;
 }
 
 export namespace Target {
@@ -46,6 +46,12 @@ export namespace Target {
 
 export interface CreateHomeRegionControlRequest {
   /**
+   * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
+   *       the caller has permission to make the call.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The name of the home region of the calling account.</p>
    */
   HomeRegion: string | undefined;
@@ -55,12 +61,6 @@ export interface CreateHomeRegionControlRequest {
    *       is always of type <code>ACCOUNT</code>.</p>
    */
   Target: Target | undefined;
-
-  /**
-   * <p>Optional Boolean flag to indicate whether any effect should take place. It tests whether
-   *       the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace CreateHomeRegionControlRequest {
@@ -88,17 +88,17 @@ export interface HomeRegionControl {
   HomeRegion?: string;
 
   /**
+   * <p>A timestamp representing the time when the customer called
+   *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
+   */
+  RequestedTime?: Date;
+
+  /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
    *       is always an <code>ACCOUNT</code>. It applies the home region to the current
    *         <code>ACCOUNT</code>.</p>
    */
   Target?: Target;
-
-  /**
-   * <p>A timestamp representing the time when the customer called
-   *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
-   */
-  RequestedTime?: Date;
 }
 
 export namespace HomeRegionControl {
@@ -217,13 +217,6 @@ export interface DescribeHomeRegionControlsRequest {
   HomeRegion?: string;
 
   /**
-   * <p>The target parameter specifies the identifier to which the home region is applied, which
-   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
-   *         <code>ACCOUNT</code>.</p>
-   */
-  Target?: Target;
-
-  /**
    * <p>The maximum number of filtering results to display per page. </p>
    */
   MaxResults?: number;
@@ -234,6 +227,13 @@ export interface DescribeHomeRegionControlsRequest {
    *         <code>NextToken</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The target parameter specifies the identifier to which the home region is applied, which
+   *       is always of type <code>ACCOUNT</code>. It applies the home region to the current
+   *         <code>ACCOUNT</code>.</p>
+   */
+  Target?: Target;
 }
 
 export namespace DescribeHomeRegionControlsRequest {

@@ -40,11 +40,6 @@ export interface SearchExpression {
   NestedFilters?: NestedFilters[];
 
   /**
-   * <p>A list of search expression objects.</p>
-   */
-  SubExpressions?: SearchExpression[];
-
-  /**
    * <p>A Boolean operator used to evaluate the search expression. If you want every
    *       conditional statement in all lists to be satisfied for the entire search expression to
    *       be true, specify <code>And</code>. If only a single conditional statement needs to be
@@ -52,6 +47,11 @@ export interface SearchExpression {
    *       value is <code>And</code>.</p>
    */
   Operator?: BooleanOperator | string;
+
+  /**
+   * <p>A list of search expression objects.</p>
+   */
+  SubExpressions?: SearchExpression[];
 }
 
 export namespace SearchExpression {
@@ -61,6 +61,19 @@ export namespace SearchExpression {
 }
 
 export interface SearchRequest {
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If more than <code>MaxResults</code> resources match the specified
+   *       <code>SearchExpression</code>, the response includes a
+   *       <code>NextToken</code>. The <code>NextToken</code> can be passed to the next
+   *       <code>SearchRequest</code> to continue retrieving results.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>The name of the Amazon SageMaker resource to search for.</p>
    */
@@ -86,19 +99,6 @@ export interface SearchRequest {
    *       <code>Descending</code>. The default is <code>Descending</code>.</p>
    */
   SortOrder?: SearchSortOrder | string;
-
-  /**
-   * <p>If more than <code>MaxResults</code> resources match the specified
-   *       <code>SearchExpression</code>, the response includes a
-   *       <code>NextToken</code>. The <code>NextToken</code> can be passed to the next
-   *       <code>SearchRequest</code> to continue retrieving results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace SearchRequest {

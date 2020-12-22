@@ -182,14 +182,14 @@ export namespace AutomatedDiscoveryInformation {
 
 export interface CheckInLicenseRequest {
   /**
-   * <p>License consumption token.</p>
-   */
-  LicenseConsumptionToken: string | undefined;
-
-  /**
    * <p>License beneficiary.</p>
    */
   Beneficiary?: string;
+
+  /**
+   * <p>License consumption token.</p>
+   */
+  LicenseConsumptionToken: string | undefined;
 }
 
 export namespace CheckInLicenseRequest {
@@ -301,14 +301,14 @@ export interface EntitlementData {
   Name: string | undefined;
 
   /**
-   * <p>Entitlement data value.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>Entitlement data unit.</p>
    */
   Unit: EntitlementDataUnit | string | undefined;
+
+  /**
+   * <p>Entitlement data value.</p>
+   */
+  Value?: string;
 }
 
 export namespace EntitlementData {
@@ -319,27 +319,6 @@ export namespace EntitlementData {
 
 export interface CheckoutBorrowLicenseRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the license. The license must use the borrow consumption configuration.</p>
-   */
-  LicenseArn: string | undefined;
-
-  /**
-   * <p>License entitlements. Partial checkouts are not supported.</p>
-   */
-  Entitlements: EntitlementData[] | undefined;
-
-  /**
-   * <p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384.
-   *          For more information, see <a href="https://tools.ietf.org/html/rfc7518#section-3.5">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>
-   */
-  DigitalSignatureMethod: DigitalSignatureMethod | string | undefined;
-
-  /**
-   * <p>Node ID.</p>
-   */
-  NodeId?: string;
-
-  /**
    * <p>Information about constraints.</p>
    */
   CheckoutMetadata?: Metadata[];
@@ -348,6 +327,27 @@ export interface CheckoutBorrowLicenseRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   ClientToken: string | undefined;
+
+  /**
+   * <p>Digital signature method. The possible value is JSON Web Signature (JWS) algorithm PS384.
+   *          For more information, see <a href="https://tools.ietf.org/html/rfc7518#section-3.5">RFC 7518 Digital Signature with RSASSA-PSS</a>.</p>
+   */
+  DigitalSignatureMethod: DigitalSignatureMethod | string | undefined;
+
+  /**
+   * <p>License entitlements. Partial checkouts are not supported.</p>
+   */
+  Entitlements: EntitlementData[] | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license. The license must use the borrow consumption configuration.</p>
+   */
+  LicenseArn: string | undefined;
+
+  /**
+   * <p>Node ID.</p>
+   */
+  NodeId?: string;
 }
 
 export namespace CheckoutBorrowLicenseRequest {
@@ -357,6 +357,26 @@ export namespace CheckoutBorrowLicenseRequest {
 }
 
 export interface CheckoutBorrowLicenseResponse {
+  /**
+   * <p>Information about constraints.</p>
+   */
+  CheckoutMetadata?: Metadata[];
+
+  /**
+   * <p>Allowed license entitlements.</p>
+   */
+  EntitlementsAllowed?: EntitlementData[];
+
+  /**
+   * <p>Date and time at which the license checkout expires.</p>
+   */
+  Expiration?: string;
+
+  /**
+   * <p>Date and time at which the license checkout is issued.</p>
+   */
+  IssuedAt?: string;
+
   /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
    */
@@ -368,11 +388,6 @@ export interface CheckoutBorrowLicenseResponse {
   LicenseConsumptionToken?: string;
 
   /**
-   * <p>Allowed license entitlements.</p>
-   */
-  EntitlementsAllowed?: EntitlementData[];
-
-  /**
    * <p>Node ID.</p>
    */
   NodeId?: string;
@@ -381,21 +396,6 @@ export interface CheckoutBorrowLicenseResponse {
    * <p>Signed token.</p>
    */
   SignedToken?: string;
-
-  /**
-   * <p>Date and time at which the license checkout is issued.</p>
-   */
-  IssuedAt?: string;
-
-  /**
-   * <p>Date and time at which the license checkout expires.</p>
-   */
-  Expiration?: string;
-
-  /**
-   * <p>Information about constraints.</p>
-   */
-  CheckoutMetadata?: Metadata[];
 }
 
 export namespace CheckoutBorrowLicenseResponse {
@@ -471,9 +471,9 @@ export enum CheckoutType {
 
 export interface CheckoutLicenseRequest {
   /**
-   * <p>Product SKU.</p>
+   * <p>License beneficiary.</p>
    */
-  ProductSKU: string | undefined;
+  Beneficiary?: string;
 
   /**
    * <p>Checkout type.</p>
@@ -481,9 +481,9 @@ export interface CheckoutLicenseRequest {
   CheckoutType: CheckoutType | string | undefined;
 
   /**
-   * <p>Key fingerprint identifying the license.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
-  KeyFingerprint: string | undefined;
+  ClientToken: string | undefined;
 
   /**
    * <p>License entitlements.</p>
@@ -491,19 +491,19 @@ export interface CheckoutLicenseRequest {
   Entitlements: EntitlementData[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>Key fingerprint identifying the license.</p>
    */
-  ClientToken: string | undefined;
-
-  /**
-   * <p>License beneficiary.</p>
-   */
-  Beneficiary?: string;
+  KeyFingerprint: string | undefined;
 
   /**
    * <p>Node ID.</p>
    */
   NodeId?: string;
+
+  /**
+   * <p>Product SKU.</p>
+   */
+  ProductSKU: string | undefined;
 }
 
 export namespace CheckoutLicenseRequest {
@@ -519,24 +519,14 @@ export interface CheckoutLicenseResponse {
   CheckoutType?: CheckoutType | string;
 
   /**
-   * <p>License consumption token.</p>
-   */
-  LicenseConsumptionToken?: string;
-
-  /**
    * <p>Allowed license entitlements.</p>
    */
   EntitlementsAllowed?: EntitlementData[];
 
   /**
-   * <p>Signed token.</p>
+   * <p>Date and time at which the license checkout expires.</p>
    */
-  SignedToken?: string;
-
-  /**
-   * <p>Node ID.</p>
-   */
-  NodeId?: string;
+  Expiration?: string;
 
   /**
    * <p>Date and time at which the license checkout is issued.</p>
@@ -544,9 +534,19 @@ export interface CheckoutLicenseResponse {
   IssuedAt?: string;
 
   /**
-   * <p>Date and time at which the license checkout expires.</p>
+   * <p>License consumption token.</p>
    */
-  Expiration?: string;
+  LicenseConsumptionToken?: string;
+
+  /**
+   * <p>Node ID.</p>
+   */
+  NodeId?: string;
+
+  /**
+   * <p>Signed token.</p>
+   */
+  SignedToken?: string;
 }
 
 export namespace CheckoutLicenseResponse {
@@ -556,6 +556,11 @@ export namespace CheckoutLicenseResponse {
 }
 
 export interface CreateGrantRequest {
+  /**
+   * <p>Allowed operations for the grant.</p>
+   */
+  AllowedOperations: (AllowedOperation | string)[] | undefined;
+
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
@@ -567,6 +572,11 @@ export interface CreateGrantRequest {
   GrantName: string | undefined;
 
   /**
+   * <p>Home Region of the grant.</p>
+   */
+  HomeRegion: string | undefined;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
    */
   LicenseArn: string | undefined;
@@ -575,16 +585,6 @@ export interface CreateGrantRequest {
    * <p>The grant principals.</p>
    */
   Principals: string[] | undefined;
-
-  /**
-   * <p>Home Region of the grant.</p>
-   */
-  HomeRegion: string | undefined;
-
-  /**
-   * <p>Allowed operations for the grant.</p>
-   */
-  AllowedOperations: (AllowedOperation | string)[] | undefined;
 }
 
 export namespace CreateGrantRequest {
@@ -618,6 +618,11 @@ export namespace CreateGrantResponse {
 
 export interface CreateGrantVersionRequest {
   /**
+   * <p>Allowed operations for the grant.</p>
+   */
+  AllowedOperations?: (AllowedOperation | string)[];
+
+  /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    */
   ClientToken: string | undefined;
@@ -633,19 +638,14 @@ export interface CreateGrantVersionRequest {
   GrantName?: string;
 
   /**
-   * <p>Allowed operations for the grant.</p>
+   * <p>Current version of the grant.</p>
    */
-  AllowedOperations?: (AllowedOperation | string)[];
+  SourceVersion?: string;
 
   /**
    * <p>Grant status.</p>
    */
   Status?: GrantStatus | string;
-
-  /**
-   * <p>Current version of the grant.</p>
-   */
-  SourceVersion?: string;
 }
 
 export namespace CreateGrantVersionRequest {
@@ -725,9 +725,9 @@ export enum RenewType {
  */
 export interface ConsumptionConfiguration {
   /**
-   * <p>Renewal frequency.</p>
+   * <p>Details about a borrow configuration.</p>
    */
-  RenewType?: RenewType | string;
+  BorrowConfiguration?: BorrowConfiguration;
 
   /**
    * <p>Details about a provisional configuration.</p>
@@ -735,9 +735,9 @@ export interface ConsumptionConfiguration {
   ProvisionalConfiguration?: ProvisionalConfiguration;
 
   /**
-   * <p>Details about a borrow configuration.</p>
+   * <p>Renewal frequency.</p>
    */
-  BorrowConfiguration?: BorrowConfiguration;
+  RenewType?: RenewType | string;
 }
 
 export namespace ConsumptionConfiguration {
@@ -781,19 +781,19 @@ export enum EntitlementUnit {
  */
 export interface Entitlement {
   /**
-   * <p>Entitlement name.</p>
+   * <p>Indicates whether check-ins are allowed.</p>
    */
-  Name: string | undefined;
-
-  /**
-   * <p>Entitlement resource. Use only if the unit is None.</p>
-   */
-  Value?: string;
+  AllowCheckIn?: boolean;
 
   /**
    * <p>Maximum entitlement count. Use if the unit is not None.</p>
    */
   MaxCount?: number;
+
+  /**
+   * <p>Entitlement name.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>Indicates whether overages are allowed.</p>
@@ -806,9 +806,9 @@ export interface Entitlement {
   Unit: EntitlementUnit | string | undefined;
 
   /**
-   * <p>Indicates whether check-ins are allowed.</p>
+   * <p>Entitlement resource. Use only if the unit is None.</p>
    */
-  AllowCheckIn?: boolean;
+  Value?: string;
 }
 
 export namespace Entitlement {
@@ -862,6 +862,43 @@ export namespace DatetimeRange {
 
 export interface CreateLicenseRequest {
   /**
+   * <p>License beneficiary.</p>
+   */
+  Beneficiary: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>Configuration for consumption of the license. Choose a provisional configuration for workloads
+   *           running with continuous connectivity. Choose a borrow configuration for workloads with offline
+   *           usage.</p>
+   */
+  ConsumptionConfiguration: ConsumptionConfiguration | undefined;
+
+  /**
+   * <p>License entitlements.</p>
+   */
+  Entitlements: Entitlement[] | undefined;
+
+  /**
+   * <p>Home Region for the license.</p>
+   */
+  HomeRegion: string | undefined;
+
+  /**
+   * <p>License issuer.</p>
+   */
+  Issuer: Issuer | undefined;
+
+  /**
+   * <p>Information about the license.</p>
+   */
+  LicenseMetadata?: Metadata[];
+
+  /**
    * <p>License name.</p>
    */
   LicenseName: string | undefined;
@@ -877,46 +914,9 @@ export interface CreateLicenseRequest {
   ProductSKU: string | undefined;
 
   /**
-   * <p>License issuer.</p>
-   */
-  Issuer: Issuer | undefined;
-
-  /**
-   * <p>Home Region for the license.</p>
-   */
-  HomeRegion: string | undefined;
-
-  /**
    * <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
    */
   Validity: DatetimeRange | undefined;
-
-  /**
-   * <p>License entitlements.</p>
-   */
-  Entitlements: Entitlement[] | undefined;
-
-  /**
-   * <p>License beneficiary.</p>
-   */
-  Beneficiary: string | undefined;
-
-  /**
-   * <p>Configuration for consumption of the license. Choose a provisional configuration for workloads
-   *           running with continuous connectivity. Choose a borrow configuration for workloads with offline
-   *           usage.</p>
-   */
-  ConsumptionConfiguration: ConsumptionConfiguration | undefined;
-
-  /**
-   * <p>Information about the license.</p>
-   */
-  LicenseMetadata?: Metadata[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
-   */
-  ClientToken: string | undefined;
 }
 
 export namespace CreateLicenseRequest {
@@ -970,6 +970,11 @@ export enum LicenseCountingType {
  */
 export interface ProductInformationFilter {
   /**
+   * <p>Logical operator.</p>
+   */
+  ProductInformationFilterComparator: string | undefined;
+
+  /**
    * <p>Filter name.</p>
    */
   ProductInformationFilterName: string | undefined;
@@ -978,11 +983,6 @@ export interface ProductInformationFilter {
    * <p>Filter value.</p>
    */
   ProductInformationFilterValue: string[] | undefined;
-
-  /**
-   * <p>Logical operator.</p>
-   */
-  ProductInformationFilterComparator: string | undefined;
 }
 
 export namespace ProductInformationFilter {
@@ -995,11 +995,6 @@ export namespace ProductInformationFilter {
  * <p>Describes product information for a license configuration.</p>
  */
 export interface ProductInformation {
-  /**
-   * <p>Resource type. The possible values are <code>SSM_MANAGED</code> | <code>RDS</code>.</p>
-   */
-  ResourceType: string | undefined;
-
   /**
    * <p>Product information filters.</p>
    *          <p>The following filters and logical operators are supported when the resource type
@@ -1062,6 +1057,11 @@ export interface ProductInformation {
    *          </ul>
    */
   ProductInformationFilterList: ProductInformationFilter[] | undefined;
+
+  /**
+   * <p>Resource type. The possible values are <code>SSM_MANAGED</code> | <code>RDS</code>.</p>
+   */
+  ResourceType: string | undefined;
 }
 
 export namespace ProductInformation {
@@ -1093,19 +1093,14 @@ export namespace Tag {
 
 export interface CreateLicenseConfigurationRequest {
   /**
-   * <p>Name of the license configuration.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Description of the license configuration.</p>
    */
   Description?: string;
 
   /**
-   * <p>Dimension used to track the license inventory.</p>
+   * <p>When true, disassociates a resource when software is uninstalled.</p>
    */
-  LicenseCountingType: LicenseCountingType | string | undefined;
+  DisassociateWhenNotFound?: boolean;
 
   /**
    * <p>Number of licenses managed by the license configuration.</p>
@@ -1117,6 +1112,11 @@ export interface CreateLicenseConfigurationRequest {
    *          blocks the launch of new instances.</p>
    */
   LicenseCountHardLimit?: boolean;
+
+  /**
+   * <p>Dimension used to track the license inventory.</p>
+   */
+  LicenseCountingType: LicenseCountingType | string | undefined;
 
   /**
    * <p>License rules. The syntax is #name=value (for example, #allowedTenancy=EC2-DedicatedHost). The available rules
@@ -1160,19 +1160,19 @@ export interface CreateLicenseConfigurationRequest {
   LicenseRules?: string[];
 
   /**
-   * <p>Tags to add to the license configuration.</p>
+   * <p>Name of the license configuration.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>When true, disassociates a resource when software is uninstalled.</p>
-   */
-  DisassociateWhenNotFound?: boolean;
+  Name: string | undefined;
 
   /**
    * <p>Product information.</p>
    */
   ProductInformationList?: ProductInformation[];
+
+  /**
+   * <p>Tags to add to the license configuration.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateLicenseConfigurationRequest {
@@ -1196,9 +1196,41 @@ export namespace CreateLicenseConfigurationResponse {
 
 export interface CreateLicenseVersionRequest {
   /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>Configuration for consumption of the license. Choose a provisional configuration for workloads
+   *          running with continuous connectivity. Choose a borrow configuration for workloads with offline
+   *          usage.</p>
+   */
+  ConsumptionConfiguration: ConsumptionConfiguration | undefined;
+
+  /**
+   * <p>License entitlements.</p>
+   */
+  Entitlements: Entitlement[] | undefined;
+
+  /**
+   * <p>Home Region of the license.</p>
+   */
+  HomeRegion: string | undefined;
+
+  /**
+   * <p>License issuer.</p>
+   */
+  Issuer: Issuer | undefined;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
    */
   LicenseArn: string | undefined;
+
+  /**
+   * <p>Information about the license.</p>
+   */
+  LicenseMetadata?: Metadata[];
 
   /**
    * <p>License name.</p>
@@ -1211,36 +1243,9 @@ export interface CreateLicenseVersionRequest {
   ProductName: string | undefined;
 
   /**
-   * <p>License issuer.</p>
+   * <p>Current version of the license.</p>
    */
-  Issuer: Issuer | undefined;
-
-  /**
-   * <p>Home Region of the license.</p>
-   */
-  HomeRegion: string | undefined;
-
-  /**
-   * <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
-   */
-  Validity: DatetimeRange | undefined;
-
-  /**
-   * <p>Information about the license.</p>
-   */
-  LicenseMetadata?: Metadata[];
-
-  /**
-   * <p>License entitlements.</p>
-   */
-  Entitlements: Entitlement[] | undefined;
-
-  /**
-   * <p>Configuration for consumption of the license. Choose a provisional configuration for workloads
-   *          running with continuous connectivity. Choose a borrow configuration for workloads with offline
-   *          usage.</p>
-   */
-  ConsumptionConfiguration: ConsumptionConfiguration | undefined;
+  SourceVersion?: string;
 
   /**
    * <p>License status.</p>
@@ -1248,14 +1253,9 @@ export interface CreateLicenseVersionRequest {
   Status: LicenseStatus | string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
    */
-  ClientToken: string | undefined;
-
-  /**
-   * <p>Current version of the license.</p>
-   */
-  SourceVersion?: string;
+  Validity: DatetimeRange | undefined;
 }
 
 export namespace CreateLicenseVersionRequest {
@@ -1271,14 +1271,14 @@ export interface CreateLicenseVersionResponse {
   LicenseArn?: string;
 
   /**
-   * <p>New version of the license.</p>
-   */
-  Version?: string;
-
-  /**
    * <p>License status.</p>
    */
   Status?: LicenseStatus | string;
+
+  /**
+   * <p>New version of the license.</p>
+   */
+  Version?: string;
 }
 
 export namespace CreateLicenseVersionResponse {
@@ -1288,6 +1288,16 @@ export namespace CreateLicenseVersionResponse {
 }
 
 export interface CreateTokenRequest {
+  /**
+   * <p>Idempotency token, valid for 10 minutes.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>Token expiration, in days, counted from token creation. The default is 365 days.</p>
+   */
+  ExpirationInDays?: number;
+
   /**
    * <p>Amazon Resource Name (ARN) of the license. The ARN is mapped to the aud claim of the
    *           JWT token.</p>
@@ -1301,20 +1311,10 @@ export interface CreateTokenRequest {
   RoleArns?: string[];
 
   /**
-   * <p>Token expiration, in days, counted from token creation. The default is 365 days.</p>
-   */
-  ExpirationInDays?: number;
-
-  /**
    * <p>Data specified by the caller to be included in the JWT token. The data is mapped
    *           to the amr claim of the JWT token.</p>
    */
   TokenProperties?: string[];
-
-  /**
-   * <p>Idempotency token, valid for 10 minutes.</p>
-   */
-  ClientToken: string | undefined;
 }
 
 export namespace CreateTokenRequest {
@@ -1329,6 +1329,11 @@ export enum TokenType {
 
 export interface CreateTokenResponse {
   /**
+   * <p>Refresh token, encoded as a JWT token.</p>
+   */
+  Token?: string;
+
+  /**
    * <p>Token ID.</p>
    */
   TokenId?: string;
@@ -1337,11 +1342,6 @@ export interface CreateTokenResponse {
    * <p>Token type.</p>
    */
   TokenType?: TokenType | string;
-
-  /**
-   * <p>Refresh token, encoded as a JWT token.</p>
-   */
-  Token?: string;
 }
 
 export namespace CreateTokenResponse {
@@ -1416,14 +1416,14 @@ export enum LicenseDeletionStatus {
 
 export interface DeleteLicenseResponse {
   /**
-   * <p>License status.</p>
-   */
-  Status?: LicenseDeletionStatus | string;
-
-  /**
    * <p>Date on which the license is deleted.</p>
    */
   DeletionDate?: string;
+
+  /**
+   * <p>License status.</p>
+   */
+  Status?: LicenseDeletionStatus | string;
 }
 
 export namespace DeleteLicenseResponse {
@@ -1476,14 +1476,14 @@ export namespace DeleteTokenResponse {
 
 export interface ExtendLicenseConsumptionRequest {
   /**
-   * <p>License consumption token.</p>
-   */
-  LicenseConsumptionToken: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request. Provides an error response if you do not have the required permissions.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>License consumption token.</p>
+   */
+  LicenseConsumptionToken: string | undefined;
 }
 
 export namespace ExtendLicenseConsumptionRequest {
@@ -1494,14 +1494,14 @@ export namespace ExtendLicenseConsumptionRequest {
 
 export interface ExtendLicenseConsumptionResponse {
   /**
-   * <p>License consumption token.</p>
-   */
-  LicenseConsumptionToken?: string;
-
-  /**
    * <p>Date and time at which the license consumption expires.</p>
    */
   Expiration?: string;
+
+  /**
+   * <p>License consumption token.</p>
+   */
+  LicenseConsumptionToken?: string;
 }
 
 export namespace ExtendLicenseConsumptionResponse {
@@ -1569,19 +1569,9 @@ export interface Grant {
   GrantArn: string | undefined;
 
   /**
-   * <p>Grant name.</p>
+   * <p>Granted operations.</p>
    */
-  GrantName: string | undefined;
-
-  /**
-   * <p>Parent ARN.</p>
-   */
-  ParentArn: string | undefined;
-
-  /**
-   * <p>License ARN.</p>
-   */
-  LicenseArn: string | undefined;
+  GrantedOperations: (AllowedOperation | string)[] | undefined;
 
   /**
    * <p>The grantee principal ARN.</p>
@@ -1589,14 +1579,29 @@ export interface Grant {
   GranteePrincipalArn: string | undefined;
 
   /**
-   * <p>Home Region of the grant.</p>
+   * <p>Grant name.</p>
    */
-  HomeRegion: string | undefined;
+  GrantName: string | undefined;
 
   /**
    * <p>Grant status.</p>
    */
   GrantStatus: GrantStatus | string | undefined;
+
+  /**
+   * <p>Home Region of the grant.</p>
+   */
+  HomeRegion: string | undefined;
+
+  /**
+   * <p>License ARN.</p>
+   */
+  LicenseArn: string | undefined;
+
+  /**
+   * <p>Parent ARN.</p>
+   */
+  ParentArn: string | undefined;
 
   /**
    * <p>Grant status reason.</p>
@@ -1607,11 +1612,6 @@ export interface Grant {
    * <p>Grant version.</p>
    */
   Version: string | undefined;
-
-  /**
-   * <p>Granted operations.</p>
-   */
-  GrantedOperations: (AllowedOperation | string)[] | undefined;
 }
 
 export namespace Grant {
@@ -1656,6 +1656,11 @@ export namespace GetLicenseRequest {
  */
 export interface IssuerDetails {
   /**
+   * <p>Issuer key fingerprint.</p>
+   */
+  KeyFingerprint?: string;
+
+  /**
    * <p>Issuer name.</p>
    */
   Name?: string;
@@ -1665,11 +1670,6 @@ export interface IssuerDetails {
    *          and support the RSASSA-PSS SHA-256 signing algorithm.</p>
    */
   SignKey?: string;
-
-  /**
-   * <p>Issuer key fingerprint.</p>
-   */
-  KeyFingerprint?: string;
 }
 
 export namespace IssuerDetails {
@@ -1683,9 +1683,44 @@ export namespace IssuerDetails {
  */
 export interface License {
   /**
+   * <p>License beneficiary.</p>
+   */
+  Beneficiary?: string;
+
+  /**
+   * <p>Configuration for consumption of the license.</p>
+   */
+  ConsumptionConfiguration?: ConsumptionConfiguration;
+
+  /**
+   * <p>License creation time.</p>
+   */
+  CreateTime?: string;
+
+  /**
+   * <p>License entitlements.</p>
+   */
+  Entitlements?: Entitlement[];
+
+  /**
+   * <p>Home Region of the license.</p>
+   */
+  HomeRegion?: string;
+
+  /**
+   * <p>License issuer.</p>
+   */
+  Issuer?: IssuerDetails;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
    */
   LicenseArn?: string;
+
+  /**
+   * <p>License metadata.</p>
+   */
+  LicenseMetadata?: Metadata[];
 
   /**
    * <p>License name.</p>
@@ -1703,16 +1738,6 @@ export interface License {
   ProductSKU?: string;
 
   /**
-   * <p>License issuer.</p>
-   */
-  Issuer?: IssuerDetails;
-
-  /**
-   * <p>Home Region of the license.</p>
-   */
-  HomeRegion?: string;
-
-  /**
    * <p>License status.</p>
    */
   Status?: LicenseStatus | string;
@@ -1721,31 +1746,6 @@ export interface License {
    * <p>Date and time range during which the license is valid, in ISO8601-UTC format.</p>
    */
   Validity?: DatetimeRange;
-
-  /**
-   * <p>License beneficiary.</p>
-   */
-  Beneficiary?: string;
-
-  /**
-   * <p>License entitlements.</p>
-   */
-  Entitlements?: Entitlement[];
-
-  /**
-   * <p>Configuration for consumption of the license.</p>
-   */
-  ConsumptionConfiguration?: ConsumptionConfiguration;
-
-  /**
-   * <p>License metadata.</p>
-   */
-  LicenseMetadata?: Metadata[];
-
-  /**
-   * <p>License creation time.</p>
-   */
-  CreateTime?: string;
 
   /**
    * <p>License version.</p>
@@ -1798,14 +1798,14 @@ export enum ResourceType {
  */
 export interface ConsumedLicenseSummary {
   /**
-   * <p>Resource type of the resource consuming a license.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
    * <p>Number of licenses consumed by the resource.</p>
    */
   ConsumedLicenses?: number;
+
+  /**
+   * <p>Resource type of the resource consuming a license.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace ConsumedLicenseSummary {
@@ -1819,14 +1819,14 @@ export namespace ConsumedLicenseSummary {
  */
 export interface ManagedResourceSummary {
   /**
-   * <p>Type of resource associated with a license.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
    * <p>Number of resources associated with licenses.</p>
    */
   AssociationCount?: number;
+
+  /**
+   * <p>Type of resource associated with a license.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace ManagedResourceSummary {
@@ -1837,19 +1837,19 @@ export namespace ManagedResourceSummary {
 
 export interface GetLicenseConfigurationResponse {
   /**
-   * <p>Unique ID for the license configuration.</p>
+   * <p>Automated discovery information.</p>
    */
-  LicenseConfigurationId?: string;
+  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   * <p>Number of licenses assigned to resources.</p>
    */
-  LicenseConfigurationArn?: string;
+  ConsumedLicenses?: number;
 
   /**
-   * <p>Name of the license configuration.</p>
+   * <p>Summaries of the licenses consumed by resources.</p>
    */
-  Name?: string;
+  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
 
   /**
    * <p>Description of the license configuration.</p>
@@ -1857,14 +1857,19 @@ export interface GetLicenseConfigurationResponse {
   Description?: string;
 
   /**
-   * <p>Dimension on which the licenses are counted.</p>
+   * <p>When true, disassociates a resource when software is uninstalled.</p>
    */
-  LicenseCountingType?: LicenseCountingType | string;
+  DisassociateWhenNotFound?: boolean;
 
   /**
-   * <p>License rules.</p>
+   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
-  LicenseRules?: string[];
+  LicenseConfigurationArn?: string;
+
+  /**
+   * <p>Unique ID for the license configuration.</p>
+   */
+  LicenseConfigurationId?: string;
 
   /**
    * <p>Number of available licenses.</p>
@@ -1877,24 +1882,14 @@ export interface GetLicenseConfigurationResponse {
   LicenseCountHardLimit?: boolean;
 
   /**
-   * <p>Number of licenses assigned to resources.</p>
+   * <p>Dimension on which the licenses are counted.</p>
    */
-  ConsumedLicenses?: number;
+  LicenseCountingType?: LicenseCountingType | string;
 
   /**
-   * <p>License configuration status.</p>
+   * <p>License rules.</p>
    */
-  Status?: string;
-
-  /**
-   * <p>Account ID of the owner of the license configuration.</p>
-   */
-  OwnerAccountId?: string;
-
-  /**
-   * <p>Summaries of the licenses consumed by resources.</p>
-   */
-  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
+  LicenseRules?: string[];
 
   /**
    * <p>Summaries of the managed resources.</p>
@@ -1902,9 +1897,14 @@ export interface GetLicenseConfigurationResponse {
   ManagedResourceSummaryList?: ManagedResourceSummary[];
 
   /**
-   * <p>Tags for the license configuration.</p>
+   * <p>Name of the license configuration.</p>
    */
-  Tags?: Tag[];
+  Name?: string;
+
+  /**
+   * <p>Account ID of the owner of the license configuration.</p>
+   */
+  OwnerAccountId?: string;
 
   /**
    * <p>Product information.</p>
@@ -1912,14 +1912,14 @@ export interface GetLicenseConfigurationResponse {
   ProductInformationList?: ProductInformation[];
 
   /**
-   * <p>Automated discovery information.</p>
+   * <p>License configuration status.</p>
    */
-  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
+  Status?: string;
 
   /**
-   * <p>When true, disassociates a resource when software is uninstalled.</p>
+   * <p>Tags for the license configuration.</p>
    */
-  DisassociateWhenNotFound?: boolean;
+  Tags?: Tag[];
 }
 
 export namespace GetLicenseConfigurationResponse {
@@ -1946,11 +1946,6 @@ export namespace GetLicenseUsageRequest {
  */
 export interface EntitlementUsage {
   /**
-   * <p>Entitlement usage name.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Resource usage consumed.</p>
    */
   ConsumedValue: string | undefined;
@@ -1959,6 +1954,11 @@ export interface EntitlementUsage {
    * <p>Maximum entitlement usage count.</p>
    */
   MaxCount?: string;
+
+  /**
+   * <p>Entitlement usage name.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>Entitlement usage unit.</p>
@@ -2027,23 +2027,6 @@ export namespace OrganizationConfiguration {
 
 export interface GetServiceSettingsResponse {
   /**
-   * <p>Regional S3 bucket path for storing reports, license trail event data, discovery data,
-   *          and so on.</p>
-   */
-  S3BucketArn?: string;
-
-  /**
-   * <p>SNS topic configured to receive notifications from License Manager.</p>
-   */
-  SnsTopicArn?: string;
-
-  /**
-   * <p>Indicates whether AWS Organizations is integrated with License Manager for
-   *          cross-account discovery.</p>
-   */
-  OrganizationConfiguration?: OrganizationConfiguration;
-
-  /**
    * <p>Indicates whether cross-account discovery is enabled.</p>
    */
   EnableCrossAccountsDiscovery?: boolean;
@@ -2053,6 +2036,23 @@ export interface GetServiceSettingsResponse {
    *          accounts with access to this share.</p>
    */
   LicenseManagerResourceShareArn?: string;
+
+  /**
+   * <p>Indicates whether AWS Organizations is integrated with License Manager for
+   *          cross-account discovery.</p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
+
+  /**
+   * <p>Regional S3 bucket path for storing reports, license trail event data, discovery data,
+   *          and so on.</p>
+   */
+  S3BucketArn?: string;
+
+  /**
+   * <p>SNS topic configured to receive notifications from License Manager.</p>
+   */
+  SnsTopicArn?: string;
 }
 
 export namespace GetServiceSettingsResponse {
@@ -2104,19 +2104,9 @@ export namespace ListAssociationsForLicenseConfigurationRequest {
  */
 export interface LicenseConfigurationAssociation {
   /**
-   * <p>Amazon Resource Name (ARN) of the resource.</p>
+   * <p>Scope of AMI associations. The possible value is <code>cross-account</code>.</p>
    */
-  ResourceArn?: string;
-
-  /**
-   * <p>Type of server resource.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>ID of the AWS account that owns the resource consuming licenses.</p>
-   */
-  ResourceOwnerId?: string;
+  AmiAssociationScope?: string;
 
   /**
    * <p>Time when the license configuration was associated with the resource.</p>
@@ -2124,9 +2114,19 @@ export interface LicenseConfigurationAssociation {
   AssociationTime?: Date;
 
   /**
-   * <p>Scope of AMI associations. The possible value is <code>cross-account</code>.</p>
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
    */
-  AmiAssociationScope?: string;
+  ResourceArn?: string;
+
+  /**
+   * <p>ID of the AWS account that owns the resource consuming licenses.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>Type of server resource.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace LicenseConfigurationAssociation {
@@ -2178,11 +2178,6 @@ export namespace Filter {
 
 export interface ListDistributedGrantsRequest {
   /**
-   * <p>Amazon Resource Names (ARNs) of the grants.</p>
-   */
-  GrantArns?: string[];
-
-  /**
    * <p>Filters to scope the results. The following filters are supported:</p>
    *          <ul>
    *             <li>
@@ -2210,14 +2205,19 @@ export interface ListDistributedGrantsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>Amazon Resource Names (ARNs) of the grants.</p>
    */
-  NextToken?: string;
+  GrantArns?: string[];
 
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListDistributedGrantsRequest {
@@ -2272,16 +2272,6 @@ export namespace ListFailuresForLicenseConfigurationOperationsRequest {
  */
 export interface LicenseOperationFailure {
   /**
-   * <p>Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>Resource type.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
    * <p>Error message.</p>
    */
   ErrorMessage?: string;
@@ -2292,14 +2282,14 @@ export interface LicenseOperationFailure {
   FailureTime?: Date;
 
   /**
+   * <p>Reserved.</p>
+   */
+  MetadataList?: Metadata[];
+
+  /**
    * <p>Name of the operation.</p>
    */
   OperationName?: string;
-
-  /**
-   * <p>ID of the AWS account that owns the resource.</p>
-   */
-  ResourceOwnerId?: string;
 
   /**
    * <p>The requester is "License Manager Automated Discovery".</p>
@@ -2307,9 +2297,19 @@ export interface LicenseOperationFailure {
   OperationRequestedBy?: string;
 
   /**
-   * <p>Reserved.</p>
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
    */
-  MetadataList?: Metadata[];
+  ResourceArn?: string;
+
+  /**
+   * <p>ID of the AWS account that owns the resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>Resource type.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace LicenseOperationFailure {
@@ -2338,21 +2338,6 @@ export namespace ListFailuresForLicenseConfigurationOperationsResponse {
 
 export interface ListLicenseConfigurationsRequest {
   /**
-   * <p>Amazon Resource Names (ARN) of the license configurations.</p>
-   */
-  LicenseConfigurationArns?: string[];
-
-  /**
-   * <p>Maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Filters to scope the results. The following filters and logical operators
    *         are supported:</p>
    *          <ul>
@@ -2375,6 +2360,21 @@ export interface ListLicenseConfigurationsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>Amazon Resource Names (ARN) of the license configurations.</p>
+   */
+  LicenseConfigurationArns?: string[];
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListLicenseConfigurationsRequest {
@@ -2392,19 +2392,19 @@ export namespace ListLicenseConfigurationsRequest {
  */
 export interface LicenseConfiguration {
   /**
-   * <p>Unique ID of the license configuration.</p>
+   * <p>Automated discovery information.</p>
    */
-  LicenseConfigurationId?: string;
+  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   * <p>Number of licenses consumed. </p>
    */
-  LicenseConfigurationArn?: string;
+  ConsumedLicenses?: number;
 
   /**
-   * <p>Name of the license configuration.</p>
+   * <p>Summaries for licenses consumed by various resources.</p>
    */
-  Name?: string;
+  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
 
   /**
    * <p>Description of the license configuration.</p>
@@ -2412,14 +2412,19 @@ export interface LicenseConfiguration {
   Description?: string;
 
   /**
-   * <p>Dimension to use to track the license inventory.</p>
+   * <p>When true, disassociates a resource when software is uninstalled.</p>
    */
-  LicenseCountingType?: LicenseCountingType | string;
+  DisassociateWhenNotFound?: boolean;
 
   /**
-   * <p>License rules.</p>
+   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
-  LicenseRules?: string[];
+  LicenseConfigurationArn?: string;
+
+  /**
+   * <p>Unique ID of the license configuration.</p>
+   */
+  LicenseConfigurationId?: string;
 
   /**
    * <p>Number of licenses managed by the license configuration.</p>
@@ -2432,29 +2437,14 @@ export interface LicenseConfiguration {
   LicenseCountHardLimit?: boolean;
 
   /**
-   * <p>When true, disassociates a resource when software is uninstalled.</p>
+   * <p>Dimension to use to track the license inventory.</p>
    */
-  DisassociateWhenNotFound?: boolean;
+  LicenseCountingType?: LicenseCountingType | string;
 
   /**
-   * <p>Number of licenses consumed. </p>
+   * <p>License rules.</p>
    */
-  ConsumedLicenses?: number;
-
-  /**
-   * <p>Status of the license configuration.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Account ID of the license configuration's owner.</p>
-   */
-  OwnerAccountId?: string;
-
-  /**
-   * <p>Summaries for licenses consumed by various resources.</p>
-   */
-  ConsumedLicenseSummaryList?: ConsumedLicenseSummary[];
+  LicenseRules?: string[];
 
   /**
    * <p>Summaries for managed resources.</p>
@@ -2462,14 +2452,24 @@ export interface LicenseConfiguration {
   ManagedResourceSummaryList?: ManagedResourceSummary[];
 
   /**
+   * <p>Name of the license configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Account ID of the license configuration's owner.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
    * <p>Product information.</p>
    */
   ProductInformationList?: ProductInformation[];
 
   /**
-   * <p>Automated discovery information.</p>
+   * <p>Status of the license configuration.</p>
    */
-  AutomatedDiscoveryInformation?: AutomatedDiscoveryInformation;
+  Status?: string;
 }
 
 export namespace LicenseConfiguration {
@@ -2498,11 +2498,6 @@ export namespace ListLicenseConfigurationsResponse {
 
 export interface ListLicensesRequest {
   /**
-   * <p>Amazon Resource Names (ARNs) of the licenses.</p>
-   */
-  LicenseArns?: string[];
-
-  /**
    * <p>Filters to scope the results. The following filters are supported:</p>
    *          <ul>
    *             <li>
@@ -2530,14 +2525,19 @@ export interface ListLicensesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>Amazon Resource Names (ARNs) of the licenses.</p>
    */
-  NextToken?: string;
+  LicenseArns?: string[];
 
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListLicensesRequest {
@@ -2566,11 +2566,6 @@ export namespace ListLicensesResponse {
 
 export interface ListLicenseSpecificationsForResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
@@ -2579,6 +2574,11 @@ export interface ListLicenseSpecificationsForResourceRequest {
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace ListLicenseSpecificationsForResourceRequest {
@@ -2592,14 +2592,14 @@ export namespace ListLicenseSpecificationsForResourceRequest {
  */
 export interface LicenseSpecification {
   /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn: string | undefined;
-
-  /**
    * <p>Scope of AMI associations. The possible value is <code>cross-account</code>.</p>
    */
   AmiAssociationScope?: string;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn: string | undefined;
 }
 
 export namespace LicenseSpecification {
@@ -2633,14 +2633,14 @@ export interface ListLicenseVersionsRequest {
   LicenseArn: string | undefined;
 
   /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListLicenseVersionsRequest {
@@ -2669,11 +2669,6 @@ export namespace ListLicenseVersionsResponse {
 
 export interface ListReceivedGrantsRequest {
   /**
-   * <p>Amazon Resource Names (ARNs) of the grants.</p>
-   */
-  GrantArns?: string[];
-
-  /**
    * <p>Filters to scope the results. The following filters are supported:</p>
    *          <ul>
    *             <li>
@@ -2691,14 +2686,19 @@ export interface ListReceivedGrantsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>Amazon Resource Names (ARNs) of the grants.</p>
    */
-  NextToken?: string;
+  GrantArns?: string[];
 
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListReceivedGrantsRequest {
@@ -2727,11 +2727,6 @@ export namespace ListReceivedGrantsResponse {
 
 export interface ListReceivedLicensesRequest {
   /**
-   * <p>Amazon Resource Names (ARNs) of the licenses.</p>
-   */
-  LicenseArns?: string[];
-
-  /**
    * <p>Filters to scope the results. The following filters are supported:</p>
    *          <ul>
    *             <li>
@@ -2759,14 +2754,19 @@ export interface ListReceivedLicensesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Token for the next set of results.</p>
+   * <p>Amazon Resource Names (ARNs) of the licenses.</p>
    */
-  NextToken?: string;
+  LicenseArns?: string[];
 
   /**
    * <p>Maximum number of results to return in a single call.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListReceivedLicensesRequest {
@@ -2790,14 +2790,14 @@ export enum ReceivedStatus {
  */
 export interface ReceivedMetadata {
   /**
-   * <p>Received status.</p>
-   */
-  ReceivedStatus?: ReceivedStatus | string;
-
-  /**
    * <p>Allowed operations.</p>
    */
   AllowedOperations?: (AllowedOperation | string)[];
+
+  /**
+   * <p>Received status.</p>
+   */
+  ReceivedStatus?: ReceivedStatus | string;
 }
 
 export namespace ReceivedMetadata {
@@ -2811,9 +2811,44 @@ export namespace ReceivedMetadata {
  */
 export interface GrantedLicense {
   /**
+   * <p>Granted license beneficiary.</p>
+   */
+  Beneficiary?: string;
+
+  /**
+   * <p>Configuration for consumption of the license.</p>
+   */
+  ConsumptionConfiguration?: ConsumptionConfiguration;
+
+  /**
+   * <p>Creation time of the granted license.</p>
+   */
+  CreateTime?: string;
+
+  /**
+   * <p>License entitlements.</p>
+   */
+  Entitlements?: Entitlement[];
+
+  /**
+   * <p>Home Region of the granted license.</p>
+   */
+  HomeRegion?: string;
+
+  /**
+   * <p>Granted license issuer.</p>
+   */
+  Issuer?: IssuerDetails;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the license.</p>
    */
   LicenseArn?: string;
+
+  /**
+   * <p>Granted license metadata.</p>
+   */
+  LicenseMetadata?: Metadata[];
 
   /**
    * <p>License name.</p>
@@ -2831,14 +2866,9 @@ export interface GrantedLicense {
   ProductSKU?: string;
 
   /**
-   * <p>Granted license issuer.</p>
+   * <p>Granted license received metadata.</p>
    */
-  Issuer?: IssuerDetails;
-
-  /**
-   * <p>Home Region of the granted license.</p>
-   */
-  HomeRegion?: string;
+  ReceivedMetadata?: ReceivedMetadata;
 
   /**
    * <p>Granted license status.</p>
@@ -2851,39 +2881,9 @@ export interface GrantedLicense {
   Validity?: DatetimeRange;
 
   /**
-   * <p>Granted license beneficiary.</p>
-   */
-  Beneficiary?: string;
-
-  /**
-   * <p>License entitlements.</p>
-   */
-  Entitlements?: Entitlement[];
-
-  /**
-   * <p>Configuration for consumption of the license.</p>
-   */
-  ConsumptionConfiguration?: ConsumptionConfiguration;
-
-  /**
-   * <p>Granted license metadata.</p>
-   */
-  LicenseMetadata?: Metadata[];
-
-  /**
-   * <p>Creation time of the granted license.</p>
-   */
-  CreateTime?: string;
-
-  /**
    * <p>Version of the granted license.</p>
    */
   Version?: string;
-
-  /**
-   * <p>Granted license received metadata.</p>
-   */
-  ReceivedMetadata?: ReceivedMetadata;
 }
 
 export namespace GrantedLicense {
@@ -2916,8 +2916,8 @@ export namespace ListReceivedLicensesResponse {
 export interface FailedDependencyException extends __SmithyException, $MetadataBearer {
   name: "FailedDependencyException";
   $fault: "client";
-  Message?: string;
   ErrorCode?: string;
+  Message?: string;
 }
 
 export namespace FailedDependencyException {
@@ -2938,14 +2938,14 @@ export enum InventoryFilterCondition {
  */
 export interface InventoryFilter {
   /**
-   * <p>Name of the filter.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>Condition of the filter.</p>
    */
   Condition: InventoryFilterCondition | string | undefined;
+
+  /**
+   * <p>Name of the filter.</p>
+   */
+  Name: string | undefined;
 
   /**
    * <p>Value of the filter.</p>
@@ -2960,16 +2960,6 @@ export namespace InventoryFilter {
 }
 
 export interface ListResourceInventoryRequest {
-  /**
-   * <p>Maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>Filters to scope the results. The following filters and logical operators
    *         are supported:</p>
@@ -3012,6 +3002,16 @@ export interface ListResourceInventoryRequest {
    *          </ul>
    */
   Filters?: InventoryFilter[];
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListResourceInventoryRequest {
@@ -3025,21 +3025,6 @@ export namespace ListResourceInventoryRequest {
  */
 export interface ResourceInventory {
   /**
-   * <p>ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>Type of resource.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceArn?: string;
-
-  /**
    * <p>Platform of the resource.</p>
    */
   Platform?: string;
@@ -3050,9 +3035,24 @@ export interface ResourceInventory {
   PlatformVersion?: string;
 
   /**
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
    * <p>ID of the account that owns the resource.</p>
    */
   ResourceOwningAccountId?: string;
+
+  /**
+   * <p>Type of resource.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace ResourceInventory {
@@ -3063,14 +3063,14 @@ export namespace ResourceInventory {
 
 export interface ListResourceInventoryResponse {
   /**
-   * <p>Information about the resources.</p>
-   */
-  ResourceInventoryList?: ResourceInventory[];
-
-  /**
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the resources.</p>
+   */
+  ResourceInventoryList?: ResourceInventory[];
 }
 
 export namespace ListResourceInventoryResponse {
@@ -3107,11 +3107,6 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTokensRequest {
   /**
-   * <p>Token IDs.</p>
-   */
-  TokenIds?: string[];
-
-  /**
    * <p>Filters to scope the results. The following filter is supported:</p>
    *          <ul>
    *             <li>
@@ -3124,14 +3119,19 @@ export interface ListTokensRequest {
   Filters?: Filter[];
 
   /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>Maximum number of results to return in a single call.</p>
+   * <p>Token IDs.</p>
    */
-  MaxResults?: number;
+  TokenIds?: string[];
 }
 
 export namespace ListTokensRequest {
@@ -3145,29 +3145,14 @@ export namespace ListTokensRequest {
  */
 export interface TokenData {
   /**
-   * <p>Token ID.</p>
-   */
-  TokenId?: string;
-
-  /**
-   * <p>Type of token generated. The supported value is <code>REFRESH_TOKEN</code>.</p>
-   */
-  TokenType?: string;
-
-  /**
-   * <p>Amazon Resource Name (ARN) of the license.</p>
-   */
-  LicenseArn?: string;
-
-  /**
    * <p>Token expiration time, in ISO8601-UTC format.</p>
    */
   ExpirationTime?: string;
 
   /**
-   * <p>Data specified by the caller.</p>
+   * <p>Amazon Resource Name (ARN) of the license.</p>
    */
-  TokenProperties?: string[];
+  LicenseArn?: string;
 
   /**
    * <p>Amazon Resource Names (ARN) of the roles included in the token.</p>
@@ -3178,6 +3163,21 @@ export interface TokenData {
    * <p>Token status. The possible values are <code>AVAILABLE</code> and <code>DELETED</code>.</p>
    */
   Status?: string;
+
+  /**
+   * <p>Token ID.</p>
+   */
+  TokenId?: string;
+
+  /**
+   * <p>Data specified by the caller.</p>
+   */
+  TokenProperties?: string[];
+
+  /**
+   * <p>Type of token generated. The supported value is <code>REFRESH_TOKEN</code>.</p>
+   */
+  TokenType?: string;
 }
 
 export namespace TokenData {
@@ -3188,14 +3188,14 @@ export namespace TokenData {
 
 export interface ListTokensResponse {
   /**
-   * <p>Received token details.</p>
-   */
-  Tokens?: TokenData[];
-
-  /**
    * <p>Token for the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Received token details.</p>
+   */
+  Tokens?: TokenData[];
 }
 
 export namespace ListTokensResponse {
@@ -3205,21 +3205,6 @@ export namespace ListTokensResponse {
 }
 
 export interface ListUsageForLicenseConfigurationRequest {
-  /**
-   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn: string | undefined;
-
-  /**
-   * <p>Maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Token for the next set of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>Filters to scope the results. The following filters and logical operators
    *         are supported:</p>
@@ -3242,6 +3227,21 @@ export interface ListUsageForLicenseConfigurationRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Token for the next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListUsageForLicenseConfigurationRequest {
@@ -3255,26 +3255,6 @@ export namespace ListUsageForLicenseConfigurationRequest {
  */
 export interface LicenseConfigurationUsage {
   /**
-   * <p>Amazon Resource Name (ARN) of the resource.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>Type of resource.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>Status of the resource.</p>
-   */
-  ResourceStatus?: string;
-
-  /**
-   * <p>ID of the account that owns the resource.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
    * <p>Time when the license configuration was initially associated with the resource.</p>
    */
   AssociationTime?: Date;
@@ -3283,6 +3263,26 @@ export interface LicenseConfigurationUsage {
    * <p>Number of licenses consumed by the resource.</p>
    */
   ConsumedLicenses?: number;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>ID of the account that owns the resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>Status of the resource.</p>
+   */
+  ResourceStatus?: string;
+
+  /**
+   * <p>Type of resource.</p>
+   */
+  ResourceType?: ResourceType | string;
 }
 
 export namespace LicenseConfigurationUsage {
@@ -3404,6 +3404,16 @@ export enum LicenseConfigurationStatus {
 
 export interface UpdateLicenseConfigurationRequest {
   /**
+   * <p>New description of the license configuration.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>When true, disassociates a resource when software is uninstalled.</p>
+   */
+  DisassociateWhenNotFound?: boolean;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the license configuration.</p>
    */
   LicenseConfigurationArn: string | undefined;
@@ -3412,12 +3422,6 @@ export interface UpdateLicenseConfigurationRequest {
    * <p>New status of the license configuration.</p>
    */
   LicenseConfigurationStatus?: LicenseConfigurationStatus | string;
-
-  /**
-   * <p>New license rule. The only rule that you can add after you create a license
-   *           configuration is licenseAffinityToHost.</p>
-   */
-  LicenseRules?: string[];
 
   /**
    * <p>New number of licenses managed by the license configuration.</p>
@@ -3430,24 +3434,20 @@ export interface UpdateLicenseConfigurationRequest {
   LicenseCountHardLimit?: boolean;
 
   /**
+   * <p>New license rule. The only rule that you can add after you create a license
+   *           configuration is licenseAffinityToHost.</p>
+   */
+  LicenseRules?: string[];
+
+  /**
    * <p>New name of the license configuration.</p>
    */
   Name?: string;
 
   /**
-   * <p>New description of the license configuration.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>New product information.</p>
    */
   ProductInformationList?: ProductInformation[];
-
-  /**
-   * <p>When true, disassociates a resource when software is uninstalled.</p>
-   */
-  DisassociateWhenNotFound?: boolean;
 }
 
 export namespace UpdateLicenseConfigurationRequest {
@@ -3498,11 +3498,6 @@ export namespace LicenseUsageException {
 
 export interface UpdateLicenseSpecificationsForResourceRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the AWS resource.</p>
-   */
-  ResourceArn: string | undefined;
-
-  /**
    * <p>ARNs of the license configurations to add.</p>
    */
   AddLicenseSpecifications?: LicenseSpecification[];
@@ -3511,6 +3506,11 @@ export interface UpdateLicenseSpecificationsForResourceRequest {
    * <p>ARNs of the license configurations to remove.</p>
    */
   RemoveLicenseSpecifications?: LicenseSpecification[];
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the AWS resource.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 export namespace UpdateLicenseSpecificationsForResourceRequest {
@@ -3529,6 +3529,16 @@ export namespace UpdateLicenseSpecificationsForResourceResponse {
 
 export interface UpdateServiceSettingsRequest {
   /**
+   * <p>Activates cross-account discovery.</p>
+   */
+  EnableCrossAccountsDiscovery?: boolean;
+
+  /**
+   * <p>Enables integration with AWS Organizations for cross-account discovery.</p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
+
+  /**
    * <p>Amazon Resource Name (ARN) of the Amazon S3 bucket where the License Manager information is stored.</p>
    */
   S3BucketArn?: string;
@@ -3537,16 +3547,6 @@ export interface UpdateServiceSettingsRequest {
    * <p>Amazon Resource Name (ARN) of the Amazon SNS topic used for License Manager alerts.</p>
    */
   SnsTopicArn?: string;
-
-  /**
-   * <p>Enables integration with AWS Organizations for cross-account discovery.</p>
-   */
-  OrganizationConfiguration?: OrganizationConfiguration;
-
-  /**
-   * <p>Activates cross-account discovery.</p>
-   */
-  EnableCrossAccountsDiscovery?: boolean;
 }
 
 export namespace UpdateServiceSettingsRequest {

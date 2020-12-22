@@ -49,13 +49,12 @@ export namespace AddHeaderAction {
 export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
+  message?: string;
   /**
    * <p>Indicates that a resource could not be created because the resource name already
    *             exists.</p>
    */
   Name?: string;
-
-  message?: string;
 }
 
 export namespace AlreadyExistsException {
@@ -77,14 +76,14 @@ export enum BehaviorOnMXFailure {
  */
 export interface Content {
   /**
-   * <p>The textual data of the content.</p>
-   */
-  Data: string | undefined;
-
-  /**
    * <p>The character set of the content.</p>
    */
   Charset?: string;
+
+  /**
+   * <p>The textual data of the content.</p>
+   */
+  Data: string | undefined;
 }
 
 export namespace Content {
@@ -100,17 +99,17 @@ export namespace Content {
  */
 export interface Body {
   /**
-   * <p>The content of the message, in text format. Use this for text-based email clients, or
-   *             clients on high-latency networks (such as mobile devices).</p>
-   */
-  Text?: Content;
-
-  /**
    * <p>The content of the message, in HTML format. Use this for email clients that can
    *             process HTML. You can include clickable links, formatted text, and much more in an HTML
    *             message.</p>
    */
   Html?: Content;
+
+  /**
+   * <p>The content of the message, in text format. Use this for text-based email clients, or
+   *             clients on high-latency networks (such as mobile devices).</p>
+   */
+  Text?: Content;
 }
 
 export namespace Body {
@@ -129,12 +128,15 @@ export namespace Body {
  */
 export interface BounceAction {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is
-   *             taken. An example of an Amazon SNS topic ARN is
-   *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
-   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   * <p>Human-readable text to include in the bounce message.</p>
    */
-  TopicArn?: string;
+  Message: string | undefined;
+
+  /**
+   * <p>The email address of the sender of the bounced email. This is the address from which
+   *             the bounce message will be sent.</p>
+   */
+  Sender: string | undefined;
 
   /**
    * <p>The SMTP reply code, as defined by <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
@@ -147,15 +149,12 @@ export interface BounceAction {
   StatusCode?: string;
 
   /**
-   * <p>Human-readable text to include in the bounce message.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is
+   *             taken. An example of an Amazon SNS topic ARN is
+   *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
+   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
    */
-  Message: string | undefined;
-
-  /**
-   * <p>The email address of the sender of the bounced email. This is the address from which
-   *             the bounce message will be sent.</p>
-   */
-  Sender: string | undefined;
+  TopicArn?: string;
 }
 
 export namespace BounceAction {
@@ -215,6 +214,24 @@ export namespace ExtensionField {
  */
 export interface RecipientDsnFields {
   /**
+   * <p>The action performed by the reporting mail transfer agent (MTA) as a result of its
+   *             attempt to deliver the message to the recipient address. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
+   */
+  Action: DsnAction | string | undefined;
+
+  /**
+   * <p>An extended explanation of what went wrong; this is usually an SMTP response. See
+   *                 <a href="https://tools.ietf.org/html/rfc3463">RFC 3463</a> for the correct
+   *             formatting of this parameter.</p>
+   */
+  DiagnosticCode?: string;
+
+  /**
+   * <p>Additional X-headers to include in the DSN.</p>
+   */
+  ExtensionFields?: ExtensionField[];
+
+  /**
    * <p>The email address that the message was ultimately delivered to. This corresponds to
    *             the <code>Final-Recipient</code> in the DSN. If not specified,
    *                 <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in
@@ -229,10 +246,9 @@ export interface RecipientDsnFields {
   FinalRecipient?: string;
 
   /**
-   * <p>The action performed by the reporting mail transfer agent (MTA) as a result of its
-   *             attempt to deliver the message to the recipient address. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
+   * <p>The time the final delivery attempt was made, in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
    */
-  Action: DsnAction | string | undefined;
+  LastAttemptDate?: Date;
 
   /**
    * <p>The MTA to which the remote MTA attempted to deliver the message, formatted as
@@ -246,23 +262,6 @@ export interface RecipientDsnFields {
    * <p>The status code that indicates what went wrong. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
    */
   Status: string | undefined;
-
-  /**
-   * <p>An extended explanation of what went wrong; this is usually an SMTP response. See
-   *                 <a href="https://tools.ietf.org/html/rfc3463">RFC 3463</a> for the correct
-   *             formatting of this parameter.</p>
-   */
-  DiagnosticCode?: string;
-
-  /**
-   * <p>The time the final delivery attempt was made, in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
-   */
-  LastAttemptDate?: Date;
-
-  /**
-   * <p>Additional X-headers to include in the DSN.</p>
-   */
-  ExtensionFields?: ExtensionField[];
 }
 
 export namespace RecipientDsnFields {
@@ -279,6 +278,12 @@ export namespace RecipientDsnFields {
  */
 export interface BouncedRecipientInfo {
   /**
+   * <p>The reason for the bounce. You must provide either this parameter or
+   *                 <code>RecipientDsnFields</code>.</p>
+   */
+  BounceType?: BounceType | string;
+
+  /**
    * <p>The email address of the recipient of the bounced email.</p>
    */
   Recipient: string | undefined;
@@ -291,12 +296,6 @@ export interface BouncedRecipientInfo {
    *                 Guide</a>.</p>
    */
   RecipientArn?: string;
-
-  /**
-   * <p>The reason for the bounce. You must provide either this parameter or
-   *                 <code>RecipientDsnFields</code>.</p>
-   */
-  BounceType?: BounceType | string;
 
   /**
    * <p>Recipient-related DSN fields, most of which would normally be filled in automatically
@@ -326,9 +325,9 @@ export namespace BouncedRecipientInfo {
  */
 export interface Destination {
   /**
-   * <p>The recipients to place on the To: line of the message.</p>
+   * <p>The recipients to place on the BCC: line of the message.</p>
    */
-  ToAddresses?: string[];
+  BccAddresses?: string[];
 
   /**
    * <p>The recipients to place on the CC: line of the message.</p>
@@ -336,9 +335,9 @@ export interface Destination {
   CcAddresses?: string[];
 
   /**
-   * <p>The recipients to place on the BCC: line of the message.</p>
+   * <p>The recipients to place on the To: line of the message.</p>
    */
-  BccAddresses?: string[];
+  ToAddresses?: string[];
 }
 
 export namespace Destination {
@@ -452,6 +451,18 @@ export enum BulkEmailStatus {
  */
 export interface BulkEmailDestinationStatus {
   /**
+   * <p>A description of an error that prevented a message being sent using the
+   *                 <code>SendBulkTemplatedEmail</code> operation.</p>
+   */
+  Error?: string;
+
+  /**
+   * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
+   *             operation.</p>
+   */
+  MessageId?: string;
+
+  /**
    * <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code>
    *             operation.</p>
    *         <p>Possible values for this parameter include:</p>
@@ -532,18 +543,6 @@ export interface BulkEmailDestinationStatus {
    *          </ul>
    */
   Status?: BulkEmailStatus | string;
-
-  /**
-   * <p>A description of an error that prevented a message being sent using the
-   *                 <code>SendBulkTemplatedEmail</code> operation.</p>
-   */
-  Error?: string;
-
-  /**
-   * <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code>
-   *             operation.</p>
-   */
-  MessageId?: string;
 }
 
 export namespace BulkEmailDestinationStatus {
@@ -558,13 +557,12 @@ export namespace BulkEmailDestinationStatus {
 export interface CannotDeleteException extends __SmithyException, $MetadataBearer {
   name: "CannotDeleteException";
   $fault: "client";
+  message?: string;
   /**
    * <p>Indicates that a resource could not be deleted because no resource with the specified
    *             name exists.</p>
    */
   Name?: string;
-
-  message?: string;
 }
 
 export namespace CannotDeleteException {
@@ -578,6 +576,11 @@ export namespace CannotDeleteException {
  *             receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CloneReceiptRuleSetRequest {
+  /**
+   * <p>The name of the rule set to clone.</p>
+   */
+  OriginalRuleSetName: string | undefined;
+
   /**
    * <p>The name of the rule set to create. The name must:</p>
    *         <ul>
@@ -594,11 +597,6 @@ export interface CloneReceiptRuleSetRequest {
    *          </ul>
    */
   RuleSetName: string | undefined;
-
-  /**
-   * <p>The name of the rule set to clone.</p>
-   */
-  OriginalRuleSetName: string | undefined;
 }
 
 export namespace CloneReceiptRuleSetRequest {
@@ -641,12 +639,11 @@ export namespace LimitExceededException {
 export interface RuleSetDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RuleSetDoesNotExistException";
   $fault: "client";
+  message?: string;
   /**
    * <p>Indicates that the named receipt rule set does not exist.</p>
    */
   Name?: string;
-
-  message?: string;
 }
 
 export namespace RuleSetDoesNotExistException {
@@ -667,6 +664,21 @@ export enum DimensionValueSource {
  *         <p>For information about publishing email sending events to Amazon CloudWatch, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface CloudWatchDimensionConfiguration {
+  /**
+   * <p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide
+   *             the value of the dimension when you send an email. The default value must:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
+   *                     underscores (_), or dashes (-).</p>
+   *             </li>
+   *             <li>
+   *                 <p>Contain less than 256 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  DefaultDimensionValue: string | undefined;
+
   /**
    * <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name
    *             must:</p>
@@ -691,21 +703,6 @@ export interface CloudWatchDimensionConfiguration {
    *                 <code>emailHeader</code>.</p>
    */
   DimensionValueSource: DimensionValueSource | string | undefined;
-
-  /**
-   * <p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide
-   *             the value of the dimension when you send an email. The default value must:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9),
-   *                     underscores (_), or dashes (-).</p>
-   *             </li>
-   *             <li>
-   *                 <p>Contain less than 256 characters.</p>
-   *             </li>
-   *          </ul>
-   */
-  DefaultDimensionValue: string | undefined;
 }
 
 export namespace CloudWatchDimensionConfiguration {
@@ -889,15 +886,15 @@ export namespace InvalidConfigurationSetException {
  */
 export interface KinesisFirehoseDestination {
   /**
+   * <p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>
+   */
+  DeliveryStreamARN: string | undefined;
+
+  /**
    * <p>The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose
    *             stream.</p>
    */
   IAMRoleARN: string | undefined;
-
-  /**
-   * <p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>
-   */
-  DeliveryStreamARN: string | undefined;
 }
 
 export namespace KinesisFirehoseDestination {
@@ -953,6 +950,31 @@ export namespace SNSDestination {
  */
 export interface EventDestination {
   /**
+   * <p>An object that contains the names, default values, and sources of the dimensions
+   *             associated with an Amazon CloudWatch event destination.</p>
+   */
+  CloudWatchDestination?: CloudWatchDestination;
+
+  /**
+   * <p>Sets whether Amazon SES publishes events to this destination when you send an email with
+   *             the associated configuration set. Set to <code>true</code> to enable publishing to this
+   *             destination; set to <code>false</code> to prevent publishing to this destination. The
+   *             default value is <code>false</code>.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>An object that contains the delivery stream ARN and the IAM role ARN associated with
+   *             an Amazon Kinesis Firehose event destination.</p>
+   */
+  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+
+  /**
+   * <p>The type of email sending events to publish to the event destination.</p>
+   */
+  MatchingEventTypes: (EventType | string)[] | undefined;
+
+  /**
    * <p>The name of the event destination. The name must:</p>
    *         <ul>
    *             <li>
@@ -965,31 +987,6 @@ export interface EventDestination {
    *          </ul>
    */
   Name: string | undefined;
-
-  /**
-   * <p>Sets whether Amazon SES publishes events to this destination when you send an email with
-   *             the associated configuration set. Set to <code>true</code> to enable publishing to this
-   *             destination; set to <code>false</code> to prevent publishing to this destination. The
-   *             default value is <code>false</code>.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The type of email sending events to publish to the event destination.</p>
-   */
-  MatchingEventTypes: (EventType | string)[] | undefined;
-
-  /**
-   * <p>An object that contains the delivery stream ARN and the IAM role ARN associated with
-   *             an Amazon Kinesis Firehose event destination.</p>
-   */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
-
-  /**
-   * <p>An object that contains the names, default values, and sources of the dimensions
-   *             associated with an Amazon CloudWatch event destination.</p>
-   */
-  CloudWatchDestination?: CloudWatchDestination;
 
   /**
    * <p>An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event
@@ -1257,9 +1254,10 @@ export namespace TrackingOptionsAlreadyExistsException {
  */
 export interface CreateCustomVerificationEmailTemplateRequest {
   /**
-   * <p>The name of the custom verification email template.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName: string | undefined;
+  FailureRedirectionURL: string | undefined;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
@@ -1267,9 +1265,10 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   FromEmailAddress: string | undefined;
 
   /**
-   * <p>The subject line of the custom verification email.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
    */
-  TemplateSubject: string | undefined;
+  SuccessRedirectionURL: string | undefined;
 
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
@@ -1280,16 +1279,14 @@ export interface CreateCustomVerificationEmailTemplateRequest {
   TemplateContent: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is successfully verified.</p>
+   * <p>The name of the custom verification email template.</p>
    */
-  SuccessRedirectionURL: string | undefined;
+  TemplateName: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The subject line of the custom verification email.</p>
    */
-  FailureRedirectionURL: string | undefined;
+  TemplateSubject: string | undefined;
 }
 
 export namespace CreateCustomVerificationEmailTemplateRequest {
@@ -1369,18 +1366,18 @@ export enum ReceiptFilterPolicy {
  */
 export interface ReceiptIpFilter {
   /**
-   * <p>Indicates whether to block or allow incoming mail from the specified IP
-   *             addresses.</p>
-   */
-  Policy: ReceiptFilterPolicy | string | undefined;
-
-  /**
    * <p>A single IP address or a range of IP addresses that you want to block or allow,
    *             specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single
    *             email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For
    *             more information about CIDR notation, see <a href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>.</p>
    */
   Cidr: string | undefined;
+
+  /**
+   * <p>Indicates whether to block or allow incoming mail from the specified IP
+   *             addresses.</p>
+   */
+  Policy: ReceiptFilterPolicy | string | undefined;
 }
 
 export namespace ReceiptIpFilter {
@@ -1395,6 +1392,12 @@ export namespace ReceiptIpFilter {
  *         <p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
  */
 export interface ReceiptFilter {
+  /**
+   * <p>A structure that provides the IP addresses to block or allow, and whether to block or
+   *             allow incoming mail from them.</p>
+   */
+  IpFilter: ReceiptIpFilter | undefined;
+
   /**
    * <p>The name of the IP address filter. The name must:</p>
    *         <ul>
@@ -1411,12 +1414,6 @@ export interface ReceiptFilter {
    *          </ul>
    */
   Name: string | undefined;
-
-  /**
-   * <p>A structure that provides the IP addresses to block or allow, and whether to block or
-   *             allow incoming mail from them.</p>
-   */
-  IpFilter: ReceiptIpFilter | undefined;
 }
 
 export namespace ReceiptFilter {
@@ -1468,14 +1465,6 @@ export type InvocationType = "Event" | "RequestResponse";
  */
 export interface LambdaAction {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is
-   *             taken. An example of an Amazon SNS topic ARN is
-   *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
-   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-   */
-  TopicArn?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda
    *             function ARN is <code>arn:aws:lambda:us-west-2:account-id:function:MyFunction</code>.
    *             For more information about AWS Lambda, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda Developer Guide</a>.</p>
@@ -1496,6 +1485,14 @@ export interface LambdaAction {
    *         </important>
    */
   InvocationType?: InvocationType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is
+   *             taken. An example of an Amazon SNS topic ARN is
+   *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
+   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   */
+  TopicArn?: string;
 }
 
 export namespace LambdaAction {
@@ -1519,23 +1516,9 @@ export namespace LambdaAction {
  */
 export interface S3Action {
   /**
-   * <p>The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An
-   *             example of an Amazon SNS topic ARN is
-   *             <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
-   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-   */
-  TopicArn?: string;
-
-  /**
    * <p>The name of the Amazon S3 bucket that incoming email will be saved to.</p>
    */
   BucketName: string | undefined;
-
-  /**
-   * <p>The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that
-   *             enables you to store similar data under the same directory in a bucket.</p>
-   */
-  ObjectKeyPrefix?: string;
 
   /**
    * <p>The customer master key that Amazon SES should use to encrypt your emails before saving
@@ -1572,6 +1555,20 @@ export interface S3Action {
    *         </important>
    */
   KmsKeyArn?: string;
+
+  /**
+   * <p>The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that
+   *             enables you to store similar data under the same directory in a bucket.</p>
+   */
+  ObjectKeyPrefix?: string;
+
+  /**
+   * <p>The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An
+   *             example of an Amazon SNS topic ARN is
+   *             <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
+   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   */
+  TopicArn?: string;
 }
 
 export namespace S3Action {
@@ -1606,19 +1603,19 @@ export enum SNSActionEncoding {
  */
 export interface SNSAction {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS
-   *             topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more
-   *             information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-   */
-  TopicArn: string | undefined;
-
-  /**
    * <p>The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to
    *             use, but may not preserve all special characters when a message was encoded with a
    *             different encoding format. Base64 preserves all special characters. The default value is
    *             UTF-8.</p>
    */
   Encoding?: SNSActionEncoding | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS
+   *             topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more
+   *             information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   */
+  TopicArn: string | undefined;
 }
 
 export namespace SNSAction {
@@ -1668,14 +1665,6 @@ export namespace StopAction {
  */
 export interface WorkmailAction {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action
-   *             is called. An example of an Amazon SNS topic ARN is
-   *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
-   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
-   */
-  TopicArn?: string;
-
-  /**
    * <p>The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail
    *             organization ARN is
    *                 <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
@@ -1683,6 +1672,14 @@ export interface WorkmailAction {
    *                 Administrator Guide</a>.</p>
    */
   OrganizationArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action
+   *             is called. An example of an Amazon SNS topic ARN is
+   *                 <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about
+   *             Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+   */
+  TopicArn?: string;
 }
 
 export namespace WorkmailAction {
@@ -1700,10 +1697,9 @@ export namespace WorkmailAction {
  */
 export interface ReceiptAction {
   /**
-   * <p>Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a
-   *             notification to Amazon SNS.</p>
+   * <p>Adds a header to the received email.</p>
    */
-  S3Action?: S3Action;
+  AddHeaderAction?: AddHeaderAction;
 
   /**
    * <p>Rejects the received email by returning a bounce response to the sender and,
@@ -1712,15 +1708,20 @@ export interface ReceiptAction {
   BounceAction?: BounceAction;
 
   /**
-   * <p>Calls Amazon WorkMail and, optionally, publishes a notification to Amazon
-   *             Amazon SNS.</p>
-   */
-  WorkmailAction?: WorkmailAction;
-
-  /**
    * <p>Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.</p>
    */
   LambdaAction?: LambdaAction;
+
+  /**
+   * <p>Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a
+   *             notification to Amazon SNS.</p>
+   */
+  S3Action?: S3Action;
+
+  /**
+   * <p>Publishes the email content within a notification to Amazon SNS.</p>
+   */
+  SNSAction?: SNSAction;
 
   /**
    * <p>Terminates the evaluation of the receipt rule set and optionally publishes a
@@ -1729,14 +1730,10 @@ export interface ReceiptAction {
   StopAction?: StopAction;
 
   /**
-   * <p>Adds a header to the received email.</p>
+   * <p>Calls Amazon WorkMail and, optionally, publishes a notification to Amazon
+   *             Amazon SNS.</p>
    */
-  AddHeaderAction?: AddHeaderAction;
-
-  /**
-   * <p>Publishes the email content within a notification to Amazon SNS.</p>
-   */
-  SNSAction?: SNSAction;
+  WorkmailAction?: WorkmailAction;
 }
 
 export namespace ReceiptAction {
@@ -1761,6 +1758,18 @@ export enum TlsPolicy {
  */
 export interface ReceiptRule {
   /**
+   * <p>An ordered list of actions to perform on messages that match at least one of the
+   *             recipient email addresses or domains specified in the receipt rule.</p>
+   */
+  Actions?: ReceiptAction[];
+
+  /**
+   * <p>If <code>true</code>, the receipt rule is active. The default value is
+   *                 <code>false</code>.</p>
+   */
+  Enabled?: boolean;
+
+  /**
    * <p>The name of the receipt rule. The name must:</p>
    *         <ul>
    *             <li>
@@ -1778,10 +1787,17 @@ export interface ReceiptRule {
   Name: string | undefined;
 
   /**
-   * <p>If <code>true</code>, the receipt rule is active. The default value is
-   *                 <code>false</code>.</p>
+   * <p>The recipient domains and email addresses that the receipt rule applies to. If this
+   *             field is not specified, this rule will match all recipients under all verified
+   *             domains.</p>
    */
-  Enabled?: boolean;
+  Recipients?: string[];
+
+  /**
+   * <p>If <code>true</code>, then messages that this receipt rule applies to are scanned for
+   *             spam and viruses. The default value is <code>false</code>.</p>
+   */
+  ScanEnabled?: boolean;
 
   /**
    * <p>Specifies whether Amazon SES should require that incoming email is delivered over a
@@ -1790,25 +1806,6 @@ export interface ReceiptRule {
    *             default is <code>Optional</code>.</p>
    */
   TlsPolicy?: TlsPolicy | string;
-
-  /**
-   * <p>The recipient domains and email addresses that the receipt rule applies to. If this
-   *             field is not specified, this rule will match all recipients under all verified
-   *             domains.</p>
-   */
-  Recipients?: string[];
-
-  /**
-   * <p>An ordered list of actions to perform on messages that match at least one of the
-   *             recipient email addresses or domains specified in the receipt rule.</p>
-   */
-  Actions?: ReceiptAction[];
-
-  /**
-   * <p>If <code>true</code>, then messages that this receipt rule applies to are scanned for
-   *             spam and viruses. The default value is <code>false</code>.</p>
-   */
-  ScanEnabled?: boolean;
 }
 
 export namespace ReceiptRule {
@@ -1824,11 +1821,6 @@ export namespace ReceiptRule {
  */
 export interface CreateReceiptRuleRequest {
   /**
-   * <p>The name of the rule set that the receipt rule will be added to.</p>
-   */
-  RuleSetName: string | undefined;
-
-  /**
    * <p>The name of an existing rule after which the new rule will be placed. If this
    *             parameter is null, the new rule will be inserted at the beginning of the rule
    *             list.</p>
@@ -1840,6 +1832,11 @@ export interface CreateReceiptRuleRequest {
    *             domains, enabled status, scan status, and TLS policy.</p>
    */
   Rule: ReceiptRule | undefined;
+
+  /**
+   * <p>The name of the rule set that the receipt rule will be added to.</p>
+   */
+  RuleSetName: string | undefined;
 }
 
 export namespace CreateReceiptRuleRequest {
@@ -1914,12 +1911,11 @@ export namespace InvalidS3ConfigurationException {
 export interface InvalidSnsTopicException extends __SmithyException, $MetadataBearer {
   name: "InvalidSnsTopicException";
   $fault: "client";
+  message?: string;
   /**
    * <p>Indicates that the topic does not exist.</p>
    */
   Topic?: string;
-
-  message?: string;
 }
 
 export namespace InvalidSnsTopicException {
@@ -1934,12 +1930,11 @@ export namespace InvalidSnsTopicException {
 export interface RuleDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "RuleDoesNotExistException";
   $fault: "client";
+  message?: string;
   /**
    * <p>Indicates that the named receipt rule does not exist.</p>
    */
   Name?: string;
-
-  message?: string;
 }
 
 export namespace RuleDoesNotExistException {
@@ -1995,11 +1990,9 @@ export namespace CreateReceiptRuleSetResponse {
  */
 export interface Template {
   /**
-   * <p>The name of the template. You will refer to this name when you send email using the
-   *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code>
-   *             operations.</p>
+   * <p>The HTML body of the email.</p>
    */
-  TemplateName: string | undefined;
+  HtmlPart?: string;
 
   /**
    * <p>The subject line of the email.</p>
@@ -2007,15 +2000,17 @@ export interface Template {
   SubjectPart?: string;
 
   /**
+   * <p>The name of the template. You will refer to this name when you send email using the
+   *                 <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code>
+   *             operations.</p>
+   */
+  TemplateName: string | undefined;
+
+  /**
    * <p>The email body that will be visible to recipients whose email clients do not display
    *             HTML.</p>
    */
   TextPart?: string;
-
-  /**
-   * <p>The HTML body of the email.</p>
-   */
-  HtmlPart?: string;
 }
 
 export namespace Template {
@@ -2057,8 +2052,8 @@ export namespace CreateTemplateResponse {
 export interface InvalidTemplateException extends __SmithyException, $MetadataBearer {
   name: "InvalidTemplateException";
   $fault: "client";
-  TemplateName?: string;
   message?: string;
+  TemplateName?: string;
 }
 
 export namespace InvalidTemplateException {
@@ -2079,19 +2074,15 @@ export enum CustomMailFromStatus {
  */
 export interface CustomVerificationEmailTemplate {
   /**
-   * <p>The name of the custom verification email template.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName?: string;
+  FailureRedirectionURL?: string;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
-
-  /**
-   * <p>The subject line of the custom verification email.</p>
-   */
-  TemplateSubject?: string;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
@@ -2100,10 +2091,14 @@ export interface CustomVerificationEmailTemplate {
   SuccessRedirectionURL?: string;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The name of the custom verification email template.</p>
    */
-  FailureRedirectionURL?: string;
+  TemplateName?: string;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject?: string;
 }
 
 export namespace CustomVerificationEmailTemplate {
@@ -2393,14 +2388,14 @@ export namespace DeleteReceiptFilterResponse {
  */
 export interface DeleteReceiptRuleRequest {
   /**
-   * <p>The name of the receipt rule set that contains the receipt rule to delete.</p>
-   */
-  RuleSetName: string | undefined;
-
-  /**
    * <p>The name of the receipt rule to delete.</p>
    */
   RuleName: string | undefined;
+
+  /**
+   * <p>The name of the receipt rule set that contains the receipt rule to delete.</p>
+   */
+  RuleSetName: string | undefined;
 }
 
 export namespace DeleteReceiptRuleRequest {
@@ -2535,6 +2530,11 @@ export namespace DescribeActiveReceiptRuleSetRequest {
  */
 export interface ReceiptRuleSetMetadata {
   /**
+   * <p>The date and time the receipt rule set was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
    * <p>The name of the receipt rule set. The name must:</p>
    *         <ul>
    *             <li>
@@ -2550,11 +2550,6 @@ export interface ReceiptRuleSetMetadata {
    *          </ul>
    */
   Name?: string;
-
-  /**
-   * <p>The date and time the receipt rule set was created.</p>
-   */
-  CreatedTimestamp?: Date;
 }
 
 export namespace ReceiptRuleSetMetadata {
@@ -2594,14 +2589,14 @@ export namespace DescribeActiveReceiptRuleSetResponse {
  */
 export interface DescribeConfigurationSetRequest {
   /**
-   * <p>The name of the configuration set to describe.</p>
-   */
-  ConfigurationSetName: string | undefined;
-
-  /**
    * <p>A list of configuration set attributes to return.</p>
    */
   ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
+
+  /**
+   * <p>The name of the configuration set to describe.</p>
+   */
+  ConfigurationSetName: string | undefined;
 }
 
 export namespace DescribeConfigurationSetRequest {
@@ -2615,13 +2610,15 @@ export namespace DescribeConfigurationSetRequest {
  */
 export interface ReputationOptions {
   /**
-   * <p>Describes whether email sending is enabled or disabled for the configuration set. If
-   *             the value is <code>true</code>, then Amazon SES will send emails that use the configuration
-   *             set. If the value is <code>false</code>, Amazon SES will not send emails that use the
-   *             configuration set. The default value is <code>true</code>. You can change this setting
-   *             using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
+   * <p>The date and time at which the reputation metrics for the configuration set were last
+   *             reset. Resetting these metrics is known as a <i>fresh start</i>.</p>
+   *         <p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the
+   *             reputation metrics for the configuration set (but not for the entire Amazon SES account) are
+   *             reset.</p>
+   *         <p>If email sending for the configuration set has never been disabled and later
+   *             re-enabled, the value of this attribute is <code>null</code>.</p>
    */
-  SendingEnabled?: boolean;
+  LastFreshStart?: Date;
 
   /**
    * <p>Describes whether or not Amazon SES publishes reputation metrics for the configuration set,
@@ -2633,15 +2630,13 @@ export interface ReputationOptions {
   ReputationMetricsEnabled?: boolean;
 
   /**
-   * <p>The date and time at which the reputation metrics for the configuration set were last
-   *             reset. Resetting these metrics is known as a <i>fresh start</i>.</p>
-   *         <p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the
-   *             reputation metrics for the configuration set (but not for the entire Amazon SES account) are
-   *             reset.</p>
-   *         <p>If email sending for the configuration set has never been disabled and later
-   *             re-enabled, the value of this attribute is <code>null</code>.</p>
+   * <p>Describes whether email sending is enabled or disabled for the configuration set. If
+   *             the value is <code>true</code>, then Amazon SES will send emails that use the configuration
+   *             set. If the value is <code>false</code>, Amazon SES will not send emails that use the
+   *             configuration set. The default value is <code>true</code>. You can change this setting
+   *             using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
    */
-  LastFreshStart?: Date;
+  SendingEnabled?: boolean;
 }
 
 export namespace ReputationOptions {
@@ -2663,26 +2658,26 @@ export interface DescribeConfigurationSetResponse {
   ConfigurationSet?: ConfigurationSet;
 
   /**
-   * <p>A list of event destinations associated with the configuration set. </p>
-   */
-  EventDestinations?: EventDestination[];
-
-  /**
-   * <p>The name of the custom open and click tracking domain associated with the
-   *             configuration set.</p>
-   */
-  TrackingOptions?: TrackingOptions;
-
-  /**
    * <p>Specifies whether messages that use the configuration set are required to use
    *             Transport Layer Security (TLS).</p>
    */
   DeliveryOptions?: DeliveryOptions;
 
   /**
+   * <p>A list of event destinations associated with the configuration set. </p>
+   */
+  EventDestinations?: EventDestination[];
+
+  /**
    * <p>An object that represents the reputation settings for the configuration set. </p>
    */
   ReputationOptions?: ReputationOptions;
+
+  /**
+   * <p>The name of the custom open and click tracking domain associated with the
+   *             configuration set.</p>
+   */
+  TrackingOptions?: TrackingOptions;
 }
 
 export namespace DescribeConfigurationSetResponse {
@@ -2698,14 +2693,14 @@ export namespace DescribeConfigurationSetResponse {
  */
 export interface DescribeReceiptRuleRequest {
   /**
-   * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
-   */
-  RuleSetName: string | undefined;
-
-  /**
    * <p>The name of the receipt rule.</p>
    */
   RuleName: string | undefined;
+
+  /**
+   * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
+   */
+  RuleSetName: string | undefined;
 }
 
 export namespace DescribeReceiptRuleRequest {
@@ -2783,13 +2778,6 @@ export interface IdentityDkimAttributes {
   DkimEnabled: boolean | undefined;
 
   /**
-   * <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens)
-   *             published in the domain name's DNS. (This only applies to domain identities, not email
-   *             address identities.)</p>
-   */
-  DkimVerificationStatus: VerificationStatus | string | undefined;
-
-  /**
    * <p>A set of character strings that represent the domain's identity. Using these tokens,
    *             you need to create DNS CNAME records that point to DKIM public keys that are hosted by
    *             Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection
@@ -2800,6 +2788,13 @@ export interface IdentityDkimAttributes {
    *                 Guide</a>.</p>
    */
   DkimTokens?: string[];
+
+  /**
+   * <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens)
+   *             published in the domain name's DNS. (This only applies to domain identities, not email
+   *             address identities.)</p>
+   */
+  DkimVerificationStatus: VerificationStatus | string | undefined;
 }
 
 export namespace IdentityDkimAttributes {
@@ -2848,24 +2843,15 @@ export namespace GetCustomVerificationEmailTemplateRequest {
  */
 export interface GetCustomVerificationEmailTemplateResponse {
   /**
-   * <p>The name of the custom verification email template.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName?: string;
+  FailureRedirectionURL?: string;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
    */
   FromEmailAddress?: string;
-
-  /**
-   * <p>The subject line of the custom verification email.</p>
-   */
-  TemplateSubject?: string;
-
-  /**
-   * <p>The content of the custom verification email.</p>
-   */
-  TemplateContent?: string;
 
   /**
    * <p>The URL that the recipient of the verification email is sent to if his or her address
@@ -2874,10 +2860,19 @@ export interface GetCustomVerificationEmailTemplateResponse {
   SuccessRedirectionURL?: string;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The content of the custom verification email.</p>
    */
-  FailureRedirectionURL?: string;
+  TemplateContent?: string;
+
+  /**
+   * <p>The name of the custom verification email template.</p>
+   */
+  TemplateName?: string;
+
+  /**
+   * <p>The subject line of the custom verification email.</p>
+   */
+  TemplateSubject?: string;
 }
 
 export namespace GetCustomVerificationEmailTemplateResponse {
@@ -2948,6 +2943,18 @@ export namespace GetIdentityMailFromDomainAttributesRequest {
  */
 export interface IdentityMailFromDomainAttributes {
   /**
+   * <p>The action that Amazon SES takes if it cannot successfully read the required MX record when
+   *             you send an email. A value of <code>UseDefaultValue</code> indicates that if Amazon SES
+   *             cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as
+   *             the MAIL FROM domain. A value of <code>RejectMessage</code> indicates that if Amazon SES
+   *             cannot read the required MX record, Amazon SES returns a
+   *                 <code>MailFromDomainNotVerified</code> error and does not send the email.</p>
+   *         <p>The custom MAIL FROM setup states that result in this behavior are
+   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>.</p>
+   */
+  BehaviorOnMXFailure: BehaviorOnMXFailure | string | undefined;
+
+  /**
    * <p>The custom MAIL FROM domain that the identity is configured to use.</p>
    */
   MailFromDomain: string | undefined;
@@ -2960,18 +2967,6 @@ export interface IdentityMailFromDomainAttributes {
    *                 <code>BehaviorOnMXFailure</code>.</p>
    */
   MailFromDomainStatus: CustomMailFromStatus | string | undefined;
-
-  /**
-   * <p>The action that Amazon SES takes if it cannot successfully read the required MX record when
-   *             you send an email. A value of <code>UseDefaultValue</code> indicates that if Amazon SES
-   *             cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as
-   *             the MAIL FROM domain. A value of <code>RejectMessage</code> indicates that if Amazon SES
-   *             cannot read the required MX record, Amazon SES returns a
-   *                 <code>MailFromDomainNotVerified</code> error and does not send the email.</p>
-   *         <p>The custom MAIL FROM setup states that result in this behavior are
-   *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>.</p>
-   */
-  BehaviorOnMXFailure: BehaviorOnMXFailure | string | undefined;
 }
 
 export namespace IdentityMailFromDomainAttributes {
@@ -3242,16 +3237,6 @@ export namespace GetSendQuotaResponse {
  */
 export interface SendDataPoint {
   /**
-   * <p>Time of the data point.</p>
-   */
-  Timestamp?: Date;
-
-  /**
-   * <p>Number of emails that have been sent.</p>
-   */
-  DeliveryAttempts?: number;
-
-  /**
    * <p>Number of emails that have bounced.</p>
    */
   Bounces?: number;
@@ -3262,9 +3247,19 @@ export interface SendDataPoint {
   Complaints?: number;
 
   /**
+   * <p>Number of emails that have been sent.</p>
+   */
+  DeliveryAttempts?: number;
+
+  /**
    * <p>Number of emails rejected by Amazon SES.</p>
    */
   Rejects?: number;
+
+  /**
+   * <p>Time of the data point.</p>
+   */
+  Timestamp?: Date;
 }
 
 export namespace SendDataPoint {
@@ -3324,8 +3319,8 @@ export namespace GetTemplateResponse {
 export interface TemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
   name: "TemplateDoesNotExistException";
   $fault: "client";
-  TemplateName?: string;
   message?: string;
+  TemplateName?: string;
 }
 
 export namespace TemplateDoesNotExistException {
@@ -3374,8 +3369,8 @@ export namespace InvalidPolicyException {
 export interface InvalidRenderingParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidRenderingParameterException";
   $fault: "client";
-  TemplateName?: string;
   message?: string;
+  TemplateName?: string;
 }
 
 export namespace InvalidRenderingParameterException {
@@ -3392,15 +3387,15 @@ export namespace InvalidRenderingParameterException {
  */
 export interface ListConfigurationSetsRequest {
   /**
+   * <p>The number of configuration sets to return.</p>
+   */
+  MaxItems?: number;
+
+  /**
    * <p>A token returned from a previous call to <code>ListConfigurationSets</code> to
    *             indicate the position of the configuration set in the configuration set list.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The number of configuration sets to return.</p>
-   */
-  MaxItems?: number;
 }
 
 export namespace ListConfigurationSetsRequest {
@@ -3444,18 +3439,18 @@ export namespace ListConfigurationSetsResponse {
  */
 export interface ListCustomVerificationEmailTemplatesRequest {
   /**
-   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
-   *             account.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of custom verification email templates to return. This value must
    *             be at least 1 and less than or equal to 50. If you do not specify a value, or if you
    *             specify a value less than 1 or greater than 50, the operation will return up to 50
    *             results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
+   *             account.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListCustomVerificationEmailTemplatesRequest {
@@ -3501,15 +3496,15 @@ export interface ListIdentitiesRequest {
   IdentityType?: IdentityType | string;
 
   /**
-   * <p>The token to use for pagination.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of identities per page. Possible values are 1-1000
    *             inclusive.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>The token to use for pagination.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListIdentitiesRequest {
@@ -3634,17 +3629,17 @@ export namespace ListReceiptRuleSetsRequest {
  */
 export interface ListReceiptRuleSetsResponse {
   /**
-   * <p>The metadata for the currently active receipt rule set. The metadata consists of the
-   *             rule set name and the timestamp of when the rule set was created.</p>
-   */
-  RuleSets?: ReceiptRuleSetMetadata[];
-
-  /**
    * <p>A token indicating that there are additional receipt rule sets available to be listed.
    *             Pass this token to successive calls of <code>ListReceiptRuleSets</code> to retrieve up
    *             to 100 receipt rule sets at a time.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The metadata for the currently active receipt rule set. The metadata consists of the
+   *             rule set name and the timestamp of when the rule set was created.</p>
+   */
+  RuleSets?: ReceiptRuleSetMetadata[];
 }
 
 export namespace ListReceiptRuleSetsResponse {
@@ -3655,17 +3650,17 @@ export namespace ListReceiptRuleSetsResponse {
 
 export interface ListTemplatesRequest {
   /**
-   * <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the
-   *             position in the list of email templates.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of templates to return. This value must be at least 1 and less than
    *             or equal to 10. If you do not specify a value, or if you specify a value less than 1 or
    *             greater than 10, the operation will return up to 10 results.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the
+   *             position in the list of email templates.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTemplatesRequest {
@@ -3679,14 +3674,14 @@ export namespace ListTemplatesRequest {
  */
 export interface TemplateMetadata {
   /**
-   * <p>The name of the template.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The time and date the template was created.</p>
    */
   CreatedTimestamp?: Date;
+
+  /**
+   * <p>The name of the template.</p>
+   */
+  Name?: string;
 }
 
 export namespace TemplateMetadata {
@@ -3697,17 +3692,17 @@ export namespace TemplateMetadata {
 
 export interface ListTemplatesResponse {
   /**
-   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
-   *             account.</p>
-   */
-  TemplatesMetadata?: TemplateMetadata[];
-
-  /**
    * <p>A token indicating that there are additional email templates available to be listed.
    *             Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next
    *             50 email templates.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array the contains the name and creation time stamp for each template in your Amazon SES
+   *             account.</p>
+   */
+  TemplatesMetadata?: TemplateMetadata[];
 }
 
 export namespace ListTemplatesResponse {
@@ -3756,15 +3751,15 @@ export namespace MailFromDomainNotVerifiedException {
  */
 export interface Message {
   /**
+   * <p>The message body.</p>
+   */
+  Body: Body | undefined;
+
+  /**
    * <p>The subject of the message: A short summary of the content, which will appear in the
    *             recipient's inbox.</p>
    */
   Subject: Content | undefined;
-
-  /**
-   * <p>The message body.</p>
-   */
-  Body: Body | undefined;
 }
 
 export namespace Message {
@@ -3781,14 +3776,6 @@ export namespace Message {
  */
 export interface MessageDsn {
   /**
-   * <p>The reporting MTA that attempted to deliver the message, formatted as specified in
-   *                 <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>
-   *                 (<code>mta-name-type; mta-name</code>). The default value is <code>dns;
-   *                 inbound-smtp.[region].amazonaws.com</code>.</p>
-   */
-  ReportingMta: string | undefined;
-
-  /**
    * <p>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
    */
   ArrivalDate?: Date;
@@ -3797,6 +3784,14 @@ export interface MessageDsn {
    * <p>Additional X-headers to include in the DSN.</p>
    */
   ExtensionFields?: ExtensionField[];
+
+  /**
+   * <p>The reporting MTA that attempted to deliver the message, formatted as specified in
+   *                 <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>
+   *                 (<code>mta-name-type; mta-name</code>). The default value is <code>dns;
+   *                 inbound-smtp.[region].amazonaws.com</code>.</p>
+   */
+  ReportingMta: string | undefined;
 }
 
 export namespace MessageDsn {
@@ -3829,8 +3824,8 @@ export namespace MessageRejected {
 export interface MissingRenderingAttributeException extends __SmithyException, $MetadataBearer {
   name: "MissingRenderingAttributeException";
   $fault: "client";
-  TemplateName?: string;
   message?: string;
+  TemplateName?: string;
 }
 
 export namespace MissingRenderingAttributeException {
@@ -3908,18 +3903,18 @@ export interface PutIdentityPolicyRequest {
   Identity: string | undefined;
 
   /**
-   * <p>The name of the policy.</p>
-   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
-   *             characters, dashes, and underscores.</p>
-   */
-  PolicyName: string | undefined;
-
-  /**
    * <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p>
    *         <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer
    *                 Guide</a>. </p>
    */
   Policy: string | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   *         <p>The policy name cannot exceed 64 characters and can only include alphanumeric
+   *             characters, dashes, and underscores.</p>
+   */
+  PolicyName: string | undefined;
 }
 
 export namespace PutIdentityPolicyRequest {
@@ -3975,15 +3970,15 @@ export namespace RawMessage {
  */
 export interface ReorderReceiptRuleSetRequest {
   /**
-   * <p>The name of the receipt rule set to reorder.</p>
-   */
-  RuleSetName: string | undefined;
-
-  /**
    * <p>A list of the specified receipt rule set's receipt rules in the order that you want to
    *             put them.</p>
    */
   RuleNames: string[] | undefined;
+
+  /**
+   * <p>The name of the receipt rule set to reorder.</p>
+   */
+  RuleSetName: string | undefined;
 }
 
 export namespace ReorderReceiptRuleSetRequest {
@@ -4009,15 +4004,26 @@ export namespace ReorderReceiptRuleSetResponse {
  */
 export interface SendBounceRequest {
   /**
-   * <p>The message ID of the message to be bounced.</p>
+   * <p>A list of recipients of the bounced message, including the information required to
+   *             create the Delivery Status Notifications (DSNs) for the recipients. You must specify at
+   *             least one <code>BouncedRecipientInfo</code> in the list.</p>
    */
-  OriginalMessageId: string | undefined;
+  BouncedRecipientInfoList: BouncedRecipientInfo[] | undefined;
 
   /**
    * <p>The address to use in the "From" header of the bounce message. This must be an
    *             identity that you have verified with Amazon SES.</p>
    */
   BounceSender: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             address in the "From" header of the bounce. For more information about sending
+   *             authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  BounceSenderArn?: string;
 
   /**
    * <p>Human-readable text for the bounce message to explain the failure. If not specified,
@@ -4031,20 +4037,9 @@ export interface SendBounceRequest {
   MessageDsn?: MessageDsn;
 
   /**
-   * <p>A list of recipients of the bounced message, including the information required to
-   *             create the Delivery Status Notifications (DSNs) for the recipients. You must specify at
-   *             least one <code>BouncedRecipientInfo</code> in the list.</p>
+   * <p>The message ID of the message to be bounced.</p>
    */
-  BouncedRecipientInfoList: BouncedRecipientInfo[] | undefined;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             address in the "From" header of the bounce. For more information about sending
-   *             authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  BounceSenderArn?: string;
+  OriginalMessageId: string | undefined;
 }
 
 export namespace SendBounceRequest {
@@ -4075,6 +4070,67 @@ export namespace SendBounceResponse {
  *                 Guide</a>.</p>
  */
 export interface SendBulkTemplatedEmailRequest {
+  /**
+   * <p>The name of the configuration set to use when you send an email using
+   *                 <code>SendBulkTemplatedEmail</code>.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
+   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send to
+   *             a destination using <code>SendBulkTemplatedEmail</code>.</p>
+   */
+  DefaultTags?: MessageTag[];
+
+  /**
+   * <p>A list of replacement values to apply to the template when replacement data is not
+   *             specified in a Destination object. These values act as a default or fallback option when
+   *             no other data is available.</p>
+   *         <p>The template data is a JSON object, typically consisting of key-value pairs in which
+   *             the keys correspond to replacement tags in the email template.</p>
+   */
+  DefaultTemplateData?: string;
+
+  /**
+   * <p>One or more <code>Destination</code> objects. All of the recipients in a
+   *                 <code>Destination</code> will receive the same version of the email. You can specify
+   *             up to 50 <code>Destination</code> objects within a <code>Destinations</code>
+   *             array.</p>
+   */
+  Destinations: BulkEmailDestination[] | undefined;
+
+  /**
+   * <p>The reply-to email address(es) for the message. If the recipient replies to the
+   *             message, each reply-to address will receive the reply.</p>
+   */
+  ReplyToAddresses?: string[];
+
+  /**
+   * <p>The email address that bounces and complaints will be forwarded to when feedback
+   *             forwarding is enabled. If the message cannot be delivered to the recipient, then an
+   *             error message will be returned from the recipient's ISP; this message will then be
+   *             forwarded to the email address specified by the <code>ReturnPath</code> parameter. The
+   *                 <code>ReturnPath</code> parameter is never overwritten. This email address must be
+   *             either individually verified with Amazon SES, or from a domain that has been verified with
+   *             Amazon SES. </p>
+   */
+  ReturnPath?: string;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>ReturnPath</code> parameter.</p>
+   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
+   *             policy to it that authorizes you to use <code>feedback@example.com</code>, then you
+   *             would specify the <code>ReturnPathArn</code> to be
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
+   *                 <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  ReturnPathArn?: string;
+
   /**
    * <p>The email address that is sending the email. This email address must be either
    *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
@@ -4114,50 +4170,6 @@ export interface SendBulkTemplatedEmailRequest {
   SourceArn?: string;
 
   /**
-   * <p>The reply-to email address(es) for the message. If the recipient replies to the
-   *             message, each reply-to address will receive the reply.</p>
-   */
-  ReplyToAddresses?: string[];
-
-  /**
-   * <p>The email address that bounces and complaints will be forwarded to when feedback
-   *             forwarding is enabled. If the message cannot be delivered to the recipient, then an
-   *             error message will be returned from the recipient's ISP; this message will then be
-   *             forwarded to the email address specified by the <code>ReturnPath</code> parameter. The
-   *                 <code>ReturnPath</code> parameter is never overwritten. This email address must be
-   *             either individually verified with Amazon SES, or from a domain that has been verified with
-   *             Amazon SES. </p>
-   */
-  ReturnPath?: string;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>ReturnPath</code> parameter.</p>
-   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
-   *             policy to it that authorizes you to use <code>feedback@example.com</code>, then you
-   *             would specify the <code>ReturnPathArn</code> to be
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
-   *                 <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  ReturnPathArn?: string;
-
-  /**
-   * <p>The name of the configuration set to use when you send an email using
-   *                 <code>SendBulkTemplatedEmail</code>.</p>
-   */
-  ConfigurationSetName?: string;
-
-  /**
-   * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send to
-   *             a destination using <code>SendBulkTemplatedEmail</code>.</p>
-   */
-  DefaultTags?: MessageTag[];
-
-  /**
    * <p>The template to use when sending this email.</p>
    */
   Template: string | undefined;
@@ -4166,23 +4178,6 @@ export interface SendBulkTemplatedEmailRequest {
    * <p>The ARN of the template to use when sending this email.</p>
    */
   TemplateArn?: string;
-
-  /**
-   * <p>A list of replacement values to apply to the template when replacement data is not
-   *             specified in a Destination object. These values act as a default or fallback option when
-   *             no other data is available.</p>
-   *         <p>The template data is a JSON object, typically consisting of key-value pairs in which
-   *             the keys correspond to replacement tags in the email template.</p>
-   */
-  DefaultTemplateData?: string;
-
-  /**
-   * <p>One or more <code>Destination</code> objects. All of the recipients in a
-   *                 <code>Destination</code> will receive the same version of the email. You can specify
-   *             up to 50 <code>Destination</code> objects within a <code>Destinations</code>
-   *             array.</p>
-   */
-  Destinations: BulkEmailDestination[] | undefined;
 }
 
 export namespace SendBulkTemplatedEmailRequest {
@@ -4211,6 +4206,11 @@ export namespace SendBulkTemplatedEmailResponse {
  */
 export interface SendCustomVerificationEmailRequest {
   /**
+   * <p>Name of a configuration set to use when sending the verification email.</p>
+   */
+  ConfigurationSetName?: string;
+
+  /**
    * <p>The email address to verify.</p>
    */
   EmailAddress: string | undefined;
@@ -4220,11 +4220,6 @@ export interface SendCustomVerificationEmailRequest {
    *             verification email.</p>
    */
   TemplateName: string | undefined;
-
-  /**
-   * <p>Name of a configuration set to use when sending the verification email.</p>
-   */
-  ConfigurationSetName?: string;
 }
 
 export namespace SendCustomVerificationEmailRequest {
@@ -4257,27 +4252,10 @@ export namespace SendCustomVerificationEmailResponse {
  */
 export interface SendEmailRequest {
   /**
-   * <p>The email address that is sending the email. This email address must be either
-   *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
-   *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   *         <p>If you are sending on behalf of another user and have been permitted to do so by a
-   *             sending authorization policy, then you must also specify the <code>SourceArn</code>
-   *             parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-   *         <note>
-   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
-   *                     <i>local part</i> of a source email address (the part of the email
-   *                 address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
-   *                     characters</a>. If the <i>domain part</i> of an address (the
-   *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
-   *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly
-   *                     name</i>) may contain non-ASCII characters. These characters must be
-   *                 encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word
-   *                 syntax uses the following form:
-   *                 <code>=?charset?encoding?encoded-text?=</code>.</p>
-   *         </note>
+   * <p>The name of the configuration set to use when you send an email using
+   *                 <code>SendEmail</code>.</p>
    */
-  Source: string | undefined;
+  ConfigurationSetName?: string;
 
   /**
    * <p>The destination for this email, composed of To:, CC:, and BCC: fields.</p>
@@ -4308,21 +4286,6 @@ export interface SendEmailRequest {
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to send for
-   *             the email address specified in the <code>Source</code> parameter.</p>
-   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
-   *             policy to it that authorizes you to send from <code>user@example.com</code>, then you
-   *             would specify the <code>SourceArn</code> to be
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
-   *                 <code>Source</code> to be <code>user@example.com</code>.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>ReturnPath</code> parameter.</p>
    *         <p>For example, if the owner of <code>example.com</code> (which has ARN
@@ -4337,17 +4300,49 @@ export interface SendEmailRequest {
   ReturnPathArn?: string;
 
   /**
+   * <p>The email address that is sending the email. This email address must be either
+   *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+   *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *         <p>If you are sending on behalf of another user and have been permitted to do so by a
+   *             sending authorization policy, then you must also specify the <code>SourceArn</code>
+   *             parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+   *         <note>
+   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
+   *                     <i>local part</i> of a source email address (the part of the email
+   *                 address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
+   *                     characters</a>. If the <i>domain part</i> of an address (the
+   *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
+   *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly
+   *                     name</i>) may contain non-ASCII characters. These characters must be
+   *                 encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word
+   *                 syntax uses the following form:
+   *                 <code>=?charset?encoding?encoded-text?=</code>.</p>
+   *         </note>
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to send for
+   *             the email address specified in the <code>Source</code> parameter.</p>
+   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
+   *             policy to it that authorizes you to send from <code>user@example.com</code>, then you
+   *             would specify the <code>SourceArn</code> to be
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
+   *                 <code>Source</code> to be <code>user@example.com</code>.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  SourceArn?: string;
+
+  /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendEmail</code>. Tags correspond to characteristics of the email that you
    *             define, so that you can publish email sending events.</p>
    */
   Tags?: MessageTag[];
-
-  /**
-   * <p>The name of the configuration set to use when you send an email using
-   *                 <code>SendEmail</code>.</p>
-   */
-  ConfigurationSetName?: string;
 }
 
 export namespace SendEmailRequest {
@@ -4378,34 +4373,31 @@ export namespace SendEmailResponse {
  */
 export interface SendRawEmailRequest {
   /**
-   * <p>The identity's email address. If you do not provide a value for this parameter, you
-   *             must specify a "From" address in the raw text of the message. (You can also specify
-   *             both.)</p>
-   *         <note>
-   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
-   *                     <i>local part</i> of a source email address (the part of the email
-   *                 address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
-   *                     characters</a>. If the <i>domain part</i> of an address (the
-   *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
-   *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly
-   *                     name</i>) may contain non-ASCII characters. These characters must be
-   *                 encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word
-   *                 syntax uses the following form:
-   *                 <code>=?charset?encoding?encoded-text?=</code>.</p>
-   *         </note>
-   *
-   *         <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled,
-   *             then bounces and complaints will be sent to this email address. This takes precedence
-   *             over any Return-Path header that you might include in the raw text of the
-   *             message.</p>
+   * <p>The name of the configuration set to use when you send an email using
+   *                 <code>SendRawEmail</code>.</p>
    */
-  Source?: string;
+  ConfigurationSetName?: string;
 
   /**
    * <p>A list of destinations for the message, consisting of To:, CC:, and BCC:
    *             addresses.</p>
    */
   Destinations?: string[];
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to specify a
+   *             particular "From" address in the header of the raw email.</p>
+   *         <p>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code>
+   *             in the raw message of the email. If you use both the <code>FromArn</code> parameter and
+   *             the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code>
+   *             parameter.</p>
+   *         <note>
+   *             <p>For information about when to use this parameter, see the description of
+   *                     <code>SendRawEmail</code> in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p>
+   *         </note>
+   */
+  FromArn?: string;
 
   /**
    * <p>The raw email message itself. The message has to meet the following criteria:</p>
@@ -4445,18 +4437,48 @@ export interface SendRawEmailRequest {
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to specify a
-   *             particular "From" address in the header of the raw email.</p>
-   *         <p>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code>
-   *             in the raw message of the email. If you use both the <code>FromArn</code> parameter and
-   *             the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code>
-   *             parameter.</p>
+   *             that is associated with the sending authorization policy that permits you to use the
+   *             email address specified in the <code>ReturnPath</code> parameter.</p>
+   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
+   *             policy to it that authorizes you to use <code>feedback@example.com</code>, then you
+   *             would specify the <code>ReturnPathArn</code> to be
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
+   *                 <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>
+   *         <p>Instead of using this parameter, you can use the X-header
+   *                 <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both
+   *             the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the
+   *             value of the <code>ReturnPathArn</code> parameter.</p>
    *         <note>
    *             <p>For information about when to use this parameter, see the description of
    *                     <code>SendRawEmail</code> in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p>
    *         </note>
    */
-  FromArn?: string;
+  ReturnPathArn?: string;
+
+  /**
+   * <p>The identity's email address. If you do not provide a value for this parameter, you
+   *             must specify a "From" address in the raw text of the message. (You can also specify
+   *             both.)</p>
+   *         <note>
+   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
+   *                     <i>local part</i> of a source email address (the part of the email
+   *                 address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
+   *                     characters</a>. If the <i>domain part</i> of an address (the
+   *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
+   *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly
+   *                     name</i>) may contain non-ASCII characters. These characters must be
+   *                 encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word
+   *                 syntax uses the following form:
+   *                 <code>=?charset?encoding?encoded-text?=</code>.</p>
+   *         </note>
+   *
+   *         <p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled,
+   *             then bounces and complaints will be sent to this email address. This takes precedence
+   *             over any Return-Path header that you might include in the raw text of the
+   *             message.</p>
+   */
+  Source?: string;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -4480,38 +4502,11 @@ export interface SendRawEmailRequest {
   SourceArn?: string;
 
   /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to use the
-   *             email address specified in the <code>ReturnPath</code> parameter.</p>
-   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
-   *             policy to it that authorizes you to use <code>feedback@example.com</code>, then you
-   *             would specify the <code>ReturnPathArn</code> to be
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
-   *                 <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p>
-   *         <p>Instead of using this parameter, you can use the X-header
-   *                 <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both
-   *             the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the
-   *             value of the <code>ReturnPathArn</code> parameter.</p>
-   *         <note>
-   *             <p>For information about when to use this parameter, see the description of
-   *                     <code>SendRawEmail</code> in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p>
-   *         </note>
-   */
-  ReturnPathArn?: string;
-
-  /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that
    *             you define, so that you can publish email sending events.</p>
    */
   Tags?: MessageTag[];
-
-  /**
-   * <p>The name of the configuration set to use when you send an email using
-   *                 <code>SendRawEmail</code>.</p>
-   */
-  ConfigurationSetName?: string;
 }
 
 export namespace SendRawEmailRequest {
@@ -4544,27 +4539,10 @@ export namespace SendRawEmailResponse {
  */
 export interface SendTemplatedEmailRequest {
   /**
-   * <p>The email address that is sending the email. This email address must be either
-   *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
-   *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   *         <p>If you are sending on behalf of another user and have been permitted to do so by a
-   *             sending authorization policy, then you must also specify the <code>SourceArn</code>
-   *             parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
-   *         <note>
-   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
-   *                     <i>local part</i> of a source email address (the part of the email
-   *                 address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
-   *                     characters</a>. If the <i>domain part</i> of an address (the
-   *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
-   *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly
-   *                     name</i>) may contain non-ASCII characters. These characters must be
-   *                 encoded using MIME encoded-word syntax, as described in<a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word
-   *                 syntax uses the following form:
-   *                 <code>=?charset?encoding?encoded-text?=</code>.</p>
-   *         </note>
+   * <p>The name of the configuration set to use when you send an email using
+   *                 <code>SendTemplatedEmail</code>.</p>
    */
-  Source: string | undefined;
+  ConfigurationSetName?: string;
 
   /**
    * <p>The destination for this email, composed of To:, CC:, and BCC: fields. A Destination
@@ -4591,21 +4569,6 @@ export interface SendTemplatedEmailRequest {
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
-   *             that is associated with the sending authorization policy that permits you to send for
-   *             the email address specified in the <code>Source</code> parameter.</p>
-   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
-   *             policy to it that authorizes you to send from <code>user@example.com</code>, then you
-   *             would specify the <code>SourceArn</code> to be
-   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
-   *                 <code>Source</code> to be <code>user@example.com</code>.</p>
-   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
-   *                 Guide</a>.</p>
-   */
-  SourceArn?: string;
-
-  /**
-   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
    *             that is associated with the sending authorization policy that permits you to use the
    *             email address specified in the <code>ReturnPath</code> parameter.</p>
    *         <p>For example, if the owner of <code>example.com</code> (which has ARN
@@ -4620,17 +4583,49 @@ export interface SendTemplatedEmailRequest {
   ReturnPathArn?: string;
 
   /**
+   * <p>The email address that is sending the email. This email address must be either
+   *             individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+   *             For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   *         <p>If you are sending on behalf of another user and have been permitted to do so by a
+   *             sending authorization policy, then you must also specify the <code>SourceArn</code>
+   *             parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+   *         <note>
+   *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
+   *                     <i>local part</i> of a source email address (the part of the email
+   *                 address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
+   *                     characters</a>. If the <i>domain part</i> of an address (the
+   *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
+   *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly
+   *                     name</i>) may contain non-ASCII characters. These characters must be
+   *                 encoded using MIME encoded-word syntax, as described in<a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word
+   *                 syntax uses the following form:
+   *                 <code>=?charset?encoding?encoded-text?=</code>.</p>
+   *         </note>
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>This parameter is used only for sending authorization. It is the ARN of the identity
+   *             that is associated with the sending authorization policy that permits you to send for
+   *             the email address specified in the <code>Source</code> parameter.</p>
+   *         <p>For example, if the owner of <code>example.com</code> (which has ARN
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a
+   *             policy to it that authorizes you to send from <code>user@example.com</code>, then you
+   *             would specify the <code>SourceArn</code> to be
+   *                 <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the
+   *                 <code>Source</code> to be <code>user@example.com</code>.</p>
+   *         <p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
+   *                 Guide</a>.</p>
+   */
+  SourceArn?: string;
+
+  /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
    *             using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email
    *             that you define, so that you can publish email sending events.</p>
    */
   Tags?: MessageTag[];
-
-  /**
-   * <p>The name of the configuration set to use when you send an email using
-   *                 <code>SendTemplatedEmail</code>.</p>
-   */
-  ConfigurationSetName?: string;
 
   /**
    * <p>The template to use when sending this email.</p>
@@ -4705,15 +4700,15 @@ export namespace SetActiveReceiptRuleSetResponse {
  */
 export interface SetIdentityDkimEnabledRequest {
   /**
-   * <p>The identity for which DKIM signing should be enabled or disabled.</p>
-   */
-  Identity: string | undefined;
-
-  /**
    * <p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to
    *             enable DKIM signing for this identity; <code>false</code> to disable it. </p>
    */
   DkimEnabled: boolean | undefined;
+
+  /**
+   * <p>The identity for which DKIM signing should be enabled or disabled.</p>
+   */
+  Identity: string | undefined;
 }
 
 export namespace SetIdentityDkimEnabledRequest {
@@ -4741,12 +4736,6 @@ export namespace SetIdentityDkimEnabledResponse {
  */
 export interface SetIdentityFeedbackForwardingEnabledRequest {
   /**
-   * <p>The identity for which to set bounce and complaint notification forwarding. Examples:
-   *                 <code>user@example.com</code>, <code>example.com</code>.</p>
-   */
-  Identity: string | undefined;
-
-  /**
    * <p>Sets whether Amazon SES will forward bounce and complaint notifications as email.
    *                 <code>true</code> specifies that Amazon SES will forward bounce and complaint
    *             notifications as email, in addition to any Amazon SNS topic publishing otherwise specified.
@@ -4756,6 +4745,12 @@ export interface SetIdentityFeedbackForwardingEnabledRequest {
    *             notification types.</p>
    */
   ForwardingEnabled: boolean | undefined;
+
+  /**
+   * <p>The identity for which to set bounce and complaint notification forwarding. Examples:
+   *                 <code>user@example.com</code>, <code>example.com</code>.</p>
+   */
+  Identity: string | undefined;
 }
 
 export namespace SetIdentityFeedbackForwardingEnabledRequest {
@@ -4783,6 +4778,16 @@ export namespace SetIdentityFeedbackForwardingEnabledResponse {
  */
 export interface SetIdentityHeadersInNotificationsEnabledRequest {
   /**
+   * <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the
+   *             specified notification type. A value of <code>true</code> specifies that Amazon SES will
+   *             include headers in notifications, and a value of <code>false</code> specifies that Amazon SES
+   *             will not include headers in notifications.</p>
+   *         <p>This value can only be set when <code>NotificationType</code> is already set to use a
+   *             particular Amazon SNS topic.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
    * <p>The identity for which to enable or disable headers in notifications. Examples:
    *                 <code>user@example.com</code>, <code>example.com</code>.</p>
    */
@@ -4792,16 +4797,6 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
    * <p>The notification type for which to enable or disable headers in notifications. </p>
    */
   NotificationType: NotificationType | string | undefined;
-
-  /**
-   * <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the
-   *             specified notification type. A value of <code>true</code> specifies that Amazon SES will
-   *             include headers in notifications, and a value of <code>false</code> specifies that Amazon SES
-   *             will not include headers in notifications.</p>
-   *         <p>This value can only be set when <code>NotificationType</code> is already set to use a
-   *             particular Amazon SNS topic.</p>
-   */
-  Enabled: boolean | undefined;
 }
 
 export namespace SetIdentityHeadersInNotificationsEnabledRequest {
@@ -4829,6 +4824,18 @@ export namespace SetIdentityHeadersInNotificationsEnabledResponse {
  */
 export interface SetIdentityMailFromDomainRequest {
   /**
+   * <p>The action that you want Amazon SES to take if it cannot successfully read the required MX
+   *             record when you send an email. If you choose <code>UseDefaultValue</code>, Amazon SES will
+   *             use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose
+   *                 <code>RejectMessage</code>, Amazon SES will return a
+   *                 <code>MailFromDomainNotVerified</code> error and not send the email.</p>
+   *         <p>The action specified in <code>BehaviorOnMXFailure</code> is taken when the custom MAIL
+   *             FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and
+   *                 <code>TemporaryFailure</code> states.</p>
+   */
+  BehaviorOnMXFailure?: BehaviorOnMXFailure | string;
+
+  /**
    * <p>The verified identity for which you want to enable or disable the specified custom
    *             MAIL FROM domain.</p>
    */
@@ -4843,18 +4850,6 @@ export interface SetIdentityMailFromDomainRequest {
    *             FROM setting for the identity.</p>
    */
   MailFromDomain?: string;
-
-  /**
-   * <p>The action that you want Amazon SES to take if it cannot successfully read the required MX
-   *             record when you send an email. If you choose <code>UseDefaultValue</code>, Amazon SES will
-   *             use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose
-   *                 <code>RejectMessage</code>, Amazon SES will return a
-   *                 <code>MailFromDomainNotVerified</code> error and not send the email.</p>
-   *         <p>The action specified in <code>BehaviorOnMXFailure</code> is taken when the custom MAIL
-   *             FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and
-   *                 <code>TemporaryFailure</code> states.</p>
-   */
-  BehaviorOnMXFailure?: BehaviorOnMXFailure | string;
 }
 
 export namespace SetIdentityMailFromDomainRequest {
@@ -4930,9 +4925,9 @@ export namespace SetIdentityNotificationTopicResponse {
  */
 export interface SetReceiptRulePositionRequest {
   /**
-   * <p>The name of the receipt rule set that contains the receipt rule to reposition.</p>
+   * <p>The name of the receipt rule after which to place the specified receipt rule.</p>
    */
-  RuleSetName: string | undefined;
+  After?: string;
 
   /**
    * <p>The name of the receipt rule to reposition.</p>
@@ -4940,9 +4935,9 @@ export interface SetReceiptRulePositionRequest {
   RuleName: string | undefined;
 
   /**
-   * <p>The name of the receipt rule after which to place the specified receipt rule.</p>
+   * <p>The name of the receipt rule set that contains the receipt rule to reposition.</p>
    */
-  After?: string;
+  RuleSetName: string | undefined;
 }
 
 export namespace SetReceiptRulePositionRequest {
@@ -4964,16 +4959,16 @@ export namespace SetReceiptRulePositionResponse {
 
 export interface TestRenderTemplateRequest {
   /**
-   * <p>The name of the template that you want to render.</p>
-   */
-  TemplateName: string | undefined;
-
-  /**
    * <p>A list of replacement values to apply to the template. This parameter is a JSON
    *             object, typically consisting of key-value pairs in which the keys correspond to
    *             replacement tags in the email template.</p>
    */
   TemplateData: string | undefined;
+
+  /**
+   * <p>The name of the template that you want to render.</p>
+   */
+  TemplateName: string | undefined;
 }
 
 export namespace TestRenderTemplateRequest {
@@ -5139,9 +5134,10 @@ export namespace UpdateConfigurationSetTrackingOptionsResponse {
  */
 export interface UpdateCustomVerificationEmailTemplateRequest {
   /**
-   * <p>The name of the custom verification email template that you want to update.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is not successfully verified.</p>
    */
-  TemplateName: string | undefined;
+  FailureRedirectionURL?: string;
 
   /**
    * <p>The email address that the custom verification email is sent from.</p>
@@ -5149,9 +5145,10 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   FromEmailAddress?: string;
 
   /**
-   * <p>The subject line of the custom verification email.</p>
+   * <p>The URL that the recipient of the verification email is sent to if his or her address
+   *             is successfully verified.</p>
    */
-  TemplateSubject?: string;
+  SuccessRedirectionURL?: string;
 
   /**
    * <p>The content of the custom verification email. The total size of the email must be less
@@ -5162,16 +5159,14 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
   TemplateContent?: string;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is successfully verified.</p>
+   * <p>The name of the custom verification email template that you want to update.</p>
    */
-  SuccessRedirectionURL?: string;
+  TemplateName: string | undefined;
 
   /**
-   * <p>The URL that the recipient of the verification email is sent to if his or her address
-   *             is not successfully verified.</p>
+   * <p>The subject line of the custom verification email.</p>
    */
-  FailureRedirectionURL?: string;
+  TemplateSubject?: string;
 }
 
 export namespace UpdateCustomVerificationEmailTemplateRequest {
@@ -5187,14 +5182,14 @@ export namespace UpdateCustomVerificationEmailTemplateRequest {
  */
 export interface UpdateReceiptRuleRequest {
   /**
-   * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
-   */
-  RuleSetName: string | undefined;
-
-  /**
    * <p>A data structure that contains the updated receipt rule information.</p>
    */
   Rule: ReceiptRule | undefined;
+
+  /**
+   * <p>The name of the receipt rule set that the receipt rule belongs to.</p>
+   */
+  RuleSetName: string | undefined;
 }
 
 export namespace UpdateReceiptRuleRequest {

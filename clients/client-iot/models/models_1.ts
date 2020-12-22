@@ -58,15 +58,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface DescribeAuditTaskResponse {
   /**
-   * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
-   *             "FAILED", or "CANCELED".</p>
+   * <p>Detailed information about each check performed during this audit.</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  auditDetails?: { [key: string]: AuditCheckDetails };
 
   /**
-   * <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
+   * <p>The name of the scheduled audit (only if the audit was a scheduled audit).</p>
    */
-  taskType?: AuditTaskType | string;
+  scheduledAuditName?: string;
 
   /**
    * <p>The time the audit started.</p>
@@ -79,14 +78,15 @@ export interface DescribeAuditTaskResponse {
   taskStatistics?: TaskStatistics;
 
   /**
-   * <p>The name of the scheduled audit (only if the audit was a scheduled audit).</p>
+   * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
+   *             "FAILED", or "CANCELED".</p>
    */
-  scheduledAuditName?: string;
+  taskStatus?: AuditTaskStatus | string;
 
   /**
-   * <p>Detailed information about each check performed during this audit.</p>
+   * <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
-  auditDetails?: { [key: string]: AuditCheckDetails };
+  taskType?: AuditTaskType | string;
 }
 
 export namespace DescribeAuditTaskResponse {
@@ -152,9 +152,9 @@ export namespace BillingGroupMetadata {
 
 export interface DescribeBillingGroupResponse {
   /**
-   * <p>The name of the billing group.</p>
+   * <p>The ARN of the billing group.</p>
    */
-  billingGroupName?: string;
+  billingGroupArn?: string;
 
   /**
    * <p>The ID of the billing group.</p>
@@ -162,14 +162,14 @@ export interface DescribeBillingGroupResponse {
   billingGroupId?: string;
 
   /**
-   * <p>The ARN of the billing group.</p>
+   * <p>Additional information about the billing group.</p>
    */
-  billingGroupArn?: string;
+  billingGroupMetadata?: BillingGroupMetadata;
 
   /**
-   * <p>The version of the billing group.</p>
+   * <p>The name of the billing group.</p>
    */
-  version?: number;
+  billingGroupName?: string;
 
   /**
    * <p>The properties of the billing group.</p>
@@ -177,9 +177,9 @@ export interface DescribeBillingGroupResponse {
   billingGroupProperties?: BillingGroupProperties;
 
   /**
-   * <p>Additional information about the billing group.</p>
+   * <p>The version of the billing group.</p>
    */
-  billingGroupMetadata?: BillingGroupMetadata;
+  version?: number;
 }
 
 export namespace DescribeBillingGroupResponse {
@@ -214,14 +214,14 @@ export enum CACertificateStatus {
  */
 export interface CertificateValidity {
   /**
-   * <p>The certificate is not valid before this date.</p>
-   */
-  notBefore?: Date;
-
-  /**
    * <p>The certificate is not valid after this date.</p>
    */
   notAfter?: Date;
+
+  /**
+   * <p>The certificate is not valid before this date.</p>
+   */
+  notBefore?: Date;
 }
 
 export namespace CertificateValidity {
@@ -235,6 +235,12 @@ export namespace CertificateValidity {
  */
 export interface CACertificateDescription {
   /**
+   * <p>Whether the CA certificate configured for auto registration of device certificates.
+   *          Valid values are "ENABLE" and "DISABLE"</p>
+   */
+  autoRegistrationStatus?: AutoRegistrationStatus | string;
+
+  /**
    * <p>The CA certificate ARN.</p>
    */
   certificateArn?: string;
@@ -245,35 +251,14 @@ export interface CACertificateDescription {
   certificateId?: string;
 
   /**
-   * <p>The status of a CA certificate.</p>
-   */
-  status?: CACertificateStatus | string;
-
-  /**
    * <p>The CA certificate data, in PEM format.</p>
    */
   certificatePem?: string;
 
   /**
-   * <p>The owner of the CA certificate.</p>
-   */
-  ownedBy?: string;
-
-  /**
    * <p>The date the CA certificate was created.</p>
    */
   creationDate?: Date;
-
-  /**
-   * <p>Whether the CA certificate configured for auto registration of device certificates.
-   *          Valid values are "ENABLE" and "DISABLE"</p>
-   */
-  autoRegistrationStatus?: AutoRegistrationStatus | string;
-
-  /**
-   * <p>The date the CA certificate was last modified.</p>
-   */
-  lastModifiedDate?: Date;
 
   /**
    * <p>The customer version of the CA certificate.</p>
@@ -284,6 +269,21 @@ export interface CACertificateDescription {
    * <p>The generation ID of the CA certificate.</p>
    */
   generationId?: string;
+
+  /**
+   * <p>The date the CA certificate was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The owner of the CA certificate.</p>
+   */
+  ownedBy?: string;
+
+  /**
+   * <p>The status of a CA certificate.</p>
+   */
+  status?: CACertificateStatus | string;
 
   /**
    * <p>When the CA certificate is valid.</p>
@@ -302,14 +302,14 @@ export namespace CACertificateDescription {
  */
 export interface RegistrationConfig {
   /**
-   * <p>The template body.</p>
-   */
-  templateBody?: string;
-
-  /**
    * <p>The ARN of the role.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The template body.</p>
+   */
+  templateBody?: string;
 }
 
 export namespace RegistrationConfig {
@@ -375,9 +375,14 @@ export enum CertificateStatus {
  */
 export interface TransferData {
   /**
-   * <p>The transfer message.</p>
+   * <p>The date the transfer was accepted.</p>
    */
-  transferMessage?: string;
+  acceptDate?: Date;
+
+  /**
+   * <p>The date the transfer was rejected.</p>
+   */
+  rejectDate?: Date;
 
   /**
    * <p>The reason why the transfer was rejected.</p>
@@ -390,14 +395,9 @@ export interface TransferData {
   transferDate?: Date;
 
   /**
-   * <p>The date the transfer was accepted.</p>
+   * <p>The transfer message.</p>
    */
-  acceptDate?: Date;
-
-  /**
-   * <p>The date the transfer was rejected.</p>
-   */
-  rejectDate?: Date;
+  transferMessage?: string;
 }
 
 export namespace TransferData {
@@ -411,6 +411,11 @@ export namespace TransferData {
  */
 export interface CertificateDescription {
   /**
+   * <p>The certificate ID of the CA certificate used to sign this certificate.</p>
+   */
+  caCertificateId?: string;
+
+  /**
    * <p>The ARN of the certificate.</p>
    */
   certificateArn?: string;
@@ -421,19 +426,34 @@ export interface CertificateDescription {
   certificateId?: string;
 
   /**
-   * <p>The certificate ID of the CA certificate used to sign this certificate.</p>
+   * <p>The mode of the certificate.</p>
    */
-  caCertificateId?: string;
-
-  /**
-   * <p>The status of the certificate.</p>
-   */
-  status?: CertificateStatus | string;
+  certificateMode?: CertificateMode | string;
 
   /**
    * <p>The certificate data, in PEM format.</p>
    */
   certificatePem?: string;
+
+  /**
+   * <p>The date and time the certificate was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The customer version of the certificate.</p>
+   */
+  customerVersion?: number;
+
+  /**
+   * <p>The generation ID of the certificate.</p>
+   */
+  generationId?: string;
+
+  /**
+   * <p>The date and time the certificate was last modified.</p>
+   */
+  lastModifiedDate?: Date;
 
   /**
    * <p>The ID of the AWS account that owns the certificate.</p>
@@ -446,19 +466,9 @@ export interface CertificateDescription {
   previousOwnedBy?: string;
 
   /**
-   * <p>The date and time the certificate was created.</p>
+   * <p>The status of the certificate.</p>
    */
-  creationDate?: Date;
-
-  /**
-   * <p>The date and time the certificate was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The customer version of the certificate.</p>
-   */
-  customerVersion?: number;
+  status?: CertificateStatus | string;
 
   /**
    * <p>The transfer data.</p>
@@ -466,19 +476,9 @@ export interface CertificateDescription {
   transferData?: TransferData;
 
   /**
-   * <p>The generation ID of the certificate.</p>
-   */
-  generationId?: string;
-
-  /**
    * <p>When the certificate is valid.</p>
    */
   validity?: CertificateValidity;
-
-  /**
-   * <p>The mode of the certificate.</p>
-   */
-  certificateMode?: CertificateMode | string;
 }
 
 export namespace CertificateDescription {
@@ -539,24 +539,9 @@ export namespace DescribeDimensionRequest {
 
 export interface DescribeDimensionResponse {
   /**
-   * <p>The unique identifier for the dimension.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The ARN (Amazon resource name) for the dimension.</p>
    */
   arn?: string;
-
-  /**
-   * <p>The type of the dimension.</p>
-   */
-  type?: DimensionType | string;
-
-  /**
-   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
-   */
-  stringValues?: string[];
 
   /**
    * <p>The date the dimension was created.</p>
@@ -567,6 +552,21 @@ export interface DescribeDimensionResponse {
    * <p>The date the dimension was last modified.</p>
    */
   lastModifiedDate?: Date;
+
+  /**
+   * <p>The unique identifier for the dimension.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
+   */
+  stringValues?: string[];
+
+  /**
+   * <p>The type of the dimension.</p>
+   */
+  type?: DimensionType | string;
 }
 
 export namespace DescribeDimensionResponse {
@@ -632,9 +632,9 @@ export namespace ServerCertificateSummary {
 
 export interface DescribeDomainConfigurationResponse {
   /**
-   * <p>The name of the domain configuration.</p>
+   * <p>An object that specifies the authorization service for a domain.</p>
    */
-  domainConfigurationName?: string;
+  authorizerConfig?: AuthorizerConfig;
 
   /**
    * <p>The ARN of the domain configuration.</p>
@@ -642,19 +642,9 @@ export interface DescribeDomainConfigurationResponse {
   domainConfigurationArn?: string;
 
   /**
-   * <p>The name of the domain.</p>
+   * <p>The name of the domain configuration.</p>
    */
-  domainName?: string;
-
-  /**
-   * <p>A list containing summary information about the server certificate included in the domain configuration.</p>
-   */
-  serverCertificates?: ServerCertificateSummary[];
-
-  /**
-   * <p>An object that specifies the authorization service for a domain.</p>
-   */
-  authorizerConfig?: AuthorizerConfig;
+  domainConfigurationName?: string;
 
   /**
    * <p>A Boolean value that specifies the current state of the domain configuration.</p>
@@ -662,9 +652,9 @@ export interface DescribeDomainConfigurationResponse {
   domainConfigurationStatus?: DomainConfigurationStatus | string;
 
   /**
-   * <p>The type of service delivered by the endpoint.</p>
+   * <p>The name of the domain.</p>
    */
-  serviceType?: ServiceType | string;
+  domainName?: string;
 
   /**
    * <p>The type of the domain.</p>
@@ -675,6 +665,16 @@ export interface DescribeDomainConfigurationResponse {
    * <p>The date and time the domain configuration's status was last changed.</p>
    */
   lastStatusChangeDate?: Date;
+
+  /**
+   * <p>A list containing summary information about the server certificate included in the domain configuration.</p>
+   */
+  serverCertificates?: ServerCertificateSummary[];
+
+  /**
+   * <p>The type of service delivered by the endpoint.</p>
+   */
+  serviceType?: ServiceType | string;
 }
 
 export namespace DescribeDomainConfigurationResponse {
@@ -784,14 +784,14 @@ export namespace Configuration {
 
 export interface DescribeEventConfigurationsResponse {
   /**
-   * <p>The event configurations.</p>
-   */
-  eventConfigurations?: { [key: string]: Configuration };
-
-  /**
    * <p>The creation date of the event configuration.</p>
    */
   creationDate?: Date;
+
+  /**
+   * <p>The event configurations.</p>
+   */
+  eventConfigurations?: { [key: string]: Configuration };
 
   /**
    * <p>The date the event configurations were last modified.</p>
@@ -882,19 +882,9 @@ export namespace DescribeJobRequest {
  */
 export interface JobProcessDetails {
   /**
-   * <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
-   */
-  processingTargets?: string[];
-
-  /**
    * <p>The number of things that cancelled the job.</p>
    */
   numberOfCanceledThings?: number;
-
-  /**
-   * <p>The number of things which successfully completed the job.</p>
-   */
-  numberOfSucceededThings?: number;
 
   /**
    * <p>The number of things that failed executing the job.</p>
@@ -902,9 +892,9 @@ export interface JobProcessDetails {
   numberOfFailedThings?: number;
 
   /**
-   * <p>The number of things that rejected the job.</p>
+   * <p>The number of things currently executing the job.</p>
    */
-  numberOfRejectedThings?: number;
+  numberOfInProgressThings?: number;
 
   /**
    * <p>The number of things that are awaiting execution of the job.</p>
@@ -912,9 +902,9 @@ export interface JobProcessDetails {
   numberOfQueuedThings?: number;
 
   /**
-   * <p>The number of things currently executing the job.</p>
+   * <p>The number of things that rejected the job.</p>
    */
-  numberOfInProgressThings?: number;
+  numberOfRejectedThings?: number;
 
   /**
    * <p>The number of things that are no longer scheduled to execute the job because they have been deleted or
@@ -923,9 +913,19 @@ export interface JobProcessDetails {
   numberOfRemovedThings?: number;
 
   /**
+   * <p>The number of things which successfully completed the job.</p>
+   */
+  numberOfSucceededThings?: number;
+
+  /**
    * <p>The number of things whose job execution status is <code>TIMED_OUT</code>.</p>
    */
   numberOfTimedOutThings?: number;
+
+  /**
+   * <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
+   */
+  processingTargets?: string[];
 }
 
 export namespace JobProcessDetails {
@@ -946,29 +946,29 @@ export enum JobStatus {
  */
 export interface Job {
   /**
-   * <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
+   * <p>Configuration for criteria to abort the job.</p>
    */
-  jobArn?: string;
+  abortConfig?: AbortConfig;
 
   /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * <p>If the job was updated, describes the reason for the update.</p>
    */
-  jobId?: string;
+  comment?: string;
 
   /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a device when the thing representing
-   *             the device is added to a target group, even after the job was completed by all things originally in the
-   *             group. </p>
+   * <p>The time, in seconds since the epoch, when the job was completed.</p>
    */
-  targetSelection?: TargetSelection | string;
+  completedAt?: Date;
 
   /**
-   * <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
-   *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
+   * <p>The time, in seconds since the epoch, when the job was created.</p>
    */
-  status?: JobStatus | string;
+  createdAt?: Date;
+
+  /**
+   * <p>A short text description of the job.</p>
+   */
+  description?: string;
 
   /**
    * <p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to
@@ -977,29 +977,9 @@ export interface Job {
   forceCanceled?: boolean;
 
   /**
-   * <p>If the job was updated, provides the reason code for the update.</p>
+   * <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
    */
-  reasonCode?: string;
-
-  /**
-   * <p>If the job was updated, describes the reason for the update.</p>
-   */
-  comment?: string;
-
-  /**
-   * <p>A list of IoT things and thing groups to which the job should be sent.</p>
-   */
-  targets?: string[];
-
-  /**
-   * <p>A short text description of the job.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>Configuration for pre-signed S3 URLs.</p>
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
+  jobArn?: string;
 
   /**
    * <p>Allows you to create a staged rollout of a job.</p>
@@ -1007,24 +987,9 @@ export interface Job {
   jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
 
   /**
-   * <p>Configuration for criteria to abort the job.</p>
+   * <p>The unique identifier you assigned to this job when it was created.</p>
    */
-  abortConfig?: AbortConfig;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was completed.</p>
-   */
-  completedAt?: Date;
+  jobId?: string;
 
   /**
    * <p>Details about the job process.</p>
@@ -1032,12 +997,9 @@ export interface Job {
   jobProcessDetails?: JobProcessDetails;
 
   /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the timer expires, it will
-   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   * <p>The time, in seconds since the epoch, when the job was last updated.</p>
    */
-  timeoutConfig?: TimeoutConfig;
+  lastUpdatedAt?: Date;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -1051,6 +1013,44 @@ export interface Job {
    *          </note>
    */
   namespaceId?: string;
+
+  /**
+   * <p>Configuration for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
+
+  /**
+   * <p>If the job was updated, provides the reason code for the update.</p>
+   */
+  reasonCode?: string;
+
+  /**
+   * <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
+   *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
+   */
+  status?: JobStatus | string;
+
+  /**
+   * <p>A list of IoT things and thing groups to which the job should be sent.</p>
+   */
+  targets?: string[];
+
+  /**
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a device when the thing representing
+   *             the device is added to a target group, even after the job was completed by all things originally in the
+   *             group. </p>
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
+   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
+   *            execution status is not set to another terminal state before the timer expires, it will
+   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   */
+  timeoutConfig?: TimeoutConfig;
 }
 
 export namespace Job {
@@ -1079,6 +1079,12 @@ export namespace DescribeJobResponse {
 
 export interface DescribeJobExecutionRequest {
   /**
+   * <p>A string (consisting of the digits "0" through "9" which is used to specify a particular job execution
+   *             on a particular device.</p>
+   */
+  executionNumber?: number;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId: string | undefined;
@@ -1087,12 +1093,6 @@ export interface DescribeJobExecutionRequest {
    * <p>The name of the thing on which the job execution is running.</p>
    */
   thingName: string | undefined;
-
-  /**
-   * <p>A string (consisting of the digits "0" through "9" which is used to specify a particular job execution
-   *             on a particular device.</p>
-   */
-  executionNumber?: number;
 }
 
 export namespace DescribeJobExecutionRequest {
@@ -1133,15 +1133,19 @@ export namespace JobExecutionStatusDetails {
  */
 export interface JobExecution {
   /**
-   * <p>The unique identifier you assigned to the job when it was created.</p>
+   * <p>The estimated number of seconds that remain before the job execution status will be
+   *            changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
+   *            The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
+   *        This value will not be included if the job execution has reached a terminal status.</p>
    */
-  jobId?: string;
+  approximateSecondsBeforeTimedOut?: number;
 
   /**
-   * <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
-   *             CANCELED, or REJECTED).</p>
+   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
+   *             this particular device. It can be used in commands which return or update job execution information.
+   *         </p>
    */
-  status?: JobExecutionStatus | string;
+  executionNumber?: number;
 
   /**
    * <p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code>
@@ -1150,14 +1154,14 @@ export interface JobExecution {
   forceCanceled?: boolean;
 
   /**
-   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   * <p>The unique identifier you assigned to the job when it was created.</p>
    */
-  statusDetails?: JobExecutionStatusDetails;
+  jobId?: string;
 
   /**
-   * <p>The ARN of the thing on which the job execution is running.</p>
+   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
    */
-  thingArn?: string;
+  lastUpdatedAt?: Date;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
@@ -1170,30 +1174,26 @@ export interface JobExecution {
   startedAt?: Date;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
+   * <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
+   *             CANCELED, or REJECTED).</p>
    */
-  lastUpdatedAt?: Date;
+  status?: JobExecutionStatus | string;
 
   /**
-   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used in commands which return or update job execution information.
-   *         </p>
+   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    */
-  executionNumber?: number;
+  statusDetails?: JobExecutionStatusDetails;
+
+  /**
+   * <p>The ARN of the thing on which the job execution is running.</p>
+   */
+  thingArn?: string;
 
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated
    *       by a device.</p>
    */
   versionNumber?: number;
-
-  /**
-   * <p>The estimated number of seconds that remain before the job execution status will be
-   *            changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
-   *            The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
-   *        This value will not be included if the job execution has reached a terminal status.</p>
-   */
-  approximateSecondsBeforeTimedOut?: number;
 }
 
 export namespace JobExecution {
@@ -1239,16 +1239,6 @@ export enum MitigationActionType {
 
 export interface DescribeMitigationActionResponse {
   /**
-   * <p>The friendly name that uniquely identifies the mitigation action.</p>
-   */
-  actionName?: string;
-
-  /**
-   * <p>The type of mitigation action.</p>
-   */
-  actionType?: MitigationActionType | string;
-
-  /**
    * <p>The ARN that identifies this migration action.</p>
    */
   actionArn?: string;
@@ -1259,14 +1249,19 @@ export interface DescribeMitigationActionResponse {
   actionId?: string;
 
   /**
-   * <p>The ARN of the IAM role used to apply this action.</p>
+   * <p>The friendly name that uniquely identifies the mitigation action.</p>
    */
-  roleArn?: string;
+  actionName?: string;
 
   /**
    * <p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>
    */
   actionParams?: MitigationActionParams;
+
+  /**
+   * <p>The type of mitigation action.</p>
+   */
+  actionType?: MitigationActionType | string;
 
   /**
    * <p>The date and time when the mitigation action was added to your AWS account.</p>
@@ -1277,6 +1272,11 @@ export interface DescribeMitigationActionResponse {
    * <p>The date and time when the mitigation action was last changed.</p>
    */
   lastModifiedDate?: Date;
+
+  /**
+   * <p>The ARN of the IAM role used to apply this action.</p>
+   */
+  roleArn?: string;
 }
 
 export namespace DescribeMitigationActionResponse {
@@ -1300,29 +1300,9 @@ export namespace DescribeProvisioningTemplateRequest {
 
 export interface DescribeProvisioningTemplateResponse {
   /**
-   * <p>The ARN of the fleet provisioning template.</p>
-   */
-  templateArn?: string;
-
-  /**
-   * <p>The name of the fleet provisioning template.</p>
-   */
-  templateName?: string;
-
-  /**
-   * <p>The description of the fleet provisioning template.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The date when the fleet provisioning template was created.</p>
    */
   creationDate?: Date;
-
-  /**
-   * <p>The date when the fleet provisioning template was last modified.</p>
-   */
-  lastModifiedDate?: Date;
 
   /**
    * <p>The default fleet template version ID.</p>
@@ -1330,14 +1310,24 @@ export interface DescribeProvisioningTemplateResponse {
   defaultVersionId?: number;
 
   /**
-   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   * <p>The description of the fleet provisioning template.</p>
    */
-  templateBody?: string;
+  description?: string;
 
   /**
    * <p>True if the fleet provisioning template is enabled, otherwise false.</p>
    */
   enabled?: boolean;
+
+  /**
+   * <p>The date when the fleet provisioning template was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>Gets information about a pre-provisioned hook.</p>
+   */
+  preProvisioningHook?: ProvisioningHook;
 
   /**
    * <p>The ARN of the role associated with the provisioning template. This IoT role grants
@@ -1346,9 +1336,19 @@ export interface DescribeProvisioningTemplateResponse {
   provisioningRoleArn?: string;
 
   /**
-   * <p>Gets information about a pre-provisioned hook.</p>
+   * <p>The ARN of the fleet provisioning template.</p>
    */
-  preProvisioningHook?: ProvisioningHook;
+  templateArn?: string;
+
+  /**
+   * <p>The JSON formatted contents of the fleet provisioning template.</p>
+   */
+  templateBody?: string;
+
+  /**
+   * <p>The name of the fleet provisioning template.</p>
+   */
+  templateName?: string;
 }
 
 export namespace DescribeProvisioningTemplateResponse {
@@ -1377,14 +1377,14 @@ export namespace DescribeProvisioningTemplateVersionRequest {
 
 export interface DescribeProvisioningTemplateVersionResponse {
   /**
-   * <p>The fleet provisioning template version ID.</p>
-   */
-  versionId?: number;
-
-  /**
    * <p>The date when the fleet provisioning template version was created.</p>
    */
   creationDate?: Date;
+
+  /**
+   * <p>True if the fleet provisioning template version is the default version.</p>
+   */
+  isDefaultVersion?: boolean;
 
   /**
    * <p>The JSON formatted contents of the fleet provisioning template version.</p>
@@ -1392,9 +1392,9 @@ export interface DescribeProvisioningTemplateVersionResponse {
   templateBody?: string;
 
   /**
-   * <p>True if the fleet provisioning template version is the default version.</p>
+   * <p>The fleet provisioning template version ID.</p>
    */
-  isDefaultVersion?: boolean;
+  versionId?: number;
 }
 
 export namespace DescribeProvisioningTemplateVersionResponse {
@@ -1421,6 +1421,26 @@ export namespace DescribeRoleAliasRequest {
  */
 export interface RoleAliasDescription {
   /**
+   * <p>The UNIX timestamp of when the role alias was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The number of seconds for which the credential is valid.</p>
+   */
+  credentialDurationSeconds?: number;
+
+  /**
+   * <p>The UNIX timestamp of when the role alias was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The role alias owner.</p>
+   */
+  owner?: string;
+
+  /**
    * <p>The role alias.</p>
    */
   roleAlias?: string;
@@ -1434,26 +1454,6 @@ export interface RoleAliasDescription {
    * <p>The role ARN.</p>
    */
   roleArn?: string;
-
-  /**
-   * <p>The role alias owner.</p>
-   */
-  owner?: string;
-
-  /**
-   * <p>The number of seconds for which the credential is valid.</p>
-   */
-  credentialDurationSeconds?: number;
-
-  /**
-   * <p>The UNIX timestamp of when the role alias was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The UNIX timestamp of when the role alias was last modified.</p>
-   */
-  lastModifiedDate?: Date;
 }
 
 export namespace RoleAliasDescription {
@@ -1490,13 +1490,6 @@ export namespace DescribeScheduledAuditRequest {
 
 export interface DescribeScheduledAuditResponse {
   /**
-   * <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY",
-   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
-   */
-  frequency?: AuditFrequency | string;
-
-  /**
    * <p>The day of the month on which the scheduled audit takes place. Will be "1"
    *             through "31" or "LAST". If days 29-31 are specified, and the month does not have that many
    *             days, the audit takes place on the "LAST" day of the month.</p>
@@ -1510,12 +1503,16 @@ export interface DescribeScheduledAuditResponse {
   dayOfWeek?: DayOfWeek | string;
 
   /**
-   * <p>Which checks are performed during the scheduled audit. Checks must be
-   *             enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *             to select which checks are enabled.)</p>
+   * <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY",
+   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
+   *             the system.</p>
    */
-  targetCheckNames?: string[];
+  frequency?: AuditFrequency | string;
+
+  /**
+   * <p>The ARN of the scheduled audit.</p>
+   */
+  scheduledAuditArn?: string;
 
   /**
    * <p>The name of the scheduled audit.</p>
@@ -1523,9 +1520,12 @@ export interface DescribeScheduledAuditResponse {
   scheduledAuditName?: string;
 
   /**
-   * <p>The ARN of the scheduled audit.</p>
+   * <p>Which checks are performed during the scheduled audit. Checks must be
+   *             enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *             to select which checks are enabled.)</p>
    */
-  scheduledAuditArn?: string;
+  targetCheckNames?: string[];
 }
 
 export namespace DescribeScheduledAuditResponse {
@@ -1549,32 +1549,6 @@ export namespace DescribeSecurityProfileRequest {
 
 export interface DescribeSecurityProfileResponse {
   /**
-   * <p>The name of the security profile.</p>
-   */
-  securityProfileName?: string;
-
-  /**
-   * <p>The ARN of the security profile.</p>
-   */
-  securityProfileArn?: string;
-
-  /**
-   * <p>A description of the security profile (associated with the security profile
-   *         when it was created or updated).</p>
-   */
-  securityProfileDescription?: string;
-
-  /**
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
-   */
-  behaviors?: Behavior[];
-
-  /**
-   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
-   */
-  alertTargets?: { [key: string]: AlertTarget };
-
-  /**
    * <p>
    *             <i>Please use <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</i>
    *          </p>
@@ -1590,10 +1564,14 @@ export interface DescribeSecurityProfileResponse {
   additionalMetricsToRetainV2?: MetricToRetain[];
 
   /**
-   * <p>The version of the security profile. A new version is generated whenever the
-   *         security profile is updated.</p>
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  version?: number;
+  alertTargets?: { [key: string]: AlertTarget };
+
+  /**
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   */
+  behaviors?: Behavior[];
 
   /**
    * <p>The time the security profile was created.</p>
@@ -1604,6 +1582,28 @@ export interface DescribeSecurityProfileResponse {
    * <p>The time the security profile was last modified.</p>
    */
   lastModifiedDate?: Date;
+
+  /**
+   * <p>The ARN of the security profile.</p>
+   */
+  securityProfileArn?: string;
+
+  /**
+   * <p>A description of the security profile (associated with the security profile
+   *         when it was created or updated).</p>
+   */
+  securityProfileDescription?: string;
+
+  /**
+   * <p>The name of the security profile.</p>
+   */
+  securityProfileName?: string;
+
+  /**
+   * <p>The version of the security profile. A new version is generated whenever the
+   *         security profile is updated.</p>
+   */
+  version?: number;
 }
 
 export namespace DescribeSecurityProfileResponse {
@@ -1630,19 +1630,9 @@ export namespace DescribeStreamRequest {
  */
 export interface StreamInfo {
   /**
-   * <p>The stream ID.</p>
+   * <p>The date when the stream was created.</p>
    */
-  streamId?: string;
-
-  /**
-   * <p>The stream ARN.</p>
-   */
-  streamArn?: string;
-
-  /**
-   * <p>The stream version.</p>
-   */
-  streamVersion?: number;
+  createdAt?: Date;
 
   /**
    * <p>The description of the stream.</p>
@@ -1655,11 +1645,6 @@ export interface StreamInfo {
   files?: StreamFile[];
 
   /**
-   * <p>The date when the stream was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The date when the stream was last updated.</p>
    */
   lastUpdatedAt?: Date;
@@ -1668,6 +1653,21 @@ export interface StreamInfo {
    * <p>An IAM role AWS IoT assumes to access your S3 files.</p>
    */
   roleArn?: string;
+
+  /**
+   * <p>The stream ARN.</p>
+   */
+  streamArn?: string;
+
+  /**
+   * <p>The stream ID.</p>
+   */
+  streamId?: string;
+
+  /**
+   * <p>The stream version.</p>
+   */
+  streamVersion?: number;
 }
 
 export namespace StreamInfo {
@@ -1710,6 +1710,16 @@ export namespace DescribeThingRequest {
  */
 export interface DescribeThingResponse {
   /**
+   * <p>The thing attributes.</p>
+   */
+  attributes?: { [key: string]: string };
+
+  /**
+   * <p>The name of the billing group the thing belongs to.</p>
+   */
+  billingGroupName?: string;
+
+  /**
    * <p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID.
    * 			Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or
    * 			shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p>
@@ -1718,9 +1728,9 @@ export interface DescribeThingResponse {
   defaultClientId?: string;
 
   /**
-   * <p>The name of the thing.</p>
+   * <p>The ARN of the thing to describe.</p>
    */
-  thingName?: string;
+  thingArn?: string;
 
   /**
    * <p>The ID of the thing to describe.</p>
@@ -1728,19 +1738,14 @@ export interface DescribeThingResponse {
   thingId?: string;
 
   /**
-   * <p>The ARN of the thing to describe.</p>
+   * <p>The name of the thing.</p>
    */
-  thingArn?: string;
+  thingName?: string;
 
   /**
    * <p>The thing type name.</p>
    */
   thingTypeName?: string;
-
-  /**
-   * <p>The thing attributes.</p>
-   */
-  attributes?: { [key: string]: string };
 
   /**
    * <p>The current version of the thing record in the registry.</p>
@@ -1751,11 +1756,6 @@ export interface DescribeThingResponse {
    * 		       </note>
    */
   version?: number;
-
-  /**
-   * <p>The name of the billing group the thing belongs to.</p>
-   */
-  billingGroupName?: string;
 }
 
 export namespace DescribeThingResponse {
@@ -1788,14 +1788,14 @@ export enum DynamicGroupStatus {
  */
 export interface GroupNameAndArn {
   /**
-   * <p>The group name.</p>
-   */
-  groupName?: string;
-
-  /**
    * <p>The group ARN.</p>
    */
   groupArn?: string;
+
+  /**
+   * <p>The group name.</p>
+   */
+  groupName?: string;
 }
 
 export namespace GroupNameAndArn {
@@ -1809,6 +1809,11 @@ export namespace GroupNameAndArn {
  */
 export interface ThingGroupMetadata {
   /**
+   * <p>The UNIX timestamp of when the thing group was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
    * <p>The parent thing group name.</p>
    */
   parentGroupName?: string;
@@ -1817,11 +1822,6 @@ export interface ThingGroupMetadata {
    * <p>The root parent thing group.</p>
    */
   rootToParentThingGroups?: GroupNameAndArn[];
-
-  /**
-   * <p>The UNIX timestamp of when the thing group was created.</p>
-   */
-  creationDate?: Date;
 }
 
 export namespace ThingGroupMetadata {
@@ -1831,36 +1831,6 @@ export namespace ThingGroupMetadata {
 }
 
 export interface DescribeThingGroupResponse {
-  /**
-   * <p>The name of the thing group.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>The thing group ID.</p>
-   */
-  thingGroupId?: string;
-
-  /**
-   * <p>The thing group ARN.</p>
-   */
-  thingGroupArn?: string;
-
-  /**
-   * <p>The version of the thing group.</p>
-   */
-  version?: number;
-
-  /**
-   * <p>The thing group properties.</p>
-   */
-  thingGroupProperties?: ThingGroupProperties;
-
-  /**
-   * <p>Thing group metadata.</p>
-   */
-  thingGroupMetadata?: ThingGroupMetadata;
-
   /**
    * <p>The dynamic thing group index name.</p>
    */
@@ -1880,6 +1850,36 @@ export interface DescribeThingGroupResponse {
    * <p>The dynamic thing group status.</p>
    */
   status?: DynamicGroupStatus | string;
+
+  /**
+   * <p>The thing group ARN.</p>
+   */
+  thingGroupArn?: string;
+
+  /**
+   * <p>The thing group ID.</p>
+   */
+  thingGroupId?: string;
+
+  /**
+   * <p>Thing group metadata.</p>
+   */
+  thingGroupMetadata?: ThingGroupMetadata;
+
+  /**
+   * <p>The name of the thing group.</p>
+   */
+  thingGroupName?: string;
+
+  /**
+   * <p>The thing group properties.</p>
+   */
+  thingGroupProperties?: ThingGroupProperties;
+
+  /**
+   * <p>The version of the thing group.</p>
+   */
+  version?: number;
 }
 
 export namespace DescribeThingGroupResponse {
@@ -1911,24 +1911,14 @@ export enum Status {
 
 export interface DescribeThingRegistrationTaskResponse {
   /**
-   * <p>The task ID.</p>
-   */
-  taskId?: string;
-
-  /**
    * <p>The task creation date.</p>
    */
   creationDate?: Date;
 
   /**
-   * <p>The date when the task was last modified.</p>
+   * <p>The number of things that failed to be provisioned.</p>
    */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The task's template.</p>
-   */
-  templateBody?: string;
+  failureCount?: number;
 
   /**
    * <p>The S3 bucket that contains the input file.</p>
@@ -1941,6 +1931,21 @@ export interface DescribeThingRegistrationTaskResponse {
   inputFileKey?: string;
 
   /**
+   * <p>The date when the task was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The message.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>The progress of the bulk provisioning task expressed as a percentage.</p>
+   */
+  percentageProgress?: number;
+
+  /**
    * <p>The role ARN that grants access to the input file bucket.</p>
    */
   roleArn?: string;
@@ -1951,24 +1956,19 @@ export interface DescribeThingRegistrationTaskResponse {
   status?: Status | string;
 
   /**
-   * <p>The message.</p>
-   */
-  message?: string;
-
-  /**
    * <p>The number of things successfully provisioned.</p>
    */
   successCount?: number;
 
   /**
-   * <p>The number of things that failed to be provisioned.</p>
+   * <p>The task ID.</p>
    */
-  failureCount?: number;
+  taskId?: string;
 
   /**
-   * <p>The progress of the bulk provisioning task expressed as a percentage.</p>
+   * <p>The task's template.</p>
    */
-  percentageProgress?: number;
+  templateBody?: string;
 }
 
 export namespace DescribeThingRegistrationTaskResponse {
@@ -2000,6 +2000,11 @@ export namespace DescribeThingTypeRequest {
  */
 export interface ThingTypeMetadata {
   /**
+   * <p>The date and time when the thing type was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
    * <p>Whether the thing type is deprecated. If <b>true</b>, no new things could be
    * 			associated with this type.</p>
    */
@@ -2009,11 +2014,6 @@ export interface ThingTypeMetadata {
    * <p>The date and time when the thing type was deprecated.</p>
    */
   deprecationDate?: Date;
-
-  /**
-   * <p>The date and time when the thing type was created.</p>
-   */
-  creationDate?: Date;
 }
 
 export namespace ThingTypeMetadata {
@@ -2027,9 +2027,9 @@ export namespace ThingTypeMetadata {
  */
 export interface DescribeThingTypeResponse {
   /**
-   * <p>The name of the thing type.</p>
+   * <p>The thing type ARN.</p>
    */
-  thingTypeName?: string;
+  thingTypeArn?: string;
 
   /**
    * <p>The thing type ID.</p>
@@ -2037,22 +2037,22 @@ export interface DescribeThingTypeResponse {
   thingTypeId?: string;
 
   /**
-   * <p>The thing type ARN.</p>
+   * <p>The ThingTypeMetadata contains additional information about the thing type
+   * 			including: creation date and time, a value indicating whether the thing type is
+   * 			deprecated, and a date and time when it was deprecated.</p>
    */
-  thingTypeArn?: string;
+  thingTypeMetadata?: ThingTypeMetadata;
+
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
 
   /**
    * <p>The ThingTypeProperties contains information about the thing type including
    * 			description, and a list of searchable thing attribute names.</p>
    */
   thingTypeProperties?: ThingTypeProperties;
-
-  /**
-   * <p>The ThingTypeMetadata contains additional information about the thing type
-   * 			including: creation date and time, a value indicating whether the thing type is
-   * 			deprecated, and a date and time when it was deprecated.</p>
-   */
-  thingTypeMetadata?: ThingTypeMetadata;
 }
 
 export namespace DescribeThingTypeResponse {
@@ -2132,16 +2132,16 @@ export namespace DetachSecurityProfileResponse {
  */
 export interface DetachThingPrincipalRequest {
   /**
-   * <p>The name of the thing.</p>
-   */
-  thingName: string | undefined;
-
-  /**
    * <p>If the principal is a certificate, this value must be ARN of the certificate. If
    * 			the principal is an Amazon Cognito identity, this value must be the ID of the Amazon
    * 			Cognito identity.</p>
    */
   principal: string | undefined;
+
+  /**
+   * <p>The name of the thing.</p>
+   */
+  thingName: string | undefined;
 }
 
 export namespace DetachThingPrincipalRequest {
@@ -2195,6 +2195,11 @@ export namespace EnableTopicRuleRequest {
 
 export interface GetCardinalityRequest {
   /**
+   * <p>The field to aggregate.</p>
+   */
+  aggregationField?: string;
+
+  /**
    * <p>The name of the index to search.</p>
    */
   indexName?: string;
@@ -2203,11 +2208,6 @@ export interface GetCardinalityRequest {
    * <p>The search query.</p>
    */
   queryString: string | undefined;
-
-  /**
-   * <p>The field to aggregate.</p>
-   */
-  aggregationField?: string;
 
   /**
    * <p>The query version.</p>
@@ -2269,14 +2269,14 @@ export namespace InvalidAggregationException {
 
 export interface GetEffectivePoliciesRequest {
   /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  principal?: string;
-
-  /**
    * <p>The Cognito identity pool ID.</p>
    */
   cognitoIdentityPoolId?: string;
+
+  /**
+   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   */
+  principal?: string;
 
   /**
    * <p>The thing name.</p>
@@ -2295,11 +2295,6 @@ export namespace GetEffectivePoliciesRequest {
  */
 export interface EffectivePolicy {
   /**
-   * <p>The policy name.</p>
-   */
-  policyName?: string;
-
-  /**
    * <p>The policy ARN.</p>
    */
   policyArn?: string;
@@ -2308,6 +2303,11 @@ export interface EffectivePolicy {
    * <p>The IAM policy document.</p>
    */
   policyDocument?: string;
+
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName?: string;
 }
 
 export namespace EffectivePolicy {
@@ -2374,9 +2374,11 @@ export enum ThingGroupIndexingMode {
  */
 export interface ThingGroupIndexingConfiguration {
   /**
-   * <p>Thing group indexing mode.</p>
+   * <p>A list of thing group fields to index. This list cannot contain any managed fields. Use
+   *       the GetIndexingConfiguration API to get a list of managed fields.</p>
+   *          <p>Contains custom field names and their data type.</p>
    */
-  thingGroupIndexingMode: ThingGroupIndexingMode | string | undefined;
+  customFields?: Field[];
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
@@ -2385,11 +2387,9 @@ export interface ThingGroupIndexingConfiguration {
   managedFields?: Field[];
 
   /**
-   * <p>A list of thing group fields to index. This list cannot contain any managed fields. Use
-   *       the GetIndexingConfiguration API to get a list of managed fields.</p>
-   *          <p>Contains custom field names and their data type.</p>
+   * <p>Thing group indexing mode.</p>
    */
-  customFields?: Field[];
+  thingGroupIndexingMode: ThingGroupIndexingMode | string | undefined;
 }
 
 export namespace ThingGroupIndexingConfiguration {
@@ -2415,20 +2415,15 @@ export enum ThingIndexingMode {
  */
 export interface ThingIndexingConfiguration {
   /**
-   * <p>Thing indexing mode. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>REGISTRY – Your thing index contains registry data only.</p>
-   *             </li>
-   *             <li>
-   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p>
-   *             </li>
-   *             <li>
-   *                <p>OFF - Thing indexing is disabled.</p>
-   *             </li>
-   *          </ul>
+   * <p>Contains custom field names and their data type.</p>
    */
-  thingIndexingMode: ThingIndexingMode | string | undefined;
+  customFields?: Field[];
+
+  /**
+   * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
+   *       service.</p>
+   */
+  managedFields?: Field[];
 
   /**
    * <p>Thing connectivity indexing mode. Valid values are: </p>
@@ -2445,15 +2440,20 @@ export interface ThingIndexingConfiguration {
   thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | string;
 
   /**
-   * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-   *       service.</p>
+   * <p>Thing indexing mode. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>REGISTRY – Your thing index contains registry data only.</p>
+   *             </li>
+   *             <li>
+   *                <p>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</p>
+   *             </li>
+   *             <li>
+   *                <p>OFF - Thing indexing is disabled.</p>
+   *             </li>
+   *          </ul>
    */
-  managedFields?: Field[];
-
-  /**
-   * <p>Contains custom field names and their data type.</p>
-   */
-  customFields?: Field[];
+  thingIndexingMode: ThingIndexingMode | string | undefined;
 }
 
 export namespace ThingIndexingConfiguration {
@@ -2464,14 +2464,14 @@ export namespace ThingIndexingConfiguration {
 
 export interface GetIndexingConfigurationResponse {
   /**
-   * <p>Thing indexing configuration.</p>
-   */
-  thingIndexingConfiguration?: ThingIndexingConfiguration;
-
-  /**
    * <p>The index configuration.</p>
    */
   thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
+
+  /**
+   * <p>Thing indexing configuration.</p>
+   */
+  thingIndexingConfiguration?: ThingIndexingConfiguration;
 }
 
 export namespace GetIndexingConfigurationResponse {
@@ -2522,14 +2522,14 @@ export namespace GetLoggingOptionsRequest {
  */
 export interface GetLoggingOptionsResponse {
   /**
-   * <p>The ARN of the IAM role that grants access.</p>
-   */
-  roleArn?: string;
-
-  /**
    * <p>The logging level.</p>
    */
   logLevel?: LogLevel | string;
+
+  /**
+   * <p>The ARN of the IAM role that grants access.</p>
+   */
+  roleArn?: string;
 }
 
 export namespace GetLoggingOptionsResponse {
@@ -2577,40 +2577,19 @@ export namespace ErrorInfo {
  */
 export interface OTAUpdateInfo {
   /**
-   * <p>The OTA update ID.</p>
+   * <p>A collection of name/value pairs</p>
    */
-  otaUpdateId?: string;
+  additionalParameters?: { [key: string]: string };
 
   /**
-   * <p>The OTA update ARN.</p>
+   * <p>The AWS IoT job ARN associated with the OTA update.</p>
    */
-  otaUpdateArn?: string;
+  awsIotJobArn?: string;
 
   /**
-   * <p>The date when the OTA update was created.</p>
+   * <p>The AWS IoT job ID associated with the OTA update.</p>
    */
-  creationDate?: Date;
-
-  /**
-   * <p>The date when the OTA update was last updated.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>A description of the OTA update.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The targets of the OTA update.</p>
-   */
-  targets?: string[];
-
-  /**
-   * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
-   *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
-   */
-  protocols?: (Protocol | string)[];
+  awsIotJobId?: string;
 
   /**
    * <p>Configuration for the rollout of OTA updates.</p>
@@ -2624,33 +2603,14 @@ export interface OTAUpdateInfo {
   awsJobPresignedUrlConfig?: AwsJobPresignedUrlConfig;
 
   /**
-   * <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those
-   *             things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also
-   *             be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when
-   *             the thing is added to a target group, even after the OTA update was completed by all things originally in
-   *             the group. </p>
+   * <p>The date when the OTA update was created.</p>
    */
-  targetSelection?: TargetSelection | string;
+  creationDate?: Date;
 
   /**
-   * <p>A list of files associated with the OTA update.</p>
+   * <p>A description of the OTA update.</p>
    */
-  otaUpdateFiles?: OTAUpdateFile[];
-
-  /**
-   * <p>The status of the OTA update.</p>
-   */
-  otaUpdateStatus?: OTAUpdateStatus | string;
-
-  /**
-   * <p>The AWS IoT job ID associated with the OTA update.</p>
-   */
-  awsIotJobId?: string;
-
-  /**
-   * <p>The AWS IoT job ARN associated with the OTA update.</p>
-   */
-  awsIotJobArn?: string;
+  description?: string;
 
   /**
    * <p>Error information associated with the OTA update.</p>
@@ -2658,9 +2618,49 @@ export interface OTAUpdateInfo {
   errorInfo?: ErrorInfo;
 
   /**
-   * <p>A collection of name/value pairs</p>
+   * <p>The date when the OTA update was last updated.</p>
    */
-  additionalParameters?: { [key: string]: string };
+  lastModifiedDate?: Date;
+
+  /**
+   * <p>The OTA update ARN.</p>
+   */
+  otaUpdateArn?: string;
+
+  /**
+   * <p>A list of files associated with the OTA update.</p>
+   */
+  otaUpdateFiles?: OTAUpdateFile[];
+
+  /**
+   * <p>The OTA update ID.</p>
+   */
+  otaUpdateId?: string;
+
+  /**
+   * <p>The status of the OTA update.</p>
+   */
+  otaUpdateStatus?: OTAUpdateStatus | string;
+
+  /**
+   * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
+   *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
+   */
+  protocols?: (Protocol | string)[];
+
+  /**
+   * <p>The targets of the OTA update.</p>
+   */
+  targets?: string[];
+
+  /**
+   * <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those
+   *             things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also
+   *             be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when
+   *             the thing is added to a target group, even after the OTA update was completed by all things originally in
+   *             the group. </p>
+   */
+  targetSelection?: TargetSelection | string;
 }
 
 export namespace OTAUpdateInfo {
@@ -2684,9 +2684,19 @@ export namespace GetOTAUpdateResponse {
 
 export interface GetPercentilesRequest {
   /**
+   * <p>The field to aggregate.</p>
+   */
+  aggregationField?: string;
+
+  /**
    * <p>The name of the index to search.</p>
    */
   indexName?: string;
+
+  /**
+   * <p>The percentile groups returned.</p>
+   */
+  percents?: number[];
 
   /**
    * <p>The query string.</p>
@@ -2694,19 +2704,9 @@ export interface GetPercentilesRequest {
   queryString: string | undefined;
 
   /**
-   * <p>The field to aggregate.</p>
-   */
-  aggregationField?: string;
-
-  /**
    * <p>The query version.</p>
    */
   queryVersion?: string;
-
-  /**
-   * <p>The percentile groups returned.</p>
-   */
-  percents?: number[];
 }
 
 export namespace GetPercentilesRequest {
@@ -2770,9 +2770,24 @@ export namespace GetPolicyRequest {
  */
 export interface GetPolicyResponse {
   /**
-   * <p>The policy name.</p>
+   * <p>The date the policy was created.</p>
    */
-  policyName?: string;
+  creationDate?: Date;
+
+  /**
+   * <p>The default policy version ID.</p>
+   */
+  defaultVersionId?: string;
+
+  /**
+   * <p>The generation ID of the policy.</p>
+   */
+  generationId?: string;
+
+  /**
+   * <p>The date the policy was last modified.</p>
+   */
+  lastModifiedDate?: Date;
 
   /**
    * <p>The policy ARN.</p>
@@ -2785,24 +2800,9 @@ export interface GetPolicyResponse {
   policyDocument?: string;
 
   /**
-   * <p>The default policy version ID.</p>
+   * <p>The policy name.</p>
    */
-  defaultVersionId?: string;
-
-  /**
-   * <p>The date the policy was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date the policy was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>The generation ID of the policy.</p>
-   */
-  generationId?: string;
+  policyName?: string;
 }
 
 export namespace GetPolicyResponse {
@@ -2837,24 +2837,14 @@ export namespace GetPolicyVersionRequest {
  */
 export interface GetPolicyVersionResponse {
   /**
-   * <p>The policy ARN.</p>
+   * <p>The date the policy was created.</p>
    */
-  policyArn?: string;
+  creationDate?: Date;
 
   /**
-   * <p>The policy name.</p>
+   * <p>The generation ID of the policy version.</p>
    */
-  policyName?: string;
-
-  /**
-   * <p>The JSON document that describes the policy.</p>
-   */
-  policyDocument?: string;
-
-  /**
-   * <p>The policy version ID.</p>
-   */
-  policyVersionId?: string;
+  generationId?: string;
 
   /**
    * <p>Specifies whether the policy version is the default.</p>
@@ -2862,19 +2852,29 @@ export interface GetPolicyVersionResponse {
   isDefaultVersion?: boolean;
 
   /**
-   * <p>The date the policy was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
    * <p>The date the policy was last modified.</p>
    */
   lastModifiedDate?: Date;
 
   /**
-   * <p>The generation ID of the policy version.</p>
+   * <p>The policy ARN.</p>
    */
-  generationId?: string;
+  policyArn?: string;
+
+  /**
+   * <p>The JSON document that describes the policy.</p>
+   */
+  policyDocument?: string;
+
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName?: string;
+
+  /**
+   * <p>The policy version ID.</p>
+   */
+  policyVersionId?: string;
 }
 
 export namespace GetPolicyVersionResponse {
@@ -2912,6 +2912,11 @@ export namespace GetRegistrationCodeResponse {
 
 export interface GetStatisticsRequest {
   /**
+   * <p>The aggregation field name.</p>
+   */
+  aggregationField?: string;
+
+  /**
    * <p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>
    */
   indexName?: string;
@@ -2921,11 +2926,6 @@ export interface GetStatisticsRequest {
    *       indexed things in your AWS account.</p>
    */
   queryString: string | undefined;
-
-  /**
-   * <p>The aggregation field name.</p>
-   */
-  aggregationField?: string;
 
   /**
    * <p>The version of the query used to search.</p>
@@ -2945,19 +2945,19 @@ export namespace GetStatisticsRequest {
  */
 export interface Statistics {
   /**
-   * <p>The count of things that match the query.</p>
-   */
-  count?: number;
-
-  /**
    * <p>The average of the aggregated field values.</p>
    */
   average?: number;
 
   /**
-   * <p>The sum of the aggregated field values.</p>
+   * <p>The count of things that match the query.</p>
    */
-  sum?: number;
+  count?: number;
+
+  /**
+   * <p>The maximum aggregated field value.</p>
+   */
+  maximum?: number;
 
   /**
    * <p>The minimum aggregated field value.</p>
@@ -2965,9 +2965,14 @@ export interface Statistics {
   minimum?: number;
 
   /**
-   * <p>The maximum aggregated field value.</p>
+   * <p>The standard deviation of the aggregated field values.</p>
    */
-  maximum?: number;
+  stdDeviation?: number;
+
+  /**
+   * <p>The sum of the aggregated field values.</p>
+   */
+  sum?: number;
 
   /**
    * <p>The sum of the squares of the aggregated field values.</p>
@@ -2978,11 +2983,6 @@ export interface Statistics {
    * <p>The variance of the aggregated field values.</p>
    */
   variance?: number;
-
-  /**
-   * <p>The standard deviation of the aggregated field values.</p>
-   */
-  stdDeviation?: number;
 }
 
 export namespace Statistics {
@@ -3026,6 +3026,36 @@ export namespace GetTopicRuleRequest {
  */
 export interface TopicRule {
   /**
+   * <p>The actions associated with the rule.</p>
+   */
+  actions?: Action[];
+
+  /**
+   * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
+   */
+  awsIotSqlVersion?: string;
+
+  /**
+   * <p>The date and time the rule was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The description of the rule.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The action to perform when an error occurs.</p>
+   */
+  errorAction?: Action;
+
+  /**
+   * <p>Specifies whether the rule is disabled.</p>
+   */
+  ruleDisabled?: boolean;
+
+  /**
    * <p>The name of the rule.</p>
    */
   ruleName?: string;
@@ -3035,36 +3065,6 @@ export interface TopicRule {
    *          lines, be sure to escape the newline characters.</p>
    */
   sql?: string;
-
-  /**
-   * <p>The description of the rule.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The date and time the rule was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The actions associated with the rule.</p>
-   */
-  actions?: Action[];
-
-  /**
-   * <p>Specifies whether the rule is disabled.</p>
-   */
-  ruleDisabled?: boolean;
-
-  /**
-   * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
-   */
-  awsIotSqlVersion?: string;
-
-  /**
-   * <p>The action to perform when an error occurs.</p>
-   */
-  errorAction?: Action;
 }
 
 export namespace TopicRule {
@@ -3078,14 +3078,14 @@ export namespace TopicRule {
  */
 export interface GetTopicRuleResponse {
   /**
-   * <p>The rule ARN.</p>
-   */
-  ruleArn?: string;
-
-  /**
    * <p>The rule.</p>
    */
   rule?: TopicRule;
+
+  /**
+   * <p>The rule ARN.</p>
+   */
+  ruleArn?: string;
 }
 
 export namespace GetTopicRuleResponse {
@@ -3130,11 +3130,6 @@ export namespace GetV2LoggingOptionsRequest {
 
 export interface GetV2LoggingOptionsResponse {
   /**
-   * <p>The IAM role ARN AWS IoT uses to write to your CloudWatch logs.</p>
-   */
-  roleArn?: string;
-
-  /**
    * <p>The default log level.</p>
    */
   defaultLogLevel?: LogLevel | string;
@@ -3143,6 +3138,11 @@ export interface GetV2LoggingOptionsResponse {
    * <p>Disables all logs.</p>
    */
   disableAllLogs?: boolean;
+
+  /**
+   * <p>The IAM role ARN AWS IoT uses to write to your CloudWatch logs.</p>
+   */
+  roleArn?: string;
 }
 
 export namespace GetV2LoggingOptionsResponse {
@@ -3171,14 +3171,9 @@ export namespace NotConfiguredException {
 
 export interface ListActiveViolationsRequest {
   /**
-   * <p>The name of the thing whose active violations are listed.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  thingName?: string;
-
-  /**
-   * <p>The name of the Device Defender security profile for which violations are listed.</p>
-   */
-  securityProfileName?: string;
+  maxResults?: number;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -3186,9 +3181,14 @@ export interface ListActiveViolationsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The name of the Device Defender security profile for which violations are listed.</p>
    */
-  maxResults?: number;
+  securityProfileName?: string;
+
+  /**
+   * <p>The name of the thing whose active violations are listed.</p>
+   */
+  thingName?: string;
 }
 
 export namespace ListActiveViolationsRequest {
@@ -3218,16 +3218,6 @@ export namespace ListActiveViolationsResponse {
 
 export interface ListAttachedPoliciesRequest {
   /**
-   * <p>The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  target: string | undefined;
-
-  /**
-   * <p>When true, recursively list attached policies.</p>
-   */
-  recursive?: boolean;
-
-  /**
    * <p>The token to retrieve the next set of results.</p>
    */
   marker?: string;
@@ -3236,6 +3226,16 @@ export interface ListAttachedPoliciesRequest {
    * <p>The maximum number of results to be returned per request.</p>
    */
   pageSize?: number;
+
+  /**
+   * <p>When true, recursively list attached policies.</p>
+   */
+  recursive?: boolean;
+
+  /**
+   * <p>The group or principal for which the policies will be listed. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   */
+  target: string | undefined;
 }
 
 export namespace ListAttachedPoliciesRequest {
@@ -3246,15 +3246,15 @@ export namespace ListAttachedPoliciesRequest {
 
 export interface ListAttachedPoliciesResponse {
   /**
-   * <p>The policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
    * <p>The token to retrieve the next set of results, or ``null`` if there are no more
    *          results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The policies.</p>
+   */
+  policies?: Policy[];
 }
 
 export namespace ListAttachedPoliciesResponse {
@@ -3265,36 +3265,9 @@ export namespace ListAttachedPoliciesResponse {
 
 export interface ListAuditFindingsRequest {
   /**
-   * <p>A filter to limit results to the audit with the specified ID. You must
-   *             specify either the taskId or the startTime and endTime, but not both.</p>
-   */
-  taskId?: string;
-
-  /**
    * <p>A filter to limit results to the findings for the specified audit check.</p>
    */
   checkName?: string;
-
-  /**
-   * <p>Information identifying the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A filter to limit results to those found after the specified time. You must
-   *             specify either the startTime and endTime or the taskId, but not both.</p>
-   */
-  startTime?: Date;
 
   /**
    * <p>A filter to limit results to those found before the specified time. You must
@@ -3308,6 +3281,33 @@ export interface ListAuditFindingsRequest {
    *     </p>
    */
   listSuppressedFindings?: boolean;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Information identifying the noncompliant resource.</p>
+   */
+  resourceIdentifier?: ResourceIdentifier;
+
+  /**
+   * <p>A filter to limit results to those found after the specified time. You must
+   *             specify either the startTime and endTime or the taskId, but not both.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>A filter to limit results to the audit with the specified ID. You must
+   *             specify either the taskId or the startTime and endTime, but not both.</p>
+   */
+  taskId?: string;
 }
 
 export namespace ListAuditFindingsRequest {
@@ -3337,11 +3337,6 @@ export namespace ListAuditFindingsResponse {
 
 export interface ListAuditMitigationActionsExecutionsRequest {
   /**
-   * <p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>
-   */
-  taskId: string | undefined;
-
-  /**
    * <p>Specify this filter to limit results to those with a specific status.</p>
    */
   actionStatus?: AuditMitigationActionsExecutionStatus | string;
@@ -3360,6 +3355,11 @@ export interface ListAuditMitigationActionsExecutionsRequest {
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Specify this filter to limit results to actions for a specific audit mitigation actions task.</p>
+   */
+  taskId: string | undefined;
 }
 
 export namespace ListAuditMitigationActionsExecutionsRequest {
@@ -3393,14 +3393,14 @@ export interface ListAuditMitigationActionsTasksRequest {
   auditTaskId?: string;
 
   /**
+   * <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
    * <p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>
    */
   findingId?: string;
-
-  /**
-   * <p>Specify this filter to limit results to tasks that are in a specific state.</p>
-   */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
 
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
@@ -3418,9 +3418,9 @@ export interface ListAuditMitigationActionsTasksRequest {
   startTime: Date | undefined;
 
   /**
-   * <p>Specify this filter to limit results to tasks that were completed or canceled on or before a specific date and time.</p>
+   * <p>Specify this filter to limit results to tasks that are in a specific state.</p>
    */
-  endTime: Date | undefined;
+  taskStatus?: AuditMitigationActionsTaskStatus | string;
 }
 
 export namespace ListAuditMitigationActionsTasksRequest {
@@ -3431,14 +3431,14 @@ export namespace ListAuditMitigationActionsTasksRequest {
 
 export interface ListAuditMitigationActionsTasksResponse {
   /**
-   * <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
-   */
-  tasks?: AuditMitigationActionsTaskMetadata[];
-
-  /**
    * <p>The token for the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
+   */
+  tasks?: AuditMitigationActionsTaskMetadata[];
 }
 
 export namespace ListAuditMitigationActionsTasksResponse {
@@ -3449,6 +3449,13 @@ export namespace ListAuditMitigationActionsTasksResponse {
 
 export interface ListAuditSuppressionsRequest {
   /**
+   * <p>
+   *       Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, <code>ascendingOrder=true</code>.
+   *     </p>
+   */
+  ascendingOrder?: boolean;
+
+  /**
    * <p>An audit check name. Checks must be enabled
    *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
    *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
@@ -3457,16 +3464,11 @@ export interface ListAuditSuppressionsRequest {
   checkName?: string;
 
   /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   */
-  resourceIdentifier?: ResourceIdentifier;
-
-  /**
    * <p>
-   *       Determines whether suppressions are listed in ascending order by expiration date or not. If parameter isn't provided, <code>ascendingOrder=true</code>.
+   *       The maximum number of results to return at one time. The default is 25.
    *     </p>
    */
-  ascendingOrder?: boolean;
+  maxResults?: number;
 
   /**
    * <p>
@@ -3476,11 +3478,9 @@ export interface ListAuditSuppressionsRequest {
   nextToken?: string;
 
   /**
-   * <p>
-   *       The maximum number of results to return at one time. The default is 25.
-   *     </p>
+   * <p>Information that identifies the noncompliant resource.</p>
    */
-  maxResults?: number;
+  resourceIdentifier?: ResourceIdentifier;
 }
 
 export namespace ListAuditSuppressionsRequest {
@@ -3492,17 +3492,17 @@ export namespace ListAuditSuppressionsRequest {
 export interface ListAuditSuppressionsResponse {
   /**
    * <p>
-   *       List of audit suppressions.
-   *     </p>
-   */
-  suppressions?: AuditSuppression[];
-
-  /**
-   * <p>
    *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
    *     </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>
+   *       List of audit suppressions.
+   *     </p>
+   */
+  suppressions?: AuditSuppression[];
 }
 
 export namespace ListAuditSuppressionsResponse {
@@ -3513,22 +3513,26 @@ export namespace ListAuditSuppressionsResponse {
 
 export interface ListAuditTasksRequest {
   /**
-   * <p>The beginning of the time period. Audit information is retained for a
-   *               limited time (90 days). Requesting a start time prior to what is retained
-   *               results in an "InvalidRequestException".</p>
-   */
-  startTime: Date | undefined;
-
-  /**
    * <p>The end of the time period.</p>
    */
   endTime: Date | undefined;
 
   /**
-   * <p>A filter to limit the output to the specified type of audit: can be one of
-   *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
    */
-  taskType?: AuditTaskType | string;
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The beginning of the time period. Audit information is retained for a
+   *               limited time (90 days). Requesting a start time prior to what is retained
+   *               results in an "InvalidRequestException".</p>
+   */
+  startTime: Date | undefined;
 
   /**
    * <p>A filter to limit the output to audits with the specified completion
@@ -3537,14 +3541,10 @@ export interface ListAuditTasksRequest {
   taskStatus?: AuditTaskStatus | string;
 
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>A filter to limit the output to the specified type of audit: can be one of
+   *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
    */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   */
-  maxResults?: number;
+  taskType?: AuditTaskType | string;
 }
 
 export namespace ListAuditTasksRequest {
@@ -3555,15 +3555,15 @@ export namespace ListAuditTasksRequest {
 
 export interface ListAuditTasksResponse {
   /**
-   * <p>The audits that were performed during the specified time period.</p>
-   */
-  tasks?: AuditTaskMetadata[];
-
-  /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
    *             if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The audits that were performed during the specified time period.</p>
+   */
+  tasks?: AuditTaskMetadata[];
 }
 
 export namespace ListAuditTasksResponse {
@@ -3574,9 +3574,9 @@ export namespace ListAuditTasksResponse {
 
 export interface ListAuthorizersRequest {
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>Return the list of authorizers in ascending alphabetical order.</p>
    */
-  pageSize?: number;
+  ascendingOrder?: boolean;
 
   /**
    * <p>A marker used to get the next set of results.</p>
@@ -3584,9 +3584,9 @@ export interface ListAuthorizersRequest {
   marker?: string;
 
   /**
-   * <p>Return the list of authorizers in ascending alphabetical order.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  ascendingOrder?: boolean;
+  pageSize?: number;
 
   /**
    * <p>The status of the list authorizers request.</p>
@@ -3620,13 +3620,6 @@ export namespace ListAuthorizersResponse {
 
 export interface ListBillingGroupsRequest {
   /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return per request.</p>
    */
   maxResults?: number;
@@ -3635,6 +3628,13 @@ export interface ListBillingGroupsRequest {
    * <p>Limit the results to billing groups whose names have the given prefix.</p>
    */
   namePrefixFilter?: string;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListBillingGroupsRequest {
@@ -3666,9 +3666,9 @@ export namespace ListBillingGroupsResponse {
  */
 export interface ListCACertificatesRequest {
   /**
-   * <p>The result page size.</p>
+   * <p>Determines the order of the results.</p>
    */
-  pageSize?: number;
+  ascendingOrder?: boolean;
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -3676,9 +3676,9 @@ export interface ListCACertificatesRequest {
   marker?: string;
 
   /**
-   * <p>Determines the order of the results.</p>
+   * <p>The result page size.</p>
    */
-  ascendingOrder?: boolean;
+  pageSize?: number;
 }
 
 export namespace ListCACertificatesRequest {
@@ -3702,15 +3702,15 @@ export interface CACertificate {
   certificateId?: string;
 
   /**
+   * <p>The date the CA certificate was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
    * <p>The status of the CA certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    */
   status?: CACertificateStatus | string;
-
-  /**
-   * <p>The date the CA certificate was created.</p>
-   */
-  creationDate?: Date;
 }
 
 export namespace CACertificate {
@@ -3745,9 +3745,10 @@ export namespace ListCACertificatesResponse {
  */
 export interface ListCertificatesRequest {
   /**
-   * <p>The result page size.</p>
+   * <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
    */
-  pageSize?: number;
+  ascendingOrder?: boolean;
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -3755,10 +3756,9 @@ export interface ListCertificatesRequest {
   marker?: string;
 
   /**
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
+   * <p>The result page size.</p>
    */
-  ascendingOrder?: boolean;
+  pageSize?: number;
 }
 
 export namespace ListCertificatesRequest {
@@ -3783,12 +3783,6 @@ export interface Certificate {
   certificateId?: string;
 
   /**
-   * <p>The status of the certificate.</p>
-   *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
-   */
-  status?: CertificateStatus | string;
-
-  /**
    * <p>The mode of the certificate.</p>
    */
   certificateMode?: CertificateMode | string;
@@ -3797,6 +3791,12 @@ export interface Certificate {
    * <p>The date and time the certificate was created.</p>
    */
   creationDate?: Date;
+
+  /**
+   * <p>The status of the certificate.</p>
+   *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
+   */
+  status?: CertificateStatus | string;
 }
 
 export namespace Certificate {
@@ -3832,15 +3832,16 @@ export namespace ListCertificatesResponse {
  */
 export interface ListCertificatesByCARequest {
   /**
+   * <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
+   */
+  ascendingOrder?: boolean;
+
+  /**
    * <p>The ID of the CA certificate. This operation will list all registered device
    *          certificate that were signed by this CA certificate.</p>
    */
   caCertificateId: string | undefined;
-
-  /**
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -3848,10 +3849,9 @@ export interface ListCertificatesByCARequest {
   marker?: string;
 
   /**
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
+   * <p>The result page size.</p>
    */
-  ascendingOrder?: boolean;
+  pageSize?: number;
 }
 
 export namespace ListCertificatesByCARequest {
@@ -3884,14 +3884,14 @@ export namespace ListCertificatesByCAResponse {
 
 export interface ListDimensionsRequest {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to retrieve at one time.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListDimensionsRequest {
@@ -3962,14 +3962,14 @@ export namespace ListDomainConfigurationsRequest {
  */
 export interface DomainConfigurationSummary {
   /**
-   * <p>The name of the domain configuration. This value must be unique to a region.</p>
-   */
-  domainConfigurationName?: string;
-
-  /**
    * <p>The ARN of the domain configuration.</p>
    */
   domainConfigurationArn?: string;
+
+  /**
+   * <p>The name of the domain configuration. This value must be unique to a region.</p>
+   */
+  domainConfigurationName?: string;
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
@@ -4003,15 +4003,15 @@ export namespace ListDomainConfigurationsResponse {
 
 export interface ListIndicesRequest {
   /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
    *       results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListIndicesRequest {
@@ -4046,11 +4046,6 @@ export interface ListJobExecutionsForJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>The status of the job.</p>
-   */
-  status?: JobExecutionStatus | string;
-
-  /**
    * <p>The maximum number of results to be returned per request.</p>
    */
   maxResults?: number;
@@ -4059,6 +4054,11 @@ export interface ListJobExecutionsForJobRequest {
    * <p>The token to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The status of the job.</p>
+   */
+  status?: JobExecutionStatus | string;
 }
 
 export namespace ListJobExecutionsForJobRequest {
@@ -4072,9 +4072,16 @@ export namespace ListJobExecutionsForJobRequest {
  */
 export interface JobExecutionSummary {
   /**
-   * <p>The status of the job execution.</p>
+   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
+   *             this particular device. It can be used later in commands which return or update job execution
+   *             information.</p>
    */
-  status?: JobExecutionStatus | string;
+  executionNumber?: number;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
+   */
+  lastUpdatedAt?: Date;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
@@ -4087,16 +4094,9 @@ export interface JobExecutionSummary {
   startedAt?: Date;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
+   * <p>The status of the job execution.</p>
    */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used later in commands which return or update job execution
-   *             information.</p>
-   */
-  executionNumber?: number;
+  status?: JobExecutionStatus | string;
 }
 
 export namespace JobExecutionSummary {
@@ -4110,14 +4110,14 @@ export namespace JobExecutionSummary {
  */
 export interface JobExecutionSummaryForJob {
   /**
-   * <p>The ARN of the thing on which the job execution is running.</p>
-   */
-  thingArn?: string;
-
-  /**
    * <p>Contains a subset of information about a job execution.</p>
    */
   jobExecutionSummary?: JobExecutionSummary;
+
+  /**
+   * <p>The ARN of the thing on which the job execution is running.</p>
+   */
+  thingArn?: string;
 }
 
 export namespace JobExecutionSummaryForJob {
@@ -4147,14 +4147,9 @@ export namespace ListJobExecutionsForJobResponse {
 
 export interface ListJobExecutionsForThingRequest {
   /**
-   * <p>The thing name.</p>
+   * <p>The maximum number of results to be returned per request.</p>
    */
-  thingName: string | undefined;
-
-  /**
-   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   */
-  status?: JobExecutionStatus | string;
+  maxResults?: number;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -4170,14 +4165,19 @@ export interface ListJobExecutionsForThingRequest {
   namespaceId?: string;
 
   /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The token to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
+   */
+  status?: JobExecutionStatus | string;
+
+  /**
+   * <p>The thing name.</p>
+   */
+  thingName: string | undefined;
 }
 
 export namespace ListJobExecutionsForThingRequest {
@@ -4191,14 +4191,14 @@ export namespace ListJobExecutionsForThingRequest {
  */
 export interface JobExecutionSummaryForThing {
   /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   */
-  jobId?: string;
-
-  /**
    * <p>Contains a subset of information about a job execution.</p>
    */
   jobExecutionSummary?: JobExecutionSummary;
+
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   */
+  jobId?: string;
 }
 
 export namespace JobExecutionSummaryForThing {
@@ -4228,37 +4228,9 @@ export namespace ListJobExecutionsForThingResponse {
 
 export interface ListJobsRequest {
   /**
-   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   */
-  status?: JobStatus | string;
-
-  /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group. </p>
-   */
-  targetSelection?: TargetSelection | string;
-
-  /**
    * <p>The maximum number of results to return per request.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A filter that limits the returned jobs to those for the specified group.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>A filter that limits the returned jobs to those for the specified group.</p>
-   */
-  thingGroupId?: string;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -4272,6 +4244,34 @@ export interface ListJobsRequest {
    *          </note>
    */
   namespaceId?: string;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
+   */
+  status?: JobStatus | string;
+
+  /**
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
+   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
+   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
+   *             target group, even after the job was completed by all things originally in the group. </p>
+   */
+  targetSelection?: TargetSelection | string;
+
+  /**
+   * <p>A filter that limits the returned jobs to those for the specified group.</p>
+   */
+  thingGroupId?: string;
+
+  /**
+   * <p>A filter that limits the returned jobs to those for the specified group.</p>
+   */
+  thingGroupName?: string;
 }
 
 export namespace ListJobsRequest {
@@ -4285,6 +4285,16 @@ export namespace ListJobsRequest {
  */
 export interface JobSummary {
   /**
+   * <p>The time, in seconds since the epoch, when the job completed.</p>
+   */
+  completedAt?: Date;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
    * <p>The job ARN.</p>
    */
   jobArn?: string;
@@ -4295,9 +4305,14 @@ export interface JobSummary {
   jobId?: string;
 
   /**
-   * <p>The ID of the thing group.</p>
+   * <p>The time, in seconds since the epoch, when the job was last updated.</p>
    */
-  thingGroupId?: string;
+  lastUpdatedAt?: Date;
+
+  /**
+   * <p>The job summary status.</p>
+   */
+  status?: JobStatus | string;
 
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
@@ -4308,24 +4323,9 @@ export interface JobSummary {
   targetSelection?: TargetSelection | string;
 
   /**
-   * <p>The job summary status.</p>
+   * <p>The ID of the thing group.</p>
    */
-  status?: JobStatus | string;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was last updated.</p>
-   */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job completed.</p>
-   */
-  completedAt?: Date;
+  thingGroupId?: string;
 }
 
 export namespace JobSummary {
@@ -4381,14 +4381,14 @@ export namespace ListMitigationActionsRequest {
  */
 export interface MitigationActionIdentifier {
   /**
-   * <p>The friendly name of the mitigation action.</p>
-   */
-  actionName?: string;
-
-  /**
    * <p>The IAM role ARN used to apply this mitigation action.</p>
    */
   actionArn?: string;
+
+  /**
+   * <p>The friendly name of the mitigation action.</p>
+   */
+  actionName?: string;
 
   /**
    * <p>The date when this mitigation action was created.</p>
@@ -4448,9 +4448,9 @@ export namespace ListOTAUpdatesRequest {
  */
 export interface OTAUpdateSummary {
   /**
-   * <p>The OTA update ID.</p>
+   * <p>The date when the OTA update was created.</p>
    */
-  otaUpdateId?: string;
+  creationDate?: Date;
 
   /**
    * <p>The OTA update ARN.</p>
@@ -4458,9 +4458,9 @@ export interface OTAUpdateSummary {
   otaUpdateArn?: string;
 
   /**
-   * <p>The date when the OTA update was created.</p>
+   * <p>The OTA update ID.</p>
    */
-  creationDate?: Date;
+  otaUpdateId?: string;
 }
 
 export namespace OTAUpdateSummary {
@@ -4471,14 +4471,14 @@ export namespace OTAUpdateSummary {
 
 export interface ListOTAUpdatesResponse {
   /**
-   * <p>A list of OTA update jobs.</p>
-   */
-  otaUpdates?: OTAUpdateSummary[];
-
-  /**
    * <p>A token to use to get the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of OTA update jobs.</p>
+   */
+  otaUpdates?: OTAUpdateSummary[];
 }
 
 export namespace ListOTAUpdatesResponse {
@@ -4492,9 +4492,10 @@ export namespace ListOTAUpdatesResponse {
  */
 export interface ListOutgoingCertificatesRequest {
   /**
-   * <p>The result page size.</p>
+   * <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
    */
-  pageSize?: number;
+  ascendingOrder?: boolean;
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -4502,10 +4503,9 @@ export interface ListOutgoingCertificatesRequest {
   marker?: string;
 
   /**
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
+   * <p>The result page size.</p>
    */
-  ascendingOrder?: boolean;
+  pageSize?: number;
 }
 
 export namespace ListOutgoingCertificatesRequest {
@@ -4529,9 +4529,9 @@ export interface OutgoingCertificate {
   certificateId?: string;
 
   /**
-   * <p>The AWS account to which the transfer was made.</p>
+   * <p>The certificate creation date.</p>
    */
-  transferredTo?: string;
+  creationDate?: Date;
 
   /**
    * <p>The date the transfer was initiated.</p>
@@ -4544,9 +4544,9 @@ export interface OutgoingCertificate {
   transferMessage?: string;
 
   /**
-   * <p>The certificate creation date.</p>
+   * <p>The AWS account to which the transfer was made.</p>
    */
-  creationDate?: Date;
+  transferredTo?: string;
 }
 
 export namespace OutgoingCertificate {
@@ -4560,14 +4560,14 @@ export namespace OutgoingCertificate {
  */
 export interface ListOutgoingCertificatesResponse {
   /**
-   * <p>The certificates that are being transferred but not yet accepted.</p>
-   */
-  outgoingCertificates?: OutgoingCertificate[];
-
-  /**
    * <p>The marker for the next set of results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The certificates that are being transferred but not yet accepted.</p>
+   */
+  outgoingCertificates?: OutgoingCertificate[];
 }
 
 export namespace ListOutgoingCertificatesResponse {
@@ -4581,6 +4581,12 @@ export namespace ListOutgoingCertificatesResponse {
  */
 export interface ListPoliciesRequest {
   /**
+   * <p>Specifies the order for results. If true, the results are returned in ascending
+   *          creation order.</p>
+   */
+  ascendingOrder?: boolean;
+
+  /**
    * <p>The marker for the next set of results.</p>
    */
   marker?: string;
@@ -4589,12 +4595,6 @@ export interface ListPoliciesRequest {
    * <p>The result page size.</p>
    */
   pageSize?: number;
-
-  /**
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   */
-  ascendingOrder?: boolean;
 }
 
 export namespace ListPoliciesRequest {
@@ -4608,15 +4608,15 @@ export namespace ListPoliciesRequest {
  */
 export interface ListPoliciesResponse {
   /**
-   * <p>The descriptions of the policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The descriptions of the policies.</p>
+   */
+  policies?: Policy[];
 }
 
 export namespace ListPoliciesResponse {
@@ -4630,9 +4630,10 @@ export namespace ListPoliciesResponse {
  */
 export interface ListPolicyPrincipalsRequest {
   /**
-   * <p>The policy name.</p>
+   * <p>Specifies the order for results. If true, the results are returned in ascending
+   *          creation order.</p>
    */
-  policyName: string | undefined;
+  ascendingOrder?: boolean;
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -4645,10 +4646,9 @@ export interface ListPolicyPrincipalsRequest {
   pageSize?: number;
 
   /**
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
+   * <p>The policy name.</p>
    */
-  ascendingOrder?: boolean;
+  policyName: string | undefined;
 }
 
 export namespace ListPolicyPrincipalsRequest {
@@ -4662,15 +4662,15 @@ export namespace ListPolicyPrincipalsRequest {
  */
 export interface ListPolicyPrincipalsResponse {
   /**
-   * <p>The descriptions of the principals.</p>
-   */
-  principals?: string[];
-
-  /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The descriptions of the principals.</p>
+   */
+  principals?: string[];
 }
 
 export namespace ListPolicyPrincipalsResponse {
@@ -4700,9 +4700,9 @@ export namespace ListPolicyVersionsRequest {
  */
 export interface PolicyVersion {
   /**
-   * <p>The policy version ID.</p>
+   * <p>The date and time the policy was created.</p>
    */
-  versionId?: string;
+  createDate?: Date;
 
   /**
    * <p>Specifies whether the policy version is the default.</p>
@@ -4710,9 +4710,9 @@ export interface PolicyVersion {
   isDefaultVersion?: boolean;
 
   /**
-   * <p>The date and time the policy was created.</p>
+   * <p>The policy version ID.</p>
    */
-  createDate?: Date;
+  versionId?: string;
 }
 
 export namespace PolicyVersion {
@@ -4742,9 +4742,10 @@ export namespace ListPolicyVersionsResponse {
  */
 export interface ListPrincipalPoliciesRequest {
   /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   * <p>Specifies the order for results. If true, results are returned in ascending creation
+   *          order.</p>
    */
-  principal: string | undefined;
+  ascendingOrder?: boolean;
 
   /**
    * <p>The marker for the next set of results.</p>
@@ -4757,10 +4758,9 @@ export interface ListPrincipalPoliciesRequest {
   pageSize?: number;
 
   /**
-   * <p>Specifies the order for results. If true, results are returned in ascending creation
-   *          order.</p>
+   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
    */
-  ascendingOrder?: boolean;
+  principal: string | undefined;
 }
 
 export namespace ListPrincipalPoliciesRequest {
@@ -4774,15 +4774,15 @@ export namespace ListPrincipalPoliciesRequest {
  */
 export interface ListPrincipalPoliciesResponse {
   /**
-   * <p>The policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The policies.</p>
+   */
+  policies?: Policy[];
 }
 
 export namespace ListPrincipalPoliciesResponse {
@@ -4796,16 +4796,16 @@ export namespace ListPrincipalPoliciesResponse {
  */
 export interface ListPrincipalThingsRequest {
   /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
 
   /**
    * <p>The principal.</p>
@@ -4824,14 +4824,14 @@ export namespace ListPrincipalThingsRequest {
  */
 export interface ListPrincipalThingsResponse {
   /**
-   * <p>The things.</p>
-   */
-  things?: string[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The things.</p>
+   */
+  things?: string[];
 }
 
 export namespace ListPrincipalThingsResponse {
@@ -4863,6 +4863,26 @@ export namespace ListProvisioningTemplatesRequest {
  */
 export interface ProvisioningTemplateSummary {
   /**
+   * <p>The date when the fleet provisioning template summary was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * <p>The description of the fleet provisioning template.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>True if the fleet provision template is enabled, otherwise false.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>The date when the fleet provisioning template summary was last modified.</p>
+   */
+  lastModifiedDate?: Date;
+
+  /**
    * <p>The ARN of the fleet provisioning template.</p>
    */
   templateArn?: string;
@@ -4871,26 +4891,6 @@ export interface ProvisioningTemplateSummary {
    * <p>The name of the fleet provisioning template.</p>
    */
   templateName?: string;
-
-  /**
-   * <p>The description of the fleet provisioning template.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The date when the fleet provisioning template summary was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>The date when the fleet provisioning template summary was last modified.</p>
-   */
-  lastModifiedDate?: Date;
-
-  /**
-   * <p>True if the fleet provision template is enabled, otherwise false.</p>
-   */
-  enabled?: boolean;
 }
 
 export namespace ProvisioningTemplateSummary {
@@ -4901,14 +4901,14 @@ export namespace ProvisioningTemplateSummary {
 
 export interface ListProvisioningTemplatesResponse {
   /**
-   * <p>A list of fleet provisioning templates</p>
-   */
-  templates?: ProvisioningTemplateSummary[];
-
-  /**
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of fleet provisioning templates</p>
+   */
+  templates?: ProvisioningTemplateSummary[];
 }
 
 export namespace ListProvisioningTemplatesResponse {
@@ -4919,11 +4919,6 @@ export namespace ListProvisioningTemplatesResponse {
 
 export interface ListProvisioningTemplateVersionsRequest {
   /**
-   * <p>The name of the fleet provisioning template.</p>
-   */
-  templateName: string | undefined;
-
-  /**
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
@@ -4932,6 +4927,11 @@ export interface ListProvisioningTemplateVersionsRequest {
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The name of the fleet provisioning template.</p>
+   */
+  templateName: string | undefined;
 }
 
 export namespace ListProvisioningTemplateVersionsRequest {
@@ -4945,11 +4945,6 @@ export namespace ListProvisioningTemplateVersionsRequest {
  */
 export interface ProvisioningTemplateVersionSummary {
   /**
-   * <p>The ID of the fleet privisioning template version.</p>
-   */
-  versionId?: number;
-
-  /**
    * <p>The date when the fleet provisioning template version was created</p>
    */
   creationDate?: Date;
@@ -4959,6 +4954,11 @@ export interface ProvisioningTemplateVersionSummary {
    *          false.</p>
    */
   isDefaultVersion?: boolean;
+
+  /**
+   * <p>The ID of the fleet privisioning template version.</p>
+   */
+  versionId?: number;
 }
 
 export namespace ProvisioningTemplateVersionSummary {
@@ -4969,14 +4969,14 @@ export namespace ProvisioningTemplateVersionSummary {
 
 export interface ListProvisioningTemplateVersionsResponse {
   /**
-   * <p>The list of fleet provisioning template versions.</p>
-   */
-  versions?: ProvisioningTemplateVersionSummary[];
-
-  /**
    * <p>A token to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of fleet provisioning template versions.</p>
+   */
+  versions?: ProvisioningTemplateVersionSummary[];
 }
 
 export namespace ListProvisioningTemplateVersionsResponse {
@@ -4987,9 +4987,9 @@ export namespace ListProvisioningTemplateVersionsResponse {
 
 export interface ListRoleAliasesRequest {
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>Return the list of role aliases in ascending alphabetical order.</p>
    */
-  pageSize?: number;
+  ascendingOrder?: boolean;
 
   /**
    * <p>A marker used to get the next set of results.</p>
@@ -4997,9 +4997,9 @@ export interface ListRoleAliasesRequest {
   marker?: string;
 
   /**
-   * <p>Return the list of role aliases in ascending alphabetical order.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  ascendingOrder?: boolean;
+  pageSize?: number;
 }
 
 export namespace ListRoleAliasesRequest {
@@ -5010,14 +5010,14 @@ export namespace ListRoleAliasesRequest {
 
 export interface ListRoleAliasesResponse {
   /**
-   * <p>The role aliases.</p>
-   */
-  roleAliases?: string[];
-
-  /**
    * <p>A marker used to get the next set of results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The role aliases.</p>
+   */
+  roleAliases?: string[];
 }
 
 export namespace ListRoleAliasesResponse {
@@ -5028,14 +5028,14 @@ export namespace ListRoleAliasesResponse {
 
 export interface ListScheduledAuditsRequest {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListScheduledAuditsRequest {
@@ -5049,21 +5049,6 @@ export namespace ListScheduledAuditsRequest {
  */
 export interface ScheduledAuditMetadata {
   /**
-   * <p>The name of the scheduled audit.</p>
-   */
-  scheduledAuditName?: string;
-
-  /**
-   * <p>The ARN of the scheduled audit.</p>
-   */
-  scheduledAuditArn?: string;
-
-  /**
-   * <p>How often the scheduled audit occurs.</p>
-   */
-  frequency?: AuditFrequency | string;
-
-  /**
    * <p>The day of the month on which the scheduled audit is run (if the
    *           <code>frequency</code> is "MONTHLY").
    *         If days 29-31 are specified, and the month does not have that many
@@ -5076,6 +5061,21 @@ export interface ScheduledAuditMetadata {
    *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
    */
   dayOfWeek?: DayOfWeek | string;
+
+  /**
+   * <p>How often the scheduled audit occurs.</p>
+   */
+  frequency?: AuditFrequency | string;
+
+  /**
+   * <p>The ARN of the scheduled audit.</p>
+   */
+  scheduledAuditArn?: string;
+
+  /**
+   * <p>The name of the scheduled audit.</p>
+   */
+  scheduledAuditName?: string;
 }
 
 export namespace ScheduledAuditMetadata {
@@ -5086,15 +5086,15 @@ export namespace ScheduledAuditMetadata {
 
 export interface ListScheduledAuditsResponse {
   /**
-   * <p>The list of scheduled audits.</p>
-   */
-  scheduledAudits?: ScheduledAuditMetadata[];
-
-  /**
    * <p>A token that can be used to retrieve the next set of results,
    *             or <code>null</code> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of scheduled audits.</p>
+   */
+  scheduledAudits?: ScheduledAuditMetadata[];
 }
 
 export namespace ListScheduledAuditsResponse {
@@ -5105,9 +5105,9 @@ export namespace ListScheduledAuditsResponse {
 
 export interface ListSecurityProfilesRequest {
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>A filter to limit results to the security profiles that use the defined dimension.</p>
    */
-  nextToken?: string;
+  dimensionName?: string;
 
   /**
    * <p>The maximum number of results to return at one time.</p>
@@ -5115,9 +5115,9 @@ export interface ListSecurityProfilesRequest {
   maxResults?: number;
 
   /**
-   * <p>A filter to limit results to the security profiles that use the defined dimension.</p>
+   * <p>The token for the next set of results.</p>
    */
-  dimensionName?: string;
+  nextToken?: string;
 }
 
 export namespace ListSecurityProfilesRequest {
@@ -5131,14 +5131,14 @@ export namespace ListSecurityProfilesRequest {
  */
 export interface SecurityProfileIdentifier {
   /**
-   * <p>The name you have given to the security profile.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>The ARN of the security profile.</p>
    */
   arn: string | undefined;
+
+  /**
+   * <p>The name you have given to the security profile.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace SecurityProfileIdentifier {
@@ -5149,15 +5149,15 @@ export namespace SecurityProfileIdentifier {
 
 export interface ListSecurityProfilesResponse {
   /**
-   * <p>A list of security profile identifiers (names and ARNs).</p>
-   */
-  securityProfileIdentifiers?: SecurityProfileIdentifier[];
-
-  /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of security profile identifiers (names and ARNs).</p>
+   */
+  securityProfileIdentifiers?: SecurityProfileIdentifier[];
 }
 
 export namespace ListSecurityProfilesResponse {
@@ -5168,14 +5168,14 @@ export namespace ListSecurityProfilesResponse {
 
 export interface ListSecurityProfilesForTargetRequest {
   /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return at one time.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>If true, return child groups too.</p>
@@ -5234,15 +5234,15 @@ export namespace SecurityProfileTargetMapping {
 
 export interface ListSecurityProfilesForTargetResponse {
   /**
-   * <p>A list of security profiles and their associated targets.</p>
-   */
-  securityProfileTargetMappings?: SecurityProfileTargetMapping[];
-
-  /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of security profiles and their associated targets.</p>
+   */
+  securityProfileTargetMappings?: SecurityProfileTargetMapping[];
 }
 
 export namespace ListSecurityProfilesForTargetResponse {
@@ -5253,6 +5253,11 @@ export namespace ListSecurityProfilesForTargetResponse {
 
 export interface ListStreamsRequest {
   /**
+   * <p>Set to true to return the list of streams in ascending order.</p>
+   */
+  ascendingOrder?: boolean;
+
+  /**
    * <p>The maximum number of results to return at a time.</p>
    */
   maxResults?: number;
@@ -5261,11 +5266,6 @@ export interface ListStreamsRequest {
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Set to true to return the list of streams in ascending order.</p>
-   */
-  ascendingOrder?: boolean;
 }
 
 export namespace ListStreamsRequest {
@@ -5279,9 +5279,9 @@ export namespace ListStreamsRequest {
  */
 export interface StreamSummary {
   /**
-   * <p>The stream ID.</p>
+   * <p>A description of the stream.</p>
    */
-  streamId?: string;
+  description?: string;
 
   /**
    * <p>The stream ARN.</p>
@@ -5289,14 +5289,14 @@ export interface StreamSummary {
   streamArn?: string;
 
   /**
+   * <p>The stream ID.</p>
+   */
+  streamId?: string;
+
+  /**
    * <p>The stream version.</p>
    */
   streamVersion?: number;
-
-  /**
-   * <p>A description of the stream.</p>
-   */
-  description?: string;
 }
 
 export namespace StreamSummary {
@@ -5307,14 +5307,14 @@ export namespace StreamSummary {
 
 export interface ListStreamsResponse {
   /**
-   * <p>A list of streams.</p>
-   */
-  streams?: StreamSummary[];
-
-  /**
    * <p>A token used to get the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of streams.</p>
+   */
+  streams?: StreamSummary[];
 }
 
 export namespace ListStreamsResponse {
@@ -5325,16 +5325,16 @@ export namespace ListStreamsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -5345,14 +5345,14 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>The list of tags assigned to the resource.</p>
-   */
-  tags?: Tag[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The list of tags assigned to the resource.</p>
+   */
+  tags?: Tag[];
 }
 
 export namespace ListTagsForResourceResponse {
@@ -5363,11 +5363,6 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTargetsForPolicyRequest {
   /**
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-
-  /**
    * <p>A marker used to get the next set of results.</p>
    */
   marker?: string;
@@ -5376,6 +5371,11 @@ export interface ListTargetsForPolicyRequest {
    * <p>The maximum number of results to return at one time.</p>
    */
   pageSize?: number;
+
+  /**
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
 }
 
 export namespace ListTargetsForPolicyRequest {
@@ -5386,14 +5386,14 @@ export namespace ListTargetsForPolicyRequest {
 
 export interface ListTargetsForPolicyResponse {
   /**
-   * <p>The policy targets.</p>
-   */
-  targets?: string[];
-
-  /**
    * <p>A marker used to get the next set of results.</p>
    */
   nextMarker?: string;
+
+  /**
+   * <p>The policy targets.</p>
+   */
+  targets?: string[];
 }
 
 export namespace ListTargetsForPolicyResponse {
@@ -5404,9 +5404,9 @@ export namespace ListTargetsForPolicyResponse {
 
 export interface ListTargetsForSecurityProfileRequest {
   /**
-   * <p>The security profile.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  securityProfileName: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -5414,9 +5414,9 @@ export interface ListTargetsForSecurityProfileRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The security profile.</p>
    */
-  maxResults?: number;
+  securityProfileName: string | undefined;
 }
 
 export namespace ListTargetsForSecurityProfileRequest {
@@ -5427,15 +5427,15 @@ export namespace ListTargetsForSecurityProfileRequest {
 
 export interface ListTargetsForSecurityProfileResponse {
   /**
-   * <p>The thing groups to which the security profile is attached.</p>
-   */
-  securityProfileTargets?: SecurityProfileTarget[];
-
-  /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The thing groups to which the security profile is attached.</p>
+   */
+  securityProfileTargets?: SecurityProfileTarget[];
 }
 
 export namespace ListTargetsForSecurityProfileResponse {
@@ -5446,6 +5446,16 @@ export namespace ListTargetsForSecurityProfileResponse {
 
 export interface ListThingGroupsRequest {
   /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A filter that limits the results to those with the specified name prefix.</p>
+   */
+  namePrefixFilter?: string;
+
+  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
@@ -5453,19 +5463,9 @@ export interface ListThingGroupsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>A filter that limits the results to those with the specified parent group.</p>
    */
   parentGroup?: string;
-
-  /**
-   * <p>A filter that limits the results to those with the specified name prefix.</p>
-   */
-  namePrefixFilter?: string;
 
   /**
    * <p>If true, return child groups as well.</p>
@@ -5481,14 +5481,14 @@ export namespace ListThingGroupsRequest {
 
 export interface ListThingGroupsResponse {
   /**
-   * <p>The thing groups.</p>
-   */
-  thingGroups?: GroupNameAndArn[];
-
-  /**
    * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The thing groups.</p>
+   */
+  thingGroups?: GroupNameAndArn[];
 }
 
 export namespace ListThingGroupsResponse {
@@ -5499,9 +5499,9 @@ export namespace ListThingGroupsResponse {
 
 export interface ListThingGroupsForThingRequest {
   /**
-   * <p>The thing name.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  thingName: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -5511,9 +5511,9 @@ export interface ListThingGroupsForThingRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The thing name.</p>
    */
-  maxResults?: number;
+  thingName: string | undefined;
 }
 
 export namespace ListThingGroupsForThingRequest {
@@ -5524,14 +5524,14 @@ export namespace ListThingGroupsForThingRequest {
 
 export interface ListThingGroupsForThingResponse {
   /**
-   * <p>The thing groups.</p>
-   */
-  thingGroups?: GroupNameAndArn[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The thing groups.</p>
+   */
+  thingGroups?: GroupNameAndArn[];
 }
 
 export namespace ListThingGroupsForThingResponse {
@@ -5545,16 +5545,16 @@ export namespace ListThingGroupsForThingResponse {
  */
 export interface ListThingPrincipalsRequest {
   /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
 
   /**
    * <p>The name of the thing.</p>
@@ -5573,14 +5573,14 @@ export namespace ListThingPrincipalsRequest {
  */
 export interface ListThingPrincipalsResponse {
   /**
-   * <p>The principals associated with the thing.</p>
-   */
-  principals?: string[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The principals associated with the thing.</p>
+   */
+  principals?: string[];
 }
 
 export namespace ListThingPrincipalsResponse {
@@ -5596,14 +5596,9 @@ export enum ReportType {
 
 export interface ListThingRegistrationTaskReportsRequest {
   /**
-   * <p>The id of the task.</p>
+   * <p>The maximum number of results to return per request.</p>
    */
-  taskId: string | undefined;
-
-  /**
-   * <p>The type of task report.</p>
-   */
-  reportType: ReportType | string | undefined;
+  maxResults?: number;
 
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -5613,9 +5608,14 @@ export interface ListThingRegistrationTaskReportsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per request.</p>
+   * <p>The type of task report.</p>
    */
-  maxResults?: number;
+  reportType: ReportType | string | undefined;
+
+  /**
+   * <p>The id of the task.</p>
+   */
+  taskId: string | undefined;
 }
 
 export namespace ListThingRegistrationTaskReportsRequest {
@@ -5626,9 +5626,9 @@ export namespace ListThingRegistrationTaskReportsRequest {
 
 export interface ListThingRegistrationTaskReportsResponse {
   /**
-   * <p>Links to the task resources.</p>
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
-  resourceLinks?: string[];
+  nextToken?: string;
 
   /**
    * <p>The type of task report.</p>
@@ -5636,9 +5636,9 @@ export interface ListThingRegistrationTaskReportsResponse {
   reportType?: ReportType | string;
 
   /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * <p>Links to the task resources.</p>
    */
-  nextToken?: string;
+  resourceLinks?: string[];
 }
 
 export namespace ListThingRegistrationTaskReportsResponse {
@@ -5649,16 +5649,16 @@ export namespace ListThingRegistrationTaskReportsResponse {
 
 export interface ListThingRegistrationTasksRequest {
   /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
 
   /**
    * <p>The status of the bulk thing provisioning task.</p>
@@ -5674,14 +5674,14 @@ export namespace ListThingRegistrationTasksRequest {
 
 export interface ListThingRegistrationTasksResponse {
   /**
-   * <p>A list of bulk thing provisioning task IDs.</p>
-   */
-  taskIds?: string[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of bulk thing provisioning task IDs.</p>
+   */
+  taskIds?: string[];
 }
 
 export namespace ListThingRegistrationTasksResponse {
@@ -5695,18 +5695,6 @@ export namespace ListThingRegistrationTasksResponse {
  */
 export interface ListThingsRequest {
   /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>The attribute name used to search for things.</p>
    */
   attributeName?: string;
@@ -5715,6 +5703,18 @@ export interface ListThingsRequest {
    * <p>The attribute value used to search for things.</p>
    */
   attributeValue?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The name of the thing type used to search for things.</p>
@@ -5734,6 +5734,16 @@ export namespace ListThingsRequest {
  */
 export interface ThingAttribute {
   /**
+   * <p>A list of thing attributes which are name-value pairs.</p>
+   */
+  attributes?: { [key: string]: string };
+
+  /**
+   * <p>The thing ARN.</p>
+   */
+  thingArn?: string;
+
+  /**
    * <p>The name of the thing.</p>
    */
   thingName?: string;
@@ -5742,16 +5752,6 @@ export interface ThingAttribute {
    * <p>The name of the thing type, if the thing has been associated with a type.</p>
    */
   thingTypeName?: string;
-
-  /**
-   * <p>The thing ARN.</p>
-   */
-  thingArn?: string;
-
-  /**
-   * <p>A list of thing attributes which are name-value pairs.</p>
-   */
-  attributes?: { [key: string]: string };
 
   /**
    * <p>The version of the thing record in the registry.</p>
@@ -5770,14 +5770,14 @@ export namespace ThingAttribute {
  */
 export interface ListThingsResponse {
   /**
-   * <p>The things.</p>
-   */
-  things?: ThingAttribute[];
-
-  /**
    * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The things.</p>
+   */
+  things?: ThingAttribute[];
 }
 
 export namespace ListThingsResponse {
@@ -5793,16 +5793,16 @@ export interface ListThingsInBillingGroupRequest {
   billingGroupName: string | undefined;
 
   /**
+   * <p>The maximum number of results to return per request.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListThingsInBillingGroupRequest {
@@ -5813,14 +5813,14 @@ export namespace ListThingsInBillingGroupRequest {
 
 export interface ListThingsInBillingGroupResponse {
   /**
-   * <p>A list of things in the billing group.</p>
-   */
-  things?: string[];
-
-  /**
    * <p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>A list of things in the billing group.</p>
+   */
+  things?: string[];
 }
 
 export namespace ListThingsInBillingGroupResponse {
@@ -5831,15 +5831,9 @@ export namespace ListThingsInBillingGroupResponse {
 
 export interface ListThingsInThingGroupRequest {
   /**
-   * <p>The thing group name.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  thingGroupName: string | undefined;
-
-  /**
-   * <p>When true, list things in this thing group and in all child groups as
-   * 			well.</p>
-   */
-  recursive?: boolean;
+  maxResults?: number;
 
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -5849,9 +5843,15 @@ export interface ListThingsInThingGroupRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>When true, list things in this thing group and in all child groups as
+   * 			well.</p>
    */
-  maxResults?: number;
+  recursive?: boolean;
+
+  /**
+   * <p>The thing group name.</p>
+   */
+  thingGroupName: string | undefined;
 }
 
 export namespace ListThingsInThingGroupRequest {
@@ -5862,14 +5862,14 @@ export namespace ListThingsInThingGroupRequest {
 
 export interface ListThingsInThingGroupResponse {
   /**
-   * <p>The things in the specified thing group.</p>
-   */
-  things?: string[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The things in the specified thing group.</p>
+   */
+  things?: string[];
 }
 
 export namespace ListThingsInThingGroupResponse {
@@ -5883,16 +5883,16 @@ export namespace ListThingsInThingGroupResponse {
  */
 export interface ListThingTypesRequest {
   /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
    * 			value from a previous response; otherwise <b>null</b> to receive
    * 			the first set of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   */
-  maxResults?: number;
 
   /**
    * <p>The name of the thing type.</p>
@@ -5911,19 +5911,9 @@ export namespace ListThingTypesRequest {
  */
 export interface ThingTypeDefinition {
   /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName?: string;
-
-  /**
    * <p>The thing type ARN.</p>
    */
   thingTypeArn?: string;
-
-  /**
-   * <p>The ThingTypeProperties for the thing type.</p>
-   */
-  thingTypeProperties?: ThingTypeProperties;
 
   /**
    * <p>The ThingTypeMetadata contains additional information about the thing type including: creation date and
@@ -5931,6 +5921,16 @@ export interface ThingTypeDefinition {
    * 			deprecated.</p>
    */
   thingTypeMetadata?: ThingTypeMetadata;
+
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
+
+  /**
+   * <p>The ThingTypeProperties for the thing type.</p>
+   */
+  thingTypeProperties?: ThingTypeProperties;
 }
 
 export namespace ThingTypeDefinition {
@@ -5944,14 +5944,14 @@ export namespace ThingTypeDefinition {
  */
 export interface ListThingTypesResponse {
   /**
-   * <p>The thing types.</p>
-   */
-  thingTypes?: ThingTypeDefinition[];
-
-  /**
    * <p>The token for the next set of results. Will not be returned if operation has returned all results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The thing types.</p>
+   */
+  thingTypes?: ThingTypeDefinition[];
 }
 
 export namespace ListThingTypesResponse {
@@ -6007,6 +6007,11 @@ export interface TopicRuleDestinationSummary {
   arn?: string;
 
   /**
+   * <p>Information about the HTTP URL.</p>
+   */
+  httpUrlSummary?: HttpUrlDestinationSummary;
+
+  /**
    * <p>The status of the topic rule destination. Valid values are:</p>
    *          <dl>
    *             <dt>IN_PROGRESS</dt>
@@ -6046,11 +6051,6 @@ export interface TopicRuleDestinationSummary {
    * <p>The reason the topic rule destination is in the current status.</p>
    */
   statusReason?: string;
-
-  /**
-   * <p>Information about the HTTP URL.</p>
-   */
-  httpUrlSummary?: HttpUrlDestinationSummary;
 }
 
 export namespace TopicRuleDestinationSummary {
@@ -6082,11 +6082,6 @@ export namespace ListTopicRuleDestinationsResponse {
  */
 export interface ListTopicRulesRequest {
   /**
-   * <p>The topic.</p>
-   */
-  topic?: string;
-
-  /**
    * <p>The maximum number of results to return.</p>
    */
   maxResults?: number;
@@ -6102,6 +6097,11 @@ export interface ListTopicRulesRequest {
    * <p>Specifies whether the rule is disabled.</p>
    */
   ruleDisabled?: boolean;
+
+  /**
+   * <p>The topic.</p>
+   */
+  topic?: string;
 }
 
 export namespace ListTopicRulesRequest {
@@ -6115,9 +6115,19 @@ export namespace ListTopicRulesRequest {
  */
 export interface TopicRuleListItem {
   /**
+   * <p>The date and time the rule was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
    * <p>The rule ARN.</p>
    */
   ruleArn?: string;
+
+  /**
+   * <p>Specifies whether the rule is disabled.</p>
+   */
+  ruleDisabled?: boolean;
 
   /**
    * <p>The name of the rule.</p>
@@ -6128,16 +6138,6 @@ export interface TopicRuleListItem {
    * <p>The pattern for the topic names that apply.</p>
    */
   topicPattern?: string;
-
-  /**
-   * <p>The date and time the rule was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>Specifies whether the rule is disabled.</p>
-   */
-  ruleDisabled?: boolean;
 }
 
 export namespace TopicRuleListItem {
@@ -6151,14 +6151,14 @@ export namespace TopicRuleListItem {
  */
 export interface ListTopicRulesResponse {
   /**
-   * <p>The rules.</p>
-   */
-  rules?: TopicRuleListItem[];
-
-  /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The rules.</p>
+   */
+  rules?: TopicRuleListItem[];
 }
 
 export namespace ListTopicRulesResponse {
@@ -6169,10 +6169,9 @@ export namespace ListTopicRulesResponse {
 
 export interface ListV2LoggingLevelsRequest {
   /**
-   * <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  targetType?: LogTargetType | string;
+  maxResults?: number;
 
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code>
@@ -6182,9 +6181,10 @@ export interface ListV2LoggingLevelsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
    */
-  maxResults?: number;
+  targetType?: LogTargetType | string;
 }
 
 export namespace ListV2LoggingLevelsRequest {
@@ -6198,14 +6198,14 @@ export namespace ListV2LoggingLevelsRequest {
  */
 export interface LogTarget {
   /**
-   * <p>The target type.</p>
-   */
-  targetType: LogTargetType | string | undefined;
-
-  /**
    * <p>The target name.</p>
    */
   targetName?: string;
+
+  /**
+   * <p>The target type.</p>
+   */
+  targetType: LogTargetType | string | undefined;
 }
 
 export namespace LogTarget {
@@ -6219,14 +6219,14 @@ export namespace LogTarget {
  */
 export interface LogTargetConfiguration {
   /**
-   * <p>A log target</p>
-   */
-  logTarget?: LogTarget;
-
-  /**
    * <p>The logging level.</p>
    */
   logLevel?: LogLevel | string;
+
+  /**
+   * <p>A log target</p>
+   */
+  logTarget?: LogTarget;
 }
 
 export namespace LogTargetConfiguration {
@@ -6255,24 +6255,14 @@ export namespace ListV2LoggingLevelsResponse {
 
 export interface ListViolationEventsRequest {
   /**
-   * <p>The start time for the alerts to be listed.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
    * <p>The end time for the alerts to be listed.</p>
    */
   endTime: Date | undefined;
 
   /**
-   * <p>A filter to limit results to those alerts caused by the specified thing.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  thingName?: string;
-
-  /**
-   * <p>A filter to limit results to those alerts generated by the specified security profile.</p>
-   */
-  securityProfileName?: string;
+  maxResults?: number;
 
   /**
    * <p>The token for the next set of results.</p>
@@ -6280,9 +6270,19 @@ export interface ListViolationEventsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>A filter to limit results to those alerts generated by the specified security profile.</p>
    */
-  maxResults?: number;
+  securityProfileName?: string;
+
+  /**
+   * <p>The start time for the alerts to be listed.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>A filter to limit results to those alerts caused by the specified thing.</p>
+   */
+  thingName?: string;
 }
 
 export namespace ListViolationEventsRequest {
@@ -6302,21 +6302,6 @@ export enum ViolationEventType {
  */
 export interface ViolationEvent {
   /**
-   * <p>The ID of the violation event.</p>
-   */
-  violationId?: string;
-
-  /**
-   * <p>The name of the thing responsible for the violation event.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The name of the security profile whose behavior was violated.</p>
-   */
-  securityProfileName?: string;
-
-  /**
    * <p>The behavior which was violated.</p>
    */
   behavior?: Behavior;
@@ -6327,14 +6312,29 @@ export interface ViolationEvent {
   metricValue?: MetricValue;
 
   /**
-   * <p>The type of violation event.</p>
+   * <p>The name of the security profile whose behavior was violated.</p>
    */
-  violationEventType?: ViolationEventType | string;
+  securityProfileName?: string;
+
+  /**
+   * <p>The name of the thing responsible for the violation event.</p>
+   */
+  thingName?: string;
 
   /**
    * <p>The time the violation event occurred.</p>
    */
   violationEventTime?: Date;
+
+  /**
+   * <p>The type of violation event.</p>
+   */
+  violationEventType?: ViolationEventType | string;
+
+  /**
+   * <p>The ID of the violation event.</p>
+   */
+  violationId?: string;
 }
 
 export namespace ViolationEvent {
@@ -6345,16 +6345,16 @@ export namespace ViolationEvent {
 
 export interface ListViolationEventsResponse {
   /**
-   * <p>The security profile violation alerts issued for this account during the given time period,
-   *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
-   */
-  violationEvents?: ViolationEvent[];
-
-  /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
    *         additional results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The security profile violation alerts issued for this account during the given time period,
+   *       potentially filtered by security profile, behavior violated, or thing (device) violating.</p>
+   */
+  violationEvents?: ViolationEvent[];
 }
 
 export namespace ListViolationEventsResponse {
@@ -6368,30 +6368,25 @@ export namespace ListViolationEventsResponse {
  */
 export interface RegisterCACertificateRequest {
   /**
-   * <p>The CA certificate.</p>
-   */
-  caCertificate: string | undefined;
-
-  /**
-   * <p>The private key verification certificate.</p>
-   */
-  verificationCertificate: string | undefined;
-
-  /**
-   * <p>A boolean value that specifies if the CA certificate is set to active.</p>
-   */
-  setAsActive?: boolean;
-
-  /**
    * <p>Allows this CA certificate to be used for auto registration of device
    *          certificates.</p>
    */
   allowAutoRegistration?: boolean;
 
   /**
+   * <p>The CA certificate.</p>
+   */
+  caCertificate: string | undefined;
+
+  /**
    * <p>Information about the registration configuration.</p>
    */
   registrationConfig?: RegistrationConfig;
+
+  /**
+   * <p>A boolean value that specifies if the CA certificate is set to active.</p>
+   */
+  setAsActive?: boolean;
 
   /**
    * <p>Metadata which can be used to manage the CA certificate.</p>
@@ -6404,6 +6399,11 @@ export interface RegisterCACertificateRequest {
    *          </note>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The private key verification certificate.</p>
+   */
+  verificationCertificate: string | undefined;
 }
 
 export namespace RegisterCACertificateRequest {
@@ -6476,14 +6476,14 @@ export namespace CertificateConflictException {
  */
 export interface RegisterCertificateRequest {
   /**
-   * <p>The certificate data, in PEM format.</p>
-   */
-  certificatePem: string | undefined;
-
-  /**
    * <p>The CA certificate used to sign the device certificate being registered.</p>
    */
   caCertificatePem?: string;
+
+  /**
+   * <p>The certificate data, in PEM format.</p>
+   */
+  certificatePem: string | undefined;
 
   /**
    * <p>A boolean value that specifies if the certificate is set to active.</p>
@@ -6562,14 +6562,14 @@ export namespace RegisterCertificateWithoutCAResponse {
 
 export interface RegisterThingRequest {
   /**
-   * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
-   */
-  templateBody: string | undefined;
-
-  /**
    * <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning Templates</a> for more information.</p>
    */
   parameters?: { [key: string]: string };
+
+  /**
+   * <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-w-cert.html">Provisioning Devices That Have Device Certificates</a> for more information.</p>
+   */
+  templateBody: string | undefined;
 }
 
 export namespace RegisterThingRequest {
@@ -6638,24 +6638,24 @@ export namespace RejectCertificateTransferRequest {
 
 export interface RemoveThingFromBillingGroupRequest {
   /**
-   * <p>The name of the billing group.</p>
-   */
-  billingGroupName?: string;
-
-  /**
    * <p>The ARN of the billing group.</p>
    */
   billingGroupArn?: string;
 
   /**
-   * <p>The name of the thing to be removed from the billing group.</p>
+   * <p>The name of the billing group.</p>
    */
-  thingName?: string;
+  billingGroupName?: string;
 
   /**
    * <p>The ARN of the thing to be removed from the billing group.</p>
    */
   thingArn?: string;
+
+  /**
+   * <p>The name of the thing to be removed from the billing group.</p>
+   */
+  thingName?: string;
 }
 
 export namespace RemoveThingFromBillingGroupRequest {
@@ -6674,9 +6674,9 @@ export namespace RemoveThingFromBillingGroupResponse {
 
 export interface RemoveThingFromThingGroupRequest {
   /**
-   * <p>The group name.</p>
+   * <p>The ARN of the thing to remove from the group.</p>
    */
-  thingGroupName?: string;
+  thingArn?: string;
 
   /**
    * <p>The group ARN.</p>
@@ -6684,14 +6684,14 @@ export interface RemoveThingFromThingGroupRequest {
   thingGroupArn?: string;
 
   /**
+   * <p>The group name.</p>
+   */
+  thingGroupName?: string;
+
+  /**
    * <p>The name of the thing to remove from the group.</p>
    */
   thingName?: string;
-
-  /**
-   * <p>The ARN of the thing to remove from the group.</p>
-   */
-  thingArn?: string;
 }
 
 export namespace RemoveThingFromThingGroupRequest {
@@ -6736,9 +6736,9 @@ export interface SearchIndexRequest {
   indexName?: string;
 
   /**
-   * <p>The search query string.</p>
+   * <p>The maximum number of results to return at one time.</p>
    */
-  queryString: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
@@ -6747,9 +6747,9 @@ export interface SearchIndexRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The search query string.</p>
    */
-  maxResults?: number;
+  queryString: string | undefined;
 
   /**
    * <p>The query version.</p>
@@ -6768,21 +6768,6 @@ export namespace SearchIndexRequest {
  */
 export interface ThingGroupDocument {
   /**
-   * <p>The thing group name.</p>
-   */
-  thingGroupName?: string;
-
-  /**
-   * <p>The thing group ID.</p>
-   */
-  thingGroupId?: string;
-
-  /**
-   * <p>The thing group description.</p>
-   */
-  thingGroupDescription?: string;
-
-  /**
    * <p>The thing group attributes.</p>
    */
   attributes?: { [key: string]: string };
@@ -6791,6 +6776,21 @@ export interface ThingGroupDocument {
    * <p>Parent group names.</p>
    */
   parentGroupNames?: string[];
+
+  /**
+   * <p>The thing group description.</p>
+   */
+  thingGroupDescription?: string;
+
+  /**
+   * <p>The thing group ID.</p>
+   */
+  thingGroupId?: string;
+
+  /**
+   * <p>The thing group name.</p>
+   */
+  thingGroupName?: string;
 }
 
 export namespace ThingGroupDocument {
@@ -6827,29 +6827,14 @@ export namespace ThingConnectivity {
  */
 export interface ThingDocument {
   /**
-   * <p>The thing name.</p>
-   */
-  thingName?: string;
-
-  /**
-   * <p>The thing ID.</p>
-   */
-  thingId?: string;
-
-  /**
-   * <p>The thing type name.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>Thing group names.</p>
-   */
-  thingGroupNames?: string[];
-
-  /**
    * <p>The attributes.</p>
    */
   attributes?: { [key: string]: string };
+
+  /**
+   * <p>Indicates whether the thing is connected to the AWS IoT service.</p>
+   */
+  connectivity?: ThingConnectivity;
 
   /**
    * <p>The shadow.</p>
@@ -6857,9 +6842,24 @@ export interface ThingDocument {
   shadow?: string;
 
   /**
-   * <p>Indicates whether the thing is connected to the AWS IoT service.</p>
+   * <p>Thing group names.</p>
    */
-  connectivity?: ThingConnectivity;
+  thingGroupNames?: string[];
+
+  /**
+   * <p>The thing ID.</p>
+   */
+  thingId?: string;
+
+  /**
+   * <p>The thing name.</p>
+   */
+  thingName?: string;
+
+  /**
+   * <p>The thing type name.</p>
+   */
+  thingTypeName?: string;
 }
 
 export namespace ThingDocument {
@@ -6876,14 +6876,14 @@ export interface SearchIndexResponse {
   nextToken?: string;
 
   /**
-   * <p>The things that match the search query.</p>
-   */
-  things?: ThingDocument[];
-
-  /**
    * <p>The thing groups that match the search query.</p>
    */
   thingGroups?: ThingGroupDocument[];
+
+  /**
+   * <p>The things that match the search query.</p>
+   */
+  things?: ThingDocument[];
 }
 
 export namespace SearchIndexResponse {
@@ -6907,14 +6907,14 @@ export namespace SetDefaultAuthorizerRequest {
 
 export interface SetDefaultAuthorizerResponse {
   /**
-   * <p>The authorizer name.</p>
-   */
-  authorizerName?: string;
-
-  /**
    * <p>The authorizer ARN.</p>
    */
   authorizerArn?: string;
+
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName?: string;
 }
 
 export namespace SetDefaultAuthorizerResponse {
@@ -6949,14 +6949,14 @@ export namespace SetDefaultPolicyVersionRequest {
  */
 export interface LoggingOptionsPayload {
   /**
-   * <p>The ARN of the IAM role that grants access.</p>
-   */
-  roleArn: string | undefined;
-
-  /**
    * <p>The log level.</p>
    */
   logLevel?: LogLevel | string;
+
+  /**
+   * <p>The ARN of the IAM role that grants access.</p>
+   */
+  roleArn: string | undefined;
 }
 
 export namespace LoggingOptionsPayload {
@@ -6983,14 +6983,14 @@ export namespace SetLoggingOptionsRequest {
 
 export interface SetV2LoggingLevelRequest {
   /**
-   * <p>The log target.</p>
-   */
-  logTarget: LogTarget | undefined;
-
-  /**
    * <p>The log level.</p>
    */
   logLevel: LogLevel | string | undefined;
+
+  /**
+   * <p>The log target.</p>
+   */
+  logTarget: LogTarget | undefined;
 }
 
 export namespace SetV2LoggingLevelRequest {
@@ -7001,11 +7001,6 @@ export namespace SetV2LoggingLevelRequest {
 
 export interface SetV2LoggingOptionsRequest {
   /**
-   * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
-   */
-  roleArn?: string;
-
-  /**
    * <p>The default logging level.</p>
    */
   defaultLogLevel?: LogLevel | string;
@@ -7014,6 +7009,11 @@ export interface SetV2LoggingOptionsRequest {
    * <p>If true all logs are disabled. The default is false.</p>
    */
   disableAllLogs?: boolean;
+
+  /**
+   * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
+   */
+  roleArn?: string;
 }
 
 export namespace SetV2LoggingOptionsRequest {
@@ -7024,16 +7024,6 @@ export namespace SetV2LoggingOptionsRequest {
 
 export interface StartAuditMitigationActionsTaskRequest {
   /**
-   * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
-   */
-  taskId: string | undefined;
-
-  /**
-   * <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>
-   */
-  target: AuditMitigationActionsTaskTarget | undefined;
-
-  /**
    * <p>For an audit check, specifies which mitigation actions to apply. Those actions must be defined in your AWS account.</p>
    */
   auditCheckToActionsMapping: { [key: string]: string[] } | undefined;
@@ -7042,6 +7032,16 @@ export interface StartAuditMitigationActionsTaskRequest {
    * <p>Each audit mitigation task must have a unique client request token. If you try to start a new task with the same token as a task that already exists, an exception occurs. If you omit this value, a unique client request token is generated automatically.</p>
    */
   clientRequestToken?: string;
+
+  /**
+   * <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>
+   */
+  target: AuditMitigationActionsTaskTarget | undefined;
+
+  /**
+   * <p>A unique identifier for the task. You can use this identifier to check the status of the task or to cancel it.</p>
+   */
+  taskId: string | undefined;
 }
 
 export namespace StartAuditMitigationActionsTaskRequest {
@@ -7109,11 +7109,6 @@ export namespace StartOnDemandAuditTaskResponse {
 
 export interface StartThingRegistrationTaskRequest {
   /**
-   * <p>The provisioning template.</p>
-   */
-  templateBody: string | undefined;
-
-  /**
    * <p>The S3 bucket that contains the input file.</p>
    */
   inputFileBucket: string | undefined;
@@ -7129,6 +7124,11 @@ export interface StartThingRegistrationTaskRequest {
    * <p>The IAM role ARN that grants permission the input file.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The provisioning template.</p>
+   */
+  templateBody: string | undefined;
 }
 
 export namespace StartThingRegistrationTaskRequest {
@@ -7199,16 +7199,6 @@ export namespace TagResourceResponse {
 
 export interface TestAuthorizationRequest {
   /**
-   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
-   */
-  principal?: string;
-
-  /**
-   * <p>The Cognito identity pool ID.</p>
-   */
-  cognitoIdentityPoolId?: string;
-
-  /**
    * <p>A list of authorization info objects. Simulating authorization will create a response
    *          for each <code>authInfo</code> object in the list.</p>
    */
@@ -7218,6 +7208,11 @@ export interface TestAuthorizationRequest {
    * <p>The MQTT client ID.</p>
    */
   clientId?: string;
+
+  /**
+   * <p>The Cognito identity pool ID.</p>
+   */
+  cognitoIdentityPoolId?: string;
 
   /**
    * <p>When testing custom authorization, the policies specified here are treated as if they
@@ -7230,6 +7225,11 @@ export interface TestAuthorizationRequest {
    *          are not attached to the principal being authorized.</p>
    */
   policyNamesToSkip?: string[];
+
+  /**
+   * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
+   */
+  principal?: string;
 }
 
 export namespace TestAuthorizationRequest {
@@ -7295,9 +7295,9 @@ export namespace HttpContext {
  */
 export interface MqttContext {
   /**
-   * <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
+   * <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
    */
-  username?: string;
+  clientId?: string;
 
   /**
    * <p>The value of the <code>password</code> key in an MQTT authorization request.</p>
@@ -7305,9 +7305,9 @@ export interface MqttContext {
   password?: Uint8Array;
 
   /**
-   * <p>The value of the <code>clientId</code> key in an MQTT authorization request.</p>
+   * <p>The value of the <code>username</code> key in an MQTT authorization request.</p>
    */
-  clientId?: string;
+  username?: string;
 }
 
 export namespace MqttContext {

@@ -87,14 +87,14 @@ export interface Api {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
@@ -1084,14 +1084,14 @@ export interface CreateApiRequest {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The name of the API.</p>
@@ -1172,14 +1172,14 @@ export interface CreateApiResponse {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
@@ -2818,14 +2818,14 @@ export interface GetApiResponse {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
@@ -4249,14 +4249,14 @@ export interface ImportApiResponse {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
@@ -4368,14 +4368,14 @@ export interface ReimportApiResponse {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>
@@ -4514,14 +4514,14 @@ export interface UpdateApiRequest {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The name of the API.</p>
@@ -4592,14 +4592,14 @@ export interface UpdateApiResponse {
   Description?: string;
 
   /**
-   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
-   */
-  DisableSchemaValidation?: boolean;
-
-  /**
    * <p>Specifies whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint.</p>
    */
   DisableExecuteApiEndpoint?: boolean;
+
+  /**
+   * <p>Avoid validating models when creating a deployment. Supported only for WebSocket APIs.</p>
+   */
+  DisableSchemaValidation?: boolean;
 
   /**
    * <p>The validation information during API import. This may include particular properties of your OpenAPI definition which are ignored during import. Supported only for HTTP APIs.</p>

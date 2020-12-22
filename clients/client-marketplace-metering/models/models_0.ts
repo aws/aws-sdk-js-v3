@@ -55,13 +55,6 @@ export namespace UsageAllocation {
  */
 export interface UsageRecord {
   /**
-   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
-   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
-   *             timestamp value is not before the start of the software usage.</p>
-   */
-  Timestamp: Date | undefined;
-
-  /**
    * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
    *             represents an individual buyer in your application.</p>
    */
@@ -79,6 +72,13 @@ export interface UsageRecord {
    *             Defaults to <code>0</code> if not specified.</p>
    */
   Quantity?: number;
+
+  /**
+   * <p>Timestamp, in UTC, for which the usage is being reported.</p>
+   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
+   *             timestamp value is not before the start of the software usage.</p>
+   */
+  Timestamp: Date | undefined;
 
   /**
    * <p>The set of UsageAllocations to submit. The sum of all UsageAllocation quantities
@@ -99,17 +99,17 @@ export namespace UsageRecord {
  */
 export interface BatchMeterUsageRequest {
   /**
-   * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at
-   *             a time.</p>
-   */
-  UsageRecords: UsageRecord[] | undefined;
-
-  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
    *             product.</p>
    */
   ProductCode: string | undefined;
+
+  /**
+   * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at
+   *             a time.</p>
+   */
+  UsageRecords: UsageRecord[] | undefined;
 }
 
 export namespace BatchMeterUsageRequest {
@@ -129,11 +129,6 @@ export enum UsageRecordResultStatus {
  *             BatchMeterUsage.</p>
  */
 export interface UsageRecordResult {
-  /**
-   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
-   */
-  UsageRecord?: UsageRecord;
-
   /**
    * <p>The MeteringRecordId is a unique identifier for this metering event.</p>
    */
@@ -164,6 +159,11 @@ export interface UsageRecordResult {
    *          </ul>
    */
   Status?: UsageRecordResultStatus | string;
+
+  /**
+   * <p>The UsageRecord that was part of the BatchMeterUsage request.</p>
+   */
+  UsageRecord?: UsageRecord;
 }
 
 export namespace UsageRecordResult {
@@ -388,6 +388,14 @@ export namespace InvalidEndpointRegionException {
 
 export interface MeterUsageRequest {
   /**
+   * <p>Checks whether you have the permissions required for the action, but does not make
+   *             the request. If you have the permissions, the request returns DryRunOperation;
+   *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
+   *             specified.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
    *             product.</p>
@@ -402,6 +410,14 @@ export interface MeterUsageRequest {
   Timestamp: Date | undefined;
 
   /**
+   * <p>The set of UsageAllocations to submit.</p>
+   *         <p>The sum of all UsageAllocation quantities must equal the
+   *             UsageQuantity of the MeterUsage request, and each UsageAllocation must have a
+   *             unique set of tags (include no tags).</p>
+   */
+  UsageAllocations?: UsageAllocation[];
+
+  /**
    * <p>It will be one of the fcp dimension name provided during the publishing of the
    *             product.</p>
    */
@@ -412,22 +428,6 @@ export interface MeterUsageRequest {
    *             specified.</p>
    */
   UsageQuantity?: number;
-
-  /**
-   * <p>Checks whether you have the permissions required for the action, but does not make
-   *             the request. If you have the permissions, the request returns DryRunOperation;
-   *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
-   *             specified.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The set of UsageAllocations to submit.</p>
-   *         <p>The sum of all UsageAllocation quantities must equal the
-   *             UsageQuantity of the MeterUsage request, and each UsageAllocation must have a
-   *             unique set of tags (include no tags).</p>
-   */
-  UsageAllocations?: UsageAllocation[];
 }
 
 export namespace MeterUsageRequest {
@@ -499,6 +499,12 @@ export namespace PlatformNotSupportedException {
 
 export interface RegisterUsageRequest {
   /**
+   * <p>(Optional) To scope down the registration to a specific running software instance
+   *             and guard against replay attacks.</p>
+   */
+  Nonce?: string;
+
+  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
    *             product.</p>
@@ -509,12 +515,6 @@ export interface RegisterUsageRequest {
    * <p>Public Key Version provided by AWS Marketplace</p>
    */
   PublicKeyVersion: number | undefined;
-
-  /**
-   * <p>(Optional) To scope down the registration to a specific running software instance
-   *             and guard against replay attacks.</p>
-   */
-  Nonce?: string;
 }
 
 export namespace RegisterUsageRequest {

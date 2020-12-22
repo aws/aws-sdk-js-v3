@@ -49,14 +49,35 @@ export interface Channel {
   arn?: string;
 
   /**
-   * <p>Channel name.</p>
+   * <p>Whether the channel is authorized.</p>
    */
-  name?: string;
+  authorized?: boolean;
+
+  /**
+   * <p>Channel ingest endpoint, part of the definition of an ingest server, used when you set up
+   *       streaming software.</p>
+   */
+  ingestEndpoint?: string;
 
   /**
    * <p>Channel latency mode. Default: <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode | string;
+
+  /**
+   * <p>Channel name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Channel playback URL.</p>
+   */
+  playbackUrl?: string;
+
+  /**
+   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
@@ -79,27 +100,6 @@ export interface Channel {
    *          <p>Default: <code>STANDARD</code>.</p>
    */
   type?: ChannelType | string;
-
-  /**
-   * <p>Channel ingest endpoint, part of the definition of an ingest server, used when you set up
-   *       streaming software.</p>
-   */
-  ingestEndpoint?: string;
-
-  /**
-   * <p>Channel playback URL.</p>
-   */
-  playbackUrl?: string;
-
-  /**
-   * <p>Whether the channel is authorized.</p>
-   */
-  authorized?: boolean;
-
-  /**
-   * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace Channel {
@@ -171,11 +171,6 @@ export interface StreamKey {
   arn?: string;
 
   /**
-   * <p>Stream-key value.</p>
-   */
-  value?: string;
-
-  /**
    * <p>Channel ARN for the stream.</p>
    */
   channelArn?: string;
@@ -184,6 +179,11 @@ export interface StreamKey {
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>Stream-key value.</p>
+   */
+  value?: string;
 }
 
 export namespace StreamKey {
@@ -193,8 +193,8 @@ export namespace StreamKey {
 }
 
 export interface BatchGetStreamKeyResponse {
-  streamKeys?: StreamKey[];
   errors?: BatchError[];
+  streamKeys?: StreamKey[];
 }
 
 export namespace BatchGetStreamKeyResponse {
@@ -205,14 +205,24 @@ export namespace BatchGetStreamKeyResponse {
 
 export interface CreateChannelRequest {
   /**
-   * <p>Channel name.</p>
+   * <p>Whether the channel is authorized. Default: <code>false</code>.</p>
    */
-  name?: string;
+  authorized?: boolean;
 
   /**
    * <p>Channel latency mode. Default: <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode | string;
+
+  /**
+   * <p>Channel name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>See <a>Channel$tags</a>.</p>
+   */
+  tags?: { [key: string]: string };
 
   /**
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
@@ -235,16 +245,6 @@ export interface CreateChannelRequest {
    *          <p>Default: <code>STANDARD</code>.</p>
    */
   type?: ChannelType | string;
-
-  /**
-   * <p>Whether the channel is authorized. Default: <code>false</code>.</p>
-   */
-  authorized?: boolean;
-
-  /**
-   * <p>See <a>Channel$tags</a>.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace CreateChannelRequest {
@@ -473,14 +473,14 @@ export interface PlaybackKeyPair {
   arn?: string;
 
   /**
-   * <p>Key-pair name.</p>
-   */
-  name?: string;
-
-  /**
    * <p>Key-pair identifier.</p>
    */
   fingerprint?: string;
+
+  /**
+   * <p>Key-pair name.</p>
+   */
+  name?: string;
 
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
@@ -556,6 +556,11 @@ export interface _Stream {
   channelArn?: string;
 
   /**
+   * <p>The stream’s health.</p>
+   */
+  health?: StreamHealth | string;
+
+  /**
    * <p>URL of the video master manifest, required by the video player to play the HLS
    *       stream.</p>
    */
@@ -570,11 +575,6 @@ export interface _Stream {
    * <p>The stream’s state.</p>
    */
   state?: StreamState | string;
-
-  /**
-   * <p>The stream’s health.</p>
-   */
-  health?: StreamHealth | string;
 
   /**
    * <p>Number of current viewers of the stream.</p>
@@ -629,15 +629,15 @@ export namespace GetStreamKeyResponse {
 
 export interface ImportPlaybackKeyPairRequest {
   /**
-   * <p>The public portion of a customer-generated key pair.</p>
-   */
-  publicKeyMaterial: string | undefined;
-
-  /**
    * <p>An arbitrary string (a nickname) assigned to a playback key pair that helps the customer
    *       identify that resource. The value does not need to be unique.</p>
    */
   name?: string;
+
+  /**
+   * <p>The public portion of a customer-generated key pair.</p>
+   */
+  publicKeyMaterial: string | undefined;
 
   /**
    * <p>Any tags provided with the request are added to the playback key pair tags.</p>
@@ -671,15 +671,15 @@ export interface ListChannelsRequest {
   filterByName?: string;
 
   /**
+   * <p>Maximum number of channels to return.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The first channel to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Maximum number of channels to return.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListChannelsRequest {
@@ -698,9 +698,9 @@ export interface ChannelSummary {
   arn?: string;
 
   /**
-   * <p>Channel name.</p>
+   * <p>Whether the channel is authorized.</p>
    */
-  name?: string;
+  authorized?: boolean;
 
   /**
    * <p>Channel latency mode. Default: <code>LOW</code>.</p>
@@ -708,9 +708,9 @@ export interface ChannelSummary {
   latencyMode?: ChannelLatencyMode | string;
 
   /**
-   * <p>Whether the channel is authorized.</p>
+   * <p>Channel name.</p>
    */
-  authorized?: boolean;
+  name?: string;
 
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
@@ -745,15 +745,15 @@ export namespace ListChannelsResponse {
 
 export interface ListPlaybackKeyPairsRequest {
   /**
-   * <p>Maximum number of key pairs to return.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The first key pair to retrieve. This is used for pagination; see the
    *         <code>nextToken</code> response field.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>Maximum number of key pairs to return.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPlaybackKeyPairsRequest {
@@ -815,15 +815,15 @@ export interface ListStreamKeysRequest {
   channelArn: string | undefined;
 
   /**
+   * <p>Maximum number of streamKeys to return.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The first stream key to retrieve. This is used for pagination; see the
    *         <code>nextToken</code> response field.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Maximum number of streamKeys to return.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListStreamKeysRequest {
@@ -860,15 +860,15 @@ export namespace StreamKeySummary {
 
 export interface ListStreamKeysResponse {
   /**
-   * <p>List of stream keys.</p>
-   */
-  streamKeys: StreamKeySummary[] | undefined;
-
-  /**
    * <p>If there are more stream keys than <code>maxResults</code>, use <code>nextToken</code> in
    *       the request to get the next set.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>List of stream keys.</p>
+   */
+  streamKeys: StreamKeySummary[] | undefined;
 }
 
 export namespace ListStreamKeysResponse {
@@ -879,15 +879,15 @@ export namespace ListStreamKeysResponse {
 
 export interface ListStreamsRequest {
   /**
+   * <p>Maximum number of streams to return.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>The first stream to retrieve. This is used for pagination; see the <code>nextToken</code>
    *       response field.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Maximum number of streams to return.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListStreamsRequest {
@@ -906,24 +906,24 @@ export interface StreamSummary {
   channelArn?: string;
 
   /**
-   * <p>The stream’s state.</p>
-   */
-  state?: StreamState | string;
-
-  /**
    * <p>The stream’s health.</p>
    */
   health?: StreamHealth | string;
 
   /**
-   * <p>Number of current viewers of the stream.</p>
-   */
-  viewerCount?: number;
-
-  /**
    * <p>ISO-8601 formatted timestamp of the stream’s start.</p>
    */
   startTime?: Date;
+
+  /**
+   * <p>The stream’s state.</p>
+   */
+  state?: StreamState | string;
+
+  /**
+   * <p>Number of current viewers of the stream.</p>
+   */
+  viewerCount?: number;
 }
 
 export namespace StreamSummary {
@@ -934,15 +934,15 @@ export namespace StreamSummary {
 
 export interface ListStreamsResponse {
   /**
-   * <p>List of streams.</p>
-   */
-  streams: StreamSummary[] | undefined;
-
-  /**
    * <p>If there are more streams than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>List of streams.</p>
+   */
+  streams: StreamSummary[] | undefined;
 }
 
 export namespace ListStreamsResponse {
@@ -968,9 +968,9 @@ export namespace InternalServerException {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN of the resource to be retrieved.</p>
+   * <p>Maximum number of tags to return.</p>
    */
-  resourceArn: string | undefined;
+  maxResults?: number;
 
   /**
    * <p>The first tag to retrieve. This is used for pagination; see the <code>nextToken</code>
@@ -979,9 +979,9 @@ export interface ListTagsForResourceRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of tags to return.</p>
+   * <p>The ARN of the resource to be retrieved.</p>
    */
-  maxResults?: number;
+  resourceArn: string | undefined;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -991,12 +991,13 @@ export namespace ListTagsForResourceRequest {
 }
 
 export interface ListTagsForResourceResponse {
-  tags: { [key: string]: string } | undefined;
   /**
    * <p>If there are more tags than <code>maxResults</code>, use <code>nextToken</code> in the
    *       request to get the next set.</p>
    */
   nextToken?: string;
+
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1134,14 +1135,19 @@ export interface UpdateChannelRequest {
   arn: string | undefined;
 
   /**
-   * <p>Channel name.</p>
+   * <p>Whether the channel is authorized. Default: <code>false</code>.</p>
    */
-  name?: string;
+  authorized?: boolean;
 
   /**
    * <p>Channel latency mode. Default: <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode | string;
+
+  /**
+   * <p>Channel name.</p>
+   */
+  name?: string;
 
   /**
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
@@ -1164,11 +1170,6 @@ export interface UpdateChannelRequest {
    *          <p>Default: <code>STANDARD</code>.</p>
    */
   type?: ChannelType | string;
-
-  /**
-   * <p>Whether the channel is authorized. Default: <code>false</code>.</p>
-   */
-  authorized?: boolean;
 }
 
 export namespace UpdateChannelRequest {

@@ -11,16 +11,26 @@ export enum ItemType {
  */
 export interface Item {
   /**
-   * <p>The offset from the beginning of the audio stream to the beginning of the audio that
-   *       resulted in the item.</p>
+   * <p>The word or punctuation that was recognized in the input audio.</p>
    */
-  StartTime?: number;
+  Content?: string;
 
   /**
    * <p>The offset from the beginning of the audio stream to the end of the audio that resulted in
    *       the item.</p>
    */
   EndTime?: number;
+
+  /**
+   * <p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>
+   */
+  Speaker?: string;
+
+  /**
+   * <p>The offset from the beginning of the audio stream to the beginning of the audio that
+   *       resulted in the item.</p>
+   */
+  StartTime?: number;
 
   /**
    * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word that
@@ -30,21 +40,11 @@ export interface Item {
   Type?: ItemType | string;
 
   /**
-   * <p>The word or punctuation that was recognized in the input audio.</p>
-   */
-  Content?: string;
-
-  /**
    * <p>Indicates whether a word in the item matches a word in the vocabulary filter you've chosen
    *       for your real-time stream. If <code>true</code> then a word in the item matches your
    *       vocabulary filter.</p>
    */
   VocabularyFilterMatch?: boolean;
-
-  /**
-   * <p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>
-   */
-  Speaker?: string;
 }
 
 export namespace Item {
@@ -58,14 +58,14 @@ export namespace Item {
  */
 export interface Alternative {
   /**
-   * <p>The text that was transcribed from the audio.</p>
-   */
-  Transcript?: string;
-
-  /**
    * <p>One or more alternative interpretations of the input audio. </p>
    */
   Items?: Item[];
+
+  /**
+   * <p>The text that was transcribed from the audio.</p>
+   */
+  Transcript?: string;
 }
 
 export namespace Alternative {
@@ -219,24 +219,10 @@ export enum MediaEncoding {
  */
 export interface MedicalItem {
   /**
-   * <p>The number of seconds into an audio stream that indicates the creation time of an
-   *             item.</p>
+   * <p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe Medical
+   *             assigns to each word that it transcribes.</p>
    */
-  StartTime?: number;
-
-  /**
-   * <p>The number of seconds into an audio stream that indicates the creation time of an
-   *             item.</p>
-   */
-  EndTime?: number;
-
-  /**
-   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word
-   *             that was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item
-   *             was interpreted as a pause in the input audio, such as a period to indicate the end of a
-   *             sentence.</p>
-   */
-  Type?: ItemType | string;
+  Confidence?: number;
 
   /**
    * <p>The word or punctuation mark that was recognized in the input audio.</p>
@@ -244,10 +230,10 @@ export interface MedicalItem {
   Content?: string;
 
   /**
-   * <p>A value between 0 and 1 for an item that is a confidence score that Amazon Transcribe Medical
-   *             assigns to each word that it transcribes.</p>
+   * <p>The number of seconds into an audio stream that indicates the creation time of an
+   *             item.</p>
    */
-  Confidence?: number;
+  EndTime?: number;
 
   /**
    * <p>If speaker identification is enabled, shows the integer values that correspond to the
@@ -258,6 +244,20 @@ export interface MedicalItem {
    *             corresponds to the other speaker.</p>
    */
   Speaker?: string;
+
+  /**
+   * <p>The number of seconds into an audio stream that indicates the creation time of an
+   *             item.</p>
+   */
+  StartTime?: number;
+
+  /**
+   * <p>The type of the item. <code>PRONUNCIATION</code> indicates that the item is a word
+   *             that was recognized in the input audio. <code>PUNCTUATION</code> indicates that the item
+   *             was interpreted as a pause in the input audio, such as a period to indicate the end of a
+   *             sentence.</p>
+   */
+  Type?: ItemType | string;
 }
 
 export namespace MedicalItem {
@@ -271,15 +271,15 @@ export namespace MedicalItem {
  */
 export interface MedicalAlternative {
   /**
-   * <p>The text that was transcribed from the audio.</p>
-   */
-  Transcript?: string;
-
-  /**
    * <p>A list of objects that contains words and punctuation marks that represents one or more
    *             interpretations of the input audio.</p>
    */
   Items?: MedicalItem[];
+
+  /**
+   * <p>The text that was transcribed from the audio.</p>
+   */
+  Transcript?: string;
 }
 
 export namespace MedicalAlternative {
@@ -293,15 +293,18 @@ export namespace MedicalAlternative {
  */
 export interface MedicalResult {
   /**
-   * <p>A unique identifier for the result.</p>
+   * <p>A list of possible transcriptions of the audio. Each alternative typically contains
+   *             one <code>Item</code> that contains the result of the transcription.</p>
    */
-  ResultId?: string;
+  Alternatives?: MedicalAlternative[];
 
   /**
-   * <p>The time, in seconds, from the beginning of the audio stream to the beginning of the
-   *             result.</p>
+   * <p>When channel identification is enabled, Amazon Transcribe Medical transcribes the speech from each audio
+   *             channel separately.</p>
+   *         <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single
+   *             channel in your audio stream.</p>
    */
-  StartTime?: number;
+  ChannelId?: string;
 
   /**
    * <p>The time, in seconds, from the beginning of the audio stream to the end of the
@@ -320,18 +323,15 @@ export interface MedicalResult {
   IsPartial?: boolean;
 
   /**
-   * <p>A list of possible transcriptions of the audio. Each alternative typically contains
-   *             one <code>Item</code> that contains the result of the transcription.</p>
+   * <p>A unique identifier for the result.</p>
    */
-  Alternatives?: MedicalAlternative[];
+  ResultId?: string;
 
   /**
-   * <p>When channel identification is enabled, Amazon Transcribe Medical transcribes the speech from each audio
-   *             channel separately.</p>
-   *         <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single
-   *             channel in your audio stream.</p>
+   * <p>The time, in seconds, from the beginning of the audio stream to the beginning of the
+   *             result.</p>
    */
-  ChannelId?: string;
+  StartTime?: number;
 }
 
 export namespace MedicalResult {
@@ -549,15 +549,16 @@ export namespace MedicalTranscriptResultStream {
  */
 export interface Result {
   /**
-   * <p>A unique identifier for the result. </p>
+   * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
+   *         <code>item</code> that contains the result of the transcription.</p>
    */
-  ResultId?: string;
+  Alternatives?: Alternative[];
 
   /**
-   * <p>The offset in seconds from the beginning of the audio stream to the beginning of the
-   *       result.</p>
+   * <p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately.</p>
+   *          <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single channel in your audio stream.</p>
    */
-  StartTime?: number;
+  ChannelId?: string;
 
   /**
    * <p>The offset in seconds from the beginning of the audio stream to the end of the
@@ -575,16 +576,15 @@ export interface Result {
   IsPartial?: boolean;
 
   /**
-   * <p>A list of possible transcriptions for the audio. Each alternative typically contains one
-   *         <code>item</code> that contains the result of the transcription.</p>
+   * <p>A unique identifier for the result. </p>
    */
-  Alternatives?: Alternative[];
+  ResultId?: string;
 
   /**
-   * <p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately.</p>
-   *          <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single channel in your audio stream.</p>
+   * <p>The offset in seconds from the beginning of the audio stream to the beginning of the
+   *       result.</p>
    */
-  ChannelId?: string;
+  StartTime?: number;
 }
 
 export namespace Result {
@@ -609,51 +609,6 @@ export enum Type {
 
 export interface StartMedicalStreamTranscriptionRequest {
   /**
-   * <p> Indicates the source language used in the input audio stream. For Amazon Transcribe Medical,
-   *             this is US English (en-US). </p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>The sample rate of the input audio in Hertz. Sample rates of 16000 Hz or higher are
-   *             accepted.</p>
-   */
-  MediaSampleRateHertz: number | undefined;
-
-  /**
-   * <p>The encoding used for the input audio.</p>
-   */
-  MediaEncoding: MediaEncoding | string | undefined;
-
-  /**
-   * <p>The name of the medical custom vocabulary to use when processing the real-time
-   *             stream.</p>
-   */
-  VocabularyName?: string;
-
-  /**
-   * <p>The medical specialty of the clinician or provider.</p>
-   */
-  Specialty: Specialty | string | undefined;
-
-  /**
-   * <p>The type of input audio. Choose <code>DICTATION</code> for a provider dictating patient notes. Choose <code>CONVERSATION</code> for a dialogue between a patient and one or more medical professionanls.</p>
-   */
-  Type: Type | string | undefined;
-
-  /**
-   * <p>When <code>true</code>, enables speaker identification in your real-time
-   *             stream.</p>
-   */
-  ShowSpeakerLabel?: boolean;
-
-  /**
-   * <p> Optional. An identifier for the transcription session. If you don't provide a session
-   *             ID, Amazon Transcribe generates one for you and returns it in the response. </p>
-   */
-  SessionId?: string;
-
-  /**
    * <p>Represents the audio stream from your application to Amazon Transcribe.</p>
    */
   AudioStream: AsyncIterable<AudioStream> | undefined;
@@ -670,9 +625,54 @@ export interface StartMedicalStreamTranscriptionRequest {
   EnableChannelIdentification?: boolean;
 
   /**
+   * <p> Indicates the source language used in the input audio stream. For Amazon Transcribe Medical,
+   *             this is US English (en-US). </p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>The encoding used for the input audio.</p>
+   */
+  MediaEncoding: MediaEncoding | string | undefined;
+
+  /**
+   * <p>The sample rate of the input audio in Hertz. Sample rates of 16000 Hz or higher are
+   *             accepted.</p>
+   */
+  MediaSampleRateHertz: number | undefined;
+
+  /**
    * <p>The number of channels that are in your audio stream.</p>
    */
   NumberOfChannels?: number;
+
+  /**
+   * <p> Optional. An identifier for the transcription session. If you don't provide a session
+   *             ID, Amazon Transcribe generates one for you and returns it in the response. </p>
+   */
+  SessionId?: string;
+
+  /**
+   * <p>When <code>true</code>, enables speaker identification in your real-time
+   *             stream.</p>
+   */
+  ShowSpeakerLabel?: boolean;
+
+  /**
+   * <p>The medical specialty of the clinician or provider.</p>
+   */
+  Specialty: Specialty | string | undefined;
+
+  /**
+   * <p>The type of input audio. Choose <code>DICTATION</code> for a provider dictating patient notes. Choose <code>CONVERSATION</code> for a dialogue between a patient and one or more medical professionanls.</p>
+   */
+  Type: Type | string | undefined;
+
+  /**
+   * <p>The name of the medical custom vocabulary to use when processing the real-time
+   *             stream.</p>
+   */
+  VocabularyName?: string;
 }
 
 export namespace StartMedicalStreamTranscriptionRequest {
@@ -684,9 +684,9 @@ export namespace StartMedicalStreamTranscriptionRequest {
 
 export interface StartMedicalStreamTranscriptionResponse {
   /**
-   * <p>An identifier for the streaming transcription.</p>
+   * <p>Shows whether channel identification has been enabled in the stream.</p>
    */
-  RequestId?: string;
+  EnableChannelIdentification?: boolean;
 
   /**
    * <p>The language code for the response transcript. For Amazon Transcribe Medical, this is US
@@ -695,34 +695,24 @@ export interface StartMedicalStreamTranscriptionResponse {
   LanguageCode?: LanguageCode | string;
 
   /**
-   * <p>The sample rate of the input audio in Hertz. Valid value: 16000 Hz.</p>
-   */
-  MediaSampleRateHertz?: number;
-
-  /**
    * <p>The encoding used for the input audio stream.</p>
    */
   MediaEncoding?: MediaEncoding | string;
 
   /**
-   * <p>The name of the vocabulary used when processing the stream.</p>
+   * <p>The sample rate of the input audio in Hertz. Valid value: 16000 Hz.</p>
    */
-  VocabularyName?: string;
+  MediaSampleRateHertz?: number;
 
   /**
-   * <p>The specialty in the medical domain.</p>
+   * <p>The number of channels identified in the stream.</p>
    */
-  Specialty?: Specialty | string;
+  NumberOfChannels?: number;
 
   /**
-   * <p>The type of audio that was transcribed. </p>
+   * <p>An identifier for the streaming transcription.</p>
    */
-  Type?: Type | string;
-
-  /**
-   * <p>Shows whether speaker identification was enabled in the stream.</p>
-   */
-  ShowSpeakerLabel?: boolean;
+  RequestId?: string;
 
   /**
    * <p>Optional. An identifier for the transcription session. If you don't provide a session
@@ -731,19 +721,29 @@ export interface StartMedicalStreamTranscriptionResponse {
   SessionId?: string;
 
   /**
+   * <p>Shows whether speaker identification was enabled in the stream.</p>
+   */
+  ShowSpeakerLabel?: boolean;
+
+  /**
+   * <p>The specialty in the medical domain.</p>
+   */
+  Specialty?: Specialty | string;
+
+  /**
    * <p>Represents the stream of transcription events from Amazon Transcribe Medical to your application. </p>
    */
   TranscriptResultStream?: AsyncIterable<MedicalTranscriptResultStream>;
 
   /**
-   * <p>Shows whether channel identification has been enabled in the stream.</p>
+   * <p>The type of audio that was transcribed. </p>
    */
-  EnableChannelIdentification?: boolean;
+  Type?: Type | string;
 
   /**
-   * <p>The number of channels identified in the stream.</p>
+   * <p>The name of the vocabulary used when processing the stream.</p>
    */
-  NumberOfChannels?: number;
+  VocabularyName?: string;
 }
 
 export namespace StartMedicalStreamTranscriptionResponse {
@@ -761,9 +761,27 @@ export enum VocabularyFilterMethod {
 
 export interface StartStreamTranscriptionRequest {
   /**
+   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
+   *       frame.</p>
+   */
+  AudioStream: AsyncIterable<AudioStream> | undefined;
+
+  /**
+   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.</p>
+   *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end time, and any alternative transcriptions.</p>
+   *          <p>You can't set both <code>ShowSpeakerLabel</code> and <code>EnableChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   */
+  EnableChannelIdentification?: boolean;
+
+  /**
    * <p>Indicates the source language used in the input audio stream.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>The encoding used for the input audio.</p>
+   */
+  MediaEncoding: MediaEncoding | string | undefined;
 
   /**
    * <p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low
@@ -772,14 +790,9 @@ export interface StartStreamTranscriptionRequest {
   MediaSampleRateHertz: number | undefined;
 
   /**
-   * <p>The encoding used for the input audio.</p>
+   * <p>The number of channels that are in your audio stream.</p>
    */
-  MediaEncoding: MediaEncoding | string | undefined;
-
-  /**
-   * <p>The name of the vocabulary to use when processing the transcription job.</p>
-   */
-  VocabularyName?: string;
+  NumberOfChannels?: number;
 
   /**
    * <p>A identifier for the transcription session. Use this parameter when you want to retry a
@@ -789,16 +802,9 @@ export interface StartStreamTranscriptionRequest {
   SessionId?: string;
 
   /**
-   * <p>PCM-encoded stream of audio blobs. The audio stream is encoded as an HTTP2 data
-   *       frame.</p>
+   * <p>When <code>true</code>, enables speaker identification in your real-time stream.</p>
    */
-  AudioStream: AsyncIterable<AudioStream> | undefined;
-
-  /**
-   * <p>The name of the vocabulary filter you've created that is unique to your AWS account.
-   *       Provide the name in this field to successfully use it in a stream.</p>
-   */
-  VocabularyFilterName?: string;
+  ShowSpeakerLabel?: boolean;
 
   /**
    * <p>The manner in which you use your vocabulary filter to filter words in your transcript.
@@ -811,21 +817,15 @@ export interface StartStreamTranscriptionRequest {
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
   /**
-   * <p>When <code>true</code>, enables speaker identification in your real-time stream.</p>
+   * <p>The name of the vocabulary filter you've created that is unique to your AWS account.
+   *       Provide the name in this field to successfully use it in a stream.</p>
    */
-  ShowSpeakerLabel?: boolean;
+  VocabularyFilterName?: string;
 
   /**
-   * <p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.</p>
-   *          <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end time, and any alternative transcriptions.</p>
-   *          <p>You can't set both <code>ShowSpeakerLabel</code> and <code>EnableChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>
+   * <p>The name of the vocabulary to use when processing the transcription job.</p>
    */
-  EnableChannelIdentification?: boolean;
-
-  /**
-   * <p>The number of channels that are in your audio stream.</p>
-   */
-  NumberOfChannels?: number;
+  VocabularyName?: string;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -1021,14 +1021,19 @@ export namespace TranscriptResultStream {
 
 export interface StartStreamTranscriptionResponse {
   /**
-   * <p>An identifier for the streaming transcription.</p>
+   * <p>Shows whether channel identification has been enabled in the stream.</p>
    */
-  RequestId?: string;
+  EnableChannelIdentification?: boolean;
 
   /**
    * <p>The language code for the input audio stream.</p>
    */
   LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The encoding used for the input audio stream.</p>
+   */
+  MediaEncoding?: MediaEncoding | string;
 
   /**
    * <p>The sample rate for the input audio stream. Use 8000 Hz for low quality audio and 16000 Hz
@@ -1037,14 +1042,14 @@ export interface StartStreamTranscriptionResponse {
   MediaSampleRateHertz?: number;
 
   /**
-   * <p>The encoding used for the input audio stream.</p>
+   * <p>The number of channels identified in the stream.</p>
    */
-  MediaEncoding?: MediaEncoding | string;
+  NumberOfChannels?: number;
 
   /**
-   * <p>The name of the vocabulary used when processing the stream.</p>
+   * <p>An identifier for the streaming transcription.</p>
    */
-  VocabularyName?: string;
+  RequestId?: string;
 
   /**
    * <p>An identifier for a specific transcription session.</p>
@@ -1052,14 +1057,14 @@ export interface StartStreamTranscriptionResponse {
   SessionId?: string;
 
   /**
+   * <p>Shows whether speaker identification was enabled in the stream.</p>
+   */
+  ShowSpeakerLabel?: boolean;
+
+  /**
    * <p>Represents the stream of transcription events from Amazon Transcribe to your application.</p>
    */
   TranscriptResultStream?: AsyncIterable<TranscriptResultStream>;
-
-  /**
-   * <p>The name of the vocabulary filter used in your real-time stream.</p>
-   */
-  VocabularyFilterName?: string;
 
   /**
    * <p>The vocabulary filtering method used in the real-time stream.</p>
@@ -1067,19 +1072,14 @@ export interface StartStreamTranscriptionResponse {
   VocabularyFilterMethod?: VocabularyFilterMethod | string;
 
   /**
-   * <p>Shows whether speaker identification was enabled in the stream.</p>
+   * <p>The name of the vocabulary filter used in your real-time stream.</p>
    */
-  ShowSpeakerLabel?: boolean;
+  VocabularyFilterName?: string;
 
   /**
-   * <p>Shows whether channel identification has been enabled in the stream.</p>
+   * <p>The name of the vocabulary used when processing the stream.</p>
    */
-  EnableChannelIdentification?: boolean;
-
-  /**
-   * <p>The number of channels identified in the stream.</p>
-   */
-  NumberOfChannels?: number;
+  VocabularyName?: string;
 }
 
 export namespace StartStreamTranscriptionResponse {

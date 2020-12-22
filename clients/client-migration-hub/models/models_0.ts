@@ -56,15 +56,15 @@ export namespace ApplicationState {
  */
 export interface CreatedArtifact {
   /**
-   * <p>An ARN that uniquely identifies the result of a migration task.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>A description that can be free-form text to record additional detail about the artifact
    *          for clarity or for later reference.</p>
    */
   Description?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies the result of a migration task.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreatedArtifact {
@@ -74,18 +74,6 @@ export namespace CreatedArtifact {
 }
 
 export interface AssociateCreatedArtifactRequest {
-  /**
-   * <p>The name of the ProgressUpdateStream. </p>
-   */
-  ProgressUpdateStream: string | undefined;
-
-  /**
-   * <p>Unique identifier that references the migration task. <i>Do not store personal
-   *             data in this field.</i>
-   *          </p>
-   */
-  MigrationTaskName: string | undefined;
-
   /**
    * <p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS
    *          instance, etc.) </p>
@@ -97,6 +85,18 @@ export interface AssociateCreatedArtifactRequest {
    *          the caller has permission to make the call.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Unique identifier that references the migration task. <i>Do not store personal
+   *             data in this field.</i>
+   *          </p>
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream. </p>
+   */
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace AssociateCreatedArtifactRequest {
@@ -273,18 +273,6 @@ export namespace DiscoveredResource {
 
 export interface AssociateDiscoveredResourceRequest {
   /**
-   * <p>The name of the ProgressUpdateStream.</p>
-   */
-  ProgressUpdateStream: string | undefined;
-
-  /**
-   * <p>The identifier given to the MigrationTask. <i>Do not store personal data in this
-   *             field.</i>
-   *          </p>
-   */
-  MigrationTaskName: string | undefined;
-
-  /**
    * <p>Object representing a Resource.</p>
    */
   DiscoveredResource: DiscoveredResource | undefined;
@@ -294,6 +282,18 @@ export interface AssociateDiscoveredResourceRequest {
    *          the caller has permission to make the call.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The identifier given to the MigrationTask. <i>Do not store personal data in this
+   *             field.</i>
+   *          </p>
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream.</p>
+   */
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace AssociateDiscoveredResourceRequest {
@@ -329,17 +329,17 @@ export namespace PolicyErrorException {
 
 export interface CreateProgressUpdateStreamRequest {
   /**
+   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
+   *          the caller has permission to make the call.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
    *             field.</i>
    *          </p>
    */
   ProgressUpdateStreamName: string | undefined;
-
-  /**
-   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
-   *          the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace CreateProgressUpdateStreamRequest {
@@ -358,17 +358,17 @@ export namespace CreateProgressUpdateStreamResult {
 
 export interface DeleteProgressUpdateStreamRequest {
   /**
+   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
+   *          the caller has permission to make the call.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The name of the ProgressUpdateStream. <i>Do not store personal data in this
    *             field.</i>
    *          </p>
    */
   ProgressUpdateStreamName: string | undefined;
-
-  /**
-   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
-   *          the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace DeleteProgressUpdateStreamRequest {
@@ -419,16 +419,16 @@ export namespace DescribeApplicationStateResult {
 
 export interface DescribeMigrationTaskRequest {
   /**
-   * <p>The name of the ProgressUpdateStream. </p>
-   */
-  ProgressUpdateStream: string | undefined;
-
-  /**
    * <p>The identifier given to the MigrationTask. <i>Do not store personal data in this
    *             field.</i>
    *          </p>
    */
   MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream. </p>
+   */
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace DescribeMigrationTaskRequest {
@@ -519,6 +519,11 @@ export enum Status {
  */
 export interface Task {
   /**
+   * <p>Indication of the percentage completion of the task.</p>
+   */
+  ProgressPercent?: number;
+
+  /**
    * <p>Status of the task - Not Started, In-Progress, Complete.</p>
    */
   Status: Status | string | undefined;
@@ -529,11 +534,6 @@ export interface Task {
    *          explains an error state.</p>
    */
   StatusDetail?: string;
-
-  /**
-   * <p>Indication of the percentage completion of the task.</p>
-   */
-  ProgressPercent?: number;
 }
 
 export namespace Task {
@@ -547,16 +547,22 @@ export namespace Task {
  */
 export interface MigrationTask {
   /**
-   * <p>A name that identifies the vendor of the migration tool being used.</p>
-   */
-  ProgressUpdateStream?: string;
-
-  /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
    *             data in this field.</i>
    *          </p>
    */
   MigrationTaskName?: string;
+
+  /**
+   * <p>A name that identifies the vendor of the migration tool being used.</p>
+   */
+  ProgressUpdateStream?: string;
+
+  /**
+   * <p>Information about the resource that is being migrated. This data will be used to map the
+   *          task to a resource in the Application Discovery Service repository.</p>
+   */
+  ResourceAttributeList?: ResourceAttribute[];
 
   /**
    * <p>Task object encapsulating task information.</p>
@@ -567,12 +573,6 @@ export interface MigrationTask {
    * <p>The timestamp when the task was gathered.</p>
    */
   UpdateDateTime?: Date;
-
-  /**
-   * <p>Information about the resource that is being migrated. This data will be used to map the
-   *          task to a resource in the Application Discovery Service repository.</p>
-   */
-  ResourceAttributeList?: ResourceAttribute[];
 }
 
 export namespace MigrationTask {
@@ -596,18 +596,6 @@ export namespace DescribeMigrationTaskResult {
 
 export interface DisassociateCreatedArtifactRequest {
   /**
-   * <p>The name of the ProgressUpdateStream. </p>
-   */
-  ProgressUpdateStream: string | undefined;
-
-  /**
-   * <p>Unique identifier that references the migration task to be disassociated with the
-   *          artifact. <i>Do not store personal data in this field.</i>
-   *          </p>
-   */
-  MigrationTaskName: string | undefined;
-
-  /**
    * <p>An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS
    *          instance, etc.)</p>
    */
@@ -618,6 +606,18 @@ export interface DisassociateCreatedArtifactRequest {
    *          the caller has permission to make the call.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Unique identifier that references the migration task to be disassociated with the
+   *          artifact. <i>Do not store personal data in this field.</i>
+   *          </p>
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream. </p>
+   */
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace DisassociateCreatedArtifactRequest {
@@ -636,18 +636,6 @@ export namespace DisassociateCreatedArtifactResult {
 
 export interface DisassociateDiscoveredResourceRequest {
   /**
-   * <p>The name of the ProgressUpdateStream.</p>
-   */
-  ProgressUpdateStream: string | undefined;
-
-  /**
-   * <p>The identifier given to the MigrationTask. <i>Do not store personal data in this
-   *             field.</i>
-   *          </p>
-   */
-  MigrationTaskName: string | undefined;
-
-  /**
    * <p>ConfigurationId of the Application Discovery Service resource to be
    *          disassociated.</p>
    */
@@ -658,6 +646,18 @@ export interface DisassociateDiscoveredResourceRequest {
    *          the caller has permission to make the call.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The identifier given to the MigrationTask. <i>Do not store personal data in this
+   *             field.</i>
+   *          </p>
+   */
+  MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream.</p>
+   */
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace DisassociateDiscoveredResourceRequest {
@@ -676,9 +676,10 @@ export namespace DisassociateDiscoveredResourceResult {
 
 export interface ImportMigrationTaskRequest {
   /**
-   * <p>The name of the ProgressUpdateStream. ></p>
+   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
+   *          the caller has permission to make the call.</p>
    */
-  ProgressUpdateStream: string | undefined;
+  DryRun?: boolean;
 
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
@@ -688,10 +689,9 @@ export interface ImportMigrationTaskRequest {
   MigrationTaskName: string | undefined;
 
   /**
-   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
-   *          the caller has permission to make the call.</p>
+   * <p>The name of the ProgressUpdateStream. ></p>
    */
-  DryRun?: boolean;
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace ImportMigrationTaskRequest {
@@ -716,16 +716,16 @@ export interface ListApplicationStatesRequest {
   ApplicationIds?: string[];
 
   /**
+   * <p>Maximum number of results to be returned per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
    *          available. To retrieve the next page of results, make the call again using the returned
    *          token in <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Maximum number of results to be returned per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListApplicationStatesRequest {
@@ -756,9 +756,9 @@ export namespace ListApplicationStatesResult {
 
 export interface ListCreatedArtifactsRequest {
   /**
-   * <p>The name of the ProgressUpdateStream. </p>
+   * <p>Maximum number of results to be returned per page.</p>
    */
-  ProgressUpdateStream: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
@@ -775,9 +775,9 @@ export interface ListCreatedArtifactsRequest {
   NextToken?: string;
 
   /**
-   * <p>Maximum number of results to be returned per page.</p>
+   * <p>The name of the ProgressUpdateStream. </p>
    */
-  MaxResults?: number;
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace ListCreatedArtifactsRequest {
@@ -788,16 +788,16 @@ export namespace ListCreatedArtifactsRequest {
 
 export interface ListCreatedArtifactsResult {
   /**
-   * <p>If there are more created artifacts than the max result, return the next token to be
-   *          passed to the next call as a bookmark of where to start from.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>List of created artifacts up to the maximum number of results specified in the
    *          request.</p>
    */
   CreatedArtifactList?: CreatedArtifact[];
+
+  /**
+   * <p>If there are more created artifacts than the max result, return the next token to be
+   *          passed to the next call as a bookmark of where to start from.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListCreatedArtifactsResult {
@@ -808,9 +808,9 @@ export namespace ListCreatedArtifactsResult {
 
 export interface ListDiscoveredResourcesRequest {
   /**
-   * <p>The name of the ProgressUpdateStream.</p>
+   * <p>The maximum number of results returned per page.</p>
    */
-  ProgressUpdateStream: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The name of the MigrationTask. <i>Do not store personal data in this
@@ -827,9 +827,9 @@ export interface ListDiscoveredResourcesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results returned per page.</p>
+   * <p>The name of the ProgressUpdateStream.</p>
    */
-  MaxResults?: number;
+  ProgressUpdateStream: string | undefined;
 }
 
 export namespace ListDiscoveredResourcesRequest {
@@ -840,15 +840,15 @@ export namespace ListDiscoveredResourcesRequest {
 
 export interface ListDiscoveredResourcesResult {
   /**
+   * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
+   */
+  DiscoveredResourceList?: DiscoveredResource[];
+
+  /**
    * <p>If there are more discovered resources than the max result, return the next token to be
    *          passed to the next call as a bookmark of where to start from.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
-   */
-  DiscoveredResourceList?: DiscoveredResource[];
 }
 
 export namespace ListDiscoveredResourcesResult {
@@ -859,16 +859,16 @@ export namespace ListDiscoveredResourcesResult {
 
 export interface ListMigrationTasksRequest {
   /**
+   * <p>Value to specify how many results are returned per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
    *          available. To retrieve the next page of results, make the call again using the returned
    *          token in <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Value to specify how many results are returned per page.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>Filter migration tasks by discovered resource name.</p>
@@ -889,12 +889,6 @@ export namespace ListMigrationTasksRequest {
  */
 export interface MigrationTaskSummary {
   /**
-   * <p>An AWS resource used for access control. It should uniquely identify the migration tool
-   *          as it is used for all updates made by the tool.</p>
-   */
-  ProgressUpdateStream?: string;
-
-  /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
    *             data in this field.</i>
    *          </p>
@@ -902,14 +896,20 @@ export interface MigrationTaskSummary {
   MigrationTaskName?: string;
 
   /**
-   * <p>Status of the task.</p>
-   */
-  Status?: Status | string;
-
-  /**
    * <p>Indication of the percentage completion of the task.</p>
    */
   ProgressPercent?: number;
+
+  /**
+   * <p>An AWS resource used for access control. It should uniquely identify the migration tool
+   *          as it is used for all updates made by the tool.</p>
+   */
+  ProgressUpdateStream?: string;
+
+  /**
+   * <p>Status of the task.</p>
+   */
+  Status?: Status | string;
 
   /**
    * <p>Detail information of what is being done within the overall status state.</p>
@@ -930,17 +930,17 @@ export namespace MigrationTaskSummary {
 
 export interface ListMigrationTasksResult {
   /**
-   * <p>If there are more migration tasks than the max result, return the next token to be
-   *          passed to the next call as a bookmark of where to start from.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Lists the migration task's summary which includes: <code>MigrationTaskName</code>,
    *             <code>ProgressPercent</code>, <code>ProgressUpdateStream</code>, <code>Status</code>,
    *          and the <code>UpdateDateTime</code> for each task.</p>
    */
   MigrationTaskSummaryList?: MigrationTaskSummary[];
+
+  /**
+   * <p>If there are more migration tasks than the max result, return the next token to be
+   *          passed to the next call as a bookmark of where to start from.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListMigrationTasksResult {
@@ -951,16 +951,16 @@ export namespace ListMigrationTasksResult {
 
 export interface ListProgressUpdateStreamsRequest {
   /**
+   * <p>Filter to limit the maximum number of results to list per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
    *          available. To retrieve the next page of results, make the call again using the returned
    *          token in <code>NextToken</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Filter to limit the maximum number of results to list per page.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListProgressUpdateStreamsRequest {
@@ -990,16 +990,16 @@ export namespace ProgressUpdateStreamSummary {
 
 export interface ListProgressUpdateStreamsResult {
   /**
-   * <p>List of progress update streams up to the max number of results passed in the
-   *          input.</p>
-   */
-  ProgressUpdateStreamSummaryList?: ProgressUpdateStreamSummary[];
-
-  /**
    * <p>If there are more streams created than the max result, return the next token to be
    *          passed to the next call as a bookmark of where to start from.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>List of progress update streams up to the max number of results passed in the
+   *          input.</p>
+   */
+  ProgressUpdateStreamSummaryList?: ProgressUpdateStreamSummary[];
 }
 
 export namespace ListProgressUpdateStreamsResult {
@@ -1016,6 +1016,12 @@ export interface NotifyApplicationStateRequest {
   ApplicationId: string | undefined;
 
   /**
+   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
+   *          the caller has permission to make the call.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
   Status: ApplicationStatus | string | undefined;
@@ -1024,12 +1030,6 @@ export interface NotifyApplicationStateRequest {
    * <p>The timestamp when the application state changed.</p>
    */
   UpdateDateTime?: Date;
-
-  /**
-   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
-   *          the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace NotifyApplicationStateRequest {
@@ -1048,9 +1048,10 @@ export namespace NotifyApplicationStateResult {
 
 export interface NotifyMigrationTaskStateRequest {
   /**
-   * <p>The name of the ProgressUpdateStream. </p>
+   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
+   *          the caller has permission to make the call.</p>
    */
-  ProgressUpdateStream: string | undefined;
+  DryRun?: boolean;
 
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
@@ -1058,6 +1059,18 @@ export interface NotifyMigrationTaskStateRequest {
    *          </p>
    */
   MigrationTaskName: string | undefined;
+
+  /**
+   * <p>Number of seconds after the UpdateDateTime within which the Migration Hub can expect an
+   *          update. If Migration Hub does not receive an update within the specified interval, then the
+   *          migration task will be considered stale.</p>
+   */
+  NextUpdateSeconds: number | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream. </p>
+   */
+  ProgressUpdateStream: string | undefined;
 
   /**
    * <p>Information about the task's progress and status.</p>
@@ -1068,19 +1081,6 @@ export interface NotifyMigrationTaskStateRequest {
    * <p>The timestamp when the task was gathered.</p>
    */
   UpdateDateTime: Date | undefined;
-
-  /**
-   * <p>Number of seconds after the UpdateDateTime within which the Migration Hub can expect an
-   *          update. If Migration Hub does not receive an update within the specified interval, then the
-   *          migration task will be considered stale.</p>
-   */
-  NextUpdateSeconds: number | undefined;
-
-  /**
-   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
-   *          the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace NotifyMigrationTaskStateRequest {
@@ -1099,9 +1099,10 @@ export namespace NotifyMigrationTaskStateResult {
 
 export interface PutResourceAttributesRequest {
   /**
-   * <p>The name of the ProgressUpdateStream. </p>
+   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
+   *          the caller has permission to make the call.</p>
    */
-  ProgressUpdateStream: string | undefined;
+  DryRun?: boolean;
 
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
@@ -1109,6 +1110,11 @@ export interface PutResourceAttributesRequest {
    *          </p>
    */
   MigrationTaskName: string | undefined;
+
+  /**
+   * <p>The name of the ProgressUpdateStream. </p>
+   */
+  ProgressUpdateStream: string | undefined;
 
   /**
    * <p>Information about the resource that is being migrated. This data will be used to map the
@@ -1141,12 +1147,6 @@ export interface PutResourceAttributesRequest {
    *          </important>
    */
   ResourceAttributeList: ResourceAttribute[] | undefined;
-
-  /**
-   * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
-   *          the caller has permission to make the call.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace PutResourceAttributesRequest {

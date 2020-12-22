@@ -48,14 +48,14 @@ export namespace InvalidRequestException {
 
 export interface ListRealtimeContactAnalysisSegmentsRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
    * <p>The identifier of the contact.</p>
    */
   ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   */
+  InstanceId: string | undefined;
 
   /**
    * <p>The maximimum number of results to return per page.</p>
@@ -183,9 +183,29 @@ export enum SentimentValue {
  */
 export interface Transcript {
   /**
+   * <p>The beginning offset in the contact for this transcript.</p>
+   */
+  BeginOffsetMillis: number | undefined;
+
+  /**
+   * <p>The content of the transcript.</p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The end offset in the contact for this transcript.</p>
+   */
+  EndOffsetMillis: number | undefined;
+
+  /**
    * <p>The identifier of the transcript.</p>
    */
   Id: string | undefined;
+
+  /**
+   * <p>List of positions where issues were detected on the transcript.</p>
+   */
+  IssuesDetected?: IssueDetected[];
 
   /**
    * <p>The identifier of the participant.</p>
@@ -198,29 +218,9 @@ export interface Transcript {
   ParticipantRole: string | undefined;
 
   /**
-   * <p>The content of the transcript.</p>
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The beginning offset in the contact for this transcript.</p>
-   */
-  BeginOffsetMillis: number | undefined;
-
-  /**
-   * <p>The end offset in the contact for this transcript.</p>
-   */
-  EndOffsetMillis: number | undefined;
-
-  /**
    * <p>The sentiment of the detected for this piece of transcript.</p>
    */
   Sentiment: SentimentValue | string | undefined;
-
-  /**
-   * <p>List of positions where issues were detected on the transcript.</p>
-   */
-  IssuesDetected?: IssueDetected[];
 }
 
 export namespace Transcript {
@@ -234,14 +234,14 @@ export namespace Transcript {
  */
 export interface RealtimeContactAnalysisSegment {
   /**
-   * <p>The analyzed transcript.</p>
-   */
-  Transcript?: Transcript;
-
-  /**
    * <p>The matched category rules.</p>
    */
   Categories?: Categories;
+
+  /**
+   * <p>The analyzed transcript.</p>
+   */
+  Transcript?: Transcript;
 }
 
 export namespace RealtimeContactAnalysisSegment {
@@ -251,11 +251,6 @@ export namespace RealtimeContactAnalysisSegment {
 }
 
 export interface ListRealtimeContactAnalysisSegmentsResponse {
-  /**
-   * <p>An analyzed transcript or category.</p>
-   */
-  Segments: RealtimeContactAnalysisSegment[] | undefined;
-
   /**
    * <p>If there are additional results, this is the token for the next set of results. If response includes <code>nextToken</code> there are two possible scenarios:</p>
    *          <ul>
@@ -271,6 +266,11 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
    *          <p>If response does not include <code>nextToken</code>, the analysis is completed (successfully or failed) and there are no more segments to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An analyzed transcript or category.</p>
+   */
+  Segments: RealtimeContactAnalysisSegment[] | undefined;
 }
 
 export namespace ListRealtimeContactAnalysisSegmentsResponse {

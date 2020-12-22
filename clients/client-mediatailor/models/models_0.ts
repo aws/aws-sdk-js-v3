@@ -193,6 +193,11 @@ export interface PlaybackConfiguration {
   Name?: string;
 
   /**
+   * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>
+   */
+  PersonalizationThresholdSeconds?: number;
+
+  /**
    * <p>The Amazon Resource Name (ARN) for the playback configuration. </p>
    */
   PlaybackConfigurationArn?: string;
@@ -221,11 +226,6 @@ export interface PlaybackConfiguration {
    * <p>The name that is used to associate this playback configuration with a custom transcode profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this only if you have already set up custom profiles with the help of AWS Support.</p>
    */
   TranscodeProfileName?: string;
-
-  /**
-   * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad break.</p>
-   */
-  PersonalizationThresholdSeconds?: number;
 
   /**
    * <p>The URL prefix for the master playlist for the stream, minus the asset ID. The maximum length is 512 characters.</p>

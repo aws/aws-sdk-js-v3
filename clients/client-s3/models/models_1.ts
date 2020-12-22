@@ -39,19 +39,14 @@ export namespace MetadataEntry {
  */
 export interface S3Location {
   /**
+   * <p>A list of grants that control access to the staged results.</p>
+   */
+  AccessControlList?: Grant[];
+
+  /**
    * <p>The name of the bucket where the restore results will be placed.</p>
    */
   BucketName: string | undefined;
-
-  /**
-   * <p>The prefix that is prepended to the restore results for this request.</p>
-   */
-  Prefix: string | undefined;
-
-  /**
-   * <p>Contains the type of server-side encryption used.</p>
-   */
-  Encryption?: Encryption;
 
   /**
    * <p>The canned ACL to apply to the restore results.</p>
@@ -59,9 +54,19 @@ export interface S3Location {
   CannedACL?: ObjectCannedACL | string;
 
   /**
-   * <p>A list of grants that control access to the staged results.</p>
+   * <p>Contains the type of server-side encryption used.</p>
    */
-  AccessControlList?: Grant[];
+  Encryption?: Encryption;
+
+  /**
+   * <p>The prefix that is prepended to the restore results for this request.</p>
+   */
+  Prefix: string | undefined;
+
+  /**
+   * <p>The class of storage used to store the restore results.</p>
+   */
+  StorageClass?: StorageClass | string;
 
   /**
    * <p>The tag-set that is applied to the restore results.</p>
@@ -72,11 +77,6 @@ export interface S3Location {
    * <p>A list of metadata to store with the restore results in S3.</p>
    */
   UserMetadata?: MetadataEntry[];
-
-  /**
-   * <p>The class of storage used to store the restore results.</p>
-   */
-  StorageClass?: StorageClass | string;
 }
 
 export namespace S3Location {
@@ -119,6 +119,26 @@ export enum FileHeaderInfo {
  */
 export interface CSVInput {
   /**
+   * <p>Specifies that CSV field values may contain quoted record delimiters and such records
+   *          should be allowed. Default value is FALSE. Setting this value to TRUE may lower
+   *          performance.</p>
+   */
+  AllowQuotedRecordDelimiter?: boolean;
+
+  /**
+   * <p>A single character used to indicate that a row should be ignored when the character is
+   *          present at the start of that row. You can specify any character to indicate a comment
+   *          line.</p>
+   */
+  Comments?: string;
+
+  /**
+   * <p>A single character used to separate individual fields in a record. You can specify an
+   *          arbitrary delimiter.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
    * <p>Describes the first line of input. Valid values are:</p>
    *          <ul>
    *             <li>
@@ -141,31 +161,6 @@ export interface CSVInput {
   FileHeaderInfo?: FileHeaderInfo | string;
 
   /**
-   * <p>A single character used to indicate that a row should be ignored when the character is
-   *          present at the start of that row. You can specify any character to indicate a comment
-   *          line.</p>
-   */
-  Comments?: string;
-
-  /**
-   * <p>A single character used for escaping the quotation mark character inside an already
-   *          escaped value. For example, the value """ a , b """ is parsed as " a , b ".</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
-   * <p>A single character used to separate individual records in the input. Instead of the
-   *          default value, you can specify an arbitrary delimiter.</p>
-   */
-  RecordDelimiter?: string;
-
-  /**
-   * <p>A single character used to separate individual fields in a record. You can specify an
-   *          arbitrary delimiter.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
    * <p>A single character used for escaping when the field delimiter is part of the value. For
    *          example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks,
    *          as follows: <code>" a , b "</code>.</p>
@@ -178,11 +173,16 @@ export interface CSVInput {
   QuoteCharacter?: string;
 
   /**
-   * <p>Specifies that CSV field values may contain quoted record delimiters and such records
-   *          should be allowed. Default value is FALSE. Setting this value to TRUE may lower
-   *          performance.</p>
+   * <p>A single character used for escaping the quotation mark character inside an already
+   *          escaped value. For example, the value """ a , b """ is parsed as " a , b ".</p>
    */
-  AllowQuotedRecordDelimiter?: boolean;
+  QuoteEscapeCharacter?: string;
+
+  /**
+   * <p>A single character used to separate individual records in the input. Instead of the
+   *          default value, you can specify an arbitrary delimiter.</p>
+   */
+  RecordDelimiter?: string;
 }
 
 export namespace CSVInput {
@@ -228,15 +228,15 @@ export namespace ParquetInput {
  */
 export interface InputSerialization {
   /**
-   * <p>Describes the serialization of a CSV-encoded object.</p>
-   */
-  CSV?: CSVInput;
-
-  /**
    * <p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value:
    *          NONE.</p>
    */
   CompressionType?: CompressionType | string;
+
+  /**
+   * <p>Describes the serialization of a CSV-encoded object.</p>
+   */
+  CSV?: CSVInput;
 
   /**
    * <p>Specifies JSON as object's input serialization format.</p>
@@ -266,6 +266,25 @@ export enum QuoteFields {
  */
 export interface CSVOutput {
   /**
+   * <p>The value used to separate individual fields in a record. You can specify an arbitrary
+   *          delimiter.</p>
+   */
+  FieldDelimiter?: string;
+
+  /**
+   * <p>A single character used for escaping when the field delimiter is part of the value. For
+   *          example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks,
+   *          as follows: <code>" a , b "</code>.</p>
+   */
+  QuoteCharacter?: string;
+
+  /**
+   * <p>The single character used for escaping the quote character inside an already escaped
+   *          value.</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
    * <p>Indicates whether to use quotation marks around output fields. </p>
    *          <ul>
    *             <li>
@@ -281,29 +300,10 @@ export interface CSVOutput {
   QuoteFields?: QuoteFields | string;
 
   /**
-   * <p>The single character used for escaping the quote character inside an already escaped
-   *          value.</p>
-   */
-  QuoteEscapeCharacter?: string;
-
-  /**
    * <p>A single character used to separate individual records in the output. Instead of the
    *          default value, you can specify an arbitrary delimiter.</p>
    */
   RecordDelimiter?: string;
-
-  /**
-   * <p>The value used to separate individual fields in a record. You can specify an arbitrary
-   *          delimiter.</p>
-   */
-  FieldDelimiter?: string;
-
-  /**
-   * <p>A single character used for escaping when the field delimiter is part of the value. For
-   *          example, if the value is <code>a, b</code>, Amazon S3 wraps this field value in quotation marks,
-   *          as follows: <code>" a , b "</code>.</p>
-   */
-  QuoteCharacter?: string;
 }
 
 export namespace CSVOutput {
@@ -355,9 +355,9 @@ export namespace OutputSerialization {
  */
 export interface SelectParameters {
   /**
-   * <p>Describes the serialization format of the object.</p>
+   * <p>The expression that is used to query the object.</p>
    */
-  InputSerialization: InputSerialization | undefined;
+  Expression: string | undefined;
 
   /**
    * <p>The type of the provided expression (for example, SQL).</p>
@@ -365,9 +365,9 @@ export interface SelectParameters {
   ExpressionType: ExpressionType | string | undefined;
 
   /**
-   * <p>The expression that is used to query the object.</p>
+   * <p>Describes the serialization format of the object.</p>
    */
-  Expression: string | undefined;
+  InputSerialization: InputSerialization | undefined;
 
   /**
    * <p>Describes how the results of the Select job are serialized.</p>
@@ -398,25 +398,20 @@ export interface RestoreRequest {
   Days?: number;
 
   /**
+   * <p>The optional description for the job.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>S3 Glacier related parameters pertaining to this job. Do not use with restores that
    *          specify <code>OutputLocation</code>.</p>
    */
   GlacierJobParameters?: GlacierJobParameters;
 
   /**
-   * <p>Type of restore request.</p>
+   * <p>Describes the location where the restore job's output is stored.</p>
    */
-  Type?: RestoreRequestType | string;
-
-  /**
-   * <p>Retrieval tier at which the restore will be processed.</p>
-   */
-  Tier?: Tier | string;
-
-  /**
-   * <p>The optional description for the job.</p>
-   */
-  Description?: string;
+  OutputLocation?: OutputLocation;
 
   /**
    * <p>Describes the parameters for Select job types.</p>
@@ -424,9 +419,14 @@ export interface RestoreRequest {
   SelectParameters?: SelectParameters;
 
   /**
-   * <p>Describes the location where the restore job's output is stored.</p>
+   * <p>Retrieval tier at which the restore will be processed.</p>
    */
-  OutputLocation?: OutputLocation;
+  Tier?: Tier | string;
+
+  /**
+   * <p>Type of restore request.</p>
+   */
+  Type?: RestoreRequestType | string;
 }
 
 export namespace RestoreRequest {
@@ -445,19 +445,14 @@ export interface RestoreObjectRequest {
   Bucket: string | undefined;
 
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>Object key for which the operation was initiated.</p>
    */
   Key: string | undefined;
-
-  /**
-   * <p>VersionId used to reference a specific version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Container for restore job parameters.</p>
-   */
-  RestoreRequest?: RestoreRequest;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -468,9 +463,14 @@ export interface RestoreObjectRequest {
   RequestPayer?: RequestPayer | string;
 
   /**
-   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>Container for restore job parameters.</p>
    */
-  ExpectedBucketOwner?: string;
+  RestoreRequest?: RestoreRequest;
+
+  /**
+   * <p>VersionId used to reference a specific version of the object.</p>
+   */
+  VersionId?: string;
 }
 
 export namespace RestoreObjectRequest {
@@ -509,11 +509,6 @@ export namespace EndEvent {
  */
 export interface Progress {
   /**
-   * <p>The current number of object bytes scanned.</p>
-   */
-  BytesScanned?: number;
-
-  /**
    * <p>The current number of uncompressed object bytes processed.</p>
    */
   BytesProcessed?: number;
@@ -522,6 +517,11 @@ export interface Progress {
    * <p>The current number of bytes of records payload data returned.</p>
    */
   BytesReturned?: number;
+
+  /**
+   * <p>The current number of object bytes scanned.</p>
+   */
+  BytesScanned?: number;
 }
 
 export namespace Progress {
@@ -567,11 +567,6 @@ export namespace RecordsEvent {
  */
 export interface Stats {
   /**
-   * <p>The total number of object bytes scanned.</p>
-   */
-  BytesScanned?: number;
-
-  /**
    * <p>The total number of uncompressed object bytes processed.</p>
    */
   BytesProcessed?: number;
@@ -580,6 +575,11 @@ export interface Stats {
    * <p>The total number of bytes of records payload data returned.</p>
    */
   BytesReturned?: number;
+
+  /**
+   * <p>The total number of object bytes scanned.</p>
+   */
+  BytesScanned?: number;
 }
 
 export namespace Stats {
@@ -753,15 +753,6 @@ export namespace RequestProgress {
  */
 export interface ScanRange {
   /**
-   * <p>Specifies the start of the byte range. This parameter is optional. Valid values:
-   *          non-negative integers. The default value is 0. If only start is supplied, it means scan
-   *          from that point to the end of the file.For example;
-   *             <code><scanrange><start>50</start></scanrange></code> means scan
-   *          from byte 50 until the end of the file.</p>
-   */
-  Start?: number;
-
-  /**
    * <p>Specifies the end of the byte range. This parameter is optional. Valid values:
    *          non-negative integers. The default value is one less than the size of the object being
    *          queried. If only the End parameter is supplied, it is interpreted to mean scan the last N
@@ -770,6 +761,15 @@ export interface ScanRange {
    *          last 50 bytes.</p>
    */
   End?: number;
+
+  /**
+   * <p>Specifies the start of the byte range. This parameter is optional. Valid values:
+   *          non-negative integers. The default value is 0. If only start is supplied, it means scan
+   *          from that point to the end of the file.For example;
+   *             <code><scanrange><start>50</start></scanrange></code> means scan
+   *          from byte 50 until the end of the file.</p>
+   */
+  Start?: number;
 }
 
 export namespace ScanRange {
@@ -793,26 +793,9 @@ export interface SelectObjectContentRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>The object key.</p>
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
    */
-  Key: string | undefined;
-
-  /**
-   * <p>The SSE Algorithm used to encrypt the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
-   */
-  SSECustomerAlgorithm?: string;
-
-  /**
-   * <p>The SSE Customer Key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
-   *             (Using Customer-Provided Encryption Keys</a>. </p>
-   */
-  SSECustomerKey?: string;
-
-  /**
-   * <p>The SSE Customer Key MD5. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
-   *             (Using Customer-Provided Encryption Keys</a>. </p>
-   */
-  SSECustomerKeyMD5?: string;
+  ExpectedBucketOwner?: string;
 
   /**
    * <p>The expression that is used to query the object.</p>
@@ -825,19 +808,24 @@ export interface SelectObjectContentRequest {
   ExpressionType: ExpressionType | string | undefined;
 
   /**
-   * <p>Specifies if periodic request progress information should be enabled.</p>
-   */
-  RequestProgress?: RequestProgress;
-
-  /**
    * <p>Describes the format of the data in the object that is being queried.</p>
    */
   InputSerialization: InputSerialization | undefined;
 
   /**
+   * <p>The object key.</p>
+   */
+  Key: string | undefined;
+
+  /**
    * <p>Describes the format of the data that you want Amazon S3 to return in response.</p>
    */
   OutputSerialization: OutputSerialization | undefined;
+
+  /**
+   * <p>Specifies if periodic request progress information should be enabled.</p>
+   */
+  RequestProgress?: RequestProgress;
 
   /**
    * <p>Specifies the byte range of the object to get the records from. A record is processed
@@ -868,9 +856,21 @@ export interface SelectObjectContentRequest {
   ScanRange?: ScanRange;
 
   /**
-   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   * <p>The SSE Algorithm used to encrypt the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>
    */
-  ExpectedBucketOwner?: string;
+  SSECustomerAlgorithm?: string;
+
+  /**
+   * <p>The SSE Customer Key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
+   *             (Using Customer-Provided Encryption Keys</a>. </p>
+   */
+  SSECustomerKey?: string;
+
+  /**
+   * <p>The SSE Customer Key MD5. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
+   *             (Using Customer-Provided Encryption Keys</a>. </p>
+   */
+  SSECustomerKeyMD5?: string;
 }
 
 export namespace SelectObjectContentRequest {
@@ -882,15 +882,26 @@ export namespace SelectObjectContentRequest {
 
 export interface UploadPartOutput {
   /**
-   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
-   *          AES256, aws:kms).</p>
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
    */
-  ServerSideEncryption?: ServerSideEncryption | string;
+  BucketKeyEnabled?: boolean;
 
   /**
    * <p>Entity tag for the uploaded object.</p>
    */
   ETag?: string;
+
+  /**
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
+   */
+  RequestCharged?: RequestCharged | string;
+
+  /**
+   * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
+   *          AES256, aws:kms).</p>
+   */
+  ServerSideEncryption?: ServerSideEncryption | string;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -910,17 +921,6 @@ export interface UploadPartOutput {
    *          customer managed customer master key (CMK) was used for the object.</p>
    */
   SSEKMSKeyId?: string;
-
-  /**
-   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
-   */
-  BucketKeyEnabled?: boolean;
-
-  /**
-   * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
-   */
-  RequestCharged?: RequestCharged | string;
 }
 
 export namespace UploadPartOutput {
@@ -957,6 +957,11 @@ export interface UploadPartRequest {
   ContentMD5?: string;
 
   /**
+   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
    * <p>Object key for which the multipart upload was initiated.</p>
    */
   Key: string | undefined;
@@ -968,9 +973,12 @@ export interface UploadPartRequest {
   PartNumber: number | undefined;
 
   /**
-   * <p>Upload ID identifying the multipart upload whose part is being uploaded.</p>
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requestor Pays Buckets</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    */
-  UploadId: string | undefined;
+  RequestPayer?: RequestPayer | string;
 
   /**
    * <p>Specifies the algorithm to use to when encrypting the object (for example,
@@ -995,17 +1003,9 @@ export interface UploadPartRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requestor Pays Buckets</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+   * <p>Upload ID identifying the multipart upload whose part is being uploaded.</p>
    */
-  RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
+  UploadId: string | undefined;
 }
 
 export namespace UploadPartRequest {
@@ -1038,15 +1038,26 @@ export namespace CopyPartResult {
 
 export interface UploadPartCopyOutput {
   /**
+   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
+   */
+  BucketKeyEnabled?: boolean;
+
+  /**
+   * <p>Container for all response elements.</p>
+   */
+  CopyPartResult?: CopyPartResult;
+
+  /**
    * <p>The version of the source object that was copied, if you have enabled versioning on the
    *          source bucket.</p>
    */
   CopySourceVersionId?: string;
 
   /**
-   * <p>Container for all response elements.</p>
+   * <p>If present, indicates that the requester was successfully charged for the
+   *          request.</p>
    */
-  CopyPartResult?: CopyPartResult;
+  RequestCharged?: RequestCharged | string;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
@@ -1072,17 +1083,6 @@ export interface UploadPartCopyOutput {
    *          customer managed customer master key (CMK) that was used for the object.</p>
    */
   SSEKMSKeyId?: string;
-
-  /**
-   * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with AWS KMS (SSE-KMS).</p>
-   */
-  BucketKeyEnabled?: boolean;
-
-  /**
-   * <p>If present, indicates that the requester was successfully charged for the
-   *          request.</p>
-   */
-  RequestCharged?: RequestCharged | string;
 }
 
 export namespace UploadPartCopyOutput {
@@ -1158,6 +1158,36 @@ export interface UploadPartCopyRequest {
   CopySourceRange?: string;
 
   /**
+   * <p>Specifies the algorithm to use when decrypting the source object (for example,
+   *          AES256).</p>
+   */
+  CopySourceSSECustomerAlgorithm?: string;
+
+  /**
+   * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source
+   *          object. The encryption key provided in this header must be one that was used when the
+   *          source object was created.</p>
+   */
+  CopySourceSSECustomerKey?: string;
+
+  /**
+   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
+   *          this header for a message integrity check to ensure that the encryption key was transmitted
+   *          without error.</p>
+   */
+  CopySourceSSECustomerKeyMD5?: string;
+
+  /**
+   * <p>The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
+   */
+  ExpectedSourceBucketOwner?: string;
+
+  /**
    * <p>Object key for which the multipart upload was initiated.</p>
    */
   Key: string | undefined;
@@ -1169,9 +1199,12 @@ export interface UploadPartCopyRequest {
   PartNumber: number | undefined;
 
   /**
-   * <p>Upload ID identifying the multipart upload whose part is being copied.</p>
+   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
+   *          owners need not specify this parameter in their requests. For information about downloading
+   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *             Requestor Pays Buckets</a> in the <i>Amazon S3 Developer Guide</i>.</p>
    */
-  UploadId: string | undefined;
+  RequestPayer?: RequestPayer | string;
 
   /**
    * <p>Specifies the algorithm to use to when encrypting the object (for example,
@@ -1196,48 +1229,15 @@ export interface UploadPartCopyRequest {
   SSECustomerKeyMD5?: string;
 
   /**
-   * <p>Specifies the algorithm to use when decrypting the source object (for example,
-   *          AES256).</p>
+   * <p>Upload ID identifying the multipart upload whose part is being copied.</p>
    */
-  CopySourceSSECustomerAlgorithm?: string;
-
-  /**
-   * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source
-   *          object. The encryption key provided in this header must be one that was used when the
-   *          source object was created.</p>
-   */
-  CopySourceSSECustomerKey?: string;
-
-  /**
-   * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
-   *          this header for a message integrity check to ensure that the encryption key was transmitted
-   *          without error.</p>
-   */
-  CopySourceSSECustomerKeyMD5?: string;
-
-  /**
-   * <p>Confirms that the requester knows that they will be charged for the request. Bucket
-   *          owners need not specify this parameter in their requests. For information about downloading
-   *          objects from requester pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
-   *             Requestor Pays Buckets</a> in the <i>Amazon S3 Developer Guide</i>.</p>
-   */
-  RequestPayer?: RequestPayer | string;
-
-  /**
-   * <p>The account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedBucketOwner?: string;
-
-  /**
-   * <p>The account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP <code>403 (Access Denied)</code> error.</p>
-   */
-  ExpectedSourceBucketOwner?: string;
+  UploadId: string | undefined;
 }
 
 export namespace UploadPartCopyRequest {
   export const filterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
     ...obj,
-    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
     ...(obj.CopySourceSSECustomerKey && { CopySourceSSECustomerKey: SENSITIVE_STRING }),
+    ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
   });
 }

@@ -21,6 +21,17 @@ export namespace CertificateValidationException {
 
 export interface DescribeJobExecutionRequest {
   /**
+   * <p>Optional. A number that identifies a particular job execution on a particular device. If not specified,
+   *          the latest job execution is returned.</p>
+   */
+  executionNumber?: number;
+
+  /**
+   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   */
+  includeJobDocument?: boolean;
+
+  /**
    * <p>The unique identifier assigned to this job when it was created.</p>
    */
   jobId: string | undefined;
@@ -29,17 +40,6 @@ export interface DescribeJobExecutionRequest {
    * <p>The thing name associated with the device the job execution is running on.</p>
    */
   thingName: string | undefined;
-
-  /**
-   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
-   */
-  includeJobDocument?: boolean;
-
-  /**
-   * <p>Optional. A number that identifies a particular job execution on a particular device. If not specified,
-   *          the latest job execution is returned.</p>
-   */
-  executionNumber?: number;
 }
 
 export namespace DescribeJobExecutionRequest {
@@ -64,14 +64,41 @@ export enum JobExecutionStatus {
  */
 export interface JobExecution {
   /**
+   * <p>The estimated number of seconds that remain before the job execution status will be
+   *            changed to <code>TIMED_OUT</code>.</p>
+   */
+  approximateSecondsBeforeTimedOut?: number;
+
+  /**
+   * <p>A number that identifies a particular job execution on a particular device. It can be used later in
+   *          commands that return or update job execution information.</p>
+   */
+  executionNumber?: number;
+
+  /**
+   * <p>The content of the job document.</p>
+   */
+  jobDocument?: string;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
 
   /**
-   * <p>The name of the thing that is executing the job.</p>
+   * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
    */
-  thingName?: string;
+  lastUpdatedAt?: number;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   */
+  queuedAt?: number;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
+   */
+  startedAt?: number;
 
   /**
    * <p>The status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED",
@@ -85,42 +112,15 @@ export interface JobExecution {
   statusDetails?: { [key: string]: string };
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
+   * <p>The name of the thing that is executing the job.</p>
    */
-  queuedAt?: number;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was started.</p>
-   */
-  startedAt?: number;
-
-  /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was last updated. </p>
-   */
-  lastUpdatedAt?: number;
-
-  /**
-   * <p>The estimated number of seconds that remain before the job execution status will be
-   *            changed to <code>TIMED_OUT</code>.</p>
-   */
-  approximateSecondsBeforeTimedOut?: number;
+  thingName?: string;
 
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated by a
    *          device.</p>
    */
   versionNumber?: number;
-
-  /**
-   * <p>A number that identifies a particular job execution on a particular device. It can be used later in
-   *          commands that return or update job execution information.</p>
-   */
-  executionNumber?: number;
-
-  /**
-   * <p>The content of the job document.</p>
-   */
-  jobDocument?: string;
 }
 
 export namespace JobExecution {
@@ -252,9 +252,19 @@ export namespace GetPendingJobExecutionsRequest {
  */
 export interface JobExecutionSummary {
   /**
+   * <p>A number that identifies a particular job execution on a particular device.</p>
+   */
+  executionNumber?: number;
+
+  /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
+   */
+  lastUpdatedAt?: number;
 
   /**
    * <p>The time, in milliseconds since the epoch, when the job execution was enqueued.</p>
@@ -267,20 +277,10 @@ export interface JobExecutionSummary {
   startedAt?: number;
 
   /**
-   * <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
-   */
-  lastUpdatedAt?: number;
-
-  /**
    * <p>The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives
    *          an update from a device.</p>
    */
   versionNumber?: number;
-
-  /**
-   * <p>A number that identifies a particular job execution on a particular device.</p>
-   */
-  executionNumber?: number;
 }
 
 export namespace JobExecutionSummary {
@@ -326,11 +326,6 @@ export namespace InvalidStateTransitionException {
 
 export interface StartNextPendingJobExecutionRequest {
   /**
-   * <p>The name of the thing associated with the device.</p>
-   */
-  thingName: string | undefined;
-
-  /**
    * <p>A collection of name/value pairs that describe the status of the job execution. If not specified, the
    *          statusDetails are unchanged.</p>
    */
@@ -346,6 +341,11 @@ export interface StartNextPendingJobExecutionRequest {
    *            the job was created (<code>CreateJob</code> using field <code>timeoutConfig</code>).</p>
    */
   stepTimeoutInMinutes?: number;
+
+  /**
+   * <p>The name of the thing associated with the device.</p>
+   */
+  thingName: string | undefined;
 }
 
 export namespace StartNextPendingJobExecutionRequest {
@@ -369,14 +369,34 @@ export namespace StartNextPendingJobExecutionResponse {
 
 export interface UpdateJobExecutionRequest {
   /**
+   * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
+   */
+  executionNumber?: number;
+
+  /**
+   * <p>Optional. The expected current version of the job execution. Each time you update the job execution, its
+   *          version is incremented. If the version of the job execution stored in Jobs does not match, the update is
+   *          rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data
+   *          is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain
+   *          the job execution status data.)</p>
+   */
+  expectedVersion?: number;
+
+  /**
+   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
+   */
+  includeJobDocument?: boolean;
+
+  /**
+   * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
+   *          false.</p>
+   */
+  includeJobExecutionState?: boolean;
+
+  /**
    * <p>The unique identifier assigned to this job when it was created.</p>
    */
   jobId: string | undefined;
-
-  /**
-   * <p>The name of the thing associated with the device.</p>
-   */
-  thingName: string | undefined;
 
   /**
    * <p>The new status for the job execution (IN_PROGRESS, FAILED, SUCCESS, or REJECTED). This must be specified
@@ -402,29 +422,9 @@ export interface UpdateJobExecutionRequest {
   stepTimeoutInMinutes?: number;
 
   /**
-   * <p>Optional. The expected current version of the job execution. Each time you update the job execution, its
-   *          version is incremented. If the version of the job execution stored in Jobs does not match, the update is
-   *          rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data
-   *          is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain
-   *          the job execution status data.)</p>
+   * <p>The name of the thing associated with the device.</p>
    */
-  expectedVersion?: number;
-
-  /**
-   * <p>Optional. When included and set to true, the response contains the JobExecutionState data. The default is
-   *          false.</p>
-   */
-  includeJobExecutionState?: boolean;
-
-  /**
-   * <p>Optional. When set to true, the response contains the job document. The default is false.</p>
-   */
-  includeJobDocument?: boolean;
-
-  /**
-   * <p>Optional. A number that identifies a particular job execution on a particular device.</p>
-   */
-  executionNumber?: number;
+  thingName: string | undefined;
 }
 
 export namespace UpdateJobExecutionRequest {

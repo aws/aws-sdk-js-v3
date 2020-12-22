@@ -3958,14 +3958,14 @@ export enum HlsTimedMetadataId3Frame {
  */
 export interface HlsGroupSettings {
   /**
-   * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
-   */
-  AdMarkers?: (HlsAdMarkers | string)[];
-
-  /**
    * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
   AdditionalManifests?: HlsAdditionalManifest[];
+
+  /**
+   * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
+   */
+  AdMarkers?: (HlsAdMarkers | string)[];
 
   /**
    * Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.

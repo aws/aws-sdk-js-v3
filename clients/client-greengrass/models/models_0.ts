@@ -619,14 +619,14 @@ export namespace SageMakerMachineLearningModelResourceData {
  */
 export interface SecretsManagerSecretResourceData {
   /**
-   * The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
-   */
-  ARN?: string;
-
-  /**
    * Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
    */
   AdditionalStagingLabelsToDownload?: string[];
+
+  /**
+   * The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
+   */
+  ARN?: string;
 }
 
 export namespace SecretsManagerSecretResourceData {

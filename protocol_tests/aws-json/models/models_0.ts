@@ -21,8 +21,8 @@ export namespace ComplexNestedErrorData {
 export interface ComplexError extends __SmithyException, $MetadataBearer {
   name: "ComplexError";
   $fault: "client";
-  TopLevel?: string;
   Nested?: ComplexNestedErrorData;
+  TopLevel?: string;
 }
 
 export namespace ComplexError {
@@ -123,8 +123,8 @@ export interface JsonEnumsInputOutput {
   fooEnum2?: FooEnum | string;
   fooEnum3?: FooEnum | string;
   fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
   fooEnumMap?: { [key: string]: FooEnum | string };
+  fooEnumSet?: (FooEnum | string)[];
 }
 
 export namespace JsonEnumsInputOutput {
@@ -348,9 +348,9 @@ export namespace UnionInputOutput {
 }
 
 export interface NullOperationInputOutput {
-  string?: string;
   sparseStringList?: string[];
   sparseStringMap?: { [key: string]: string };
+  string?: string;
 }
 
 export namespace NullOperationInputOutput {

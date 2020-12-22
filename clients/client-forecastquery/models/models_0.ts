@@ -48,17 +48,6 @@ export namespace LimitExceededException {
 
 export interface QueryForecastRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
-   */
-  ForecastArn: string | undefined;
-
-  /**
-   * <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
-   *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
-   */
-  StartDate?: string;
-
-  /**
    * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
    */
@@ -78,11 +67,22 @@ export interface QueryForecastRequest {
   Filters: { [key: string]: string } | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the forecast to query.</p>
+   */
+  ForecastArn: string | undefined;
+
+  /**
    * <p>If the result of the previous request was truncated, the response includes a
    *         <code>NextToken</code>. To retrieve the next set of results, use the token in the next
    *       request. Tokens expire after 24 hours.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The start date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
+   *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
+   */
+  StartDate?: string;
 }
 
 export namespace QueryForecastRequest {

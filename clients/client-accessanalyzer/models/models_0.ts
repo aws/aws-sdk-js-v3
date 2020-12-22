@@ -45,24 +45,24 @@ export namespace ConflictException {
  */
 export interface Criterion {
   /**
-   * <p>An "equals" operator to match for the filter used to create the rule.</p>
-   */
-  eq?: string[];
-
-  /**
-   * <p>A "not equals" operator to match for the filter used to create the rule.</p>
-   */
-  neq?: string[];
-
-  /**
    * <p>A "contains" operator to match for the filter used to create the rule.</p>
    */
   contains?: string[];
 
   /**
+   * <p>An "equals" operator to match for the filter used to create the rule.</p>
+   */
+  eq?: string[];
+
+  /**
    * <p>An "exists" operator to match for the filter used to create the rule. </p>
    */
   exists?: boolean;
+
+  /**
+   * <p>A "not equals" operator to match for the filter used to create the rule.</p>
+   */
+  neq?: string[];
 }
 
 export namespace Criterion {
@@ -81,9 +81,9 @@ export interface CreateArchiveRuleRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>The name of the rule to create.</p>
+   * <p>A client token.</p>
    */
-  ruleName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The criteria for the rule.</p>
@@ -91,9 +91,9 @@ export interface CreateArchiveRuleRequest {
   filter: { [key: string]: Criterion } | undefined;
 
   /**
-   * <p>A client token.</p>
+   * <p>The name of the rule to create.</p>
    */
-  clientToken?: string;
+  ruleName: string | undefined;
 }
 
 export namespace CreateArchiveRuleRequest {
@@ -195,14 +195,14 @@ export namespace ThrottlingException {
  */
 export interface ValidationExceptionField {
   /**
-   * <p>The name of the validation exception.</p>
-   */
-  name: string | undefined;
-
-  /**
    * <p>A message about the validation exception.</p>
    */
   message: string | undefined;
+
+  /**
+   * <p>The name of the validation exception.</p>
+   */
+  name: string | undefined;
 }
 
 export namespace ValidationExceptionField {
@@ -224,16 +224,16 @@ export enum ValidationExceptionReason {
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
+  /**
+   * <p>A list of fields that didn't validate.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
   message: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    */
   reason: ValidationExceptionReason | string | undefined;
-
-  /**
-   * <p>A list of fields that didn't validate.</p>
-   */
-  fieldList?: ValidationExceptionField[];
 }
 
 export namespace ValidationException {
@@ -252,14 +252,14 @@ export interface DeleteArchiveRuleRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>The name of the rule to delete.</p>
-   */
-  ruleName: string | undefined;
-
-  /**
    * <p>A client token.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The name of the rule to delete.</p>
+   */
+  ruleName: string | undefined;
 }
 
 export namespace DeleteArchiveRuleRequest {
@@ -294,9 +294,9 @@ export namespace GetArchiveRuleRequest {
  */
 export interface ArchiveRuleSummary {
   /**
-   * <p>The name of the archive rule.</p>
+   * <p>The time at which the archive rule was created.</p>
    */
-  ruleName: string | undefined;
+  createdAt: Date | undefined;
 
   /**
    * <p>A filter used to define the archive rule.</p>
@@ -304,9 +304,9 @@ export interface ArchiveRuleSummary {
   filter: { [key: string]: Criterion } | undefined;
 
   /**
-   * <p>The time at which the archive rule was created.</p>
+   * <p>The name of the archive rule.</p>
    */
-  createdAt: Date | undefined;
+  ruleName: string | undefined;
 
   /**
    * <p>The time at which the archive rule was last updated.</p>
@@ -346,14 +346,14 @@ export interface ListArchiveRulesRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>A token used for pagination of results returned.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in the request.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>A token used for pagination of results returned.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListArchiveRulesRequest {
@@ -393,9 +393,9 @@ export interface UpdateArchiveRuleRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>The name of the rule to update.</p>
+   * <p>A client token.</p>
    */
-  ruleName: string | undefined;
+  clientToken?: string;
 
   /**
    * <p>A filter to match for the rules to update. Only rules that match the filter are
@@ -404,9 +404,9 @@ export interface UpdateArchiveRuleRequest {
   filter: { [key: string]: Criterion } | undefined;
 
   /**
-   * <p>A client token.</p>
+   * <p>The name of the rule to update.</p>
    */
-  clientToken?: string;
+  ruleName: string | undefined;
 }
 
 export namespace UpdateArchiveRuleRequest {
@@ -421,14 +421,14 @@ export namespace UpdateArchiveRuleRequest {
  */
 export interface InlineArchiveRule {
   /**
-   * <p>The name of the rule.</p>
-   */
-  ruleName: string | undefined;
-
-  /**
    * <p>The condition and values for a criterion.</p>
    */
   filter: { [key: string]: Criterion } | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  ruleName: string | undefined;
 }
 
 export namespace InlineArchiveRule {
@@ -449,16 +449,15 @@ export interface CreateAnalyzerRequest {
   analyzerName: string | undefined;
 
   /**
-   * <p>The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create
-   *          only one analyzer per account per Region.</p>
-   */
-  type: Type | string | undefined;
-
-  /**
    * <p>Specifies the archive rules to add for the analyzer. Archive rules automatically archive
    *          findings that meet the criteria you define for the rule.</p>
    */
   archiveRules?: InlineArchiveRule[];
+
+  /**
+   * <p>A client token.</p>
+   */
+  clientToken?: string;
 
   /**
    * <p>The tags to apply to the analyzer.</p>
@@ -466,9 +465,10 @@ export interface CreateAnalyzerRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>A client token.</p>
+   * <p>The type of analyzer to create. Only ACCOUNT analyzers are supported. You can create
+   *          only one analyzer per account per Region.</p>
    */
-  clientToken?: string;
+  type: Type | string | undefined;
 }
 
 export namespace CreateAnalyzerRequest {
@@ -567,17 +567,6 @@ export interface AnalyzerSummary {
   arn: string | undefined;
 
   /**
-   * <p>The name of the analyzer.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
-   *          analyzer.</p>
-   */
-  type: Type | string | undefined;
-
-  /**
    * <p>A timestamp for the time at which the analyzer was created.</p>
    */
   createdAt: Date | undefined;
@@ -593,9 +582,9 @@ export interface AnalyzerSummary {
   lastResourceAnalyzedAt?: Date;
 
   /**
-   * <p>The tags added to the analyzer.</p>
+   * <p>The name of the analyzer.</p>
    */
-  tags?: { [key: string]: string };
+  name: string | undefined;
 
   /**
    * <p>The status of the analyzer. An <code>Active</code> analyzer successfully monitors supported resources
@@ -613,6 +602,17 @@ export interface AnalyzerSummary {
    *          service-linked roles required in the member accounts of the AWS organization.</p>
    */
   statusReason?: StatusReason;
+
+  /**
+   * <p>The tags added to the analyzer.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
+   *          analyzer.</p>
+   */
+  type: Type | string | undefined;
 }
 
 export namespace AnalyzerSummary {
@@ -643,14 +643,14 @@ export namespace GetAnalyzerResponse {
  */
 export interface ListAnalyzersRequest {
   /**
-   * <p>A token used for pagination of results returned.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in the response.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>A token used for pagination of results returned.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The type of analyzer.</p>
@@ -721,19 +721,10 @@ export type FindingStatus = "ACTIVE" | "ARCHIVED" | "RESOLVED";
  */
 export interface AnalyzedResource {
   /**
-   * <p>The ARN of the resource that was analyzed.</p>
+   * <p>The actions that an external principal is granted permission to use by the policy that
+   *          generated the finding.</p>
    */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The type of the resource that was analyzed.</p>
-   */
-  resourceType: ResourceType | string | undefined;
-
-  /**
-   * <p>The time at which the finding was created.</p>
-   */
-  createdAt: Date | undefined;
+  actions?: string[];
 
   /**
    * <p>The time at which the resource was analyzed.</p>
@@ -741,9 +732,14 @@ export interface AnalyzedResource {
   analyzedAt: Date | undefined;
 
   /**
-   * <p>The time at which the finding was updated.</p>
+   * <p>The time at which the finding was created.</p>
    */
-  updatedAt: Date | undefined;
+  createdAt: Date | undefined;
+
+  /**
+   * <p>An error message.</p>
+   */
+  error?: string;
 
   /**
    * <p>Indicates whether the policy that generated the finding grants public access to the
@@ -752,10 +748,19 @@ export interface AnalyzedResource {
   isPublic: boolean | undefined;
 
   /**
-   * <p>The actions that an external principal is granted permission to use by the policy that
-   *          generated the finding.</p>
+   * <p>The ARN of the resource that was analyzed.</p>
    */
-  actions?: string[];
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The AWS account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
+   * <p>The type of the resource that was analyzed.</p>
+   */
+  resourceType: ResourceType | string | undefined;
 
   /**
    * <p>Indicates how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
@@ -768,14 +773,9 @@ export interface AnalyzedResource {
   status?: FindingStatus | string;
 
   /**
-   * <p>The AWS account ID that owns the resource.</p>
+   * <p>The time at which the finding was updated.</p>
    */
-  resourceOwnerAccount: string | undefined;
-
-  /**
-   * <p>An error message.</p>
-   */
-  error?: string;
+  updatedAt: Date | undefined;
 }
 
 export namespace AnalyzedResource {
@@ -845,14 +845,14 @@ export type FindingSourceType = "BUCKET_ACL" | "KMS_GRANT" | "POLICY" | "S3_ACCE
  */
 export interface FindingSource {
   /**
-   * <p>Indicates the type of access that generated the finding.</p>
-   */
-  type: FindingSourceType | string | undefined;
-
-  /**
    * <p>Includes details about how the access that generated the finding is granted. This is populated for Amazon S3 bucket findings.</p>
    */
   detail?: FindingSourceDetail;
+
+  /**
+   * <p>Indicates the type of access that generated the finding.</p>
+   */
+  type: FindingSourceType | string | undefined;
 }
 
 export namespace FindingSource {
@@ -866,36 +866,15 @@ export namespace FindingSource {
  */
 export interface Finding {
   /**
-   * <p>The ID of the finding.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The external principal that access to a resource within the zone of trust.</p>
-   */
-  principal?: { [key: string]: string };
-
-  /**
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          use.</p>
    */
   action?: string[];
 
   /**
-   * <p>The resource that an external principal has access to.</p>
+   * <p>The time at which the resource was analyzed.</p>
    */
-  resource?: string;
-
-  /**
-   * <p>Indicates whether the policy that generated the finding allows public access to the
-   *          resource.</p>
-   */
-  isPublic?: boolean;
-
-  /**
-   * <p>The type of the resource reported in the finding.</p>
-   */
-  resourceType: ResourceType | string | undefined;
+  analyzedAt: Date | undefined;
 
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
@@ -908,19 +887,30 @@ export interface Finding {
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the resource was analyzed.</p>
+   * <p>An error.</p>
    */
-  analyzedAt: Date | undefined;
+  error?: string;
 
   /**
-   * <p>The time at which the finding was updated.</p>
+   * <p>The ID of the finding.</p>
    */
-  updatedAt: Date | undefined;
+  id: string | undefined;
 
   /**
-   * <p>The current status of the finding.</p>
+   * <p>Indicates whether the policy that generated the finding allows public access to the
+   *          resource.</p>
    */
-  status: FindingStatus | string | undefined;
+  isPublic?: boolean;
+
+  /**
+   * <p>The external principal that access to a resource within the zone of trust.</p>
+   */
+  principal?: { [key: string]: string };
+
+  /**
+   * <p>The resource that an external principal has access to.</p>
+   */
+  resource?: string;
 
   /**
    * <p>The AWS account ID that owns the resource.</p>
@@ -928,14 +918,24 @@ export interface Finding {
   resourceOwnerAccount: string | undefined;
 
   /**
-   * <p>An error.</p>
+   * <p>The type of the resource reported in the finding.</p>
    */
-  error?: string;
+  resourceType: ResourceType | string | undefined;
 
   /**
    * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
    */
   sources?: FindingSource[];
+
+  /**
+   * <p>The current status of the finding.</p>
+   */
+  status: FindingStatus | string | undefined;
+
+  /**
+   * <p>The time at which the finding was updated.</p>
+   */
+  updatedAt: Date | undefined;
 }
 
 export namespace Finding {
@@ -970,9 +970,9 @@ export interface ListAnalyzedResourcesRequest {
   analyzerArn: string | undefined;
 
   /**
-   * <p>The type of resource.</p>
+   * <p>The maximum number of results to return in the response.</p>
    */
-  resourceType?: ResourceType | string;
+  maxResults?: number;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -980,9 +980,9 @@ export interface ListAnalyzedResourcesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * <p>The type of resource.</p>
    */
-  maxResults?: number;
+  resourceType?: ResourceType | string;
 }
 
 export namespace ListAnalyzedResourcesRequest {
@@ -1076,9 +1076,9 @@ export interface ListFindingsRequest {
   filter?: { [key: string]: Criterion };
 
   /**
-   * <p>The sort order for the findings returned.</p>
+   * <p>The maximum number of results to return in the response.</p>
    */
-  sort?: SortCriteria;
+  maxResults?: number;
 
   /**
    * <p>A token used for pagination of results returned.</p>
@@ -1086,9 +1086,9 @@ export interface ListFindingsRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in the response.</p>
+   * <p>The sort order for the findings returned.</p>
    */
-  maxResults?: number;
+  sort?: SortCriteria;
 }
 
 export namespace ListFindingsRequest {
@@ -1102,36 +1102,16 @@ export namespace ListFindingsRequest {
  */
 export interface FindingSummary {
   /**
-   * <p>The ID of the finding.</p>
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The external principal that has access to a resource within the zone of trust.</p>
-   */
-  principal?: { [key: string]: string };
-
-  /**
    * <p>The action in the analyzed policy statement that an external principal has permission to
    *          use.</p>
    */
   action?: string[];
 
   /**
-   * <p>The resource that the external principal has access to.</p>
+   * <p>The time at which the resource-based policy that generated the finding was
+   *          analyzed.</p>
    */
-  resource?: string;
-
-  /**
-   * <p>Indicates whether the finding reports a resource that has a policy that allows public
-   *          access.</p>
-   */
-  isPublic?: boolean;
-
-  /**
-   * <p>The type of the resource that the external principal has access to.</p>
-   */
-  resourceType: ResourceType | string | undefined;
+  analyzedAt: Date | undefined;
 
   /**
    * <p>The condition in the analyzed policy statement that resulted in a finding.</p>
@@ -1144,20 +1124,30 @@ export interface FindingSummary {
   createdAt: Date | undefined;
 
   /**
-   * <p>The time at which the resource-based policy that generated the finding was
-   *          analyzed.</p>
+   * <p>The error that resulted in an Error finding.</p>
    */
-  analyzedAt: Date | undefined;
+  error?: string;
 
   /**
-   * <p>The time at which the finding was most recently updated.</p>
+   * <p>The ID of the finding.</p>
    */
-  updatedAt: Date | undefined;
+  id: string | undefined;
 
   /**
-   * <p>The status of the finding.</p>
+   * <p>Indicates whether the finding reports a resource that has a policy that allows public
+   *          access.</p>
    */
-  status: FindingStatus | string | undefined;
+  isPublic?: boolean;
+
+  /**
+   * <p>The external principal that has access to a resource within the zone of trust.</p>
+   */
+  principal?: { [key: string]: string };
+
+  /**
+   * <p>The resource that the external principal has access to.</p>
+   */
+  resource?: string;
 
   /**
    * <p>The AWS account ID that owns the resource.</p>
@@ -1165,14 +1155,24 @@ export interface FindingSummary {
   resourceOwnerAccount: string | undefined;
 
   /**
-   * <p>The error that resulted in an Error finding.</p>
+   * <p>The type of the resource that the external principal has access to.</p>
    */
-  error?: string;
+  resourceType: ResourceType | string | undefined;
 
   /**
    * <p>The sources of the finding. This indicates how the access that generated the finding is granted. It is populated for Amazon S3 bucket findings.</p>
    */
   sources?: FindingSource[];
+
+  /**
+   * <p>The status of the finding.</p>
+   */
+  status: FindingStatus | string | undefined;
+
+  /**
+   * <p>The time at which the finding was most recently updated.</p>
+   */
+  updatedAt: Date | undefined;
 }
 
 export namespace FindingSummary {
@@ -1333,11 +1333,9 @@ export interface UpdateFindingsRequest {
   analyzerArn: string | undefined;
 
   /**
-   * <p>The state represents the action to take to update the finding Status. Use
-   *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
-   *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
+   * <p>A client token.</p>
    */
-  status: FindingStatusUpdate | string | undefined;
+  clientToken?: string;
 
   /**
    * <p>The IDs of the findings to update.</p>
@@ -1350,9 +1348,11 @@ export interface UpdateFindingsRequest {
   resourceArn?: string;
 
   /**
-   * <p>A client token.</p>
+   * <p>The state represents the action to take to update the finding Status. Use
+   *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
+   *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
    */
-  clientToken?: string;
+  status: FindingStatusUpdate | string | undefined;
 }
 
 export namespace UpdateFindingsRequest {

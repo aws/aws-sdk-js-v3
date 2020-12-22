@@ -12,12 +12,6 @@ export enum GetEntitlementFilterName {
  */
 export interface GetEntitlementsRequest {
   /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code
-   *    will be provided by AWS Marketplace when the product listing is created.</p>
-   */
-  ProductCode: string | undefined;
-
-  /**
    * <p>Filter is used to return entitlements for a specific customer or for a specific
    *       dimension. Filters are described as keys mapped to a lists of values. Filtered requests are
    *         <i>unioned</i> for each value in the value list, and then
@@ -26,16 +20,22 @@ export interface GetEntitlementsRequest {
   Filter?: { [key: string]: string[] };
 
   /**
+   * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
+   *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
    *    GetEntitlementsResult.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of items to retrieve from the GetEntitlements operation. For
-   *    pagination, use the NextToken field in subsequent calls to GetEntitlements.</p>
+   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product code
+   *    will be provided by AWS Marketplace when the product listing is created.</p>
    */
-  MaxResults?: number;
+  ProductCode: string | undefined;
 }
 
 export namespace GetEntitlementsRequest {
@@ -144,10 +144,11 @@ export namespace EntitlementValue {
  */
 export interface Entitlement {
   /**
-   * <p>The product code for which the given entitlement applies. Product codes are provided by
-   *    AWS Marketplace when the product listing is created.</p>
+   * <p>The customer identifier is a handle to each unique customer in an application. Customer
+   *    identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering
+   *    Service.</p>
    */
-  ProductCode?: string;
+  CustomerIdentifier?: string;
 
   /**
    * <p>The dimension for which the given entitlement applies. Dimensions represent categories of
@@ -157,25 +158,24 @@ export interface Entitlement {
   Dimension?: string;
 
   /**
-   * <p>The customer identifier is a handle to each unique customer in an application. Customer
-   *    identifiers are obtained through the ResolveCustomer operation in AWS Marketplace Metering
-   *    Service.</p>
-   */
-  CustomerIdentifier?: string;
-
-  /**
-   * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
-   *    for the product.</p>
-   */
-  Value?: EntitlementValue;
-
-  /**
    * <p>The expiration date represents the minimum date through which this entitlement is
    *    expected to remain valid. For contractual products listed on AWS Marketplace, the expiration date
    *    is the date at which the customer will renew or cancel their contract. Customers who are opting
    *    to renew their contract will still have entitlements with an expiration date.</p>
    */
   ExpirationDate?: Date;
+
+  /**
+   * <p>The product code for which the given entitlement applies. Product codes are provided by
+   *    AWS Marketplace when the product listing is created.</p>
+   */
+  ProductCode?: string;
+
+  /**
+   * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
+   *    for the product.</p>
+   */
+  Value?: EntitlementValue;
 }
 
 export namespace Entitlement {

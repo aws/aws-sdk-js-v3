@@ -18,6 +18,12 @@ export namespace AccessForbidden {
 
 export interface DeleteRecordRequest {
   /**
+   * <p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
+   *          used to query data at a certain point in time.</p>
+   */
+  EventTime: string | undefined;
+
+  /**
    * <p>The name of the feature group to delete the record from. </p>
    */
   FeatureGroupName: string | undefined;
@@ -27,12 +33,6 @@ export interface DeleteRecordRequest {
    *          string format. </p>
    */
   RecordIdentifierValueAsString: string | undefined;
-
-  /**
-   * <p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be
-   *          used to query data at a certain point in time.</p>
-   */
-  EventTime: string | undefined;
 }
 
 export namespace DeleteRecordRequest {
@@ -94,16 +94,16 @@ export interface GetRecordRequest {
   FeatureGroupName: string | undefined;
 
   /**
-   * <p>The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies
-   *          the record in the <code>FeatureGroup</code>. </p>
-   */
-  RecordIdentifierValueAsString: string | undefined;
-
-  /**
    * <p>List of names of Features to be retrieved. If not specified, the latest value for all
    *          the Features are returned.</p>
    */
   FeatureNames?: string[];
+
+  /**
+   * <p>The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies
+   *          the record in the <code>FeatureGroup</code>. </p>
+   */
+  RecordIdentifierValueAsString: string | undefined;
 }
 
 export namespace GetRecordRequest {

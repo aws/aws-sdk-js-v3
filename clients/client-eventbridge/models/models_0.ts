@@ -108,20 +108,20 @@ export interface Archive {
   ArchiveName?: string;
 
   /**
+   * <p>The time stamp for the time that the archive was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The number of events in the archive.</p>
+   */
+  EventCount?: number;
+
+  /**
    * <p>The ARN of the event bus associated with the archive. Only events from this event bus
    *             are sent to the archive.</p>
    */
   EventSourceArn?: string;
-
-  /**
-   * <p>The current state of the archive.</p>
-   */
-  State?: ArchiveState | string;
-
-  /**
-   * <p>A description for the reason that the archive is in the current state.</p>
-   */
-  StateReason?: string;
 
   /**
    * <p>The number of days to retain events in the archive before they are deleted.</p>
@@ -134,14 +134,14 @@ export interface Archive {
   SizeBytes?: number;
 
   /**
-   * <p>The number of events in the archive.</p>
+   * <p>The current state of the archive.</p>
    */
-  EventCount?: number;
+  State?: ArchiveState | string;
 
   /**
-   * <p>The time stamp for the time that the archive was created.</p>
+   * <p>A description for the reason that the archive is in the current state.</p>
    */
-  CreationTime?: Date;
+  StateReason?: string;
 }
 
 export namespace Archive {
@@ -223,11 +223,6 @@ export interface CreateArchiveRequest {
   ArchiveName: string | undefined;
 
   /**
-   * <p>The ARN of the event source associated with the archive.</p>
-   */
-  EventSourceArn: string | undefined;
-
-  /**
    * <p>A description for the archive.</p>
    */
   Description?: string;
@@ -236,6 +231,11 @@ export interface CreateArchiveRequest {
    * <p>An event pattern to use to filter events sent to the archive.</p>
    */
   EventPattern?: string;
+
+  /**
+   * <p>The ARN of the event source associated with the archive.</p>
+   */
+  EventSourceArn: string | undefined;
 
   /**
    * <p>The number of days to retain events for. Default value is 0. If set to 0, events are
@@ -257,6 +257,11 @@ export interface CreateArchiveResponse {
   ArchiveArn?: string;
 
   /**
+   * <p>The time at which the archive was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>The state of the archive that was created.</p>
    */
   State?: ArchiveState | string;
@@ -265,11 +270,6 @@ export interface CreateArchiveResponse {
    * <p>The reason that the archive is in the state.</p>
    */
   StateReason?: string;
-
-  /**
-   * <p>The time at which the archive was created.</p>
-   */
-  CreationTime?: Date;
 }
 
 export namespace CreateArchiveResponse {
@@ -349,6 +349,12 @@ export namespace Tag {
 
 export interface CreateEventBusRequest {
   /**
+   * <p>If you are creating a partner event bus, this specifies the partner event source that
+   *             the new event bus will be matched with.</p>
+   */
+  EventSourceName?: string;
+
+  /**
    * <p>The name of the new event bus. </p>
    *         <p>Event bus names cannot contain the / character. You can't use the name
    *                 <code>default</code> for a custom event bus, as this name is already used for your
@@ -357,12 +363,6 @@ export interface CreateEventBusRequest {
    *             event source that this event bus is matched to.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>If you are creating a partner event bus, this specifies the partner event source that
-   *             the new event bus will be matched with.</p>
-   */
-  EventSourceName?: string;
 
   /**
    * <p>Tags to associate with the event bus.</p>
@@ -391,6 +391,12 @@ export namespace CreateEventBusResponse {
 
 export interface CreatePartnerEventSourceRequest {
   /**
+   * <p>The AWS account ID that is permitted to create a matching partner event bus for this
+   *             partner event source.</p>
+   */
+  Account: string | undefined;
+
+  /**
    * <p>The name of the partner event source. This name must be unique and must be in the
    *             format
    *                     <code>
@@ -400,12 +406,6 @@ export interface CreatePartnerEventSourceRequest {
    *             bus with a name that matches the name of the partner event source.</p>
    */
   Name: string | undefined;
-
-  /**
-   * <p>The AWS account ID that is permitted to create a matching partner event bus for this
-   *             partner event source.</p>
-   */
-  Account: string | undefined;
 }
 
 export namespace CreatePartnerEventSourceRequest {
@@ -476,14 +476,14 @@ export namespace DeleteEventBusRequest {
 
 export interface DeletePartnerEventSourceRequest {
   /**
-   * <p>The name of the event source to delete.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The AWS account ID of the AWS customer that the event source was created for.</p>
    */
   Account: string | undefined;
+
+  /**
+   * <p>The name of the event source to delete.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DeletePartnerEventSourceRequest {
@@ -493,11 +493,6 @@ export namespace DeletePartnerEventSourceRequest {
 }
 
 export interface DeleteRuleRequest {
-  /**
-   * <p>The name of the rule.</p>
-   */
-  Name: string | undefined;
-
   /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
@@ -512,6 +507,11 @@ export interface DeleteRuleRequest {
    *                 <code>ManagedBy</code> field of the response.</p>
    */
   Force?: boolean;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DeleteRuleRequest {
@@ -566,9 +566,9 @@ export interface DescribeArchiveResponse {
   ArchiveName?: string;
 
   /**
-   * <p>The ARN of the event source associated with the archive.</p>
+   * <p>The time at which the archive was created.</p>
    */
-  EventSourceArn?: string;
+  CreationTime?: Date;
 
   /**
    * <p>The description of the archive.</p>
@@ -576,19 +576,19 @@ export interface DescribeArchiveResponse {
   Description?: string;
 
   /**
+   * <p>The number of events in the archive.</p>
+   */
+  EventCount?: number;
+
+  /**
    * <p>The event pattern used to filter events sent to the archive.</p>
    */
   EventPattern?: string;
 
   /**
-   * <p>The state of the archive.</p>
+   * <p>The ARN of the event source associated with the archive.</p>
    */
-  State?: ArchiveState | string;
-
-  /**
-   * <p>The reason that the archive is in the state.</p>
-   */
-  StateReason?: string;
+  EventSourceArn?: string;
 
   /**
    * <p>The number of days to retain events for in the archive.</p>
@@ -601,14 +601,14 @@ export interface DescribeArchiveResponse {
   SizeBytes?: number;
 
   /**
-   * <p>The number of events in the archive.</p>
+   * <p>The state of the archive.</p>
    */
-  EventCount?: number;
+  State?: ArchiveState | string;
 
   /**
-   * <p>The time at which the archive was created.</p>
+   * <p>The reason that the archive is in the state.</p>
    */
-  CreationTime?: Date;
+  StateReason?: string;
 }
 
 export namespace DescribeArchiveResponse {
@@ -633,16 +633,16 @@ export namespace DescribeEventBusRequest {
 
 export interface DescribeEventBusResponse {
   /**
-   * <p>The name of the event bus. Currently, this is always
-   *             <code>default</code>.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the account permitted to write events to the
    *             current account.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The name of the event bus. Currently, this is always
+   *             <code>default</code>.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The policy that enables the external account to send events to your
@@ -787,44 +787,14 @@ export namespace ReplayDestination {
 
 export interface DescribeReplayResponse {
   /**
-   * <p>The name of the replay.</p>
-   */
-  ReplayName?: string;
-
-  /**
-   * <p>The ARN of the replay.</p>
-   */
-  ReplayArn?: string;
-
-  /**
    * <p>The description of the replay.</p>
    */
   Description?: string;
 
   /**
-   * <p>The current state of the replay.</p>
-   */
-  State?: ReplayState | string;
-
-  /**
-   * <p>The reason that the replay is in the current state.</p>
-   */
-  StateReason?: string;
-
-  /**
-   * <p>The ARN of the archive events were replayed from.</p>
-   */
-  EventSourceArn?: string;
-
-  /**
    * <p>A <code>ReplayDestination</code> object that contains details about the replay.</p>
    */
   Destination?: ReplayDestination;
-
-  /**
-   * <p>The time stamp of the first event that was last replayed from the archive.</p>
-   */
-  EventStartTime?: Date;
 
   /**
    * <p>The time stamp for the last event that was replayed from the archive.</p>
@@ -837,14 +807,44 @@ export interface DescribeReplayResponse {
   EventLastReplayedTime?: Date;
 
   /**
-   * <p>A time stamp for the time that the replay started.</p>
+   * <p>The ARN of the archive events were replayed from.</p>
    */
-  ReplayStartTime?: Date;
+  EventSourceArn?: string;
+
+  /**
+   * <p>The time stamp of the first event that was last replayed from the archive.</p>
+   */
+  EventStartTime?: Date;
+
+  /**
+   * <p>The ARN of the replay.</p>
+   */
+  ReplayArn?: string;
 
   /**
    * <p>A time stamp for the time that the replay stopped.</p>
    */
   ReplayEndTime?: Date;
+
+  /**
+   * <p>The name of the replay.</p>
+   */
+  ReplayName?: string;
+
+  /**
+   * <p>A time stamp for the time that the replay started.</p>
+   */
+  ReplayStartTime?: Date;
+
+  /**
+   * <p>The current state of the replay.</p>
+   */
+  State?: ReplayState | string;
+
+  /**
+   * <p>The reason that the replay is in the current state.</p>
+   */
+  StateReason?: string;
 }
 
 export namespace DescribeReplayResponse {
@@ -855,15 +855,15 @@ export namespace DescribeReplayResponse {
 
 export interface DescribeRuleRequest {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DescribeRuleRequest {
@@ -879,14 +879,26 @@ export enum RuleState {
 
 export interface DescribeRuleResponse {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The account ID of the user that created the rule. If you use <code>PutRule</code>
+   *             to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account.
+   *             However, the value for <code>CreatedBy</code> is the account ID as the account that created the rule in the other account.</p>
+   */
+  CreatedBy?: string;
+
+  /**
+   * <p>The description of the rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the event bus associated with the rule.</p>
+   */
+  EventBusName?: string;
 
   /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and
@@ -894,6 +906,22 @@ export interface DescribeRuleResponse {
    *             Guide</i>.</p>
    */
   EventPattern?: string;
+
+  /**
+   * <p>If this is a managed rule, created by an AWS service on your behalf, this field
+   *             displays the principal name of the AWS service that created the rule.</p>
+   */
+  ManagedBy?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>
+   */
+  RoleArn?: string;
 
   /**
    * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5
@@ -905,34 +933,6 @@ export interface DescribeRuleResponse {
    * <p>Specifies whether the rule is enabled or disabled.</p>
    */
   State?: RuleState | string;
-
-  /**
-   * <p>The description of the rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>
-   */
-  RoleArn?: string;
-
-  /**
-   * <p>If this is a managed rule, created by an AWS service on your behalf, this field
-   *             displays the principal name of the AWS service that created the rule.</p>
-   */
-  ManagedBy?: string;
-
-  /**
-   * <p>The name of the event bus associated with the rule.</p>
-   */
-  EventBusName?: string;
-
-  /**
-   * <p>The account ID of the user that created the rule. If you use <code>PutRule</code>
-   *             to put a rule on an event bus in another account, the other account is the owner of the rule, and the rule ARN includes the account ID for that account.
-   *             However, the value for <code>CreatedBy</code> is the account ID as the account that created the rule in the other account.</p>
-   */
-  CreatedBy?: string;
 }
 
 export namespace DescribeRuleResponse {
@@ -943,15 +943,15 @@ export namespace DescribeRuleResponse {
 
 export interface DisableRuleRequest {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace DisableRuleRequest {
@@ -962,15 +962,15 @@ export namespace DisableRuleRequest {
 
 export interface EnableRuleRequest {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace EnableRuleRequest {
@@ -981,20 +981,20 @@ export namespace EnableRuleRequest {
 
 export interface ListArchivesRequest {
   /**
-   * <p>A name prefix to filter the archives returned. Only archives with name that match the
-   *             prefix are returned.</p>
-   */
-  NamePrefix?: string;
-
-  /**
    * <p>The ARN of the event source associated with the archive.</p>
    */
   EventSourceArn?: string;
 
   /**
-   * <p>The state of the archive.</p>
+   * <p>The maximum number of results to return.</p>
    */
-  State?: ArchiveState | string;
+  Limit?: number;
+
+  /**
+   * <p>A name prefix to filter the archives returned. Only archives with name that match the
+   *             prefix are returned.</p>
+   */
+  NamePrefix?: string;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -1002,9 +1002,9 @@ export interface ListArchivesRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The state of the archive.</p>
    */
-  Limit?: number;
+  State?: ArchiveState | string;
 }
 
 export namespace ListArchivesRequest {
@@ -1033,6 +1033,13 @@ export namespace ListArchivesResponse {
 
 export interface ListEventBusesRequest {
   /**
+   * <p>Specifying this limits the number of results returned by this operation. The operation
+   *             also returns a NextToken which you can use in a subsequent operation to retrieve the
+   *             next set of results.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>Specifying this limits the results to only those event buses with names that start
    *             with the specified prefix.</p>
    */
@@ -1042,13 +1049,6 @@ export interface ListEventBusesRequest {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Specifying this limits the number of results returned by this operation. The operation
-   *             also returns a NextToken which you can use in a subsequent operation to retrieve the
-   *             next set of results.</p>
-   */
-  Limit?: number;
 }
 
 export namespace ListEventBusesRequest {
@@ -1066,14 +1066,14 @@ export namespace ListEventBusesRequest {
  */
 export interface EventBus {
   /**
-   * <p>The name of the event bus.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ARN of the event bus.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The name of the event bus.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The permissions policy of the event bus, describing which other AWS accounts can write
@@ -1109,6 +1109,13 @@ export namespace ListEventBusesResponse {
 
 export interface ListEventSourcesRequest {
   /**
+   * <p>Specifying this limits the number of results returned by this operation. The operation
+   *             also returns a NextToken which you can use in a subsequent operation to retrieve the
+   *             next set of results.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>Specifying this limits the results to only those partner event sources with names that
    *             start with the specified prefix.</p>
    */
@@ -1118,13 +1125,6 @@ export interface ListEventSourcesRequest {
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Specifying this limits the number of results returned by this operation. The operation
-   *             also returns a NextToken which you can use in a subsequent operation to retrieve the
-   *             next set of results.</p>
-   */
-  Limit?: number;
 }
 
 export namespace ListEventSourcesRequest {
@@ -1207,17 +1207,17 @@ export interface ListPartnerEventSourceAccountsRequest {
   EventSourceName: string | undefined;
 
   /**
-   * <p>The token returned by a previous call to this operation. Specifying this retrieves the
-   *             next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Specifying this limits the number of results returned by this operation. The operation
    *             also returns a NextToken which you can use in a subsequent operation to retrieve the
    *             next set of results.</p>
    */
   Limit?: number;
+
+  /**
+   * <p>The token returned by a previous call to this operation. Specifying this retrieves the
+   *             next set of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListPartnerEventSourceAccountsRequest {
@@ -1264,15 +1264,15 @@ export namespace PartnerEventSourceAccount {
 
 export interface ListPartnerEventSourceAccountsResponse {
   /**
-   * <p>The list of partner event sources returned by the operation.</p>
-   */
-  PartnerEventSourceAccounts?: PartnerEventSourceAccount[];
-
-  /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of partner event sources returned by the operation.</p>
+   */
+  PartnerEventSourceAccounts?: PartnerEventSourceAccount[];
 }
 
 export namespace ListPartnerEventSourceAccountsResponse {
@@ -1282,6 +1282,13 @@ export namespace ListPartnerEventSourceAccountsResponse {
 }
 
 export interface ListPartnerEventSourcesRequest {
+  /**
+   * <p>pecifying this limits the number of results returned by this operation. The operation
+   *             also returns a NextToken which you can use in a subsequent operation to retrieve the
+   *             next set of results.</p>
+   */
+  Limit?: number;
+
   /**
    * <p>If you specify this, the results are limited to only those partner event sources that
    *             start with the string you specify.</p>
@@ -1293,13 +1300,6 @@ export interface ListPartnerEventSourcesRequest {
    *             next set of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>pecifying this limits the number of results returned by this operation. The operation
-   *             also returns a NextToken which you can use in a subsequent operation to retrieve the
-   *             next set of results.</p>
-   */
-  Limit?: number;
 }
 
 export namespace ListPartnerEventSourcesRequest {
@@ -1333,15 +1333,15 @@ export namespace PartnerEventSource {
 
 export interface ListPartnerEventSourcesResponse {
   /**
-   * <p>The list of partner event sources returned by the operation.</p>
-   */
-  PartnerEventSources?: PartnerEventSource[];
-
-  /**
    * <p>A token you can use in a subsequent operation to retrieve the next set of
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The list of partner event sources returned by the operation.</p>
+   */
+  PartnerEventSources?: PartnerEventSource[];
 }
 
 export namespace ListPartnerEventSourcesResponse {
@@ -1352,20 +1352,20 @@ export namespace ListPartnerEventSourcesResponse {
 
 export interface ListReplaysRequest {
   /**
+   * <p>The ARN of the event source associated with the replay.</p>
+   */
+  EventSourceArn?: string;
+
+  /**
+   * <p>The maximum number of replays to retrieve.</p>
+   */
+  Limit?: number;
+
+  /**
    * <p>A name prefix to filter the replays returned. Only replays with name that match the
    *             prefix are returned.</p>
    */
   NamePrefix?: string;
-
-  /**
-   * <p>The state of the replay.</p>
-   */
-  State?: ReplayState | string;
-
-  /**
-   * <p>The ARN of the event source associated with the replay.</p>
-   */
-  EventSourceArn?: string;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
@@ -1373,9 +1373,9 @@ export interface ListReplaysRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of replays to retrieve.</p>
+   * <p>The state of the replay.</p>
    */
-  Limit?: number;
+  State?: ReplayState | string;
 }
 
 export namespace ListReplaysRequest {
@@ -1389,32 +1389,6 @@ export namespace ListReplaysRequest {
  */
 export interface Replay {
   /**
-   * <p>The name of the replay.</p>
-   */
-  ReplayName?: string;
-
-  /**
-   * <p>The ARN of the archive to replay event from.</p>
-   */
-  EventSourceArn?: string;
-
-  /**
-   * <p>The current state of the replay.</p>
-   */
-  State?: ReplayState | string;
-
-  /**
-   * <p>A description of why the replay is in the current state.</p>
-   */
-  StateReason?: string;
-
-  /**
-   * <p>A time stamp for the time to start replaying events. This is determined by the time in
-   *             the event as described in <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time">Time</a>.</p>
-   */
-  EventStartTime?: Date;
-
-  /**
    * <p>A time stamp for the time to start replaying events. Any event with a creation time
    *             prior to the <code>EventEndTime</code> specified is replayed.</p>
    */
@@ -1426,14 +1400,40 @@ export interface Replay {
   EventLastReplayedTime?: Date;
 
   /**
-   * <p>A time stamp for the time that the replay started.</p>
+   * <p>The ARN of the archive to replay event from.</p>
    */
-  ReplayStartTime?: Date;
+  EventSourceArn?: string;
+
+  /**
+   * <p>A time stamp for the time to start replaying events. This is determined by the time in
+   *             the event as described in <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time">Time</a>.</p>
+   */
+  EventStartTime?: Date;
 
   /**
    * <p>A time stamp for the time that the replay completed.</p>
    */
   ReplayEndTime?: Date;
+
+  /**
+   * <p>The name of the replay.</p>
+   */
+  ReplayName?: string;
+
+  /**
+   * <p>A time stamp for the time that the replay started.</p>
+   */
+  ReplayStartTime?: Date;
+
+  /**
+   * <p>The current state of the replay.</p>
+   */
+  State?: ReplayState | string;
+
+  /**
+   * <p>A description of why the replay is in the current state.</p>
+   */
+  StateReason?: string;
 }
 
 export namespace Replay {
@@ -1444,15 +1444,15 @@ export namespace Replay {
 
 export interface ListReplaysResponse {
   /**
+   * <p>The token returned by a previous call to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>An array of <code>Replay</code> objects that contain information about the
    *             replay.</p>
    */
   Replays?: Replay[];
-
-  /**
-   * <p>The token returned by a previous call to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListReplaysResponse {
@@ -1463,15 +1463,15 @@ export namespace ListReplaysResponse {
 
 export interface ListRuleNamesByTargetRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the target resource.</p>
-   */
-  TargetArn: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus to list rules for. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of
@@ -1480,9 +1480,9 @@ export interface ListRuleNamesByTargetRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The Amazon Resource Name (ARN) of the target resource.</p>
    */
-  Limit?: number;
+  TargetArn: string | undefined;
 }
 
 export namespace ListRuleNamesByTargetRequest {
@@ -1493,15 +1493,15 @@ export namespace ListRuleNamesByTargetRequest {
 
 export interface ListRuleNamesByTargetResponse {
   /**
-   * <p>The names of the rules that can invoke the given target.</p>
-   */
-  RuleNames?: string[];
-
-  /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more
    *             results, the value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The names of the rules that can invoke the given target.</p>
+   */
+  RuleNames?: string[];
 }
 
 export namespace ListRuleNamesByTargetResponse {
@@ -1512,26 +1512,26 @@ export namespace ListRuleNamesByTargetResponse {
 
 export interface ListRulesRequest {
   /**
-   * <p>The prefix matching the rule name.</p>
-   */
-  NamePrefix?: string;
-
-  /**
    * <p>The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
 
   /**
+   * <p>The maximum number of results to return.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The prefix matching the rule name.</p>
+   */
+  NamePrefix?: string;
+
+  /**
    * <p>The token returned by a previous call to retrieve the next set of
    *             results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   */
-  Limit?: number;
 }
 
 export namespace ListRulesRequest {
@@ -1545,14 +1545,20 @@ export namespace ListRulesRequest {
  */
 export interface Rule {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The description of the rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
+   *             used.</p>
+   */
+  EventBusName?: string;
 
   /**
    * <p>The event pattern of the rule. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and
@@ -1562,20 +1568,15 @@ export interface Rule {
   EventPattern?: string;
 
   /**
-   * <p>The state of the rule.</p>
+   * <p>If the rule was created on behalf of your account by an AWS service, this field
+   *             displays the principal name of the service that created the rule.</p>
    */
-  State?: RuleState | string;
+  ManagedBy?: string;
 
   /**
-   * <p>The description of the rule.</p>
+   * <p>The name of the rule.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5
-   *             minutes)".</p>
-   */
-  ScheduleExpression?: string;
+  Name?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that is used for target
@@ -1584,16 +1585,15 @@ export interface Rule {
   RoleArn?: string;
 
   /**
-   * <p>If the rule was created on behalf of your account by an AWS service, this field
-   *             displays the principal name of the service that created the rule.</p>
+   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5
+   *             minutes)".</p>
    */
-  ManagedBy?: string;
+  ScheduleExpression?: string;
 
   /**
-   * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
-   *             used.</p>
+   * <p>The state of the rule.</p>
    */
-  EventBusName?: string;
+  State?: RuleState | string;
 }
 
 export namespace Rule {
@@ -1604,15 +1604,15 @@ export namespace Rule {
 
 export interface ListRulesResponse {
   /**
-   * <p>The rules that match the specified criteria.</p>
-   */
-  Rules?: Rule[];
-
-  /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more
    *             results, the value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The rules that match the specified criteria.</p>
+   */
+  Rules?: Rule[];
 }
 
 export namespace ListRulesResponse {
@@ -1649,15 +1649,15 @@ export namespace ListTagsForResourceResponse {
 
 export interface ListTargetsByRuleRequest {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Rule: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  Limit?: number;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of
@@ -1666,9 +1666,9 @@ export interface ListTargetsByRuleRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The name of the rule.</p>
    */
-  Limit?: number;
+  Rule: string | undefined;
 }
 
 export namespace ListTargetsByRuleRequest {
@@ -1721,6 +1721,14 @@ export namespace BatchRetryStrategy {
  */
 export interface BatchParameters {
   /**
+   * <p>The array properties for the submitted job, such as the size of the array. The
+   *             array size can be between 2 and 10,000. If you specify array properties for a job, it
+   *             becomes an array job. This parameter is used only if the target is an AWS Batch
+   *             job.</p>
+   */
+  ArrayProperties?: BatchArrayProperties;
+
+  /**
    * <p>The ARN or name of the job definition to use if the event target is an AWS Batch
    *             job. This job definition must already exist.</p>
    */
@@ -1731,14 +1739,6 @@ export interface BatchParameters {
    *             job.</p>
    */
   JobName: string | undefined;
-
-  /**
-   * <p>The array properties for the submitted job, such as the size of the array. The
-   *             array size can be between 2 and 10,000. If you specify array properties for a job, it
-   *             becomes an array job. This parameter is used only if the target is an AWS Batch
-   *             job.</p>
-   */
-  ArrayProperties?: BatchArrayProperties;
 
   /**
    * <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job. The
@@ -1784,10 +1784,11 @@ export enum LaunchType {
  */
 export interface AwsVpcConfiguration {
   /**
-   * <p>Specifies the subnets associated with the task. These subnets must all be in the same
-   *             VPC. You can specify as many as 16 subnets.</p>
+   * <p>Specifies whether the task's elastic network interface receives a public IP address.
+   *             You can specify <code>ENABLED</code> only when <code>LaunchType</code> in
+   *                 <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  Subnets: string[] | undefined;
+  AssignPublicIp?: AssignPublicIp | string;
 
   /**
    * <p>Specifies the security groups associated with the task. These security groups must all
@@ -1797,11 +1798,10 @@ export interface AwsVpcConfiguration {
   SecurityGroups?: string[];
 
   /**
-   * <p>Specifies whether the task's elastic network interface receives a public IP address.
-   *             You can specify <code>ENABLED</code> only when <code>LaunchType</code> in
-   *                 <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
+   * <p>Specifies the subnets associated with the task. These subnets must all be in the same
+   *             VPC. You can specify as many as 16 subnets.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  Subnets: string[] | undefined;
 }
 
 export namespace AwsVpcConfiguration {
@@ -1833,16 +1833,9 @@ export namespace NetworkConfiguration {
  */
 export interface EcsParameters {
   /**
-   * <p>The ARN of the task definition to use if the event target is an Amazon ECS task.
-   *         </p>
+   * <p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>
    */
-  TaskDefinitionArn: string | undefined;
-
-  /**
-   * <p>The number of tasks to create based on <code>TaskDefinition</code>. The default is
-   *             1.</p>
-   */
-  TaskCount?: number;
+  Group?: string;
 
   /**
    * <p>Specifies the launch type on which your task is running. The launch type that you
@@ -1876,9 +1869,16 @@ export interface EcsParameters {
   PlatformVersion?: string;
 
   /**
-   * <p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>
+   * <p>The number of tasks to create based on <code>TaskDefinition</code>. The default is
+   *             1.</p>
    */
-  Group?: string;
+  TaskCount?: number;
+
+  /**
+   * <p>The ARN of the task definition to use if the event target is an Amazon ECS task.
+   *         </p>
+   */
+  TaskDefinitionArn: string | undefined;
 }
 
 export namespace EcsParameters {
@@ -1893,16 +1893,16 @@ export namespace EcsParameters {
  */
 export interface HttpParameters {
   /**
-   * <p>The path parameter values to be used to populate API Gateway REST API path wildcards
-   *             ("*").</p>
-   */
-  PathParameterValues?: string[];
-
-  /**
    * <p>The headers that need to be sent as part of request invoking the API Gateway REST
    *             API.</p>
    */
   HeaderParameters?: { [key: string]: string };
+
+  /**
+   * <p>The path parameter values to be used to populate API Gateway REST API path wildcards
+   *             ("*").</p>
+   */
+  PathParameterValues?: string[];
 
   /**
    * <p>The query string keys/values that need to be sent as part of request invoking the API
@@ -2026,12 +2026,6 @@ export namespace KinesisParameters {
  */
 export interface RedshiftDataParameters {
   /**
-   * <p>The name or ARN of the secret that enables access to the database. Required when
-   *             authenticating using AWS Secrets Manager.</p>
-   */
-  SecretManagerArn?: string;
-
-  /**
    * <p>The name of the database. Required when authenticating using temporary
    *             credentials.</p>
    */
@@ -2042,6 +2036,12 @@ export interface RedshiftDataParameters {
    *             credentials.</p>
    */
   DbUser?: string;
+
+  /**
+   * <p>The name or ARN of the secret that enables access to the database. Required when
+   *             authenticating using AWS Secrets Manager.</p>
+   */
+  SecretManagerArn?: string;
 
   /**
    * <p>The SQL statement text to run.</p>
@@ -2073,16 +2073,16 @@ export namespace RedshiftDataParameters {
  */
 export interface RetryPolicy {
   /**
+   * <p>The maximum amount of time, in seconds, to continue to make retry attempts.</p>
+   */
+  MaximumEventAgeInSeconds?: number;
+
+  /**
    * <p>The maximum number of retry attempts to make before the request fails. Retry attempts
    *             continue until either the maximum number of attempts is made or until the duration of
    *             the <code>MaximumEventAgeInSeconds</code> is met.</p>
    */
   MaximumRetryAttempts?: number;
-
-  /**
-   * <p>The maximum amount of time, in seconds, to continue to make retry attempts.</p>
-   */
-  MaximumEventAgeInSeconds?: number;
 }
 
 export namespace RetryPolicy {
@@ -2167,21 +2167,44 @@ export namespace SqsParameters {
  */
 export interface Target {
   /**
-   * <p>The ID of the target.</p>
-   */
-  Id: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the target.</p>
    */
   Arn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the
-   *             rule is triggered. If one rule triggers multiple targets, you can use a different IAM
-   *             role for each target.</p>
+   * <p>If the event target is an AWS Batch job, this contains the job definition, job
+   *             name, and other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>AWS Batch User
+   *                 Guide</i>.</p>
    */
-  RoleArn?: string;
+  BatchParameters?: BatchParameters;
+
+  /**
+   * <p>The <code>DeadLetterConfig</code> that defines the target queue to send dead-letter
+   *             queue events to.</p>
+   */
+  DeadLetterConfig?: DeadLetterConfig;
+
+  /**
+   * <p>Contains the Amazon ECS task definition and task count to be used, if the event
+   *             target is an Amazon ECS task. For more information about Amazon ECS tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task
+   *                 Definitions </a> in the <i>Amazon EC2 Container Service Developer
+   *                 Guide</i>.</p>
+   */
+  EcsParameters?: EcsParameters;
+
+  /**
+   * <p>Contains the HTTP parameters to use when the target is a API Gateway REST
+   *             endpoint.</p>
+   *         <p>If you specify an API Gateway REST API as a target, you can use this parameter to
+   *             specify headers, path parameter, query string keys/values as part of your target
+   *             invoking request.</p>
+   */
+  HttpParameters?: HttpParameters;
+
+  /**
+   * <p>The ID of the target.</p>
+   */
+  Id: string | undefined;
 
   /**
    * <p>Valid JSON text passed to the target. In this case, nothing from the event itself
@@ -2212,43 +2235,6 @@ export interface Target {
   KinesisParameters?: KinesisParameters;
 
   /**
-   * <p>Parameters used when you are using the rule to invoke Amazon EC2 Run
-   *             Command.</p>
-   */
-  RunCommandParameters?: RunCommandParameters;
-
-  /**
-   * <p>Contains the Amazon ECS task definition and task count to be used, if the event
-   *             target is an Amazon ECS task. For more information about Amazon ECS tasks, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Task
-   *                 Definitions </a> in the <i>Amazon EC2 Container Service Developer
-   *                 Guide</i>.</p>
-   */
-  EcsParameters?: EcsParameters;
-
-  /**
-   * <p>If the event target is an AWS Batch job, this contains the job definition, job
-   *             name, and other parameters. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/jobs.html">Jobs</a> in the <i>AWS Batch User
-   *                 Guide</i>.</p>
-   */
-  BatchParameters?: BatchParameters;
-
-  /**
-   * <p>Contains the message group ID to use when the target is a FIFO queue.</p>
-   *         <p>If you specify an SQS FIFO queue as a target, the queue must have content-based
-   *             deduplication enabled.</p>
-   */
-  SqsParameters?: SqsParameters;
-
-  /**
-   * <p>Contains the HTTP parameters to use when the target is a API Gateway REST
-   *             endpoint.</p>
-   *         <p>If you specify an API Gateway REST API as a target, you can use this parameter to
-   *             specify headers, path parameter, query string keys/values as part of your target
-   *             invoking request.</p>
-   */
-  HttpParameters?: HttpParameters;
-
-  /**
    * <p>Contains the Redshift Data API parameters to use when the target is a Redshift
    *             cluster.</p>
    *         <p>If you specify a Redshift Cluster as a Target, you can use this to specify
@@ -2258,16 +2244,30 @@ export interface Target {
   RedshiftDataParameters?: RedshiftDataParameters;
 
   /**
-   * <p>The <code>DeadLetterConfig</code> that defines the target queue to send dead-letter
-   *             queue events to.</p>
-   */
-  DeadLetterConfig?: DeadLetterConfig;
-
-  /**
    * <p>The <code>RetryPolicy</code> object that contains the retry policy configuration to
    *             use for the dead-letter queue.</p>
    */
   RetryPolicy?: RetryPolicy;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to be used for this target when the
+   *             rule is triggered. If one rule triggers multiple targets, you can use a different IAM
+   *             role for each target.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Parameters used when you are using the rule to invoke Amazon EC2 Run
+   *             Command.</p>
+   */
+  RunCommandParameters?: RunCommandParameters;
+
+  /**
+   * <p>Contains the message group ID to use when the target is a FIFO queue.</p>
+   *         <p>If you specify an SQS FIFO queue as a target, the queue must have content-based
+   *             deduplication enabled.</p>
+   */
+  SqsParameters?: SqsParameters;
 }
 
 export namespace Target {
@@ -2278,15 +2278,15 @@ export namespace Target {
 
 export interface ListTargetsByRuleResponse {
   /**
-   * <p>The targets assigned to the rule.</p>
-   */
-  Targets?: Target[];
-
-  /**
    * <p>Indicates whether there are additional results to retrieve. If there are no more
    *             results, the value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The targets assigned to the rule.</p>
+   */
+  Targets?: Target[];
 }
 
 export namespace ListTargetsByRuleResponse {
@@ -2300,21 +2300,10 @@ export namespace ListTargetsByRuleResponse {
  */
 export interface PutEventsRequestEntry {
   /**
-   * <p>The time stamp of the event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>. If no time stamp
-   *             is provided, the time stamp of the <a>PutEvents</a> call is used.</p>
+   * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain
+   *             fields and nested subobjects.</p>
    */
-  Time?: Date;
-
-  /**
-   * <p>The source of the event.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily
-   *             concerns. Any number, including zero, may be present.</p>
-   */
-  Resources?: string[];
+  Detail?: string;
 
   /**
    * <p>Free-form string used to decide what fields to expect in the event
@@ -2323,17 +2312,28 @@ export interface PutEventsRequestEntry {
   DetailType?: string;
 
   /**
-   * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain
-   *             fields and nested subobjects.</p>
-   */
-  Detail?: string;
-
-  /**
    * <p>The name or ARN of the event bus to receive the event. Only the rules that are associated with
    *             this event bus are used to match the event. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily
+   *             concerns. Any number, including zero, may be present.</p>
+   */
+  Resources?: string[];
+
+  /**
+   * <p>The source of the event.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The time stamp of the event, per <a href="https://www.rfc-editor.org/rfc/rfc3339.txt">RFC3339</a>. If no time stamp
+   *             is provided, the time stamp of the <a>PutEvents</a> call is used.</p>
+   */
+  Time?: Date;
 }
 
 export namespace PutEventsRequestEntry {
@@ -2362,11 +2362,6 @@ export namespace PutEventsRequest {
  */
 export interface PutEventsResultEntry {
   /**
-   * <p>The ID of the event.</p>
-   */
-  EventId?: string;
-
-  /**
    * <p>The error code that indicates why the event submission failed.</p>
    */
   ErrorCode?: string;
@@ -2375,6 +2370,11 @@ export interface PutEventsResultEntry {
    * <p>The error message that explains why the event submission failed.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The ID of the event.</p>
+   */
+  EventId?: string;
 }
 
 export namespace PutEventsResultEntry {
@@ -2385,16 +2385,16 @@ export namespace PutEventsResultEntry {
 
 export interface PutEventsResponse {
   /**
-   * <p>The number of failed entries.</p>
-   */
-  FailedEntryCount?: number;
-
-  /**
    * <p>The successfully and unsuccessfully ingested events results. If the ingestion was
    *             successful, the entry has the event ID in it. Otherwise, you can use the error code and
    *             error message to identify the problem with the entry.</p>
    */
   Entries?: PutEventsResultEntry[];
+
+  /**
+   * <p>The number of failed entries.</p>
+   */
+  FailedEntryCount?: number;
 }
 
 export namespace PutEventsResponse {
@@ -2408,14 +2408,15 @@ export namespace PutEventsResponse {
  */
 export interface PutPartnerEventsRequestEntry {
   /**
-   * <p>The date and time of the event.</p>
+   * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain
+   *             fields and nested subobjects.</p>
    */
-  Time?: Date;
+  Detail?: string;
 
   /**
-   * <p>The event source that is generating the evntry.</p>
+   * <p>A free-form string used to decide what fields to expect in the event detail.</p>
    */
-  Source?: string;
+  DetailType?: string;
 
   /**
    * <p>AWS resources, identified by Amazon Resource Name (ARN), which the event primarily
@@ -2424,15 +2425,14 @@ export interface PutPartnerEventsRequestEntry {
   Resources?: string[];
 
   /**
-   * <p>A free-form string used to decide what fields to expect in the event detail.</p>
+   * <p>The event source that is generating the evntry.</p>
    */
-  DetailType?: string;
+  Source?: string;
 
   /**
-   * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain
-   *             fields and nested subobjects.</p>
+   * <p>The date and time of the event.</p>
    */
-  Detail?: string;
+  Time?: Date;
 }
 
 export namespace PutPartnerEventsRequestEntry {
@@ -2459,11 +2459,6 @@ export namespace PutPartnerEventsRequest {
  */
 export interface PutPartnerEventsResultEntry {
   /**
-   * <p>The ID of the event.</p>
-   */
-  EventId?: string;
-
-  /**
    * <p>The error code that indicates why the event submission failed.</p>
    */
   ErrorCode?: string;
@@ -2472,6 +2467,11 @@ export interface PutPartnerEventsResultEntry {
    * <p>The error message that explains why the event submission failed.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The ID of the event.</p>
+   */
+  EventId?: string;
 }
 
 export namespace PutPartnerEventsResultEntry {
@@ -2482,16 +2482,16 @@ export namespace PutPartnerEventsResultEntry {
 
 export interface PutPartnerEventsResponse {
   /**
-   * <p>The number of events from this operation that could not be written to the partner
-   *             event bus.</p>
-   */
-  FailedEntryCount?: number;
-
-  /**
    * <p>The list of events from this operation that were successfully written to the partner
    *             event bus.</p>
    */
   Entries?: PutPartnerEventsResultEntry[];
+
+  /**
+   * <p>The number of events from this operation that could not be written to the partner
+   *             event bus.</p>
+   */
+  FailedEntryCount?: number;
 }
 
 export namespace PutPartnerEventsResponse {
@@ -2529,16 +2529,16 @@ export namespace PolicyLengthExceededException {
  */
 export interface Condition {
   /**
-   * <p>Specifies the type of condition. Currently the only supported value is
-   *                 <code>StringEquals</code>.</p>
-   */
-  Type: string | undefined;
-
-  /**
    * <p>Specifies the key for the condition. Currently the only supported key is
    *                 <code>aws:PrincipalOrgID</code>.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>Specifies the type of condition. Currently the only supported value is
+   *                 <code>StringEquals</code>.</p>
+   */
+  Type: string | undefined;
 
   /**
    * <p>Specifies the value for the key. Currently, this must be the ID of the
@@ -2555,16 +2555,37 @@ export namespace Condition {
 
 export interface PutPermissionRequest {
   /**
+   * <p>The action that you are enabling the other account to perform. Currently, this must
+   *             be <code>events:PutEvents</code>.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>This parameter enables you to limit the permission to accounts that fulfill a certain
+   *             condition, such as being a member of a certain AWS organization. For more information
+   *             about AWS Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is AWS
+   *                 Organizations</a> in the <i>AWS Organizations User
+   *             Guide</i>.</p>
+   *         <p>If you specify <code>Condition</code> with an AWS organization ID, and specify "*" as
+   *             the value for <code>Principal</code>, you grant permission to all the accounts in the
+   *             named organization.</p>
+   *
+   *         <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,
+   *                 <code>Key</code>, and <code>Value</code> fields.</p>
+   */
+  Condition?: Condition;
+
+  /**
    * <p>The name of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
 
   /**
-   * <p>The action that you are enabling the other account to perform. Currently, this must
-   *             be <code>events:PutEvents</code>.</p>
+   * <p>A JSON string that describes the permission policy statement. You can include a <code>Policy</code> parameter
+   *             in the request instead of using the <code>StatementId</code>, <code>Action</code>, <code>Principal</code>, or <code>Condition</code> parameters.</p>
    */
-  Action?: string;
+  Policy?: string;
 
   /**
    * <p>The 12-digit AWS account ID that you are permitting to put events to your default
@@ -2585,27 +2606,6 @@ export interface PutPermissionRequest {
    *                 <code>StatementId</code> when you run <a>RemovePermission</a>.</p>
    */
   StatementId?: string;
-
-  /**
-   * <p>This parameter enables you to limit the permission to accounts that fulfill a certain
-   *             condition, such as being a member of a certain AWS organization. For more information
-   *             about AWS Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">What Is AWS
-   *                 Organizations</a> in the <i>AWS Organizations User
-   *             Guide</i>.</p>
-   *         <p>If you specify <code>Condition</code> with an AWS organization ID, and specify "*" as
-   *             the value for <code>Principal</code>, you grant permission to all the accounts in the
-   *             named organization.</p>
-   *
-   *         <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,
-   *                 <code>Key</code>, and <code>Value</code> fields.</p>
-   */
-  Condition?: Condition;
-
-  /**
-   * <p>A JSON string that describes the permission policy statement. You can include a <code>Policy</code> parameter
-   *             in the request instead of using the <code>StatementId</code>, <code>Action</code>, <code>Principal</code>, or <code>Condition</code> parameters.</p>
-   */
-  Policy?: string;
 }
 
 export namespace PutPermissionRequest {
@@ -2616,15 +2616,15 @@ export namespace PutPermissionRequest {
 
 export interface PutRuleRequest {
   /**
-   * <p>The name of the rule that you are creating or updating.</p>
+   * <p>A description of the rule.</p>
    */
-  Name: string | undefined;
+  Description?: string;
 
   /**
-   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5
-   *             minutes)".</p>
+   * <p>The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is
+   *             used.</p>
    */
-  ScheduleExpression?: string;
+  EventBusName?: string;
 
   /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and
@@ -2634,14 +2634,9 @@ export interface PutRuleRequest {
   EventPattern?: string;
 
   /**
-   * <p>Indicates whether the rule is enabled or disabled.</p>
+   * <p>The name of the rule that you are creating or updating.</p>
    */
-  State?: RuleState | string;
-
-  /**
-   * <p>A description of the rule.</p>
-   */
-  Description?: string;
+  Name: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role associated with the rule.</p>
@@ -2649,15 +2644,20 @@ export interface PutRuleRequest {
   RoleArn?: string;
 
   /**
+   * <p>The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5
+   *             minutes)".</p>
+   */
+  ScheduleExpression?: string;
+
+  /**
+   * <p>Indicates whether the rule is enabled or disabled.</p>
+   */
+  State?: RuleState | string;
+
+  /**
    * <p>The list of key-value pairs to associate with the rule.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The name or ARN of the event bus to associate with this rule. If you omit this, the default event bus is
-   *             used.</p>
-   */
-  EventBusName?: string;
 }
 
 export namespace PutRuleRequest {
@@ -2681,15 +2681,15 @@ export namespace PutRuleResponse {
 
 export interface PutTargetsRequest {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Rule: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default
    *             event bus is used.</p>
    */
   EventBusName?: string;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Rule: string | undefined;
 
   /**
    * <p>The targets to update or add to the rule.</p>
@@ -2708,11 +2708,6 @@ export namespace PutTargetsRequest {
  */
 export interface PutTargetsResultEntry {
   /**
-   * <p>The ID of the target.</p>
-   */
-  TargetId?: string;
-
-  /**
    * <p>The error code that indicates why the target addition failed. If the value is
    *                 <code>ConcurrentModificationException</code>, too many requests were made at the
    *             same time.</p>
@@ -2723,6 +2718,11 @@ export interface PutTargetsResultEntry {
    * <p>The error message that explains why the target addition failed.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The ID of the target.</p>
+   */
+  TargetId?: string;
 }
 
 export namespace PutTargetsResultEntry {
@@ -2733,14 +2733,14 @@ export namespace PutTargetsResultEntry {
 
 export interface PutTargetsResponse {
   /**
-   * <p>The number of failed entries.</p>
-   */
-  FailedEntryCount?: number;
-
-  /**
    * <p>The failed target entries.</p>
    */
   FailedEntries?: PutTargetsResultEntry[];
+
+  /**
+   * <p>The number of failed entries.</p>
+   */
+  FailedEntryCount?: number;
 }
 
 export namespace PutTargetsResponse {
@@ -2751,10 +2751,10 @@ export namespace PutTargetsResponse {
 
 export interface RemovePermissionRequest {
   /**
-   * <p>The statement ID corresponding to the account that is no longer allowed to put
-   *             events to the default event bus.</p>
+   * <p>The name of the event bus to revoke permissions for. If you omit this, the default
+   *             event bus is used.</p>
    */
-  StatementId?: string;
+  EventBusName?: string;
 
   /**
    * <p>Specifies whether to remove all permissions.</p>
@@ -2762,10 +2762,10 @@ export interface RemovePermissionRequest {
   RemoveAllPermissions?: boolean;
 
   /**
-   * <p>The name of the event bus to revoke permissions for. If you omit this, the default
-   *             event bus is used.</p>
+   * <p>The statement ID corresponding to the account that is no longer allowed to put
+   *             events to the default event bus.</p>
    */
-  EventBusName?: string;
+  StatementId?: string;
 }
 
 export namespace RemovePermissionRequest {
@@ -2776,20 +2776,10 @@ export namespace RemovePermissionRequest {
 
 export interface RemoveTargetsRequest {
   /**
-   * <p>The name of the rule.</p>
-   */
-  Rule: string | undefined;
-
-  /**
    * <p>The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is
    *             used.</p>
    */
   EventBusName?: string;
-
-  /**
-   * <p>The IDs of the targets to remove from the rule.</p>
-   */
-  Ids: string[] | undefined;
 
   /**
    * <p>If this is a managed rule, created by an AWS service on your behalf, you must specify
@@ -2799,6 +2789,16 @@ export interface RemoveTargetsRequest {
    *                 <code>ManagedBy</code> field of the response.</p>
    */
   Force?: boolean;
+
+  /**
+   * <p>The IDs of the targets to remove from the rule.</p>
+   */
+  Ids: string[] | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Rule: string | undefined;
 }
 
 export namespace RemoveTargetsRequest {
@@ -2812,11 +2812,6 @@ export namespace RemoveTargetsRequest {
  */
 export interface RemoveTargetsResultEntry {
   /**
-   * <p>The ID of the target.</p>
-   */
-  TargetId?: string;
-
-  /**
    * <p>The error code that indicates why the target removal failed. If the value is
    *                 <code>ConcurrentModificationException</code>, too many requests were made at the
    *             same time.</p>
@@ -2827,6 +2822,11 @@ export interface RemoveTargetsResultEntry {
    * <p>The error message that explains why the target removal failed.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The ID of the target.</p>
+   */
+  TargetId?: string;
 }
 
 export namespace RemoveTargetsResultEntry {
@@ -2837,14 +2837,14 @@ export namespace RemoveTargetsResultEntry {
 
 export interface RemoveTargetsResponse {
   /**
-   * <p>The number of failed entries.</p>
-   */
-  FailedEntryCount?: number;
-
-  /**
    * <p>The failed target entries.</p>
    */
   FailedEntries?: RemoveTargetsResultEntry[];
+
+  /**
+   * <p>The number of failed entries.</p>
+   */
+  FailedEntryCount?: number;
 }
 
 export namespace RemoveTargetsResponse {
@@ -2855,14 +2855,21 @@ export namespace RemoveTargetsResponse {
 
 export interface StartReplayRequest {
   /**
-   * <p>The name of the replay to start.</p>
-   */
-  ReplayName: string | undefined;
-
-  /**
    * <p>A description for the replay to start.</p>
    */
   Description?: string;
+
+  /**
+   * <p>A <code>ReplayDestination</code> object that includes details about the destination
+   *             for the replay.</p>
+   */
+  Destination: ReplayDestination | undefined;
+
+  /**
+   * <p>A time stamp for the time to stop replaying events. Only events that occurred between
+   *             the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>
+   */
+  EventEndTime: Date | undefined;
 
   /**
    * <p>The ARN of the archive to replay events from.</p>
@@ -2876,16 +2883,9 @@ export interface StartReplayRequest {
   EventStartTime: Date | undefined;
 
   /**
-   * <p>A time stamp for the time to stop replaying events. Only events that occurred between
-   *             the <code>EventStartTime</code> and <code>EventEndTime</code> are replayed.</p>
+   * <p>The name of the replay to start.</p>
    */
-  EventEndTime: Date | undefined;
-
-  /**
-   * <p>A <code>ReplayDestination</code> object that includes details about the destination
-   *             for the replay.</p>
-   */
-  Destination: ReplayDestination | undefined;
+  ReplayName: string | undefined;
 }
 
 export namespace StartReplayRequest {
@@ -2901,6 +2901,11 @@ export interface StartReplayResponse {
   ReplayArn?: string;
 
   /**
+   * <p>The time at which the replay started.</p>
+   */
+  ReplayStartTime?: Date;
+
+  /**
    * <p>The state of the replay.</p>
    */
   State?: ReplayState | string;
@@ -2909,11 +2914,6 @@ export interface StartReplayResponse {
    * <p>The reason that the replay is in the state.</p>
    */
   StateReason?: string;
-
-  /**
-   * <p>The time at which the replay started.</p>
-   */
-  ReplayStartTime?: Date;
 }
 
 export namespace StartReplayResponse {
@@ -2950,16 +2950,16 @@ export namespace TagResourceResponse {
 
 export interface TestEventPatternRequest {
   /**
+   * <p>The event, in JSON format, to test against the event pattern.</p>
+   */
+  Event: string | undefined;
+
+  /**
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and
    *                 Event Patterns</a> in the <i>Amazon EventBridge User
    *             Guide</i>.</p>
    */
   EventPattern: string | undefined;
-
-  /**
-   * <p>The event, in JSON format, to test against the event pattern.</p>
-   */
-  Event: string | undefined;
 }
 
 export namespace TestEventPatternRequest {
@@ -3042,6 +3042,11 @@ export interface UpdateArchiveResponse {
   ArchiveArn?: string;
 
   /**
+   * <p>The time at which the archive was updated.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>The state of the archive.</p>
    */
   State?: ArchiveState | string;
@@ -3050,11 +3055,6 @@ export interface UpdateArchiveResponse {
    * <p>The reason that the archive is in the current state.</p>
    */
   StateReason?: string;
-
-  /**
-   * <p>The time at which the archive was updated.</p>
-   */
-  CreationTime?: Date;
 }
 
 export namespace UpdateArchiveResponse {

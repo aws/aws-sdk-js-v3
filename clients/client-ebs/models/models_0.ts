@@ -87,11 +87,6 @@ export enum ChecksumAlgorithm {
 
 export interface CompleteSnapshotRequest {
   /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
    * <p>The number of blocks that were written to the snapshot.</p>
    */
   ChangedBlocksCount: number | undefined;
@@ -107,16 +102,21 @@ export interface CompleteSnapshotRequest {
   Checksum?: string;
 
   /**
+   * <p>The aggregation method used to generate the checksum. Currently, the only supported
+   *             aggregation method is <code>LINEAR</code>.</p>
+   */
+  ChecksumAggregationMethod?: ChecksumAggregationMethod | string;
+
+  /**
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
 
   /**
-   * <p>The aggregation method used to generate the checksum. Currently, the only supported
-   *             aggregation method is <code>LINEAR</code>.</p>
+   * <p>The ID of the snapshot.</p>
    */
-  ChecksumAggregationMethod?: ChecksumAggregationMethod | string;
+  SnapshotId: string | undefined;
 }
 
 export namespace CompleteSnapshotRequest {
@@ -299,11 +299,6 @@ export namespace ConflictException {
 
 export interface GetSnapshotBlockRequest {
   /**
-   * <p>The ID of the snapshot containing the block from which to get data.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
    * <p>The block index of the block from which to get data.</p>
    *
    *
@@ -320,6 +315,11 @@ export interface GetSnapshotBlockRequest {
    *                 <code>ListSnapshotBlocks</code> operations.</p>
    */
   BlockToken: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot containing the block from which to get data.</p>
+   */
+  SnapshotId: string | undefined;
 }
 
 export namespace GetSnapshotBlockRequest {
@@ -329,11 +329,6 @@ export namespace GetSnapshotBlockRequest {
 }
 
 export interface GetSnapshotBlockResponse {
-  /**
-   * <p>The size of the data in the block.</p>
-   */
-  DataLength?: number;
-
   /**
    * <p>The data content of the block.</p>
    */
@@ -348,6 +343,11 @@ export interface GetSnapshotBlockResponse {
    * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
    */
   ChecksumAlgorithm?: ChecksumAlgorithm | string;
+
+  /**
+   * <p>The size of the data in the block.</p>
+   */
+  DataLength?: number;
 }
 
 export namespace GetSnapshotBlockResponse {
@@ -368,13 +368,9 @@ export interface ListChangedBlocksRequest {
   FirstSnapshotId?: string;
 
   /**
-   * <p>The ID of the second snapshot to use for the comparison.</p>
-   *         <important>
-   *             <p>The <code>SecondSnapshotId</code> parameter must be specified with a
-   *                     <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p>
-   *         </important>
+   * <p>The number of results to return.</p>
    */
-  SecondSnapshotId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The token to request the next page of results.</p>
@@ -382,9 +378,13 @@ export interface ListChangedBlocksRequest {
   NextToken?: string;
 
   /**
-   * <p>The number of results to return.</p>
+   * <p>The ID of the second snapshot to use for the comparison.</p>
+   *         <important>
+   *             <p>The <code>SecondSnapshotId</code> parameter must be specified with a
+   *                     <code>FirstSnapshotID</code> parameter; otherwise, an error occurs.</p>
+   *         </important>
    */
-  MaxResults?: number;
+  SecondSnapshotId: string | undefined;
 
   /**
    * <p>The block index from which the comparison should start.</p>
@@ -402,6 +402,11 @@ export namespace ListChangedBlocksRequest {
 
 export interface ListChangedBlocksResponse {
   /**
+   * <p>The size of the block.</p>
+   */
+  BlockSize?: number;
+
+  /**
    * <p>An array of objects containing information about the changed blocks.</p>
    */
   ChangedBlocks?: ChangedBlock[];
@@ -412,20 +417,15 @@ export interface ListChangedBlocksResponse {
   ExpiryTime?: Date;
 
   /**
-   * <p>The size of the volume in GB.</p>
-   */
-  VolumeSize?: number;
-
-  /**
-   * <p>The size of the block.</p>
-   */
-  BlockSize?: number;
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The size of the volume in GB.</p>
+   */
+  VolumeSize?: number;
 }
 
 export namespace ListChangedBlocksResponse {
@@ -437,9 +437,9 @@ export namespace ListChangedBlocksResponse {
 
 export interface ListSnapshotBlocksRequest {
   /**
-   * <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
+   * <p>The number of results to return.</p>
    */
-  SnapshotId: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>The token to request the next page of results.</p>
@@ -447,9 +447,9 @@ export interface ListSnapshotBlocksRequest {
   NextToken?: string;
 
   /**
-   * <p>The number of results to return.</p>
+   * <p>The ID of the snapshot from which to get block indexes and block tokens.</p>
    */
-  MaxResults?: number;
+  SnapshotId: string | undefined;
 
   /**
    * <p>The block index from which the list should start. The list in the response will start
@@ -471,25 +471,25 @@ export interface ListSnapshotBlocksResponse {
   Blocks?: Block[];
 
   /**
-   * <p>The time when the <code>BlockToken</code> expires.</p>
-   */
-  ExpiryTime?: Date;
-
-  /**
-   * <p>The size of the volume in GB.</p>
-   */
-  VolumeSize?: number;
-
-  /**
    * <p>The size of the block.</p>
    */
   BlockSize?: number;
+
+  /**
+   * <p>The time when the <code>BlockToken</code> expires.</p>
+   */
+  ExpiryTime?: Date;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The size of the volume in GB.</p>
+   */
+  VolumeSize?: number;
 }
 
 export namespace ListSnapshotBlocksResponse {
@@ -500,20 +500,6 @@ export namespace ListSnapshotBlocksResponse {
 }
 
 export interface PutSnapshotBlockRequest {
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>The block index of the block in which to write the data. A block index is a logical
-   *     	index in units of <code>512</code> KiB blocks. To identify the block index, divide
-   *         	the logical offset of the data in the logical volume by the block size (logical offset of
-   *         	data/<code>524288</code>). The logical offset of the data must be <code>512</code>
-   *         	KiB aligned.</p>
-   */
-  BlockIndex: number | undefined;
-
   /**
    * <p>The data to write to the block.</p>
    *         <p>The block data is not signed as part of the Signature Version 4 signing process. As a
@@ -530,6 +516,27 @@ export interface PutSnapshotBlockRequest {
   BlockData: Readable | ReadableStream | Blob | undefined;
 
   /**
+   * <p>The block index of the block in which to write the data. A block index is a logical
+   *     	index in units of <code>512</code> KiB blocks. To identify the block index, divide
+   *         	the logical offset of the data in the logical volume by the block size (logical offset of
+   *         	data/<code>524288</code>). The logical offset of the data must be <code>512</code>
+   *         	KiB aligned.</p>
+   */
+  BlockIndex: number | undefined;
+
+  /**
+   * <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
+   *             supported.</p>
+   */
+  Checksum: string | undefined;
+
+  /**
+   * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
+   *             is <code>SHA256</code>.</p>
+   */
+  ChecksumAlgorithm: ChecksumAlgorithm | string | undefined;
+
+  /**
    * <p>The size of the data to write to the block, in bytes. Currently, the only supported
    *             size is <code>524288</code>.</p>
    *         <p>Valid values: <code>524288</code>
@@ -543,16 +550,9 @@ export interface PutSnapshotBlockRequest {
   Progress?: number;
 
   /**
-   * <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
-   *             supported.</p>
+   * <p>The ID of the snapshot.</p>
    */
-  Checksum: string | undefined;
-
-  /**
-   * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
-   *             is <code>SHA256</code>.</p>
-   */
-  ChecksumAlgorithm: ChecksumAlgorithm | string | undefined;
+  SnapshotId: string | undefined;
 }
 
 export namespace PutSnapshotBlockRequest {
@@ -603,31 +603,6 @@ export namespace Tag {
 
 export interface StartSnapshotRequest {
   /**
-   * <p>The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16
-   *             TiB).</p>
-   */
-  VolumeSize: number | undefined;
-
-  /**
-   * <p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating
-   *             the first snapshot for an on-premises volume, omit this parameter.</p>
-   *         <p>If your account is enabled for encryption by default, you cannot use an unencrypted
-   *             snapshot as a parent snapshot. You must first create an encrypted copy of the parent
-   *             snapshot using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopySnapshot.html">CopySnapshot</a>.</p>
-   */
-  ParentSnapshotId?: string;
-
-  /**
-   * <p>The tags to apply to the snapshot.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A description for the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. Idempotency ensures that an API request completes only once. With an idempotent
    *             request, if the original request completes successfully. The subsequent retries with the same
@@ -638,6 +613,11 @@ export interface StartSnapshotRequest {
    *     		Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>A description for the snapshot.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Indicates whether to encrypt the snapshot. To create an encrypted snapshot, specify
@@ -671,6 +651,20 @@ export interface StartSnapshotRequest {
   KmsKeyArn?: string;
 
   /**
+   * <p>The ID of the parent snapshot. If there is no parent snapshot, or if you are creating
+   *             the first snapshot for an on-premises volume, omit this parameter.</p>
+   *         <p>If your account is enabled for encryption by default, you cannot use an unencrypted
+   *             snapshot as a parent snapshot. You must first create an encrypted copy of the parent
+   *             snapshot using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopySnapshot.html">CopySnapshot</a>.</p>
+   */
+  ParentSnapshotId?: string;
+
+  /**
+   * <p>The tags to apply to the snapshot.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The amount of time (in minutes) after which the snapshot is automatically cancelled
    *             if:</p>
    *         <ul>
@@ -684,6 +678,12 @@ export interface StartSnapshotRequest {
    *         <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
    */
   Timeout?: number;
+
+  /**
+   * <p>The size of the volume, in GiB. The maximum size is <code>16384</code> GiB (16
+   *             TiB).</p>
+   */
+  VolumeSize: number | undefined;
 }
 
 export namespace StartSnapshotRequest {
@@ -695,14 +695,20 @@ export namespace StartSnapshotRequest {
 
 export interface StartSnapshotResponse {
   /**
+   * <p>The size of the blocks in the snapshot, in bytes.</p>
+   */
+  BlockSize?: number;
+
+  /**
    * <p>The description of the snapshot.</p>
    */
   Description?: string;
 
   /**
-   * <p>The ID of the snapshot.</p>
+   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer
+   *             master key (CMK) used to encrypt the snapshot.</p>
    */
-  SnapshotId?: string;
+  KmsKeyArn?: string;
 
   /**
    * <p>The AWS account ID of the snapshot owner.</p>
@@ -710,9 +716,14 @@ export interface StartSnapshotResponse {
   OwnerId?: string;
 
   /**
-   * <p>The status of the snapshot.</p>
+   * <p>The ID of the parent snapshot.</p>
    */
-  Status?: Status | string;
+  ParentSnapshotId?: string;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
 
   /**
    * <p>The timestamp when the snapshot was created.</p>
@@ -720,14 +731,9 @@ export interface StartSnapshotResponse {
   StartTime?: Date;
 
   /**
-   * <p>The size of the volume, in GiB.</p>
+   * <p>The status of the snapshot.</p>
    */
-  VolumeSize?: number;
-
-  /**
-   * <p>The size of the blocks in the snapshot, in bytes.</p>
-   */
-  BlockSize?: number;
+  Status?: Status | string;
 
   /**
    * <p>The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more
@@ -737,15 +743,9 @@ export interface StartSnapshotResponse {
   Tags?: Tag[];
 
   /**
-   * <p>The ID of the parent snapshot.</p>
+   * <p>The size of the volume, in GiB.</p>
    */
-  ParentSnapshotId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) customer
-   *             master key (CMK) used to encrypt the snapshot.</p>
-   */
-  KmsKeyArn?: string;
+  VolumeSize?: number;
 }
 
 export namespace StartSnapshotResponse {

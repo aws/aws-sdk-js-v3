@@ -38,14 +38,14 @@ export namespace CancelChangeSetRequest {
 
 export interface CancelChangeSetResponse {
   /**
-   * <p>The unique identifier for the change set referenced in this request.</p>
-   */
-  ChangeSetId?: string;
-
-  /**
    * <p>The ARN associated with the change set referenced in this request.</p>
    */
   ChangeSetArn?: string;
+
+  /**
+   * <p>The unique identifier for the change set referenced in this request.</p>
+   */
+  ChangeSetId?: string;
 }
 
 export namespace CancelChangeSetResponse {
@@ -156,14 +156,14 @@ export namespace DescribeChangeSetRequest {
  */
 export interface Entity {
   /**
-   * <p>The type of entity.</p>
-   */
-  Type: string | undefined;
-
-  /**
    * <p>The identifier for the entity.</p>
    */
   Identifier?: string;
+
+  /**
+   * <p>The type of entity.</p>
+   */
+  Type: string | undefined;
 }
 
 export namespace Entity {
@@ -204,15 +204,15 @@ export interface ChangeSummary {
   ChangeType?: string;
 
   /**
-   * <p>The entity to be changed.</p>
-   */
-  Entity?: Entity;
-
-  /**
    * <p>This object contains details specific to the change type of the requested
    *             change.</p>
    */
   Details?: string;
+
+  /**
+   * <p>The entity to be changed.</p>
+   */
+  Entity?: Entity;
 
   /**
    * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
@@ -241,9 +241,9 @@ export enum ChangeStatus {
 
 export interface DescribeChangeSetResponse {
   /**
-   * <p>Required. The unique identifier for the change set referenced in this request.</p>
+   * <p>An array of <code>ChangeSummary</code> objects.</p>
    */
-  ChangeSetId?: string;
+  ChangeSet?: ChangeSummary[];
 
   /**
    * <p>The ARN associated with the unique identifier for the change set referenced in this
@@ -252,16 +252,15 @@ export interface DescribeChangeSetResponse {
   ChangeSetArn?: string;
 
   /**
+   * <p>Required. The unique identifier for the change set referenced in this request.</p>
+   */
+  ChangeSetId?: string;
+
+  /**
    * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
    *             provide a name, one is set by default.</p>
    */
   ChangeSetName?: string;
-
-  /**
-   * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
-   *         </p>
-   */
-  StartTime?: string;
 
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
@@ -269,11 +268,6 @@ export interface DescribeChangeSetResponse {
    *             request is not in a terminal state. </p>
    */
   EndTime?: string;
-
-  /**
-   * <p>The status of the change request.</p>
-   */
-  Status?: ChangeStatus | string;
 
   /**
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
@@ -290,9 +284,15 @@ export interface DescribeChangeSetResponse {
   FailureDescription?: string;
 
   /**
-   * <p>An array of <code>ChangeSummary</code> objects.</p>
+   * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
+   *         </p>
    */
-  ChangeSet?: ChangeSummary[];
+  StartTime?: string;
+
+  /**
+   * <p>The status of the change request.</p>
+   */
+  Status?: ChangeStatus | string;
 }
 
 export namespace DescribeChangeSetResponse {
@@ -323,15 +323,9 @@ export namespace DescribeEntityRequest {
 
 export interface DescribeEntityResponse {
   /**
-   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
+   * <p>This stringified JSON object includes the details of the entity.</p>
    */
-  EntityType?: string;
-
-  /**
-   * <p>The identifier of the entity, in the format of
-   *             <code>EntityId@RevisionId</code>.</p>
-   */
-  EntityIdentifier?: string;
+  Details?: string;
 
   /**
    * <p>The ARN associated to the unique identifier for the change set referenced in this
@@ -340,15 +334,21 @@ export interface DescribeEntityResponse {
   EntityArn?: string;
 
   /**
+   * <p>The identifier of the entity, in the format of
+   *             <code>EntityId@RevisionId</code>.</p>
+   */
+  EntityIdentifier?: string;
+
+  /**
+   * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
+   */
+  EntityType?: string;
+
+  /**
    * <p>The last modified date of the entity, in ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
    */
   LastModifiedDate?: string;
-
-  /**
-   * <p>This stringified JSON object includes the details of the entity.</p>
-   */
-  Details?: string;
 }
 
 export namespace DescribeEntityResponse {
@@ -485,12 +485,6 @@ export interface ListChangeSetsRequest {
   FilterList?: Filter[];
 
   /**
-   * <p>An object that contains two attributes, <code>SortBy</code> and
-   *             <code>SortOrder</code>.</p>
-   */
-  Sort?: Sort;
-
-  /**
    * <p>The maximum number of results returned by a single call. This value must be provided
    *             in the next call to retrieve the next set of results. By default, this value is
    *             20.</p>
@@ -502,6 +496,12 @@ export interface ListChangeSetsRequest {
    *             results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An object that contains two attributes, <code>SortBy</code> and
+   *             <code>SortOrder</code>.</p>
+   */
+  Sort?: Sort;
 }
 
 export namespace ListChangeSetsRequest {
@@ -516,15 +516,15 @@ export namespace ListChangeSetsRequest {
  */
 export interface ChangeSetSummaryListItem {
   /**
-   * <p>The unique identifier for a change set.</p>
-   */
-  ChangeSetId?: string;
-
-  /**
    * <p>The ARN associated with the unique identifier for the change set referenced in this
    *             request.</p>
    */
   ChangeSetArn?: string;
+
+  /**
+   * <p>The unique identifier for a change set.</p>
+   */
+  ChangeSetId?: string;
 
   /**
    * <p>The non-unique name for the change set.</p>
@@ -533,20 +533,9 @@ export interface ChangeSetSummaryListItem {
 
   /**
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
-   *             started.</p>
-   */
-  StartTime?: string;
-
-  /**
-   * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
    *             finished.</p>
    */
   EndTime?: string;
-
-  /**
-   * <p>The current status of the change set.</p>
-   */
-  Status?: ChangeStatus | string;
 
   /**
    * <p>This object is a list of entity IDs (string) that are a part of a change set. The
@@ -561,6 +550,17 @@ export interface ChangeSetSummaryListItem {
    *         which means that there is a problem in the system, and you should retry your request.</p>
    */
   FailureCode?: FailureCode | string;
+
+  /**
+   * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
+   *             started.</p>
+   */
+  StartTime?: string;
+
+  /**
+   * <p>The current status of the change set.</p>
+   */
+  Status?: ChangeStatus | string;
 }
 
 export namespace ChangeSetSummaryListItem {
@@ -606,10 +606,10 @@ export interface ListEntitiesRequest {
   FilterList?: Filter[];
 
   /**
-   * <p>An object that contains two attributes, <code>SortBy</code> and
-   *             <code>SortOrder</code>.</p>
+   * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
+   *             the default value is 20.</p>
    */
-  Sort?: Sort;
+  MaxResults?: number;
 
   /**
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
@@ -617,10 +617,10 @@ export interface ListEntitiesRequest {
   NextToken?: string;
 
   /**
-   * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
-   *             the default value is 20.</p>
+   * <p>An object that contains two attributes, <code>SortBy</code> and
+   *             <code>SortOrder</code>.</p>
    */
-  MaxResults?: number;
+  Sort?: Sort;
 }
 
 export namespace ListEntitiesRequest {
@@ -636,15 +636,9 @@ export namespace ListEntitiesRequest {
  */
 export interface EntitySummary {
   /**
-   * <p>The name for the entity. This value is not unique. It is defined by the
-   *             seller.</p>
+   * <p>The ARN associated with the unique identifier for the entity.</p>
    */
-  Name?: string;
-
-  /**
-   * <p>The type of the entity.</p>
-   */
-  EntityType?: string;
+  EntityArn?: string;
 
   /**
    * <p>The unique identifier for the entity.</p>
@@ -652,15 +646,21 @@ export interface EntitySummary {
   EntityId?: string;
 
   /**
-   * <p>The ARN associated with the unique identifier for the entity.</p>
+   * <p>The type of the entity.</p>
    */
-  EntityArn?: string;
+  EntityType?: string;
 
   /**
    * <p>The last time the entity was published, using ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
    */
   LastModifiedDate?: string;
+
+  /**
+   * <p>The name for the entity. This value is not unique. It is defined by the
+   *             seller.</p>
+   */
+  Name?: string;
 
   /**
    * <p>The visibility status of the entity to
@@ -727,15 +727,15 @@ export interface Change {
   ChangeType: string | undefined;
 
   /**
-   * <p>The entity to be changed.</p>
-   */
-  Entity: Entity | undefined;
-
-  /**
    * <p>This object contains details specific to the change type of the requested
    *             change.</p>
    */
   Details: string | undefined;
+
+  /**
+   * <p>The entity to be changed.</p>
+   */
+  Entity: Entity | undefined;
 }
 
 export namespace Change {
@@ -776,14 +776,14 @@ export namespace StartChangeSetRequest {
 
 export interface StartChangeSetResponse {
   /**
-   * <p>Unique identifier generated for the request.</p>
-   */
-  ChangeSetId?: string;
-
-  /**
    * <p>The ARN associated to the unique identifier generated for the request.</p>
    */
   ChangeSetArn?: string;
+
+  /**
+   * <p>Unique identifier generated for the request.</p>
+   */
+  ChangeSetId?: string;
 }
 
 export namespace StartChangeSetResponse {

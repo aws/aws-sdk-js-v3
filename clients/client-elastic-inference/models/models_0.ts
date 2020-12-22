@@ -101,6 +101,14 @@ export interface AcceleratorTypeOffering {
 
   /**
    * <p>
+   *             The location for the offering.
+   *             It will return either the region, availability zone or availability zone id for the offering depending on the locationType value.
+   *         </p>
+   */
+  location?: string;
+
+  /**
+   * <p>
    *             The location type for the offering. It can assume the following values:
    *             region: defines that the offering is at the regional level.
    *             availability-zone: defines that the offering is at the availability zone level.
@@ -108,14 +116,6 @@ export interface AcceleratorTypeOffering {
    *         </p>
    */
   locationType?: LocationType | string;
-
-  /**
-   * <p>
-   *             The location for the offering.
-   *             It will return either the region, availability zone or availability zone id for the offering depending on the locationType value.
-   *         </p>
-   */
-  location?: string;
 }
 
 export namespace AcceleratorTypeOffering {
@@ -144,6 +144,13 @@ export namespace BadRequestException {
 export interface DescribeAcceleratorOfferingsRequest {
   /**
    * <p>
+   *             The list of accelerator types to describe.
+   *         </p>
+   */
+  acceleratorTypes?: string[];
+
+  /**
+   * <p>
    *             The location type that you want to describe accelerator type offerings for. It can assume the following values:
    *             region: will return the accelerator type offering at the regional level.
    *             availability-zone: will return the accelerator type offering at the availability zone level.
@@ -151,13 +158,6 @@ export interface DescribeAcceleratorOfferingsRequest {
    *         </p>
    */
   locationType: LocationType | string | undefined;
-
-  /**
-   * <p>
-   *             The list of accelerator types to describe.
-   *         </p>
-   */
-  acceleratorTypes?: string[];
 }
 
 export namespace DescribeAcceleratorOfferingsRequest {
@@ -319,13 +319,6 @@ export interface ElasticInferenceAccelerator {
 
   /**
    * <p>
-   *             The type of the Elastic Inference Accelerator.
-   *         </p>
-   */
-  acceleratorType?: string;
-
-  /**
-   * <p>
    *             The ID of the Elastic Inference Accelerator.
    *         </p>
    */
@@ -333,10 +326,10 @@ export interface ElasticInferenceAccelerator {
 
   /**
    * <p>
-   *             The availability zone where the Elastic Inference Accelerator is present.
+   *             The type of the Elastic Inference Accelerator.
    *         </p>
    */
-  availabilityZone?: string;
+  acceleratorType?: string;
 
   /**
    * <p>
@@ -344,6 +337,13 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    */
   attachedResource?: string;
+
+  /**
+   * <p>
+   *             The availability zone where the Elastic Inference Accelerator is present.
+   *         </p>
+   */
+  availabilityZone?: string;
 }
 
 export namespace ElasticInferenceAccelerator {

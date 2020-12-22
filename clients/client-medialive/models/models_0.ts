@@ -5000,14 +5000,14 @@ export interface HlsGroupSettings {
   RedundantManifest?: HlsRedundantManifest | string;
 
   /**
-   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
-   */
-  SegmentLength?: number;
-
-  /**
    * useInputSegmentation has been deprecated. The configured segment size is always used.
    */
   SegmentationMode?: HlsSegmentationMode | string;
+
+  /**
+   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+   */
+  SegmentLength?: number;
 
   /**
    * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be subdirectoryPerStream for this setting to have an effect.
