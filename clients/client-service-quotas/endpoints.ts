@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "servicequotas.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,126 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "servicequotas.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "servicequotas.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "servicequotas.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "servicequotas.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "servicequotas.ap-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "servicequotas.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "servicequotas.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "servicequotas.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "servicequotas.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "servicequotas.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "servicequotas.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "servicequotas.eu-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "servicequotas.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "servicequotas.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "servicequotas.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "servicequotas.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "servicequotas.us-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "servicequotas.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "servicequotas.us-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "servicequotas.us-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

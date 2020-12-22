@@ -1,14 +1,15 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "connect.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "connect.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "connect.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "connect.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "connect.{region}.amazonaws.com";
+const AWS_TEMPLATE = "contact-lens.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "contact-lens.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "contact-lens.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "contact-lens.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "contact-lens.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,33 +39,21 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
-    case "ap-northeast-1":
-      regionInfo = {
-        hostname: "connect.ap-northeast-1.amazonaws.com",
-        partition: "aws",
-      };
-      break;
     case "ap-southeast-2":
       regionInfo = {
-        hostname: "connect.ap-southeast-2.amazonaws.com",
-        partition: "aws",
-      };
-      break;
-    case "eu-central-1":
-      regionInfo = {
-        hostname: "connect.eu-central-1.amazonaws.com",
+        hostname: "contact-lens.ap-southeast-2.amazonaws.com",
         partition: "aws",
       };
       break;
     case "us-east-1":
       regionInfo = {
-        hostname: "connect.us-east-1.amazonaws.com",
+        hostname: "contact-lens.us-east-1.amazonaws.com",
         partition: "aws",
       };
       break;
     case "us-west-2":
       regionInfo = {
-        hostname: "connect.us-west-2.amazonaws.com",
+        hostname: "contact-lens.us-west-2.amazonaws.com",
         partition: "aws",
       };
       break;

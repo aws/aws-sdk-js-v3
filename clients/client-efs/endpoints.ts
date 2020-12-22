@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "elasticfilesystem.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "elasticfilesystem.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-east-1":
       regionInfo = {
         hostname: "elasticfilesystem.ap-east-1.amazonaws.com",
@@ -79,6 +87,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "elasticfilesystem.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "elasticfilesystem.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
     case "eu-central-1":
       regionInfo = {
         hostname: "elasticfilesystem.eu-central-1.amazonaws.com",
@@ -88,6 +108,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-north-1":
       regionInfo = {
         hostname: "elasticfilesystem.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "elasticfilesystem.eu-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -107,6 +133,174 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "elasticfilesystem.eu-west-3.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "fips-af-south-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.af-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "af-south-1",
+      };
+      break;
+    case "fips-ap-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-east-1",
+      };
+      break;
+    case "fips-ap-northeast-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-1",
+      };
+      break;
+    case "fips-ap-northeast-2":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-2",
+      };
+      break;
+    case "fips-ap-south-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-south-1",
+      };
+      break;
+    case "fips-ap-southeast-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-southeast-1",
+      };
+      break;
+    case "fips-ap-southeast-2":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-southeast-2",
+      };
+      break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-cn-north-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-north-1",
+      };
+      break;
+    case "fips-cn-northwest-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-northwest-1",
+      };
+      break;
+    case "fips-eu-central-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.eu-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-central-1",
+      };
+      break;
+    case "fips-eu-north-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.eu-north-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-north-1",
+      };
+      break;
+    case "fips-eu-south-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.eu-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-south-1",
+      };
+      break;
+    case "fips-eu-west-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.eu-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-1",
+      };
+      break;
+    case "fips-eu-west-2":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.eu-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-2",
+      };
+      break;
+    case "fips-eu-west-3":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.eu-west-3.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-3",
+      };
+      break;
+    case "fips-me-south-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.me-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "me-south-1",
+      };
+      break;
+    case "fips-sa-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.sa-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "sa-east-1",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-gov-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "elasticfilesystem-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
       };
       break;
     case "me-south-1":
@@ -131,6 +325,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "elasticfilesystem.us-east-2.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "elasticfilesystem.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-gov-west-1":

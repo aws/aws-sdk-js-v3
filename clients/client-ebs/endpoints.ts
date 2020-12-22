@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "ebs.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,185 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "ebs.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "ebs.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "ebs.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "ebs.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "ebs.ap-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "ebs.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "ebs.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "ebs.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "ebs.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "ebs.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "ebs.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "ebs.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "ebs.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "ebs.eu-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "ebs.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "ebs.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "ebs-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "ebs-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "ebs-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "ebs-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "ebs-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "ebs.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "ebs.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "ebs.us-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "ebs.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "ebs.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "ebs.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "ebs.us-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "ebs.us-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
