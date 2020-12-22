@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "appflow.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,96 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-northeast-1":
+      regionInfo = {
+        hostname: "appflow.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "appflow.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "appflow.ap-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-1":
+      regionInfo = {
+        hostname: "appflow.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-southeast-2":
+      regionInfo = {
+        hostname: "appflow.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "appflow.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-central-1":
+      regionInfo = {
+        hostname: "appflow.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-1":
+      regionInfo = {
+        hostname: "appflow.eu-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-2":
+      regionInfo = {
+        hostname: "appflow.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "appflow.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "appflow.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-1":
+      regionInfo = {
+        hostname: "appflow.us-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-east-2":
+      regionInfo = {
+        hostname: "appflow.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "appflow.us-west-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-west-2":
+      regionInfo = {
+        hostname: "appflow.us-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {

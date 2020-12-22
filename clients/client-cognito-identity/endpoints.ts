@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "cognito-identity.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -85,6 +87,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "cognito-identity.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "cognito-identity.eu-west-1.amazonaws.com",
@@ -97,6 +105,46 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "cognito-identity.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "cognito-identity-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "cognito-identity-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "cognito-identity-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "cognito-identity-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "cognito-identity.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "us-east-1":
       regionInfo = {
         hostname: "cognito-identity.us-east-1.amazonaws.com",
@@ -106,6 +154,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "us-east-2":
       regionInfo = {
         hostname: "cognito-identity.us-east-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "cognito-identity.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-west-1":
+      regionInfo = {
+        hostname: "cognito-identity.us-west-1.amazonaws.com",
         partition: "aws",
       };
       break;

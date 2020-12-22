@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "fms.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "fms.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "fms.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "fms.ap-northeast-1.amazonaws.com",
@@ -85,6 +99,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "fms.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "fms.eu-west-1.amazonaws.com",
@@ -100,6 +120,145 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-west-3":
       regionInfo = {
         hostname: "fms.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "fips-af-south-1":
+      regionInfo = {
+        hostname: "fms-fips.af-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "af-south-1",
+      };
+      break;
+    case "fips-ap-east-1":
+      regionInfo = {
+        hostname: "fms-fips.ap-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-east-1",
+      };
+      break;
+    case "fips-ap-northeast-1":
+      regionInfo = {
+        hostname: "fms-fips.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-1",
+      };
+      break;
+    case "fips-ap-northeast-2":
+      regionInfo = {
+        hostname: "fms-fips.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-northeast-2",
+      };
+      break;
+    case "fips-ap-south-1":
+      regionInfo = {
+        hostname: "fms-fips.ap-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-south-1",
+      };
+      break;
+    case "fips-ap-southeast-1":
+      regionInfo = {
+        hostname: "fms-fips.ap-southeast-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-southeast-1",
+      };
+      break;
+    case "fips-ap-southeast-2":
+      regionInfo = {
+        hostname: "fms-fips.ap-southeast-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ap-southeast-2",
+      };
+      break;
+    case "fips-ca-central-1":
+      regionInfo = {
+        hostname: "fms-fips.ca-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "ca-central-1",
+      };
+      break;
+    case "fips-eu-central-1":
+      regionInfo = {
+        hostname: "fms-fips.eu-central-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-central-1",
+      };
+      break;
+    case "fips-eu-south-1":
+      regionInfo = {
+        hostname: "fms-fips.eu-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-south-1",
+      };
+      break;
+    case "fips-eu-west-1":
+      regionInfo = {
+        hostname: "fms-fips.eu-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-1",
+      };
+      break;
+    case "fips-eu-west-2":
+      regionInfo = {
+        hostname: "fms-fips.eu-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-2",
+      };
+      break;
+    case "fips-eu-west-3":
+      regionInfo = {
+        hostname: "fms-fips.eu-west-3.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-west-3",
+      };
+      break;
+    case "fips-me-south-1":
+      regionInfo = {
+        hostname: "fms-fips.me-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "me-south-1",
+      };
+      break;
+    case "fips-sa-east-1":
+      regionInfo = {
+        hostname: "fms-fips.sa-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "sa-east-1",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "fms-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "fms-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "fms-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "fms-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "fms.me-south-1.amazonaws.com",
         partition: "aws",
       };
       break;

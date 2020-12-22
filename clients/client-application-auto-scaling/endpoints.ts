@@ -3,12 +3,13 @@ import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 // Partition default templates
 const AWS_TEMPLATE = "application-autoscaling.{region}.amazonaws.com";
 const AWS_CN_TEMPLATE = "application-autoscaling.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "autoscaling.us-iso-east-1.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "autoscaling.us-isob-east-1.sc2s.sgov.gov";
+const AWS_ISO_TEMPLATE = "application-autoscaling.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "application-autoscaling.{region}.sc2s.sgov.gov";
 const AWS_US_GOV_TEMPLATE = "application-autoscaling.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "application-autoscaling.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-east-1":
       regionInfo = {
         hostname: "application-autoscaling.ap-east-1.amazonaws.com",
@@ -103,6 +111,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "application-autoscaling.eu-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "application-autoscaling.eu-west-1.amazonaws.com",
@@ -159,13 +173,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       break;
     case "us-iso-east-1":
       regionInfo = {
-        hostname: "autoscaling.us-iso-east-1.c2s.ic.gov",
+        hostname: "application-autoscaling.us-iso-east-1.c2s.ic.gov",
         partition: "aws-iso",
       };
       break;
     case "us-isob-east-1":
       regionInfo = {
-        hostname: "autoscaling.us-isob-east-1.sc2s.sgov.gov",
+        hostname: "application-autoscaling.us-isob-east-1.sc2s.sgov.gov",
         partition: "aws-iso-b",
       };
       break;

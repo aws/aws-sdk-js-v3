@@ -1,14 +1,15 @@
 import { RegionInfo, RegionInfoProvider } from "@aws-sdk/types";
 
 // Partition default templates
-const AWS_TEMPLATE = "sagemaker.{region}.amazonaws.com";
-const AWS_CN_TEMPLATE = "sagemaker.{region}.amazonaws.com.cn";
-const AWS_ISO_TEMPLATE = "sagemaker.{region}.c2s.ic.gov";
-const AWS_ISO_B_TEMPLATE = "sagemaker.{region}.sc2s.sgov.gov";
-const AWS_US_GOV_TEMPLATE = "sagemaker.{region}.amazonaws.com";
+const AWS_TEMPLATE = "featurestore-runtime.sagemaker.{region}.amazonaws.com";
+const AWS_CN_TEMPLATE = "featurestore-runtime.sagemaker.{region}.amazonaws.com.cn";
+const AWS_ISO_TEMPLATE = "featurestore-runtime.sagemaker.{region}.c2s.ic.gov";
+const AWS_ISO_B_TEMPLATE = "featurestore-runtime.sagemaker.{region}.sc2s.sgov.gov";
+const AWS_US_GOV_TEMPLATE = "featurestore-runtime.sagemaker.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",

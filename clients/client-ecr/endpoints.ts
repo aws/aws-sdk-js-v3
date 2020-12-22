@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "api.ecr.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "api.ecr.af-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "af-south-1",
+      };
+      break;
     case "ap-east-1":
       regionInfo = {
         hostname: "api.ecr.ap-east-1.amazonaws.com",
@@ -114,6 +123,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "eu-north-1",
       };
       break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "api.ecr.eu-south-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "eu-south-1",
+      };
+      break;
     case "eu-west-1":
       regionInfo = {
         hostname: "api.ecr.eu-west-1.amazonaws.com",
@@ -133,6 +149,90 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "api.ecr.eu-west-3.amazonaws.com",
         partition: "aws",
         signingRegion: "eu-west-3",
+      };
+      break;
+    case "fips-dkr-us-east-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-dkr-us-east-2":
+      regionInfo = {
+        hostname: "ecr-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-dkr-us-gov-east-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-dkr-us-gov-west-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-dkr-us-west-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-dkr-us-west-2":
+      regionInfo = {
+        hostname: "ecr-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "ecr-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-gov-east-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "ecr-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "ecr-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
       };
       break;
     case "me-south-1":
@@ -182,6 +282,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "api.ecr.us-iso-east-1.c2s.ic.gov",
         partition: "aws-iso",
         signingRegion: "us-iso-east-1",
+      };
+      break;
+    case "us-isob-east-1":
+      regionInfo = {
+        hostname: "api.ecr.us-isob-east-1.sc2s.sgov.gov",
+        partition: "aws-iso-b",
+        signingRegion: "us-isob-east-1",
       };
       break;
     case "us-west-1":

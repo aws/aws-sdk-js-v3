@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "codecommit.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "codecommit.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "codecommit.ap-northeast-1.amazonaws.com",
@@ -73,6 +81,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "codecommit.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "codecommit.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
     case "eu-central-1":
       regionInfo = {
         hostname: "codecommit.eu-central-1.amazonaws.com",
@@ -82,6 +102,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-north-1":
       regionInfo = {
         hostname: "codecommit.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "codecommit.eu-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -105,9 +131,9 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       break;
     case "fips":
       regionInfo = {
-        hostname: "codecommit-fips.ca-central-1.amazonaws.com",
-        partition: "aws",
-        signingRegion: "ca-central-1",
+        hostname: "codecommit-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
       };
       break;
     case "me-south-1":

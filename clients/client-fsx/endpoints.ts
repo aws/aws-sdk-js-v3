@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "fsx.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,9 +39,27 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "fsx.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "fsx.ap-northeast-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-northeast-2":
+      regionInfo = {
+        hostname: "fsx.ap-northeast-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-south-1":
+      regionInfo = {
+        hostname: "fsx.ap-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -53,6 +73,24 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "fsx.ap-southeast-2.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "ca-central-1":
+      regionInfo = {
+        hostname: "fsx.ca-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "fsx.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "fsx.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
       };
       break;
     case "eu-central-1":
@@ -76,6 +114,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-west-2":
       regionInfo = {
         hostname: "fsx.eu-west-2.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "fsx.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "fsx.sa-east-1.amazonaws.com",
         partition: "aws",
       };
       break;

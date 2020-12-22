@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "autoscaling-plans.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "autoscaling-plans.ap-northeast-1.amazonaws.com",
@@ -73,9 +87,33 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
     case "eu-central-1":
       regionInfo = {
         hostname: "autoscaling-plans.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.eu-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -91,6 +129,24 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "eu-west-3":
+      regionInfo = {
+        hostname: "autoscaling-plans.eu-west-3.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.sa-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "us-east-1":
       regionInfo = {
         hostname: "autoscaling-plans.us-east-1.amazonaws.com",
@@ -101,6 +157,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "autoscaling-plans.us-east-2.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "autoscaling-plans.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-west-1":

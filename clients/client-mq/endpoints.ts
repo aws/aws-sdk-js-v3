@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "mq.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "ap-east-1":
+      regionInfo = {
+        hostname: "mq.ap-east-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-northeast-1":
       regionInfo = {
         hostname: "mq.ap-northeast-1.amazonaws.com",
@@ -76,6 +84,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-central-1":
       regionInfo = {
         hostname: "mq.eu-central-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-north-1":
+      regionInfo = {
+        hostname: "mq.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "mq.eu-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -123,6 +143,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         hostname: "mq-fips.us-west-2.amazonaws.com",
         partition: "aws",
         signingRegion: "us-west-2",
+      };
+      break;
+    case "me-south-1":
+      regionInfo = {
+        hostname: "mq.me-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "sa-east-1":
+      regionInfo = {
+        hostname: "mq.sa-east-1.amazonaws.com",
+        partition: "aws",
       };
       break;
     case "us-east-1":

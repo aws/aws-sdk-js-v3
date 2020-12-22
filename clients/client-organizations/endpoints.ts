@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "organizations.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,13 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "aws-cn-global":
+      regionInfo = {
+        hostname: "organizations.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+        signingRegion: "cn-northwest-1",
+      };
+      break;
     case "aws-global":
       regionInfo = {
         hostname: "organizations.us-east-1.amazonaws.com",
@@ -51,16 +60,27 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         signingRegion: "us-gov-west-1",
       };
       break;
+    case "fips-aws-global":
+      regionInfo = {
+        hostname: "organizations-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-aws-us-gov-global":
+      regionInfo = {
+        hostname: "organizations.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
     // Next, try to match partition endpoints.
     default:
       if (AWS_REGIONS.has(region)) {
         return defaultRegionInfoProvider("aws-global");
       }
       if (AWS_CN_REGIONS.has(region)) {
-        regionInfo = {
-          hostname: AWS_CN_TEMPLATE.replace("{region}", region),
-          partition: "aws-cn",
-        };
+        return defaultRegionInfoProvider("aws-cn-global");
       }
       if (AWS_ISO_REGIONS.has(region)) {
         regionInfo = {

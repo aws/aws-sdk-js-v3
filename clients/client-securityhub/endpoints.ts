@@ -9,6 +9,7 @@ const AWS_US_GOV_TEMPLATE = "securityhub.{region}.amazonaws.com";
 
 // Partition regions
 const AWS_REGIONS = new Set([
+  "af-south-1",
   "ap-east-1",
   "ap-northeast-1",
   "ap-northeast-2",
@@ -18,6 +19,7 @@ const AWS_REGIONS = new Set([
   "ca-central-1",
   "eu-central-1",
   "eu-north-1",
+  "eu-south-1",
   "eu-west-1",
   "eu-west-2",
   "eu-west-3",
@@ -37,6 +39,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
   let regionInfo: RegionInfo | undefined = undefined;
   switch (region) {
     // First, try to match exact region names.
+    case "af-south-1":
+      regionInfo = {
+        hostname: "securityhub.af-south-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
     case "ap-east-1":
       regionInfo = {
         hostname: "securityhub.ap-east-1.amazonaws.com",
@@ -79,6 +87,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         partition: "aws",
       };
       break;
+    case "cn-north-1":
+      regionInfo = {
+        hostname: "securityhub.cn-north-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
+    case "cn-northwest-1":
+      regionInfo = {
+        hostname: "securityhub.cn-northwest-1.amazonaws.com.cn",
+        partition: "aws-cn",
+      };
+      break;
     case "eu-central-1":
       regionInfo = {
         hostname: "securityhub.eu-central-1.amazonaws.com",
@@ -88,6 +108,12 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
     case "eu-north-1":
       regionInfo = {
         hostname: "securityhub.eu-north-1.amazonaws.com",
+        partition: "aws",
+      };
+      break;
+    case "eu-south-1":
+      regionInfo = {
+        hostname: "securityhub.eu-south-1.amazonaws.com",
         partition: "aws",
       };
       break;
@@ -107,6 +133,48 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "securityhub.eu-west-3.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "fips-us-east-1":
+      regionInfo = {
+        hostname: "securityhub-fips.us-east-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-1",
+      };
+      break;
+    case "fips-us-east-2":
+      regionInfo = {
+        hostname: "securityhub-fips.us-east-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-east-2",
+      };
+      break;
+    case "fips-us-gov-east-1":
+      regionInfo = {
+        hostname: "securityhub-fips.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-east-1",
+      };
+      break;
+    case "fips-us-gov-west-1":
+      regionInfo = {
+        hostname: "securityhub-fips.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
+        signingRegion: "us-gov-west-1",
+      };
+      break;
+    case "fips-us-west-1":
+      regionInfo = {
+        hostname: "securityhub-fips.us-west-1.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-1",
+      };
+      break;
+    case "fips-us-west-2":
+      regionInfo = {
+        hostname: "securityhub-fips.us-west-2.amazonaws.com",
+        partition: "aws",
+        signingRegion: "us-west-2",
       };
       break;
     case "me-south-1":
@@ -131,6 +199,18 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
       regionInfo = {
         hostname: "securityhub.us-east-2.amazonaws.com",
         partition: "aws",
+      };
+      break;
+    case "us-gov-east-1":
+      regionInfo = {
+        hostname: "securityhub.us-gov-east-1.amazonaws.com",
+        partition: "aws-us-gov",
+      };
+      break;
+    case "us-gov-west-1":
+      regionInfo = {
+        hostname: "securityhub.us-gov-west-1.amazonaws.com",
+        partition: "aws-us-gov",
       };
       break;
     case "us-west-1":
