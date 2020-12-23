@@ -15,18 +15,20 @@ describe("marshall", () => {
   });
 
   it("calls convertToAttr", () => {
-    // @ts-ignore output mocked for testing
     expect(marshall(input)).toEqual(input);
     expect(convertToAttr).toHaveBeenCalledTimes(1);
     expect(convertToAttr).toHaveBeenCalledWith(input, undefined);
   });
 
-  [false, true].forEach((convertEmptyValues) => {
-    it(`passes convertEmptyValues=${convertEmptyValues} to convertToAttr`, () => {
-      // @ts-ignore output mocked for testing
-      expect(marshall(input, { convertEmptyValues })).toEqual(input);
-      expect(convertToAttr).toHaveBeenCalledTimes(1);
-      expect(convertToAttr).toHaveBeenCalledWith(input, { convertEmptyValues });
+  ["convertEmptyValues", "removeUndefinedValues"].forEach((option) => {
+    describe(`options.${option}`, () => {
+      [false, true].forEach((value) => {
+        it(`passes ${value} to convertToAttr`, () => {
+          expect(marshall(input, { [option]: value })).toEqual(input);
+          expect(convertToAttr).toHaveBeenCalledTimes(1);
+          expect(convertToAttr).toHaveBeenCalledWith(input, { [option]: value });
+        });
+      });
     });
   });
 });
