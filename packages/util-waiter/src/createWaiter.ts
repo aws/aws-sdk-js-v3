@@ -1,13 +1,8 @@
 import { AbortSignal } from "@aws-sdk/types";
 
 import { runPolling } from "./poller";
-import { sleep, validateWaiterOptions } from "./utils";
-import { SmithyClient, WaiterOptions, WaiterResult, waiterServiceDefaults, WaiterState } from "./waiter";
-
-const waiterTimeout = async (seconds: number): Promise<WaiterResult> => {
-  await sleep(seconds);
-  return { state: WaiterState.TIMEOUT };
-};
+import { validateWaiterOptions } from "./utils";
+import { WaiterOptions, WaiterResult, waiterServiceDefaults, WaiterState } from "./waiter";
 
 const abortTimeout = async (abortSignal: AbortSignal): Promise<WaiterResult> => {
   return new Promise((resolve) => {
@@ -24,7 +19,7 @@ const abortTimeout = async (abortSignal: AbortSignal): Promise<WaiterResult> => 
  *
  * @internal
  */
-export const createWaiter = async <Client extends SmithyClient, Input>(
+export const createWaiter = async <Client, Input>(
   options: WaiterOptions<Client>,
   input: Input,
   acceptorChecks: (client: Client, input: Input) => Promise<WaiterResult>
