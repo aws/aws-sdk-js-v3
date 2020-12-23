@@ -1,6 +1,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToAttr } from "./convertToAttr";
+import { marshallOptions } from "./marshall";
 import { NativeAttributeValue } from "./models";
 
 describe("convertToAttr", () => {
@@ -185,7 +186,7 @@ describe("convertToAttr", () => {
         const input = ["defined", undefined];
         expect(() => {
           convertToAttr(input, { removeUndefinedValues: false });
-        }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
+        }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
       });
 
       it(`returns when options.removeUndefinedValues=true`, () => {
@@ -220,21 +221,53 @@ describe("convertToAttr", () => {
       expect(convertToAttr(set)).toEqual({ SS: Array.from(set) });
     });
 
-    it("returns null for empty set for options.convertEmptyValues=true", () => {
-      expect(convertToAttr(new Set([]), { convertEmptyValues: true })).toEqual({ NULL: true });
+    describe("set with undefined", () => {
+      describe("throws error", () => {
+        const testErrorSetWithUndefined = (options?: marshallOptions) => {
+          expect(() => {
+            convertToAttr(new Set([1, undefined, 3]), options);
+          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+        };
+
+        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+          it(`when options=${options}`, () => {
+            testErrorSetWithUndefined(options);
+          });
+        });
+      });
+
+      it("returns when options.removeUndefinedValues=true", () => {
+        expect(convertToAttr(new Set([1, undefined, 3]), { removeUndefinedValues: true })).toEqual({ NS: ["1", "3"] });
+      });
     });
 
-    it("throws error for empty set", () => {
-      expect(() => {
-        convertToAttr(new Set([]));
-      }).toThrowError(`Please pass a non-empty set, or set convertEmptyValues to true.`);
+    describe("empty set", () => {
+      describe("throws error", () => {
+        const testErrorEmptySet = (options?: marshallOptions) => {
+          expect(() => {
+            convertToAttr(new Set([]), options);
+          }).toThrowError(`Pass a non-empty set, or options.convertEmptyValues=true.`);
+        };
+
+        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+          it(`when options=${options}`, () => {
+            testErrorEmptySet(options);
+          });
+        });
+      });
+
+      it("returns null when options.convertEmptyValues=true", () => {
+        expect(convertToAttr(new Set([]), { convertEmptyValues: true })).toEqual({ NULL: true });
+      });
     });
 
-    it("thows error for unallowed set", () => {
-      expect(() => {
-        // @ts-expect-error Type 'Set<boolean>' is not assignable
-        convertToAttr(new Set([true, false]));
-      }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
+    describe("unallowed set", () => {
+      it("throws error", () => {
+        expect(() => {
+          // @ts-expect-error Type 'Set<boolean>' is not assignable
+          convertToAttr(new Set([true, false]));
+        }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
+      });
     });
   });
 
@@ -300,7 +333,7 @@ describe("convertToAttr", () => {
         const input = { definedKey: "definedKey", undefinedKey: undefined };
         expect(() => {
           convertToAttr(input, { removeUndefinedValues: false });
-        }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
+        }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
       });
 
       it(`returns when options.removeUndefinedValues=true`, () => {
@@ -332,7 +365,7 @@ describe("convertToAttr", () => {
     it(`throws for: undefined`, () => {
       expect(() => {
         convertToAttr(undefined);
-      }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
+      }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
     });
 
     // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
