@@ -79,5 +79,5 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         };
       }
   }
-  return Promise.resolve({ signingService: "jsonprotocol", ...regionInfo });
+  return Promise.resolve({ signingService: "foo", ...regionInfo });
 };
