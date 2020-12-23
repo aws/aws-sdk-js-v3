@@ -34,8 +34,8 @@ describe(validateWaiterOptions.name, () => {
       validateWaiterOptions(waiterOptions);
       expect(1).toBe("SHOULD NOT GET HERE");
     } catch (e) {
-      expect(e).toBe(
-        "WaiterConfiguration.maxDelay [120] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
+      expect(e.toString()).toBe(
+        "Error: WaiterConfiguration.maxDelay [120] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
       );
       done();
     }
@@ -59,7 +59,7 @@ describe(validateWaiterOptions.name, () => {
     try {
       validateWaiterOptions(waiterOptions);
     } catch (e) {
-      expect(e).toBe("WaiterConfiguration.maxWaitTime must be greater than 0");
+      expect(e.toString()).toBe("Error: WaiterConfiguration.maxWaitTime must be greater than 0");
       done();
     }
   });
@@ -70,8 +70,8 @@ describe(validateWaiterOptions.name, () => {
     try {
       validateWaiterOptions(waiterOptions);
     } catch (e) {
-      expect(e).toBe(
-        "WaiterConfiguration.maxWaitTime [150] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
+      expect(e.toString()).toBe(
+        "Error: WaiterConfiguration.maxWaitTime [150] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
       );
       done();
     }
@@ -83,8 +83,8 @@ describe(validateWaiterOptions.name, () => {
     try {
       validateWaiterOptions(waiterOptions);
     } catch (e) {
-      expect(e).toBe(
-        "WaiterConfiguration.maxWaitTime [200] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
+      expect(e.toString()).toBe(
+        "Error: WaiterConfiguration.maxWaitTime [200] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
       );
     }
   });
