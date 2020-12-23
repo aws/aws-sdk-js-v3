@@ -1,2 +1,2 @@
 export * from "./invalidFunction";
-export * from "./invalidAsyncFunction";
+export * from "./invalidProvider";
