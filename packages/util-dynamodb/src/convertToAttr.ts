@@ -22,7 +22,9 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
 };
 
 const convertToListAttr = (data: NativeAttributeValue[], options?: marshallOptions): { L: AttributeValue[] } => ({
-  L: data.map((item) => convertToAttr(item, options)),
+  L: data
+    .filter((item) => !options?.removeUndefinedValues || (options?.removeUndefinedValues && item !== undefined))
+    .map((item) => convertToAttr(item, options)),
 });
 
 const convertToSetAttr = (
@@ -88,7 +90,7 @@ const convertToMapAttr = (
 
 const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
   if (data === undefined) {
-    throw new Error(`Please set removeUndefinedValues to true to remove undefined values.`);
+    throw new Error(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
   } else if (data === null && typeof data === "object") {
     return convertToNullAttr();
   } else if (typeof data === "boolean") {

@@ -179,6 +179,22 @@ describe("convertToAttr", () => {
         L: [{ NULL: true }, { NULL: true }, { NULL: true }],
       });
     });
+
+    describe(`testing list with options.removeUndefinedValues`, () => {
+      it(`throws when options.removeUndefinedValues=false`, () => {
+        const input = ["defined", undefined];
+        expect(() => {
+          convertToAttr(input, { removeUndefinedValues: false });
+        }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
+      });
+
+      it(`returns when options.removeUndefinedValues=true`, () => {
+        const input = ["defined", undefined];
+        expect(convertToAttr(input, { removeUndefinedValues: true })).toEqual({
+          L: [{ S: "defined" }],
+        });
+      });
+    });
   });
 
   describe("set", () => {
@@ -284,7 +300,7 @@ describe("convertToAttr", () => {
         const input = { definedKey: "definedKey", undefinedKey: undefined };
         expect(() => {
           convertToAttr(input, { removeUndefinedValues: false });
-        }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values.`);
+        }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
       });
 
       it(`returns when options.removeUndefinedValues=true`, () => {
@@ -316,7 +332,7 @@ describe("convertToAttr", () => {
     it(`throws for: undefined`, () => {
       expect(() => {
         convertToAttr(undefined);
-      }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values.`);
+      }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values from map/array/set.`);
     });
 
     // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
