@@ -17,15 +17,15 @@ export interface WaiterConfiguration<Client> {
   abortController?: AbortController;
 
   /**
-   * The minimum amount of time to delay between retries in seconds. This value defaults
-   * to service default if not specified. If specified, this value MUST be greater than
+   * The minimum amount of time to delay between retries in seconds. This is the floor of the exponential backoff.
+   * This value defaults  to service default if not specified. If specified, this value MUST be greater than
    * or equal to 1 and less than or equal to maxDelay.
    */
   minDelay?: number;
 
   /**
-   * The maximum amount of time to delay between retries in seconds. The maximum amount
-   * of time in seconds to delay between each retry. This value defaults to service default
+   * The maximum amount of time to delay between retries in seconds. This is the ceiling of the exponential backoff.
+   * The maximum amount of time in seconds to delay between each retry. This value defaults to service default
    * if not specified. If specified, this value MUST be greater than or equal to 1.
    */
   maxDelay?: number;
