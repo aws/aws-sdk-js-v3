@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
@@ -18,17 +18,17 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-serde-browser": "3.0.0",
-    "@aws-sdk/middleware-signing": "3.0.0",
-    "@aws-sdk/protocol-http": "3.0.0",
-    "@aws-sdk/signature-v4": "3.0.0",
-    "@aws-sdk/util-format-url": "3.0.0",
+    "@aws-sdk/eventstream-serde-browser": "3.1.0",
+    "@aws-sdk/middleware-signing": "3.1.0",
+    "@aws-sdk/protocol-http": "3.1.0",
+    "@aws-sdk/signature-v4": "3.1.0",
+    "@aws-sdk/util-format-url": "3.1.0",
     "react-native-get-random-values": "^1.4.0",
     "tslib": "^1.8.0",
     "uuid": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "3.0.0",
+    "@aws-sdk/types": "3.1.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "jest-websocket-mock": "^2.0.2",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-stream-node",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^1.0.0",
-    "@aws-sdk/types": "3.0.0",
-    "@aws-sdk/util-hex-encoding": "3.0.0",
+    "@aws-sdk/types": "3.1.0",
+    "@aws-sdk/util-hex-encoding": "3.1.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",

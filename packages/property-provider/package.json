@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/property-provider",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -21,7 +21,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "3.0.0",
+    "@aws-sdk/types": "3.1.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.1.2"

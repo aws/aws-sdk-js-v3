@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/util-body-length-browser",
   "description": "Determines the length of a request body in browsers",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
