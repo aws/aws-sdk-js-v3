@@ -2,7 +2,7 @@ import { AbortController } from "@aws-sdk/abort-controller";
 
 import { runPolling } from "./poller";
 import { sleep } from "./utils/sleep";
-import { ResolvedWaiterOptions, WaiterState } from "./waiter";
+import { WaiterOptions, WaiterState } from "./waiter";
 
 jest.mock("./utils/sleep");
 
@@ -12,7 +12,7 @@ describe(runPolling.name, () => {
     maxDelay: 30,
     maxWaitTime: 99999,
     client: "mockClient",
-  } as ResolvedWaiterOptions<any>;
+  } as WaiterOptions<any>;
   const input = "mockInput";
   const abortedState = {
     state: WaiterState.ABORTED,

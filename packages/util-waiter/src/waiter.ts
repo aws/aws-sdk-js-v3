@@ -15,9 +15,7 @@ export interface WaiterConfiguration<Client> {
    * Abort controller. Used for ending the waiter early.
    */
   abortController?: AbortController;
-}
 
-export interface WaiterOptions<Client> extends WaiterConfiguration<Client> {
   /**
    * The minimum amount of time to delay between retries in seconds. This value defaults
    * to 2 if not specified. If specified, this value MUST be greater than or equal to 1
@@ -44,8 +42,8 @@ export const waiterServiceDefaults = {
 /**
  * @private
  */
-export type ResolvedWaiterOptions<Client> = WaiterOptions<Client> &
-  Required<Pick<WaiterOptions<Client>, "minDelay" | "maxDelay">>;
+export type WaiterOptions<Client> = WaiterConfiguration<Client> &
+  Required<Pick<WaiterConfiguration<Client>, "minDelay" | "maxDelay">>;
 
 export enum WaiterState {
   ABORTED = "ABORTED",

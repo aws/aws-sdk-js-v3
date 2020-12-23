@@ -1,8 +1,8 @@
-import { ResolvedWaiterOptions } from "../waiter";
+import { WaiterOptions } from "../waiter";
 import { validateWaiterOptions } from "./validate";
 
 describe(validateWaiterOptions.name, () => {
-  let waiterOptions: ResolvedWaiterOptions<any>;
+  let waiterOptions: WaiterOptions<any>;
 
   beforeEach(() => {
     waiterOptions = {
