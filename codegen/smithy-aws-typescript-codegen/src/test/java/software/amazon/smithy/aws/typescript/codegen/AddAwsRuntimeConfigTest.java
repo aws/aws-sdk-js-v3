@@ -37,7 +37,7 @@ public class AddAwsRuntimeConfigTest {
 
         // Check that both the config files were updated.
         assertThat(manifest.getFileString("runtimeConfig.ts").get(), containsString("credentialDefaultProvider"));
-        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("invalidAsyncFunction"));
+        assertThat(manifest.getFileString("runtimeConfig.browser.ts").get(), containsString("invalidProvider"));
 
         // Check that the dependency interface was updated.
         assertThat(manifest.getFileString("NotSameClient.ts").get(), containsString("credentialDefaultProvider?"));

@@ -180,7 +180,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
     }
 
     private static boolean hasOptionalAuthOperation(Model model, ServiceShape service) {
-        TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+        TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
         for (OperationShape operation : operations) {
             if (operation.getTrait(OptionalAuthTrait.class).isPresent()) {
