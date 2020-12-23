@@ -182,16 +182,25 @@ describe("convertToAttr", () => {
     });
 
     describe(`testing list with options.removeUndefinedValues`, () => {
-      it(`throws when options.removeUndefinedValues=false`, () => {
-        const input = ["defined", undefined];
-        expect(() => {
-          convertToAttr(input, { removeUndefinedValues: false });
-        }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+      describe("throws error", () => {
+        const testErrorListWithUndefinedValues = (options?: marshallOptions) => {
+          expect(() => {
+            convertToAttr(["defined", undefined], options);
+          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+        };
+
+        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+          it(`when options=${options}`, () => {
+            testErrorListWithUndefinedValues(options);
+          });
+        });
       });
 
       it(`returns when options.removeUndefinedValues=true`, () => {
-        const input = ["defined", undefined];
-        expect(convertToAttr(input, { removeUndefinedValues: true })).toEqual({
+        expect(convertToAttr(["defined", undefined], { removeUndefinedValues: true })).toEqual({
+          L: [{ S: "defined" }],
+        });
+        expect(convertToAttr([undefined, "defined", undefined], { removeUndefinedValues: true })).toEqual({
           L: [{ S: "defined" }],
         });
       });
@@ -329,11 +338,18 @@ describe("convertToAttr", () => {
     });
 
     describe(`testing map with options.removeUndefinedValues`, () => {
-      it(`throws when options.removeUndefinedValues=false`, () => {
-        const input = { definedKey: "definedKey", undefinedKey: undefined };
-        expect(() => {
-          convertToAttr(input, { removeUndefinedValues: false });
-        }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+      describe("throws error", () => {
+        const testErrorMapWithUndefinedValues = (options?: marshallOptions) => {
+          expect(() => {
+            convertToAttr({ definedKey: "definedKey", undefinedKey: undefined }, options);
+          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+        };
+
+        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+          it(`when options=${options}`, () => {
+            testErrorMapWithUndefinedValues(options);
+          });
+        });
       });
 
       it(`returns when options.removeUndefinedValues=true`, () => {
