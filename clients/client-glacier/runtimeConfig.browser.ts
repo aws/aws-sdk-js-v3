@@ -3,7 +3,7 @@ import packageInfo from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { bodyChecksumGenerator } from "@aws-sdk/body-checksum-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
-import { invalidAsyncFunction } from "@aws-sdk/invalid-dependency";
+import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
@@ -23,13 +23,13 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyChecksumGenerator,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider: invalidAsyncFunction("Credentialis missing") as any,
+  credentialDefaultProvider: (_: unknown) => () => Promise.reject(new Error("Credential is missing")),
   defaultUserAgentProvider: defaultUserAgent({
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
   }),
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
-  region: invalidAsyncFunction("Region is missing") as any,
+  region: invalidProvider("Region is missing"),
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   streamCollector,
