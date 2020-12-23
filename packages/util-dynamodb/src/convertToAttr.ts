@@ -72,19 +72,23 @@ const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
   options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
-  M: Object.entries(data).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
-      ...acc,
-      [key]: convertToAttr(value, options),
-    }),
-    {}
-  ),
+  M: Object.entries(data)
+    .filter(
+      ([key, value]: [string, NativeAttributeValue]) =>
+        !options?.removeUndefinedValues || (options?.removeUndefinedValues && value !== undefined)
+    )
+    .reduce(
+      (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
+        ...acc,
+        [key]: convertToAttr(value, options),
+      }),
+      {}
+    ),
 });
 
 const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (data === undefined && options?.removeUndefinedValues) {
-    // @ts-ignore To support removal of undefined values
-    return undefined;
+  if (data === undefined) {
+    throw new Error(`Please set removeUndefinedValues to true to remove undefined values.`);
   } else if (data === null && typeof data === "object") {
     return convertToNullAttr();
   } else if (typeof data === "boolean") {

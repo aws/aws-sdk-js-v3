@@ -10,12 +10,6 @@ describe("convertToAttr", () => {
     });
   });
 
-  describe("undefined", () => {
-    it(`returns for undefined when options.removeUndefinedValues=true`, () => {
-      expect(convertToAttr(undefined, { removeUndefinedValues: true })).toEqual(undefined);
-    });
-  });
-
   describe("boolean", () => {
     [true, false].forEach((bool) => {
       it(`returns for boolean: ${bool}`, () => {
@@ -284,6 +278,22 @@ describe("convertToAttr", () => {
         M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
       });
     });
+
+    describe(`testing map with options.removeUndefinedValues`, () => {
+      it(`throws when options.removeUndefinedValues=false`, () => {
+        const input = { definedKey: "definedKey", undefinedKey: undefined };
+        expect(() => {
+          convertToAttr(input, { removeUndefinedValues: false });
+        }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values.`);
+      });
+
+      it(`returns when options.removeUndefinedValues=true`, () => {
+        const input = { definedKey: "definedKey", undefinedKey: undefined };
+        expect(convertToAttr(input, { removeUndefinedValues: true })).toEqual({
+          M: { definedKey: { S: "definedKey" } },
+        });
+      });
+    });
   });
 
   describe("string", () => {
@@ -303,8 +313,14 @@ describe("convertToAttr", () => {
       constructor(private readonly foo: string) {}
     }
 
+    it(`throws for: undefined`, () => {
+      expect(() => {
+        convertToAttr(undefined);
+      }).toThrowError(`Please set removeUndefinedValues to true to remove undefined values.`);
+    });
+
     // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
-    [undefined, new Date(), new FooObj("foo")].forEach((data) => {
+    [new Date(), new FooObj("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
           // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
