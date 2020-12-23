@@ -36,17 +36,28 @@ export async function* chunkFromReadable(reader: Readable, chunkSize: number): A
 function _chunkFromStream(stream: Readable, chunkSize: number, oldBuffer: Buffer): Promise<StreamChunk> {
   let currentChunk = oldBuffer;
   return new Promise((resolve, reject) => {
+    const cleanupListeners = () => {
+      stream.removeAllListeners("data");
+      stream.removeAllListeners("error");
+      stream.removeAllListeners("end");
+    };
+
     stream.on("data", (chunk) => {
       currentChunk = Buffer.concat([currentChunk, Buffer.from(chunk)]);
       if (currentChunk.length >= chunkSize) {
+        cleanupListeners();
         resolve({
           Body: currentChunk,
           ended: false,
         });
       }
     });
-    stream.on("error", reject);
+    stream.on("error", (err) => {
+      cleanupListeners();
+      reject(err);
+    });
     stream.on("end", () => {
+      cleanupListeners();
       resolve({
         Body: currentChunk,
         ended: true,
