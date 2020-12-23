@@ -37,12 +37,17 @@ function _chunkFromStream(stream: Readable, chunkSize: number, oldBuffer: Buffer
   let currentChunk = oldBuffer;
   return new Promise((resolve, reject) => {
     const cleanupListeners = () => {
-      stream.removeAllListeners("data");
+      stream.removeAllListeners("readable");
       stream.removeAllListeners("error");
       stream.removeAllListeners("end");
     };
 
-    stream.on("data", (chunk) => {
+    stream.on("readable", () => {
+      const chunk = stream.read();
+      if (!chunk) {
+        return;
+      }
+
       currentChunk = Buffer.concat([currentChunk, Buffer.from(chunk)]);
       if (currentChunk.length >= chunkSize) {
         cleanupListeners();
