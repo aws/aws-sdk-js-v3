@@ -2,7 +2,7 @@ import packageInfo from "./package.json";
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
-import { invalidAsyncFunction } from "@aws-sdk/invalid-dependency";
+import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
 import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
@@ -22,14 +22,14 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider: invalidAsyncFunction("Credentialis missing") as any,
+  credentialDefaultProvider: (_: unknown) => () => Promise.reject(new Error("Credential is missing")),
   defaultUserAgentProvider: defaultUserAgent({
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
   }),
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   md5: Md5,
-  region: invalidAsyncFunction("Region is missing") as any,
+  region: invalidProvider("Region is missing"),
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   streamCollector,

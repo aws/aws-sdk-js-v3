@@ -3,7 +3,7 @@ import packageInfo from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
-import { invalidAsyncFunction } from "@aws-sdk/invalid-dependency";
+import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
@@ -23,7 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider: invalidAsyncFunction("Credentialis missing") as any,
+  credentialDefaultProvider: (_: unknown) => () => Promise.reject(new Error("Credential is missing")),
   defaultUserAgentProvider: defaultUserAgent({
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
@@ -31,7 +31,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
-  region: invalidAsyncFunction("Region is missing") as any,
+  region: invalidProvider("Region is missing"),
   requestHandler: new WebSocketHandler(),
   sha256: Sha256,
   streamCollector,
