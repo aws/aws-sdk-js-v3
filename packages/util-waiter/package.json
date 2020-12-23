@@ -7,7 +7,6 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/smithy-client": "3.0.0",
     "@aws-sdk/types": "3.0.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",

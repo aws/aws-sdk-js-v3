@@ -1,11 +1,6 @@
-import { Client, SmithyConfiguration } from "@aws-sdk/smithy-client";
-import { AbortController, HttpHandlerOptions, MetadataBearer } from "@aws-sdk/types";
+import { AbortController } from "@aws-sdk/types";
 
-/**
- * @internal
- */
-export type SmithyClient = Client<HttpHandlerOptions, any, MetadataBearer, SmithyConfiguration<HttpHandlerOptions>>;
-export interface WaiterConfiguration<Client extends SmithyClient> {
+export interface WaiterConfiguration<Client> {
   /**
    * Required service client
    */
@@ -22,7 +17,7 @@ export interface WaiterConfiguration<Client extends SmithyClient> {
   abortController?: AbortController;
 }
 
-export interface WaiterOptions<Client extends SmithyClient> extends WaiterConfiguration<Client> {
+export interface WaiterOptions<Client> extends WaiterConfiguration<Client> {
   /**
    * The minimum amount of time to delay between retries in seconds. This value defaults
    * to 2 if not specified. If specified, this value MUST be greater than or equal to 1
@@ -49,7 +44,7 @@ export const waiterServiceDefaults = {
 /**
  * @private
  */
-export type ResolvedWaiterOptions<Client extends SmithyClient> = WaiterOptions<Client> &
+export type ResolvedWaiterOptions<Client> = WaiterOptions<Client> &
   Required<Pick<WaiterOptions<Client>, "minDelay" | "maxDelay">>;
 
 export enum WaiterState {

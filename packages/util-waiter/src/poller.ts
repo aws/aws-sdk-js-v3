@@ -1,5 +1,5 @@
 import { sleep } from "./utils/sleep";
-import { ResolvedWaiterOptions, SmithyClient, WaiterResult, WaiterState } from "./waiter";
+import { ResolvedWaiterOptions, WaiterResult, WaiterState } from "./waiter";
 
 /**
  * Reference: https://awslabs.github.io/smithy/1.0/spec/waiters.html#waiter-retries
@@ -19,10 +19,10 @@ const randomInRange = (min: number, max: number) => min + Math.random() * (max -
  * @param input client input
  * @param stateChecker function that checks the acceptor states on each poll.
  */
-export const runPolling = async <T extends SmithyClient, S>(
-  { minDelay, maxDelay, maxWaitTime, abortController, client }: ResolvedWaiterOptions<T>,
-  input: S,
-  acceptorChecks: (client: T, input: S) => Promise<WaiterResult>
+export const runPolling = async <Client, Input>(
+  { minDelay, maxDelay, maxWaitTime, abortController, client }: ResolvedWaiterOptions<Client>,
+  input: Input,
+  acceptorChecks: (client: Client, input: Input) => Promise<WaiterResult>
 ): Promise<WaiterResult> => {
   let currentAttempt = 1;
   const waitUntil = Date.now() + maxWaitTime * 1000;
