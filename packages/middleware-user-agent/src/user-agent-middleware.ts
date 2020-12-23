@@ -1,12 +1,13 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput,
+  AbsoluteLocation,
+  BuildHandler,
+  BuildHandlerArguments,
+  BuildHandlerOptions,
+  BuildHandlerOutput,
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
-  RelativeMiddlewareOptions,
   UserAgentPair,
 } from "@aws-sdk/types";
 
@@ -26,9 +27,9 @@ import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constant
  * agent.
  */
 export const userAgentMiddleware = (options: UserAgentResolvedConfig) => <Output extends MetadataBearer>(
-  next: FinalizeHandler<any, any>,
+  next: BuildHandler<any, any>,
   context: HandlerExecutionContext
-): FinalizeHandler<any, any> => async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
+): BuildHandler<any, any> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
   const { request } = args;
   if (!HttpRequest.isInstance(request)) return next(args);
   const { headers } = request;
@@ -70,15 +71,15 @@ const escapeUserAgent = ([name, version]: UserAgentPair): string => {
     .join("/");
 };
 
-export const getUserAgentMiddlewareOptions: RelativeMiddlewareOptions = {
+export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "getUserAgentMiddleware",
-  relation: "before",
-  toMiddleware: "awsAuthMiddleware",
+  step: "build",
+  priority: "low",
   tags: ["SET_USER_AGENT", "USER_AGENT"],
 };
 
 export const getUserAgentPlugin = (config: UserAgentResolvedConfig): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.addRelativeTo(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
+    clientStack.add(userAgentMiddleware(config), getUserAgentMiddlewareOptions);
   },
 });
