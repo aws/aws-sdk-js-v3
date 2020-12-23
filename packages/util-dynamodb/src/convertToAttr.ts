@@ -82,7 +82,10 @@ const convertToMapAttr = (
 });
 
 const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (data === null && typeof data === "object") {
+  if (data === undefined && options?.removeUndefinedValues) {
+    // @ts-ignore To support removal of undefined values
+    return undefined;
+  } else if (data === null && typeof data === "object") {
     return convertToNullAttr();
   } else if (typeof data === "boolean") {
     return { BOOL: data };

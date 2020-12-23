@@ -18,6 +18,7 @@ export type NativeAttributeValue =
 
 export type NativeScalarAttributeValue =
   | null
+  | undefined
   | boolean
   | number
   | NumberValue

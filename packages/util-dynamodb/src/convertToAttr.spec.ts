@@ -10,6 +10,12 @@ describe("convertToAttr", () => {
     });
   });
 
+  describe("undefined", () => {
+    it(`returns for undefined when options.removeUndefinedValues=true`, () => {
+      expect(convertToAttr(undefined, { removeUndefinedValues: true })).toEqual(undefined);
+    });
+  });
+
   describe("boolean", () => {
     [true, false].forEach((bool) => {
       it(`returns for boolean: ${bool}`, () => {
