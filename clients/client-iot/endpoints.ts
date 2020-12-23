@@ -237,5 +237,5 @@ export const defaultRegionInfoProvider: RegionInfoProvider = (region: string, op
         };
       }
   }
-  return Promise.resolve({ signingService: "iot", ...regionInfo });
+  return Promise.resolve({ signingService: "execute-api", ...regionInfo });
 };
