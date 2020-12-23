@@ -8,9 +8,37 @@ describe(validateWaiterOptions.name, () => {
     waiterOptions = {
       maxWaitTime: 120,
       minDelay: 20,
-      maxDelay: 120,
+      maxDelay: 1200,
       client: "client",
     };
+  });
+
+  it("should not throw an error when maxDelay is proper", (done) => {
+    waiterOptions.maxDelay = 300;
+    waiterOptions.minDelay = 200;
+    waiterOptions.maxWaitTime = 250;
+    try {
+      validateWaiterOptions(waiterOptions);
+      expect(1).toBe(1);
+      done();
+    } catch (e) {
+      expect(e).toBe("SHOULD NOT ERROR HERE");
+    }
+  });
+
+  it("should not throw an error when maxDelay is less than minDelay", (done) => {
+    waiterOptions.maxDelay = 120;
+    waiterOptions.minDelay = 200;
+    waiterOptions.maxWaitTime = 250;
+    try {
+      validateWaiterOptions(waiterOptions);
+      expect(1).toBe("SHOULD NOT GET HERE");
+    } catch (e) {
+      expect(e).toBe(
+        "WaiterConfiguration.maxDelay [120] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
+      );
+      done();
+    }
   });
 
   it("should not throw an error when maxWaitTime is proper", (done) => {
@@ -31,7 +59,7 @@ describe(validateWaiterOptions.name, () => {
     try {
       validateWaiterOptions(waiterOptions);
     } catch (e) {
-      expect(e).toBe("WaiterOptions.maxWaitTime must be greater than 0");
+      expect(e).toBe("WaiterConfiguration.maxWaitTime must be greater than 0");
       done();
     }
   });
@@ -43,7 +71,7 @@ describe(validateWaiterOptions.name, () => {
       validateWaiterOptions(waiterOptions);
     } catch (e) {
       expect(e).toBe(
-        "WaiterOptions.maxWaitTime [150] must be greater than WaiterOptions.minDelay [200] for this waiter"
+        "WaiterConfiguration.maxWaitTime [150] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
       );
       done();
     }
@@ -56,7 +84,7 @@ describe(validateWaiterOptions.name, () => {
       validateWaiterOptions(waiterOptions);
     } catch (e) {
       expect(e).toBe(
-        "WaiterOptions.maxWaitTime [200] must be greater than WaiterOptions.minDelay [200] for this waiter"
+        "WaiterConfiguration.maxWaitTime [200] must be greater than WaiterConfiguration.minDelay [200] for this waiter"
       );
     }
   });
