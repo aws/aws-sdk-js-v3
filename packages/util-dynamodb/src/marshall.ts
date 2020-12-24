@@ -11,6 +11,10 @@ export interface marshallOptions {
    * Whether to automatically convert empty strings, blobs, and sets to `null`
    */
   convertEmptyValues?: boolean;
+  /**
+   * Whether to remove undefined values while marshalling.
+   */
+  removeUndefinedValues?: boolean;
 }
 
 /**

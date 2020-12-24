@@ -22,36 +22,44 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
 };
 
 const convertToListAttr = (data: NativeAttributeValue[], options?: marshallOptions): { L: AttributeValue[] } => ({
-  L: data.map((item) => convertToAttr(item, options)),
+  L: data
+    .filter((item) => !options?.removeUndefinedValues || (options?.removeUndefinedValues && item !== undefined))
+    .map((item) => convertToAttr(item, options)),
 });
 
 const convertToSetAttr = (
   set: Set<any>,
   options?: marshallOptions
 ): { NS: string[] } | { BS: Uint8Array[] } | { SS: string[] } | { NULL: true } => {
-  if (set.size === 0) {
+  const setToOperate = options?.removeUndefinedValues ? new Set([...set].filter((value) => value !== undefined)) : set;
+
+  if (!options?.removeUndefinedValues && setToOperate.has(undefined)) {
+    throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+  }
+
+  if (setToOperate.size === 0) {
     if (options?.convertEmptyValues) {
       return convertToNullAttr();
     }
-    throw new Error(`Please pass a non-empty set, or set convertEmptyValues to true.`);
+    throw new Error(`Pass a non-empty set, or options.convertEmptyValues=true.`);
   }
 
-  const item = set.values().next().value;
+  const item = setToOperate.values().next().value;
   if (typeof item === "number") {
     return {
-      NS: Array.from(set)
+      NS: Array.from(setToOperate)
         .map(convertToNumberAttr)
         .map((item) => item.N),
     };
   } else if (typeof item === "bigint") {
     return {
-      NS: Array.from(set)
+      NS: Array.from(setToOperate)
         .map(convertToBigIntAttr)
         .map((item) => item.N),
     };
   } else if (typeof item === "string") {
     return {
-      SS: Array.from(set)
+      SS: Array.from(setToOperate)
         .map(convertToStringAttr)
         .map((item) => item.S),
     };
@@ -59,7 +67,7 @@ const convertToSetAttr = (
     return {
       // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
       // @ts-expect-error Type 'ArrayBuffer' is not assignable to type 'Uint8Array'
-      BS: Array.from(set)
+      BS: Array.from(setToOperate)
         .map(convertToBinaryAttr)
         .map((item) => item.B),
     };
@@ -72,17 +80,24 @@ const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
   options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
-  M: Object.entries(data).reduce(
-    (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
-      ...acc,
-      [key]: convertToAttr(value, options),
-    }),
-    {}
-  ),
+  M: Object.entries(data)
+    .filter(
+      ([key, value]: [string, NativeAttributeValue]) =>
+        !options?.removeUndefinedValues || (options?.removeUndefinedValues && value !== undefined)
+    )
+    .reduce(
+      (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
+        ...acc,
+        [key]: convertToAttr(value, options),
+      }),
+      {}
+    ),
 });
 
 const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (data === null && typeof data === "object") {
+  if (data === undefined) {
+    throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+  } else if (data === null && typeof data === "object") {
     return convertToNullAttr();
   } else if (typeof data === "boolean") {
     return { BOOL: data };

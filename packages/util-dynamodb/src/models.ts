@@ -14,10 +14,11 @@ export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
-  | Set<number | bigint | NumberValue | string | NativeAttributeBinary>;
+  | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>;
 
 export type NativeScalarAttributeValue =
   | null
+  | undefined
   | boolean
   | number
   | NumberValue
