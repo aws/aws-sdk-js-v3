@@ -5,7 +5,7 @@ import { bucketHostname } from "./bucketHostname";
 describe("bucketHostname", () => {
   const region = "us-west-2";
   describe("from bucket name", () => {
-    ["s3.us-west-2.amazonaws.com"].forEach((baseHostname) => {
+    ["s3.us-west-2.amazonaws.com", "beta.example.com"].forEach((baseHostname) => {
       describe(`baseHostname: ${baseHostname}`, () => {
         it("should use a virtual-hosted-style endpoint by default", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
@@ -24,19 +24,6 @@ describe("bucketHostname", () => {
             baseHostname,
             region,
             pathStyleEndpoint: true,
-          });
-
-          expect(bucketEndpoint).toBe(false);
-          expect(hostname).toBe(baseHostname);
-        });
-
-        it("should ignore transfer acceleration when a path-style endpoint is requested", () => {
-          const { bucketEndpoint, hostname } = bucketHostname({
-            bucketName: "foo",
-            baseHostname,
-            region,
-            pathStyleEndpoint: true,
-            accelerateEndpoint: true,
           });
 
           expect(bucketEndpoint).toBe(false);
@@ -97,6 +84,20 @@ describe("bucketHostname", () => {
       });
     });
 
+    it("should ignore transfer acceleration when a path-style endpoint is requested", () => {
+      const baseHostname = "s3.us-west-2.amazonaws.com";
+      const { bucketEndpoint, hostname } = bucketHostname({
+        bucketName: "foo",
+        baseHostname,
+        region,
+        pathStyleEndpoint: true,
+        accelerateEndpoint: true,
+      });
+
+      expect(bucketEndpoint).toBe(false);
+      expect(hostname).toBe(baseHostname);
+    });
+
     for (const [baseHostname, dualstackHostname] of [
       ["s3.amazonaws.com", "s3.dualstack.us-east-1.amazonaws.com"],
       ["s3-external-1.amazonaws.com", "s3.dualstack.us-east-1.amazonaws.com"],
@@ -154,17 +155,20 @@ describe("bucketHostname", () => {
       });
     }
 
-    // it("should perform no transformations when provided a non-S3 hostname", () => {
-    //   expect(
-    //     bucketHostname({
-    //       bucketName: "foo",
-    //       baseHostname: "example.com",
-    //     })
-    //   ).toEqual({
-    //     bucketEndpoint: false,
-    //     hostname: "example.com",
-    //   });
-    // });
+    describe("should throw when provided a non-S3 hostname with", () => {
+      ["dualstackEndpoint", "accelerateEndpoint"].forEach((option) => {
+        it(`${option} enabled`, () => {
+          expect(() => {
+            bucketHostname({
+              bucketName: "foo",
+              baseHostname: "example.com",
+              region,
+              [option]: true,
+            });
+          }).toThrow("endpoint is not supported with custom endpoint");
+        });
+      });
+    });
   });
 
   describe("from Access Point ARN", () => {
