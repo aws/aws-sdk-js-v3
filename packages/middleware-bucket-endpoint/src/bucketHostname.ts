@@ -28,23 +28,28 @@ export interface BucketHostname {
 }
 
 export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams): BucketHostname => {
-  const { baseHostname } = options;
-  if (!S3_HOSTNAME_PATTERN.test(baseHostname)) {
-    return {
-      bucketEndpoint: false,
-      hostname: baseHostname,
-    };
+  const { baseHostname, dualstackEndpoint, accelerateEndpoint } = options;
+  const isCustomEndpoint = !S3_HOSTNAME_PATTERN.test(baseHostname);
+
+  if (isCustomEndpoint) {
+    if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");
+    if (accelerateEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");
   }
+
   return isBucketNameOptions(options)
     ? // Construct endpoint when bucketName is a string referring to a bucket name
-      getEndpointFromBucketName(options)
+      getEndpointFromBucketName(isCustomEndpoint, options)
     : // Construct endpoint when bucketName is an ARN referring to an S3 resource like Access Point
-      getEndpointFromArn(options);
+      getEndpointFromArn(isCustomEndpoint, options);
 };
 
-const getEndpointFromArn = (options: ArnHostnameParams): BucketHostname => {
-  // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
-  const [clientRegion, hostnameSuffix] = getSuffixForArnEndpoint(options.baseHostname);
+const getEndpointFromArn = (isCustomEndpoint: boolean, options: ArnHostnameParams): BucketHostname => {
+  const { baseHostname } = options;
+  const [clientRegion, hostnameSuffix] = isCustomEndpoint
+    ? [options.region, baseHostname]
+    : // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
+      getSuffixForArnEndpoint(baseHostname);
+
   const {
     pathStyleEndpoint,
     dualstackEndpoint = false,
@@ -75,33 +80,39 @@ const getEndpointFromArn = (options: ArnHostnameParams): BucketHostname => {
     validateDNSHostLabel(outpostId, { tlsCompatible });
     validateNoDualstack(dualstackEndpoint);
     validateNoFIPS(endpointRegion);
+    const hostnamePrefix = `${accesspointName}-${accountId}.${outpostId}`;
     return {
       bucketEndpoint: true,
-      hostname: `${accesspointName}-${accountId}.${outpostId}.s3-outposts.${endpointRegion}.${hostnameSuffix}`,
+      hostname: `${hostnamePrefix}${isCustomEndpoint ? "" : `.s3-outposts.${endpointRegion}`}.${hostnameSuffix}`,
       signingRegion,
       signingService: "s3-outposts",
     };
   }
   // construct endpoint from Accesspoint ARN
   validateS3Service(service);
+  const hostnamePrefix = `${accesspointName}-${accountId}`;
   return {
     bucketEndpoint: true,
-    hostname: `${accesspointName}-${accountId}.s3-accesspoint${
-      dualstackEndpoint ? ".dualstack" : ""
-    }.${endpointRegion}.${hostnameSuffix}`,
+    hostname: `${hostnamePrefix}${
+      isCustomEndpoint ? "" : `.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.${endpointRegion}`
+    }.${hostnameSuffix}`,
     signingRegion,
   };
 };
 
-const getEndpointFromBucketName = ({
-  accelerateEndpoint = false,
-  baseHostname,
-  bucketName,
-  dualstackEndpoint = false,
-  pathStyleEndpoint = false,
-  tlsCompatible = true,
-}: BucketHostnameParams): BucketHostname => {
-  const [clientRegion, hostnameSuffix] = getSuffix(baseHostname);
+const getEndpointFromBucketName = (
+  isCustomEndpoint: boolean,
+  {
+    accelerateEndpoint = false,
+    region,
+    baseHostname,
+    bucketName,
+    dualstackEndpoint = false,
+    pathStyleEndpoint = false,
+    tlsCompatible = true,
+  }: BucketHostnameParams
+): BucketHostname => {
+  const [clientRegion, hostnameSuffix] = isCustomEndpoint ? [region, baseHostname] : getSuffix(baseHostname);
   if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
     return {
       bucketEndpoint: false,
