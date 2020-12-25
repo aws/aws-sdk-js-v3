@@ -173,27 +173,47 @@ describe("bucketHostname", () => {
 
   describe("from Access Point ARN", () => {
     describe("populates access point endpoint from ARN", () => {
-      it("should use client region", () => {
-        const baseHostname = "s3.us-west-2.amazonaws.com";
-        const { bucketEndpoint, hostname } = bucketHostname({
-          bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
-          baseHostname,
-          region,
+      const s3Hostname = "s3.us-west-2.amazonaws.com";
+      const customHostname = "example.com";
+
+      describe(`baseHostname: ${s3Hostname}`, () => {
+        const baseHostname = s3Hostname;
+        it("should use client region", () => {
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
+            baseHostname,
+            region,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
         });
-        expect(bucketEndpoint).toBe(true);
-        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+
+        it("should use ARN region", () => {
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
+            baseHostname,
+            region,
+            useArnRegion: true,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
+        });
       });
 
-      it("should use ARN region", () => {
-        const baseHostname = "s3.us-west-2.amazonaws.com";
-        const { bucketEndpoint, hostname } = bucketHostname({
-          bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
-          baseHostname,
-          region,
-          useArnRegion: true,
+      describe(`baseHostname: ${customHostname}`, () => {
+        const baseHostname = customHostname;
+        [true, false].forEach((useArnRegion) => {
+          it(`should ignore useArnRegion=${useArnRegion}`, () => {
+            const { bucketEndpoint, hostname } = bucketHostname({
+              bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
+              baseHostname,
+              region: "us-east-1",
+              useArnRegion,
+            });
+            expect(bucketEndpoint).toBe(true);
+            expect(hostname).toBe(`myendpoint-123456789012.${baseHostname}`);
+          });
         });
-        expect(bucketEndpoint).toBe(true);
-        expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
       });
     });
 
@@ -337,53 +357,55 @@ describe("bucketHostname", () => {
       }).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
     });
 
-    describe("should validate Access Point ARN", () => {
-      [
-        {
-          bucketArn: "arn:aws:sqs:us-west-2:123456789012:someresource",
-          message: "Expect 's3' or 's3-outposts' in ARN service component",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2:123456789012:bucket_name:mybucket",
-          message: "ARN resource should begin with 'accesspoint:' or 'outpost:'",
-        },
-        {
-          bucketArn: "arn:aws:s3::123456789012:accesspoint:myendpoint",
-          message: "ARN region is empty",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2::accesspoint:myendpoint",
-          message: "Access point ARN accountID does not match regex '[0-9]{12}'",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2:123.45678.9012:accesspoint:mybucket",
-          message: "Access point ARN accountID does not match regex '[0-9]{12}'",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:",
-          message: "Access Point ARN should have one resource accesspoint:{accesspointname}",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:*",
-          message: "Invalid DNS label *-123456789012",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:my.bucket",
-          message: "Invalid DNS label my.bucket-123456789012",
-        },
-        {
-          bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:mybucket:object:foo	",
-          message: "Access Point ARN should have one resource accesspoint:{accesspointname}",
-        },
-      ].forEach(({ bucketArn, message }) => {
-        it(`should throw "${message}"`, () => {
-          expect(() => {
-            bucketHostname({
-              bucketName: parseArn(bucketArn),
-              baseHostname: "s3.us-west-2.amazonaws.com",
-              region,
-            });
-          }).toThrow(message);
+    ["s3.us-west-2.amazonaws.com", "example.com"].forEach((baseHostname) => {
+      describe(`should validate Access Point ARN with baseHostname: ${baseHostname}`, () => {
+        [
+          {
+            bucketArn: "arn:aws:sqs:us-west-2:123456789012:someresource",
+            message: "Expect 's3' or 's3-outposts' in ARN service component",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2:123456789012:bucket_name:mybucket",
+            message: "ARN resource should begin with 'accesspoint:' or 'outpost:'",
+          },
+          {
+            bucketArn: "arn:aws:s3::123456789012:accesspoint:myendpoint",
+            message: "ARN region is empty",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2::accesspoint:myendpoint",
+            message: "Access point ARN accountID does not match regex '[0-9]{12}'",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2:123.45678.9012:accesspoint:mybucket",
+            message: "Access point ARN accountID does not match regex '[0-9]{12}'",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:",
+            message: "Access Point ARN should have one resource accesspoint:{accesspointname}",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:*",
+            message: "Invalid DNS label *-123456789012",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:my.bucket",
+            message: "Invalid DNS label my.bucket-123456789012",
+          },
+          {
+            bucketArn: "arn:aws:s3:us-west-2:123456789012:accesspoint:mybucket:object:foo	",
+            message: "Access Point ARN should have one resource accesspoint:{accesspointname}",
+          },
+        ].forEach(({ bucketArn, message }) => {
+          it(`should throw "${message}"`, () => {
+            expect(() => {
+              bucketHostname({
+                bucketName: parseArn(bucketArn),
+                baseHostname,
+                region,
+              });
+            }).toThrow(message);
+          });
         });
       });
     });
