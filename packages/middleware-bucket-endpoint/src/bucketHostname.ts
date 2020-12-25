@@ -33,7 +33,7 @@ export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams
 
   if (isCustomEndpoint) {
     if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");
-    if (accelerateEndpoint) throw new Error("Accelarate endpoint is not supported with custom endpoint");
+    if (accelerateEndpoint) throw new Error("Accelerate endpoint is not supported with custom endpoint");
   }
 
   return isBucketNameOptions(options)
