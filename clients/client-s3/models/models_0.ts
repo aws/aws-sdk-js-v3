@@ -6557,7 +6557,7 @@ export interface GetObjectOutput {
   /**
    * <p>Object data.</p>
    */
-  Body?: Readable | ReadableStream | Blob;
+  Body?: Readable | ReadableStream | Blob | Buffer | Uint8Array;
 
   /**
    * <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If
