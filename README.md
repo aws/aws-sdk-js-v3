@@ -13,6 +13,8 @@ and a [new middleware stack](https://aws.amazon.com/blogs/developer/middleware-s
 
 For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/).
 
+For full [API reference please visit the documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html).
+
 ## Getting started
 
 Let’s walk through setting up a project that depends on DynamoDB from the SDK and makes a simple service call. The following steps use yarn as an example. These steps assume you have Node.js and yarn already installed.
