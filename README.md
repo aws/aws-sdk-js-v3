@@ -12,8 +12,8 @@ It also includes many frequently requested features, such as a [first-class Type
 and a [new middleware stack](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
 For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/).
 
-To get started with JavaScript SDK version 3, visit our [Developer Guide]
-(https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
+To get started with JavaScript SDK version 3, visit our
+[Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
 or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/).
 
 You can also visit our [self-guided workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop),
