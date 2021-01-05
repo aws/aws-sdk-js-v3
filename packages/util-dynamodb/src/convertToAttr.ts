@@ -14,7 +14,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
-  } else if (data?.constructor?.name === "Object") {
+  } else if (typeof data === "object") {
     return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   } else {
     return convertToScalarAttr(data as NativeScalarAttributeValue, options);
