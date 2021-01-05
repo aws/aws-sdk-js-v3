@@ -1,6 +1,6 @@
 import { AbortController } from "@aws-sdk/abort-controller";
 
-import { ResolvedWaiterOptions, WaiterState } from "./waiter";
+import { WaiterOptions, WaiterState } from "./waiter";
 
 const mockValidate = jest.fn();
 jest.mock("./utils/validate", () => ({
@@ -22,7 +22,7 @@ describe("createWaiter", () => {
     maxDelay: 120,
     maxWaitTime: 9999,
     client: "client",
-  } as ResolvedWaiterOptions<any>;
+  } as WaiterOptions<any>;
   const input = "input";
 
   const abortedState = {
