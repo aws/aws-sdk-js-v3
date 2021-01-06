@@ -627,7 +627,6 @@ export interface CreateTrailResponse {
   S3KeyPrefix?: string;
 
   /**
-   * @deprecated
    * <p>This field is no longer in use. Use SnsTopicARN.</p>
    */
   SnsTopicName?: string;
@@ -914,6 +913,7 @@ export namespace KmsException {
 
 /**
  * @deprecated
+ *
  * <p>This exception is no longer in use.</p>
  */
 export interface KmsKeyDisabledException extends __SmithyException, $MetadataBearer {
@@ -1190,7 +1190,6 @@ export interface Trail {
   S3KeyPrefix?: string;
 
   /**
-   * @deprecated
    * <p>This field is no longer in use. Use SnsTopicARN.</p>
    */
   SnsTopicName?: string;
@@ -2683,7 +2682,6 @@ export interface UpdateTrailResponse {
   S3KeyPrefix?: string;
 
   /**
-   * @deprecated
    * <p>This field is no longer in use. Use SnsTopicARN.</p>
    */
   SnsTopicName?: string;

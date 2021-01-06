@@ -2399,7 +2399,6 @@ export interface CreateDBInstanceMessage {
   CharacterSetName?: string;
 
   /**
-   * @deprecated
    * <p>This flag should no longer be used.</p>
    */
   PubliclyAccessible?: boolean;
@@ -3105,7 +3104,6 @@ export interface DBInstance {
   SecondaryAvailabilityZone?: string;
 
   /**
-   * @deprecated
    * <p>This flag should no longer be used.</p>
    */
   PubliclyAccessible?: boolean;
@@ -7074,7 +7072,6 @@ export interface ModifyDBInstanceMessage {
   DBPortNumber?: number;
 
   /**
-   * @deprecated
    * <p>This flag should no longer be used.</p>
    */
   PubliclyAccessible?: boolean;

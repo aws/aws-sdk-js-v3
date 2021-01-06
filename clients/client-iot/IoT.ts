@@ -1194,6 +1194,7 @@ export class IoT extends IoTClient {
 
   /**
    * @deprecated
+   *
    * <p>Attaches the specified policy to the specified principal (certificate or other
    *          credential).</p>
    *          <p>
@@ -4242,6 +4243,7 @@ export class IoT extends IoTClient {
 
   /**
    * @deprecated
+   *
    * <p>Removes the specified policy from the specified certificate.</p>
    *          <p>
    *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>
@@ -5561,6 +5563,7 @@ export class IoT extends IoTClient {
 
   /**
    * @deprecated
+   *
    * <p>Lists the principals associated with the specified policy.</p>
    *          <p>
    *             <b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>
@@ -5629,6 +5632,7 @@ export class IoT extends IoTClient {
 
   /**
    * @deprecated
+   *
    * <p>Lists the policies attached to the specified principal. If you use an Cognito
    *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
    *          <p>

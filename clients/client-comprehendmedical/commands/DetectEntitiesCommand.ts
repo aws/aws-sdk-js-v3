@@ -26,6 +26,7 @@ export type DetectEntitiesCommandOutput = DetectEntitiesResponse & __MetadataBea
 
 /**
  * @deprecated
+ *
  * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
  *          <p> Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that

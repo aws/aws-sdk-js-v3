@@ -22,6 +22,7 @@ export type DeleteSubscriptionCommandOutput = DeleteSubscriptionResponse & __Met
 
 /**
  * @deprecated
+ *
  * <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
  */
 export class DeleteSubscriptionCommand extends $Command<

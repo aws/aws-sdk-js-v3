@@ -22,6 +22,7 @@ export type GetDeploymentInstanceCommandOutput = GetDeploymentInstanceOutput & _
 
 /**
  * @deprecated
+ *
  * <p>Gets information about an instance as part of a deployment.</p>
  */
 export class GetDeploymentInstanceCommand extends $Command<

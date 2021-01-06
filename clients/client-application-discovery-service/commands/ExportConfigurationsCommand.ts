@@ -26,6 +26,7 @@ export type ExportConfigurationsCommandOutput = ExportConfigurationsResponse & _
 
 /**
  * @deprecated
+ *
  * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
  *          <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that
  *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,

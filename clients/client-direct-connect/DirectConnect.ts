@@ -306,6 +306,7 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * @deprecated
+   *
    * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
    *          <p>Creates a hosted connection on an interconnect.</p>
    *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
@@ -1406,6 +1407,7 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * @deprecated
+   *
    * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
    *          <p>Gets the LOA-CFA for a connection.</p>
    *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or
@@ -1476,6 +1478,7 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * @deprecated
+   *
    * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
    *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
    *          <note>
@@ -1693,6 +1696,7 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * @deprecated
+   *
    * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
    *          <p>Gets the LOA-CFA for the specified interconnect.</p>
    *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility.

@@ -22,6 +22,7 @@ export type BatchGetDeploymentInstancesCommandOutput = BatchGetDeploymentInstanc
 
 /**
  * @deprecated
+ *
  * <note>
  *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
  *                 instead. </p>

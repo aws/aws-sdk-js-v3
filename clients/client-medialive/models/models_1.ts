@@ -3076,7 +3076,6 @@ export interface CreateChannelRequest {
   RequestId?: string;
 
   /**
-   * @deprecated
    * Deprecated field that's only usable by whitelisted customers.
    */
   Reserved?: string;

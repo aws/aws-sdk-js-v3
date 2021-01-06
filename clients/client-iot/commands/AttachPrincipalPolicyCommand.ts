@@ -22,6 +22,7 @@ export type AttachPrincipalPolicyCommandOutput = __MetadataBearer;
 
 /**
  * @deprecated
+ *
  * <p>Attaches the specified policy to the specified principal (certificate or other
  *          credential).</p>
  *          <p>

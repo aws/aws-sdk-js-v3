@@ -22,6 +22,7 @@ export type DescribeInterconnectLoaCommandOutput = DescribeInterconnectLoaRespon
 
 /**
  * @deprecated
+ *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
  *          <p>Gets the LOA-CFA for the specified interconnect.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility.

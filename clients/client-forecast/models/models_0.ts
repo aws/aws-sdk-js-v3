@@ -2712,7 +2712,6 @@ export namespace WeightedQuantileLoss {
  */
 export interface Metrics {
   /**
-   * @deprecated
    * <p>The root-mean-square error (RMSE).</p>
    */
   RMSE?: number;

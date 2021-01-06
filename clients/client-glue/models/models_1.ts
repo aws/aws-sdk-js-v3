@@ -4366,7 +4366,6 @@ export interface StartJobRunRequest {
   Arguments?: { [key: string]: string };
 
   /**
-   * @deprecated
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *
    *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun.
@@ -5441,7 +5440,6 @@ export interface JobUpdate {
   MaxRetries?: number;
 
   /**
-   * @deprecated
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *
    *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this job. You can

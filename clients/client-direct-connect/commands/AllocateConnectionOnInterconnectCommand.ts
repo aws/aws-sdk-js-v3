@@ -22,6 +22,7 @@ export type AllocateConnectionOnInterconnectCommandOutput = Connection & __Metad
 
 /**
  * @deprecated
+ *
  * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
  *          <p>Creates a hosted connection on an interconnect.</p>
  *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>

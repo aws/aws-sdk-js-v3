@@ -22,6 +22,7 @@ export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput
 
 /**
  * @deprecated
+ *
  * <note>
  *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
  *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an

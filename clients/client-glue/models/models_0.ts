@@ -1672,7 +1672,6 @@ export interface Job {
   MaxRetries?: number;
 
   /**
-   * @deprecated
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *
    *          <p>The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can
@@ -2272,7 +2271,6 @@ export interface JobRun {
   PredecessorRuns?: Predecessor[];
 
   /**
-   * @deprecated
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *
    *          <p>The number of AWS Glue data processing units (DPUs) allocated to this JobRun.
@@ -3852,7 +3850,6 @@ export interface CreateJobRequest {
   MaxRetries?: number;
 
   /**
-   * @deprecated
    * <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
    *
    *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can

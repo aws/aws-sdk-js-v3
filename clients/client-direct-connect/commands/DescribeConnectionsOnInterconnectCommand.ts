@@ -22,6 +22,7 @@ export type DescribeConnectionsOnInterconnectCommandOutput = Connections & __Met
 
 /**
  * @deprecated
+ *
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
