@@ -128,6 +128,8 @@ export interface ResourceShareInvitation {
   status?: ResourceShareInvitationStatus | string;
 
   /**
+   * @deprecated
+   *
    * <p>To view the resources associated with a pending resource share invitation, use
    *       	<a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html">
    *       		ListPendingInvitationResources</a>.</p>

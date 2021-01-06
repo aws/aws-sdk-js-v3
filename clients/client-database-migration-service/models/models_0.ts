@@ -3726,11 +3726,15 @@ export interface ReplicationInstance {
   ReplicationInstanceArn?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The public IP address of the replication instance.</p>
    */
   ReplicationInstancePublicIpAddress?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The private IP address of the replication instance.</p>
    */
   ReplicationInstancePrivateIpAddress?: string;

@@ -934,6 +934,8 @@ export interface UpdateSecurityProfileRequest {
   alertTargets?: { [key: string]: AlertTarget };
 
   /**
+   * @deprecated
+   *
    * <p>
    *             <i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i>
    *          </p>
@@ -1008,6 +1010,8 @@ export interface UpdateSecurityProfileResponse {
   alertTargets?: { [key: string]: AlertTarget };
 
   /**
+   * @deprecated
+   *
    * <p>
    *             <i>Please use <a>UpdateSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</i>
    *          </p>

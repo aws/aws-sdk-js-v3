@@ -637,6 +637,8 @@ export interface RevisionLocation {
   gitHubLocation?: GitHubLocation;
 
   /**
+   * @deprecated
+   *
    * <p>Information about the location of an AWS Lambda deployment revision stored as a
    *             RawString.</p>
    */
@@ -1832,6 +1834,8 @@ export interface InstanceSummary {
   instanceId?: string;
 
   /**
+   * @deprecated
+   *
    * <p>The deployment status for this instance:</p>
    *         <ul>
    *             <li>
@@ -2430,6 +2434,8 @@ export interface DeploymentInfo {
   loadBalancerInfo?: LoadBalancerInfo;
 
   /**
+   * @deprecated
+   *
    * <p>Provides information about the results of a deployment, such as whether instances in
    *             the original environment in a blue/green deployment were not terminated.</p>
    */
@@ -5081,6 +5087,8 @@ export namespace GetDeploymentInstanceInput {
  */
 export interface GetDeploymentInstanceOutput {
   /**
+   * @deprecated
+   *
    * <p> Information about the instance. </p>
    */
   instanceSummary?: InstanceSummary;

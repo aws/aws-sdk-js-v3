@@ -7047,6 +7047,8 @@ export interface CreateDomainRequest {
   AppNetworkAccessType?: AppNetworkAccessType | string;
 
   /**
+   * @deprecated
+   *
    * <p>This member is deprecated and replaced with <code>KmsKeyId</code>.</p>
    */
   HomeEfsFileSystemKmsKeyId?: string;

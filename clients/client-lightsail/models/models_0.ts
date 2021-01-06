@@ -4088,6 +4088,8 @@ export interface DomainEntry {
   type?: string;
 
   /**
+   * @deprecated
+   *
    * <p>(Deprecated) The options for the domain entry.</p>
    *          <note>
    *             <p>In releases prior to November 29, 2017, this parameter was not included in the API
@@ -4155,6 +4157,8 @@ export interface CreateInstancesRequest {
   availabilityZone: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>(Deprecated) The name for your custom image.</p>
    *          <note>
    *             <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
@@ -5815,6 +5819,8 @@ export interface Disk {
   isAttached?: boolean;
 
   /**
+   * @deprecated
+   *
    * <p>(Deprecated) The attachment state of the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter returned <code>attached</code>
@@ -5825,6 +5831,8 @@ export interface Disk {
   attachmentState?: string;
 
   /**
+   * @deprecated
+   *
    * <p>(Deprecated) The number of GB in use by the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter was not included in the API

@@ -4868,6 +4868,8 @@ export interface DescribeDomainResponse {
   AppNetworkAccessType?: AppNetworkAccessType | string;
 
   /**
+   * @deprecated
+   *
    * <p>This member is deprecated and replaced with <code>KmsKeyId</code>.</p>
    */
   HomeEfsFileSystemKmsKeyId?: string;

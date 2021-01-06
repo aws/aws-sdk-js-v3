@@ -1587,6 +1587,8 @@ export interface CreateDeliveryStreamInput {
   DeliveryStreamEncryptionConfigurationInput?: DeliveryStreamEncryptionConfigurationInput;
 
   /**
+   * @deprecated
+   *
    * <p>[Deprecated]
    *          The destination in Amazon S3. You can specify only one destination.</p>
    */
@@ -3503,6 +3505,8 @@ export interface UpdateDestinationInput {
   DestinationId: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>[Deprecated] Describes an update for a destination in Amazon S3.</p>
    */
   S3DestinationUpdate?: S3DestinationUpdate;

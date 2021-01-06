@@ -1575,6 +1575,8 @@ export interface DescribeSecurityProfileResponse {
   alertTargets?: { [key: string]: AlertTarget };
 
   /**
+   * @deprecated
+   *
    * <p>
    *             <i>Please use <a>DescribeSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</i>
    *          </p>
@@ -6486,6 +6488,8 @@ export interface RegisterCertificateRequest {
   caCertificatePem?: string;
 
   /**
+   * @deprecated
+   *
    * <p>A boolean value that specifies if the certificate is set to active.</p>
    */
   setAsActive?: boolean;

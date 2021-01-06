@@ -718,36 +718,48 @@ export namespace CloudTrailConfigurationResult {
  */
 export interface Condition {
   /**
+   * @deprecated
+   *
    * <p>Represents the <i>equal</i> condition to be applied to a single field when
    *       querying for findings.</p>
    */
   Eq?: string[];
 
   /**
+   * @deprecated
+   *
    * <p>Represents the <i>not equal</i> condition to be applied to a single field
    *       when querying for findings.</p>
    */
   Neq?: string[];
 
   /**
+   * @deprecated
+   *
    * <p>Represents a <i>greater than</i> condition to be applied to a single field
    *       when querying for findings.</p>
    */
   Gt?: number;
 
   /**
+   * @deprecated
+   *
    * <p>Represents a <i>greater than or equal</i> condition to be applied to a
    *       single field when querying for findings.</p>
    */
   Gte?: number;
 
   /**
+   * @deprecated
+   *
    * <p>Represents a <i>less than</i> condition to be applied to a single field when
    *       querying for findings.</p>
    */
   Lt?: number;
 
   /**
+   * @deprecated
+   *
    * <p>Represents a <i>less than or equal</i> condition to be applied to a single
    *       field when querying for findings.</p>
    */
