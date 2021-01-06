@@ -1,7 +1,7 @@
 # @aws-sdk/s3-resigned-post
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-presigned-post/latest.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-presigned-post/rc.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-presigned-post.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
 
 This package provide a function generating URL and fields. Users without AWS credentials can use the URL and fields to
 to make a POST request to S3. The documentation for the server side feature can be found in [S3 API Reference](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-UsingHTTPPOST.html). Please read related sections for more context.
