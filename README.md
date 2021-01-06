@@ -10,8 +10,18 @@ As with version 2, it enables you to easily work with [Amazon Web Services](http
 but has a [modular architecture](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/) with a separate package for each service.
 It also includes many frequently requested features, such as a [first-class TypeScript support](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
 and a [new middleware stack](https://aws.amazon.com/blogs/developer/middleware-stack-modular-aws-sdk-js/).
-
 For more details, visit blog post on [general availability of Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-aws-sdk-for-javascript-is-now-generally-available/).
+
+To get started with JavaScript SDK version 3, visit our
+[Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
+or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/).
+
+You can also visit our [self-guided workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop),
+which builds a simple note taking application using JavaScript SDK version 2
+and provides step-by-step migration instructions to version 3.
+
+To test your universal JavaScript code in Node.js, browser and react-native environments,
+visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Getting started
 
