@@ -21,6 +21,7 @@ export type GetDeploymentInstanceCommandInput = GetDeploymentInstanceInput;
 export type GetDeploymentInstanceCommandOutput = GetDeploymentInstanceOutput & __MetadataBearer;
 
 /**
+ * @deprecated
  * <p>Gets information about an instance as part of a deployment.</p>
  */
 export class GetDeploymentInstanceCommand extends $Command<

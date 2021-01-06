@@ -574,6 +574,7 @@ export namespace S3Location {
 }
 
 /**
+ * @deprecated
  * <p>A revision for an AWS Lambda deployment that is a YAML-formatted or JSON-formatted
  *             string. For AWS Lambda deployments, the revision is the same as the AppSpec file.</p>
  */
@@ -635,6 +636,7 @@ export interface RevisionLocation {
   gitHubLocation?: GitHubLocation;
 
   /**
+   * @deprecated
    * <p>Information about the location of an AWS Lambda deployment revision stored as a
    *             RawString.</p>
    */
@@ -1814,6 +1816,7 @@ export enum InstanceStatus {
 }
 
 /**
+ * @deprecated
  * <p>Information about an instance in a deployment.</p>
  */
 export interface InstanceSummary {
@@ -1828,6 +1831,7 @@ export interface InstanceSummary {
   instanceId?: string;
 
   /**
+   * @deprecated
    * <p>The deployment status for this instance:</p>
    *         <ul>
    *             <li>
@@ -1950,6 +1954,7 @@ export namespace DeploymentIdRequiredException {
 }
 
 /**
+ * @deprecated
  * <p>The instance ID was not specified.</p>
  */
 export interface InstanceIdRequiredException extends __SmithyException, $MetadataBearer {
@@ -2424,6 +2429,7 @@ export interface DeploymentInfo {
   loadBalancerInfo?: LoadBalancerInfo;
 
   /**
+   * @deprecated
    * <p>Provides information about the results of a deployment, such as whether instances in
    *             the original environment in a blue/green deployment were not terminated.</p>
    */
@@ -3036,6 +3042,7 @@ export namespace DeploymentTargetListSizeExceededException {
 }
 
 /**
+ * @deprecated
  * <p>The specified instance does not exist in the deployment group.</p>
  */
 export interface InstanceDoesNotExistException extends __SmithyException, $MetadataBearer {
@@ -5073,6 +5080,7 @@ export namespace GetDeploymentInstanceInput {
  */
 export interface GetDeploymentInstanceOutput {
   /**
+   * @deprecated
    * <p> Information about the instance. </p>
    */
   instanceSummary?: InstanceSummary;

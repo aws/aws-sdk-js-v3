@@ -538,6 +538,7 @@ export namespace TooManyRequestsException {
 
 export interface DeleteGroupInput {
   /**
+   * @deprecated
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
@@ -584,6 +585,7 @@ export namespace NotFoundException {
 
 export interface GetGroupInput {
   /**
+   * @deprecated
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
@@ -641,6 +643,7 @@ export namespace GetGroupConfigurationOutput {
 
 export interface GetGroupQueryInput {
   /**
+   * @deprecated
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
@@ -818,6 +821,7 @@ export namespace ResourceFilter {
 
 export interface ListGroupResourcesInput {
   /**
+   * @deprecated
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
@@ -1103,6 +1107,7 @@ export interface ListGroupsOutput {
   GroupIdentifiers?: GroupIdentifier[];
 
   /**
+   * @deprecated
    * <p>This output element is deprecated and shouldn't be used. Refer to
    *                 <code>GroupIdentifiers</code> instead.</p>
    */
@@ -1299,6 +1304,7 @@ export namespace UntagOutput {
 
 export interface UpdateGroupInput {
   /**
+   * @deprecated
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;
@@ -1336,6 +1342,7 @@ export namespace UpdateGroupOutput {
 
 export interface UpdateGroupQueryInput {
   /**
+   * @deprecated
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
   GroupName?: string;

@@ -21,6 +21,7 @@ export type SkipWaitTimeForInstanceTerminationCommandInput = SkipWaitTimeForInst
 export type SkipWaitTimeForInstanceTerminationCommandOutput = __MetadataBearer;
 
 /**
+ * @deprecated
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
  *             instances immediately after the traffic routing is complete.</p>
  */

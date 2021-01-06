@@ -312,6 +312,7 @@ export interface Backup {
   PreferredMaintenanceWindow?: string;
 
   /**
+   * @deprecated
    * <p>
    *       This field is deprecated and is no longer used.
    *     </p>
@@ -319,6 +320,7 @@ export interface Backup {
   S3DataSize?: number;
 
   /**
+   * @deprecated
    * <p>
    *       This field is deprecated and is no longer used.
    *     </p>

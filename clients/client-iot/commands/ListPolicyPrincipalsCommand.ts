@@ -21,6 +21,7 @@ export type ListPolicyPrincipalsCommandInput = ListPolicyPrincipalsRequest;
 export type ListPolicyPrincipalsCommandOutput = ListPolicyPrincipalsResponse & __MetadataBearer;
 
 /**
+ * @deprecated
  * <p>Lists the principals associated with the specified policy.</p>
  *          <p>
  *             <b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>

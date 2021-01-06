@@ -21,6 +21,7 @@ export type ListDeploymentInstancesCommandInput = ListDeploymentInstancesInput;
 export type ListDeploymentInstancesCommandOutput = ListDeploymentInstancesOutput & __MetadataBearer;
 
 /**
+ * @deprecated
  * <note>
  *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
  *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an

@@ -23,6 +23,7 @@ export type InvokeAsyncCommandInput = Omit<InvokeAsyncRequest, "InvokeArgs"> & {
 export type InvokeAsyncCommandOutput = InvokeAsyncResponse & __MetadataBearer;
 
 /**
+ * @deprecated
  * <important>
  *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
  *          </important>

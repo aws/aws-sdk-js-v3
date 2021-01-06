@@ -25,6 +25,7 @@ export type TestRoleCommandInput = TestRoleRequest;
 export type TestRoleCommandOutput = TestRoleResponse & __MetadataBearer;
 
 /**
+ * @deprecated
  * <p>The TestRole operation tests the IAM role used to create the pipeline.</p>
  *         <p>The <code>TestRole</code> action lets you determine whether the IAM role you are using
  *             has sufficient permissions to let Elastic Transcoder perform tasks associated with the transcoding

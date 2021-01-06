@@ -427,6 +427,7 @@ export enum RoutingPolicy {
  */
 export interface DnsConfig {
   /**
+   * @deprecated
    * <p>The ID of the namespace to use for DNS configuration.</p>
    */
   NamespaceId?: string;

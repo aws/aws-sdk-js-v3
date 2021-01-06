@@ -21,6 +21,7 @@ export type DetachPrincipalPolicyCommandInput = DetachPrincipalPolicyRequest;
 export type DetachPrincipalPolicyCommandOutput = __MetadataBearer;
 
 /**
+ * @deprecated
  * <p>Removes the specified policy from the specified certificate.</p>
  *          <p>
  *             <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>

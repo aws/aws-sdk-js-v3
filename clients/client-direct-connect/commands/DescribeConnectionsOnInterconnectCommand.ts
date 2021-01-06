@@ -21,6 +21,7 @@ export type DescribeConnectionsOnInterconnectCommandInput = DescribeConnectionsO
 export type DescribeConnectionsOnInterconnectCommandOutput = Connections & __MetadataBearer;
 
 /**
+ * @deprecated
  * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
