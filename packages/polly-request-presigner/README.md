@@ -1,6 +1,6 @@
 # @aws-sdk/polly-request-presigner
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/polly-request-presigner/beta.svg)](https://www.npmjs.com/package/@aws-sdk/polly-request-presigner)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/polly-request-presigner/latest.svg)](https://www.npmjs.com/package/@aws-sdk/polly-request-presigner)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/polly-request-presigner/beta.svg)](https://www.npmjs.com/package/@aws-sdk/polly-request-presigner)
 
 This package provides a presigner based on signature V4 that will attempt to
