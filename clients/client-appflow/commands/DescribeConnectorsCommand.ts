@@ -31,6 +31,7 @@ export class DescribeConnectorsCommand extends $Command<
   DescribeConnectorsCommandOutput,
   AppflowClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,7 +49,10 @@ export class DescribeConnectorsCommand extends $Command<
     configuration: AppflowClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeConnectorsCommandInput, DescribeConnectorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

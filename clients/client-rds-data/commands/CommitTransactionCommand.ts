@@ -29,6 +29,7 @@ export class CommitTransactionCommand extends $Command<
   CommitTransactionCommandOutput,
   RDSDataClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class CommitTransactionCommand extends $Command<
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CommitTransactionCommandInput, CommitTransactionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

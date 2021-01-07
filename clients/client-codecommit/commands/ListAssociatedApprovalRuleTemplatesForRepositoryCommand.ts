@@ -32,6 +32,7 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
   ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
   CodeCommitClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,7 +53,10 @@ export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Co
     ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
     ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

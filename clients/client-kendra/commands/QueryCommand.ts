@@ -41,6 +41,7 @@ export type QueryCommandOutput = QueryResult & __MetadataBearer;
  *          <p>Each query returns the 100 most relevant results. </p>
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, KendraClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,7 +59,10 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

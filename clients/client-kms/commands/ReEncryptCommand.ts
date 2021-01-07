@@ -79,6 +79,7 @@ export type ReEncryptCommandOutput = ReEncryptResponse & __MetadataBearer;
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptCommandOutput, KMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -96,7 +97,10 @@ export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptC
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ReEncryptCommandInput, ReEncryptCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

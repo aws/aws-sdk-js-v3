@@ -32,6 +32,7 @@ export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandOutput,
   EC2InstanceConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class SendSSHPublicKeyCommand extends $Command<
     configuration: EC2InstanceConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

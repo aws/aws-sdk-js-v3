@@ -33,6 +33,7 @@ export class GetEntitlementsCommand extends $Command<
   GetEntitlementsCommandOutput,
   MarketplaceEntitlementServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class GetEntitlementsCommand extends $Command<
     configuration: MarketplaceEntitlementServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEntitlementsCommandInput, GetEntitlementsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

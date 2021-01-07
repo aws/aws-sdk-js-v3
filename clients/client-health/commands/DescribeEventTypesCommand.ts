@@ -33,6 +33,7 @@ export class DescribeEventTypesCommand extends $Command<
   DescribeEventTypesCommandOutput,
   HealthClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class DescribeEventTypesCommand extends $Command<
     configuration: HealthClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

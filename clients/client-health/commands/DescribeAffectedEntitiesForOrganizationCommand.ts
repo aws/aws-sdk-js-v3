@@ -44,6 +44,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
   DescribeAffectedEntitiesForOrganizationCommandOutput,
   HealthClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -64,7 +65,10 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
     DescribeAffectedEntitiesForOrganizationCommandInput,
     DescribeAffectedEntitiesForOrganizationCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

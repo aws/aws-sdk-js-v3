@@ -24,6 +24,7 @@ export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
  * Lists tags for a resource.
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, MqClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,7 +42,10 @@ export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsComm
     configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTagsCommandInput, ListTagsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

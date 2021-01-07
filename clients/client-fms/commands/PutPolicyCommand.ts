@@ -49,6 +49,7 @@ export type PutPolicyCommandOutput = PutPolicyResponse & __MetadataBearer;
  *     <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
  */
 export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyCommandOutput, FMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -66,7 +67,10 @@ export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyC
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutPolicyCommandInput, PutPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

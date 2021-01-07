@@ -38,6 +38,7 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
   DescribeDirectConnectGatewayAssociationsCommandOutput,
   DirectConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,7 +59,10 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
     DescribeDirectConnectGatewayAssociationsCommandInput,
     DescribeDirectConnectGatewayAssociationsCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

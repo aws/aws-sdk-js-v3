@@ -26,6 +26,7 @@ export type ListTasksCommandOutput = ListTasksResponse & __MetadataBearer;
  * 			appear in the returned results for at least one hour. </p>
  */
 export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksCommandOutput, ECSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,7 +44,10 @@ export class ListTasksCommand extends $Command<ListTasksCommandInput, ListTasksC
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTasksCommandInput, ListTasksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

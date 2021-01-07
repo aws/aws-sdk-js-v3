@@ -33,6 +33,7 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
   ListAccountAssignmentDeletionStatusCommandOutput,
   SSOAdminClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class ListAccountAssignmentDeletionStatusCommand extends $Command<
     configuration: SSOAdminClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountAssignmentDeletionStatusCommandInput, ListAccountAssignmentDeletionStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,6 +25,7 @@ export class ExportSchemaCommand extends $Command<
   ExportSchemaCommandOutput,
   SchemasClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class ExportSchemaCommand extends $Command<
     configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExportSchemaCommandInput, ExportSchemaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

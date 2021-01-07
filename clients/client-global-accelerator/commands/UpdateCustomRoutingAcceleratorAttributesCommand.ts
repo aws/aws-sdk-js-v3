@@ -36,6 +36,7 @@ export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<
   UpdateCustomRoutingAcceleratorAttributesCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -56,7 +57,10 @@ export class UpdateCustomRoutingAcceleratorAttributesCommand extends $Command<
     UpdateCustomRoutingAcceleratorAttributesCommandInput,
     UpdateCustomRoutingAcceleratorAttributesCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -29,6 +29,7 @@ export class DescribeRecipeCommand extends $Command<
   DescribeRecipeCommandOutput,
   DataBrewClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class DescribeRecipeCommand extends $Command<
     configuration: DataBrewClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRecipeCommandInput, DescribeRecipeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

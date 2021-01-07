@@ -52,6 +52,7 @@ export class GetChangeTokenStatusCommand extends $Command<
   GetChangeTokenStatusCommandOutput,
   WAFClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -69,7 +70,10 @@ export class GetChangeTokenStatusCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetChangeTokenStatusCommandInput, GetChangeTokenStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

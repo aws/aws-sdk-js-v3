@@ -43,6 +43,7 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
   DescribeElasticsearchInstanceTypeLimitsCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -63,7 +64,10 @@ export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
     DescribeElasticsearchInstanceTypeLimitsCommandInput,
     DescribeElasticsearchInstanceTypeLimitsCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

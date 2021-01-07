@@ -32,6 +32,7 @@ export class ExecuteSqlCommand extends $Command<
   ExecuteSqlCommandOutput,
   RDSDataClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class ExecuteSqlCommand extends $Command<
     configuration: RDSDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ExecuteSqlCommandInput, ExecuteSqlCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

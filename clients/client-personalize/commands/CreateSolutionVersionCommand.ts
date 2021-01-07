@@ -80,6 +80,7 @@ export class CreateSolutionVersionCommand extends $Command<
   CreateSolutionVersionCommandOutput,
   PersonalizeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -97,7 +98,10 @@ export class CreateSolutionVersionCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSolutionVersionCommandInput, CreateSolutionVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

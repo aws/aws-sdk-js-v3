@@ -31,6 +31,7 @@ export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandOutput,
   ForecastClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,7 +49,10 @@ export class ListDatasetGroupsCommand extends $Command<
     configuration: ForecastClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

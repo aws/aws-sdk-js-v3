@@ -42,6 +42,7 @@ export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandOutput,
   NeptuneClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -59,7 +60,10 @@ export class CreateEventSubscriptionCommand extends $Command<
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEventSubscriptionCommandInput, CreateEventSubscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

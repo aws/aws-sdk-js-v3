@@ -45,6 +45,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
   AddApplicationReferenceDataSourceCommandOutput,
   KinesisAnalyticsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -62,7 +63,10 @@ export class AddApplicationReferenceDataSourceCommand extends $Command<
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddApplicationReferenceDataSourceCommandInput, AddApplicationReferenceDataSourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

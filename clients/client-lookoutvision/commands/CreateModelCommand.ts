@@ -38,6 +38,7 @@ export class CreateModelCommand extends $Command<
   CreateModelCommandOutput,
   LookoutVisionClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,7 +56,10 @@ export class CreateModelCommand extends $Command<
     configuration: LookoutVisionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateModelCommandInput, CreateModelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

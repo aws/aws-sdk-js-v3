@@ -21,6 +21,7 @@ export type UpdateAppCommandOutput = UpdateAppResponse & __MetadataBearer;
  * <p>Updates the specified application.</p>
  */
 export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppCommandOutput, SMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateAppCommandInput, UpdateAppCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

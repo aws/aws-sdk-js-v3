@@ -21,6 +21,7 @@ export type ListFaqsCommandOutput = ListFaqsResponse & __MetadataBearer;
  * <p>Gets a list of FAQ lists associated with an index.</p>
  */
 export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsCommandOutput, KendraClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class ListFaqsCommand extends $Command<ListFaqsCommandInput, ListFaqsComm
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFaqsCommandInput, ListFaqsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

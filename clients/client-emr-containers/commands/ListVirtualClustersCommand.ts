@@ -28,6 +28,7 @@ export class ListVirtualClustersCommand extends $Command<
   ListVirtualClustersCommandOutput,
   EMRContainersClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListVirtualClustersCommand extends $Command<
     configuration: EMRContainersClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListVirtualClustersCommandInput, ListVirtualClustersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

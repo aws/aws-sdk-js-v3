@@ -33,6 +33,7 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
   PutInlinePolicyToPermissionSetCommandOutput,
   SSOAdminClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class PutInlinePolicyToPermissionSetCommand extends $Command<
     configuration: SSOAdminClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutInlinePolicyToPermissionSetCommandInput, PutInlinePolicyToPermissionSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

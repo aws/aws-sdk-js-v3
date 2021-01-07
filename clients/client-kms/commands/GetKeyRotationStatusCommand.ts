@@ -46,6 +46,7 @@ export class GetKeyRotationStatusCommand extends $Command<
   GetKeyRotationStatusCommandOutput,
   KMSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -63,7 +64,10 @@ export class GetKeyRotationStatusCommand extends $Command<
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetKeyRotationStatusCommandInput, GetKeyRotationStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

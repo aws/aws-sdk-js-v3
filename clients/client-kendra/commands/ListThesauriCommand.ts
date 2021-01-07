@@ -28,6 +28,7 @@ export class ListThesauriCommand extends $Command<
   ListThesauriCommandOutput,
   KendraClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListThesauriCommand extends $Command<
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListThesauriCommandInput, ListThesauriCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

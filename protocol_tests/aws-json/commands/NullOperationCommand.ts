@@ -25,6 +25,7 @@ export class NullOperationCommand extends $Command<
   NullOperationCommandOutput,
   JsonProtocolClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class NullOperationCommand extends $Command<
     configuration: JsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<NullOperationCommandInput, NullOperationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

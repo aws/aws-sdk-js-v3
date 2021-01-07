@@ -28,6 +28,7 @@ export class CreateEnvironmentEC2Command extends $Command<
   CreateEnvironmentEC2CommandOutput,
   Cloud9ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CreateEnvironmentEC2Command extends $Command<
     configuration: Cloud9ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEnvironmentEC2CommandInput, CreateEnvironmentEC2CommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

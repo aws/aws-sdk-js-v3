@@ -28,6 +28,7 @@ export class DeleteBackendAuthCommand extends $Command<
   DeleteBackendAuthCommandOutput,
   AmplifyBackendClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DeleteBackendAuthCommand extends $Command<
     configuration: AmplifyBackendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBackendAuthCommandInput, DeleteBackendAuthCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -21,6 +21,7 @@ export type ListAppsCommandOutput = ListAppsResponse & __MetadataBearer;
  * <p>Retrieves summaries for all applications.</p>
  */
 export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsCommandOutput, SMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAppsCommandInput, ListAppsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

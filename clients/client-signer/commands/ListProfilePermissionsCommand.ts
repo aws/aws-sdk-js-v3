@@ -28,6 +28,7 @@ export class ListProfilePermissionsCommand extends $Command<
   ListProfilePermissionsCommandOutput,
   SignerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListProfilePermissionsCommand extends $Command<
     configuration: SignerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProfilePermissionsCommandInput, ListProfilePermissionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -45,6 +45,7 @@ export class ListRepositoryAssociationsCommand extends $Command<
   ListRepositoryAssociationsCommandOutput,
   CodeGuruReviewerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -62,7 +63,10 @@ export class ListRepositoryAssociationsCommand extends $Command<
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRepositoryAssociationsCommandInput, ListRepositoryAssociationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

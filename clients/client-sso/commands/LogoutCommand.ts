@@ -21,6 +21,7 @@ export type LogoutCommandOutput = __MetadataBearer;
  * <p>Removes the client- and server-side session that is associated with the user.</p>
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOut
     configuration: SSOClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<LogoutCommandInput, LogoutCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

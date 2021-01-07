@@ -28,6 +28,7 @@ export class BatchGetStreamKeyCommand extends $Command<
   BatchGetStreamKeyCommandOutput,
   IvsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class BatchGetStreamKeyCommand extends $Command<
     configuration: IvsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchGetStreamKeyCommandInput, BatchGetStreamKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

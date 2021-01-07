@@ -42,6 +42,7 @@ export class BatchMeterUsageCommand extends $Command<
   BatchMeterUsageCommandOutput,
   MarketplaceMeteringClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -59,7 +60,10 @@ export class BatchMeterUsageCommand extends $Command<
     configuration: MarketplaceMeteringClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -25,6 +25,7 @@ export class DescribeInsightCommand extends $Command<
   DescribeInsightCommandOutput,
   DevOpsGuruClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class DescribeInsightCommand extends $Command<
     configuration: DevOpsGuruClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeInsightCommandInput, DescribeInsightCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 
