@@ -1,0 +1,32 @@
+name: lock-threads
+
+on:
+  # 00:00 hours UTC, i.e. 16:00 hours PST or 17:00 hours PDT
+  schedule:
+    - cron: '0 0 * * *'
+
+  # allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/lock-threads@v2
+        if: github.repository == 'aws/aws-sdk-js-v3'
+        with:
+          github-token: ${{ github.token }}
+          issue-lock-inactive-days: 14
+          pr-lock-inactive-days: 14
+          issue-exclude-created-before: '2020-10-01T00:00:00Z'
+          pr-exclude-created-before: '2020-10-01T00:00:00Z'
+          issue-lock-comment: >
+            This thread has been automatically locked since there has not been
+            any recent activity after it was closed. Please open a 
+            [new issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose)
+            for related bugs and link to relevant comments in this thread.
+          pr-lock-comment: >
+            This thread has been automatically locked since there has not been
+            any recent activity after it was closed. Please open a 
+            [new issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose)
+            for related bugs and link to relevant comments in this thread.
