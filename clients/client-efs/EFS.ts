@@ -399,6 +399,8 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Creates or overwrites tags associated with a file system. Each tag is a key-value pair. If
    *       a tag key specified in the request already exists on the file system, this operation
    *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
@@ -611,6 +613,8 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deletes the specified tags from a file system. If the <code>DeleteTags</code> request
    *       includes a tag key that doesn't exist, Amazon EFS ignores it and doesn't cause an
    *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag Restrictions</a> in the
@@ -921,6 +925,8 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Returns the tags associated with a file system. The order of tags returned in the
    *       response of one <code>DescribeTags</code> call and the order of tags returned across the
    *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>

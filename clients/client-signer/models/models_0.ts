@@ -1578,6 +1578,8 @@ export namespace StartSigningJobResponse {
 }
 
 /**
+ * @deprecated
+ *
  * <p>The request was denied due to request throttling.</p>
  *         <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
  */

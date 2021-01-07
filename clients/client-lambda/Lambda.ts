@@ -1342,6 +1342,8 @@ export class Lambda extends LambdaClient {
   }
 
   /**
+   * @deprecated
+   *
    * <important>
    *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
    *          </important>

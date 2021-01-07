@@ -1310,6 +1310,8 @@ export interface GetOperationsForResourceResult {
   operations?: Operation[];
 
   /**
+   * @deprecated
+   *
    * <p>(Deprecated) Returns the number of pages of results that remain.</p>
    *          <note>
    *             <p>In releases prior to June 12, 2017, this parameter returned <code>null</code> by the

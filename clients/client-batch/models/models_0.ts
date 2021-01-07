@@ -435,6 +435,8 @@ export interface ComputeResource {
   instanceTypes?: string[];
 
   /**
+   * @deprecated
+   *
    * <p>The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter is
    *    overridden by the <code>imageIdOverride</code> member of the <code>Ec2Configuration</code> structure.</p>
    *          <note>
@@ -1645,6 +1647,8 @@ export interface ContainerProperties {
   image?: string;
 
   /**
+   * @deprecated
+   *
    * <p>This parameter is deprecated and not supported for jobs run on Fargate resources, see
    *     <code>resourceRequirement</code>. The number of vCPUs reserved for the container. Jobs running on EC2 resources can
    *    specify the vCPU requirement for the job using <code>resourceRequirements</code> but the vCPU requirements can't be
@@ -1661,6 +1665,8 @@ export interface ContainerProperties {
   vcpus?: number;
 
   /**
+   * @deprecated
+   *
    * <p>This parameter is deprecated and not supported for jobs run on Fargate resources, use
    *     <code>ResourceRequirement</code>. For jobs run on EC2 resources can specify the memory requirement using the
    *     <code>ResourceRequirement</code> structure. The hard limit (in MiB) of memory to present to the container. If your
@@ -2969,6 +2975,8 @@ export namespace RegisterJobDefinitionResponse {
  */
 export interface ContainerOverrides {
   /**
+   * @deprecated
+   *
    * <p>This parameter is deprecated and not supported for jobs run on Fargate resources, see
    *     <code>resourceRequirement</code>. For jobs run on EC2 resources, the number of vCPUs to reserve for the container.
    *    This value overrides the value set in the job definition. Jobs run on EC2 resources can specify the vCPU requirement
@@ -2985,6 +2993,8 @@ export interface ContainerOverrides {
   vcpus?: number;
 
   /**
+   * @deprecated
+   *
    * <p>This parameter is deprecated and not supported for jobs run on Fargate resources, use
    *     <code>ResourceRequirement</code>. For jobs run on EC2 resource, the number of MiB of memory reserved for the job.
    *    This value overrides the value set in the job definition.</p>

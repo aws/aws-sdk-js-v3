@@ -3411,6 +3411,8 @@ export namespace DeleteHealthCheckResponse {
 }
 
 /**
+ * @deprecated
+ *
  * <p>This error code is not in use.</p>
  */
 export interface HealthCheckInUse extends __SmithyException, $MetadataBearer {

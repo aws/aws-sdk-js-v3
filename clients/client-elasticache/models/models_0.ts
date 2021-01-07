@@ -9086,6 +9086,8 @@ export interface ModifyReplicationGroupMessage {
   MultiAZEnabled?: boolean;
 
   /**
+   * @deprecated
+   *
    * <p>Deprecated. This parameter is not used.</p>
    */
   NodeGroupId?: string;

@@ -21,6 +21,8 @@ export type BatchGetDeploymentInstancesCommandInput = BatchGetDeploymentInstance
 export type BatchGetDeploymentInstancesCommandOutput = BatchGetDeploymentInstancesOutput & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <note>
  *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
  *                 instead. </p>

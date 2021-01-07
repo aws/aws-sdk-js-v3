@@ -157,6 +157,8 @@ export class RDSData extends RDSDataClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Runs one or more SQL statements.</p>
    *         <important>
    *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or

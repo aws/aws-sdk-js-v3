@@ -21,6 +21,8 @@ export type DescribeTagsCommandInput = DescribeTagsRequest;
 export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Returns the tags associated with a file system. The order of tags returned in the
  *       response of one <code>DescribeTags</code> call and the order of tags returned across the
  *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>

@@ -4904,6 +4904,8 @@ export interface LifecycleRule {
   ID?: string;
 
   /**
+   * @deprecated
+   *
    * <p>Prefix identifying one or more objects to which the rule applies. This is
    *          No longer used; use <code>Filter</code> instead.</p>
    */
@@ -6105,6 +6107,8 @@ export interface ReplicationRule {
   Priority?: number;
 
   /**
+   * @deprecated
+   *
    * <p>An object key name prefix that identifies the object or objects to which the rule
    *          applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket,
    *          specify an empty string. </p>

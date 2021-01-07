@@ -21,6 +21,8 @@ export type ExecuteSqlCommandInput = ExecuteSqlRequest;
 export type ExecuteSqlCommandOutput = ExecuteSqlResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Runs one or more SQL statements.</p>
  *         <important>
  *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or

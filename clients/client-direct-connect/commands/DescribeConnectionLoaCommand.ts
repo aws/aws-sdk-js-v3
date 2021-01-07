@@ -21,6 +21,8 @@ export type DescribeConnectionLoaCommandInput = DescribeConnectionLoaRequest;
 export type DescribeConnectionLoaCommandOutput = DescribeConnectionLoaResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
  *          <p>Gets the LOA-CFA for a connection.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or

@@ -5208,6 +5208,8 @@ export interface CreateSecurityProfileRequest {
   alertTargets?: { [key: string]: AlertTarget };
 
   /**
+   * @deprecated
+   *
    * <p>
    *             <i>Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i>
    *          </p>

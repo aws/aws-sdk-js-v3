@@ -460,6 +460,8 @@ export class Shield extends ShieldClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
    */
   public deleteSubscription(

@@ -818,6 +818,8 @@ export namespace CaptionSource {
  */
 export interface Captions {
   /**
+   * @deprecated
+   *
    * <p>A policy that determines how Elastic Transcoder handles the existence of multiple captions.</p>
    *          <ul>
    *             <li>
@@ -847,6 +849,8 @@ export interface Captions {
   MergePolicy?: string;
 
   /**
+   * @deprecated
+   *
    * <p>Source files for the input sidecar captions used during the transcoding
    *          process. To omit all sidecar captions, leave <code>CaptionSources</code> blank.</p>
    */
@@ -893,6 +897,8 @@ export namespace TimeSpan {
 }
 
 /**
+ * @deprecated
+ *
  * <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
  */
 export interface Clip {
@@ -1318,6 +1324,8 @@ export interface CreateJobOutput {
   AlbumArt?: JobAlbumArt;
 
   /**
+   * @deprecated
+   *
    * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called a
    *             clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
@@ -1860,6 +1868,8 @@ export interface JobOutput {
   AlbumArt?: JobAlbumArt;
 
   /**
+   * @deprecated
+   *
    * <p>You can create an output file that contains an excerpt from the input file. This excerpt, called
    *             a clip, can come from the beginning, middle, or end of the file. The Composition object contains settings
    *             for the clips that make up an output file. For the current release, you can only specify settings for a
@@ -4454,6 +4464,8 @@ export namespace ReadPresetResponse {
 }
 
 /**
+ * @deprecated
+ *
  * <p> The <code>TestRoleRequest</code> structure. </p>
  */
 export interface TestRoleRequest {
@@ -4485,6 +4497,8 @@ export namespace TestRoleRequest {
 }
 
 /**
+ * @deprecated
+ *
  * <p>The <code>TestRoleResponse</code> structure.</p>
  */
 export interface TestRoleResponse {

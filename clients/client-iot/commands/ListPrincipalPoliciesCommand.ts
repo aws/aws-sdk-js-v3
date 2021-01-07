@@ -21,6 +21,8 @@ export type ListPrincipalPoliciesCommandInput = ListPrincipalPoliciesRequest;
 export type ListPrincipalPoliciesCommandOutput = ListPrincipalPoliciesResponse & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>Lists the policies attached to the specified principal. If you use an Cognito
  *          identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p>
  *          <p>

@@ -21,6 +21,8 @@ export type DescribeJobFlowsCommandInput = DescribeJobFlowsInput;
 export type DescribeJobFlowsCommandOutput = DescribeJobFlowsOutput & __MetadataBearer;
 
 /**
+ * @deprecated
+ *
  * <p>This API is no longer supported and will eventually be removed. We recommend you use
  *             <a>ListClusters</a>, <a>DescribeCluster</a>, <a>ListSteps</a>, <a>ListInstanceGroups</a> and <a>ListBootstrapActions</a> instead.</p>
  *          <p>DescribeJobFlows returns a list of job flows that match all of the supplied parameters.

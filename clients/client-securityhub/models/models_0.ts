@@ -3845,6 +3845,8 @@ export enum AwsIamAccessKeyStatus {
  */
 export interface AwsIamAccessKeyDetails {
   /**
+   * @deprecated
+   *
    * <p>The user associated with the IAM access key related to a finding.</p>
    *          <p>The <code>UserName</code> parameter has been replaced with the
    *             <code>PrincipalName</code> parameter because access keys can also be assigned to
@@ -8646,6 +8648,8 @@ export interface AwsSecurityFinding {
   VerificationState?: VerificationState | string;
 
   /**
+   * @deprecated
+   *
    * <p>The workflow state of a finding. </p>
    */
   WorkflowState?: WorkflowState | string;

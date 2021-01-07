@@ -566,6 +566,8 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @deprecated
+   *
    * <p>
    *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeImportTasks</a>, instead.</p>
    */
@@ -743,6 +745,8 @@ export class ApplicationDiscoveryService extends ApplicationDiscoveryServiceClie
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deprecated. Use <code>StartExportTask</code> instead.</p>
    *          <p>Exports all discovered configuration data to an Amazon S3 bucket or an application that
    *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,

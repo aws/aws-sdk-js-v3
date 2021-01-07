@@ -464,6 +464,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @deprecated
+   *
    * <note>
    *             <p> This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
    *                 instead. </p>
@@ -1152,6 +1154,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Gets information about an instance as part of a deployment.</p>
    */
   public getDeploymentInstance(
@@ -1377,6 +1381,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @deprecated
+   *
    * <note>
    *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because
    *                 it works with all compute types. <code>ListDeploymentInstances</code> throws an
@@ -1721,6 +1727,8 @@ export class CodeDeploy extends CodeDeployClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
    *             instances immediately after the traffic routing is complete.</p>
    */
