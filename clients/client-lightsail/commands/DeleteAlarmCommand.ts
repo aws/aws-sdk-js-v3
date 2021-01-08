@@ -32,6 +32,7 @@ export class DeleteAlarmCommand extends $Command<
   DeleteAlarmCommandOutput,
   LightsailClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class DeleteAlarmCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAlarmCommandInput, DeleteAlarmCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

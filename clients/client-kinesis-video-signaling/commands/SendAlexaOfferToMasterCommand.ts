@@ -37,6 +37,7 @@ export class SendAlexaOfferToMasterCommand extends $Command<
   SendAlexaOfferToMasterCommandOutput,
   KinesisVideoSignalingClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,7 +55,10 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     configuration: KinesisVideoSignalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendAlexaOfferToMasterCommandInput, SendAlexaOfferToMasterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -121,6 +121,7 @@ export type EncryptCommandOutput = EncryptResponse & __MetadataBearer;
  *   the key ARN or alias ARN in the value of the KeyId parameter.</p>
  */
 export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommandOutput, KMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -138,7 +139,10 @@ export class EncryptCommand extends $Command<EncryptCommandInput, EncryptCommand
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EncryptCommandInput, EncryptCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

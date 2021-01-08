@@ -50,6 +50,7 @@ export class DeleteCacheClusterCommand extends $Command<
   DeleteCacheClusterCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -67,7 +68,10 @@ export class DeleteCacheClusterCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

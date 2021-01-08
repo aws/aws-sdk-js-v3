@@ -48,6 +48,7 @@ export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandOutput,
   CloudDirectoryClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -65,7 +66,10 @@ export class CreateSchemaCommand extends $Command<
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSchemaCommandInput, CreateSchemaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

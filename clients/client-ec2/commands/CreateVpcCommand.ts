@@ -31,6 +31,7 @@ export type CreateVpcCommandOutput = CreateVpcResult & __MetadataBearer;
  *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcCommandOutput, EC2ClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,7 +49,10 @@ export class CreateVpcCommand extends $Command<CreateVpcCommandInput, CreateVpcC
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateVpcCommandInput, CreateVpcCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

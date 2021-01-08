@@ -28,6 +28,7 @@ export class RejectResourceShareInvitationCommand extends $Command<
   RejectResourceShareInvitationCommandOutput,
   RAMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class RejectResourceShareInvitationCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RejectResourceShareInvitationCommandInput, RejectResourceShareInvitationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -134,6 +134,7 @@ export class AssumeRoleCommand extends $Command<
   AssumeRoleCommandOutput,
   STSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -151,8 +152,11 @@ export class AssumeRoleCommand extends $Command<
     configuration: STSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssumeRoleCommandInput, AssumeRoleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getAwsAuthPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

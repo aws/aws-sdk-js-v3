@@ -21,6 +21,7 @@ export type GetJobCommandOutput = GetJobResponse & __MetadataBearer;
  * <p>Retrieves an existing job definition.</p>
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, GlueClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobCommandInput, GetJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

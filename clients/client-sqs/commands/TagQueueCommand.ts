@@ -41,6 +41,7 @@ export type TagQueueCommandOutput = __MetadataBearer;
  *         </note>
  */
 export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueCommandOutput, SQSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,7 +59,10 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagQueueCommandInput, TagQueueCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

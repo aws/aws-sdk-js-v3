@@ -27,6 +27,7 @@ export class AddTagsCommand extends $Command<
   AddTagsCommandOutput,
   MachineLearningClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,7 +45,10 @@ export class AddTagsCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

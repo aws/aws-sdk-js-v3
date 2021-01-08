@@ -28,6 +28,7 @@ export class GetRequestValidatorCommand extends $Command<
   GetRequestValidatorCommandOutput,
   APIGatewayClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetRequestValidatorCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRequestValidatorCommandInput, GetRequestValidatorCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

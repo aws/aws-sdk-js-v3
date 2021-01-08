@@ -39,6 +39,7 @@ export class AdminUpdateUserAttributesCommand extends $Command<
   AdminUpdateUserAttributesCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -56,8 +57,11 @@ export class AdminUpdateUserAttributesCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminUpdateUserAttributesCommandInput, AdminUpdateUserAttributesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getAwsAuthPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

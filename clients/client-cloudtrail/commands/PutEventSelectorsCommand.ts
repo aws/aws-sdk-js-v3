@@ -72,6 +72,7 @@ export class PutEventSelectorsCommand extends $Command<
   PutEventSelectorsCommandOutput,
   CloudTrailClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -89,7 +90,10 @@ export class PutEventSelectorsCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

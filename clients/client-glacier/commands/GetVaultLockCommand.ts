@@ -55,6 +55,7 @@ export class GetVaultLockCommand extends $Command<
   GetVaultLockCommandOutput,
   GlacierClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -72,7 +73,10 @@ export class GetVaultLockCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetVaultLockCommandInput, GetVaultLockCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

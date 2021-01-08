@@ -68,6 +68,7 @@ export class CreateServiceCommand extends $Command<
   CreateServiceCommandOutput,
   ServiceDiscoveryClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -85,7 +86,10 @@ export class CreateServiceCommand extends $Command<
     configuration: ServiceDiscoveryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateServiceCommandInput, CreateServiceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

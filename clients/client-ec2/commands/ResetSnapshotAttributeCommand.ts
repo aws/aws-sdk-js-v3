@@ -30,6 +30,7 @@ export class ResetSnapshotAttributeCommand extends $Command<
   ResetSnapshotAttributeCommandOutput,
   EC2ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class ResetSnapshotAttributeCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResetSnapshotAttributeCommandInput, ResetSnapshotAttributeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

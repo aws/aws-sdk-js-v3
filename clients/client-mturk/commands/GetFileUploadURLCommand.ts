@@ -45,6 +45,7 @@ export class GetFileUploadURLCommand extends $Command<
   GetFileUploadURLCommandOutput,
   MTurkClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -62,7 +63,10 @@ export class GetFileUploadURLCommand extends $Command<
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFileUploadURLCommandInput, GetFileUploadURLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

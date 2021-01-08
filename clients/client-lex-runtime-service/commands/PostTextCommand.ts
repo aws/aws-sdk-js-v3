@@ -99,6 +99,7 @@ export class PostTextCommand extends $Command<
   PostTextCommandOutput,
   LexRuntimeServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -116,7 +117,10 @@ export class PostTextCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostTextCommandInput, PostTextCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

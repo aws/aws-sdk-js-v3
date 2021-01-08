@@ -28,6 +28,7 @@ export class CreateComponentCommand extends $Command<
   CreateComponentCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CreateComponentCommand extends $Command<
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateComponentCommandInput, CreateComponentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

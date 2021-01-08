@@ -31,6 +31,7 @@ export class GetRecommendationSummariesCommand extends $Command<
   GetRecommendationSummariesCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,7 +49,10 @@ export class GetRecommendationSummariesCommand extends $Command<
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRecommendationSummariesCommandInput, GetRecommendationSummariesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

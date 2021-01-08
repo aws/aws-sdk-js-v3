@@ -21,6 +21,7 @@ export type GetBotCommandOutput = GetBotResponse & __MetadataBearer;
  * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
  */
 export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOutput, ChimeClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class GetBotCommand extends $Command<GetBotCommandInput, GetBotCommandOut
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBotCommandInput, GetBotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

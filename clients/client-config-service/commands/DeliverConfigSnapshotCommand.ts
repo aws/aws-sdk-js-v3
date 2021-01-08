@@ -44,6 +44,7 @@ export class DeliverConfigSnapshotCommand extends $Command<
   DeliverConfigSnapshotCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -61,7 +62,10 @@ export class DeliverConfigSnapshotCommand extends $Command<
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeliverConfigSnapshotCommandInput, DeliverConfigSnapshotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

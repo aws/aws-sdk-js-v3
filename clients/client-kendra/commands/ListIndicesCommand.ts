@@ -28,6 +28,7 @@ export class ListIndicesCommand extends $Command<
   ListIndicesCommandOutput,
   KendraClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListIndicesCommand extends $Command<
     configuration: KendraClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListIndicesCommandInput, ListIndicesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

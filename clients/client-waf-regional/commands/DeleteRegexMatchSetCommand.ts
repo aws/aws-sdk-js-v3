@@ -51,6 +51,7 @@ export class DeleteRegexMatchSetCommand extends $Command<
   DeleteRegexMatchSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -68,7 +69,10 @@ export class DeleteRegexMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRegexMatchSetCommandInput, DeleteRegexMatchSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

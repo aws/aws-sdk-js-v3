@@ -33,6 +33,7 @@ export class InvokeDeviceMethodCommand extends $Command<
   InvokeDeviceMethodCommandOutput,
   IoT1ClickDevicesServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class InvokeDeviceMethodCommand extends $Command<
     configuration: IoT1ClickDevicesServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

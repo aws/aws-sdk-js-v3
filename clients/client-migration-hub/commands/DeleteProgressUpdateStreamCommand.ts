@@ -58,6 +58,7 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
   DeleteProgressUpdateStreamCommandOutput,
   MigrationHubClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -75,7 +76,10 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteProgressUpdateStreamCommandInput, DeleteProgressUpdateStreamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

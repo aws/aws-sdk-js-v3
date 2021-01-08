@@ -28,6 +28,7 @@ export class ListV2LoggingLevelsCommand extends $Command<
   ListV2LoggingLevelsCommandOutput,
   IoTClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListV2LoggingLevelsCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListV2LoggingLevelsCommandInput, ListV2LoggingLevelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

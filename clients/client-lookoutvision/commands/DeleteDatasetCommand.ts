@@ -42,6 +42,7 @@ export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandOutput,
   LookoutVisionClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -59,7 +60,10 @@ export class DeleteDatasetCommand extends $Command<
     configuration: LookoutVisionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDatasetCommandInput, DeleteDatasetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

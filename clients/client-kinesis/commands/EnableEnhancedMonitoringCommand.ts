@@ -28,6 +28,7 @@ export class EnableEnhancedMonitoringCommand extends $Command<
   EnableEnhancedMonitoringCommandOutput,
   KinesisClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class EnableEnhancedMonitoringCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<EnableEnhancedMonitoringCommandInput, EnableEnhancedMonitoringCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

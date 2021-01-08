@@ -27,6 +27,7 @@ export type ListHITsCommandOutput = ListHITsResponse & __MetadataBearer;
  *         </p>
  */
 export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsCommandOutput, MTurkClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,7 +45,10 @@ export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsComm
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHITsCommandInput, ListHITsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

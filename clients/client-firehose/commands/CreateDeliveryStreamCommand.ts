@@ -96,6 +96,7 @@ export class CreateDeliveryStreamCommand extends $Command<
   CreateDeliveryStreamCommandOutput,
   FirehoseClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -113,7 +114,10 @@ export class CreateDeliveryStreamCommand extends $Command<
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDeliveryStreamCommandInput, CreateDeliveryStreamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

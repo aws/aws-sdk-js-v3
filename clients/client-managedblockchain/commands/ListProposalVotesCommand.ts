@@ -32,6 +32,7 @@ export class ListProposalVotesCommand extends $Command<
   ListProposalVotesCommandOutput,
   ManagedBlockchainClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class ListProposalVotesCommand extends $Command<
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListProposalVotesCommandInput, ListProposalVotesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

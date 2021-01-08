@@ -30,6 +30,7 @@ export class DescribeAuditSuppressionCommand extends $Command<
   DescribeAuditSuppressionCommandOutput,
   IoTClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class DescribeAuditSuppressionCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAuditSuppressionCommandInput, DescribeAuditSuppressionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

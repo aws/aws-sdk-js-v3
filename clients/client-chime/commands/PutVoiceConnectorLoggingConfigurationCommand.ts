@@ -32,6 +32,7 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
   PutVoiceConnectorLoggingConfigurationCommandOutput,
   ChimeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class PutVoiceConnectorLoggingConfigurationCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutVoiceConnectorLoggingConfigurationCommandInput, PutVoiceConnectorLoggingConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

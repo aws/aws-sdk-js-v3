@@ -28,6 +28,7 @@ export class UntagAttendeeCommand extends $Command<
   UntagAttendeeCommandOutput,
   ChimeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class UntagAttendeeCommand extends $Command<
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagAttendeeCommandInput, UntagAttendeeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -68,6 +68,7 @@ export class CreateStreamCommand extends $Command<
   CreateStreamCommandOutput,
   KinesisClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -85,7 +86,10 @@ export class CreateStreamCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateStreamCommandInput, CreateStreamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

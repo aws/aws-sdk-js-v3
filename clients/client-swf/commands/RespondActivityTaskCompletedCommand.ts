@@ -67,6 +67,7 @@ export class RespondActivityTaskCompletedCommand extends $Command<
   RespondActivityTaskCompletedCommandOutput,
   SWFClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -84,7 +85,10 @@ export class RespondActivityTaskCompletedCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RespondActivityTaskCompletedCommandInput, RespondActivityTaskCompletedCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -21,6 +21,7 @@ export type GetSdkCommandOutput = SdkResponse & __MetadataBearer;
  * <p>Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.</p>
  */
 export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOutput, APIGatewayClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOut
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSdkCommandInput, GetSdkCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

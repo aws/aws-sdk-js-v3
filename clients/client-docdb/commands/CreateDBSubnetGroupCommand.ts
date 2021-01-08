@@ -29,6 +29,7 @@ export class CreateDBSubnetGroupCommand extends $Command<
   CreateDBSubnetGroupCommandOutput,
   DocDBClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class CreateDBSubnetGroupCommand extends $Command<
     configuration: DocDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDBSubnetGroupCommandInput, CreateDBSubnetGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

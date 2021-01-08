@@ -28,6 +28,7 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
   DescribeAutoScalingGroupsCommandOutput,
   AutoScalingClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DescribeAutoScalingGroupsCommand extends $Command<
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAutoScalingGroupsCommandInput, DescribeAutoScalingGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

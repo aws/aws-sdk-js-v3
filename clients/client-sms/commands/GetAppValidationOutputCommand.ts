@@ -28,6 +28,7 @@ export class GetAppValidationOutputCommand extends $Command<
   GetAppValidationOutputCommandOutput,
   SMSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetAppValidationOutputCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAppValidationOutputCommandInput, GetAppValidationOutputCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

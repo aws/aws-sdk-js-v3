@@ -34,6 +34,7 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
   BatchDeleteDelegationByAssessmentCommandOutput,
   AuditManagerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
     configuration: AuditManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteDelegationByAssessmentCommandInput, BatchDeleteDelegationByAssessmentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

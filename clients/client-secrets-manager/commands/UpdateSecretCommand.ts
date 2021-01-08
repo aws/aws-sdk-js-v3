@@ -112,6 +112,7 @@ export class UpdateSecretCommand extends $Command<
   UpdateSecretCommandOutput,
   SecretsManagerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -129,7 +130,10 @@ export class UpdateSecretCommand extends $Command<
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSecretCommandInput, UpdateSecretCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -23,6 +23,7 @@ export type UntagUserCommandOutput = __MetadataBearer;
  *       in the <i>IAM User Guide</i>.</p>
  */
 export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserCommandOutput, IAMClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -40,7 +41,10 @@ export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserC
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UntagUserCommandInput, UntagUserCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -28,6 +28,7 @@ export class ListServicesCommand extends $Command<
   ListServicesCommandOutput,
   ECSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListServicesCommand extends $Command<
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListServicesCommandInput, ListServicesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

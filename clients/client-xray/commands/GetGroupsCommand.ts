@@ -28,6 +28,7 @@ export class GetGroupsCommand extends $Command<
   GetGroupsCommandOutput,
   XRayClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetGroupsCommand extends $Command<
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGroupsCommandInput, GetGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

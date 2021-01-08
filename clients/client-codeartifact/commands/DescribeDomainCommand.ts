@@ -34,6 +34,7 @@ export class DescribeDomainCommand extends $Command<
   DescribeDomainCommandOutput,
   CodeartifactClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class DescribeDomainCommand extends $Command<
     configuration: CodeartifactClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeDomainCommandInput, DescribeDomainCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

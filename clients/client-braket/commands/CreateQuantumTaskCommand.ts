@@ -28,6 +28,7 @@ export class CreateQuantumTaskCommand extends $Command<
   CreateQuantumTaskCommandOutput,
   BraketClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CreateQuantumTaskCommand extends $Command<
     configuration: BraketClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

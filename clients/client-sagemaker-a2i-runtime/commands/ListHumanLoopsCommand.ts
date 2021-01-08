@@ -32,6 +32,7 @@ export class ListHumanLoopsCommand extends $Command<
   ListHumanLoopsCommandOutput,
   SageMakerA2IRuntimeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class ListHumanLoopsCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

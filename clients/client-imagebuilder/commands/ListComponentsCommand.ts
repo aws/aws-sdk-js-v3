@@ -28,6 +28,7 @@ export class ListComponentsCommand extends $Command<
   ListComponentsCommandOutput,
   ImagebuilderClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListComponentsCommand extends $Command<
     configuration: ImagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListComponentsCommandInput, ListComponentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

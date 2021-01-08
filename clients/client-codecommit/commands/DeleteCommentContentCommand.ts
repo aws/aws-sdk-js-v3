@@ -28,6 +28,7 @@ export class DeleteCommentContentCommand extends $Command<
   DeleteCommentContentCommandOutput,
   CodeCommitClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DeleteCommentContentCommand extends $Command<
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCommentContentCommandInput, DeleteCommentContentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

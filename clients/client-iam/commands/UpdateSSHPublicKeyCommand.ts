@@ -34,6 +34,7 @@ export class UpdateSSHPublicKeyCommand extends $Command<
   UpdateSSHPublicKeyCommandOutput,
   IAMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class UpdateSSHPublicKeyCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

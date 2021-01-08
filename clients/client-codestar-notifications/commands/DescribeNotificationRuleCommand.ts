@@ -32,6 +32,7 @@ export class DescribeNotificationRuleCommand extends $Command<
   DescribeNotificationRuleCommandOutput,
   CodestarNotificationsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class DescribeNotificationRuleCommand extends $Command<
     configuration: CodestarNotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeNotificationRuleCommandInput, DescribeNotificationRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

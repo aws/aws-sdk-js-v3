@@ -28,6 +28,7 @@ export class UpdateThingGroupsForThingCommand extends $Command<
   UpdateThingGroupsForThingCommandOutput,
   IoTClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class UpdateThingGroupsForThingCommand extends $Command<
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateThingGroupsForThingCommandInput, UpdateThingGroupsForThingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

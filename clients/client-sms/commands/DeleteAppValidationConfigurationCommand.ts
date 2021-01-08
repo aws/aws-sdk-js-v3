@@ -28,6 +28,7 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
   DeleteAppValidationConfigurationCommandOutput,
   SMSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DeleteAppValidationConfigurationCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAppValidationConfigurationCommandInput, DeleteAppValidationConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

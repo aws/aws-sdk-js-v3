@@ -65,6 +65,7 @@ export class PutLifecycleHookCommand extends $Command<
   PutLifecycleHookCommandOutput,
   AutoScalingClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -82,7 +83,10 @@ export class PutLifecycleHookCommand extends $Command<
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLifecycleHookCommandInput, PutLifecycleHookCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

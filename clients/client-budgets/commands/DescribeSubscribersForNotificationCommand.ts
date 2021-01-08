@@ -32,6 +32,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
   DescribeSubscribersForNotificationCommandOutput,
   BudgetsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
     configuration: BudgetsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSubscribersForNotificationCommandInput, DescribeSubscribersForNotificationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -26,6 +26,7 @@ export type CopyImageCommandOutput = CopyImageResult & __MetadataBearer;
  *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageCommandOutput, EC2ClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,7 +44,10 @@ export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageC
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CopyImageCommandInput, CopyImageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -28,6 +28,7 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
   GetThingRuntimeConfigurationCommandOutput,
   GreengrassClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetThingRuntimeConfigurationCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetThingRuntimeConfigurationCommandInput, GetThingRuntimeConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

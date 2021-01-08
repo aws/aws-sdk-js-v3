@@ -24,6 +24,7 @@ export type GetRoomCommandOutput = GetRoomResponse & __MetadataBearer;
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, ChimeClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,7 +42,10 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRoomCommandInput, GetRoomCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

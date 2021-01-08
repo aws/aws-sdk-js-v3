@@ -28,6 +28,7 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
   CreateImageBuilderStreamingURLCommandOutput,
   AppStreamClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CreateImageBuilderStreamingURLCommand extends $Command<
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateImageBuilderStreamingURLCommandInput, CreateImageBuilderStreamingURLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

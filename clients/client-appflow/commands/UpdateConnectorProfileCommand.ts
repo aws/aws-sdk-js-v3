@@ -30,6 +30,7 @@ export class UpdateConnectorProfileCommand extends $Command<
   UpdateConnectorProfileCommandOutput,
   AppflowClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class UpdateConnectorProfileCommand extends $Command<
     configuration: AppflowClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateConnectorProfileCommandInput, UpdateConnectorProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

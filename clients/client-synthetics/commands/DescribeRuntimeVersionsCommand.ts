@@ -30,6 +30,7 @@ export class DescribeRuntimeVersionsCommand extends $Command<
   DescribeRuntimeVersionsCommandOutput,
   SyntheticsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class DescribeRuntimeVersionsCommand extends $Command<
     configuration: SyntheticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRuntimeVersionsCommandInput, DescribeRuntimeVersionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

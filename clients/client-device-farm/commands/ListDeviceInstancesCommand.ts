@@ -29,6 +29,7 @@ export class ListDeviceInstancesCommand extends $Command<
   ListDeviceInstancesCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class ListDeviceInstancesCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListDeviceInstancesCommandInput, ListDeviceInstancesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

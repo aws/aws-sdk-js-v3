@@ -34,6 +34,7 @@ export class GetInsightSelectorsCommand extends $Command<
   GetInsightSelectorsCommandOutput,
   CloudTrailClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class GetInsightSelectorsCommand extends $Command<
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInsightSelectorsCommandInput, GetInsightSelectorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

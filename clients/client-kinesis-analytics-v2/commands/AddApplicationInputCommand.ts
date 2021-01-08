@@ -41,6 +41,7 @@ export class AddApplicationInputCommand extends $Command<
   AddApplicationInputCommandOutput,
   KinesisAnalyticsV2ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,7 +59,10 @@ export class AddApplicationInputCommand extends $Command<
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddApplicationInputCommandInput, AddApplicationInputCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

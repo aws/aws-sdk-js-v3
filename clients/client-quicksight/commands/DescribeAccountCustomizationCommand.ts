@@ -84,6 +84,7 @@ export class DescribeAccountCustomizationCommand extends $Command<
   DescribeAccountCustomizationCommandOutput,
   QuickSightClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -101,7 +102,10 @@ export class DescribeAccountCustomizationCommand extends $Command<
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAccountCustomizationCommandInput, DescribeAccountCustomizationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

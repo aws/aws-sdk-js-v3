@@ -46,6 +46,7 @@ export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandOutput,
   S3OutpostsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -63,7 +64,10 @@ export class DeleteEndpointCommand extends $Command<
     configuration: S3OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEndpointCommandInput, DeleteEndpointCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

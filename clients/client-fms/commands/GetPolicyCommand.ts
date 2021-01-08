@@ -21,6 +21,7 @@ export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
  * <p>Returns information about the specified AWS Firewall Manager policy.</p>
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, FMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPolicyCommandInput, GetPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

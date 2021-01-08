@@ -28,6 +28,7 @@ export class DescribeLocationSmbCommand extends $Command<
   DescribeLocationSmbCommandOutput,
   DataSyncClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DescribeLocationSmbCommand extends $Command<
     configuration: DataSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLocationSmbCommandInput, DescribeLocationSmbCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

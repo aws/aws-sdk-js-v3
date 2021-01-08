@@ -25,6 +25,7 @@ export type StartTaskCommandOutput = StartTaskResponse & __MetadataBearer;
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskCommandOutput, ECSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class StartTaskCommand extends $Command<StartTaskCommandInput, StartTaskC
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartTaskCommandInput, StartTaskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

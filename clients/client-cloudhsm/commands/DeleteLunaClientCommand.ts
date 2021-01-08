@@ -38,6 +38,7 @@ export class DeleteLunaClientCommand extends $Command<
   DeleteLunaClientCommandOutput,
   CloudHSMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,7 +56,10 @@ export class DeleteLunaClientCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLunaClientCommandInput, DeleteLunaClientCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

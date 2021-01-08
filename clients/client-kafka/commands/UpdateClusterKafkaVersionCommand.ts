@@ -28,6 +28,7 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
   UpdateClusterKafkaVersionCommandOutput,
   KafkaClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateClusterKafkaVersionCommandInput, UpdateClusterKafkaVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -21,6 +21,7 @@ export type GetAppCommandOutput = GetAppResult & __MetadataBearer;
  * <p> Returns an existing Amplify app by appID. </p>
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, AmplifyClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     configuration: AmplifyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAppCommandInput, GetAppCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

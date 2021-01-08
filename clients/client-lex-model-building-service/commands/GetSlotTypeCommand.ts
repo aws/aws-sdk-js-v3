@@ -36,6 +36,7 @@ export class GetSlotTypeCommand extends $Command<
   GetSlotTypeCommandOutput,
   LexModelBuildingServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -53,7 +54,10 @@ export class GetSlotTypeCommand extends $Command<
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetSlotTypeCommandInput, GetSlotTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

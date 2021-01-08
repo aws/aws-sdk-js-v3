@@ -32,6 +32,7 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
   ModifyTransitGatewayPrefixListReferenceCommandOutput,
   EC2ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,7 +53,10 @@ export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
     ModifyTransitGatewayPrefixListReferenceCommandInput,
     ModifyTransitGatewayPrefixListReferenceCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

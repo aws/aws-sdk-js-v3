@@ -34,6 +34,7 @@ export class PutSessionCommand extends $Command<
   PutSessionCommandOutput,
   LexRuntimeServiceClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class PutSessionCommand extends $Command<
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutSessionCommandInput, PutSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

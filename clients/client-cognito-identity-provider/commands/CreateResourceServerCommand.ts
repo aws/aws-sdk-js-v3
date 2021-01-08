@@ -33,6 +33,7 @@ export class CreateResourceServerCommand extends $Command<
   CreateResourceServerCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,8 +51,11 @@ export class CreateResourceServerCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateResourceServerCommandInput, CreateResourceServerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getAwsAuthPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

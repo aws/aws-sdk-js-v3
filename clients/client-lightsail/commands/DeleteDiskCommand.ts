@@ -35,6 +35,7 @@ export class DeleteDiskCommand extends $Command<
   DeleteDiskCommandOutput,
   LightsailClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,7 +53,10 @@ export class DeleteDiskCommand extends $Command<
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteDiskCommandInput, DeleteDiskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

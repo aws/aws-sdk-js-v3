@@ -29,6 +29,7 @@ export class GetInventorySchemaCommand extends $Command<
   GetInventorySchemaCommandOutput,
   SSMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class GetInventorySchemaCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

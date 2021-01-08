@@ -154,6 +154,7 @@ export class PutBucketWebsiteCommand extends $Command<
   PutBucketWebsiteCommandOutput,
   S3ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -171,8 +172,11 @@ export class PutBucketWebsiteCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

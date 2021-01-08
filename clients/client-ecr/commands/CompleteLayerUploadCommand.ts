@@ -36,6 +36,7 @@ export class CompleteLayerUploadCommand extends $Command<
   CompleteLayerUploadCommandOutput,
   ECRClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -53,7 +54,10 @@ export class CompleteLayerUploadCommand extends $Command<
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteLayerUploadCommandInput, CompleteLayerUploadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

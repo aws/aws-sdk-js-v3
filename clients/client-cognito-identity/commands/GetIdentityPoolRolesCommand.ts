@@ -30,6 +30,7 @@ export class GetIdentityPoolRolesCommand extends $Command<
   GetIdentityPoolRolesCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,8 +48,11 @@ export class GetIdentityPoolRolesCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIdentityPoolRolesCommandInput, GetIdentityPoolRolesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getAwsAuthPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

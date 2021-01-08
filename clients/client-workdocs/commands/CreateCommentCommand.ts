@@ -28,6 +28,7 @@ export class CreateCommentCommand extends $Command<
   CreateCommentCommandOutput,
   WorkDocsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CreateCommentCommand extends $Command<
     configuration: WorkDocsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateCommentCommandInput, CreateCommentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

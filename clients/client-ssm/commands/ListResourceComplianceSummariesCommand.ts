@@ -30,6 +30,7 @@ export class ListResourceComplianceSummariesCommand extends $Command<
   ListResourceComplianceSummariesCommandOutput,
   SSMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class ListResourceComplianceSummariesCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResourceComplianceSummariesCommandInput, ListResourceComplianceSummariesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -93,6 +93,7 @@ export class StartWorkflowExecutionCommand extends $Command<
   StartWorkflowExecutionCommandOutput,
   SWFClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -110,7 +111,10 @@ export class StartWorkflowExecutionCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartWorkflowExecutionCommandInput, StartWorkflowExecutionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

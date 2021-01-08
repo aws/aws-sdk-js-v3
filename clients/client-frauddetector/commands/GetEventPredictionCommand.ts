@@ -28,6 +28,7 @@ export class GetEventPredictionCommand extends $Command<
   GetEventPredictionCommandOutput,
   FraudDetectorClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetEventPredictionCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEventPredictionCommandInput, GetEventPredictionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

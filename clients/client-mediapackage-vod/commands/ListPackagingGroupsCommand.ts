@@ -28,6 +28,7 @@ export class ListPackagingGroupsCommand extends $Command<
   ListPackagingGroupsCommandOutput,
   MediaPackageVodClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListPackagingGroupsCommand extends $Command<
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPackagingGroupsCommandInput, ListPackagingGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

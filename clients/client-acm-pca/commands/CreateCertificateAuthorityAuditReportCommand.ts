@@ -47,6 +47,7 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
   CreateCertificateAuthorityAuditReportCommandOutput,
   ACMPCAClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -64,7 +65,10 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command<
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateCertificateAuthorityAuditReportCommandInput, CreateCertificateAuthorityAuditReportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

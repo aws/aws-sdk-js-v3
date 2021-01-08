@@ -54,6 +54,7 @@ export class CreateJobCommand extends $Command<
   CreateJobCommandOutput,
   S3ControlClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -71,8 +72,11 @@ export class CreateJobCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJobCommandInput, CreateJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getProcessArnablesPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

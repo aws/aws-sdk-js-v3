@@ -33,6 +33,7 @@ export class UpdateInstanceCommand extends $Command<
   UpdateInstanceCommandOutput,
   OpsWorksClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class UpdateInstanceCommand extends $Command<
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateInstanceCommandInput, UpdateInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

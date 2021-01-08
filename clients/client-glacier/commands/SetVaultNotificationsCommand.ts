@@ -65,6 +65,7 @@ export class SetVaultNotificationsCommand extends $Command<
   SetVaultNotificationsCommandOutput,
   GlacierClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -82,7 +83,10 @@ export class SetVaultNotificationsCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SetVaultNotificationsCommandInput, SetVaultNotificationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

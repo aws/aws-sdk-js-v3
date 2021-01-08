@@ -28,6 +28,7 @@ export class ModifyClusterMaintenanceCommand extends $Command<
   ModifyClusterMaintenanceCommandOutput,
   RedshiftClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ModifyClusterMaintenanceCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ModifyClusterMaintenanceCommandInput, ModifyClusterMaintenanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

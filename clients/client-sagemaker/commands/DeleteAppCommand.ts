@@ -25,6 +25,7 @@ export class DeleteAppCommand extends $Command<
   DeleteAppCommandOutput,
   SageMakerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class DeleteAppCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAppCommandInput, DeleteAppCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

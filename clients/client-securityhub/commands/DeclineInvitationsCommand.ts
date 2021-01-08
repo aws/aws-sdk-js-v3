@@ -30,6 +30,7 @@ export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandOutput,
   SecurityHubClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class DeclineInvitationsCommand extends $Command<
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

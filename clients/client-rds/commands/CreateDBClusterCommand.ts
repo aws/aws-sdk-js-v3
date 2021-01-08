@@ -42,6 +42,7 @@ export class CreateDBClusterCommand extends $Command<
   CreateDBClusterCommandOutput,
   RDSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -59,8 +60,11 @@ export class CreateDBClusterCommand extends $Command<
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateDBClusterCommandInput, CreateDBClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

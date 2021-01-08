@@ -26,6 +26,7 @@ export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
  *          <p>To retrieve user details with an email address instead of a user ID, use the <a>ListUsers</a> action, and then filter by email address.</p>
  */
 export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommandOutput, ChimeClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,7 +44,10 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetUserCommandInput, GetUserCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

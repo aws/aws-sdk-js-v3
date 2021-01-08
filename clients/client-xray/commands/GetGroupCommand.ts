@@ -24,6 +24,7 @@ export type GetGroupCommandOutput = GetGroupResult & __MetadataBearer;
  * <p>Retrieves group resource details.</p>
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, XRayClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,7 +42,10 @@ export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupComm
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGroupCommandInput, GetGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

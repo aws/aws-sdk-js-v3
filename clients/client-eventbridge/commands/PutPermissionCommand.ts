@@ -49,6 +49,7 @@ export class PutPermissionCommand extends $Command<
   PutPermissionCommandOutput,
   EventBridgeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -66,7 +67,10 @@ export class PutPermissionCommand extends $Command<
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutPermissionCommandInput, PutPermissionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

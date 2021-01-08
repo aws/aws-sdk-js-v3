@@ -40,6 +40,7 @@ export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandOutput,
   CloudHSMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -57,7 +58,10 @@ export class RemoveTagsFromResourceCommand extends $Command<
     configuration: CloudHSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveTagsFromResourceCommandInput, RemoveTagsFromResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -29,6 +29,7 @@ export class DeleteBGPPeerCommand extends $Command<
   DeleteBGPPeerCommandOutput,
   DirectConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class DeleteBGPPeerCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBGPPeerCommandInput, DeleteBGPPeerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

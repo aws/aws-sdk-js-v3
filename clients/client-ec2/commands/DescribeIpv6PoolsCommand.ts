@@ -28,6 +28,7 @@ export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandOutput,
   EC2ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DescribeIpv6PoolsCommand extends $Command<
     configuration: EC2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -38,6 +38,7 @@ export class RestoreCertificateAuthorityCommand extends $Command<
   RestoreCertificateAuthorityCommandOutput,
   ACMPCAClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,7 +56,10 @@ export class RestoreCertificateAuthorityCommand extends $Command<
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RestoreCertificateAuthorityCommandInput, RestoreCertificateAuthorityCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

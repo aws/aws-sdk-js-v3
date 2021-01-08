@@ -28,6 +28,7 @@ export class RebootBrokerCommand extends $Command<
   RebootBrokerCommandOutput,
   MqClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class RebootBrokerCommand extends $Command<
     configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RebootBrokerCommandInput, RebootBrokerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

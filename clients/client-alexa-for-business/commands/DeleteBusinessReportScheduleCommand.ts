@@ -29,6 +29,7 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
   DeleteBusinessReportScheduleCommandOutput,
   AlexaForBusinessClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class DeleteBusinessReportScheduleCommand extends $Command<
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteBusinessReportScheduleCommandInput, DeleteBusinessReportScheduleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

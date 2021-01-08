@@ -35,6 +35,7 @@ export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandOutput,
   IoT1ClickProjectsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,7 +53,10 @@ export class UpdateProjectCommand extends $Command<
     configuration: IoT1ClickProjectsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateProjectCommandInput, UpdateProjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

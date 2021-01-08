@@ -28,6 +28,7 @@ export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandOutput,
   DAXClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CreateSubnetGroupCommand extends $Command<
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

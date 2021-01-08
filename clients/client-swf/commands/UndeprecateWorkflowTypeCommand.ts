@@ -69,6 +69,7 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
   UndeprecateWorkflowTypeCommandOutput,
   SWFClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -86,7 +87,10 @@ export class UndeprecateWorkflowTypeCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UndeprecateWorkflowTypeCommandInput, UndeprecateWorkflowTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

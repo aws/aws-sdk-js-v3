@@ -28,6 +28,7 @@ export class DeleteMultiplexCommand extends $Command<
   DeleteMultiplexCommandOutput,
   MediaLiveClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DeleteMultiplexCommand extends $Command<
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteMultiplexCommandInput, DeleteMultiplexCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

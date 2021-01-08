@@ -36,6 +36,7 @@ export class UpdateCampaignCommand extends $Command<
   UpdateCampaignCommandOutput,
   PersonalizeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -53,7 +54,10 @@ export class UpdateCampaignCommand extends $Command<
     configuration: PersonalizeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateCampaignCommandInput, UpdateCampaignCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

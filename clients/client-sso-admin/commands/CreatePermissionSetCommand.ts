@@ -33,6 +33,7 @@ export class CreatePermissionSetCommand extends $Command<
   CreatePermissionSetCommandOutput,
   SSOAdminClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class CreatePermissionSetCommand extends $Command<
     configuration: SSOAdminClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePermissionSetCommandInput, CreatePermissionSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

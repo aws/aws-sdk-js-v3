@@ -34,6 +34,7 @@ export class DescribeSSLPoliciesCommand extends $Command<
   DescribeSSLPoliciesCommandOutput,
   ElasticLoadBalancingV2ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class DescribeSSLPoliciesCommand extends $Command<
     configuration: ElasticLoadBalancingV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeSSLPoliciesCommandInput, DescribeSSLPoliciesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

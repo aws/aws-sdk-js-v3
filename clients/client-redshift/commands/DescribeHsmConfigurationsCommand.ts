@@ -38,6 +38,7 @@ export class DescribeHsmConfigurationsCommand extends $Command<
   DescribeHsmConfigurationsCommandOutput,
   RedshiftClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,7 +56,10 @@ export class DescribeHsmConfigurationsCommand extends $Command<
     configuration: RedshiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeHsmConfigurationsCommandInput, DescribeHsmConfigurationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

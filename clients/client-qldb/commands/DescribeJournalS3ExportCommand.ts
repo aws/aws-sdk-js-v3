@@ -35,6 +35,7 @@ export class DescribeJournalS3ExportCommand extends $Command<
   DescribeJournalS3ExportCommandOutput,
   QLDBClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,7 +53,10 @@ export class DescribeJournalS3ExportCommand extends $Command<
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeJournalS3ExportCommandInput, DescribeJournalS3ExportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

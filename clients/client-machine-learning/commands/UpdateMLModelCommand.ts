@@ -29,6 +29,7 @@ export class UpdateMLModelCommand extends $Command<
   UpdateMLModelCommandOutput,
   MachineLearningClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class UpdateMLModelCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateMLModelCommandInput, UpdateMLModelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

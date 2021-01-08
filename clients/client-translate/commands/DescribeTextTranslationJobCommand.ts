@@ -29,6 +29,7 @@ export class DescribeTextTranslationJobCommand extends $Command<
   DescribeTextTranslationJobCommandOutput,
   TranslateClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class DescribeTextTranslationJobCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeTextTranslationJobCommandInput, DescribeTextTranslationJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

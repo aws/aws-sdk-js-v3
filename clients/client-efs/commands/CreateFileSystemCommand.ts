@@ -77,6 +77,7 @@ export class CreateFileSystemCommand extends $Command<
   CreateFileSystemCommandOutput,
   EFSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -94,7 +95,10 @@ export class CreateFileSystemCommand extends $Command<
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFileSystemCommandInput, CreateFileSystemCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

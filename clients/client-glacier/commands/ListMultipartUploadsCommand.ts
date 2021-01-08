@@ -53,6 +53,7 @@ export class ListMultipartUploadsCommand extends $Command<
   ListMultipartUploadsCommandOutput,
   GlacierClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -70,7 +71,10 @@ export class ListMultipartUploadsCommand extends $Command<
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMultipartUploadsCommandInput, ListMultipartUploadsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

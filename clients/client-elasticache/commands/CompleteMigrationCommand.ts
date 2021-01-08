@@ -28,6 +28,7 @@ export class CompleteMigrationCommand extends $Command<
   CompleteMigrationCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class CompleteMigrationCommand extends $Command<
     configuration: ElastiCacheClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteMigrationCommandInput, CompleteMigrationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

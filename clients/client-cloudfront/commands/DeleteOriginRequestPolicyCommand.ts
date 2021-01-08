@@ -34,6 +34,7 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
   DeleteOriginRequestPolicyCommandOutput,
   CloudFrontClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteOriginRequestPolicyCommandInput, DeleteOriginRequestPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

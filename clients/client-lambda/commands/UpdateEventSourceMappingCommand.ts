@@ -52,6 +52,7 @@ export class UpdateEventSourceMappingCommand extends $Command<
   UpdateEventSourceMappingCommandOutput,
   LambdaClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -69,7 +70,10 @@ export class UpdateEventSourceMappingCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateEventSourceMappingCommandInput, UpdateEventSourceMappingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

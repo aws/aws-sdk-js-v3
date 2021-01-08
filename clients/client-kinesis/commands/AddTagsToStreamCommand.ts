@@ -36,6 +36,7 @@ export class AddTagsToStreamCommand extends $Command<
   AddTagsToStreamCommandOutput,
   KinesisClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -53,7 +54,10 @@ export class AddTagsToStreamCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

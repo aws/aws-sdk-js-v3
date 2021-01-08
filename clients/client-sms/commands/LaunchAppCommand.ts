@@ -21,6 +21,7 @@ export type LaunchAppCommandOutput = LaunchAppResponse & __MetadataBearer;
  * <p>Launches the specified application as a stack in AWS CloudFormation.</p>
  */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -38,7 +39,10 @@ export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppC
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<LaunchAppCommandInput, LaunchAppCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

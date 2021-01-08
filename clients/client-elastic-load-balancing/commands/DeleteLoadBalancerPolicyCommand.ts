@@ -32,6 +32,7 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
   DeleteLoadBalancerPolicyCommandOutput,
   ElasticLoadBalancingClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class DeleteLoadBalancerPolicyCommand extends $Command<
     configuration: ElasticLoadBalancingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteLoadBalancerPolicyCommandInput, DeleteLoadBalancerPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

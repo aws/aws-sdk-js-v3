@@ -33,6 +33,7 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
   ListICD10CMInferenceJobsCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class ListICD10CMInferenceJobsCommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListICD10CMInferenceJobsCommandInput, ListICD10CMInferenceJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

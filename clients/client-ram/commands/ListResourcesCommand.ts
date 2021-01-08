@@ -28,6 +28,7 @@ export class ListResourcesCommand extends $Command<
   ListResourcesCommandOutput,
   RAMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListResourcesCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListResourcesCommandInput, ListResourcesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

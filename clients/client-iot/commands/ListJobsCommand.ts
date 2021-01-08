@@ -24,6 +24,7 @@ export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
  * <p>Lists jobs.</p>
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, IoTClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,7 +42,10 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListJobsCommandInput, ListJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

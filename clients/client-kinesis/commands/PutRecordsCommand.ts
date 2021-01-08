@@ -83,6 +83,7 @@ export class PutRecordsCommand extends $Command<
   PutRecordsCommandOutput,
   KinesisClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -100,7 +101,10 @@ export class PutRecordsCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutRecordsCommandInput, PutRecordsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

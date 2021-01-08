@@ -74,6 +74,7 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
   CountClosedWorkflowExecutionsCommandOutput,
   SWFClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -91,7 +92,10 @@ export class CountClosedWorkflowExecutionsCommand extends $Command<
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CountClosedWorkflowExecutionsCommandInput, CountClosedWorkflowExecutionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

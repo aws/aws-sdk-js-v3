@@ -28,6 +28,7 @@ export class TerminateAppCommand extends $Command<
   TerminateAppCommandOutput,
   SMSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class TerminateAppCommand extends $Command<
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TerminateAppCommandInput, TerminateAppCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

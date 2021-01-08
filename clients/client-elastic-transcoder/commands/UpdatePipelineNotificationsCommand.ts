@@ -33,6 +33,7 @@ export class UpdatePipelineNotificationsCommand extends $Command<
   UpdatePipelineNotificationsCommandOutput,
   ElasticTranscoderClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class UpdatePipelineNotificationsCommand extends $Command<
     configuration: ElasticTranscoderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdatePipelineNotificationsCommandInput, UpdatePipelineNotificationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

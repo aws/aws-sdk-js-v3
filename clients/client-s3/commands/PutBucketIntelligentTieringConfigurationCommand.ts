@@ -51,6 +51,7 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
   PutBucketIntelligentTieringConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -71,8 +72,11 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command<
     PutBucketIntelligentTieringConfigurationCommandInput,
     PutBucketIntelligentTieringConfigurationCommandOutput
   > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

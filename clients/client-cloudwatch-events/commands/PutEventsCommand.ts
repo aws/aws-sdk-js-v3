@@ -26,6 +26,7 @@ export class PutEventsCommand extends $Command<
   PutEventsCommandOutput,
   CloudWatchEventsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,7 +44,10 @@ export class PutEventsCommand extends $Command<
     configuration: CloudWatchEventsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutEventsCommandInput, PutEventsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

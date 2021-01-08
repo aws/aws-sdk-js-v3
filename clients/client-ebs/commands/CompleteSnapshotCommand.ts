@@ -30,6 +30,7 @@ export class CompleteSnapshotCommand extends $Command<
   CompleteSnapshotCommandOutput,
   EBSClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class CompleteSnapshotCommand extends $Command<
     configuration: EBSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteSnapshotCommandInput, CompleteSnapshotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

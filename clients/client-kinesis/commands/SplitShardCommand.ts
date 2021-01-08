@@ -69,6 +69,7 @@ export class SplitShardCommand extends $Command<
   SplitShardCommandOutput,
   KinesisClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -86,7 +87,10 @@ export class SplitShardCommand extends $Command<
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SplitShardCommandInput, SplitShardCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

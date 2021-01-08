@@ -52,6 +52,7 @@ export class DeleteXssMatchSetCommand extends $Command<
   DeleteXssMatchSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -69,7 +70,10 @@ export class DeleteXssMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteXssMatchSetCommandInput, DeleteXssMatchSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

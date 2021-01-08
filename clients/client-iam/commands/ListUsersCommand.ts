@@ -25,6 +25,7 @@ export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
  *          parameters.</p>
  */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, IAMClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

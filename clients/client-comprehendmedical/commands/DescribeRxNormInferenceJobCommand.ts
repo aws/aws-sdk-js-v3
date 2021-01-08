@@ -33,6 +33,7 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
   DescribeRxNormInferenceJobCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class DescribeRxNormInferenceJobCommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRxNormInferenceJobCommandInput, DescribeRxNormInferenceJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -33,6 +33,7 @@ export type GetBlockCommandOutput = GetBlockResponse & __MetadataBearer;
  *             <code>InvalidParameterException</code>.</p>
  */
 export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockCommandOutput, QLDBClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class GetBlockCommand extends $Command<GetBlockCommandInput, GetBlockComm
     configuration: QLDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBlockCommandInput, GetBlockCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

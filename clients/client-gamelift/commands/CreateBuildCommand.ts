@@ -100,6 +100,7 @@ export class CreateBuildCommand extends $Command<
   CreateBuildCommandOutput,
   GameLiftClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -117,7 +118,10 @@ export class CreateBuildCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBuildCommandInput, CreateBuildCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

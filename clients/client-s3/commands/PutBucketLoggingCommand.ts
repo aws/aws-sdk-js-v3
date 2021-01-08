@@ -108,6 +108,7 @@ export class PutBucketLoggingCommand extends $Command<
   PutBucketLoggingCommandOutput,
   S3ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -125,8 +126,11 @@ export class PutBucketLoggingCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

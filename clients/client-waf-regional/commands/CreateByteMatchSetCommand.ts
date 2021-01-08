@@ -59,6 +59,7 @@ export class CreateByteMatchSetCommand extends $Command<
   CreateByteMatchSetCommandOutput,
   WAFRegionalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -76,7 +77,10 @@ export class CreateByteMatchSetCommand extends $Command<
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateByteMatchSetCommandInput, CreateByteMatchSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

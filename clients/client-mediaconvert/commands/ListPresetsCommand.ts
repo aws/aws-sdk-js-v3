@@ -28,6 +28,7 @@ export class ListPresetsCommand extends $Command<
   ListPresetsCommandOutput,
   MediaConvertClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListPresetsCommand extends $Command<
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPresetsCommandInput, ListPresetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

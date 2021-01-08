@@ -28,6 +28,7 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
   DeleteGitHubAccountTokenCommandOutput,
   CodeDeployClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteGitHubAccountTokenCommandInput, DeleteGitHubAccountTokenCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

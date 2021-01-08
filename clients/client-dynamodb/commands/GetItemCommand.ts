@@ -27,6 +27,7 @@ export type GetItemCommandOutput = GetItemOutput & __MetadataBearer;
  *       returns the last updated value.</p>
  */
 export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,7 +45,10 @@ export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommand
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetItemCommandInput, GetItemCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

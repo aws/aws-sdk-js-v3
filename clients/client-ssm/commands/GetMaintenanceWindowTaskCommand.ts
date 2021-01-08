@@ -28,6 +28,7 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
   GetMaintenanceWindowTaskCommandOutput,
   SSMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetMaintenanceWindowTaskCommand extends $Command<
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetMaintenanceWindowTaskCommandInput, GetMaintenanceWindowTaskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

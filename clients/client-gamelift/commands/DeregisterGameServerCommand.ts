@@ -77,6 +77,7 @@ export class DeregisterGameServerCommand extends $Command<
   DeregisterGameServerCommandOutput,
   GameLiftClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -94,7 +95,10 @@ export class DeregisterGameServerCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeregisterGameServerCommandInput, DeregisterGameServerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

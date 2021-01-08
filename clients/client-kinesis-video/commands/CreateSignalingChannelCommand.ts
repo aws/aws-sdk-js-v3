@@ -30,6 +30,7 @@ export class CreateSignalingChannelCommand extends $Command<
   CreateSignalingChannelCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class CreateSignalingChannelCommand extends $Command<
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateSignalingChannelCommandInput, CreateSignalingChannelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

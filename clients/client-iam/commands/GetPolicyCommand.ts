@@ -30,6 +30,7 @@ export type GetPolicyCommandOutput = GetPolicyResponse & __MetadataBearer;
  *             Policies</a> in the <i>IAM User Guide</i>.</p>
  */
 export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyCommandOutput, IAMClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPolicyCommandInput, GetPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

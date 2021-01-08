@@ -33,6 +33,7 @@ export class ListMFADevicesCommand extends $Command<
   ListMFADevicesCommandOutput,
   IAMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class ListMFADevicesCommand extends $Command<
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListMFADevicesCommandInput, ListMFADevicesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

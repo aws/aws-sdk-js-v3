@@ -28,6 +28,7 @@ export class StopEdgePackagingJobCommand extends $Command<
   StopEdgePackagingJobCommandOutput,
   SageMakerClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class StopEdgePackagingJobCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopEdgePackagingJobCommandInput, StopEdgePackagingJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

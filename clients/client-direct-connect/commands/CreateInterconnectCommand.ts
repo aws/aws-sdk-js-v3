@@ -43,6 +43,7 @@ export class CreateInterconnectCommand extends $Command<
   CreateInterconnectCommandOutput,
   DirectConnectClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -60,7 +61,10 @@ export class CreateInterconnectCommand extends $Command<
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInterconnectCommandInput, CreateInterconnectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

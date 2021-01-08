@@ -44,6 +44,7 @@ export class DescribeVoicesCommand extends $Command<
   DescribeVoicesCommandOutput,
   PollyClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -61,7 +62,10 @@ export class DescribeVoicesCommand extends $Command<
     configuration: PollyClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeVoicesCommandInput, DescribeVoicesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -28,6 +28,7 @@ export class GetHostedZoneCountCommand extends $Command<
   GetHostedZoneCountCommandOutput,
   Route53ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetHostedZoneCountCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHostedZoneCountCommandInput, GetHostedZoneCountCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

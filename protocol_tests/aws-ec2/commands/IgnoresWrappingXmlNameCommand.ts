@@ -30,6 +30,7 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
   IgnoresWrappingXmlNameCommandOutput,
   EC2ProtocolClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class IgnoresWrappingXmlNameCommand extends $Command<
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<IgnoresWrappingXmlNameCommandInput, IgnoresWrappingXmlNameCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -29,6 +29,7 @@ export class ListStacksCommand extends $Command<
   ListStacksCommandOutput,
   CloudFormationClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,7 +47,10 @@ export class ListStacksCommand extends $Command<
     configuration: CloudFormationClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListStacksCommandInput, ListStacksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

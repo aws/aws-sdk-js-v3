@@ -28,6 +28,7 @@ export class BatchPutMessageCommand extends $Command<
   BatchPutMessageCommandOutput,
   IoTAnalyticsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class BatchPutMessageCommand extends $Command<
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchPutMessageCommandInput, BatchPutMessageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

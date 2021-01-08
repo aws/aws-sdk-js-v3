@@ -33,6 +33,7 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
   DescribeEntitiesDetectionV2JobCommandOutput,
   ComprehendMedicalClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,7 +51,10 @@ export class DescribeEntitiesDetectionV2JobCommand extends $Command<
     configuration: ComprehendMedicalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeEntitiesDetectionV2JobCommandInput, DescribeEntitiesDetectionV2JobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

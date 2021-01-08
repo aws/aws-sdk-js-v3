@@ -34,6 +34,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
   DescribeValidDBInstanceModificationsCommandOutput,
   NeptuneClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
     configuration: NeptuneClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeValidDBInstanceModificationsCommandInput, DescribeValidDBInstanceModificationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

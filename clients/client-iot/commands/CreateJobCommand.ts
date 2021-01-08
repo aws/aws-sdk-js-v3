@@ -24,6 +24,7 @@ export type CreateJobCommandOutput = CreateJobResponse & __MetadataBearer;
  * <p>Creates a job.</p>
  */
 export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobCommandOutput, IoTClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,7 +42,10 @@ export class CreateJobCommand extends $Command<CreateJobCommandInput, CreateJobC
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateJobCommandInput, CreateJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

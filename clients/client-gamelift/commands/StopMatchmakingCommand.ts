@@ -76,6 +76,7 @@ export class StopMatchmakingCommand extends $Command<
   StopMatchmakingCommandOutput,
   GameLiftClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -93,7 +94,10 @@ export class StopMatchmakingCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopMatchmakingCommandInput, StopMatchmakingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

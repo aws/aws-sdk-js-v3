@@ -62,6 +62,7 @@ export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandOutput,
   LambdaClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -79,7 +80,10 @@ export class CreateFunctionCommand extends $Command<
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateFunctionCommandInput, CreateFunctionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

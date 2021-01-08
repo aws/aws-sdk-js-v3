@@ -30,6 +30,7 @@ export class GetPlaybackKeyPairCommand extends $Command<
   GetPlaybackKeyPairCommandOutput,
   IvsClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class GetPlaybackKeyPairCommand extends $Command<
     configuration: IvsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPlaybackKeyPairCommandInput, GetPlaybackKeyPairCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

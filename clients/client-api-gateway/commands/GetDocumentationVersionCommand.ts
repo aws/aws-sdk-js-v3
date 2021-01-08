@@ -25,6 +25,7 @@ export class GetDocumentationVersionCommand extends $Command<
   GetDocumentationVersionCommandOutput,
   APIGatewayClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class GetDocumentationVersionCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDocumentationVersionCommandInput, GetDocumentationVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

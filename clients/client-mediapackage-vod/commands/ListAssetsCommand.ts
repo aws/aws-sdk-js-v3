@@ -28,6 +28,7 @@ export class ListAssetsCommand extends $Command<
   ListAssetsCommandOutput,
   MediaPackageVodClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListAssetsCommand extends $Command<
     configuration: MediaPackageVodClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAssetsCommandInput, ListAssetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

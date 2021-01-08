@@ -31,6 +31,7 @@ export class PutManagedScalingPolicyCommand extends $Command<
   PutManagedScalingPolicyCommandOutput,
   EMRClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,7 +49,10 @@ export class PutManagedScalingPolicyCommand extends $Command<
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutManagedScalingPolicyCommandInput, PutManagedScalingPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

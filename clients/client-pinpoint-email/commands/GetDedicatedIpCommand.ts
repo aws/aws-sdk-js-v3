@@ -30,6 +30,7 @@ export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandOutput,
   PinpointEmailClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,7 +48,10 @@ export class GetDedicatedIpCommand extends $Command<
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDedicatedIpCommandInput, GetDedicatedIpCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

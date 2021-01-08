@@ -47,6 +47,7 @@ export type InvokeCommandOutput = InvocationResponse & __MetadataBearer;
  *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -64,7 +65,10 @@ export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOut
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<InvokeCommandInput, InvokeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

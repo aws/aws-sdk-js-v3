@@ -29,6 +29,7 @@ export class UpdateHostedZoneCommentCommand extends $Command<
   UpdateHostedZoneCommentCommandOutput,
   Route53ClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,8 +47,11 @@ export class UpdateHostedZoneCommentCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateHostedZoneCommentCommandInput, UpdateHostedZoneCommentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getIdNormalizerPlugin(configuration));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.middlewareStack.use(getIdNormalizerPlugin(configuration));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

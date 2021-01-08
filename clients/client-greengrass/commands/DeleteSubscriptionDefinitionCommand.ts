@@ -28,6 +28,7 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
   DeleteSubscriptionDefinitionCommandOutput,
   GreengrassClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class DeleteSubscriptionDefinitionCommand extends $Command<
     configuration: GreengrassClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteSubscriptionDefinitionCommandInput, DeleteSubscriptionDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

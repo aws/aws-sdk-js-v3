@@ -34,6 +34,7 @@ export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandOutput,
   CodePipelineClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,7 +52,10 @@ export class CreatePipelineCommand extends $Command<
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePipelineCommandInput, CreatePipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

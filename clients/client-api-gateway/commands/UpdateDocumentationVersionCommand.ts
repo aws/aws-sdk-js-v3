@@ -25,6 +25,7 @@ export class UpdateDocumentationVersionCommand extends $Command<
   UpdateDocumentationVersionCommandOutput,
   APIGatewayClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,7 +43,10 @@ export class UpdateDocumentationVersionCommand extends $Command<
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateDocumentationVersionCommandInput, UpdateDocumentationVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

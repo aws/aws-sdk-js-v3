@@ -28,6 +28,7 @@ export class GetParallelDataCommand extends $Command<
   GetParallelDataCommandOutput,
   TranslateClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class GetParallelDataCommand extends $Command<
     configuration: TranslateClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetParallelDataCommandInput, GetParallelDataCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

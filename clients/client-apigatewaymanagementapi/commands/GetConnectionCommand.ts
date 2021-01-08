@@ -32,6 +32,7 @@ export class GetConnectionCommand extends $Command<
   GetConnectionCommandOutput,
   ApiGatewayManagementApiClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class GetConnectionCommand extends $Command<
     configuration: ApiGatewayManagementApiClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetConnectionCommandInput, GetConnectionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

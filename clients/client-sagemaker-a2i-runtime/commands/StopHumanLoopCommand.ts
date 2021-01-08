@@ -32,6 +32,7 @@ export class StopHumanLoopCommand extends $Command<
   StopHumanLoopCommandOutput,
   SageMakerA2IRuntimeClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class StopHumanLoopCommand extends $Command<
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopHumanLoopCommandInput, StopHumanLoopCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

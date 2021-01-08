@@ -32,6 +32,7 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
   DisassociateResourceSharePermissionCommandOutput,
   RAMClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,7 +50,10 @@ export class DisassociateResourceSharePermissionCommand extends $Command<
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DisassociateResourceSharePermissionCommandInput, DisassociateResourceSharePermissionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

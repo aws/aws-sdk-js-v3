@@ -28,6 +28,7 @@ export class ListWorkGroupsCommand extends $Command<
   ListWorkGroupsCommandOutput,
   AthenaClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,7 +46,10 @@ export class ListWorkGroupsCommand extends $Command<
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -41,6 +41,7 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
   PutLifecycleEventHookExecutionStatusCommandOutput,
   CodeDeployClientResolvedConfig
 > {
+  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,7 +59,10 @@ export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutLifecycleEventHookExecutionStatusCommandInput, PutLifecycleEventHookExecutionStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    if (!this.resolved) {
+      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+      this.resolved = true;
+    }
 
     const stack = clientStack.concat(this.middlewareStack);
 
