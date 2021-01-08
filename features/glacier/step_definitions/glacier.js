@@ -23,6 +23,8 @@ Given(
       vaultName: this.vaultName,
       body: data,
     };
+    // Computed by running bodyChecksumGenerator from body-checksum-node
+    this.treeHash = "6faefade5a638cd3545d638dd5754763658e32209e69420cb559b7650d4bf93a";
     if (invalid) {
       if (invalid.match("invalid")) params.checksum = "000";
       else params.checksum = "00000000000000000000000000000000";
@@ -37,8 +39,7 @@ Then("the result should contain the Glacier archive ID", function (callback) {
 });
 
 Then("the result should contain the same tree hash checksum", function (callback) {
-  const hash = this.data.$metadata.httpHeaders["x-amz-sha256-tree-hash"];
-  this.assert.equal(this.data.checksum, hash);
+  this.assert.equal(this.data.checksum, this.treeHash);
   callback();
 });
 
