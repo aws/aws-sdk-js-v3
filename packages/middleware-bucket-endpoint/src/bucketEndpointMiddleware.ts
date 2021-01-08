@@ -42,7 +42,7 @@ export const bucketEndpointMiddleware = (options: BucketEndpointResolvedConfig):
         useArnRegion,
         clientPartition: partition,
         clientSigningRegion: signingRegion,
-        region: clientRegion,
+        clientRegion: clientRegion,
       });
 
       // If the request needs to use a region or service name inferred from ARN that different from client region, we
@@ -60,7 +60,7 @@ export const bucketEndpointMiddleware = (options: BucketEndpointResolvedConfig):
       const clientRegion = getPseudoRegion(await options.region());
       const { hostname, bucketEndpoint } = bucketHostname({
         bucketName,
-        region: clientRegion,
+        clientRegion,
         baseHostname: request.hostname,
         accelerateEndpoint: options.useAccelerateEndpoint,
         dualstackEndpoint: options.useDualstackEndpoint,

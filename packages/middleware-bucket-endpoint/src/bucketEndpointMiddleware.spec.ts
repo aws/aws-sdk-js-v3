@@ -62,7 +62,7 @@ describe("bucketEndpointMiddleware", () => {
       expect(param).toEqual({
         bucketName: input.Bucket,
         baseHostname: requestInput.hostname,
-        region: mockRegion,
+        clientRegion: mockRegion,
         accelerateEndpoint: false,
         dualstackEndpoint: false,
         pathStyleEndpoint: false,
@@ -87,7 +87,7 @@ describe("bucketEndpointMiddleware", () => {
       expect(param).toEqual({
         bucketName: input.Bucket,
         baseHostname: requestInput.hostname,
-        region: mockRegion,
+        clientRegion: mockRegion,
         accelerateEndpoint: true,
         dualstackEndpoint: true,
         pathStyleEndpoint: true,
@@ -121,7 +121,7 @@ describe("bucketEndpointMiddleware", () => {
       expect(param).toEqual({
         bucketName: mockBucketArn,
         baseHostname: requestInput.hostname,
-        region: mockRegion,
+        clientRegion: mockRegion,
         accelerateEndpoint: false,
         dualstackEndpoint: false,
         pathStyleEndpoint: false,

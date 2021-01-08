@@ -46,7 +46,7 @@ export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams
 const getEndpointFromArn = (isCustomEndpoint: boolean, options: ArnHostnameParams): BucketHostname => {
   const { baseHostname } = options;
   const [clientRegion, hostnameSuffix] = isCustomEndpoint
-    ? [options.region, baseHostname]
+    ? [options.clientRegion, baseHostname]
     : // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
       getSuffixForArnEndpoint(baseHostname);
 
@@ -104,7 +104,7 @@ const getEndpointFromBucketName = (
   isCustomEndpoint: boolean,
   {
     accelerateEndpoint = false,
-    region,
+    clientRegion: region,
     baseHostname,
     bucketName,
     dualstackEndpoint = false,

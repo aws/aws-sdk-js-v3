@@ -11,7 +11,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: "foo",
             baseHostname,
-            region,
+            clientRegion: region,
           });
 
           expect(bucketEndpoint).toBe(true);
@@ -22,7 +22,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: "foo",
             baseHostname,
-            region,
+            clientRegion: region,
             pathStyleEndpoint: true,
           });
 
@@ -34,7 +34,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: "foo.bar",
             baseHostname,
-            region,
+            clientRegion: region,
           });
 
           expect(bucketEndpoint).toBe(false);
@@ -45,7 +45,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: "foo.bar",
             baseHostname,
-            region,
+            clientRegion: region,
             tlsCompatible: false,
           });
 
@@ -74,7 +74,7 @@ describe("bucketHostname", () => {
             const { bucketEndpoint, hostname } = bucketHostname({
               bucketName: nonDnsCompliantBucketName,
               baseHostname,
-              region,
+              clientRegion: region,
             });
 
             expect(bucketEndpoint).toBe(false);
@@ -89,7 +89,7 @@ describe("bucketHostname", () => {
       const { bucketEndpoint, hostname } = bucketHostname({
         bucketName: "foo",
         baseHostname,
-        region,
+        clientRegion: region,
         pathStyleEndpoint: true,
         accelerateEndpoint: true,
       });
@@ -108,7 +108,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: "foo",
           baseHostname,
-          region,
+          clientRegion: region,
           accelerateEndpoint: true,
         });
 
@@ -120,7 +120,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: "foo",
           baseHostname,
-          region,
+          clientRegion: region,
           accelerateEndpoint: true,
           dualstackEndpoint: true,
         });
@@ -133,7 +133,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: "foo",
           baseHostname,
-          region,
+          clientRegion: region,
           dualstackEndpoint: true,
         });
 
@@ -145,7 +145,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: "foo",
           baseHostname,
-          region,
+          clientRegion: region,
           dualstackEndpoint: true,
           pathStyleEndpoint: true,
         });
@@ -162,7 +162,7 @@ describe("bucketHostname", () => {
             bucketHostname({
               bucketName: "foo",
               baseHostname: "example.com",
-              region,
+              clientRegion: region,
               [option]: true,
             });
           }).toThrow("endpoint is not supported with custom endpoint");
@@ -182,7 +182,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
             baseHostname,
-            region,
+            clientRegion: region,
           });
           expect(bucketEndpoint).toBe(true);
           expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
@@ -192,7 +192,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
             baseHostname,
-            region,
+            clientRegion: region,
             useArnRegion: true,
           });
           expect(bucketEndpoint).toBe(true);
@@ -207,7 +207,7 @@ describe("bucketHostname", () => {
             const { bucketEndpoint, hostname } = bucketHostname({
               bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
               baseHostname,
-              region: "us-east-1",
+              clientRegion: "us-east-1",
               useArnRegion,
             });
             expect(bucketEndpoint).toBe(true);
@@ -224,7 +224,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
             baseHostname,
-            region,
+            clientRegion: region,
             clientSigningRegion: "us-east-1",
           });
           expect(bucketEndpoint).toBe(true);
@@ -238,7 +238,7 @@ describe("bucketHostname", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
             baseHostname,
-            region,
+            clientRegion: region,
             clientSigningRegion: "us-east-1",
             useArnRegion: true,
           });
@@ -253,7 +253,7 @@ describe("bucketHostname", () => {
         bucketHostname({
           bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
           baseHostname: "s3.us-west-2.amazonaws.com",
-          region,
+          clientRegion: region,
         });
       }).toThrow("Region in ARN is incompatible, got us-east-1 but expected us-west-2");
     });
@@ -262,7 +262,7 @@ describe("bucketHostname", () => {
       const { bucketEndpoint, hostname } = bucketHostname({
         bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
         baseHostname: "s3.us-west-2.amazonaws.com",
-        region,
+        clientRegion: region,
         useArnRegion: true,
         dualstackEndpoint: true,
       });
@@ -277,7 +277,7 @@ describe("bucketHostname", () => {
           bucketHostname({
             bucketName: bucketArn,
             baseHostname: "s3.us-west-2.amazonaws.com",
-            region,
+            clientRegion: region,
             useArnRegion: true,
           });
         }).toThrow(`Partition in ARN is incompatible, got "aws-cn" but expected "aws"`);
@@ -287,7 +287,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: parseArn("arn:aws-cn:s3:cn-northwest-1:123456789012:accesspoint:myendpoint"),
           baseHostname: "s3.cn-north-1.amazonaws.com.cn",
-          region: "cn-north-1",
+          clientRegion: "cn-north-1",
           clientPartition: "aws-cn",
           useArnRegion: true,
         });
@@ -299,7 +299,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
           baseHostname: "s3.cn-north-1.amazonaws.com.cn",
-          region: "cn-north-1",
+          clientRegion: "cn-north-1",
           clientPartition: "aws-cn",
         });
         expect(bucketEndpoint).toBe(true);
@@ -313,7 +313,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
           baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
-          region: "us-gov-east-1",
+          clientRegion: "us-gov-east-1",
           clientPartition: "aws-us-gov",
         });
         expect(bucketEndpoint).toBe(true);
@@ -324,7 +324,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
           baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
-          region: "us-gov-east-1",
+          clientRegion: "us-gov-east-1",
           clientPartition: "aws-us-gov",
           useArnRegion: true,
         });
@@ -336,7 +336,7 @@ describe("bucketHostname", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
           bucketName: bucketArn,
           baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
-          region: "us-gov-east-1",
+          clientRegion: "us-gov-east-1",
           clientPartition: "aws-us-gov",
           useArnRegion: true,
           dualstackEndpoint: true,
@@ -351,7 +351,7 @@ describe("bucketHostname", () => {
         bucketHostname({
           bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
           baseHostname: "s3.us-west-2.amazonaws.com",
-          region,
+          clientRegion: region,
           accelerateEndpoint: true,
         });
       }).toThrow("Accelerate endpoint is not supported when bucket is an ARN");
@@ -402,7 +402,7 @@ describe("bucketHostname", () => {
               bucketHostname({
                 bucketName: parseArn(bucketArn),
                 baseHostname,
-                region,
+                clientRegion: region,
               });
             }).toThrow(message);
           });
@@ -416,7 +416,7 @@ describe("bucketHostname", () => {
         bucketHostname({
           bucketName: bucketArn,
           baseHostname: "s3.us-east-1.amazonaws.com",
-          region: "us-east-1",
+          clientRegion: "us-east-1",
           useArnRegion: true,
         }).signingRegion
       ).toBe("us-west-2");
@@ -441,7 +441,7 @@ describe("bucketHostname", () => {
             const { bucketEndpoint, hostname } = bucketHostname({
               bucketName: parseArn(outpostArn),
               baseHostname,
-              region,
+              clientRegion: region,
             });
             expect(bucketEndpoint).toBe(true);
             expect(hostname).toBe(expectedEndpoint);
@@ -459,7 +459,7 @@ describe("bucketHostname", () => {
             const { bucketEndpoint, hostname } = bucketHostname({
               bucketName: parseArn(outpostArn),
               baseHostname,
-              region,
+              clientRegion: region,
               useArnRegion: true,
             });
             expect(bucketEndpoint).toBe(true);
@@ -480,7 +480,7 @@ describe("bucketHostname", () => {
               const { bucketEndpoint, hostname } = bucketHostname({
                 bucketName: parseArn(outpostArn),
                 baseHostname,
-                region,
+                clientRegion: region,
                 useArnRegion,
               });
               expect(bucketEndpoint).toBe(true);
@@ -498,7 +498,7 @@ describe("bucketHostname", () => {
             "arn:aws:s3-outposts:us-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
           ),
           baseHostname: "s3.us-west-2.amazonaws.com",
-          region,
+          clientRegion: region,
         });
       }).toThrow("Region in ARN is incompatible, got us-east-1 but expected us-west-2");
     });
@@ -510,7 +510,7 @@ describe("bucketHostname", () => {
             "arn:aws-cn:s3-outposts:cn-north-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
           ),
           baseHostname: "s3.us-west-2.amazonaws.com",
-          region,
+          clientRegion: region,
           useArnRegion: true,
         });
       }).toThrow(`Partition in ARN is incompatible, got "aws-cn" but expected "aws"`);
@@ -525,7 +525,7 @@ describe("bucketHostname", () => {
               "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
             ),
             baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
-            region: "us-gov-east-1",
+            clientRegion: "us-gov-east-1",
             clientPartition: "aws-us-gov",
           });
         }).toThrow("FIPS region is not supported with Outpost, got fips-us-gov-east-1");
@@ -536,7 +536,7 @@ describe("bucketHostname", () => {
               "arn:aws-us-gov:s3-outposts:fips-us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
             ),
             baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
-            region: "us-gov-east-1",
+            clientRegion: "us-gov-east-1",
             clientPartition: "aws-us-gov",
             useArnRegion: true,
           });
@@ -549,7 +549,7 @@ describe("bucketHostname", () => {
             "arn:aws-us-gov:s3-outposts:us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
           ),
           baseHostname: "s3.fips-us-gov-east-1.amazonaws.com",
-          region: "us-gov-east-1",
+          clientRegion: "us-gov-east-1",
           clientPartition: "aws-us-gov",
           useArnRegion: true,
         });
@@ -569,7 +569,7 @@ describe("bucketHostname", () => {
                 "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
               ),
               baseHostname,
-              region,
+              clientRegion: region,
               dualstackEndpoint: true,
             });
           }).toThrow("Dualstack endpoint is not supported");
@@ -586,7 +586,7 @@ describe("bucketHostname", () => {
                 "arn:aws:s3-outposts:us-west-2:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint"
               ),
               baseHostname,
-              region,
+              clientRegion: region,
               accelerateEndpoint: true,
             });
           }).toThrow("Accelerate endpoint is not supported");
@@ -637,7 +637,7 @@ describe("bucketHostname", () => {
               bucketHostname({
                 bucketName: parseArn(outpostArn),
                 baseHostname,
-                region,
+                clientRegion: region,
               });
             }).toThrow(message);
           });
@@ -652,7 +652,7 @@ describe("bucketHostname", () => {
       const { signingRegion, signingService } = bucketHostname({
         bucketName: bucketArn,
         baseHostname: "s3.us-east-1.amazonaws.com",
-        region: "us-east-1",
+        clientRegion: "us-east-1",
         useArnRegion: true,
       });
       expect(signingRegion).toBe("us-west-2");
