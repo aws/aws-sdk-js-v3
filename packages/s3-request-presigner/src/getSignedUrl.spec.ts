@@ -99,4 +99,16 @@ describe("getSignedUrl", () => {
     expect(mockPresign).toBeCalled();
     expect(mockPresign.mock.calls[0][1]).toMatchObject(options);
   });
+
+  it("should not throw if it's called concurrently", async () => {
+    const mockPresigned = "a presigned url";
+    mockPresign.mockReturnValue(mockPresigned);
+    const client = new S3Client(clientParams);
+    const command = new GetObjectCommand({
+      Bucket: "Bucket",
+      Key: "Key",
+    });
+    const commands = [command, command];
+    return expect(Promise.all(commands.map((command) => getSignedUrl(client, command)))).resolves.toBeInstanceOf(Array);
+  });
 });
