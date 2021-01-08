@@ -18,14 +18,14 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.Accept) && { Accept: input.Accept! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.Accept) && { accept: input.Accept! }),
     ...(isSerializableHeaderValue(input.CustomAttributes) && {
-      "X-Amzn-SageMaker-Custom-Attributes": input.CustomAttributes!,
+      "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,
     }),
-    ...(isSerializableHeaderValue(input.TargetModel) && { "X-Amzn-SageMaker-Target-Model": input.TargetModel! }),
-    ...(isSerializableHeaderValue(input.TargetVariant) && { "X-Amzn-SageMaker-Target-Variant": input.TargetVariant! }),
-    ...(isSerializableHeaderValue(input.InferenceId) && { "X-Amzn-SageMaker-Inference-Id": input.InferenceId! }),
+    ...(isSerializableHeaderValue(input.TargetModel) && { "x-amzn-sagemaker-target-model": input.TargetModel! }),
+    ...(isSerializableHeaderValue(input.TargetVariant) && { "x-amzn-sagemaker-target-variant": input.TargetVariant! }),
+    ...(isSerializableHeaderValue(input.InferenceId) && { "x-amzn-sagemaker-inference-id": input.InferenceId! }),
   };
   let resolvedPath = "/endpoints/{EndpointName}/invocations";
   if (input.EndpointName !== undefined) {

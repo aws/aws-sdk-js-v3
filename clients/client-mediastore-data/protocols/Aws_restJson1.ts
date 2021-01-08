@@ -95,7 +95,7 @@ export const serializeAws_restJson1GetObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! }),
+    ...(isSerializableHeaderValue(input.Range) && { range: input.Range! }),
   };
   let resolvedPath = "/{Path+}";
   if (input.Path !== undefined) {
@@ -158,8 +158,8 @@ export const serializeAws_restJson1PutObjectCommand = async (
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.CacheControl) && { "Cache-Control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
     ...(isSerializableHeaderValue(input.StorageClass) && { "x-amz-storage-class": input.StorageClass! }),
   };
   let resolvedPath = "/{Path+}";

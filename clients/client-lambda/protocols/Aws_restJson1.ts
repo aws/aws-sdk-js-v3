@@ -1242,9 +1242,9 @@ export const serializeAws_restJson1InvokeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.InvocationType) && { "X-Amz-Invocation-Type": input.InvocationType! }),
-    ...(isSerializableHeaderValue(input.LogType) && { "X-Amz-Log-Type": input.LogType! }),
-    ...(isSerializableHeaderValue(input.ClientContext) && { "X-Amz-Client-Context": input.ClientContext! }),
+    ...(isSerializableHeaderValue(input.InvocationType) && { "x-amz-invocation-type": input.InvocationType! }),
+    ...(isSerializableHeaderValue(input.LogType) && { "x-amz-log-type": input.LogType! }),
+    ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-client-context": input.ClientContext! }),
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/invocations";
   if (input.FunctionName !== undefined) {

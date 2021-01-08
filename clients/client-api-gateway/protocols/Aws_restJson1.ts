@@ -2309,7 +2309,7 @@ export const serializeAws_restJson1GetExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.accepts) && { Accept: input.accepts! }),
+    ...(isSerializableHeaderValue(input.accepts) && { accept: input.accepts! }),
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}";
   if (input.restApiId !== undefined) {

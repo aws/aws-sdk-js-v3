@@ -368,7 +368,7 @@ export const serializeAws_restJson1GetProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
+    ...(isSerializableHeaderValue(input.accept) && { accept: input.accept! }),
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/profile";
   if (input.profilingGroupName !== undefined) {
@@ -443,7 +443,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
+    ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
   };
   let resolvedPath = "/profilingGroups/{profilingGroupName}/agentProfile";
   if (input.profilingGroupName !== undefined) {
