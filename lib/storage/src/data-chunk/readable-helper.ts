@@ -9,12 +9,12 @@ export async function* chunkFromReadable(reader: Readable, chunkSize: number): A
   let oldBuffer = Buffer.from("");
   while (partNumber < DEFAULT.MAX_PART_NUMBER) {
     let currentBuffer = oldBuffer;
-    if(reader.readable) {
+    if (reader.readable) {
       reader.resume();
       currentBuffer = await _chunkFromStream(reader, chunkSize, oldBuffer);
       reader.pause();
     }
-    
+
     yield {
       Body: currentBuffer.slice(0, chunkSize),
       PartNumber: partNumber,
@@ -31,9 +31,8 @@ export async function* chunkFromReadable(reader: Readable, chunkSize: number): A
   }
 }
 
-
 function _chunkFromStream(stream: Readable, chunkSize: number, oldBuffer: Buffer): Promise<Buffer> {
-  if(!stream.readable) {
+  if (!stream.readable) {
     return Promise.resolve(oldBuffer);
   }
 
