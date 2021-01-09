@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/fetch-http-handler",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Provides a way to make requests",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
@@ -19,7 +19,7 @@
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
   "dependencies": {
-    "@aws-sdk/protocol-http": "3.1.0",
+    "@aws-sdk/protocol-http": "3.2.0",
     "@aws-sdk/querystring-builder": "3.1.0",
     "@aws-sdk/util-base64-browser": "3.1.0",
     "tslib": "^1.8.0"
