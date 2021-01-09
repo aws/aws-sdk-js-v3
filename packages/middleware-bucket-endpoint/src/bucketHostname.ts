@@ -38,13 +38,13 @@ export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams
 
   return isBucketNameOptions(options)
     ? // Construct endpoint when bucketName is a string referring to a bucket name
-      getEndpointFromBucketName(isCustomEndpoint, options)
+      getEndpointFromBucketName({ ...options, isCustomEndpoint })
     : // Construct endpoint when bucketName is an ARN referring to an S3 resource like Access Point
-      getEndpointFromArn(isCustomEndpoint, options);
+      getEndpointFromArn({ ...options, isCustomEndpoint });
 };
 
-const getEndpointFromArn = (isCustomEndpoint: boolean, options: ArnHostnameParams): BucketHostname => {
-  const { baseHostname } = options;
+const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boolean }): BucketHostname => {
+  const { isCustomEndpoint, baseHostname } = options;
   const [clientRegion, hostnameSuffix] = isCustomEndpoint
     ? [options.clientRegion, baseHostname]
     : // Infer client region and hostname suffix from hostname from endpoints.json, like `s3.us-west-2.amazonaws.com`
@@ -100,18 +100,16 @@ const getEndpointFromArn = (isCustomEndpoint: boolean, options: ArnHostnameParam
   };
 };
 
-const getEndpointFromBucketName = (
-  isCustomEndpoint: boolean,
-  {
-    accelerateEndpoint = false,
-    clientRegion: region,
-    baseHostname,
-    bucketName,
-    dualstackEndpoint = false,
-    pathStyleEndpoint = false,
-    tlsCompatible = true,
-  }: BucketHostnameParams
-): BucketHostname => {
+const getEndpointFromBucketName = ({
+  accelerateEndpoint = false,
+  clientRegion: region,
+  baseHostname,
+  bucketName,
+  dualstackEndpoint = false,
+  pathStyleEndpoint = false,
+  tlsCompatible = true,
+  isCustomEndpoint = false,
+}: BucketHostnameParams & { isCustomEndpoint: boolean }): BucketHostname => {
   const [clientRegion, hostnameSuffix] = isCustomEndpoint ? [region, baseHostname] : getSuffix(baseHostname);
   if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
     return {
