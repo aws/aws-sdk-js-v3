@@ -952,8 +952,8 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.path).toBe("/HttpPayloadTraits");
     expect(r.headers["content-length"]).toBeDefined();
 
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
     expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
@@ -985,8 +985,8 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/HttpPayloadTraits");
 
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeFalsy();
   }
@@ -1100,8 +1100,8 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("text/plain");
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
     expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
@@ -1268,12 +1268,12 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpPrefixHeaders");
 
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
-    expect(r.headers["X-Foo-Abc"]).toBeDefined();
-    expect(r.headers["X-Foo-Abc"]).toBe("Abc value");
-    expect(r.headers["X-Foo-Def"]).toBeDefined();
-    expect(r.headers["X-Foo-Def"]).toBe("Def value");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
+    expect(r.headers["x-foo-abc"]).toBeDefined();
+    expect(r.headers["x-foo-abc"]).toBe("Abc value");
+    expect(r.headers["x-foo-def"]).toBeDefined();
+    expect(r.headers["x-foo-def"]).toBe("Def value");
 
     expect(r.body).toBeFalsy();
   }
@@ -1306,8 +1306,8 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/HttpPrefixHeaders");
 
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeFalsy();
   }
@@ -1787,12 +1787,12 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["X-String"]).toBeDefined();
-    expect(r.headers["X-String"]).toBe("Hello");
-    expect(r.headers["X-StringList"]).toBeDefined();
-    expect(r.headers["X-StringList"]).toBe("a, b, c");
-    expect(r.headers["X-StringSet"]).toBeDefined();
-    expect(r.headers["X-StringSet"]).toBe("a, b, c");
+    expect(r.headers["x-string"]).toBeDefined();
+    expect(r.headers["x-string"]).toBe("Hello");
+    expect(r.headers["x-stringlist"]).toBeDefined();
+    expect(r.headers["x-stringlist"]).toBe("a, b, c");
+    expect(r.headers["x-stringset"]).toBeDefined();
+    expect(r.headers["x-stringset"]).toBe("a, b, c");
 
     expect(r.body).toBeFalsy();
   }
@@ -1835,20 +1835,20 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["X-Byte"]).toBeDefined();
-    expect(r.headers["X-Byte"]).toBe("1");
-    expect(r.headers["X-Double"]).toBeDefined();
-    expect(r.headers["X-Double"]).toBe("1.1");
-    expect(r.headers["X-Float"]).toBeDefined();
-    expect(r.headers["X-Float"]).toBe("1.1");
-    expect(r.headers["X-Integer"]).toBeDefined();
-    expect(r.headers["X-Integer"]).toBe("123");
-    expect(r.headers["X-IntegerList"]).toBeDefined();
-    expect(r.headers["X-IntegerList"]).toBe("1, 2, 3");
-    expect(r.headers["X-Long"]).toBeDefined();
-    expect(r.headers["X-Long"]).toBe("123");
-    expect(r.headers["X-Short"]).toBeDefined();
-    expect(r.headers["X-Short"]).toBe("123");
+    expect(r.headers["x-byte"]).toBeDefined();
+    expect(r.headers["x-byte"]).toBe("1");
+    expect(r.headers["x-double"]).toBeDefined();
+    expect(r.headers["x-double"]).toBe("1.1");
+    expect(r.headers["x-float"]).toBeDefined();
+    expect(r.headers["x-float"]).toBe("1.1");
+    expect(r.headers["x-integer"]).toBeDefined();
+    expect(r.headers["x-integer"]).toBe("123");
+    expect(r.headers["x-integerlist"]).toBeDefined();
+    expect(r.headers["x-integerlist"]).toBe("1, 2, 3");
+    expect(r.headers["x-long"]).toBeDefined();
+    expect(r.headers["x-long"]).toBe("123");
+    expect(r.headers["x-short"]).toBeDefined();
+    expect(r.headers["x-short"]).toBe("123");
 
     expect(r.body).toBeFalsy();
   }
@@ -1883,12 +1883,12 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["X-Boolean1"]).toBeDefined();
-    expect(r.headers["X-Boolean1"]).toBe("true");
-    expect(r.headers["X-Boolean2"]).toBeDefined();
-    expect(r.headers["X-Boolean2"]).toBe("false");
-    expect(r.headers["X-BooleanList"]).toBeDefined();
-    expect(r.headers["X-BooleanList"]).toBe("true, false, true");
+    expect(r.headers["x-boolean1"]).toBeDefined();
+    expect(r.headers["x-boolean1"]).toBe("true");
+    expect(r.headers["x-boolean2"]).toBeDefined();
+    expect(r.headers["x-boolean2"]).toBe("false");
+    expect(r.headers["x-booleanlist"]).toBeDefined();
+    expect(r.headers["x-booleanlist"]).toBe("true, false, true");
 
     expect(r.body).toBeFalsy();
   }
@@ -1919,8 +1919,8 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["X-TimestampList"]).toBeDefined();
-    expect(r.headers["X-TimestampList"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
+    expect(r.headers["x-timestamplist"]).toBeDefined();
+    expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(r.body).toBeFalsy();
   }
@@ -1953,10 +1953,10 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
-    expect(r.headers["X-Enum"]).toBeDefined();
-    expect(r.headers["X-Enum"]).toBe("Foo");
-    expect(r.headers["X-EnumList"]).toBeDefined();
-    expect(r.headers["X-EnumList"]).toBe("Foo, Bar, Baz");
+    expect(r.headers["x-enum"]).toBeDefined();
+    expect(r.headers["x-enum"]).toBe("Foo");
+    expect(r.headers["x-enumlist"]).toBeDefined();
+    expect(r.headers["x-enumlist"]).toBe("Foo, Bar, Baz");
 
     expect(r.body).toBeFalsy();
   }
@@ -2017,8 +2017,8 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
       200,
       {
         "x-float": "1.1",
-        "x-byte": "1",
         "x-long": "123",
+        "x-byte": "1",
         "x-integer": "123",
         "x-integerlist": "1, 2, 3",
         "x-double": "1.1",
@@ -4295,8 +4295,8 @@ it("MediaTypeHeaderInputBase64:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/MediaTypeHeader");
 
-    expect(r.headers["X-Json"]).toBeDefined();
-    expect(r.headers["X-Json"]).toBe("dHJ1ZQ==");
+    expect(r.headers["x-json"]).toBeDefined();
+    expect(r.headers["x-json"]).toBe("dHJ1ZQ==");
 
     expect(r.body).toBeFalsy();
   }
@@ -4463,9 +4463,9 @@ it("RestJsonNullAndEmptyHeaders:Request", async () => {
     expect(r.method).toBe("GET");
     expect(r.path).toBe("/NullAndEmptyHeadersClient");
 
-    expect(r.headers["X-A"]).toBeUndefined();
-    expect(r.headers["X-B"]).toBeUndefined();
-    expect(r.headers["X-C"]).toBeUndefined();
+    expect(r.headers["x-a"]).toBeUndefined();
+    expect(r.headers["x-b"]).toBeUndefined();
+    expect(r.headers["x-c"]).toBeUndefined();
 
     expect(r.body).toBeFalsy();
   }
@@ -4741,8 +4741,8 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/json");
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -4921,8 +4921,8 @@ it("RestJsonStreamingTraitsWithBlob:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
     expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
@@ -4954,8 +4954,8 @@ it("RestJsonStreamingTraitsWithNoBlobBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraits");
 
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeFalsy();
   }
@@ -5080,8 +5080,8 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
     expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
@@ -5113,8 +5113,8 @@ it("RestJsonStreamingTraitsRequireLengthWithNoBlobBody:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/StreamingTraitsRequireLength");
 
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeFalsy();
   }
@@ -5238,8 +5238,8 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("text/plain");
-    expect(r.headers["X-Foo"]).toBeDefined();
-    expect(r.headers["X-Foo"]).toBe("Foo");
+    expect(r.headers["x-foo"]).toBeDefined();
+    expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
     expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
@@ -5329,20 +5329,20 @@ it("RestJsonTimestampFormatHeaders:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/TimestampFormatHeaders");
 
-    expect(r.headers["X-defaultFormat"]).toBeDefined();
-    expect(r.headers["X-defaultFormat"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
-    expect(r.headers["X-memberDateTime"]).toBeDefined();
-    expect(r.headers["X-memberDateTime"]).toBe("2019-12-16T23:48:18Z");
-    expect(r.headers["X-memberEpochSeconds"]).toBeDefined();
-    expect(r.headers["X-memberEpochSeconds"]).toBe("1576540098");
-    expect(r.headers["X-memberHttpDate"]).toBeDefined();
-    expect(r.headers["X-memberHttpDate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
-    expect(r.headers["X-targetDateTime"]).toBeDefined();
-    expect(r.headers["X-targetDateTime"]).toBe("2019-12-16T23:48:18Z");
-    expect(r.headers["X-targetEpochSeconds"]).toBeDefined();
-    expect(r.headers["X-targetEpochSeconds"]).toBe("1576540098");
-    expect(r.headers["X-targetHttpDate"]).toBeDefined();
-    expect(r.headers["X-targetHttpDate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
+    expect(r.headers["x-defaultformat"]).toBeDefined();
+    expect(r.headers["x-defaultformat"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
+    expect(r.headers["x-memberdatetime"]).toBeDefined();
+    expect(r.headers["x-memberdatetime"]).toBe("2019-12-16T23:48:18Z");
+    expect(r.headers["x-memberepochseconds"]).toBeDefined();
+    expect(r.headers["x-memberepochseconds"]).toBe("1576540098");
+    expect(r.headers["x-memberhttpdate"]).toBeDefined();
+    expect(r.headers["x-memberhttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
+    expect(r.headers["x-targetdatetime"]).toBeDefined();
+    expect(r.headers["x-targetdatetime"]).toBe("2019-12-16T23:48:18Z");
+    expect(r.headers["x-targetepochseconds"]).toBeDefined();
+    expect(r.headers["x-targetepochseconds"]).toBe("1576540098");
+    expect(r.headers["x-targethttpdate"]).toBeDefined();
+    expect(r.headers["x-targethttpdate"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(r.body).toBeFalsy();
   }
@@ -5360,8 +5360,8 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
       {
         "x-targetepochseconds": "1576540098",
         "x-memberdatetime": "2019-12-16T23:48:18Z",
-        "x-defaultformat": "Mon, 16 Dec 2019 23:48:18 GMT",
         "x-memberepochseconds": "1576540098",
+        "x-defaultformat": "Mon, 16 Dec 2019 23:48:18 GMT",
         "x-targethttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
         "x-memberhttpdate": "Mon, 16 Dec 2019 23:48:18 GMT",
         "x-targetdatetime": "2019-12-16T23:48:18Z",

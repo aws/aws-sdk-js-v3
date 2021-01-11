@@ -592,10 +592,13 @@ export const serializeAws_restXmlCopyObjectCommand = async (
       "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     }),
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc["x-amz-meta-" + suffix] = input.Metadata![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -741,10 +744,13 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc["x-amz-meta-" + suffix] = input.Metadata![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -3954,10 +3960,13 @@ export const serializeAws_restXmlPutObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc["x-amz-meta-" + suffix] = input.Metadata![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {

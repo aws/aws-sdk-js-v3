@@ -371,10 +371,13 @@ export const serializeAws_restJson1HttpPrefixHeadersCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
     ...(input.fooMap !== undefined &&
-      Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
-        acc["x-foo-" + suffix] = input.fooMap![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.fooMap).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-foo-${suffix.toLowerCase()}`]: input.fooMap![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/HttpPrefixHeaders";
   let body: any;
