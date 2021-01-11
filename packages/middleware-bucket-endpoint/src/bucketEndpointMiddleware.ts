@@ -43,6 +43,7 @@ export const bucketEndpointMiddleware = (options: BucketEndpointResolvedConfig):
         clientPartition: partition,
         clientSigningRegion: signingRegion,
         clientRegion: clientRegion,
+        isCustomEndpoint: options.isCustomEndpoint,
       });
 
       // If the request needs to use a region or service name inferred from ARN that different from client region, we
@@ -66,6 +67,7 @@ export const bucketEndpointMiddleware = (options: BucketEndpointResolvedConfig):
         dualstackEndpoint: options.useDualstackEndpoint,
         pathStyleEndpoint: options.forcePathStyle,
         tlsCompatible: request.protocol === "https:",
+        isCustomEndpoint: options.isCustomEndpoint,
       });
 
       request.hostname = hostname;

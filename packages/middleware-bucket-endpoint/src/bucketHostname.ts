@@ -7,7 +7,6 @@ import {
   getSuffixForArnEndpoint,
   isBucketNameOptions,
   isDnsCompatibleBucketName,
-  S3_HOSTNAME_PATTERN,
   validateAccountId,
   validateArnEndpointOptions,
   validateDNSHostLabel,
@@ -28,8 +27,7 @@ export interface BucketHostname {
 }
 
 export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams): BucketHostname => {
-  const { baseHostname, dualstackEndpoint, accelerateEndpoint } = options;
-  const isCustomEndpoint = !S3_HOSTNAME_PATTERN.test(baseHostname);
+  const { isCustomEndpoint, baseHostname, dualstackEndpoint, accelerateEndpoint } = options;
 
   if (isCustomEndpoint) {
     if (dualstackEndpoint) throw new Error("Dualstack endpoint is not supported with custom endpoint");

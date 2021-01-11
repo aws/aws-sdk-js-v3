@@ -28,6 +28,7 @@ describe("bucketEndpointMiddleware", () => {
   };
   const next = jest.fn();
   const previouslyResolvedConfig = {
+    isCustomEndpoint: false,
     region: jest.fn().mockResolvedValue(mockRegion),
     regionInfoProvider: jest
       .fn()
@@ -67,6 +68,7 @@ describe("bucketEndpointMiddleware", () => {
         dualstackEndpoint: false,
         pathStyleEndpoint: false,
         tlsCompatible: true,
+        isCustomEndpoint: false,
       });
     });
 
@@ -79,6 +81,7 @@ describe("bucketEndpointMiddleware", () => {
           useAccelerateEndpoint: true,
           useDualstackEndpoint: true,
           forcePathStyle: true,
+          isCustomEndpoint: true,
         })
       )(next, {} as any);
       await handler({ input, request });
@@ -92,6 +95,7 @@ describe("bucketEndpointMiddleware", () => {
         dualstackEndpoint: true,
         pathStyleEndpoint: true,
         tlsCompatible: false,
+        isCustomEndpoint: true,
       });
     });
   });
@@ -129,6 +133,7 @@ describe("bucketEndpointMiddleware", () => {
         clientPartition: "aws-foo",
         clientSigningRegion: mockRegion,
         useArnRegion: false,
+        isCustomEndpoint: false,
       });
       expect(previouslyResolvedConfig.region).toBeCalled();
       expect(previouslyResolvedConfig.regionInfoProvider).toBeCalled();
