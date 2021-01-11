@@ -580,7 +580,7 @@ export const serializeAws_json1_1BatchGetAggregateResourceConfigCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.BatchGetAggregateResourceConfig",
+    "x-amz-target": "StarlingDoveService.BatchGetAggregateResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetAggregateResourceConfigRequest(input, context));
@@ -593,7 +593,7 @@ export const serializeAws_json1_1BatchGetResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.BatchGetResourceConfig",
+    "x-amz-target": "StarlingDoveService.BatchGetResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetResourceConfigRequest(input, context));
@@ -606,7 +606,7 @@ export const serializeAws_json1_1DeleteAggregationAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteAggregationAuthorization",
+    "x-amz-target": "StarlingDoveService.DeleteAggregationAuthorization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAggregationAuthorizationRequest(input, context));
@@ -619,7 +619,7 @@ export const serializeAws_json1_1DeleteConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteConfigRule",
+    "x-amz-target": "StarlingDoveService.DeleteConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConfigRuleRequest(input, context));
@@ -632,7 +632,7 @@ export const serializeAws_json1_1DeleteConfigurationAggregatorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteConfigurationAggregator",
+    "x-amz-target": "StarlingDoveService.DeleteConfigurationAggregator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConfigurationAggregatorRequest(input, context));
@@ -645,7 +645,7 @@ export const serializeAws_json1_1DeleteConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteConfigurationRecorder",
+    "x-amz-target": "StarlingDoveService.DeleteConfigurationRecorder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConfigurationRecorderRequest(input, context));
@@ -658,7 +658,7 @@ export const serializeAws_json1_1DeleteConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteConformancePack",
+    "x-amz-target": "StarlingDoveService.DeleteConformancePack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConformancePackRequest(input, context));
@@ -671,7 +671,7 @@ export const serializeAws_json1_1DeleteDeliveryChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteDeliveryChannel",
+    "x-amz-target": "StarlingDoveService.DeleteDeliveryChannel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDeliveryChannelRequest(input, context));
@@ -684,7 +684,7 @@ export const serializeAws_json1_1DeleteEvaluationResultsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteEvaluationResults",
+    "x-amz-target": "StarlingDoveService.DeleteEvaluationResults",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEvaluationResultsRequest(input, context));
@@ -697,7 +697,7 @@ export const serializeAws_json1_1DeleteOrganizationConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteOrganizationConfigRule",
+    "x-amz-target": "StarlingDoveService.DeleteOrganizationConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteOrganizationConfigRuleRequest(input, context));
@@ -710,7 +710,7 @@ export const serializeAws_json1_1DeleteOrganizationConformancePackCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteOrganizationConformancePack",
+    "x-amz-target": "StarlingDoveService.DeleteOrganizationConformancePack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteOrganizationConformancePackRequest(input, context));
@@ -723,7 +723,7 @@ export const serializeAws_json1_1DeletePendingAggregationRequestCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeletePendingAggregationRequest",
+    "x-amz-target": "StarlingDoveService.DeletePendingAggregationRequest",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePendingAggregationRequestRequest(input, context));
@@ -736,7 +736,7 @@ export const serializeAws_json1_1DeleteRemediationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteRemediationConfiguration",
+    "x-amz-target": "StarlingDoveService.DeleteRemediationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRemediationConfigurationRequest(input, context));
@@ -749,7 +749,7 @@ export const serializeAws_json1_1DeleteRemediationExceptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteRemediationExceptions",
+    "x-amz-target": "StarlingDoveService.DeleteRemediationExceptions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRemediationExceptionsRequest(input, context));
@@ -762,7 +762,7 @@ export const serializeAws_json1_1DeleteResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteResourceConfig",
+    "x-amz-target": "StarlingDoveService.DeleteResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourceConfigRequest(input, context));
@@ -775,7 +775,7 @@ export const serializeAws_json1_1DeleteRetentionConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeleteRetentionConfiguration",
+    "x-amz-target": "StarlingDoveService.DeleteRetentionConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRetentionConfigurationRequest(input, context));
@@ -788,7 +788,7 @@ export const serializeAws_json1_1DeliverConfigSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DeliverConfigSnapshot",
+    "x-amz-target": "StarlingDoveService.DeliverConfigSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeliverConfigSnapshotRequest(input, context));
@@ -801,7 +801,7 @@ export const serializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeAggregateComplianceByConfigRules",
+    "x-amz-target": "StarlingDoveService.DescribeAggregateComplianceByConfigRules",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAggregateComplianceByConfigRulesRequest(input, context));
@@ -814,7 +814,7 @@ export const serializeAws_json1_1DescribeAggregationAuthorizationsCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeAggregationAuthorizations",
+    "x-amz-target": "StarlingDoveService.DescribeAggregationAuthorizations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAggregationAuthorizationsRequest(input, context));
@@ -827,7 +827,7 @@ export const serializeAws_json1_1DescribeComplianceByConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeComplianceByConfigRule",
+    "x-amz-target": "StarlingDoveService.DescribeComplianceByConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeComplianceByConfigRuleRequest(input, context));
@@ -840,7 +840,7 @@ export const serializeAws_json1_1DescribeComplianceByResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeComplianceByResource",
+    "x-amz-target": "StarlingDoveService.DescribeComplianceByResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeComplianceByResourceRequest(input, context));
@@ -853,7 +853,7 @@ export const serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigRuleEvaluationStatus",
+    "x-amz-target": "StarlingDoveService.DescribeConfigRuleEvaluationStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConfigRuleEvaluationStatusRequest(input, context));
@@ -866,7 +866,7 @@ export const serializeAws_json1_1DescribeConfigRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigRules",
+    "x-amz-target": "StarlingDoveService.DescribeConfigRules",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConfigRulesRequest(input, context));
@@ -879,7 +879,7 @@ export const serializeAws_json1_1DescribeConfigurationAggregatorsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigurationAggregators",
+    "x-amz-target": "StarlingDoveService.DescribeConfigurationAggregators",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConfigurationAggregatorsRequest(input, context));
@@ -892,7 +892,7 @@ export const serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCom
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus",
+    "x-amz-target": "StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusRequest(input, context));
@@ -905,7 +905,7 @@ export const serializeAws_json1_1DescribeConfigurationRecordersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigurationRecorders",
+    "x-amz-target": "StarlingDoveService.DescribeConfigurationRecorders",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConfigurationRecordersRequest(input, context));
@@ -918,7 +918,7 @@ export const serializeAws_json1_1DescribeConfigurationRecorderStatusCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConfigurationRecorderStatus",
+    "x-amz-target": "StarlingDoveService.DescribeConfigurationRecorderStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConfigurationRecorderStatusRequest(input, context));
@@ -931,7 +931,7 @@ export const serializeAws_json1_1DescribeConformancePackComplianceCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConformancePackCompliance",
+    "x-amz-target": "StarlingDoveService.DescribeConformancePackCompliance",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConformancePackComplianceRequest(input, context));
@@ -944,7 +944,7 @@ export const serializeAws_json1_1DescribeConformancePacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConformancePacks",
+    "x-amz-target": "StarlingDoveService.DescribeConformancePacks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConformancePacksRequest(input, context));
@@ -957,7 +957,7 @@ export const serializeAws_json1_1DescribeConformancePackStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeConformancePackStatus",
+    "x-amz-target": "StarlingDoveService.DescribeConformancePackStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConformancePackStatusRequest(input, context));
@@ -970,7 +970,7 @@ export const serializeAws_json1_1DescribeDeliveryChannelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeDeliveryChannels",
+    "x-amz-target": "StarlingDoveService.DescribeDeliveryChannels",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDeliveryChannelsRequest(input, context));
@@ -983,7 +983,7 @@ export const serializeAws_json1_1DescribeDeliveryChannelStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeDeliveryChannelStatus",
+    "x-amz-target": "StarlingDoveService.DescribeDeliveryChannelStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDeliveryChannelStatusRequest(input, context));
@@ -996,7 +996,7 @@ export const serializeAws_json1_1DescribeOrganizationConfigRulesCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConfigRules",
+    "x-amz-target": "StarlingDoveService.DescribeOrganizationConfigRules",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeOrganizationConfigRulesRequest(input, context));
@@ -1009,7 +1009,7 @@ export const serializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand =
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConfigRuleStatuses",
+    "x-amz-target": "StarlingDoveService.DescribeOrganizationConfigRuleStatuses",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeOrganizationConfigRuleStatusesRequest(input, context));
@@ -1022,7 +1022,7 @@ export const serializeAws_json1_1DescribeOrganizationConformancePacksCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConformancePacks",
+    "x-amz-target": "StarlingDoveService.DescribeOrganizationConformancePacks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeOrganizationConformancePacksRequest(input, context));
@@ -1035,7 +1035,7 @@ export const serializeAws_json1_1DescribeOrganizationConformancePackStatusesComm
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeOrganizationConformancePackStatuses",
+    "x-amz-target": "StarlingDoveService.DescribeOrganizationConformancePackStatuses",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeOrganizationConformancePackStatusesRequest(input, context));
@@ -1048,7 +1048,7 @@ export const serializeAws_json1_1DescribePendingAggregationRequestsCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribePendingAggregationRequests",
+    "x-amz-target": "StarlingDoveService.DescribePendingAggregationRequests",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePendingAggregationRequestsRequest(input, context));
@@ -1061,7 +1061,7 @@ export const serializeAws_json1_1DescribeRemediationConfigurationsCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeRemediationConfigurations",
+    "x-amz-target": "StarlingDoveService.DescribeRemediationConfigurations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRemediationConfigurationsRequest(input, context));
@@ -1074,7 +1074,7 @@ export const serializeAws_json1_1DescribeRemediationExceptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeRemediationExceptions",
+    "x-amz-target": "StarlingDoveService.DescribeRemediationExceptions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRemediationExceptionsRequest(input, context));
@@ -1087,7 +1087,7 @@ export const serializeAws_json1_1DescribeRemediationExecutionStatusCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeRemediationExecutionStatus",
+    "x-amz-target": "StarlingDoveService.DescribeRemediationExecutionStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRemediationExecutionStatusRequest(input, context));
@@ -1100,7 +1100,7 @@ export const serializeAws_json1_1DescribeRetentionConfigurationsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.DescribeRetentionConfigurations",
+    "x-amz-target": "StarlingDoveService.DescribeRetentionConfigurations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRetentionConfigurationsRequest(input, context));
@@ -1113,7 +1113,7 @@ export const serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleComman
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule",
+    "x-amz-target": "StarlingDoveService.GetAggregateComplianceDetailsByConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleRequest(input, context));
@@ -1126,7 +1126,7 @@ export const serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetAggregateConfigRuleComplianceSummary",
+    "x-amz-target": "StarlingDoveService.GetAggregateConfigRuleComplianceSummary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryRequest(input, context));
@@ -1139,7 +1139,7 @@ export const serializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetAggregateDiscoveredResourceCounts",
+    "x-amz-target": "StarlingDoveService.GetAggregateDiscoveredResourceCounts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAggregateDiscoveredResourceCountsRequest(input, context));
@@ -1152,7 +1152,7 @@ export const serializeAws_json1_1GetAggregateResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetAggregateResourceConfig",
+    "x-amz-target": "StarlingDoveService.GetAggregateResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAggregateResourceConfigRequest(input, context));
@@ -1165,7 +1165,7 @@ export const serializeAws_json1_1GetComplianceDetailsByConfigRuleCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetComplianceDetailsByConfigRule",
+    "x-amz-target": "StarlingDoveService.GetComplianceDetailsByConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetComplianceDetailsByConfigRuleRequest(input, context));
@@ -1178,7 +1178,7 @@ export const serializeAws_json1_1GetComplianceDetailsByResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetComplianceDetailsByResource",
+    "x-amz-target": "StarlingDoveService.GetComplianceDetailsByResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetComplianceDetailsByResourceRequest(input, context));
@@ -1191,7 +1191,7 @@ export const serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetComplianceSummaryByConfigRule",
+    "x-amz-target": "StarlingDoveService.GetComplianceSummaryByConfigRule",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -1202,7 +1202,7 @@ export const serializeAws_json1_1GetComplianceSummaryByResourceTypeCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetComplianceSummaryByResourceType",
+    "x-amz-target": "StarlingDoveService.GetComplianceSummaryByResourceType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetComplianceSummaryByResourceTypeRequest(input, context));
@@ -1215,7 +1215,7 @@ export const serializeAws_json1_1GetConformancePackComplianceDetailsCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetConformancePackComplianceDetails",
+    "x-amz-target": "StarlingDoveService.GetConformancePackComplianceDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConformancePackComplianceDetailsRequest(input, context));
@@ -1228,7 +1228,7 @@ export const serializeAws_json1_1GetConformancePackComplianceSummaryCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetConformancePackComplianceSummary",
+    "x-amz-target": "StarlingDoveService.GetConformancePackComplianceSummary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConformancePackComplianceSummaryRequest(input, context));
@@ -1241,7 +1241,7 @@ export const serializeAws_json1_1GetDiscoveredResourceCountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetDiscoveredResourceCounts",
+    "x-amz-target": "StarlingDoveService.GetDiscoveredResourceCounts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDiscoveredResourceCountsRequest(input, context));
@@ -1254,7 +1254,7 @@ export const serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus",
+    "x-amz-target": "StarlingDoveService.GetOrganizationConfigRuleDetailedStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOrganizationConfigRuleDetailedStatusRequest(input, context));
@@ -1267,7 +1267,7 @@ export const serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCom
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetOrganizationConformancePackDetailedStatus",
+    "x-amz-target": "StarlingDoveService.GetOrganizationConformancePackDetailedStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOrganizationConformancePackDetailedStatusRequest(input, context));
@@ -1280,7 +1280,7 @@ export const serializeAws_json1_1GetResourceConfigHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.GetResourceConfigHistory",
+    "x-amz-target": "StarlingDoveService.GetResourceConfigHistory",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourceConfigHistoryRequest(input, context));
@@ -1293,7 +1293,7 @@ export const serializeAws_json1_1ListAggregateDiscoveredResourcesCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.ListAggregateDiscoveredResources",
+    "x-amz-target": "StarlingDoveService.ListAggregateDiscoveredResources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAggregateDiscoveredResourcesRequest(input, context));
@@ -1306,7 +1306,7 @@ export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.ListDiscoveredResources",
+    "x-amz-target": "StarlingDoveService.ListDiscoveredResources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDiscoveredResourcesRequest(input, context));
@@ -1319,7 +1319,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.ListTagsForResource",
+    "x-amz-target": "StarlingDoveService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -1332,7 +1332,7 @@ export const serializeAws_json1_1PutAggregationAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutAggregationAuthorization",
+    "x-amz-target": "StarlingDoveService.PutAggregationAuthorization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAggregationAuthorizationRequest(input, context));
@@ -1345,7 +1345,7 @@ export const serializeAws_json1_1PutConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutConfigRule",
+    "x-amz-target": "StarlingDoveService.PutConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutConfigRuleRequest(input, context));
@@ -1358,7 +1358,7 @@ export const serializeAws_json1_1PutConfigurationAggregatorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutConfigurationAggregator",
+    "x-amz-target": "StarlingDoveService.PutConfigurationAggregator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutConfigurationAggregatorRequest(input, context));
@@ -1371,7 +1371,7 @@ export const serializeAws_json1_1PutConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutConfigurationRecorder",
+    "x-amz-target": "StarlingDoveService.PutConfigurationRecorder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutConfigurationRecorderRequest(input, context));
@@ -1384,7 +1384,7 @@ export const serializeAws_json1_1PutConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutConformancePack",
+    "x-amz-target": "StarlingDoveService.PutConformancePack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutConformancePackRequest(input, context));
@@ -1397,7 +1397,7 @@ export const serializeAws_json1_1PutDeliveryChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutDeliveryChannel",
+    "x-amz-target": "StarlingDoveService.PutDeliveryChannel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutDeliveryChannelRequest(input, context));
@@ -1410,7 +1410,7 @@ export const serializeAws_json1_1PutEvaluationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutEvaluations",
+    "x-amz-target": "StarlingDoveService.PutEvaluations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutEvaluationsRequest(input, context));
@@ -1423,7 +1423,7 @@ export const serializeAws_json1_1PutOrganizationConfigRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutOrganizationConfigRule",
+    "x-amz-target": "StarlingDoveService.PutOrganizationConfigRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutOrganizationConfigRuleRequest(input, context));
@@ -1436,7 +1436,7 @@ export const serializeAws_json1_1PutOrganizationConformancePackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutOrganizationConformancePack",
+    "x-amz-target": "StarlingDoveService.PutOrganizationConformancePack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutOrganizationConformancePackRequest(input, context));
@@ -1449,7 +1449,7 @@ export const serializeAws_json1_1PutRemediationConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutRemediationConfigurations",
+    "x-amz-target": "StarlingDoveService.PutRemediationConfigurations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRemediationConfigurationsRequest(input, context));
@@ -1462,7 +1462,7 @@ export const serializeAws_json1_1PutRemediationExceptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutRemediationExceptions",
+    "x-amz-target": "StarlingDoveService.PutRemediationExceptions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRemediationExceptionsRequest(input, context));
@@ -1475,7 +1475,7 @@ export const serializeAws_json1_1PutResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutResourceConfig",
+    "x-amz-target": "StarlingDoveService.PutResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutResourceConfigRequest(input, context));
@@ -1488,7 +1488,7 @@ export const serializeAws_json1_1PutRetentionConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.PutRetentionConfiguration",
+    "x-amz-target": "StarlingDoveService.PutRetentionConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRetentionConfigurationRequest(input, context));
@@ -1501,7 +1501,7 @@ export const serializeAws_json1_1SelectAggregateResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.SelectAggregateResourceConfig",
+    "x-amz-target": "StarlingDoveService.SelectAggregateResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SelectAggregateResourceConfigRequest(input, context));
@@ -1514,7 +1514,7 @@ export const serializeAws_json1_1SelectResourceConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.SelectResourceConfig",
+    "x-amz-target": "StarlingDoveService.SelectResourceConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SelectResourceConfigRequest(input, context));
@@ -1527,7 +1527,7 @@ export const serializeAws_json1_1StartConfigRulesEvaluationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.StartConfigRulesEvaluation",
+    "x-amz-target": "StarlingDoveService.StartConfigRulesEvaluation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartConfigRulesEvaluationRequest(input, context));
@@ -1540,7 +1540,7 @@ export const serializeAws_json1_1StartConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.StartConfigurationRecorder",
+    "x-amz-target": "StarlingDoveService.StartConfigurationRecorder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartConfigurationRecorderRequest(input, context));
@@ -1553,7 +1553,7 @@ export const serializeAws_json1_1StartRemediationExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.StartRemediationExecution",
+    "x-amz-target": "StarlingDoveService.StartRemediationExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartRemediationExecutionRequest(input, context));
@@ -1566,7 +1566,7 @@ export const serializeAws_json1_1StopConfigurationRecorderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.StopConfigurationRecorder",
+    "x-amz-target": "StarlingDoveService.StopConfigurationRecorder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopConfigurationRecorderRequest(input, context));
@@ -1579,7 +1579,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.TagResource",
+    "x-amz-target": "StarlingDoveService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -1592,7 +1592,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "StarlingDoveService.UntagResource",
+    "x-amz-target": "StarlingDoveService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));

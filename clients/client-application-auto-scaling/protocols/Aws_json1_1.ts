@@ -90,7 +90,7 @@ export const serializeAws_json1_1DeleteScalingPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DeleteScalingPolicy",
+    "x-amz-target": "AnyScaleFrontendService.DeleteScalingPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteScalingPolicyRequest(input, context));
@@ -103,7 +103,7 @@ export const serializeAws_json1_1DeleteScheduledActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DeleteScheduledAction",
+    "x-amz-target": "AnyScaleFrontendService.DeleteScheduledAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteScheduledActionRequest(input, context));
@@ -116,7 +116,7 @@ export const serializeAws_json1_1DeregisterScalableTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DeregisterScalableTarget",
+    "x-amz-target": "AnyScaleFrontendService.DeregisterScalableTarget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeregisterScalableTargetRequest(input, context));
@@ -129,7 +129,7 @@ export const serializeAws_json1_1DescribeScalableTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DescribeScalableTargets",
+    "x-amz-target": "AnyScaleFrontendService.DescribeScalableTargets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScalableTargetsRequest(input, context));
@@ -142,7 +142,7 @@ export const serializeAws_json1_1DescribeScalingActivitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DescribeScalingActivities",
+    "x-amz-target": "AnyScaleFrontendService.DescribeScalingActivities",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScalingActivitiesRequest(input, context));
@@ -155,7 +155,7 @@ export const serializeAws_json1_1DescribeScalingPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DescribeScalingPolicies",
+    "x-amz-target": "AnyScaleFrontendService.DescribeScalingPolicies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScalingPoliciesRequest(input, context));
@@ -168,7 +168,7 @@ export const serializeAws_json1_1DescribeScheduledActionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.DescribeScheduledActions",
+    "x-amz-target": "AnyScaleFrontendService.DescribeScheduledActions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScheduledActionsRequest(input, context));
@@ -181,7 +181,7 @@ export const serializeAws_json1_1PutScalingPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.PutScalingPolicy",
+    "x-amz-target": "AnyScaleFrontendService.PutScalingPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutScalingPolicyRequest(input, context));
@@ -194,7 +194,7 @@ export const serializeAws_json1_1PutScheduledActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.PutScheduledAction",
+    "x-amz-target": "AnyScaleFrontendService.PutScheduledAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutScheduledActionRequest(input, context));
@@ -207,7 +207,7 @@ export const serializeAws_json1_1RegisterScalableTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleFrontendService.RegisterScalableTarget",
+    "x-amz-target": "AnyScaleFrontendService.RegisterScalableTarget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterScalableTargetRequest(input, context));

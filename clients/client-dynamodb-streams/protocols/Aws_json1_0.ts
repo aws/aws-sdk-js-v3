@@ -42,7 +42,7 @@ export const serializeAws_json1_0DescribeStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDBStreams_20120810.DescribeStream",
+    "x-amz-target": "DynamoDBStreams_20120810.DescribeStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeStreamInput(input, context));
@@ -55,7 +55,7 @@ export const serializeAws_json1_0GetRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDBStreams_20120810.GetRecords",
+    "x-amz-target": "DynamoDBStreams_20120810.GetRecords",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRecordsInput(input, context));
@@ -68,7 +68,7 @@ export const serializeAws_json1_0GetShardIteratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDBStreams_20120810.GetShardIterator",
+    "x-amz-target": "DynamoDBStreams_20120810.GetShardIterator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetShardIteratorInput(input, context));
@@ -81,7 +81,7 @@ export const serializeAws_json1_0ListStreamsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDBStreams_20120810.ListStreams",
+    "x-amz-target": "DynamoDBStreams_20120810.ListStreams",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListStreamsInput(input, context));

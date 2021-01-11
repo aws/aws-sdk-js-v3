@@ -110,7 +110,7 @@ export const serializeAws_json1_0DescribeRecommendationExportJobsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.DescribeRecommendationExportJobs",
+    "x-amz-target": "ComputeOptimizerService.DescribeRecommendationExportJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeRecommendationExportJobsRequest(input, context));
@@ -123,7 +123,7 @@ export const serializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.ExportAutoScalingGroupRecommendations",
+    "x-amz-target": "ComputeOptimizerService.ExportAutoScalingGroupRecommendations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ExportAutoScalingGroupRecommendationsRequest(input, context));
@@ -136,7 +136,7 @@ export const serializeAws_json1_0ExportEC2InstanceRecommendationsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.ExportEC2InstanceRecommendations",
+    "x-amz-target": "ComputeOptimizerService.ExportEC2InstanceRecommendations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ExportEC2InstanceRecommendationsRequest(input, context));
@@ -149,7 +149,7 @@ export const serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.GetAutoScalingGroupRecommendations",
+    "x-amz-target": "ComputeOptimizerService.GetAutoScalingGroupRecommendations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest(input, context));
@@ -162,7 +162,7 @@ export const serializeAws_json1_0GetEBSVolumeRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.GetEBSVolumeRecommendations",
+    "x-amz-target": "ComputeOptimizerService.GetEBSVolumeRecommendations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetEBSVolumeRecommendationsRequest(input, context));
@@ -175,7 +175,7 @@ export const serializeAws_json1_0GetEC2InstanceRecommendationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.GetEC2InstanceRecommendations",
+    "x-amz-target": "ComputeOptimizerService.GetEC2InstanceRecommendations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetEC2InstanceRecommendationsRequest(input, context));
@@ -188,7 +188,7 @@ export const serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics",
+    "x-amz-target": "ComputeOptimizerService.GetEC2RecommendationProjectedMetrics",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest(input, context));
@@ -201,7 +201,7 @@ export const serializeAws_json1_0GetEnrollmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.GetEnrollmentStatus",
+    "x-amz-target": "ComputeOptimizerService.GetEnrollmentStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetEnrollmentStatusRequest(input, context));
@@ -214,7 +214,7 @@ export const serializeAws_json1_0GetRecommendationSummariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.GetRecommendationSummaries",
+    "x-amz-target": "ComputeOptimizerService.GetRecommendationSummaries",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetRecommendationSummariesRequest(input, context));
@@ -227,7 +227,7 @@ export const serializeAws_json1_0UpdateEnrollmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "ComputeOptimizerService.UpdateEnrollmentStatus",
+    "x-amz-target": "ComputeOptimizerService.UpdateEnrollmentStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateEnrollmentStatusRequest(input, context));

@@ -310,7 +310,7 @@ export const serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AcceptDirectConnectGatewayAssociationProposal",
+    "x-amz-target": "OvertureService.AcceptDirectConnectGatewayAssociationProposal",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalRequest(input, context));
@@ -323,7 +323,7 @@ export const serializeAws_json1_1AllocateConnectionOnInterconnectCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AllocateConnectionOnInterconnect",
+    "x-amz-target": "OvertureService.AllocateConnectionOnInterconnect",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocateConnectionOnInterconnectRequest(input, context));
@@ -336,7 +336,7 @@ export const serializeAws_json1_1AllocateHostedConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AllocateHostedConnection",
+    "x-amz-target": "OvertureService.AllocateHostedConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocateHostedConnectionRequest(input, context));
@@ -349,7 +349,7 @@ export const serializeAws_json1_1AllocatePrivateVirtualInterfaceCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AllocatePrivateVirtualInterface",
+    "x-amz-target": "OvertureService.AllocatePrivateVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocatePrivateVirtualInterfaceRequest(input, context));
@@ -362,7 +362,7 @@ export const serializeAws_json1_1AllocatePublicVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AllocatePublicVirtualInterface",
+    "x-amz-target": "OvertureService.AllocatePublicVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocatePublicVirtualInterfaceRequest(input, context));
@@ -375,7 +375,7 @@ export const serializeAws_json1_1AllocateTransitVirtualInterfaceCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AllocateTransitVirtualInterface",
+    "x-amz-target": "OvertureService.AllocateTransitVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocateTransitVirtualInterfaceRequest(input, context));
@@ -388,7 +388,7 @@ export const serializeAws_json1_1AssociateConnectionWithLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AssociateConnectionWithLag",
+    "x-amz-target": "OvertureService.AssociateConnectionWithLag",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateConnectionWithLagRequest(input, context));
@@ -401,7 +401,7 @@ export const serializeAws_json1_1AssociateHostedConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AssociateHostedConnection",
+    "x-amz-target": "OvertureService.AssociateHostedConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateHostedConnectionRequest(input, context));
@@ -414,7 +414,7 @@ export const serializeAws_json1_1AssociateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.AssociateVirtualInterface",
+    "x-amz-target": "OvertureService.AssociateVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateVirtualInterfaceRequest(input, context));
@@ -427,7 +427,7 @@ export const serializeAws_json1_1ConfirmConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.ConfirmConnection",
+    "x-amz-target": "OvertureService.ConfirmConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ConfirmConnectionRequest(input, context));
@@ -440,7 +440,7 @@ export const serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.ConfirmPrivateVirtualInterface",
+    "x-amz-target": "OvertureService.ConfirmPrivateVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ConfirmPrivateVirtualInterfaceRequest(input, context));
@@ -453,7 +453,7 @@ export const serializeAws_json1_1ConfirmPublicVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.ConfirmPublicVirtualInterface",
+    "x-amz-target": "OvertureService.ConfirmPublicVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ConfirmPublicVirtualInterfaceRequest(input, context));
@@ -466,7 +466,7 @@ export const serializeAws_json1_1ConfirmTransitVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.ConfirmTransitVirtualInterface",
+    "x-amz-target": "OvertureService.ConfirmTransitVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ConfirmTransitVirtualInterfaceRequest(input, context));
@@ -479,7 +479,7 @@ export const serializeAws_json1_1CreateBGPPeerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateBGPPeer",
+    "x-amz-target": "OvertureService.CreateBGPPeer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBGPPeerRequest(input, context));
@@ -492,7 +492,7 @@ export const serializeAws_json1_1CreateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateConnection",
+    "x-amz-target": "OvertureService.CreateConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateConnectionRequest(input, context));
@@ -505,7 +505,7 @@ export const serializeAws_json1_1CreateDirectConnectGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateDirectConnectGateway",
+    "x-amz-target": "OvertureService.CreateDirectConnectGateway",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDirectConnectGatewayRequest(input, context));
@@ -518,7 +518,7 @@ export const serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateDirectConnectGatewayAssociation",
+    "x-amz-target": "OvertureService.CreateDirectConnectGatewayAssociation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDirectConnectGatewayAssociationRequest(input, context));
@@ -531,7 +531,7 @@ export const serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateDirectConnectGatewayAssociationProposal",
+    "x-amz-target": "OvertureService.CreateDirectConnectGatewayAssociationProposal",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDirectConnectGatewayAssociationProposalRequest(input, context));
@@ -544,7 +544,7 @@ export const serializeAws_json1_1CreateInterconnectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateInterconnect",
+    "x-amz-target": "OvertureService.CreateInterconnect",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateInterconnectRequest(input, context));
@@ -557,7 +557,7 @@ export const serializeAws_json1_1CreateLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateLag",
+    "x-amz-target": "OvertureService.CreateLag",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLagRequest(input, context));
@@ -570,7 +570,7 @@ export const serializeAws_json1_1CreatePrivateVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreatePrivateVirtualInterface",
+    "x-amz-target": "OvertureService.CreatePrivateVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePrivateVirtualInterfaceRequest(input, context));
@@ -583,7 +583,7 @@ export const serializeAws_json1_1CreatePublicVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreatePublicVirtualInterface",
+    "x-amz-target": "OvertureService.CreatePublicVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePublicVirtualInterfaceRequest(input, context));
@@ -596,7 +596,7 @@ export const serializeAws_json1_1CreateTransitVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.CreateTransitVirtualInterface",
+    "x-amz-target": "OvertureService.CreateTransitVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTransitVirtualInterfaceRequest(input, context));
@@ -609,7 +609,7 @@ export const serializeAws_json1_1DeleteBGPPeerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteBGPPeer",
+    "x-amz-target": "OvertureService.DeleteBGPPeer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBGPPeerRequest(input, context));
@@ -622,7 +622,7 @@ export const serializeAws_json1_1DeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteConnection",
+    "x-amz-target": "OvertureService.DeleteConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConnectionRequest(input, context));
@@ -635,7 +635,7 @@ export const serializeAws_json1_1DeleteDirectConnectGatewayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteDirectConnectGateway",
+    "x-amz-target": "OvertureService.DeleteDirectConnectGateway",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDirectConnectGatewayRequest(input, context));
@@ -648,7 +648,7 @@ export const serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteDirectConnectGatewayAssociation",
+    "x-amz-target": "OvertureService.DeleteDirectConnectGatewayAssociation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDirectConnectGatewayAssociationRequest(input, context));
@@ -661,7 +661,7 @@ export const serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteDirectConnectGatewayAssociationProposal",
+    "x-amz-target": "OvertureService.DeleteDirectConnectGatewayAssociationProposal",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalRequest(input, context));
@@ -674,7 +674,7 @@ export const serializeAws_json1_1DeleteInterconnectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteInterconnect",
+    "x-amz-target": "OvertureService.DeleteInterconnect",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteInterconnectRequest(input, context));
@@ -687,7 +687,7 @@ export const serializeAws_json1_1DeleteLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteLag",
+    "x-amz-target": "OvertureService.DeleteLag",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLagRequest(input, context));
@@ -700,7 +700,7 @@ export const serializeAws_json1_1DeleteVirtualInterfaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DeleteVirtualInterface",
+    "x-amz-target": "OvertureService.DeleteVirtualInterface",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVirtualInterfaceRequest(input, context));
@@ -713,7 +713,7 @@ export const serializeAws_json1_1DescribeConnectionLoaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeConnectionLoa",
+    "x-amz-target": "OvertureService.DescribeConnectionLoa",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConnectionLoaRequest(input, context));
@@ -726,7 +726,7 @@ export const serializeAws_json1_1DescribeConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeConnections",
+    "x-amz-target": "OvertureService.DescribeConnections",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConnectionsRequest(input, context));
@@ -739,7 +739,7 @@ export const serializeAws_json1_1DescribeConnectionsOnInterconnectCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeConnectionsOnInterconnect",
+    "x-amz-target": "OvertureService.DescribeConnectionsOnInterconnect",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConnectionsOnInterconnectRequest(input, context));
@@ -752,7 +752,7 @@ export const serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposal
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeDirectConnectGatewayAssociationProposals",
+    "x-amz-target": "OvertureService.DescribeDirectConnectGatewayAssociationProposals",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsRequest(input, context));
@@ -765,7 +765,7 @@ export const serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeDirectConnectGatewayAssociations",
+    "x-amz-target": "OvertureService.DescribeDirectConnectGatewayAssociations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDirectConnectGatewayAssociationsRequest(input, context));
@@ -778,7 +778,7 @@ export const serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeDirectConnectGatewayAttachments",
+    "x-amz-target": "OvertureService.DescribeDirectConnectGatewayAttachments",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDirectConnectGatewayAttachmentsRequest(input, context));
@@ -791,7 +791,7 @@ export const serializeAws_json1_1DescribeDirectConnectGatewaysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeDirectConnectGateways",
+    "x-amz-target": "OvertureService.DescribeDirectConnectGateways",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDirectConnectGatewaysRequest(input, context));
@@ -804,7 +804,7 @@ export const serializeAws_json1_1DescribeHostedConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeHostedConnections",
+    "x-amz-target": "OvertureService.DescribeHostedConnections",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeHostedConnectionsRequest(input, context));
@@ -817,7 +817,7 @@ export const serializeAws_json1_1DescribeInterconnectLoaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeInterconnectLoa",
+    "x-amz-target": "OvertureService.DescribeInterconnectLoa",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeInterconnectLoaRequest(input, context));
@@ -830,7 +830,7 @@ export const serializeAws_json1_1DescribeInterconnectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeInterconnects",
+    "x-amz-target": "OvertureService.DescribeInterconnects",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeInterconnectsRequest(input, context));
@@ -843,7 +843,7 @@ export const serializeAws_json1_1DescribeLagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeLags",
+    "x-amz-target": "OvertureService.DescribeLags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLagsRequest(input, context));
@@ -856,7 +856,7 @@ export const serializeAws_json1_1DescribeLoaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeLoa",
+    "x-amz-target": "OvertureService.DescribeLoa",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLoaRequest(input, context));
@@ -869,7 +869,7 @@ export const serializeAws_json1_1DescribeLocationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeLocations",
+    "x-amz-target": "OvertureService.DescribeLocations",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -880,7 +880,7 @@ export const serializeAws_json1_1DescribeTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeTags",
+    "x-amz-target": "OvertureService.DescribeTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTagsRequest(input, context));
@@ -893,7 +893,7 @@ export const serializeAws_json1_1DescribeVirtualGatewaysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeVirtualGateways",
+    "x-amz-target": "OvertureService.DescribeVirtualGateways",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -904,7 +904,7 @@ export const serializeAws_json1_1DescribeVirtualInterfacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DescribeVirtualInterfaces",
+    "x-amz-target": "OvertureService.DescribeVirtualInterfaces",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeVirtualInterfacesRequest(input, context));
@@ -917,7 +917,7 @@ export const serializeAws_json1_1DisassociateConnectionFromLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.DisassociateConnectionFromLag",
+    "x-amz-target": "OvertureService.DisassociateConnectionFromLag",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateConnectionFromLagRequest(input, context));
@@ -930,7 +930,7 @@ export const serializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.ListVirtualInterfaceTestHistory",
+    "x-amz-target": "OvertureService.ListVirtualInterfaceTestHistory",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListVirtualInterfaceTestHistoryRequest(input, context));
@@ -943,7 +943,7 @@ export const serializeAws_json1_1StartBgpFailoverTestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.StartBgpFailoverTest",
+    "x-amz-target": "OvertureService.StartBgpFailoverTest",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartBgpFailoverTestRequest(input, context));
@@ -956,7 +956,7 @@ export const serializeAws_json1_1StopBgpFailoverTestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.StopBgpFailoverTest",
+    "x-amz-target": "OvertureService.StopBgpFailoverTest",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopBgpFailoverTestRequest(input, context));
@@ -969,7 +969,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.TagResource",
+    "x-amz-target": "OvertureService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -982,7 +982,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.UntagResource",
+    "x-amz-target": "OvertureService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -995,7 +995,7 @@ export const serializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.UpdateDirectConnectGatewayAssociation",
+    "x-amz-target": "OvertureService.UpdateDirectConnectGatewayAssociation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest(input, context));
@@ -1008,7 +1008,7 @@ export const serializeAws_json1_1UpdateLagCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.UpdateLag",
+    "x-amz-target": "OvertureService.UpdateLag",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLagRequest(input, context));
@@ -1021,7 +1021,7 @@ export const serializeAws_json1_1UpdateVirtualInterfaceAttributesCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "OvertureService.UpdateVirtualInterfaceAttributes",
+    "x-amz-target": "OvertureService.UpdateVirtualInterfaceAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateVirtualInterfaceAttributesRequest(input, context));

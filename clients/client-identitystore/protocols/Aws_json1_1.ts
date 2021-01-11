@@ -36,7 +36,7 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSIdentityStore.DescribeGroup",
+    "x-amz-target": "AWSIdentityStore.DescribeGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGroupRequest(input, context));
@@ -49,7 +49,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSIdentityStore.DescribeUser",
+    "x-amz-target": "AWSIdentityStore.DescribeUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
@@ -62,7 +62,7 @@ export const serializeAws_json1_1ListGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSIdentityStore.ListGroups",
+    "x-amz-target": "AWSIdentityStore.ListGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
@@ -75,7 +75,7 @@ export const serializeAws_json1_1ListUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSIdentityStore.ListUsers",
+    "x-amz-target": "AWSIdentityStore.ListUsers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));

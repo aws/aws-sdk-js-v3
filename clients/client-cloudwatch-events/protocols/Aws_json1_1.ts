@@ -200,7 +200,7 @@ export const serializeAws_json1_1ActivateEventSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ActivateEventSource",
+    "x-amz-target": "AWSEvents.ActivateEventSource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ActivateEventSourceRequest(input, context));
@@ -213,7 +213,7 @@ export const serializeAws_json1_1CancelReplayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.CancelReplay",
+    "x-amz-target": "AWSEvents.CancelReplay",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelReplayRequest(input, context));
@@ -226,7 +226,7 @@ export const serializeAws_json1_1CreateArchiveCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.CreateArchive",
+    "x-amz-target": "AWSEvents.CreateArchive",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateArchiveRequest(input, context));
@@ -239,7 +239,7 @@ export const serializeAws_json1_1CreateEventBusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.CreateEventBus",
+    "x-amz-target": "AWSEvents.CreateEventBus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEventBusRequest(input, context));
@@ -252,7 +252,7 @@ export const serializeAws_json1_1CreatePartnerEventSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.CreatePartnerEventSource",
+    "x-amz-target": "AWSEvents.CreatePartnerEventSource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePartnerEventSourceRequest(input, context));
@@ -265,7 +265,7 @@ export const serializeAws_json1_1DeactivateEventSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DeactivateEventSource",
+    "x-amz-target": "AWSEvents.DeactivateEventSource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeactivateEventSourceRequest(input, context));
@@ -278,7 +278,7 @@ export const serializeAws_json1_1DeleteArchiveCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DeleteArchive",
+    "x-amz-target": "AWSEvents.DeleteArchive",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteArchiveRequest(input, context));
@@ -291,7 +291,7 @@ export const serializeAws_json1_1DeleteEventBusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DeleteEventBus",
+    "x-amz-target": "AWSEvents.DeleteEventBus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventBusRequest(input, context));
@@ -304,7 +304,7 @@ export const serializeAws_json1_1DeletePartnerEventSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DeletePartnerEventSource",
+    "x-amz-target": "AWSEvents.DeletePartnerEventSource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePartnerEventSourceRequest(input, context));
@@ -317,7 +317,7 @@ export const serializeAws_json1_1DeleteRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DeleteRule",
+    "x-amz-target": "AWSEvents.DeleteRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRuleRequest(input, context));
@@ -330,7 +330,7 @@ export const serializeAws_json1_1DescribeArchiveCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DescribeArchive",
+    "x-amz-target": "AWSEvents.DescribeArchive",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeArchiveRequest(input, context));
@@ -343,7 +343,7 @@ export const serializeAws_json1_1DescribeEventBusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DescribeEventBus",
+    "x-amz-target": "AWSEvents.DescribeEventBus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventBusRequest(input, context));
@@ -356,7 +356,7 @@ export const serializeAws_json1_1DescribeEventSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DescribeEventSource",
+    "x-amz-target": "AWSEvents.DescribeEventSource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventSourceRequest(input, context));
@@ -369,7 +369,7 @@ export const serializeAws_json1_1DescribePartnerEventSourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DescribePartnerEventSource",
+    "x-amz-target": "AWSEvents.DescribePartnerEventSource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePartnerEventSourceRequest(input, context));
@@ -382,7 +382,7 @@ export const serializeAws_json1_1DescribeReplayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DescribeReplay",
+    "x-amz-target": "AWSEvents.DescribeReplay",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeReplayRequest(input, context));
@@ -395,7 +395,7 @@ export const serializeAws_json1_1DescribeRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DescribeRule",
+    "x-amz-target": "AWSEvents.DescribeRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRuleRequest(input, context));
@@ -408,7 +408,7 @@ export const serializeAws_json1_1DisableRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.DisableRule",
+    "x-amz-target": "AWSEvents.DisableRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableRuleRequest(input, context));
@@ -421,7 +421,7 @@ export const serializeAws_json1_1EnableRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.EnableRule",
+    "x-amz-target": "AWSEvents.EnableRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableRuleRequest(input, context));
@@ -434,7 +434,7 @@ export const serializeAws_json1_1ListArchivesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListArchives",
+    "x-amz-target": "AWSEvents.ListArchives",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListArchivesRequest(input, context));
@@ -447,7 +447,7 @@ export const serializeAws_json1_1ListEventBusesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListEventBuses",
+    "x-amz-target": "AWSEvents.ListEventBuses",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventBusesRequest(input, context));
@@ -460,7 +460,7 @@ export const serializeAws_json1_1ListEventSourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListEventSources",
+    "x-amz-target": "AWSEvents.ListEventSources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventSourcesRequest(input, context));
@@ -473,7 +473,7 @@ export const serializeAws_json1_1ListPartnerEventSourceAccountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListPartnerEventSourceAccounts",
+    "x-amz-target": "AWSEvents.ListPartnerEventSourceAccounts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPartnerEventSourceAccountsRequest(input, context));
@@ -486,7 +486,7 @@ export const serializeAws_json1_1ListPartnerEventSourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListPartnerEventSources",
+    "x-amz-target": "AWSEvents.ListPartnerEventSources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPartnerEventSourcesRequest(input, context));
@@ -499,7 +499,7 @@ export const serializeAws_json1_1ListReplaysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListReplays",
+    "x-amz-target": "AWSEvents.ListReplays",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReplaysRequest(input, context));
@@ -512,7 +512,7 @@ export const serializeAws_json1_1ListRuleNamesByTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListRuleNamesByTarget",
+    "x-amz-target": "AWSEvents.ListRuleNamesByTarget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRuleNamesByTargetRequest(input, context));
@@ -525,7 +525,7 @@ export const serializeAws_json1_1ListRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListRules",
+    "x-amz-target": "AWSEvents.ListRules",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRulesRequest(input, context));
@@ -538,7 +538,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListTagsForResource",
+    "x-amz-target": "AWSEvents.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -551,7 +551,7 @@ export const serializeAws_json1_1ListTargetsByRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.ListTargetsByRule",
+    "x-amz-target": "AWSEvents.ListTargetsByRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTargetsByRuleRequest(input, context));
@@ -564,7 +564,7 @@ export const serializeAws_json1_1PutEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.PutEvents",
+    "x-amz-target": "AWSEvents.PutEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutEventsRequest(input, context));
@@ -577,7 +577,7 @@ export const serializeAws_json1_1PutPartnerEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.PutPartnerEvents",
+    "x-amz-target": "AWSEvents.PutPartnerEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutPartnerEventsRequest(input, context));
@@ -590,7 +590,7 @@ export const serializeAws_json1_1PutPermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.PutPermission",
+    "x-amz-target": "AWSEvents.PutPermission",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutPermissionRequest(input, context));
@@ -603,7 +603,7 @@ export const serializeAws_json1_1PutRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.PutRule",
+    "x-amz-target": "AWSEvents.PutRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRuleRequest(input, context));
@@ -616,7 +616,7 @@ export const serializeAws_json1_1PutTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.PutTargets",
+    "x-amz-target": "AWSEvents.PutTargets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutTargetsRequest(input, context));
@@ -629,7 +629,7 @@ export const serializeAws_json1_1RemovePermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.RemovePermission",
+    "x-amz-target": "AWSEvents.RemovePermission",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemovePermissionRequest(input, context));
@@ -642,7 +642,7 @@ export const serializeAws_json1_1RemoveTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.RemoveTargets",
+    "x-amz-target": "AWSEvents.RemoveTargets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTargetsRequest(input, context));
@@ -655,7 +655,7 @@ export const serializeAws_json1_1StartReplayCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.StartReplay",
+    "x-amz-target": "AWSEvents.StartReplay",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartReplayRequest(input, context));
@@ -668,7 +668,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.TagResource",
+    "x-amz-target": "AWSEvents.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -681,7 +681,7 @@ export const serializeAws_json1_1TestEventPatternCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.TestEventPattern",
+    "x-amz-target": "AWSEvents.TestEventPattern",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TestEventPatternRequest(input, context));
@@ -694,7 +694,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.UntagResource",
+    "x-amz-target": "AWSEvents.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -707,7 +707,7 @@ export const serializeAws_json1_1UpdateArchiveCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEvents.UpdateArchive",
+    "x-amz-target": "AWSEvents.UpdateArchive",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateArchiveRequest(input, context));

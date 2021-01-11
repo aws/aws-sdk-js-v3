@@ -33,7 +33,7 @@ export const serializeAws_json1_1DescribeServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSPriceListService.DescribeServices",
+    "x-amz-target": "AWSPriceListService.DescribeServices",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeServicesRequest(input, context));
@@ -46,7 +46,7 @@ export const serializeAws_json1_1GetAttributeValuesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSPriceListService.GetAttributeValues",
+    "x-amz-target": "AWSPriceListService.GetAttributeValues",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAttributeValuesRequest(input, context));
@@ -59,7 +59,7 @@ export const serializeAws_json1_1GetProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSPriceListService.GetProducts",
+    "x-amz-target": "AWSPriceListService.GetProducts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProductsRequest(input, context));

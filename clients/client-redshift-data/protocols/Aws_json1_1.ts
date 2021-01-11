@@ -51,7 +51,7 @@ export const serializeAws_json1_1CancelStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.CancelStatement",
+    "x-amz-target": "RedshiftData.CancelStatement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelStatementRequest(input, context));
@@ -64,7 +64,7 @@ export const serializeAws_json1_1DescribeStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.DescribeStatement",
+    "x-amz-target": "RedshiftData.DescribeStatement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeStatementRequest(input, context));
@@ -77,7 +77,7 @@ export const serializeAws_json1_1DescribeTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.DescribeTable",
+    "x-amz-target": "RedshiftData.DescribeTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTableRequest(input, context));
@@ -90,7 +90,7 @@ export const serializeAws_json1_1ExecuteStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.ExecuteStatement",
+    "x-amz-target": "RedshiftData.ExecuteStatement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExecuteStatementInput(input, context));
@@ -103,7 +103,7 @@ export const serializeAws_json1_1GetStatementResultCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.GetStatementResult",
+    "x-amz-target": "RedshiftData.GetStatementResult",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetStatementResultRequest(input, context));
@@ -116,7 +116,7 @@ export const serializeAws_json1_1ListDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.ListDatabases",
+    "x-amz-target": "RedshiftData.ListDatabases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatabasesRequest(input, context));
@@ -129,7 +129,7 @@ export const serializeAws_json1_1ListSchemasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.ListSchemas",
+    "x-amz-target": "RedshiftData.ListSchemas",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSchemasRequest(input, context));
@@ -142,7 +142,7 @@ export const serializeAws_json1_1ListStatementsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.ListStatements",
+    "x-amz-target": "RedshiftData.ListStatements",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListStatementsRequest(input, context));
@@ -155,7 +155,7 @@ export const serializeAws_json1_1ListTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "RedshiftData.ListTables",
+    "x-amz-target": "RedshiftData.ListTables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTablesRequest(input, context));

@@ -173,7 +173,7 @@ export const serializeAws_json1_1AssociateDelegateToResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.AssociateDelegateToResource",
+    "x-amz-target": "WorkMailService.AssociateDelegateToResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateDelegateToResourceRequest(input, context));
@@ -186,7 +186,7 @@ export const serializeAws_json1_1AssociateMemberToGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.AssociateMemberToGroup",
+    "x-amz-target": "WorkMailService.AssociateMemberToGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateMemberToGroupRequest(input, context));
@@ -199,7 +199,7 @@ export const serializeAws_json1_1CreateAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.CreateAlias",
+    "x-amz-target": "WorkMailService.CreateAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAliasRequest(input, context));
@@ -212,7 +212,7 @@ export const serializeAws_json1_1CreateGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.CreateGroup",
+    "x-amz-target": "WorkMailService.CreateGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGroupRequest(input, context));
@@ -225,7 +225,7 @@ export const serializeAws_json1_1CreateResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.CreateResource",
+    "x-amz-target": "WorkMailService.CreateResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateResourceRequest(input, context));
@@ -238,7 +238,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.CreateUser",
+    "x-amz-target": "WorkMailService.CreateUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
@@ -251,7 +251,7 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteAlias",
+    "x-amz-target": "WorkMailService.DeleteAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAliasRequest(input, context));
@@ -264,7 +264,7 @@ export const serializeAws_json1_1DeleteGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteGroup",
+    "x-amz-target": "WorkMailService.DeleteGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGroupRequest(input, context));
@@ -277,7 +277,7 @@ export const serializeAws_json1_1DeleteMailboxPermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteMailboxPermissions",
+    "x-amz-target": "WorkMailService.DeleteMailboxPermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMailboxPermissionsRequest(input, context));
@@ -290,7 +290,7 @@ export const serializeAws_json1_1DeleteResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteResource",
+    "x-amz-target": "WorkMailService.DeleteResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourceRequest(input, context));
@@ -303,7 +303,7 @@ export const serializeAws_json1_1DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeleteUser",
+    "x-amz-target": "WorkMailService.DeleteUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
@@ -316,7 +316,7 @@ export const serializeAws_json1_1DeregisterFromWorkMailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DeregisterFromWorkMail",
+    "x-amz-target": "WorkMailService.DeregisterFromWorkMail",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeregisterFromWorkMailRequest(input, context));
@@ -329,7 +329,7 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DescribeGroup",
+    "x-amz-target": "WorkMailService.DescribeGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGroupRequest(input, context));
@@ -342,7 +342,7 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DescribeOrganization",
+    "x-amz-target": "WorkMailService.DescribeOrganization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeOrganizationRequest(input, context));
@@ -355,7 +355,7 @@ export const serializeAws_json1_1DescribeResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DescribeResource",
+    "x-amz-target": "WorkMailService.DescribeResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeResourceRequest(input, context));
@@ -368,7 +368,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DescribeUser",
+    "x-amz-target": "WorkMailService.DescribeUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
@@ -381,7 +381,7 @@ export const serializeAws_json1_1DisassociateDelegateFromResourceCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DisassociateDelegateFromResource",
+    "x-amz-target": "WorkMailService.DisassociateDelegateFromResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateDelegateFromResourceRequest(input, context));
@@ -394,7 +394,7 @@ export const serializeAws_json1_1DisassociateMemberFromGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.DisassociateMemberFromGroup",
+    "x-amz-target": "WorkMailService.DisassociateMemberFromGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateMemberFromGroupRequest(input, context));
@@ -407,7 +407,7 @@ export const serializeAws_json1_1GetMailboxDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.GetMailboxDetails",
+    "x-amz-target": "WorkMailService.GetMailboxDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMailboxDetailsRequest(input, context));
@@ -420,7 +420,7 @@ export const serializeAws_json1_1ListAliasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListAliases",
+    "x-amz-target": "WorkMailService.ListAliases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
@@ -433,7 +433,7 @@ export const serializeAws_json1_1ListGroupMembersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListGroupMembers",
+    "x-amz-target": "WorkMailService.ListGroupMembers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupMembersRequest(input, context));
@@ -446,7 +446,7 @@ export const serializeAws_json1_1ListGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListGroups",
+    "x-amz-target": "WorkMailService.ListGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGroupsRequest(input, context));
@@ -459,7 +459,7 @@ export const serializeAws_json1_1ListMailboxPermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListMailboxPermissions",
+    "x-amz-target": "WorkMailService.ListMailboxPermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListMailboxPermissionsRequest(input, context));
@@ -472,7 +472,7 @@ export const serializeAws_json1_1ListOrganizationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListOrganizations",
+    "x-amz-target": "WorkMailService.ListOrganizations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListOrganizationsRequest(input, context));
@@ -485,7 +485,7 @@ export const serializeAws_json1_1ListResourceDelegatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListResourceDelegates",
+    "x-amz-target": "WorkMailService.ListResourceDelegates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourceDelegatesRequest(input, context));
@@ -498,7 +498,7 @@ export const serializeAws_json1_1ListResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListResources",
+    "x-amz-target": "WorkMailService.ListResources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourcesRequest(input, context));
@@ -511,7 +511,7 @@ export const serializeAws_json1_1ListUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ListUsers",
+    "x-amz-target": "WorkMailService.ListUsers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
@@ -524,7 +524,7 @@ export const serializeAws_json1_1PutMailboxPermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.PutMailboxPermissions",
+    "x-amz-target": "WorkMailService.PutMailboxPermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutMailboxPermissionsRequest(input, context));
@@ -537,7 +537,7 @@ export const serializeAws_json1_1RegisterToWorkMailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.RegisterToWorkMail",
+    "x-amz-target": "WorkMailService.RegisterToWorkMail",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterToWorkMailRequest(input, context));
@@ -550,7 +550,7 @@ export const serializeAws_json1_1ResetPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.ResetPassword",
+    "x-amz-target": "WorkMailService.ResetPassword",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResetPasswordRequest(input, context));
@@ -563,7 +563,7 @@ export const serializeAws_json1_1UpdateMailboxQuotaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.UpdateMailboxQuota",
+    "x-amz-target": "WorkMailService.UpdateMailboxQuota",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateMailboxQuotaRequest(input, context));
@@ -576,7 +576,7 @@ export const serializeAws_json1_1UpdatePrimaryEmailAddressCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.UpdatePrimaryEmailAddress",
+    "x-amz-target": "WorkMailService.UpdatePrimaryEmailAddress",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePrimaryEmailAddressRequest(input, context));
@@ -589,7 +589,7 @@ export const serializeAws_json1_1UpdateResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "WorkMailService.UpdateResource",
+    "x-amz-target": "WorkMailService.UpdateResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateResourceRequest(input, context));

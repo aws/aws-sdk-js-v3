@@ -223,7 +223,7 @@ export const serializeAws_json1_1CreateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.CreateApp",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.CreateApp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAppRequest(input, context));
@@ -236,7 +236,7 @@ export const serializeAws_json1_1CreateReplicationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.CreateReplicationJob",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.CreateReplicationJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateReplicationJobRequest(input, context));
@@ -249,7 +249,7 @@ export const serializeAws_json1_1DeleteAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteApp",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteApp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppRequest(input, context));
@@ -262,7 +262,7 @@ export const serializeAws_json1_1DeleteAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteAppLaunchConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppLaunchConfigurationRequest(input, context));
@@ -275,7 +275,7 @@ export const serializeAws_json1_1DeleteAppReplicationConfigurationCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppReplicationConfigurationRequest(input, context));
@@ -288,7 +288,7 @@ export const serializeAws_json1_1DeleteAppValidationConfigurationCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteAppValidationConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteAppValidationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAppValidationConfigurationRequest(input, context));
@@ -301,7 +301,7 @@ export const serializeAws_json1_1DeleteReplicationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteReplicationJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteReplicationJobRequest(input, context));
@@ -314,7 +314,7 @@ export const serializeAws_json1_1DeleteServerCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DeleteServerCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteServerCatalogRequest(input, context));
@@ -327,7 +327,7 @@ export const serializeAws_json1_1DisassociateConnectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.DisassociateConnector",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.DisassociateConnector",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateConnectorRequest(input, context));
@@ -340,7 +340,7 @@ export const serializeAws_json1_1GenerateChangeSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GenerateChangeSet",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GenerateChangeSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GenerateChangeSetRequest(input, context));
@@ -353,7 +353,7 @@ export const serializeAws_json1_1GenerateTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GenerateTemplate",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GenerateTemplate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GenerateTemplateRequest(input, context));
@@ -366,7 +366,7 @@ export const serializeAws_json1_1GetAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetApp",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetApp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAppRequest(input, context));
@@ -379,7 +379,7 @@ export const serializeAws_json1_1GetAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppLaunchConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAppLaunchConfigurationRequest(input, context));
@@ -392,7 +392,7 @@ export const serializeAws_json1_1GetAppReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppReplicationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAppReplicationConfigurationRequest(input, context));
@@ -405,7 +405,7 @@ export const serializeAws_json1_1GetAppValidationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppValidationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAppValidationConfigurationRequest(input, context));
@@ -418,7 +418,7 @@ export const serializeAws_json1_1GetAppValidationOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetAppValidationOutput",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAppValidationOutputRequest(input, context));
@@ -431,7 +431,7 @@ export const serializeAws_json1_1GetConnectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetConnectors",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetConnectors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConnectorsRequest(input, context));
@@ -444,7 +444,7 @@ export const serializeAws_json1_1GetReplicationJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetReplicationJobs",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetReplicationJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetReplicationJobsRequest(input, context));
@@ -457,7 +457,7 @@ export const serializeAws_json1_1GetReplicationRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetReplicationRuns",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetReplicationRuns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetReplicationRunsRequest(input, context));
@@ -470,7 +470,7 @@ export const serializeAws_json1_1GetServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.GetServers",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.GetServers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetServersRequest(input, context));
@@ -483,7 +483,7 @@ export const serializeAws_json1_1ImportAppCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ImportAppCatalog",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.ImportAppCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportAppCatalogRequest(input, context));
@@ -496,7 +496,7 @@ export const serializeAws_json1_1ImportServerCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ImportServerCatalog",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.ImportServerCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportServerCatalogRequest(input, context));
@@ -509,7 +509,7 @@ export const serializeAws_json1_1LaunchAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.LaunchApp",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.LaunchApp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1LaunchAppRequest(input, context));
@@ -522,7 +522,7 @@ export const serializeAws_json1_1ListAppsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.ListApps",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.ListApps",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAppsRequest(input, context));
@@ -535,7 +535,7 @@ export const serializeAws_json1_1NotifyAppValidationOutputCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.NotifyAppValidationOutput",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1NotifyAppValidationOutputRequest(input, context));
@@ -548,7 +548,7 @@ export const serializeAws_json1_1PutAppLaunchConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.PutAppLaunchConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAppLaunchConfigurationRequest(input, context));
@@ -561,7 +561,7 @@ export const serializeAws_json1_1PutAppReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.PutAppReplicationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAppReplicationConfigurationRequest(input, context));
@@ -574,7 +574,7 @@ export const serializeAws_json1_1PutAppValidationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.PutAppValidationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAppValidationConfigurationRequest(input, context));
@@ -587,7 +587,7 @@ export const serializeAws_json1_1StartAppReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartAppReplication",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StartAppReplication",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartAppReplicationRequest(input, context));
@@ -600,7 +600,7 @@ export const serializeAws_json1_1StartOnDemandAppReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StartOnDemandAppReplication",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartOnDemandAppReplicationRequest(input, context));
@@ -613,7 +613,7 @@ export const serializeAws_json1_1StartOnDemandReplicationRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StartOnDemandReplicationRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartOnDemandReplicationRunRequest(input, context));
@@ -626,7 +626,7 @@ export const serializeAws_json1_1StopAppReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.StopAppReplication",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.StopAppReplication",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopAppReplicationRequest(input, context));
@@ -639,7 +639,7 @@ export const serializeAws_json1_1TerminateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.TerminateApp",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.TerminateApp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TerminateAppRequest(input, context));
@@ -652,7 +652,7 @@ export const serializeAws_json1_1UpdateAppCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.UpdateApp",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.UpdateApp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAppRequest(input, context));
@@ -665,7 +665,7 @@ export const serializeAws_json1_1UpdateReplicationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob",
+    "x-amz-target": "AWSServerMigrationService_V2016_10_24.UpdateReplicationJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateReplicationJobRequest(input, context));

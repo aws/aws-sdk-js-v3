@@ -101,7 +101,7 @@ export const serializeAws_json1_1CreateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.CreateServer",
+    "x-amz-target": "TransferService.CreateServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateServerRequest(input, context));
@@ -114,7 +114,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.CreateUser",
+    "x-amz-target": "TransferService.CreateUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
@@ -127,7 +127,7 @@ export const serializeAws_json1_1DeleteServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.DeleteServer",
+    "x-amz-target": "TransferService.DeleteServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteServerRequest(input, context));
@@ -140,7 +140,7 @@ export const serializeAws_json1_1DeleteSshPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.DeleteSshPublicKey",
+    "x-amz-target": "TransferService.DeleteSshPublicKey",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSshPublicKeyRequest(input, context));
@@ -153,7 +153,7 @@ export const serializeAws_json1_1DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.DeleteUser",
+    "x-amz-target": "TransferService.DeleteUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
@@ -166,7 +166,7 @@ export const serializeAws_json1_1DescribeSecurityPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.DescribeSecurityPolicy",
+    "x-amz-target": "TransferService.DescribeSecurityPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSecurityPolicyRequest(input, context));
@@ -179,7 +179,7 @@ export const serializeAws_json1_1DescribeServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.DescribeServer",
+    "x-amz-target": "TransferService.DescribeServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeServerRequest(input, context));
@@ -192,7 +192,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.DescribeUser",
+    "x-amz-target": "TransferService.DescribeUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUserRequest(input, context));
@@ -205,7 +205,7 @@ export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.ImportSshPublicKey",
+    "x-amz-target": "TransferService.ImportSshPublicKey",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportSshPublicKeyRequest(input, context));
@@ -218,7 +218,7 @@ export const serializeAws_json1_1ListSecurityPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.ListSecurityPolicies",
+    "x-amz-target": "TransferService.ListSecurityPolicies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSecurityPoliciesRequest(input, context));
@@ -231,7 +231,7 @@ export const serializeAws_json1_1ListServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.ListServers",
+    "x-amz-target": "TransferService.ListServers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListServersRequest(input, context));
@@ -244,7 +244,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.ListTagsForResource",
+    "x-amz-target": "TransferService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -257,7 +257,7 @@ export const serializeAws_json1_1ListUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.ListUsers",
+    "x-amz-target": "TransferService.ListUsers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsersRequest(input, context));
@@ -270,7 +270,7 @@ export const serializeAws_json1_1StartServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.StartServer",
+    "x-amz-target": "TransferService.StartServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartServerRequest(input, context));
@@ -283,7 +283,7 @@ export const serializeAws_json1_1StopServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.StopServer",
+    "x-amz-target": "TransferService.StopServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopServerRequest(input, context));
@@ -296,7 +296,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.TagResource",
+    "x-amz-target": "TransferService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -309,7 +309,7 @@ export const serializeAws_json1_1TestIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.TestIdentityProvider",
+    "x-amz-target": "TransferService.TestIdentityProvider",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TestIdentityProviderRequest(input, context));
@@ -322,7 +322,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.UntagResource",
+    "x-amz-target": "TransferService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -335,7 +335,7 @@ export const serializeAws_json1_1UpdateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.UpdateServer",
+    "x-amz-target": "TransferService.UpdateServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateServerRequest(input, context));
@@ -348,7 +348,7 @@ export const serializeAws_json1_1UpdateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "TransferService.UpdateUser",
+    "x-amz-target": "TransferService.UpdateUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateUserRequest(input, context));

@@ -504,7 +504,7 @@ export const serializeAws_json1_1AcceptMatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.AcceptMatch",
+    "x-amz-target": "GameLift.AcceptMatch",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AcceptMatchInput(input, context));
@@ -517,7 +517,7 @@ export const serializeAws_json1_1ClaimGameServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ClaimGameServer",
+    "x-amz-target": "GameLift.ClaimGameServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ClaimGameServerInput(input, context));
@@ -530,7 +530,7 @@ export const serializeAws_json1_1CreateAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateAlias",
+    "x-amz-target": "GameLift.CreateAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAliasInput(input, context));
@@ -543,7 +543,7 @@ export const serializeAws_json1_1CreateBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateBuild",
+    "x-amz-target": "GameLift.CreateBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBuildInput(input, context));
@@ -556,7 +556,7 @@ export const serializeAws_json1_1CreateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateFleet",
+    "x-amz-target": "GameLift.CreateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFleetInput(input, context));
@@ -569,7 +569,7 @@ export const serializeAws_json1_1CreateGameServerGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateGameServerGroup",
+    "x-amz-target": "GameLift.CreateGameServerGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGameServerGroupInput(input, context));
@@ -582,7 +582,7 @@ export const serializeAws_json1_1CreateGameSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateGameSession",
+    "x-amz-target": "GameLift.CreateGameSession",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGameSessionInput(input, context));
@@ -595,7 +595,7 @@ export const serializeAws_json1_1CreateGameSessionQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateGameSessionQueue",
+    "x-amz-target": "GameLift.CreateGameSessionQueue",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGameSessionQueueInput(input, context));
@@ -608,7 +608,7 @@ export const serializeAws_json1_1CreateMatchmakingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateMatchmakingConfiguration",
+    "x-amz-target": "GameLift.CreateMatchmakingConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateMatchmakingConfigurationInput(input, context));
@@ -621,7 +621,7 @@ export const serializeAws_json1_1CreateMatchmakingRuleSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateMatchmakingRuleSet",
+    "x-amz-target": "GameLift.CreateMatchmakingRuleSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateMatchmakingRuleSetInput(input, context));
@@ -634,7 +634,7 @@ export const serializeAws_json1_1CreatePlayerSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreatePlayerSession",
+    "x-amz-target": "GameLift.CreatePlayerSession",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePlayerSessionInput(input, context));
@@ -647,7 +647,7 @@ export const serializeAws_json1_1CreatePlayerSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreatePlayerSessions",
+    "x-amz-target": "GameLift.CreatePlayerSessions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePlayerSessionsInput(input, context));
@@ -660,7 +660,7 @@ export const serializeAws_json1_1CreateScriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateScript",
+    "x-amz-target": "GameLift.CreateScript",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateScriptInput(input, context));
@@ -673,7 +673,7 @@ export const serializeAws_json1_1CreateVpcPeeringAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateVpcPeeringAuthorization",
+    "x-amz-target": "GameLift.CreateVpcPeeringAuthorization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVpcPeeringAuthorizationInput(input, context));
@@ -686,7 +686,7 @@ export const serializeAws_json1_1CreateVpcPeeringConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.CreateVpcPeeringConnection",
+    "x-amz-target": "GameLift.CreateVpcPeeringConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVpcPeeringConnectionInput(input, context));
@@ -699,7 +699,7 @@ export const serializeAws_json1_1DeleteAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteAlias",
+    "x-amz-target": "GameLift.DeleteAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAliasInput(input, context));
@@ -712,7 +712,7 @@ export const serializeAws_json1_1DeleteBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteBuild",
+    "x-amz-target": "GameLift.DeleteBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBuildInput(input, context));
@@ -725,7 +725,7 @@ export const serializeAws_json1_1DeleteFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteFleet",
+    "x-amz-target": "GameLift.DeleteFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFleetInput(input, context));
@@ -738,7 +738,7 @@ export const serializeAws_json1_1DeleteGameServerGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteGameServerGroup",
+    "x-amz-target": "GameLift.DeleteGameServerGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGameServerGroupInput(input, context));
@@ -751,7 +751,7 @@ export const serializeAws_json1_1DeleteGameSessionQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteGameSessionQueue",
+    "x-amz-target": "GameLift.DeleteGameSessionQueue",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGameSessionQueueInput(input, context));
@@ -764,7 +764,7 @@ export const serializeAws_json1_1DeleteMatchmakingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteMatchmakingConfiguration",
+    "x-amz-target": "GameLift.DeleteMatchmakingConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMatchmakingConfigurationInput(input, context));
@@ -777,7 +777,7 @@ export const serializeAws_json1_1DeleteMatchmakingRuleSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteMatchmakingRuleSet",
+    "x-amz-target": "GameLift.DeleteMatchmakingRuleSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMatchmakingRuleSetInput(input, context));
@@ -790,7 +790,7 @@ export const serializeAws_json1_1DeleteScalingPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteScalingPolicy",
+    "x-amz-target": "GameLift.DeleteScalingPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteScalingPolicyInput(input, context));
@@ -803,7 +803,7 @@ export const serializeAws_json1_1DeleteScriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteScript",
+    "x-amz-target": "GameLift.DeleteScript",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteScriptInput(input, context));
@@ -816,7 +816,7 @@ export const serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteVpcPeeringAuthorization",
+    "x-amz-target": "GameLift.DeleteVpcPeeringAuthorization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVpcPeeringAuthorizationInput(input, context));
@@ -829,7 +829,7 @@ export const serializeAws_json1_1DeleteVpcPeeringConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeleteVpcPeeringConnection",
+    "x-amz-target": "GameLift.DeleteVpcPeeringConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVpcPeeringConnectionInput(input, context));
@@ -842,7 +842,7 @@ export const serializeAws_json1_1DeregisterGameServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DeregisterGameServer",
+    "x-amz-target": "GameLift.DeregisterGameServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeregisterGameServerInput(input, context));
@@ -855,7 +855,7 @@ export const serializeAws_json1_1DescribeAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeAlias",
+    "x-amz-target": "GameLift.DescribeAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAliasInput(input, context));
@@ -868,7 +868,7 @@ export const serializeAws_json1_1DescribeBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeBuild",
+    "x-amz-target": "GameLift.DescribeBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBuildInput(input, context));
@@ -881,7 +881,7 @@ export const serializeAws_json1_1DescribeEC2InstanceLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeEC2InstanceLimits",
+    "x-amz-target": "GameLift.DescribeEC2InstanceLimits",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEC2InstanceLimitsInput(input, context));
@@ -894,7 +894,7 @@ export const serializeAws_json1_1DescribeFleetAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeFleetAttributes",
+    "x-amz-target": "GameLift.DescribeFleetAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetAttributesInput(input, context));
@@ -907,7 +907,7 @@ export const serializeAws_json1_1DescribeFleetCapacityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeFleetCapacity",
+    "x-amz-target": "GameLift.DescribeFleetCapacity",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetCapacityInput(input, context));
@@ -920,7 +920,7 @@ export const serializeAws_json1_1DescribeFleetEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeFleetEvents",
+    "x-amz-target": "GameLift.DescribeFleetEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetEventsInput(input, context));
@@ -933,7 +933,7 @@ export const serializeAws_json1_1DescribeFleetPortSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeFleetPortSettings",
+    "x-amz-target": "GameLift.DescribeFleetPortSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetPortSettingsInput(input, context));
@@ -946,7 +946,7 @@ export const serializeAws_json1_1DescribeFleetUtilizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeFleetUtilization",
+    "x-amz-target": "GameLift.DescribeFleetUtilization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetUtilizationInput(input, context));
@@ -959,7 +959,7 @@ export const serializeAws_json1_1DescribeGameServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameServer",
+    "x-amz-target": "GameLift.DescribeGameServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameServerInput(input, context));
@@ -972,7 +972,7 @@ export const serializeAws_json1_1DescribeGameServerGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameServerGroup",
+    "x-amz-target": "GameLift.DescribeGameServerGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameServerGroupInput(input, context));
@@ -985,7 +985,7 @@ export const serializeAws_json1_1DescribeGameServerInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameServerInstances",
+    "x-amz-target": "GameLift.DescribeGameServerInstances",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameServerInstancesInput(input, context));
@@ -998,7 +998,7 @@ export const serializeAws_json1_1DescribeGameSessionDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameSessionDetails",
+    "x-amz-target": "GameLift.DescribeGameSessionDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameSessionDetailsInput(input, context));
@@ -1011,7 +1011,7 @@ export const serializeAws_json1_1DescribeGameSessionPlacementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameSessionPlacement",
+    "x-amz-target": "GameLift.DescribeGameSessionPlacement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameSessionPlacementInput(input, context));
@@ -1024,7 +1024,7 @@ export const serializeAws_json1_1DescribeGameSessionQueuesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameSessionQueues",
+    "x-amz-target": "GameLift.DescribeGameSessionQueues",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameSessionQueuesInput(input, context));
@@ -1037,7 +1037,7 @@ export const serializeAws_json1_1DescribeGameSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeGameSessions",
+    "x-amz-target": "GameLift.DescribeGameSessions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGameSessionsInput(input, context));
@@ -1050,7 +1050,7 @@ export const serializeAws_json1_1DescribeInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeInstances",
+    "x-amz-target": "GameLift.DescribeInstances",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeInstancesInput(input, context));
@@ -1063,7 +1063,7 @@ export const serializeAws_json1_1DescribeMatchmakingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeMatchmaking",
+    "x-amz-target": "GameLift.DescribeMatchmaking",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeMatchmakingInput(input, context));
@@ -1076,7 +1076,7 @@ export const serializeAws_json1_1DescribeMatchmakingConfigurationsCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeMatchmakingConfigurations",
+    "x-amz-target": "GameLift.DescribeMatchmakingConfigurations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeMatchmakingConfigurationsInput(input, context));
@@ -1089,7 +1089,7 @@ export const serializeAws_json1_1DescribeMatchmakingRuleSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeMatchmakingRuleSets",
+    "x-amz-target": "GameLift.DescribeMatchmakingRuleSets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeMatchmakingRuleSetsInput(input, context));
@@ -1102,7 +1102,7 @@ export const serializeAws_json1_1DescribePlayerSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribePlayerSessions",
+    "x-amz-target": "GameLift.DescribePlayerSessions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePlayerSessionsInput(input, context));
@@ -1115,7 +1115,7 @@ export const serializeAws_json1_1DescribeRuntimeConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeRuntimeConfiguration",
+    "x-amz-target": "GameLift.DescribeRuntimeConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRuntimeConfigurationInput(input, context));
@@ -1128,7 +1128,7 @@ export const serializeAws_json1_1DescribeScalingPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeScalingPolicies",
+    "x-amz-target": "GameLift.DescribeScalingPolicies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScalingPoliciesInput(input, context));
@@ -1141,7 +1141,7 @@ export const serializeAws_json1_1DescribeScriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeScript",
+    "x-amz-target": "GameLift.DescribeScript",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScriptInput(input, context));
@@ -1154,7 +1154,7 @@ export const serializeAws_json1_1DescribeVpcPeeringAuthorizationsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeVpcPeeringAuthorizations",
+    "x-amz-target": "GameLift.DescribeVpcPeeringAuthorizations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeVpcPeeringAuthorizationsInput(input, context));
@@ -1167,7 +1167,7 @@ export const serializeAws_json1_1DescribeVpcPeeringConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.DescribeVpcPeeringConnections",
+    "x-amz-target": "GameLift.DescribeVpcPeeringConnections",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeVpcPeeringConnectionsInput(input, context));
@@ -1180,7 +1180,7 @@ export const serializeAws_json1_1GetGameSessionLogUrlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.GetGameSessionLogUrl",
+    "x-amz-target": "GameLift.GetGameSessionLogUrl",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetGameSessionLogUrlInput(input, context));
@@ -1193,7 +1193,7 @@ export const serializeAws_json1_1GetInstanceAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.GetInstanceAccess",
+    "x-amz-target": "GameLift.GetInstanceAccess",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceAccessInput(input, context));
@@ -1206,7 +1206,7 @@ export const serializeAws_json1_1ListAliasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListAliases",
+    "x-amz-target": "GameLift.ListAliases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAliasesInput(input, context));
@@ -1219,7 +1219,7 @@ export const serializeAws_json1_1ListBuildsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListBuilds",
+    "x-amz-target": "GameLift.ListBuilds",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBuildsInput(input, context));
@@ -1232,7 +1232,7 @@ export const serializeAws_json1_1ListFleetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListFleets",
+    "x-amz-target": "GameLift.ListFleets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFleetsInput(input, context));
@@ -1245,7 +1245,7 @@ export const serializeAws_json1_1ListGameServerGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListGameServerGroups",
+    "x-amz-target": "GameLift.ListGameServerGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGameServerGroupsInput(input, context));
@@ -1258,7 +1258,7 @@ export const serializeAws_json1_1ListGameServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListGameServers",
+    "x-amz-target": "GameLift.ListGameServers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListGameServersInput(input, context));
@@ -1271,7 +1271,7 @@ export const serializeAws_json1_1ListScriptsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListScripts",
+    "x-amz-target": "GameLift.ListScripts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListScriptsInput(input, context));
@@ -1284,7 +1284,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ListTagsForResource",
+    "x-amz-target": "GameLift.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -1297,7 +1297,7 @@ export const serializeAws_json1_1PutScalingPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.PutScalingPolicy",
+    "x-amz-target": "GameLift.PutScalingPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutScalingPolicyInput(input, context));
@@ -1310,7 +1310,7 @@ export const serializeAws_json1_1RegisterGameServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.RegisterGameServer",
+    "x-amz-target": "GameLift.RegisterGameServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterGameServerInput(input, context));
@@ -1323,7 +1323,7 @@ export const serializeAws_json1_1RequestUploadCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.RequestUploadCredentials",
+    "x-amz-target": "GameLift.RequestUploadCredentials",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RequestUploadCredentialsInput(input, context));
@@ -1336,7 +1336,7 @@ export const serializeAws_json1_1ResolveAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ResolveAlias",
+    "x-amz-target": "GameLift.ResolveAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResolveAliasInput(input, context));
@@ -1349,7 +1349,7 @@ export const serializeAws_json1_1ResumeGameServerGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ResumeGameServerGroup",
+    "x-amz-target": "GameLift.ResumeGameServerGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResumeGameServerGroupInput(input, context));
@@ -1362,7 +1362,7 @@ export const serializeAws_json1_1SearchGameSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.SearchGameSessions",
+    "x-amz-target": "GameLift.SearchGameSessions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchGameSessionsInput(input, context));
@@ -1375,7 +1375,7 @@ export const serializeAws_json1_1StartFleetActionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StartFleetActions",
+    "x-amz-target": "GameLift.StartFleetActions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartFleetActionsInput(input, context));
@@ -1388,7 +1388,7 @@ export const serializeAws_json1_1StartGameSessionPlacementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StartGameSessionPlacement",
+    "x-amz-target": "GameLift.StartGameSessionPlacement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartGameSessionPlacementInput(input, context));
@@ -1401,7 +1401,7 @@ export const serializeAws_json1_1StartMatchBackfillCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StartMatchBackfill",
+    "x-amz-target": "GameLift.StartMatchBackfill",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartMatchBackfillInput(input, context));
@@ -1414,7 +1414,7 @@ export const serializeAws_json1_1StartMatchmakingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StartMatchmaking",
+    "x-amz-target": "GameLift.StartMatchmaking",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartMatchmakingInput(input, context));
@@ -1427,7 +1427,7 @@ export const serializeAws_json1_1StopFleetActionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StopFleetActions",
+    "x-amz-target": "GameLift.StopFleetActions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopFleetActionsInput(input, context));
@@ -1440,7 +1440,7 @@ export const serializeAws_json1_1StopGameSessionPlacementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StopGameSessionPlacement",
+    "x-amz-target": "GameLift.StopGameSessionPlacement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopGameSessionPlacementInput(input, context));
@@ -1453,7 +1453,7 @@ export const serializeAws_json1_1StopMatchmakingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.StopMatchmaking",
+    "x-amz-target": "GameLift.StopMatchmaking",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopMatchmakingInput(input, context));
@@ -1466,7 +1466,7 @@ export const serializeAws_json1_1SuspendGameServerGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.SuspendGameServerGroup",
+    "x-amz-target": "GameLift.SuspendGameServerGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SuspendGameServerGroupInput(input, context));
@@ -1479,7 +1479,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.TagResource",
+    "x-amz-target": "GameLift.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -1492,7 +1492,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UntagResource",
+    "x-amz-target": "GameLift.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -1505,7 +1505,7 @@ export const serializeAws_json1_1UpdateAliasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateAlias",
+    "x-amz-target": "GameLift.UpdateAlias",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAliasInput(input, context));
@@ -1518,7 +1518,7 @@ export const serializeAws_json1_1UpdateBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateBuild",
+    "x-amz-target": "GameLift.UpdateBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateBuildInput(input, context));
@@ -1531,7 +1531,7 @@ export const serializeAws_json1_1UpdateFleetAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateFleetAttributes",
+    "x-amz-target": "GameLift.UpdateFleetAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFleetAttributesInput(input, context));
@@ -1544,7 +1544,7 @@ export const serializeAws_json1_1UpdateFleetCapacityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateFleetCapacity",
+    "x-amz-target": "GameLift.UpdateFleetCapacity",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFleetCapacityInput(input, context));
@@ -1557,7 +1557,7 @@ export const serializeAws_json1_1UpdateFleetPortSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateFleetPortSettings",
+    "x-amz-target": "GameLift.UpdateFleetPortSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFleetPortSettingsInput(input, context));
@@ -1570,7 +1570,7 @@ export const serializeAws_json1_1UpdateGameServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateGameServer",
+    "x-amz-target": "GameLift.UpdateGameServer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateGameServerInput(input, context));
@@ -1583,7 +1583,7 @@ export const serializeAws_json1_1UpdateGameServerGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateGameServerGroup",
+    "x-amz-target": "GameLift.UpdateGameServerGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateGameServerGroupInput(input, context));
@@ -1596,7 +1596,7 @@ export const serializeAws_json1_1UpdateGameSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateGameSession",
+    "x-amz-target": "GameLift.UpdateGameSession",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateGameSessionInput(input, context));
@@ -1609,7 +1609,7 @@ export const serializeAws_json1_1UpdateGameSessionQueueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateGameSessionQueue",
+    "x-amz-target": "GameLift.UpdateGameSessionQueue",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateGameSessionQueueInput(input, context));
@@ -1622,7 +1622,7 @@ export const serializeAws_json1_1UpdateMatchmakingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateMatchmakingConfiguration",
+    "x-amz-target": "GameLift.UpdateMatchmakingConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateMatchmakingConfigurationInput(input, context));
@@ -1635,7 +1635,7 @@ export const serializeAws_json1_1UpdateRuntimeConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateRuntimeConfiguration",
+    "x-amz-target": "GameLift.UpdateRuntimeConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRuntimeConfigurationInput(input, context));
@@ -1648,7 +1648,7 @@ export const serializeAws_json1_1UpdateScriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.UpdateScript",
+    "x-amz-target": "GameLift.UpdateScript",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateScriptInput(input, context));
@@ -1661,7 +1661,7 @@ export const serializeAws_json1_1ValidateMatchmakingRuleSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GameLift.ValidateMatchmakingRuleSet",
+    "x-amz-target": "GameLift.ValidateMatchmakingRuleSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ValidateMatchmakingRuleSetInput(input, context));

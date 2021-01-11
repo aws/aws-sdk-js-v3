@@ -78,7 +78,7 @@ export const serializeAws_json1_0CreateDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.CreateDatabase",
+    "x-amz-target": "Timestream_20181101.CreateDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateDatabaseRequest(input, context));
@@ -91,7 +91,7 @@ export const serializeAws_json1_0CreateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.CreateTable",
+    "x-amz-target": "Timestream_20181101.CreateTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateTableRequest(input, context));
@@ -104,7 +104,7 @@ export const serializeAws_json1_0DeleteDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.DeleteDatabase",
+    "x-amz-target": "Timestream_20181101.DeleteDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteDatabaseRequest(input, context));
@@ -117,7 +117,7 @@ export const serializeAws_json1_0DeleteTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.DeleteTable",
+    "x-amz-target": "Timestream_20181101.DeleteTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteTableRequest(input, context));
@@ -130,7 +130,7 @@ export const serializeAws_json1_0DescribeDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.DescribeDatabase",
+    "x-amz-target": "Timestream_20181101.DescribeDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeDatabaseRequest(input, context));
@@ -143,7 +143,7 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.DescribeEndpoints",
+    "x-amz-target": "Timestream_20181101.DescribeEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeEndpointsRequest(input, context));
@@ -156,7 +156,7 @@ export const serializeAws_json1_0DescribeTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.DescribeTable",
+    "x-amz-target": "Timestream_20181101.DescribeTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTableRequest(input, context));
@@ -169,7 +169,7 @@ export const serializeAws_json1_0ListDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.ListDatabases",
+    "x-amz-target": "Timestream_20181101.ListDatabases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListDatabasesRequest(input, context));
@@ -182,7 +182,7 @@ export const serializeAws_json1_0ListTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.ListTables",
+    "x-amz-target": "Timestream_20181101.ListTables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTablesRequest(input, context));
@@ -195,7 +195,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.ListTagsForResource",
+    "x-amz-target": "Timestream_20181101.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
@@ -208,7 +208,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.TagResource",
+    "x-amz-target": "Timestream_20181101.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
@@ -221,7 +221,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.UntagResource",
+    "x-amz-target": "Timestream_20181101.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
@@ -234,7 +234,7 @@ export const serializeAws_json1_0UpdateDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.UpdateDatabase",
+    "x-amz-target": "Timestream_20181101.UpdateDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateDatabaseRequest(input, context));
@@ -247,7 +247,7 @@ export const serializeAws_json1_0UpdateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.UpdateTable",
+    "x-amz-target": "Timestream_20181101.UpdateTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTableRequest(input, context));
@@ -260,7 +260,7 @@ export const serializeAws_json1_0WriteRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.WriteRecords",
+    "x-amz-target": "Timestream_20181101.WriteRecords",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0WriteRecordsRequest(input, context));

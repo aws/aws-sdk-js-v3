@@ -97,7 +97,7 @@ export const serializeAws_json1_1CreateParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.CreateParallelData",
+    "x-amz-target": "AWSShineFrontendService_20170701.CreateParallelData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateParallelDataRequest(input, context));
@@ -110,7 +110,7 @@ export const serializeAws_json1_1DeleteParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.DeleteParallelData",
+    "x-amz-target": "AWSShineFrontendService_20170701.DeleteParallelData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteParallelDataRequest(input, context));
@@ -123,7 +123,7 @@ export const serializeAws_json1_1DeleteTerminologyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.DeleteTerminology",
+    "x-amz-target": "AWSShineFrontendService_20170701.DeleteTerminology",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTerminologyRequest(input, context));
@@ -136,7 +136,7 @@ export const serializeAws_json1_1DescribeTextTranslationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.DescribeTextTranslationJob",
+    "x-amz-target": "AWSShineFrontendService_20170701.DescribeTextTranslationJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTextTranslationJobRequest(input, context));
@@ -149,7 +149,7 @@ export const serializeAws_json1_1GetParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.GetParallelData",
+    "x-amz-target": "AWSShineFrontendService_20170701.GetParallelData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetParallelDataRequest(input, context));
@@ -162,7 +162,7 @@ export const serializeAws_json1_1GetTerminologyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.GetTerminology",
+    "x-amz-target": "AWSShineFrontendService_20170701.GetTerminology",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTerminologyRequest(input, context));
@@ -175,7 +175,7 @@ export const serializeAws_json1_1ImportTerminologyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.ImportTerminology",
+    "x-amz-target": "AWSShineFrontendService_20170701.ImportTerminology",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportTerminologyRequest(input, context));
@@ -188,7 +188,7 @@ export const serializeAws_json1_1ListParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.ListParallelData",
+    "x-amz-target": "AWSShineFrontendService_20170701.ListParallelData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListParallelDataRequest(input, context));
@@ -201,7 +201,7 @@ export const serializeAws_json1_1ListTerminologiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.ListTerminologies",
+    "x-amz-target": "AWSShineFrontendService_20170701.ListTerminologies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTerminologiesRequest(input, context));
@@ -214,7 +214,7 @@ export const serializeAws_json1_1ListTextTranslationJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.ListTextTranslationJobs",
+    "x-amz-target": "AWSShineFrontendService_20170701.ListTextTranslationJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTextTranslationJobsRequest(input, context));
@@ -227,7 +227,7 @@ export const serializeAws_json1_1StartTextTranslationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.StartTextTranslationJob",
+    "x-amz-target": "AWSShineFrontendService_20170701.StartTextTranslationJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartTextTranslationJobRequest(input, context));
@@ -240,7 +240,7 @@ export const serializeAws_json1_1StopTextTranslationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.StopTextTranslationJob",
+    "x-amz-target": "AWSShineFrontendService_20170701.StopTextTranslationJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopTextTranslationJobRequest(input, context));
@@ -253,7 +253,7 @@ export const serializeAws_json1_1TranslateTextCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.TranslateText",
+    "x-amz-target": "AWSShineFrontendService_20170701.TranslateText",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TranslateTextRequest(input, context));
@@ -266,7 +266,7 @@ export const serializeAws_json1_1UpdateParallelDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShineFrontendService_20170701.UpdateParallelData",
+    "x-amz-target": "AWSShineFrontendService_20170701.UpdateParallelData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateParallelDataRequest(input, context));

@@ -288,7 +288,7 @@ export const serializeAws_json1_0CountClosedWorkflowExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.CountClosedWorkflowExecutions",
+    "x-amz-target": "SimpleWorkflowService.CountClosedWorkflowExecutions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CountClosedWorkflowExecutionsInput(input, context));
@@ -301,7 +301,7 @@ export const serializeAws_json1_0CountOpenWorkflowExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.CountOpenWorkflowExecutions",
+    "x-amz-target": "SimpleWorkflowService.CountOpenWorkflowExecutions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CountOpenWorkflowExecutionsInput(input, context));
@@ -314,7 +314,7 @@ export const serializeAws_json1_0CountPendingActivityTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.CountPendingActivityTasks",
+    "x-amz-target": "SimpleWorkflowService.CountPendingActivityTasks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CountPendingActivityTasksInput(input, context));
@@ -327,7 +327,7 @@ export const serializeAws_json1_0CountPendingDecisionTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.CountPendingDecisionTasks",
+    "x-amz-target": "SimpleWorkflowService.CountPendingDecisionTasks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CountPendingDecisionTasksInput(input, context));
@@ -340,7 +340,7 @@ export const serializeAws_json1_0DeprecateActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DeprecateActivityType",
+    "x-amz-target": "SimpleWorkflowService.DeprecateActivityType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeprecateActivityTypeInput(input, context));
@@ -353,7 +353,7 @@ export const serializeAws_json1_0DeprecateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DeprecateDomain",
+    "x-amz-target": "SimpleWorkflowService.DeprecateDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeprecateDomainInput(input, context));
@@ -366,7 +366,7 @@ export const serializeAws_json1_0DeprecateWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DeprecateWorkflowType",
+    "x-amz-target": "SimpleWorkflowService.DeprecateWorkflowType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeprecateWorkflowTypeInput(input, context));
@@ -379,7 +379,7 @@ export const serializeAws_json1_0DescribeActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DescribeActivityType",
+    "x-amz-target": "SimpleWorkflowService.DescribeActivityType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeActivityTypeInput(input, context));
@@ -392,7 +392,7 @@ export const serializeAws_json1_0DescribeDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DescribeDomain",
+    "x-amz-target": "SimpleWorkflowService.DescribeDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeDomainInput(input, context));
@@ -405,7 +405,7 @@ export const serializeAws_json1_0DescribeWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DescribeWorkflowExecution",
+    "x-amz-target": "SimpleWorkflowService.DescribeWorkflowExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeWorkflowExecutionInput(input, context));
@@ -418,7 +418,7 @@ export const serializeAws_json1_0DescribeWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.DescribeWorkflowType",
+    "x-amz-target": "SimpleWorkflowService.DescribeWorkflowType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeWorkflowTypeInput(input, context));
@@ -431,7 +431,7 @@ export const serializeAws_json1_0GetWorkflowExecutionHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.GetWorkflowExecutionHistory",
+    "x-amz-target": "SimpleWorkflowService.GetWorkflowExecutionHistory",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetWorkflowExecutionHistoryInput(input, context));
@@ -444,7 +444,7 @@ export const serializeAws_json1_0ListActivityTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.ListActivityTypes",
+    "x-amz-target": "SimpleWorkflowService.ListActivityTypes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListActivityTypesInput(input, context));
@@ -457,7 +457,7 @@ export const serializeAws_json1_0ListClosedWorkflowExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.ListClosedWorkflowExecutions",
+    "x-amz-target": "SimpleWorkflowService.ListClosedWorkflowExecutions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListClosedWorkflowExecutionsInput(input, context));
@@ -470,7 +470,7 @@ export const serializeAws_json1_0ListDomainsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.ListDomains",
+    "x-amz-target": "SimpleWorkflowService.ListDomains",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListDomainsInput(input, context));
@@ -483,7 +483,7 @@ export const serializeAws_json1_0ListOpenWorkflowExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.ListOpenWorkflowExecutions",
+    "x-amz-target": "SimpleWorkflowService.ListOpenWorkflowExecutions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListOpenWorkflowExecutionsInput(input, context));
@@ -496,7 +496,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.ListTagsForResource",
+    "x-amz-target": "SimpleWorkflowService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceInput(input, context));
@@ -509,7 +509,7 @@ export const serializeAws_json1_0ListWorkflowTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.ListWorkflowTypes",
+    "x-amz-target": "SimpleWorkflowService.ListWorkflowTypes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListWorkflowTypesInput(input, context));
@@ -522,7 +522,7 @@ export const serializeAws_json1_0PollForActivityTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.PollForActivityTask",
+    "x-amz-target": "SimpleWorkflowService.PollForActivityTask",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PollForActivityTaskInput(input, context));
@@ -535,7 +535,7 @@ export const serializeAws_json1_0PollForDecisionTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.PollForDecisionTask",
+    "x-amz-target": "SimpleWorkflowService.PollForDecisionTask",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PollForDecisionTaskInput(input, context));
@@ -548,7 +548,7 @@ export const serializeAws_json1_0RecordActivityTaskHeartbeatCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RecordActivityTaskHeartbeat",
+    "x-amz-target": "SimpleWorkflowService.RecordActivityTaskHeartbeat",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RecordActivityTaskHeartbeatInput(input, context));
@@ -561,7 +561,7 @@ export const serializeAws_json1_0RegisterActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RegisterActivityType",
+    "x-amz-target": "SimpleWorkflowService.RegisterActivityType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RegisterActivityTypeInput(input, context));
@@ -574,7 +574,7 @@ export const serializeAws_json1_0RegisterDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RegisterDomain",
+    "x-amz-target": "SimpleWorkflowService.RegisterDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RegisterDomainInput(input, context));
@@ -587,7 +587,7 @@ export const serializeAws_json1_0RegisterWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RegisterWorkflowType",
+    "x-amz-target": "SimpleWorkflowService.RegisterWorkflowType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RegisterWorkflowTypeInput(input, context));
@@ -600,7 +600,7 @@ export const serializeAws_json1_0RequestCancelWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RequestCancelWorkflowExecution",
+    "x-amz-target": "SimpleWorkflowService.RequestCancelWorkflowExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RequestCancelWorkflowExecutionInput(input, context));
@@ -613,7 +613,7 @@ export const serializeAws_json1_0RespondActivityTaskCanceledCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RespondActivityTaskCanceled",
+    "x-amz-target": "SimpleWorkflowService.RespondActivityTaskCanceled",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RespondActivityTaskCanceledInput(input, context));
@@ -626,7 +626,7 @@ export const serializeAws_json1_0RespondActivityTaskCompletedCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RespondActivityTaskCompleted",
+    "x-amz-target": "SimpleWorkflowService.RespondActivityTaskCompleted",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RespondActivityTaskCompletedInput(input, context));
@@ -639,7 +639,7 @@ export const serializeAws_json1_0RespondActivityTaskFailedCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RespondActivityTaskFailed",
+    "x-amz-target": "SimpleWorkflowService.RespondActivityTaskFailed",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RespondActivityTaskFailedInput(input, context));
@@ -652,7 +652,7 @@ export const serializeAws_json1_0RespondDecisionTaskCompletedCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.RespondDecisionTaskCompleted",
+    "x-amz-target": "SimpleWorkflowService.RespondDecisionTaskCompleted",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RespondDecisionTaskCompletedInput(input, context));
@@ -665,7 +665,7 @@ export const serializeAws_json1_0SignalWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.SignalWorkflowExecution",
+    "x-amz-target": "SimpleWorkflowService.SignalWorkflowExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0SignalWorkflowExecutionInput(input, context));
@@ -678,7 +678,7 @@ export const serializeAws_json1_0StartWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.StartWorkflowExecution",
+    "x-amz-target": "SimpleWorkflowService.StartWorkflowExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0StartWorkflowExecutionInput(input, context));
@@ -691,7 +691,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.TagResource",
+    "x-amz-target": "SimpleWorkflowService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
@@ -704,7 +704,7 @@ export const serializeAws_json1_0TerminateWorkflowExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.TerminateWorkflowExecution",
+    "x-amz-target": "SimpleWorkflowService.TerminateWorkflowExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TerminateWorkflowExecutionInput(input, context));
@@ -717,7 +717,7 @@ export const serializeAws_json1_0UndeprecateActivityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.UndeprecateActivityType",
+    "x-amz-target": "SimpleWorkflowService.UndeprecateActivityType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UndeprecateActivityTypeInput(input, context));
@@ -730,7 +730,7 @@ export const serializeAws_json1_0UndeprecateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.UndeprecateDomain",
+    "x-amz-target": "SimpleWorkflowService.UndeprecateDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UndeprecateDomainInput(input, context));
@@ -743,7 +743,7 @@ export const serializeAws_json1_0UndeprecateWorkflowTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.UndeprecateWorkflowType",
+    "x-amz-target": "SimpleWorkflowService.UndeprecateWorkflowType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UndeprecateWorkflowTypeInput(input, context));
@@ -756,7 +756,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "SimpleWorkflowService.UntagResource",
+    "x-amz-target": "SimpleWorkflowService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));

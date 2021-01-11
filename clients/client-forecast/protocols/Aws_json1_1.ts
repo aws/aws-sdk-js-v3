@@ -191,7 +191,7 @@ export const serializeAws_json1_1CreateDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreateDataset",
+    "x-amz-target": "AmazonForecast.CreateDataset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetRequest(input, context));
@@ -204,7 +204,7 @@ export const serializeAws_json1_1CreateDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreateDatasetGroup",
+    "x-amz-target": "AmazonForecast.CreateDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetGroupRequest(input, context));
@@ -217,7 +217,7 @@ export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreateDatasetImportJob",
+    "x-amz-target": "AmazonForecast.CreateDatasetImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetImportJobRequest(input, context));
@@ -230,7 +230,7 @@ export const serializeAws_json1_1CreateForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreateForecast",
+    "x-amz-target": "AmazonForecast.CreateForecast",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateForecastRequest(input, context));
@@ -243,7 +243,7 @@ export const serializeAws_json1_1CreateForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreateForecastExportJob",
+    "x-amz-target": "AmazonForecast.CreateForecastExportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateForecastExportJobRequest(input, context));
@@ -256,7 +256,7 @@ export const serializeAws_json1_1CreatePredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreatePredictor",
+    "x-amz-target": "AmazonForecast.CreatePredictor",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePredictorRequest(input, context));
@@ -269,7 +269,7 @@ export const serializeAws_json1_1CreatePredictorBacktestExportJobCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.CreatePredictorBacktestExportJob",
+    "x-amz-target": "AmazonForecast.CreatePredictorBacktestExportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePredictorBacktestExportJobRequest(input, context));
@@ -282,7 +282,7 @@ export const serializeAws_json1_1DeleteDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeleteDataset",
+    "x-amz-target": "AmazonForecast.DeleteDataset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDatasetRequest(input, context));
@@ -295,7 +295,7 @@ export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeleteDatasetGroup",
+    "x-amz-target": "AmazonForecast.DeleteDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDatasetGroupRequest(input, context));
@@ -308,7 +308,7 @@ export const serializeAws_json1_1DeleteDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeleteDatasetImportJob",
+    "x-amz-target": "AmazonForecast.DeleteDatasetImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDatasetImportJobRequest(input, context));
@@ -321,7 +321,7 @@ export const serializeAws_json1_1DeleteForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeleteForecast",
+    "x-amz-target": "AmazonForecast.DeleteForecast",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteForecastRequest(input, context));
@@ -334,7 +334,7 @@ export const serializeAws_json1_1DeleteForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeleteForecastExportJob",
+    "x-amz-target": "AmazonForecast.DeleteForecastExportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteForecastExportJobRequest(input, context));
@@ -347,7 +347,7 @@ export const serializeAws_json1_1DeletePredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeletePredictor",
+    "x-amz-target": "AmazonForecast.DeletePredictor",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePredictorRequest(input, context));
@@ -360,7 +360,7 @@ export const serializeAws_json1_1DeletePredictorBacktestExportJobCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DeletePredictorBacktestExportJob",
+    "x-amz-target": "AmazonForecast.DeletePredictorBacktestExportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePredictorBacktestExportJobRequest(input, context));
@@ -373,7 +373,7 @@ export const serializeAws_json1_1DescribeDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribeDataset",
+    "x-amz-target": "AmazonForecast.DescribeDataset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetRequest(input, context));
@@ -386,7 +386,7 @@ export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribeDatasetGroup",
+    "x-amz-target": "AmazonForecast.DescribeDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetGroupRequest(input, context));
@@ -399,7 +399,7 @@ export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribeDatasetImportJob",
+    "x-amz-target": "AmazonForecast.DescribeDatasetImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetImportJobRequest(input, context));
@@ -412,7 +412,7 @@ export const serializeAws_json1_1DescribeForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribeForecast",
+    "x-amz-target": "AmazonForecast.DescribeForecast",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeForecastRequest(input, context));
@@ -425,7 +425,7 @@ export const serializeAws_json1_1DescribeForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribeForecastExportJob",
+    "x-amz-target": "AmazonForecast.DescribeForecastExportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeForecastExportJobRequest(input, context));
@@ -438,7 +438,7 @@ export const serializeAws_json1_1DescribePredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribePredictor",
+    "x-amz-target": "AmazonForecast.DescribePredictor",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePredictorRequest(input, context));
@@ -451,7 +451,7 @@ export const serializeAws_json1_1DescribePredictorBacktestExportJobCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.DescribePredictorBacktestExportJob",
+    "x-amz-target": "AmazonForecast.DescribePredictorBacktestExportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePredictorBacktestExportJobRequest(input, context));
@@ -464,7 +464,7 @@ export const serializeAws_json1_1GetAccuracyMetricsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.GetAccuracyMetrics",
+    "x-amz-target": "AmazonForecast.GetAccuracyMetrics",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAccuracyMetricsRequest(input, context));
@@ -477,7 +477,7 @@ export const serializeAws_json1_1ListDatasetGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListDatasetGroups",
+    "x-amz-target": "AmazonForecast.ListDatasetGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetGroupsRequest(input, context));
@@ -490,7 +490,7 @@ export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListDatasetImportJobs",
+    "x-amz-target": "AmazonForecast.ListDatasetImportJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetImportJobsRequest(input, context));
@@ -503,7 +503,7 @@ export const serializeAws_json1_1ListDatasetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListDatasets",
+    "x-amz-target": "AmazonForecast.ListDatasets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetsRequest(input, context));
@@ -516,7 +516,7 @@ export const serializeAws_json1_1ListForecastExportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListForecastExportJobs",
+    "x-amz-target": "AmazonForecast.ListForecastExportJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListForecastExportJobsRequest(input, context));
@@ -529,7 +529,7 @@ export const serializeAws_json1_1ListForecastsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListForecasts",
+    "x-amz-target": "AmazonForecast.ListForecasts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListForecastsRequest(input, context));
@@ -542,7 +542,7 @@ export const serializeAws_json1_1ListPredictorBacktestExportJobsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListPredictorBacktestExportJobs",
+    "x-amz-target": "AmazonForecast.ListPredictorBacktestExportJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPredictorBacktestExportJobsRequest(input, context));
@@ -555,7 +555,7 @@ export const serializeAws_json1_1ListPredictorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListPredictors",
+    "x-amz-target": "AmazonForecast.ListPredictors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPredictorsRequest(input, context));
@@ -568,7 +568,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.ListTagsForResource",
+    "x-amz-target": "AmazonForecast.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -581,7 +581,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.TagResource",
+    "x-amz-target": "AmazonForecast.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -594,7 +594,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.UntagResource",
+    "x-amz-target": "AmazonForecast.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -607,7 +607,7 @@ export const serializeAws_json1_1UpdateDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecast.UpdateDatasetGroup",
+    "x-amz-target": "AmazonForecast.UpdateDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDatasetGroupRequest(input, context));

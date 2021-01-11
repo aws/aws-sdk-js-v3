@@ -519,7 +519,7 @@ export const serializeAws_json1_1AcceptPortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.AcceptPortfolioShare",
+    "x-amz-target": "AWS242ServiceCatalogService.AcceptPortfolioShare",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AcceptPortfolioShareInput(input, context));
@@ -532,7 +532,7 @@ export const serializeAws_json1_1AssociateBudgetWithResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.AssociateBudgetWithResource",
+    "x-amz-target": "AWS242ServiceCatalogService.AssociateBudgetWithResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateBudgetWithResourceInput(input, context));
@@ -545,7 +545,7 @@ export const serializeAws_json1_1AssociatePrincipalWithPortfolioCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.AssociatePrincipalWithPortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociatePrincipalWithPortfolioInput(input, context));
@@ -558,7 +558,7 @@ export const serializeAws_json1_1AssociateProductWithPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.AssociateProductWithPortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.AssociateProductWithPortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateProductWithPortfolioInput(input, context));
@@ -571,7 +571,7 @@ export const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactC
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.AssociateServiceActionWithProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput(input, context));
@@ -584,7 +584,7 @@ export const serializeAws_json1_1AssociateTagOptionWithResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.AssociateTagOptionWithResource",
+    "x-amz-target": "AWS242ServiceCatalogService.AssociateTagOptionWithResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateTagOptionWithResourceInput(input, context));
@@ -597,7 +597,7 @@ export const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArti
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput(input, context));
@@ -610,7 +610,7 @@ export const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningA
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(
@@ -625,7 +625,7 @@ export const serializeAws_json1_1CopyProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CopyProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.CopyProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CopyProductInput(input, context));
@@ -638,7 +638,7 @@ export const serializeAws_json1_1CreateConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreateConstraint",
+    "x-amz-target": "AWS242ServiceCatalogService.CreateConstraint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateConstraintInput(input, context));
@@ -651,7 +651,7 @@ export const serializeAws_json1_1CreatePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreatePortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.CreatePortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePortfolioInput(input, context));
@@ -664,7 +664,7 @@ export const serializeAws_json1_1CreatePortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreatePortfolioShare",
+    "x-amz-target": "AWS242ServiceCatalogService.CreatePortfolioShare",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePortfolioShareInput(input, context));
@@ -677,7 +677,7 @@ export const serializeAws_json1_1CreateProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreateProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.CreateProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProductInput(input, context));
@@ -690,7 +690,7 @@ export const serializeAws_json1_1CreateProvisionedProductPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreateProvisionedProductPlan",
+    "x-amz-target": "AWS242ServiceCatalogService.CreateProvisionedProductPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProvisionedProductPlanInput(input, context));
@@ -703,7 +703,7 @@ export const serializeAws_json1_1CreateProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreateProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.CreateProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProvisioningArtifactInput(input, context));
@@ -716,7 +716,7 @@ export const serializeAws_json1_1CreateServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreateServiceAction",
+    "x-amz-target": "AWS242ServiceCatalogService.CreateServiceAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateServiceActionInput(input, context));
@@ -729,7 +729,7 @@ export const serializeAws_json1_1CreateTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.CreateTagOption",
+    "x-amz-target": "AWS242ServiceCatalogService.CreateTagOption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagOptionInput(input, context));
@@ -742,7 +742,7 @@ export const serializeAws_json1_1DeleteConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeleteConstraint",
+    "x-amz-target": "AWS242ServiceCatalogService.DeleteConstraint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConstraintInput(input, context));
@@ -755,7 +755,7 @@ export const serializeAws_json1_1DeletePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeletePortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.DeletePortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePortfolioInput(input, context));
@@ -768,7 +768,7 @@ export const serializeAws_json1_1DeletePortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeletePortfolioShare",
+    "x-amz-target": "AWS242ServiceCatalogService.DeletePortfolioShare",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePortfolioShareInput(input, context));
@@ -781,7 +781,7 @@ export const serializeAws_json1_1DeleteProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeleteProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.DeleteProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProductInput(input, context));
@@ -794,7 +794,7 @@ export const serializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeleteProvisionedProductPlan",
+    "x-amz-target": "AWS242ServiceCatalogService.DeleteProvisionedProductPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProvisionedProductPlanInput(input, context));
@@ -807,7 +807,7 @@ export const serializeAws_json1_1DeleteProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeleteProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.DeleteProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProvisioningArtifactInput(input, context));
@@ -820,7 +820,7 @@ export const serializeAws_json1_1DeleteServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeleteServiceAction",
+    "x-amz-target": "AWS242ServiceCatalogService.DeleteServiceAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteServiceActionInput(input, context));
@@ -833,7 +833,7 @@ export const serializeAws_json1_1DeleteTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DeleteTagOption",
+    "x-amz-target": "AWS242ServiceCatalogService.DeleteTagOption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTagOptionInput(input, context));
@@ -846,7 +846,7 @@ export const serializeAws_json1_1DescribeConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeConstraint",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeConstraint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeConstraintInput(input, context));
@@ -859,7 +859,7 @@ export const serializeAws_json1_1DescribeCopyProductStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeCopyProductStatus",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeCopyProductStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCopyProductStatusInput(input, context));
@@ -872,7 +872,7 @@ export const serializeAws_json1_1DescribePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribePortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePortfolioInput(input, context));
@@ -885,7 +885,7 @@ export const serializeAws_json1_1DescribePortfolioShareStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribePortfolioShareStatus",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribePortfolioShareStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePortfolioShareStatusInput(input, context));
@@ -898,7 +898,7 @@ export const serializeAws_json1_1DescribeProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProductInput(input, context));
@@ -911,7 +911,7 @@ export const serializeAws_json1_1DescribeProductAsAdminCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProductAsAdmin",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProductAsAdmin",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProductAsAdminInput(input, context));
@@ -924,7 +924,7 @@ export const serializeAws_json1_1DescribeProductViewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProductView",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProductView",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProductViewInput(input, context));
@@ -937,7 +937,7 @@ export const serializeAws_json1_1DescribeProvisionedProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProvisionedProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisionedProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProvisionedProductInput(input, context));
@@ -950,7 +950,7 @@ export const serializeAws_json1_1DescribeProvisionedProductPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProvisionedProductPlan",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisionedProductPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProvisionedProductPlanInput(input, context));
@@ -963,7 +963,7 @@ export const serializeAws_json1_1DescribeProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProvisioningArtifactInput(input, context));
@@ -976,7 +976,7 @@ export const serializeAws_json1_1DescribeProvisioningParametersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeProvisioningParameters",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeProvisioningParameters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProvisioningParametersInput(input, context));
@@ -989,7 +989,7 @@ export const serializeAws_json1_1DescribeRecordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeRecord",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeRecord",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRecordInput(input, context));
@@ -1002,7 +1002,7 @@ export const serializeAws_json1_1DescribeServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeServiceAction",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeServiceAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeServiceActionInput(input, context));
@@ -1015,7 +1015,7 @@ export const serializeAws_json1_1DescribeServiceActionExecutionParametersCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeServiceActionExecutionParameters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeServiceActionExecutionParametersInput(input, context));
@@ -1028,7 +1028,7 @@ export const serializeAws_json1_1DescribeTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DescribeTagOption",
+    "x-amz-target": "AWS242ServiceCatalogService.DescribeTagOption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTagOptionInput(input, context));
@@ -1041,7 +1041,7 @@ export const serializeAws_json1_1DisableAWSOrganizationsAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess",
+    "x-amz-target": "AWS242ServiceCatalogService.DisableAWSOrganizationsAccess",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableAWSOrganizationsAccessInput(input, context));
@@ -1054,7 +1054,7 @@ export const serializeAws_json1_1DisassociateBudgetFromResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DisassociateBudgetFromResource",
+    "x-amz-target": "AWS242ServiceCatalogService.DisassociateBudgetFromResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateBudgetFromResourceInput(input, context));
@@ -1067,7 +1067,7 @@ export const serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.DisassociatePrincipalFromPortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociatePrincipalFromPortfolioInput(input, context));
@@ -1080,7 +1080,7 @@ export const serializeAws_json1_1DisassociateProductFromPortfolioCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DisassociateProductFromPortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.DisassociateProductFromPortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateProductFromPortfolioInput(input, context));
@@ -1093,7 +1093,7 @@ export const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifa
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.DisassociateServiceActionFromProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput(input, context));
@@ -1106,7 +1106,7 @@ export const serializeAws_json1_1DisassociateTagOptionFromResourceCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.DisassociateTagOptionFromResource",
+    "x-amz-target": "AWS242ServiceCatalogService.DisassociateTagOptionFromResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateTagOptionFromResourceInput(input, context));
@@ -1119,7 +1119,7 @@ export const serializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess",
+    "x-amz-target": "AWS242ServiceCatalogService.EnableAWSOrganizationsAccess",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableAWSOrganizationsAccessInput(input, context));
@@ -1132,7 +1132,7 @@ export const serializeAws_json1_1ExecuteProvisionedProductPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan",
+    "x-amz-target": "AWS242ServiceCatalogService.ExecuteProvisionedProductPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExecuteProvisionedProductPlanInput(input, context));
@@ -1145,7 +1145,7 @@ export const serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand =
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction",
+    "x-amz-target": "AWS242ServiceCatalogService.ExecuteProvisionedProductServiceAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExecuteProvisionedProductServiceActionInput(input, context));
@@ -1158,7 +1158,7 @@ export const serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus",
+    "x-amz-target": "AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAWSOrganizationsAccessStatusInput(input, context));
@@ -1171,7 +1171,7 @@ export const serializeAws_json1_1GetProvisionedProductOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.GetProvisionedProductOutputs",
+    "x-amz-target": "AWS242ServiceCatalogService.GetProvisionedProductOutputs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetProvisionedProductOutputsInput(input, context));
@@ -1184,7 +1184,7 @@ export const serializeAws_json1_1ImportAsProvisionedProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ImportAsProvisionedProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.ImportAsProvisionedProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportAsProvisionedProductInput(input, context));
@@ -1197,7 +1197,7 @@ export const serializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListAcceptedPortfolioShares",
+    "x-amz-target": "AWS242ServiceCatalogService.ListAcceptedPortfolioShares",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAcceptedPortfolioSharesInput(input, context));
@@ -1210,7 +1210,7 @@ export const serializeAws_json1_1ListBudgetsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListBudgetsForResource",
+    "x-amz-target": "AWS242ServiceCatalogService.ListBudgetsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBudgetsForResourceInput(input, context));
@@ -1223,7 +1223,7 @@ export const serializeAws_json1_1ListConstraintsForPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListConstraintsForPortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.ListConstraintsForPortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListConstraintsForPortfolioInput(input, context));
@@ -1236,7 +1236,7 @@ export const serializeAws_json1_1ListLaunchPathsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListLaunchPaths",
+    "x-amz-target": "AWS242ServiceCatalogService.ListLaunchPaths",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLaunchPathsInput(input, context));
@@ -1249,7 +1249,7 @@ export const serializeAws_json1_1ListOrganizationPortfolioAccessCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess",
+    "x-amz-target": "AWS242ServiceCatalogService.ListOrganizationPortfolioAccess",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListOrganizationPortfolioAccessInput(input, context));
@@ -1262,7 +1262,7 @@ export const serializeAws_json1_1ListPortfolioAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListPortfolioAccess",
+    "x-amz-target": "AWS242ServiceCatalogService.ListPortfolioAccess",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPortfolioAccessInput(input, context));
@@ -1275,7 +1275,7 @@ export const serializeAws_json1_1ListPortfoliosCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListPortfolios",
+    "x-amz-target": "AWS242ServiceCatalogService.ListPortfolios",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPortfoliosInput(input, context));
@@ -1288,7 +1288,7 @@ export const serializeAws_json1_1ListPortfoliosForProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListPortfoliosForProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.ListPortfoliosForProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPortfoliosForProductInput(input, context));
@@ -1301,7 +1301,7 @@ export const serializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListPrincipalsForPortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.ListPrincipalsForPortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPrincipalsForPortfolioInput(input, context));
@@ -1314,7 +1314,7 @@ export const serializeAws_json1_1ListProvisionedProductPlansCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListProvisionedProductPlans",
+    "x-amz-target": "AWS242ServiceCatalogService.ListProvisionedProductPlans",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProvisionedProductPlansInput(input, context));
@@ -1327,7 +1327,7 @@ export const serializeAws_json1_1ListProvisioningArtifactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListProvisioningArtifacts",
+    "x-amz-target": "AWS242ServiceCatalogService.ListProvisioningArtifacts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProvisioningArtifactsInput(input, context));
@@ -1340,7 +1340,7 @@ export const serializeAws_json1_1ListProvisioningArtifactsForServiceActionComman
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction",
+    "x-amz-target": "AWS242ServiceCatalogService.ListProvisioningArtifactsForServiceAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput(input, context));
@@ -1353,7 +1353,7 @@ export const serializeAws_json1_1ListRecordHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListRecordHistory",
+    "x-amz-target": "AWS242ServiceCatalogService.ListRecordHistory",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRecordHistoryInput(input, context));
@@ -1366,7 +1366,7 @@ export const serializeAws_json1_1ListResourcesForTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListResourcesForTagOption",
+    "x-amz-target": "AWS242ServiceCatalogService.ListResourcesForTagOption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourcesForTagOptionInput(input, context));
@@ -1379,7 +1379,7 @@ export const serializeAws_json1_1ListServiceActionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListServiceActions",
+    "x-amz-target": "AWS242ServiceCatalogService.ListServiceActions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListServiceActionsInput(input, context));
@@ -1392,7 +1392,7 @@ export const serializeAws_json1_1ListServiceActionsForProvisioningArtifactComman
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.ListServiceActionsForProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput(input, context));
@@ -1405,7 +1405,7 @@ export const serializeAws_json1_1ListStackInstancesForProvisionedProductCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListStackInstancesForProvisionedProductInput(input, context));
@@ -1418,7 +1418,7 @@ export const serializeAws_json1_1ListTagOptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ListTagOptions",
+    "x-amz-target": "AWS242ServiceCatalogService.ListTagOptions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagOptionsInput(input, context));
@@ -1431,7 +1431,7 @@ export const serializeAws_json1_1ProvisionProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ProvisionProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.ProvisionProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ProvisionProductInput(input, context));
@@ -1444,7 +1444,7 @@ export const serializeAws_json1_1RejectPortfolioShareCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.RejectPortfolioShare",
+    "x-amz-target": "AWS242ServiceCatalogService.RejectPortfolioShare",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RejectPortfolioShareInput(input, context));
@@ -1457,7 +1457,7 @@ export const serializeAws_json1_1ScanProvisionedProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.ScanProvisionedProducts",
+    "x-amz-target": "AWS242ServiceCatalogService.ScanProvisionedProducts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ScanProvisionedProductsInput(input, context));
@@ -1470,7 +1470,7 @@ export const serializeAws_json1_1SearchProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.SearchProducts",
+    "x-amz-target": "AWS242ServiceCatalogService.SearchProducts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchProductsInput(input, context));
@@ -1483,7 +1483,7 @@ export const serializeAws_json1_1SearchProductsAsAdminCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.SearchProductsAsAdmin",
+    "x-amz-target": "AWS242ServiceCatalogService.SearchProductsAsAdmin",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchProductsAsAdminInput(input, context));
@@ -1496,7 +1496,7 @@ export const serializeAws_json1_1SearchProvisionedProductsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.SearchProvisionedProducts",
+    "x-amz-target": "AWS242ServiceCatalogService.SearchProvisionedProducts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchProvisionedProductsInput(input, context));
@@ -1509,7 +1509,7 @@ export const serializeAws_json1_1TerminateProvisionedProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.TerminateProvisionedProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.TerminateProvisionedProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TerminateProvisionedProductInput(input, context));
@@ -1522,7 +1522,7 @@ export const serializeAws_json1_1UpdateConstraintCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateConstraint",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateConstraint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateConstraintInput(input, context));
@@ -1535,7 +1535,7 @@ export const serializeAws_json1_1UpdatePortfolioCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdatePortfolio",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdatePortfolio",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePortfolioInput(input, context));
@@ -1548,7 +1548,7 @@ export const serializeAws_json1_1UpdateProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProductInput(input, context));
@@ -1561,7 +1561,7 @@ export const serializeAws_json1_1UpdateProvisionedProductCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateProvisionedProduct",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisionedProduct",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProvisionedProductInput(input, context));
@@ -1574,7 +1574,7 @@ export const serializeAws_json1_1UpdateProvisionedProductPropertiesCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateProvisionedProductProperties",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisionedProductProperties",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProvisionedProductPropertiesInput(input, context));
@@ -1587,7 +1587,7 @@ export const serializeAws_json1_1UpdateProvisioningArtifactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateProvisioningArtifact",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateProvisioningArtifact",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProvisioningArtifactInput(input, context));
@@ -1600,7 +1600,7 @@ export const serializeAws_json1_1UpdateServiceActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateServiceAction",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateServiceAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateServiceActionInput(input, context));
@@ -1613,7 +1613,7 @@ export const serializeAws_json1_1UpdateTagOptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWS242ServiceCatalogService.UpdateTagOption",
+    "x-amz-target": "AWS242ServiceCatalogService.UpdateTagOption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTagOptionInput(input, context));

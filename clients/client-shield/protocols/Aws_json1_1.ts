@@ -200,7 +200,7 @@ export const serializeAws_json1_1AssociateDRTLogBucketCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.AssociateDRTLogBucket",
+    "x-amz-target": "AWSShield_20160616.AssociateDRTLogBucket",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateDRTLogBucketRequest(input, context));
@@ -213,7 +213,7 @@ export const serializeAws_json1_1AssociateDRTRoleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.AssociateDRTRole",
+    "x-amz-target": "AWSShield_20160616.AssociateDRTRole",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateDRTRoleRequest(input, context));
@@ -226,7 +226,7 @@ export const serializeAws_json1_1AssociateHealthCheckCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.AssociateHealthCheck",
+    "x-amz-target": "AWSShield_20160616.AssociateHealthCheck",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateHealthCheckRequest(input, context));
@@ -239,7 +239,7 @@ export const serializeAws_json1_1AssociateProactiveEngagementDetailsCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.AssociateProactiveEngagementDetails",
+    "x-amz-target": "AWSShield_20160616.AssociateProactiveEngagementDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateProactiveEngagementDetailsRequest(input, context));
@@ -252,7 +252,7 @@ export const serializeAws_json1_1CreateProtectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.CreateProtection",
+    "x-amz-target": "AWSShield_20160616.CreateProtection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProtectionRequest(input, context));
@@ -265,7 +265,7 @@ export const serializeAws_json1_1CreateProtectionGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.CreateProtectionGroup",
+    "x-amz-target": "AWSShield_20160616.CreateProtectionGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProtectionGroupRequest(input, context));
@@ -278,7 +278,7 @@ export const serializeAws_json1_1CreateSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.CreateSubscription",
+    "x-amz-target": "AWSShield_20160616.CreateSubscription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSubscriptionRequest(input, context));
@@ -291,7 +291,7 @@ export const serializeAws_json1_1DeleteProtectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DeleteProtection",
+    "x-amz-target": "AWSShield_20160616.DeleteProtection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProtectionRequest(input, context));
@@ -304,7 +304,7 @@ export const serializeAws_json1_1DeleteProtectionGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DeleteProtectionGroup",
+    "x-amz-target": "AWSShield_20160616.DeleteProtectionGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProtectionGroupRequest(input, context));
@@ -317,7 +317,7 @@ export const serializeAws_json1_1DeleteSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DeleteSubscription",
+    "x-amz-target": "AWSShield_20160616.DeleteSubscription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSubscriptionRequest(input, context));
@@ -330,7 +330,7 @@ export const serializeAws_json1_1DescribeAttackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeAttack",
+    "x-amz-target": "AWSShield_20160616.DescribeAttack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAttackRequest(input, context));
@@ -343,7 +343,7 @@ export const serializeAws_json1_1DescribeAttackStatisticsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeAttackStatistics",
+    "x-amz-target": "AWSShield_20160616.DescribeAttackStatistics",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAttackStatisticsRequest(input, context));
@@ -356,7 +356,7 @@ export const serializeAws_json1_1DescribeDRTAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeDRTAccess",
+    "x-amz-target": "AWSShield_20160616.DescribeDRTAccess",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDRTAccessRequest(input, context));
@@ -369,7 +369,7 @@ export const serializeAws_json1_1DescribeEmergencyContactSettingsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeEmergencyContactSettings",
+    "x-amz-target": "AWSShield_20160616.DescribeEmergencyContactSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEmergencyContactSettingsRequest(input, context));
@@ -382,7 +382,7 @@ export const serializeAws_json1_1DescribeProtectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeProtection",
+    "x-amz-target": "AWSShield_20160616.DescribeProtection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProtectionRequest(input, context));
@@ -395,7 +395,7 @@ export const serializeAws_json1_1DescribeProtectionGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeProtectionGroup",
+    "x-amz-target": "AWSShield_20160616.DescribeProtectionGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProtectionGroupRequest(input, context));
@@ -408,7 +408,7 @@ export const serializeAws_json1_1DescribeSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DescribeSubscription",
+    "x-amz-target": "AWSShield_20160616.DescribeSubscription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSubscriptionRequest(input, context));
@@ -421,7 +421,7 @@ export const serializeAws_json1_1DisableProactiveEngagementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DisableProactiveEngagement",
+    "x-amz-target": "AWSShield_20160616.DisableProactiveEngagement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableProactiveEngagementRequest(input, context));
@@ -434,7 +434,7 @@ export const serializeAws_json1_1DisassociateDRTLogBucketCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DisassociateDRTLogBucket",
+    "x-amz-target": "AWSShield_20160616.DisassociateDRTLogBucket",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateDRTLogBucketRequest(input, context));
@@ -447,7 +447,7 @@ export const serializeAws_json1_1DisassociateDRTRoleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DisassociateDRTRole",
+    "x-amz-target": "AWSShield_20160616.DisassociateDRTRole",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateDRTRoleRequest(input, context));
@@ -460,7 +460,7 @@ export const serializeAws_json1_1DisassociateHealthCheckCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.DisassociateHealthCheck",
+    "x-amz-target": "AWSShield_20160616.DisassociateHealthCheck",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateHealthCheckRequest(input, context));
@@ -473,7 +473,7 @@ export const serializeAws_json1_1EnableProactiveEngagementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.EnableProactiveEngagement",
+    "x-amz-target": "AWSShield_20160616.EnableProactiveEngagement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableProactiveEngagementRequest(input, context));
@@ -486,7 +486,7 @@ export const serializeAws_json1_1GetSubscriptionStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.GetSubscriptionState",
+    "x-amz-target": "AWSShield_20160616.GetSubscriptionState",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSubscriptionStateRequest(input, context));
@@ -499,7 +499,7 @@ export const serializeAws_json1_1ListAttacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.ListAttacks",
+    "x-amz-target": "AWSShield_20160616.ListAttacks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAttacksRequest(input, context));
@@ -512,7 +512,7 @@ export const serializeAws_json1_1ListProtectionGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.ListProtectionGroups",
+    "x-amz-target": "AWSShield_20160616.ListProtectionGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProtectionGroupsRequest(input, context));
@@ -525,7 +525,7 @@ export const serializeAws_json1_1ListProtectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.ListProtections",
+    "x-amz-target": "AWSShield_20160616.ListProtections",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProtectionsRequest(input, context));
@@ -538,7 +538,7 @@ export const serializeAws_json1_1ListResourcesInProtectionGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.ListResourcesInProtectionGroup",
+    "x-amz-target": "AWSShield_20160616.ListResourcesInProtectionGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourcesInProtectionGroupRequest(input, context));
@@ -551,7 +551,7 @@ export const serializeAws_json1_1UpdateEmergencyContactSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.UpdateEmergencyContactSettings",
+    "x-amz-target": "AWSShield_20160616.UpdateEmergencyContactSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateEmergencyContactSettingsRequest(input, context));
@@ -564,7 +564,7 @@ export const serializeAws_json1_1UpdateProtectionGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.UpdateProtectionGroup",
+    "x-amz-target": "AWSShield_20160616.UpdateProtectionGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProtectionGroupRequest(input, context));
@@ -577,7 +577,7 @@ export const serializeAws_json1_1UpdateSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSShield_20160616.UpdateSubscription",
+    "x-amz-target": "AWSShield_20160616.UpdateSubscription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSubscriptionRequest(input, context));

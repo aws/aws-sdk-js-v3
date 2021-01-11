@@ -210,7 +210,7 @@ export const serializeAws_json1_1AttachManagedPolicyToPermissionSetCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.AttachManagedPolicyToPermissionSet",
+    "x-amz-target": "SWBExternalService.AttachManagedPolicyToPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachManagedPolicyToPermissionSetRequest(input, context));
@@ -223,7 +223,7 @@ export const serializeAws_json1_1CreateAccountAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.CreateAccountAssignment",
+    "x-amz-target": "SWBExternalService.CreateAccountAssignment",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAccountAssignmentRequest(input, context));
@@ -236,7 +236,7 @@ export const serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurati
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration",
+    "x-amz-target": "SWBExternalService.CreateInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationRequest(input, context));
@@ -249,7 +249,7 @@ export const serializeAws_json1_1CreatePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.CreatePermissionSet",
+    "x-amz-target": "SWBExternalService.CreatePermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePermissionSetRequest(input, context));
@@ -262,7 +262,7 @@ export const serializeAws_json1_1DeleteAccountAssignmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DeleteAccountAssignment",
+    "x-amz-target": "SWBExternalService.DeleteAccountAssignment",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAccountAssignmentRequest(input, context));
@@ -275,7 +275,7 @@ export const serializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DeleteInlinePolicyFromPermissionSet",
+    "x-amz-target": "SWBExternalService.DeleteInlinePolicyFromPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteInlinePolicyFromPermissionSetRequest(input, context));
@@ -288,7 +288,7 @@ export const serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurati
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration",
+    "x-amz-target": "SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationRequest(input, context));
@@ -301,7 +301,7 @@ export const serializeAws_json1_1DeletePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DeletePermissionSet",
+    "x-amz-target": "SWBExternalService.DeletePermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePermissionSetRequest(input, context));
@@ -314,7 +314,7 @@ export const serializeAws_json1_1DescribeAccountAssignmentCreationStatusCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DescribeAccountAssignmentCreationStatus",
+    "x-amz-target": "SWBExternalService.DescribeAccountAssignmentCreationStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAccountAssignmentCreationStatusRequest(input, context));
@@ -327,7 +327,7 @@ export const serializeAws_json1_1DescribeAccountAssignmentDeletionStatusCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DescribeAccountAssignmentDeletionStatus",
+    "x-amz-target": "SWBExternalService.DescribeAccountAssignmentDeletionStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAccountAssignmentDeletionStatusRequest(input, context));
@@ -340,7 +340,7 @@ export const serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigura
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration",
+    "x-amz-target": "SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeInstanceAccessControlAttributeConfigurationRequest(input, context));
@@ -353,7 +353,7 @@ export const serializeAws_json1_1DescribePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DescribePermissionSet",
+    "x-amz-target": "SWBExternalService.DescribePermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePermissionSetRequest(input, context));
@@ -366,7 +366,7 @@ export const serializeAws_json1_1DescribePermissionSetProvisioningStatusCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DescribePermissionSetProvisioningStatus",
+    "x-amz-target": "SWBExternalService.DescribePermissionSetProvisioningStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePermissionSetProvisioningStatusRequest(input, context));
@@ -379,7 +379,7 @@ export const serializeAws_json1_1DetachManagedPolicyFromPermissionSetCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.DetachManagedPolicyFromPermissionSet",
+    "x-amz-target": "SWBExternalService.DetachManagedPolicyFromPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachManagedPolicyFromPermissionSetRequest(input, context));
@@ -392,7 +392,7 @@ export const serializeAws_json1_1GetInlinePolicyForPermissionSetCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.GetInlinePolicyForPermissionSet",
+    "x-amz-target": "SWBExternalService.GetInlinePolicyForPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInlinePolicyForPermissionSetRequest(input, context));
@@ -405,7 +405,7 @@ export const serializeAws_json1_1ListAccountAssignmentCreationStatusCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListAccountAssignmentCreationStatus",
+    "x-amz-target": "SWBExternalService.ListAccountAssignmentCreationStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAccountAssignmentCreationStatusRequest(input, context));
@@ -418,7 +418,7 @@ export const serializeAws_json1_1ListAccountAssignmentDeletionStatusCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListAccountAssignmentDeletionStatus",
+    "x-amz-target": "SWBExternalService.ListAccountAssignmentDeletionStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAccountAssignmentDeletionStatusRequest(input, context));
@@ -431,7 +431,7 @@ export const serializeAws_json1_1ListAccountAssignmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListAccountAssignments",
+    "x-amz-target": "SWBExternalService.ListAccountAssignments",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAccountAssignmentsRequest(input, context));
@@ -444,7 +444,7 @@ export const serializeAws_json1_1ListAccountsForProvisionedPermissionSetCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListAccountsForProvisionedPermissionSet",
+    "x-amz-target": "SWBExternalService.ListAccountsForProvisionedPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAccountsForProvisionedPermissionSetRequest(input, context));
@@ -457,7 +457,7 @@ export const serializeAws_json1_1ListInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListInstances",
+    "x-amz-target": "SWBExternalService.ListInstances",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInstancesRequest(input, context));
@@ -470,7 +470,7 @@ export const serializeAws_json1_1ListManagedPoliciesInPermissionSetCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListManagedPoliciesInPermissionSet",
+    "x-amz-target": "SWBExternalService.ListManagedPoliciesInPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListManagedPoliciesInPermissionSetRequest(input, context));
@@ -483,7 +483,7 @@ export const serializeAws_json1_1ListPermissionSetProvisioningStatusCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListPermissionSetProvisioningStatus",
+    "x-amz-target": "SWBExternalService.ListPermissionSetProvisioningStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPermissionSetProvisioningStatusRequest(input, context));
@@ -496,7 +496,7 @@ export const serializeAws_json1_1ListPermissionSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListPermissionSets",
+    "x-amz-target": "SWBExternalService.ListPermissionSets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPermissionSetsRequest(input, context));
@@ -509,7 +509,7 @@ export const serializeAws_json1_1ListPermissionSetsProvisionedToAccountCommand =
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListPermissionSetsProvisionedToAccount",
+    "x-amz-target": "SWBExternalService.ListPermissionSetsProvisionedToAccount",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPermissionSetsProvisionedToAccountRequest(input, context));
@@ -522,7 +522,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ListTagsForResource",
+    "x-amz-target": "SWBExternalService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -535,7 +535,7 @@ export const serializeAws_json1_1ProvisionPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.ProvisionPermissionSet",
+    "x-amz-target": "SWBExternalService.ProvisionPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ProvisionPermissionSetRequest(input, context));
@@ -548,7 +548,7 @@ export const serializeAws_json1_1PutInlinePolicyToPermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.PutInlinePolicyToPermissionSet",
+    "x-amz-target": "SWBExternalService.PutInlinePolicyToPermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutInlinePolicyToPermissionSetRequest(input, context));
@@ -561,7 +561,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.TagResource",
+    "x-amz-target": "SWBExternalService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -574,7 +574,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.UntagResource",
+    "x-amz-target": "SWBExternalService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -587,7 +587,7 @@ export const serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurati
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration",
+    "x-amz-target": "SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationRequest(input, context));
@@ -600,7 +600,7 @@ export const serializeAws_json1_1UpdatePermissionSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SWBExternalService.UpdatePermissionSet",
+    "x-amz-target": "SWBExternalService.UpdatePermissionSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePermissionSetRequest(input, context));

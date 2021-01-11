@@ -57,7 +57,7 @@ export const serializeAws_json1_1EmptyOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.EmptyOperation",
+    "x-amz-target": "JsonProtocol.EmptyOperation",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -68,7 +68,7 @@ export const serializeAws_json1_1GreetingWithErrorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.GreetingWithErrors",
+    "x-amz-target": "JsonProtocol.GreetingWithErrors",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -79,7 +79,7 @@ export const serializeAws_json1_1JsonEnumsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.JsonEnums",
+    "x-amz-target": "JsonProtocol.JsonEnums",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1JsonEnumsInputOutput(input, context));
@@ -92,7 +92,7 @@ export const serializeAws_json1_1JsonUnionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.JsonUnions",
+    "x-amz-target": "JsonProtocol.JsonUnions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UnionInputOutput(input, context));
@@ -105,7 +105,7 @@ export const serializeAws_json1_1KitchenSinkOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.KitchenSinkOperation",
+    "x-amz-target": "JsonProtocol.KitchenSinkOperation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1KitchenSink(input, context));
@@ -118,7 +118,7 @@ export const serializeAws_json1_1NullOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.NullOperation",
+    "x-amz-target": "JsonProtocol.NullOperation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1NullOperationInputOutput(input, context));
@@ -131,7 +131,7 @@ export const serializeAws_json1_1OperationWithOptionalInputOutputCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.OperationWithOptionalInputOutput",
+    "x-amz-target": "JsonProtocol.OperationWithOptionalInputOutput",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SimpleStruct(input, context));
@@ -144,7 +144,7 @@ export const serializeAws_json1_1PutAndGetInlineDocumentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "JsonProtocol.PutAndGetInlineDocuments",
+    "x-amz-target": "JsonProtocol.PutAndGetInlineDocuments",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAndGetInlineDocumentsInputOutput(input, context));

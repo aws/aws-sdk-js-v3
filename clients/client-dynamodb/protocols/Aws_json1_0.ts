@@ -338,7 +338,7 @@ export const serializeAws_json1_0BatchExecuteStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.BatchExecuteStatement",
+    "x-amz-target": "DynamoDB_20120810.BatchExecuteStatement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0BatchExecuteStatementInput(input, context));
@@ -351,7 +351,7 @@ export const serializeAws_json1_0BatchGetItemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.BatchGetItem",
+    "x-amz-target": "DynamoDB_20120810.BatchGetItem",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0BatchGetItemInput(input, context));
@@ -364,7 +364,7 @@ export const serializeAws_json1_0BatchWriteItemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.BatchWriteItem",
+    "x-amz-target": "DynamoDB_20120810.BatchWriteItem",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0BatchWriteItemInput(input, context));
@@ -377,7 +377,7 @@ export const serializeAws_json1_0CreateBackupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.CreateBackup",
+    "x-amz-target": "DynamoDB_20120810.CreateBackup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateBackupInput(input, context));
@@ -390,7 +390,7 @@ export const serializeAws_json1_0CreateGlobalTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.CreateGlobalTable",
+    "x-amz-target": "DynamoDB_20120810.CreateGlobalTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateGlobalTableInput(input, context));
@@ -403,7 +403,7 @@ export const serializeAws_json1_0CreateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.CreateTable",
+    "x-amz-target": "DynamoDB_20120810.CreateTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateTableInput(input, context));
@@ -416,7 +416,7 @@ export const serializeAws_json1_0DeleteBackupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DeleteBackup",
+    "x-amz-target": "DynamoDB_20120810.DeleteBackup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteBackupInput(input, context));
@@ -429,7 +429,7 @@ export const serializeAws_json1_0DeleteItemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DeleteItem",
+    "x-amz-target": "DynamoDB_20120810.DeleteItem",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteItemInput(input, context));
@@ -442,7 +442,7 @@ export const serializeAws_json1_0DeleteTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DeleteTable",
+    "x-amz-target": "DynamoDB_20120810.DeleteTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteTableInput(input, context));
@@ -455,7 +455,7 @@ export const serializeAws_json1_0DescribeBackupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeBackup",
+    "x-amz-target": "DynamoDB_20120810.DescribeBackup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeBackupInput(input, context));
@@ -468,7 +468,7 @@ export const serializeAws_json1_0DescribeContinuousBackupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeContinuousBackups",
+    "x-amz-target": "DynamoDB_20120810.DescribeContinuousBackups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeContinuousBackupsInput(input, context));
@@ -481,7 +481,7 @@ export const serializeAws_json1_0DescribeContributorInsightsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeContributorInsights",
+    "x-amz-target": "DynamoDB_20120810.DescribeContributorInsights",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeContributorInsightsInput(input, context));
@@ -494,7 +494,7 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeEndpoints",
+    "x-amz-target": "DynamoDB_20120810.DescribeEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeEndpointsRequest(input, context));
@@ -507,7 +507,7 @@ export const serializeAws_json1_0DescribeExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeExport",
+    "x-amz-target": "DynamoDB_20120810.DescribeExport",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeExportInput(input, context));
@@ -520,7 +520,7 @@ export const serializeAws_json1_0DescribeGlobalTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTable",
+    "x-amz-target": "DynamoDB_20120810.DescribeGlobalTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeGlobalTableInput(input, context));
@@ -533,7 +533,7 @@ export const serializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeGlobalTableSettings",
+    "x-amz-target": "DynamoDB_20120810.DescribeGlobalTableSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeGlobalTableSettingsInput(input, context));
@@ -546,7 +546,7 @@ export const serializeAws_json1_0DescribeKinesisStreamingDestinationCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeKinesisStreamingDestination",
+    "x-amz-target": "DynamoDB_20120810.DescribeKinesisStreamingDestination",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeKinesisStreamingDestinationInput(input, context));
@@ -559,7 +559,7 @@ export const serializeAws_json1_0DescribeLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeLimits",
+    "x-amz-target": "DynamoDB_20120810.DescribeLimits",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeLimitsInput(input, context));
@@ -572,7 +572,7 @@ export const serializeAws_json1_0DescribeTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeTable",
+    "x-amz-target": "DynamoDB_20120810.DescribeTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTableInput(input, context));
@@ -585,7 +585,7 @@ export const serializeAws_json1_0DescribeTableReplicaAutoScalingCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeTableReplicaAutoScaling",
+    "x-amz-target": "DynamoDB_20120810.DescribeTableReplicaAutoScaling",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTableReplicaAutoScalingInput(input, context));
@@ -598,7 +598,7 @@ export const serializeAws_json1_0DescribeTimeToLiveCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DescribeTimeToLive",
+    "x-amz-target": "DynamoDB_20120810.DescribeTimeToLive",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeTimeToLiveInput(input, context));
@@ -611,7 +611,7 @@ export const serializeAws_json1_0DisableKinesisStreamingDestinationCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.DisableKinesisStreamingDestination",
+    "x-amz-target": "DynamoDB_20120810.DisableKinesisStreamingDestination",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0KinesisStreamingDestinationInput(input, context));
@@ -624,7 +624,7 @@ export const serializeAws_json1_0EnableKinesisStreamingDestinationCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.EnableKinesisStreamingDestination",
+    "x-amz-target": "DynamoDB_20120810.EnableKinesisStreamingDestination",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0KinesisStreamingDestinationInput(input, context));
@@ -637,7 +637,7 @@ export const serializeAws_json1_0ExecuteStatementCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ExecuteStatement",
+    "x-amz-target": "DynamoDB_20120810.ExecuteStatement",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ExecuteStatementInput(input, context));
@@ -650,7 +650,7 @@ export const serializeAws_json1_0ExecuteTransactionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ExecuteTransaction",
+    "x-amz-target": "DynamoDB_20120810.ExecuteTransaction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ExecuteTransactionInput(input, context));
@@ -663,7 +663,7 @@ export const serializeAws_json1_0ExportTableToPointInTimeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ExportTableToPointInTime",
+    "x-amz-target": "DynamoDB_20120810.ExportTableToPointInTime",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ExportTableToPointInTimeInput(input, context));
@@ -676,7 +676,7 @@ export const serializeAws_json1_0GetItemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.GetItem",
+    "x-amz-target": "DynamoDB_20120810.GetItem",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetItemInput(input, context));
@@ -689,7 +689,7 @@ export const serializeAws_json1_0ListBackupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ListBackups",
+    "x-amz-target": "DynamoDB_20120810.ListBackups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListBackupsInput(input, context));
@@ -702,7 +702,7 @@ export const serializeAws_json1_0ListContributorInsightsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ListContributorInsights",
+    "x-amz-target": "DynamoDB_20120810.ListContributorInsights",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListContributorInsightsInput(input, context));
@@ -715,7 +715,7 @@ export const serializeAws_json1_0ListExportsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ListExports",
+    "x-amz-target": "DynamoDB_20120810.ListExports",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListExportsInput(input, context));
@@ -728,7 +728,7 @@ export const serializeAws_json1_0ListGlobalTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ListGlobalTables",
+    "x-amz-target": "DynamoDB_20120810.ListGlobalTables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListGlobalTablesInput(input, context));
@@ -741,7 +741,7 @@ export const serializeAws_json1_0ListTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ListTables",
+    "x-amz-target": "DynamoDB_20120810.ListTables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTablesInput(input, context));
@@ -754,7 +754,7 @@ export const serializeAws_json1_0ListTagsOfResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.ListTagsOfResource",
+    "x-amz-target": "DynamoDB_20120810.ListTagsOfResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsOfResourceInput(input, context));
@@ -767,7 +767,7 @@ export const serializeAws_json1_0PutItemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.PutItem",
+    "x-amz-target": "DynamoDB_20120810.PutItem",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PutItemInput(input, context));
@@ -780,7 +780,7 @@ export const serializeAws_json1_0QueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.Query",
+    "x-amz-target": "DynamoDB_20120810.Query",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0QueryInput(input, context));
@@ -793,7 +793,7 @@ export const serializeAws_json1_0RestoreTableFromBackupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.RestoreTableFromBackup",
+    "x-amz-target": "DynamoDB_20120810.RestoreTableFromBackup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RestoreTableFromBackupInput(input, context));
@@ -806,7 +806,7 @@ export const serializeAws_json1_0RestoreTableToPointInTimeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.RestoreTableToPointInTime",
+    "x-amz-target": "DynamoDB_20120810.RestoreTableToPointInTime",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0RestoreTableToPointInTimeInput(input, context));
@@ -819,7 +819,7 @@ export const serializeAws_json1_0ScanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.Scan",
+    "x-amz-target": "DynamoDB_20120810.Scan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ScanInput(input, context));
@@ -832,7 +832,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.TagResource",
+    "x-amz-target": "DynamoDB_20120810.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
@@ -845,7 +845,7 @@ export const serializeAws_json1_0TransactGetItemsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.TransactGetItems",
+    "x-amz-target": "DynamoDB_20120810.TransactGetItems",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TransactGetItemsInput(input, context));
@@ -858,7 +858,7 @@ export const serializeAws_json1_0TransactWriteItemsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.TransactWriteItems",
+    "x-amz-target": "DynamoDB_20120810.TransactWriteItems",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TransactWriteItemsInput(input, context));
@@ -871,7 +871,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UntagResource",
+    "x-amz-target": "DynamoDB_20120810.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
@@ -884,7 +884,7 @@ export const serializeAws_json1_0UpdateContinuousBackupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateContinuousBackups",
+    "x-amz-target": "DynamoDB_20120810.UpdateContinuousBackups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateContinuousBackupsInput(input, context));
@@ -897,7 +897,7 @@ export const serializeAws_json1_0UpdateContributorInsightsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateContributorInsights",
+    "x-amz-target": "DynamoDB_20120810.UpdateContributorInsights",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateContributorInsightsInput(input, context));
@@ -910,7 +910,7 @@ export const serializeAws_json1_0UpdateGlobalTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTable",
+    "x-amz-target": "DynamoDB_20120810.UpdateGlobalTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateGlobalTableInput(input, context));
@@ -923,7 +923,7 @@ export const serializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateGlobalTableSettings",
+    "x-amz-target": "DynamoDB_20120810.UpdateGlobalTableSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateGlobalTableSettingsInput(input, context));
@@ -936,7 +936,7 @@ export const serializeAws_json1_0UpdateItemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateItem",
+    "x-amz-target": "DynamoDB_20120810.UpdateItem",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateItemInput(input, context));
@@ -949,7 +949,7 @@ export const serializeAws_json1_0UpdateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateTable",
+    "x-amz-target": "DynamoDB_20120810.UpdateTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTableInput(input, context));
@@ -962,7 +962,7 @@ export const serializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateTableReplicaAutoScaling",
+    "x-amz-target": "DynamoDB_20120810.UpdateTableReplicaAutoScaling",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTableReplicaAutoScalingInput(input, context));
@@ -975,7 +975,7 @@ export const serializeAws_json1_0UpdateTimeToLiveCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "DynamoDB_20120810.UpdateTimeToLive",
+    "x-amz-target": "DynamoDB_20120810.UpdateTimeToLive",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateTimeToLiveInput(input, context));

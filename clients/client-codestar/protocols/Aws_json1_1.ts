@@ -105,7 +105,7 @@ export const serializeAws_json1_1AssociateTeamMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.AssociateTeamMember",
+    "x-amz-target": "CodeStar_20170419.AssociateTeamMember",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateTeamMemberRequest(input, context));
@@ -118,7 +118,7 @@ export const serializeAws_json1_1CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.CreateProject",
+    "x-amz-target": "CodeStar_20170419.CreateProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProjectRequest(input, context));
@@ -131,7 +131,7 @@ export const serializeAws_json1_1CreateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.CreateUserProfile",
+    "x-amz-target": "CodeStar_20170419.CreateUserProfile",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserProfileRequest(input, context));
@@ -144,7 +144,7 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.DeleteProject",
+    "x-amz-target": "CodeStar_20170419.DeleteProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectRequest(input, context));
@@ -157,7 +157,7 @@ export const serializeAws_json1_1DeleteUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.DeleteUserProfile",
+    "x-amz-target": "CodeStar_20170419.DeleteUserProfile",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserProfileRequest(input, context));
@@ -170,7 +170,7 @@ export const serializeAws_json1_1DescribeProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.DescribeProject",
+    "x-amz-target": "CodeStar_20170419.DescribeProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProjectRequest(input, context));
@@ -183,7 +183,7 @@ export const serializeAws_json1_1DescribeUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.DescribeUserProfile",
+    "x-amz-target": "CodeStar_20170419.DescribeUserProfile",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUserProfileRequest(input, context));
@@ -196,7 +196,7 @@ export const serializeAws_json1_1DisassociateTeamMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.DisassociateTeamMember",
+    "x-amz-target": "CodeStar_20170419.DisassociateTeamMember",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateTeamMemberRequest(input, context));
@@ -209,7 +209,7 @@ export const serializeAws_json1_1ListProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.ListProjects",
+    "x-amz-target": "CodeStar_20170419.ListProjects",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProjectsRequest(input, context));
@@ -222,7 +222,7 @@ export const serializeAws_json1_1ListResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.ListResources",
+    "x-amz-target": "CodeStar_20170419.ListResources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourcesRequest(input, context));
@@ -235,7 +235,7 @@ export const serializeAws_json1_1ListTagsForProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.ListTagsForProject",
+    "x-amz-target": "CodeStar_20170419.ListTagsForProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForProjectRequest(input, context));
@@ -248,7 +248,7 @@ export const serializeAws_json1_1ListTeamMembersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.ListTeamMembers",
+    "x-amz-target": "CodeStar_20170419.ListTeamMembers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTeamMembersRequest(input, context));
@@ -261,7 +261,7 @@ export const serializeAws_json1_1ListUserProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.ListUserProfiles",
+    "x-amz-target": "CodeStar_20170419.ListUserProfiles",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUserProfilesRequest(input, context));
@@ -274,7 +274,7 @@ export const serializeAws_json1_1TagProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.TagProject",
+    "x-amz-target": "CodeStar_20170419.TagProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagProjectRequest(input, context));
@@ -287,7 +287,7 @@ export const serializeAws_json1_1UntagProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.UntagProject",
+    "x-amz-target": "CodeStar_20170419.UntagProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagProjectRequest(input, context));
@@ -300,7 +300,7 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.UpdateProject",
+    "x-amz-target": "CodeStar_20170419.UpdateProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProjectRequest(input, context));
@@ -313,7 +313,7 @@ export const serializeAws_json1_1UpdateTeamMemberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.UpdateTeamMember",
+    "x-amz-target": "CodeStar_20170419.UpdateTeamMember",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTeamMemberRequest(input, context));
@@ -326,7 +326,7 @@ export const serializeAws_json1_1UpdateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeStar_20170419.UpdateUserProfile",
+    "x-amz-target": "CodeStar_20170419.UpdateUserProfile",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateUserProfileRequest(input, context));

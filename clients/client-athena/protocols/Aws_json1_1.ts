@@ -143,7 +143,7 @@ export const serializeAws_json1_1BatchGetNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.BatchGetNamedQuery",
+    "x-amz-target": "AmazonAthena.BatchGetNamedQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetNamedQueryInput(input, context));
@@ -156,7 +156,7 @@ export const serializeAws_json1_1BatchGetQueryExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.BatchGetQueryExecution",
+    "x-amz-target": "AmazonAthena.BatchGetQueryExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetQueryExecutionInput(input, context));
@@ -169,7 +169,7 @@ export const serializeAws_json1_1CreateDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.CreateDataCatalog",
+    "x-amz-target": "AmazonAthena.CreateDataCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDataCatalogInput(input, context));
@@ -182,7 +182,7 @@ export const serializeAws_json1_1CreateNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.CreateNamedQuery",
+    "x-amz-target": "AmazonAthena.CreateNamedQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateNamedQueryInput(input, context));
@@ -195,7 +195,7 @@ export const serializeAws_json1_1CreateWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.CreateWorkGroup",
+    "x-amz-target": "AmazonAthena.CreateWorkGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWorkGroupInput(input, context));
@@ -208,7 +208,7 @@ export const serializeAws_json1_1DeleteDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.DeleteDataCatalog",
+    "x-amz-target": "AmazonAthena.DeleteDataCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDataCatalogInput(input, context));
@@ -221,7 +221,7 @@ export const serializeAws_json1_1DeleteNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.DeleteNamedQuery",
+    "x-amz-target": "AmazonAthena.DeleteNamedQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteNamedQueryInput(input, context));
@@ -234,7 +234,7 @@ export const serializeAws_json1_1DeleteWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.DeleteWorkGroup",
+    "x-amz-target": "AmazonAthena.DeleteWorkGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteWorkGroupInput(input, context));
@@ -247,7 +247,7 @@ export const serializeAws_json1_1GetDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetDatabase",
+    "x-amz-target": "AmazonAthena.GetDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDatabaseInput(input, context));
@@ -260,7 +260,7 @@ export const serializeAws_json1_1GetDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetDataCatalog",
+    "x-amz-target": "AmazonAthena.GetDataCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDataCatalogInput(input, context));
@@ -273,7 +273,7 @@ export const serializeAws_json1_1GetNamedQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetNamedQuery",
+    "x-amz-target": "AmazonAthena.GetNamedQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetNamedQueryInput(input, context));
@@ -286,7 +286,7 @@ export const serializeAws_json1_1GetQueryExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetQueryExecution",
+    "x-amz-target": "AmazonAthena.GetQueryExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetQueryExecutionInput(input, context));
@@ -299,7 +299,7 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetQueryResults",
+    "x-amz-target": "AmazonAthena.GetQueryResults",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetQueryResultsInput(input, context));
@@ -312,7 +312,7 @@ export const serializeAws_json1_1GetTableMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetTableMetadata",
+    "x-amz-target": "AmazonAthena.GetTableMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTableMetadataInput(input, context));
@@ -325,7 +325,7 @@ export const serializeAws_json1_1GetWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.GetWorkGroup",
+    "x-amz-target": "AmazonAthena.GetWorkGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkGroupInput(input, context));
@@ -338,7 +338,7 @@ export const serializeAws_json1_1ListDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListDatabases",
+    "x-amz-target": "AmazonAthena.ListDatabases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatabasesInput(input, context));
@@ -351,7 +351,7 @@ export const serializeAws_json1_1ListDataCatalogsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListDataCatalogs",
+    "x-amz-target": "AmazonAthena.ListDataCatalogs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDataCatalogsInput(input, context));
@@ -364,7 +364,7 @@ export const serializeAws_json1_1ListNamedQueriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListNamedQueries",
+    "x-amz-target": "AmazonAthena.ListNamedQueries",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListNamedQueriesInput(input, context));
@@ -377,7 +377,7 @@ export const serializeAws_json1_1ListQueryExecutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListQueryExecutions",
+    "x-amz-target": "AmazonAthena.ListQueryExecutions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListQueryExecutionsInput(input, context));
@@ -390,7 +390,7 @@ export const serializeAws_json1_1ListTableMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListTableMetadata",
+    "x-amz-target": "AmazonAthena.ListTableMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTableMetadataInput(input, context));
@@ -403,7 +403,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListTagsForResource",
+    "x-amz-target": "AmazonAthena.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
@@ -416,7 +416,7 @@ export const serializeAws_json1_1ListWorkGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.ListWorkGroups",
+    "x-amz-target": "AmazonAthena.ListWorkGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListWorkGroupsInput(input, context));
@@ -429,7 +429,7 @@ export const serializeAws_json1_1StartQueryExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.StartQueryExecution",
+    "x-amz-target": "AmazonAthena.StartQueryExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartQueryExecutionInput(input, context));
@@ -442,7 +442,7 @@ export const serializeAws_json1_1StopQueryExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.StopQueryExecution",
+    "x-amz-target": "AmazonAthena.StopQueryExecution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopQueryExecutionInput(input, context));
@@ -455,7 +455,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.TagResource",
+    "x-amz-target": "AmazonAthena.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
@@ -468,7 +468,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.UntagResource",
+    "x-amz-target": "AmazonAthena.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));
@@ -481,7 +481,7 @@ export const serializeAws_json1_1UpdateDataCatalogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.UpdateDataCatalog",
+    "x-amz-target": "AmazonAthena.UpdateDataCatalog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDataCatalogInput(input, context));
@@ -494,7 +494,7 @@ export const serializeAws_json1_1UpdateWorkGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonAthena.UpdateWorkGroup",
+    "x-amz-target": "AmazonAthena.UpdateWorkGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateWorkGroupInput(input, context));

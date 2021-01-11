@@ -176,7 +176,7 @@ export const serializeAws_json1_1CreateLanguageModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.CreateLanguageModel",
+    "x-amz-target": "Transcribe.CreateLanguageModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLanguageModelRequest(input, context));
@@ -189,7 +189,7 @@ export const serializeAws_json1_1CreateMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.CreateMedicalVocabulary",
+    "x-amz-target": "Transcribe.CreateMedicalVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateMedicalVocabularyRequest(input, context));
@@ -202,7 +202,7 @@ export const serializeAws_json1_1CreateVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.CreateVocabulary",
+    "x-amz-target": "Transcribe.CreateVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVocabularyRequest(input, context));
@@ -215,7 +215,7 @@ export const serializeAws_json1_1CreateVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.CreateVocabularyFilter",
+    "x-amz-target": "Transcribe.CreateVocabularyFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVocabularyFilterRequest(input, context));
@@ -228,7 +228,7 @@ export const serializeAws_json1_1DeleteLanguageModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DeleteLanguageModel",
+    "x-amz-target": "Transcribe.DeleteLanguageModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLanguageModelRequest(input, context));
@@ -241,7 +241,7 @@ export const serializeAws_json1_1DeleteMedicalTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DeleteMedicalTranscriptionJob",
+    "x-amz-target": "Transcribe.DeleteMedicalTranscriptionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMedicalTranscriptionJobRequest(input, context));
@@ -254,7 +254,7 @@ export const serializeAws_json1_1DeleteMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DeleteMedicalVocabulary",
+    "x-amz-target": "Transcribe.DeleteMedicalVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMedicalVocabularyRequest(input, context));
@@ -267,7 +267,7 @@ export const serializeAws_json1_1DeleteTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DeleteTranscriptionJob",
+    "x-amz-target": "Transcribe.DeleteTranscriptionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTranscriptionJobRequest(input, context));
@@ -280,7 +280,7 @@ export const serializeAws_json1_1DeleteVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DeleteVocabulary",
+    "x-amz-target": "Transcribe.DeleteVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVocabularyRequest(input, context));
@@ -293,7 +293,7 @@ export const serializeAws_json1_1DeleteVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DeleteVocabularyFilter",
+    "x-amz-target": "Transcribe.DeleteVocabularyFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVocabularyFilterRequest(input, context));
@@ -306,7 +306,7 @@ export const serializeAws_json1_1DescribeLanguageModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.DescribeLanguageModel",
+    "x-amz-target": "Transcribe.DescribeLanguageModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLanguageModelRequest(input, context));
@@ -319,7 +319,7 @@ export const serializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.GetMedicalTranscriptionJob",
+    "x-amz-target": "Transcribe.GetMedicalTranscriptionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMedicalTranscriptionJobRequest(input, context));
@@ -332,7 +332,7 @@ export const serializeAws_json1_1GetMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.GetMedicalVocabulary",
+    "x-amz-target": "Transcribe.GetMedicalVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMedicalVocabularyRequest(input, context));
@@ -345,7 +345,7 @@ export const serializeAws_json1_1GetTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.GetTranscriptionJob",
+    "x-amz-target": "Transcribe.GetTranscriptionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTranscriptionJobRequest(input, context));
@@ -358,7 +358,7 @@ export const serializeAws_json1_1GetVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.GetVocabulary",
+    "x-amz-target": "Transcribe.GetVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetVocabularyRequest(input, context));
@@ -371,7 +371,7 @@ export const serializeAws_json1_1GetVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.GetVocabularyFilter",
+    "x-amz-target": "Transcribe.GetVocabularyFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetVocabularyFilterRequest(input, context));
@@ -384,7 +384,7 @@ export const serializeAws_json1_1ListLanguageModelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.ListLanguageModels",
+    "x-amz-target": "Transcribe.ListLanguageModels",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLanguageModelsRequest(input, context));
@@ -397,7 +397,7 @@ export const serializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.ListMedicalTranscriptionJobs",
+    "x-amz-target": "Transcribe.ListMedicalTranscriptionJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListMedicalTranscriptionJobsRequest(input, context));
@@ -410,7 +410,7 @@ export const serializeAws_json1_1ListMedicalVocabulariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.ListMedicalVocabularies",
+    "x-amz-target": "Transcribe.ListMedicalVocabularies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListMedicalVocabulariesRequest(input, context));
@@ -423,7 +423,7 @@ export const serializeAws_json1_1ListTranscriptionJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.ListTranscriptionJobs",
+    "x-amz-target": "Transcribe.ListTranscriptionJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTranscriptionJobsRequest(input, context));
@@ -436,7 +436,7 @@ export const serializeAws_json1_1ListVocabulariesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.ListVocabularies",
+    "x-amz-target": "Transcribe.ListVocabularies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListVocabulariesRequest(input, context));
@@ -449,7 +449,7 @@ export const serializeAws_json1_1ListVocabularyFiltersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.ListVocabularyFilters",
+    "x-amz-target": "Transcribe.ListVocabularyFilters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListVocabularyFiltersRequest(input, context));
@@ -462,7 +462,7 @@ export const serializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.StartMedicalTranscriptionJob",
+    "x-amz-target": "Transcribe.StartMedicalTranscriptionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartMedicalTranscriptionJobRequest(input, context));
@@ -475,7 +475,7 @@ export const serializeAws_json1_1StartTranscriptionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.StartTranscriptionJob",
+    "x-amz-target": "Transcribe.StartTranscriptionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartTranscriptionJobRequest(input, context));
@@ -488,7 +488,7 @@ export const serializeAws_json1_1UpdateMedicalVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.UpdateMedicalVocabulary",
+    "x-amz-target": "Transcribe.UpdateMedicalVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateMedicalVocabularyRequest(input, context));
@@ -501,7 +501,7 @@ export const serializeAws_json1_1UpdateVocabularyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.UpdateVocabulary",
+    "x-amz-target": "Transcribe.UpdateVocabulary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateVocabularyRequest(input, context));
@@ -514,7 +514,7 @@ export const serializeAws_json1_1UpdateVocabularyFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Transcribe.UpdateVocabularyFilter",
+    "x-amz-target": "Transcribe.UpdateVocabularyFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateVocabularyFilterRequest(input, context));
