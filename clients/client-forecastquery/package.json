@@ -45,6 +45,7 @@
     "@aws-sdk/node-http-handler": "3.2.0",
     "@aws-sdk/protocol-http": "3.2.0",
     "@aws-sdk/smithy-client": "3.2.0",
+    "@aws-sdk/types": "3.1.0",
     "@aws-sdk/url-parser-browser": "3.1.0",
     "@aws-sdk/url-parser-node": "3.1.0",
     "@aws-sdk/util-base64-browser": "3.1.0",
@@ -59,7 +60,6 @@
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "3.1.0",
-    "@aws-sdk/types": "3.1.0",
     "@types/node": "^12.7.5",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
