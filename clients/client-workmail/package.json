@@ -60,7 +60,6 @@
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "3.1.0",
-    "@aws-sdk/types": "3.1.0",
     "@types/node": "^12.7.5",
     "@types/uuid": "^3.0.0",
     "jest": "^26.1.0",
