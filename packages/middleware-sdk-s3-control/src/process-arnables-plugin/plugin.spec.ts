@@ -20,6 +20,7 @@ describe("getProcessArnablesMiddleware", () => {
       regionInfoProvider: options.regionInfoProvider ?? jest.fn().mockResolvedValue({ partition: "aws" }),
       region: jest.fn().mockResolvedValue(options.region),
       useArnRegion: jest.fn().mockResolvedValue(options.useArnRegion ?? false),
+      isCustomEndpoint: false,
     };
   };
 
