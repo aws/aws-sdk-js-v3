@@ -20,6 +20,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
+import software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -51,6 +52,12 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
         writerFactory.accept("README.md", writer -> {
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
             resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
+
+            AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
+            SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, symbolProvider);
+            String clientName = decorated.toSymbol(settings.getService(model)).getName();
+            resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName.split("Client")[0]);
+
             writer.write(resource);
         });
     }

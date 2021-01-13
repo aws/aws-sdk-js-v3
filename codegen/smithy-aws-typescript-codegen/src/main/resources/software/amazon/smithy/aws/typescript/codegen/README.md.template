@@ -3,4 +3,21 @@
 [![NPM version](https://img.shields.io/npm/v/${packageName}/latest.svg)](https://www.npmjs.com/package/${packageName})
 [![NPM downloads](https://img.shields.io/npm/dm/${packageName}.svg)](https://www.npmjs.com/package/${packageName})
 
-For SDK usage, please step to [SDK readme](https://github.com/aws/aws-sdk-js-v3).
+## Description
+
+AWS SDK for JavaScript ${serviceId} Client for Node.js, Browser and React Native.
+
+## Installing
+To install the this package, simply type add or install ${packageName}
+using your favorite package manager: 
+- `npm install ${packageName}`
+- `yarn add ${packageName}`
+- `pnpm add ${packageName}`
+
+## Getting Started
+
+### Import
+
+The AWS SDK is modulized by clients and commands.
+To send a request, you only need to import the `${serviceId}Client` and
+the commands you need:
