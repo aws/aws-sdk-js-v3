@@ -16,7 +16,6 @@ module.exports = function (config) {
       },
     },
     karmaTypescriptConfig: {
-      tsconfig: "./tsconfig.json",
       bundlerOptions: {
         addNodeGlobals: false,
       },
