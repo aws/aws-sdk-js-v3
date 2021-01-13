@@ -147,3 +147,25 @@ client.${operationName}(params, (err, data) => {
 });
 ```
 
+### Troubleshooting
+
+When the service returns an exception, the error will include the exception information,
+as well as response metadata (e.g. request id).
+
+```js
+try {
+  const data = await client.send(command);
+  // process data.
+} catch (error) {
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  console.log({ requestId, cfId, extendedRequestId });
+  /**
+   * The keys within exceptions are also parsed.
+   * You can access them by specifying exception names:
+   * if (error.name === 'SomeServiceException') {
+   *     const value = error.specialKeyInException;
+   * }
+   */
+}
+```
+
