@@ -15,9 +15,11 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 import java.util.regex.Pattern;
 
 import software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration;
@@ -31,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.StringUtils;
 
 public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
     @Override
@@ -63,9 +66,12 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String clientName = decorated.toSymbol(service).getName();
             resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName.split("Client")[0]);
 
-            String documentation = service.getTrait(DocumentationTrait.class)
+            String rawDocumentation = service.getTrait(DocumentationTrait.class)
                     .map(DocumentationTrait::getValue)
                     .orElse("");
+            String documentation = Arrays.asList(rawDocumentation.split("\n")).stream()
+                    .map(StringUtils::trim)
+                    .collect(Collectors.joining("\n"));
             resource = resource.replaceAll(Pattern.quote("${documentation}"), documentation);
 
             TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
