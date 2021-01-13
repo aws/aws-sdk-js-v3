@@ -19,10 +19,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
-import software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -79,7 +78,7 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String operationName = firstOperation.getId().getName();
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
             resource = resource.replaceAll(Pattern.quote("${operationName}"),
-                    operationName.substring(0,1).toLowerCase() + operationName.substring(1));
+                    operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
 
             writer.write(resource);
         });
