@@ -26,6 +26,7 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -61,6 +62,11 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, symbolProvider);
             String clientName = decorated.toSymbol(service).getName();
             resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName.split("Client")[0]);
+
+            String documentation = service.getTrait(DocumentationTrait.class)
+                    .map(DocumentationTrait::getValue)
+                    .orElse("");
+            resource = resource.replaceAll(Pattern.quote("${documentation}"), documentation);
 
             TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
             OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
