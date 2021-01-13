@@ -132,7 +132,7 @@ export const serializeAws_json1_1AddTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.AddTags",
+    "x-amz-target": "CloudTrail_20131101.AddTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsRequest(input, context));
@@ -145,7 +145,7 @@ export const serializeAws_json1_1CreateTrailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.CreateTrail",
+    "x-amz-target": "CloudTrail_20131101.CreateTrail",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTrailRequest(input, context));
@@ -158,7 +158,7 @@ export const serializeAws_json1_1DeleteTrailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.DeleteTrail",
+    "x-amz-target": "CloudTrail_20131101.DeleteTrail",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTrailRequest(input, context));
@@ -171,7 +171,7 @@ export const serializeAws_json1_1DescribeTrailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.DescribeTrails",
+    "x-amz-target": "CloudTrail_20131101.DescribeTrails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTrailsRequest(input, context));
@@ -184,7 +184,7 @@ export const serializeAws_json1_1GetEventSelectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.GetEventSelectors",
+    "x-amz-target": "CloudTrail_20131101.GetEventSelectors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEventSelectorsRequest(input, context));
@@ -197,7 +197,7 @@ export const serializeAws_json1_1GetInsightSelectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.GetInsightSelectors",
+    "x-amz-target": "CloudTrail_20131101.GetInsightSelectors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInsightSelectorsRequest(input, context));
@@ -210,7 +210,7 @@ export const serializeAws_json1_1GetTrailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.GetTrail",
+    "x-amz-target": "CloudTrail_20131101.GetTrail",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTrailRequest(input, context));
@@ -223,7 +223,7 @@ export const serializeAws_json1_1GetTrailStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.GetTrailStatus",
+    "x-amz-target": "CloudTrail_20131101.GetTrailStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTrailStatusRequest(input, context));
@@ -236,7 +236,7 @@ export const serializeAws_json1_1ListPublicKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.ListPublicKeys",
+    "x-amz-target": "CloudTrail_20131101.ListPublicKeys",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPublicKeysRequest(input, context));
@@ -249,7 +249,7 @@ export const serializeAws_json1_1ListTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.ListTags",
+    "x-amz-target": "CloudTrail_20131101.ListTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
@@ -262,7 +262,7 @@ export const serializeAws_json1_1ListTrailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.ListTrails",
+    "x-amz-target": "CloudTrail_20131101.ListTrails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTrailsRequest(input, context));
@@ -275,7 +275,7 @@ export const serializeAws_json1_1LookupEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.LookupEvents",
+    "x-amz-target": "CloudTrail_20131101.LookupEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1LookupEventsRequest(input, context));
@@ -288,7 +288,7 @@ export const serializeAws_json1_1PutEventSelectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.PutEventSelectors",
+    "x-amz-target": "CloudTrail_20131101.PutEventSelectors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutEventSelectorsRequest(input, context));
@@ -301,7 +301,7 @@ export const serializeAws_json1_1PutInsightSelectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.PutInsightSelectors",
+    "x-amz-target": "CloudTrail_20131101.PutInsightSelectors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutInsightSelectorsRequest(input, context));
@@ -314,7 +314,7 @@ export const serializeAws_json1_1RemoveTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.RemoveTags",
+    "x-amz-target": "CloudTrail_20131101.RemoveTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTagsRequest(input, context));
@@ -327,7 +327,7 @@ export const serializeAws_json1_1StartLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.StartLogging",
+    "x-amz-target": "CloudTrail_20131101.StartLogging",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartLoggingRequest(input, context));
@@ -340,7 +340,7 @@ export const serializeAws_json1_1StopLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.StopLogging",
+    "x-amz-target": "CloudTrail_20131101.StopLogging",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopLoggingRequest(input, context));
@@ -353,7 +353,7 @@ export const serializeAws_json1_1UpdateTrailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CloudTrail_20131101.UpdateTrail",
+    "x-amz-target": "CloudTrail_20131101.UpdateTrail",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTrailRequest(input, context));

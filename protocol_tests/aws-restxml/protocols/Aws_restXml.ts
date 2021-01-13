@@ -391,7 +391,7 @@ export const serializeAws_restXmlHttpPayloadTraitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! }),
+    ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
   let resolvedPath = "/HttpPayloadTraits";
   let body: any;
@@ -418,7 +418,7 @@ export const serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "text/plain",
-    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! }),
+    ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
   let resolvedPath = "/HttpPayloadTraitsWithMediaType";
   let body: any;
@@ -554,12 +554,15 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! }),
+    ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
     ...(input.fooMap !== undefined &&
-      Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
-        acc["X-Foo-" + suffix] = input.fooMap![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.fooMap).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-foo-${suffix.toLowerCase()}`]: input.fooMap![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/HttpPrefixHeaders";
   let body: any;
@@ -837,39 +840,39 @@ export const serializeAws_restXmlInputAndOutputWithHeadersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.headerString) && { "X-String": input.headerString! }),
-    ...(isSerializableHeaderValue(input.headerByte) && { "X-Byte": input.headerByte!.toString() }),
-    ...(isSerializableHeaderValue(input.headerShort) && { "X-Short": input.headerShort!.toString() }),
-    ...(isSerializableHeaderValue(input.headerInteger) && { "X-Integer": input.headerInteger!.toString() }),
-    ...(isSerializableHeaderValue(input.headerLong) && { "X-Long": input.headerLong!.toString() }),
+    ...(isSerializableHeaderValue(input.headerString) && { "x-string": input.headerString! }),
+    ...(isSerializableHeaderValue(input.headerByte) && { "x-byte": input.headerByte!.toString() }),
+    ...(isSerializableHeaderValue(input.headerShort) && { "x-short": input.headerShort!.toString() }),
+    ...(isSerializableHeaderValue(input.headerInteger) && { "x-integer": input.headerInteger!.toString() }),
+    ...(isSerializableHeaderValue(input.headerLong) && { "x-long": input.headerLong!.toString() }),
     ...(isSerializableHeaderValue(input.headerFloat) && {
-      "X-Float": input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString(),
+      "x-float": input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString(),
     }),
     ...(isSerializableHeaderValue(input.headerDouble) && {
-      "X-Double": input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString(),
+      "x-double": input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.headerTrueBool) && { "X-Boolean1": input.headerTrueBool!.toString() }),
-    ...(isSerializableHeaderValue(input.headerFalseBool) && { "X-Boolean2": input.headerFalseBool!.toString() }),
+    ...(isSerializableHeaderValue(input.headerTrueBool) && { "x-boolean1": input.headerTrueBool!.toString() }),
+    ...(isSerializableHeaderValue(input.headerFalseBool) && { "x-boolean2": input.headerFalseBool!.toString() }),
     ...(isSerializableHeaderValue(input.headerStringList) && {
-      "X-StringList": (input.headerStringList! || []).map((_entry) => _entry).join(", "),
+      "x-stringlist": (input.headerStringList! || []).map((_entry) => _entry).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerStringSet) && {
-      "X-StringSet": (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry).join(", "),
+      "x-stringset": (Array.from(input.headerStringSet!.values()) || []).map((_entry) => _entry).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerIntegerList) && {
-      "X-IntegerList": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
+      "x-integerlist": (input.headerIntegerList! || []).map((_entry) => _entry.toString()).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerBooleanList) && {
-      "X-BooleanList": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
+      "x-booleanlist": (input.headerBooleanList! || []).map((_entry) => _entry.toString()).join(", "),
     }),
     ...(isSerializableHeaderValue(input.headerTimestampList) && {
-      "X-TimestampList": (input.headerTimestampList! || [])
+      "x-timestamplist": (input.headerTimestampList! || [])
         .map((_entry) => __dateToUtcString(_entry).toString())
         .join(", "),
     }),
-    ...(isSerializableHeaderValue(input.headerEnum) && { "X-Enum": input.headerEnum! }),
+    ...(isSerializableHeaderValue(input.headerEnum) && { "x-enum": input.headerEnum! }),
     ...(isSerializableHeaderValue(input.headerEnumList) && {
-      "X-EnumList": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
+      "x-enumlist": (input.headerEnumList! || []).map((_entry) => _entry).join(", "),
     }),
   };
   let resolvedPath = "/InputAndOutputWithHeaders";
@@ -931,9 +934,9 @@ export const serializeAws_restXmlNullAndEmptyHeadersClientCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
-    ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
+    ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
+    ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
+    ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
   let resolvedPath = "/NullAndEmptyHeadersClient";
   let body: any;
@@ -954,9 +957,9 @@ export const serializeAws_restXmlNullAndEmptyHeadersServerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.a) && { "X-A": input.a! }),
-    ...(isSerializableHeaderValue(input.b) && { "X-B": input.b! }),
-    ...(isSerializableHeaderValue(input.c) && { "X-C": (input.c! || []).map((_entry) => _entry).join(", ") }),
+    ...(isSerializableHeaderValue(input.a) && { "x-a": input.a! }),
+    ...(isSerializableHeaderValue(input.b) && { "x-b": input.b! }),
+    ...(isSerializableHeaderValue(input.c) && { "x-c": (input.c! || []).map((_entry) => _entry).join(", ") }),
   };
   let resolvedPath = "/NullAndEmptyHeadersServer";
   let body: any;
@@ -1053,7 +1056,7 @@ export const serializeAws_restXmlSimpleScalarPropertiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.foo) && { "X-Foo": input.foo! }),
+    ...(isSerializableHeaderValue(input.foo) && { "x-foo": input.foo! }),
   };
   let resolvedPath = "/SimpleScalarProperties";
   let body: any;
@@ -1122,25 +1125,25 @@ export const serializeAws_restXmlTimestampFormatHeadersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     ...(isSerializableHeaderValue(input.memberEpochSeconds) && {
-      "X-memberEpochSeconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
+      "x-memberepochseconds": Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
     }),
     ...(isSerializableHeaderValue(input.memberHttpDate) && {
-      "X-memberHttpDate": __dateToUtcString(input.memberHttpDate!).toString(),
+      "x-memberhttpdate": __dateToUtcString(input.memberHttpDate!).toString(),
     }),
     ...(isSerializableHeaderValue(input.memberDateTime) && {
-      "X-memberDateTime": (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
+      "x-memberdatetime": (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(isSerializableHeaderValue(input.defaultFormat) && {
-      "X-defaultFormat": __dateToUtcString(input.defaultFormat!).toString(),
+      "x-defaultformat": __dateToUtcString(input.defaultFormat!).toString(),
     }),
     ...(isSerializableHeaderValue(input.targetEpochSeconds) && {
-      "X-targetEpochSeconds": Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
+      "x-targetepochseconds": Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
     }),
     ...(isSerializableHeaderValue(input.targetHttpDate) && {
-      "X-targetHttpDate": __dateToUtcString(input.targetHttpDate!).toString(),
+      "x-targethttpdate": __dateToUtcString(input.targetHttpDate!).toString(),
     }),
     ...(isSerializableHeaderValue(input.targetDateTime) && {
-      "X-targetDateTime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
+      "x-targetdatetime": (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     }),
   };
   let resolvedPath = "/TimestampFormatHeaders";

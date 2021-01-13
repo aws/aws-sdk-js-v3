@@ -754,7 +754,7 @@ export const serializeAws_json1_1AllocateStaticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.AllocateStaticIp",
+    "x-amz-target": "Lightsail_20161128.AllocateStaticIp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllocateStaticIpRequest(input, context));
@@ -767,7 +767,7 @@ export const serializeAws_json1_1AttachCertificateToDistributionCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.AttachCertificateToDistribution",
+    "x-amz-target": "Lightsail_20161128.AttachCertificateToDistribution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachCertificateToDistributionRequest(input, context));
@@ -780,7 +780,7 @@ export const serializeAws_json1_1AttachDiskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.AttachDisk",
+    "x-amz-target": "Lightsail_20161128.AttachDisk",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachDiskRequest(input, context));
@@ -793,7 +793,7 @@ export const serializeAws_json1_1AttachInstancesToLoadBalancerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.AttachInstancesToLoadBalancer",
+    "x-amz-target": "Lightsail_20161128.AttachInstancesToLoadBalancer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachInstancesToLoadBalancerRequest(input, context));
@@ -806,7 +806,7 @@ export const serializeAws_json1_1AttachLoadBalancerTlsCertificateCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.AttachLoadBalancerTlsCertificate",
+    "x-amz-target": "Lightsail_20161128.AttachLoadBalancerTlsCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachLoadBalancerTlsCertificateRequest(input, context));
@@ -819,7 +819,7 @@ export const serializeAws_json1_1AttachStaticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.AttachStaticIp",
+    "x-amz-target": "Lightsail_20161128.AttachStaticIp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AttachStaticIpRequest(input, context));
@@ -832,7 +832,7 @@ export const serializeAws_json1_1CloseInstancePublicPortsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CloseInstancePublicPorts",
+    "x-amz-target": "Lightsail_20161128.CloseInstancePublicPorts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CloseInstancePublicPortsRequest(input, context));
@@ -845,7 +845,7 @@ export const serializeAws_json1_1CopySnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CopySnapshot",
+    "x-amz-target": "Lightsail_20161128.CopySnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CopySnapshotRequest(input, context));
@@ -858,7 +858,7 @@ export const serializeAws_json1_1CreateCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateCertificate",
+    "x-amz-target": "Lightsail_20161128.CreateCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCertificateRequest(input, context));
@@ -871,7 +871,7 @@ export const serializeAws_json1_1CreateCloudFormationStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateCloudFormationStack",
+    "x-amz-target": "Lightsail_20161128.CreateCloudFormationStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCloudFormationStackRequest(input, context));
@@ -884,7 +884,7 @@ export const serializeAws_json1_1CreateContactMethodCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateContactMethod",
+    "x-amz-target": "Lightsail_20161128.CreateContactMethod",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateContactMethodRequest(input, context));
@@ -897,7 +897,7 @@ export const serializeAws_json1_1CreateContainerServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateContainerService",
+    "x-amz-target": "Lightsail_20161128.CreateContainerService",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateContainerServiceRequest(input, context));
@@ -910,7 +910,7 @@ export const serializeAws_json1_1CreateContainerServiceDeploymentCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateContainerServiceDeployment",
+    "x-amz-target": "Lightsail_20161128.CreateContainerServiceDeployment",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateContainerServiceDeploymentRequest(input, context));
@@ -923,7 +923,7 @@ export const serializeAws_json1_1CreateContainerServiceRegistryLoginCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateContainerServiceRegistryLogin",
+    "x-amz-target": "Lightsail_20161128.CreateContainerServiceRegistryLogin",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateContainerServiceRegistryLoginRequest(input, context));
@@ -936,7 +936,7 @@ export const serializeAws_json1_1CreateDiskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateDisk",
+    "x-amz-target": "Lightsail_20161128.CreateDisk",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDiskRequest(input, context));
@@ -949,7 +949,7 @@ export const serializeAws_json1_1CreateDiskFromSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateDiskFromSnapshot",
+    "x-amz-target": "Lightsail_20161128.CreateDiskFromSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDiskFromSnapshotRequest(input, context));
@@ -962,7 +962,7 @@ export const serializeAws_json1_1CreateDiskSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateDiskSnapshot",
+    "x-amz-target": "Lightsail_20161128.CreateDiskSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDiskSnapshotRequest(input, context));
@@ -975,7 +975,7 @@ export const serializeAws_json1_1CreateDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateDistribution",
+    "x-amz-target": "Lightsail_20161128.CreateDistribution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDistributionRequest(input, context));
@@ -988,7 +988,7 @@ export const serializeAws_json1_1CreateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateDomain",
+    "x-amz-target": "Lightsail_20161128.CreateDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDomainRequest(input, context));
@@ -1001,7 +1001,7 @@ export const serializeAws_json1_1CreateDomainEntryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateDomainEntry",
+    "x-amz-target": "Lightsail_20161128.CreateDomainEntry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDomainEntryRequest(input, context));
@@ -1014,7 +1014,7 @@ export const serializeAws_json1_1CreateInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateInstances",
+    "x-amz-target": "Lightsail_20161128.CreateInstances",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateInstancesRequest(input, context));
@@ -1027,7 +1027,7 @@ export const serializeAws_json1_1CreateInstancesFromSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateInstancesFromSnapshot",
+    "x-amz-target": "Lightsail_20161128.CreateInstancesFromSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateInstancesFromSnapshotRequest(input, context));
@@ -1040,7 +1040,7 @@ export const serializeAws_json1_1CreateInstanceSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateInstanceSnapshot",
+    "x-amz-target": "Lightsail_20161128.CreateInstanceSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateInstanceSnapshotRequest(input, context));
@@ -1053,7 +1053,7 @@ export const serializeAws_json1_1CreateKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateKeyPair",
+    "x-amz-target": "Lightsail_20161128.CreateKeyPair",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateKeyPairRequest(input, context));
@@ -1066,7 +1066,7 @@ export const serializeAws_json1_1CreateLoadBalancerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateLoadBalancer",
+    "x-amz-target": "Lightsail_20161128.CreateLoadBalancer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLoadBalancerRequest(input, context));
@@ -1079,7 +1079,7 @@ export const serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateLoadBalancerTlsCertificate",
+    "x-amz-target": "Lightsail_20161128.CreateLoadBalancerTlsCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLoadBalancerTlsCertificateRequest(input, context));
@@ -1092,7 +1092,7 @@ export const serializeAws_json1_1CreateRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.CreateRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRelationalDatabaseRequest(input, context));
@@ -1105,7 +1105,7 @@ export const serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot",
+    "x-amz-target": "Lightsail_20161128.CreateRelationalDatabaseFromSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRelationalDatabaseFromSnapshotRequest(input, context));
@@ -1118,7 +1118,7 @@ export const serializeAws_json1_1CreateRelationalDatabaseSnapshotCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.CreateRelationalDatabaseSnapshot",
+    "x-amz-target": "Lightsail_20161128.CreateRelationalDatabaseSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRelationalDatabaseSnapshotRequest(input, context));
@@ -1131,7 +1131,7 @@ export const serializeAws_json1_1DeleteAlarmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteAlarm",
+    "x-amz-target": "Lightsail_20161128.DeleteAlarm",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAlarmRequest(input, context));
@@ -1144,7 +1144,7 @@ export const serializeAws_json1_1DeleteAutoSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteAutoSnapshot",
+    "x-amz-target": "Lightsail_20161128.DeleteAutoSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAutoSnapshotRequest(input, context));
@@ -1157,7 +1157,7 @@ export const serializeAws_json1_1DeleteCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteCertificate",
+    "x-amz-target": "Lightsail_20161128.DeleteCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCertificateRequest(input, context));
@@ -1170,7 +1170,7 @@ export const serializeAws_json1_1DeleteContactMethodCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteContactMethod",
+    "x-amz-target": "Lightsail_20161128.DeleteContactMethod",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteContactMethodRequest(input, context));
@@ -1183,7 +1183,7 @@ export const serializeAws_json1_1DeleteContainerImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteContainerImage",
+    "x-amz-target": "Lightsail_20161128.DeleteContainerImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteContainerImageRequest(input, context));
@@ -1196,7 +1196,7 @@ export const serializeAws_json1_1DeleteContainerServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteContainerService",
+    "x-amz-target": "Lightsail_20161128.DeleteContainerService",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteContainerServiceRequest(input, context));
@@ -1209,7 +1209,7 @@ export const serializeAws_json1_1DeleteDiskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteDisk",
+    "x-amz-target": "Lightsail_20161128.DeleteDisk",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDiskRequest(input, context));
@@ -1222,7 +1222,7 @@ export const serializeAws_json1_1DeleteDiskSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteDiskSnapshot",
+    "x-amz-target": "Lightsail_20161128.DeleteDiskSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDiskSnapshotRequest(input, context));
@@ -1235,7 +1235,7 @@ export const serializeAws_json1_1DeleteDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteDistribution",
+    "x-amz-target": "Lightsail_20161128.DeleteDistribution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDistributionRequest(input, context));
@@ -1248,7 +1248,7 @@ export const serializeAws_json1_1DeleteDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteDomain",
+    "x-amz-target": "Lightsail_20161128.DeleteDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDomainRequest(input, context));
@@ -1261,7 +1261,7 @@ export const serializeAws_json1_1DeleteDomainEntryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteDomainEntry",
+    "x-amz-target": "Lightsail_20161128.DeleteDomainEntry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDomainEntryRequest(input, context));
@@ -1274,7 +1274,7 @@ export const serializeAws_json1_1DeleteInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteInstance",
+    "x-amz-target": "Lightsail_20161128.DeleteInstance",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteInstanceRequest(input, context));
@@ -1287,7 +1287,7 @@ export const serializeAws_json1_1DeleteInstanceSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteInstanceSnapshot",
+    "x-amz-target": "Lightsail_20161128.DeleteInstanceSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteInstanceSnapshotRequest(input, context));
@@ -1300,7 +1300,7 @@ export const serializeAws_json1_1DeleteKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteKeyPair",
+    "x-amz-target": "Lightsail_20161128.DeleteKeyPair",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteKeyPairRequest(input, context));
@@ -1313,7 +1313,7 @@ export const serializeAws_json1_1DeleteKnownHostKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteKnownHostKeys",
+    "x-amz-target": "Lightsail_20161128.DeleteKnownHostKeys",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteKnownHostKeysRequest(input, context));
@@ -1326,7 +1326,7 @@ export const serializeAws_json1_1DeleteLoadBalancerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteLoadBalancer",
+    "x-amz-target": "Lightsail_20161128.DeleteLoadBalancer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLoadBalancerRequest(input, context));
@@ -1339,7 +1339,7 @@ export const serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteLoadBalancerTlsCertificate",
+    "x-amz-target": "Lightsail_20161128.DeleteLoadBalancerTlsCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLoadBalancerTlsCertificateRequest(input, context));
@@ -1352,7 +1352,7 @@ export const serializeAws_json1_1DeleteRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.DeleteRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRelationalDatabaseRequest(input, context));
@@ -1365,7 +1365,7 @@ export const serializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DeleteRelationalDatabaseSnapshot",
+    "x-amz-target": "Lightsail_20161128.DeleteRelationalDatabaseSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRelationalDatabaseSnapshotRequest(input, context));
@@ -1378,7 +1378,7 @@ export const serializeAws_json1_1DetachCertificateFromDistributionCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DetachCertificateFromDistribution",
+    "x-amz-target": "Lightsail_20161128.DetachCertificateFromDistribution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachCertificateFromDistributionRequest(input, context));
@@ -1391,7 +1391,7 @@ export const serializeAws_json1_1DetachDiskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DetachDisk",
+    "x-amz-target": "Lightsail_20161128.DetachDisk",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachDiskRequest(input, context));
@@ -1404,7 +1404,7 @@ export const serializeAws_json1_1DetachInstancesFromLoadBalancerCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DetachInstancesFromLoadBalancer",
+    "x-amz-target": "Lightsail_20161128.DetachInstancesFromLoadBalancer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachInstancesFromLoadBalancerRequest(input, context));
@@ -1417,7 +1417,7 @@ export const serializeAws_json1_1DetachStaticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DetachStaticIp",
+    "x-amz-target": "Lightsail_20161128.DetachStaticIp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetachStaticIpRequest(input, context));
@@ -1430,7 +1430,7 @@ export const serializeAws_json1_1DisableAddOnCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DisableAddOn",
+    "x-amz-target": "Lightsail_20161128.DisableAddOn",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableAddOnRequest(input, context));
@@ -1443,7 +1443,7 @@ export const serializeAws_json1_1DownloadDefaultKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.DownloadDefaultKeyPair",
+    "x-amz-target": "Lightsail_20161128.DownloadDefaultKeyPair",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DownloadDefaultKeyPairRequest(input, context));
@@ -1456,7 +1456,7 @@ export const serializeAws_json1_1EnableAddOnCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.EnableAddOn",
+    "x-amz-target": "Lightsail_20161128.EnableAddOn",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableAddOnRequest(input, context));
@@ -1469,7 +1469,7 @@ export const serializeAws_json1_1ExportSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.ExportSnapshot",
+    "x-amz-target": "Lightsail_20161128.ExportSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExportSnapshotRequest(input, context));
@@ -1482,7 +1482,7 @@ export const serializeAws_json1_1GetActiveNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetActiveNames",
+    "x-amz-target": "Lightsail_20161128.GetActiveNames",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetActiveNamesRequest(input, context));
@@ -1495,7 +1495,7 @@ export const serializeAws_json1_1GetAlarmsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetAlarms",
+    "x-amz-target": "Lightsail_20161128.GetAlarms",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAlarmsRequest(input, context));
@@ -1508,7 +1508,7 @@ export const serializeAws_json1_1GetAutoSnapshotsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetAutoSnapshots",
+    "x-amz-target": "Lightsail_20161128.GetAutoSnapshots",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAutoSnapshotsRequest(input, context));
@@ -1521,7 +1521,7 @@ export const serializeAws_json1_1GetBlueprintsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetBlueprints",
+    "x-amz-target": "Lightsail_20161128.GetBlueprints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBlueprintsRequest(input, context));
@@ -1534,7 +1534,7 @@ export const serializeAws_json1_1GetBundlesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetBundles",
+    "x-amz-target": "Lightsail_20161128.GetBundles",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBundlesRequest(input, context));
@@ -1547,7 +1547,7 @@ export const serializeAws_json1_1GetCertificatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetCertificates",
+    "x-amz-target": "Lightsail_20161128.GetCertificates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCertificatesRequest(input, context));
@@ -1560,7 +1560,7 @@ export const serializeAws_json1_1GetCloudFormationStackRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetCloudFormationStackRecords",
+    "x-amz-target": "Lightsail_20161128.GetCloudFormationStackRecords",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCloudFormationStackRecordsRequest(input, context));
@@ -1573,7 +1573,7 @@ export const serializeAws_json1_1GetContactMethodsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContactMethods",
+    "x-amz-target": "Lightsail_20161128.GetContactMethods",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContactMethodsRequest(input, context));
@@ -1586,7 +1586,7 @@ export const serializeAws_json1_1GetContainerAPIMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerAPIMetadata",
+    "x-amz-target": "Lightsail_20161128.GetContainerAPIMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerAPIMetadataRequest(input, context));
@@ -1599,7 +1599,7 @@ export const serializeAws_json1_1GetContainerImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerImages",
+    "x-amz-target": "Lightsail_20161128.GetContainerImages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerImagesRequest(input, context));
@@ -1612,7 +1612,7 @@ export const serializeAws_json1_1GetContainerLogCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerLog",
+    "x-amz-target": "Lightsail_20161128.GetContainerLog",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerLogRequest(input, context));
@@ -1625,7 +1625,7 @@ export const serializeAws_json1_1GetContainerServiceDeploymentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerServiceDeployments",
+    "x-amz-target": "Lightsail_20161128.GetContainerServiceDeployments",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerServiceDeploymentsRequest(input, context));
@@ -1638,7 +1638,7 @@ export const serializeAws_json1_1GetContainerServiceMetricDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerServiceMetricData",
+    "x-amz-target": "Lightsail_20161128.GetContainerServiceMetricData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerServiceMetricDataRequest(input, context));
@@ -1651,7 +1651,7 @@ export const serializeAws_json1_1GetContainerServicePowersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerServicePowers",
+    "x-amz-target": "Lightsail_20161128.GetContainerServicePowers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerServicePowersRequest(input, context));
@@ -1664,7 +1664,7 @@ export const serializeAws_json1_1GetContainerServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetContainerServices",
+    "x-amz-target": "Lightsail_20161128.GetContainerServices",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerServicesRequest(input, context));
@@ -1677,7 +1677,7 @@ export const serializeAws_json1_1GetDiskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDisk",
+    "x-amz-target": "Lightsail_20161128.GetDisk",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDiskRequest(input, context));
@@ -1690,7 +1690,7 @@ export const serializeAws_json1_1GetDisksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDisks",
+    "x-amz-target": "Lightsail_20161128.GetDisks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDisksRequest(input, context));
@@ -1703,7 +1703,7 @@ export const serializeAws_json1_1GetDiskSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDiskSnapshot",
+    "x-amz-target": "Lightsail_20161128.GetDiskSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDiskSnapshotRequest(input, context));
@@ -1716,7 +1716,7 @@ export const serializeAws_json1_1GetDiskSnapshotsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDiskSnapshots",
+    "x-amz-target": "Lightsail_20161128.GetDiskSnapshots",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDiskSnapshotsRequest(input, context));
@@ -1729,7 +1729,7 @@ export const serializeAws_json1_1GetDistributionBundlesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDistributionBundles",
+    "x-amz-target": "Lightsail_20161128.GetDistributionBundles",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDistributionBundlesRequest(input, context));
@@ -1742,7 +1742,7 @@ export const serializeAws_json1_1GetDistributionLatestCacheResetCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDistributionLatestCacheReset",
+    "x-amz-target": "Lightsail_20161128.GetDistributionLatestCacheReset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDistributionLatestCacheResetRequest(input, context));
@@ -1755,7 +1755,7 @@ export const serializeAws_json1_1GetDistributionMetricDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDistributionMetricData",
+    "x-amz-target": "Lightsail_20161128.GetDistributionMetricData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDistributionMetricDataRequest(input, context));
@@ -1768,7 +1768,7 @@ export const serializeAws_json1_1GetDistributionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDistributions",
+    "x-amz-target": "Lightsail_20161128.GetDistributions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDistributionsRequest(input, context));
@@ -1781,7 +1781,7 @@ export const serializeAws_json1_1GetDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDomain",
+    "x-amz-target": "Lightsail_20161128.GetDomain",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDomainRequest(input, context));
@@ -1794,7 +1794,7 @@ export const serializeAws_json1_1GetDomainsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetDomains",
+    "x-amz-target": "Lightsail_20161128.GetDomains",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDomainsRequest(input, context));
@@ -1807,7 +1807,7 @@ export const serializeAws_json1_1GetExportSnapshotRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetExportSnapshotRecords",
+    "x-amz-target": "Lightsail_20161128.GetExportSnapshotRecords",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetExportSnapshotRecordsRequest(input, context));
@@ -1820,7 +1820,7 @@ export const serializeAws_json1_1GetInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstance",
+    "x-amz-target": "Lightsail_20161128.GetInstance",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceRequest(input, context));
@@ -1833,7 +1833,7 @@ export const serializeAws_json1_1GetInstanceAccessDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstanceAccessDetails",
+    "x-amz-target": "Lightsail_20161128.GetInstanceAccessDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceAccessDetailsRequest(input, context));
@@ -1846,7 +1846,7 @@ export const serializeAws_json1_1GetInstanceMetricDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstanceMetricData",
+    "x-amz-target": "Lightsail_20161128.GetInstanceMetricData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceMetricDataRequest(input, context));
@@ -1859,7 +1859,7 @@ export const serializeAws_json1_1GetInstancePortStatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstancePortStates",
+    "x-amz-target": "Lightsail_20161128.GetInstancePortStates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstancePortStatesRequest(input, context));
@@ -1872,7 +1872,7 @@ export const serializeAws_json1_1GetInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstances",
+    "x-amz-target": "Lightsail_20161128.GetInstances",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstancesRequest(input, context));
@@ -1885,7 +1885,7 @@ export const serializeAws_json1_1GetInstanceSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstanceSnapshot",
+    "x-amz-target": "Lightsail_20161128.GetInstanceSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceSnapshotRequest(input, context));
@@ -1898,7 +1898,7 @@ export const serializeAws_json1_1GetInstanceSnapshotsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstanceSnapshots",
+    "x-amz-target": "Lightsail_20161128.GetInstanceSnapshots",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceSnapshotsRequest(input, context));
@@ -1911,7 +1911,7 @@ export const serializeAws_json1_1GetInstanceStateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetInstanceState",
+    "x-amz-target": "Lightsail_20161128.GetInstanceState",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetInstanceStateRequest(input, context));
@@ -1924,7 +1924,7 @@ export const serializeAws_json1_1GetKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetKeyPair",
+    "x-amz-target": "Lightsail_20161128.GetKeyPair",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetKeyPairRequest(input, context));
@@ -1937,7 +1937,7 @@ export const serializeAws_json1_1GetKeyPairsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetKeyPairs",
+    "x-amz-target": "Lightsail_20161128.GetKeyPairs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetKeyPairsRequest(input, context));
@@ -1950,7 +1950,7 @@ export const serializeAws_json1_1GetLoadBalancerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetLoadBalancer",
+    "x-amz-target": "Lightsail_20161128.GetLoadBalancer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLoadBalancerRequest(input, context));
@@ -1963,7 +1963,7 @@ export const serializeAws_json1_1GetLoadBalancerMetricDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetLoadBalancerMetricData",
+    "x-amz-target": "Lightsail_20161128.GetLoadBalancerMetricData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLoadBalancerMetricDataRequest(input, context));
@@ -1976,7 +1976,7 @@ export const serializeAws_json1_1GetLoadBalancersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetLoadBalancers",
+    "x-amz-target": "Lightsail_20161128.GetLoadBalancers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLoadBalancersRequest(input, context));
@@ -1989,7 +1989,7 @@ export const serializeAws_json1_1GetLoadBalancerTlsCertificatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetLoadBalancerTlsCertificates",
+    "x-amz-target": "Lightsail_20161128.GetLoadBalancerTlsCertificates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLoadBalancerTlsCertificatesRequest(input, context));
@@ -2002,7 +2002,7 @@ export const serializeAws_json1_1GetOperationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetOperation",
+    "x-amz-target": "Lightsail_20161128.GetOperation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOperationRequest(input, context));
@@ -2015,7 +2015,7 @@ export const serializeAws_json1_1GetOperationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetOperations",
+    "x-amz-target": "Lightsail_20161128.GetOperations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOperationsRequest(input, context));
@@ -2028,7 +2028,7 @@ export const serializeAws_json1_1GetOperationsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetOperationsForResource",
+    "x-amz-target": "Lightsail_20161128.GetOperationsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOperationsForResourceRequest(input, context));
@@ -2041,7 +2041,7 @@ export const serializeAws_json1_1GetRegionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRegions",
+    "x-amz-target": "Lightsail_20161128.GetRegions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRegionsRequest(input, context));
@@ -2054,7 +2054,7 @@ export const serializeAws_json1_1GetRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseRequest(input, context));
@@ -2067,7 +2067,7 @@ export const serializeAws_json1_1GetRelationalDatabaseBlueprintsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseBlueprints",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseBlueprints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseBlueprintsRequest(input, context));
@@ -2080,7 +2080,7 @@ export const serializeAws_json1_1GetRelationalDatabaseBundlesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseBundles",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseBundles",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseBundlesRequest(input, context));
@@ -2093,7 +2093,7 @@ export const serializeAws_json1_1GetRelationalDatabaseEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseEvents",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseEventsRequest(input, context));
@@ -2106,7 +2106,7 @@ export const serializeAws_json1_1GetRelationalDatabaseLogEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseLogEvents",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseLogEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseLogEventsRequest(input, context));
@@ -2119,7 +2119,7 @@ export const serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseLogStreams",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseLogStreams",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseLogStreamsRequest(input, context));
@@ -2132,7 +2132,7 @@ export const serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordRequest(input, context));
@@ -2145,7 +2145,7 @@ export const serializeAws_json1_1GetRelationalDatabaseMetricDataCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseMetricData",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseMetricData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseMetricDataRequest(input, context));
@@ -2158,7 +2158,7 @@ export const serializeAws_json1_1GetRelationalDatabaseParametersCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseParameters",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseParameters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseParametersRequest(input, context));
@@ -2171,7 +2171,7 @@ export const serializeAws_json1_1GetRelationalDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabases",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabasesRequest(input, context));
@@ -2184,7 +2184,7 @@ export const serializeAws_json1_1GetRelationalDatabaseSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseSnapshot",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseSnapshot",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseSnapshotRequest(input, context));
@@ -2197,7 +2197,7 @@ export const serializeAws_json1_1GetRelationalDatabaseSnapshotsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetRelationalDatabaseSnapshots",
+    "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseSnapshots",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRelationalDatabaseSnapshotsRequest(input, context));
@@ -2210,7 +2210,7 @@ export const serializeAws_json1_1GetStaticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetStaticIp",
+    "x-amz-target": "Lightsail_20161128.GetStaticIp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetStaticIpRequest(input, context));
@@ -2223,7 +2223,7 @@ export const serializeAws_json1_1GetStaticIpsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.GetStaticIps",
+    "x-amz-target": "Lightsail_20161128.GetStaticIps",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetStaticIpsRequest(input, context));
@@ -2236,7 +2236,7 @@ export const serializeAws_json1_1ImportKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.ImportKeyPair",
+    "x-amz-target": "Lightsail_20161128.ImportKeyPair",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportKeyPairRequest(input, context));
@@ -2249,7 +2249,7 @@ export const serializeAws_json1_1IsVpcPeeredCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.IsVpcPeered",
+    "x-amz-target": "Lightsail_20161128.IsVpcPeered",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1IsVpcPeeredRequest(input, context));
@@ -2262,7 +2262,7 @@ export const serializeAws_json1_1OpenInstancePublicPortsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.OpenInstancePublicPorts",
+    "x-amz-target": "Lightsail_20161128.OpenInstancePublicPorts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1OpenInstancePublicPortsRequest(input, context));
@@ -2275,7 +2275,7 @@ export const serializeAws_json1_1PeerVpcCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.PeerVpc",
+    "x-amz-target": "Lightsail_20161128.PeerVpc",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PeerVpcRequest(input, context));
@@ -2288,7 +2288,7 @@ export const serializeAws_json1_1PutAlarmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.PutAlarm",
+    "x-amz-target": "Lightsail_20161128.PutAlarm",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAlarmRequest(input, context));
@@ -2301,7 +2301,7 @@ export const serializeAws_json1_1PutInstancePublicPortsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.PutInstancePublicPorts",
+    "x-amz-target": "Lightsail_20161128.PutInstancePublicPorts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutInstancePublicPortsRequest(input, context));
@@ -2314,7 +2314,7 @@ export const serializeAws_json1_1RebootInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.RebootInstance",
+    "x-amz-target": "Lightsail_20161128.RebootInstance",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RebootInstanceRequest(input, context));
@@ -2327,7 +2327,7 @@ export const serializeAws_json1_1RebootRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.RebootRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.RebootRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RebootRelationalDatabaseRequest(input, context));
@@ -2340,7 +2340,7 @@ export const serializeAws_json1_1RegisterContainerImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.RegisterContainerImage",
+    "x-amz-target": "Lightsail_20161128.RegisterContainerImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterContainerImageRequest(input, context));
@@ -2353,7 +2353,7 @@ export const serializeAws_json1_1ReleaseStaticIpCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.ReleaseStaticIp",
+    "x-amz-target": "Lightsail_20161128.ReleaseStaticIp",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ReleaseStaticIpRequest(input, context));
@@ -2366,7 +2366,7 @@ export const serializeAws_json1_1ResetDistributionCacheCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.ResetDistributionCache",
+    "x-amz-target": "Lightsail_20161128.ResetDistributionCache",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResetDistributionCacheRequest(input, context));
@@ -2379,7 +2379,7 @@ export const serializeAws_json1_1SendContactMethodVerificationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.SendContactMethodVerification",
+    "x-amz-target": "Lightsail_20161128.SendContactMethodVerification",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SendContactMethodVerificationRequest(input, context));
@@ -2392,7 +2392,7 @@ export const serializeAws_json1_1StartInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.StartInstance",
+    "x-amz-target": "Lightsail_20161128.StartInstance",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartInstanceRequest(input, context));
@@ -2405,7 +2405,7 @@ export const serializeAws_json1_1StartRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.StartRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.StartRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartRelationalDatabaseRequest(input, context));
@@ -2418,7 +2418,7 @@ export const serializeAws_json1_1StopInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.StopInstance",
+    "x-amz-target": "Lightsail_20161128.StopInstance",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopInstanceRequest(input, context));
@@ -2431,7 +2431,7 @@ export const serializeAws_json1_1StopRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.StopRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.StopRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopRelationalDatabaseRequest(input, context));
@@ -2444,7 +2444,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.TagResource",
+    "x-amz-target": "Lightsail_20161128.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -2457,7 +2457,7 @@ export const serializeAws_json1_1TestAlarmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.TestAlarm",
+    "x-amz-target": "Lightsail_20161128.TestAlarm",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TestAlarmRequest(input, context));
@@ -2470,7 +2470,7 @@ export const serializeAws_json1_1UnpeerVpcCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UnpeerVpc",
+    "x-amz-target": "Lightsail_20161128.UnpeerVpc",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UnpeerVpcRequest(input, context));
@@ -2483,7 +2483,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UntagResource",
+    "x-amz-target": "Lightsail_20161128.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -2496,7 +2496,7 @@ export const serializeAws_json1_1UpdateContainerServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateContainerService",
+    "x-amz-target": "Lightsail_20161128.UpdateContainerService",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateContainerServiceRequest(input, context));
@@ -2509,7 +2509,7 @@ export const serializeAws_json1_1UpdateDistributionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateDistribution",
+    "x-amz-target": "Lightsail_20161128.UpdateDistribution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDistributionRequest(input, context));
@@ -2522,7 +2522,7 @@ export const serializeAws_json1_1UpdateDistributionBundleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateDistributionBundle",
+    "x-amz-target": "Lightsail_20161128.UpdateDistributionBundle",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDistributionBundleRequest(input, context));
@@ -2535,7 +2535,7 @@ export const serializeAws_json1_1UpdateDomainEntryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateDomainEntry",
+    "x-amz-target": "Lightsail_20161128.UpdateDomainEntry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDomainEntryRequest(input, context));
@@ -2548,7 +2548,7 @@ export const serializeAws_json1_1UpdateLoadBalancerAttributeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateLoadBalancerAttribute",
+    "x-amz-target": "Lightsail_20161128.UpdateLoadBalancerAttribute",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLoadBalancerAttributeRequest(input, context));
@@ -2561,7 +2561,7 @@ export const serializeAws_json1_1UpdateRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateRelationalDatabase",
+    "x-amz-target": "Lightsail_20161128.UpdateRelationalDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRelationalDatabaseRequest(input, context));
@@ -2574,7 +2574,7 @@ export const serializeAws_json1_1UpdateRelationalDatabaseParametersCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Lightsail_20161128.UpdateRelationalDatabaseParameters",
+    "x-amz-target": "Lightsail_20161128.UpdateRelationalDatabaseParameters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRelationalDatabaseParametersRequest(input, context));

@@ -61,7 +61,7 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets";
   if (input.ProjectName !== undefined) {
@@ -99,7 +99,7 @@ export const serializeAws_restJson1CreateModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/models";
   if (input.ProjectName !== undefined) {
@@ -139,7 +139,7 @@ export const serializeAws_restJson1CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects";
   let body: any;
@@ -163,7 +163,7 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}";
   if (input.ProjectName !== undefined) {
@@ -202,7 +202,7 @@ export const serializeAws_restJson1DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}";
   if (input.ProjectName !== undefined) {
@@ -241,7 +241,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}";
   if (input.ProjectName !== undefined) {
@@ -525,7 +525,7 @@ export const serializeAws_restJson1StartModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/start";
   if (input.ProjectName !== undefined) {
@@ -568,7 +568,7 @@ export const serializeAws_restJson1StopModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/stop";
   if (input.ProjectName !== undefined) {
@@ -608,7 +608,7 @@ export const serializeAws_restJson1UpdateDatasetEntriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientToken) && { "X-Amzn-Client-Token": input.ClientToken! }),
+    ...(isSerializableHeaderValue(input.ClientToken) && { "x-amzn-client-token": input.ClientToken! }),
   };
   let resolvedPath = "/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries";
   if (input.ProjectName !== undefined) {

@@ -100,7 +100,7 @@ export const serializeAws_json1_1CreateContainerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.CreateContainer",
+    "x-amz-target": "MediaStore_20170901.CreateContainer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateContainerInput(input, context));
@@ -113,7 +113,7 @@ export const serializeAws_json1_1DeleteContainerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.DeleteContainer",
+    "x-amz-target": "MediaStore_20170901.DeleteContainer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteContainerInput(input, context));
@@ -126,7 +126,7 @@ export const serializeAws_json1_1DeleteContainerPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.DeleteContainerPolicy",
+    "x-amz-target": "MediaStore_20170901.DeleteContainerPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteContainerPolicyInput(input, context));
@@ -139,7 +139,7 @@ export const serializeAws_json1_1DeleteCorsPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.DeleteCorsPolicy",
+    "x-amz-target": "MediaStore_20170901.DeleteCorsPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCorsPolicyInput(input, context));
@@ -152,7 +152,7 @@ export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.DeleteLifecyclePolicy",
+    "x-amz-target": "MediaStore_20170901.DeleteLifecyclePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLifecyclePolicyInput(input, context));
@@ -165,7 +165,7 @@ export const serializeAws_json1_1DeleteMetricPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.DeleteMetricPolicy",
+    "x-amz-target": "MediaStore_20170901.DeleteMetricPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMetricPolicyInput(input, context));
@@ -178,7 +178,7 @@ export const serializeAws_json1_1DescribeContainerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.DescribeContainer",
+    "x-amz-target": "MediaStore_20170901.DescribeContainer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeContainerInput(input, context));
@@ -191,7 +191,7 @@ export const serializeAws_json1_1GetContainerPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.GetContainerPolicy",
+    "x-amz-target": "MediaStore_20170901.GetContainerPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetContainerPolicyInput(input, context));
@@ -204,7 +204,7 @@ export const serializeAws_json1_1GetCorsPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.GetCorsPolicy",
+    "x-amz-target": "MediaStore_20170901.GetCorsPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCorsPolicyInput(input, context));
@@ -217,7 +217,7 @@ export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.GetLifecyclePolicy",
+    "x-amz-target": "MediaStore_20170901.GetLifecyclePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyInput(input, context));
@@ -230,7 +230,7 @@ export const serializeAws_json1_1GetMetricPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.GetMetricPolicy",
+    "x-amz-target": "MediaStore_20170901.GetMetricPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMetricPolicyInput(input, context));
@@ -243,7 +243,7 @@ export const serializeAws_json1_1ListContainersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.ListContainers",
+    "x-amz-target": "MediaStore_20170901.ListContainers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListContainersInput(input, context));
@@ -256,7 +256,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.ListTagsForResource",
+    "x-amz-target": "MediaStore_20170901.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceInput(input, context));
@@ -269,7 +269,7 @@ export const serializeAws_json1_1PutContainerPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.PutContainerPolicy",
+    "x-amz-target": "MediaStore_20170901.PutContainerPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutContainerPolicyInput(input, context));
@@ -282,7 +282,7 @@ export const serializeAws_json1_1PutCorsPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.PutCorsPolicy",
+    "x-amz-target": "MediaStore_20170901.PutCorsPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutCorsPolicyInput(input, context));
@@ -295,7 +295,7 @@ export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.PutLifecyclePolicy",
+    "x-amz-target": "MediaStore_20170901.PutLifecyclePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutLifecyclePolicyInput(input, context));
@@ -308,7 +308,7 @@ export const serializeAws_json1_1PutMetricPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.PutMetricPolicy",
+    "x-amz-target": "MediaStore_20170901.PutMetricPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutMetricPolicyInput(input, context));
@@ -321,7 +321,7 @@ export const serializeAws_json1_1StartAccessLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.StartAccessLogging",
+    "x-amz-target": "MediaStore_20170901.StartAccessLogging",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartAccessLoggingInput(input, context));
@@ -334,7 +334,7 @@ export const serializeAws_json1_1StopAccessLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.StopAccessLogging",
+    "x-amz-target": "MediaStore_20170901.StopAccessLogging",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopAccessLoggingInput(input, context));
@@ -347,7 +347,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.TagResource",
+    "x-amz-target": "MediaStore_20170901.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceInput(input, context));
@@ -360,7 +360,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MediaStore_20170901.UntagResource",
+    "x-amz-target": "MediaStore_20170901.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceInput(input, context));

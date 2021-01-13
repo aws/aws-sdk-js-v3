@@ -26,7 +26,7 @@ export const serializeAws_json1_1GenerateDataSetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet",
+    "x-amz-target": "MarketplaceCommerceAnalytics20150701.GenerateDataSet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GenerateDataSetRequest(input, context));
@@ -39,7 +39,7 @@ export const serializeAws_json1_1StartSupportDataExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport",
+    "x-amz-target": "MarketplaceCommerceAnalytics20150701.StartSupportDataExport",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartSupportDataExportRequest(input, context));

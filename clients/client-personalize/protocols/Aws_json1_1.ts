@@ -227,7 +227,7 @@ export const serializeAws_json1_1CreateBatchInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateBatchInferenceJob",
+    "x-amz-target": "AmazonPersonalize.CreateBatchInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBatchInferenceJobRequest(input, context));
@@ -240,7 +240,7 @@ export const serializeAws_json1_1CreateCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateCampaign",
+    "x-amz-target": "AmazonPersonalize.CreateCampaign",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCampaignRequest(input, context));
@@ -253,7 +253,7 @@ export const serializeAws_json1_1CreateDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateDataset",
+    "x-amz-target": "AmazonPersonalize.CreateDataset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetRequest(input, context));
@@ -266,7 +266,7 @@ export const serializeAws_json1_1CreateDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateDatasetGroup",
+    "x-amz-target": "AmazonPersonalize.CreateDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetGroupRequest(input, context));
@@ -279,7 +279,7 @@ export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateDatasetImportJob",
+    "x-amz-target": "AmazonPersonalize.CreateDatasetImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetImportJobRequest(input, context));
@@ -292,7 +292,7 @@ export const serializeAws_json1_1CreateEventTrackerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateEventTracker",
+    "x-amz-target": "AmazonPersonalize.CreateEventTracker",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEventTrackerRequest(input, context));
@@ -305,7 +305,7 @@ export const serializeAws_json1_1CreateFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateFilter",
+    "x-amz-target": "AmazonPersonalize.CreateFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFilterRequest(input, context));
@@ -318,7 +318,7 @@ export const serializeAws_json1_1CreateSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateSchema",
+    "x-amz-target": "AmazonPersonalize.CreateSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSchemaRequest(input, context));
@@ -331,7 +331,7 @@ export const serializeAws_json1_1CreateSolutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateSolution",
+    "x-amz-target": "AmazonPersonalize.CreateSolution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSolutionRequest(input, context));
@@ -344,7 +344,7 @@ export const serializeAws_json1_1CreateSolutionVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.CreateSolutionVersion",
+    "x-amz-target": "AmazonPersonalize.CreateSolutionVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSolutionVersionRequest(input, context));
@@ -357,7 +357,7 @@ export const serializeAws_json1_1DeleteCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteCampaign",
+    "x-amz-target": "AmazonPersonalize.DeleteCampaign",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCampaignRequest(input, context));
@@ -370,7 +370,7 @@ export const serializeAws_json1_1DeleteDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteDataset",
+    "x-amz-target": "AmazonPersonalize.DeleteDataset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDatasetRequest(input, context));
@@ -383,7 +383,7 @@ export const serializeAws_json1_1DeleteDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteDatasetGroup",
+    "x-amz-target": "AmazonPersonalize.DeleteDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDatasetGroupRequest(input, context));
@@ -396,7 +396,7 @@ export const serializeAws_json1_1DeleteEventTrackerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteEventTracker",
+    "x-amz-target": "AmazonPersonalize.DeleteEventTracker",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventTrackerRequest(input, context));
@@ -409,7 +409,7 @@ export const serializeAws_json1_1DeleteFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteFilter",
+    "x-amz-target": "AmazonPersonalize.DeleteFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFilterRequest(input, context));
@@ -422,7 +422,7 @@ export const serializeAws_json1_1DeleteSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteSchema",
+    "x-amz-target": "AmazonPersonalize.DeleteSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSchemaRequest(input, context));
@@ -435,7 +435,7 @@ export const serializeAws_json1_1DeleteSolutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DeleteSolution",
+    "x-amz-target": "AmazonPersonalize.DeleteSolution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSolutionRequest(input, context));
@@ -448,7 +448,7 @@ export const serializeAws_json1_1DescribeAlgorithmCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeAlgorithm",
+    "x-amz-target": "AmazonPersonalize.DescribeAlgorithm",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAlgorithmRequest(input, context));
@@ -461,7 +461,7 @@ export const serializeAws_json1_1DescribeBatchInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeBatchInferenceJob",
+    "x-amz-target": "AmazonPersonalize.DescribeBatchInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBatchInferenceJobRequest(input, context));
@@ -474,7 +474,7 @@ export const serializeAws_json1_1DescribeCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeCampaign",
+    "x-amz-target": "AmazonPersonalize.DescribeCampaign",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCampaignRequest(input, context));
@@ -487,7 +487,7 @@ export const serializeAws_json1_1DescribeDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeDataset",
+    "x-amz-target": "AmazonPersonalize.DescribeDataset",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetRequest(input, context));
@@ -500,7 +500,7 @@ export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeDatasetGroup",
+    "x-amz-target": "AmazonPersonalize.DescribeDatasetGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetGroupRequest(input, context));
@@ -513,7 +513,7 @@ export const serializeAws_json1_1DescribeDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeDatasetImportJob",
+    "x-amz-target": "AmazonPersonalize.DescribeDatasetImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDatasetImportJobRequest(input, context));
@@ -526,7 +526,7 @@ export const serializeAws_json1_1DescribeEventTrackerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeEventTracker",
+    "x-amz-target": "AmazonPersonalize.DescribeEventTracker",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventTrackerRequest(input, context));
@@ -539,7 +539,7 @@ export const serializeAws_json1_1DescribeFeatureTransformationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeFeatureTransformation",
+    "x-amz-target": "AmazonPersonalize.DescribeFeatureTransformation",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFeatureTransformationRequest(input, context));
@@ -552,7 +552,7 @@ export const serializeAws_json1_1DescribeFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeFilter",
+    "x-amz-target": "AmazonPersonalize.DescribeFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFilterRequest(input, context));
@@ -565,7 +565,7 @@ export const serializeAws_json1_1DescribeRecipeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeRecipe",
+    "x-amz-target": "AmazonPersonalize.DescribeRecipe",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRecipeRequest(input, context));
@@ -578,7 +578,7 @@ export const serializeAws_json1_1DescribeSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeSchema",
+    "x-amz-target": "AmazonPersonalize.DescribeSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSchemaRequest(input, context));
@@ -591,7 +591,7 @@ export const serializeAws_json1_1DescribeSolutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeSolution",
+    "x-amz-target": "AmazonPersonalize.DescribeSolution",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSolutionRequest(input, context));
@@ -604,7 +604,7 @@ export const serializeAws_json1_1DescribeSolutionVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.DescribeSolutionVersion",
+    "x-amz-target": "AmazonPersonalize.DescribeSolutionVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSolutionVersionRequest(input, context));
@@ -617,7 +617,7 @@ export const serializeAws_json1_1GetSolutionMetricsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.GetSolutionMetrics",
+    "x-amz-target": "AmazonPersonalize.GetSolutionMetrics",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSolutionMetricsRequest(input, context));
@@ -630,7 +630,7 @@ export const serializeAws_json1_1ListBatchInferenceJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListBatchInferenceJobs",
+    "x-amz-target": "AmazonPersonalize.ListBatchInferenceJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBatchInferenceJobsRequest(input, context));
@@ -643,7 +643,7 @@ export const serializeAws_json1_1ListCampaignsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListCampaigns",
+    "x-amz-target": "AmazonPersonalize.ListCampaigns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCampaignsRequest(input, context));
@@ -656,7 +656,7 @@ export const serializeAws_json1_1ListDatasetGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListDatasetGroups",
+    "x-amz-target": "AmazonPersonalize.ListDatasetGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetGroupsRequest(input, context));
@@ -669,7 +669,7 @@ export const serializeAws_json1_1ListDatasetImportJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListDatasetImportJobs",
+    "x-amz-target": "AmazonPersonalize.ListDatasetImportJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetImportJobsRequest(input, context));
@@ -682,7 +682,7 @@ export const serializeAws_json1_1ListDatasetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListDatasets",
+    "x-amz-target": "AmazonPersonalize.ListDatasets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDatasetsRequest(input, context));
@@ -695,7 +695,7 @@ export const serializeAws_json1_1ListEventTrackersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListEventTrackers",
+    "x-amz-target": "AmazonPersonalize.ListEventTrackers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventTrackersRequest(input, context));
@@ -708,7 +708,7 @@ export const serializeAws_json1_1ListFiltersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListFilters",
+    "x-amz-target": "AmazonPersonalize.ListFilters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFiltersRequest(input, context));
@@ -721,7 +721,7 @@ export const serializeAws_json1_1ListRecipesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListRecipes",
+    "x-amz-target": "AmazonPersonalize.ListRecipes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRecipesRequest(input, context));
@@ -734,7 +734,7 @@ export const serializeAws_json1_1ListSchemasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListSchemas",
+    "x-amz-target": "AmazonPersonalize.ListSchemas",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSchemasRequest(input, context));
@@ -747,7 +747,7 @@ export const serializeAws_json1_1ListSolutionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListSolutions",
+    "x-amz-target": "AmazonPersonalize.ListSolutions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSolutionsRequest(input, context));
@@ -760,7 +760,7 @@ export const serializeAws_json1_1ListSolutionVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.ListSolutionVersions",
+    "x-amz-target": "AmazonPersonalize.ListSolutionVersions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSolutionVersionsRequest(input, context));
@@ -773,7 +773,7 @@ export const serializeAws_json1_1UpdateCampaignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonPersonalize.UpdateCampaign",
+    "x-amz-target": "AmazonPersonalize.UpdateCampaign",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCampaignRequest(input, context));

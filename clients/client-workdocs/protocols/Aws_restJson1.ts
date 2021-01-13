@@ -155,7 +155,7 @@ export const serializeAws_restJson1AbortDocumentVersionUploadCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
   if (input.DocumentId !== undefined) {
@@ -194,7 +194,7 @@ export const serializeAws_restJson1ActivateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}/activation";
   if (input.UserId !== undefined) {
@@ -225,7 +225,7 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
   if (input.ResourceId !== undefined) {
@@ -264,7 +264,7 @@ export const serializeAws_restJson1CreateCommentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
   if (input.DocumentId !== undefined) {
@@ -312,7 +312,7 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/customMetadata";
   if (input.ResourceId !== undefined) {
@@ -353,7 +353,7 @@ export const serializeAws_restJson1CreateFolderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders";
   let body: any;
@@ -380,7 +380,7 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/labels";
   if (input.ResourceId !== undefined) {
@@ -451,7 +451,7 @@ export const serializeAws_restJson1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users";
   let body: any;
@@ -484,7 +484,7 @@ export const serializeAws_restJson1DeactivateUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}/activation";
   if (input.UserId !== undefined) {
@@ -514,7 +514,7 @@ export const serializeAws_restJson1DeleteCommentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
   if (input.DocumentId !== undefined) {
@@ -562,7 +562,7 @@ export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/customMetadata";
   if (input.ResourceId !== undefined) {
@@ -598,7 +598,7 @@ export const serializeAws_restJson1DeleteDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}";
   if (input.DocumentId !== undefined) {
@@ -628,7 +628,7 @@ export const serializeAws_restJson1DeleteFolderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}";
   if (input.FolderId !== undefined) {
@@ -658,7 +658,7 @@ export const serializeAws_restJson1DeleteFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}/contents";
   if (input.FolderId !== undefined) {
@@ -688,7 +688,7 @@ export const serializeAws_restJson1DeleteLabelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/labels";
   if (input.ResourceId !== undefined) {
@@ -760,7 +760,7 @@ export const serializeAws_restJson1DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}";
   if (input.UserId !== undefined) {
@@ -790,7 +790,7 @@ export const serializeAws_restJson1DescribeActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/activities";
   const query: any = {
@@ -825,7 +825,7 @@ export const serializeAws_restJson1DescribeCommentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
   if (input.DocumentId !== undefined) {
@@ -869,7 +869,7 @@ export const serializeAws_restJson1DescribeDocumentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions";
   if (input.DocumentId !== undefined) {
@@ -906,7 +906,7 @@ export const serializeAws_restJson1DescribeFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}/contents";
   if (input.FolderId !== undefined) {
@@ -945,7 +945,7 @@ export const serializeAws_restJson1DescribeGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/groups";
   const query: any = {
@@ -1006,7 +1006,7 @@ export const serializeAws_restJson1DescribeResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
   if (input.ResourceId !== undefined) {
@@ -1042,7 +1042,7 @@ export const serializeAws_restJson1DescribeRootFoldersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/me/root";
   const query: any = {
@@ -1068,7 +1068,7 @@ export const serializeAws_restJson1DescribeUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users";
   const query: any = {
@@ -1101,7 +1101,7 @@ export const serializeAws_restJson1GetCurrentUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/me";
   let body: any;
@@ -1122,7 +1122,7 @@ export const serializeAws_restJson1GetDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}";
   if (input.DocumentId !== undefined) {
@@ -1156,7 +1156,7 @@ export const serializeAws_restJson1GetDocumentPathCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/path";
   if (input.DocumentId !== undefined) {
@@ -1192,7 +1192,7 @@ export const serializeAws_restJson1GetDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
   if (input.DocumentId !== undefined) {
@@ -1236,7 +1236,7 @@ export const serializeAws_restJson1GetFolderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}";
   if (input.FolderId !== undefined) {
@@ -1270,7 +1270,7 @@ export const serializeAws_restJson1GetFolderPathCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}/path";
   if (input.FolderId !== undefined) {
@@ -1306,7 +1306,7 @@ export const serializeAws_restJson1GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources";
   const query: any = {
@@ -1335,7 +1335,7 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents";
   let body: any;
@@ -1373,7 +1373,7 @@ export const serializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions";
   if (input.ResourceId !== undefined) {
@@ -1403,7 +1403,7 @@ export const serializeAws_restJson1RemoveResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/resources/{ResourceId}/permissions/{PrincipalId}";
   if (input.ResourceId !== undefined) {
@@ -1447,7 +1447,7 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}";
   if (input.DocumentId !== undefined) {
@@ -1484,7 +1484,7 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}";
   if (input.DocumentId !== undefined) {
@@ -1527,7 +1527,7 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/folders/{FolderId}";
   if (input.FolderId !== undefined) {
@@ -1564,7 +1564,7 @@ export const serializeAws_restJson1UpdateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.AuthenticationToken) && { Authentication: input.AuthenticationToken! }),
+    ...(isSerializableHeaderValue(input.AuthenticationToken) && { authentication: input.AuthenticationToken! }),
   };
   let resolvedPath = "/api/v1/users/{UserId}";
   if (input.UserId !== undefined) {

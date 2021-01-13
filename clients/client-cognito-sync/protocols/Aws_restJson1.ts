@@ -692,7 +692,7 @@ export const serializeAws_restJson1UpdateRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-Client-Context": input.ClientContext! }),
+    ...(isSerializableHeaderValue(input.ClientContext) && { "x-amz-client-context": input.ClientContext! }),
   };
   let resolvedPath = "/identitypools/{IdentityPoolId}/identities/{IdentityId}/datasets/{DatasetName}";
   if (input.IdentityPoolId !== undefined) {

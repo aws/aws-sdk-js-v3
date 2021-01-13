@@ -249,7 +249,7 @@ export const serializeAws_json1_1BatchCreateVariableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.BatchCreateVariable",
+    "x-amz-target": "AWSHawksNestServiceFacade.BatchCreateVariable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchCreateVariableRequest(input, context));
@@ -262,7 +262,7 @@ export const serializeAws_json1_1BatchGetVariableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.BatchGetVariable",
+    "x-amz-target": "AWSHawksNestServiceFacade.BatchGetVariable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetVariableRequest(input, context));
@@ -275,7 +275,7 @@ export const serializeAws_json1_1CreateDetectorVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.CreateDetectorVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateDetectorVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDetectorVersionRequest(input, context));
@@ -288,7 +288,7 @@ export const serializeAws_json1_1CreateModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.CreateModel",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateModelRequest(input, context));
@@ -301,7 +301,7 @@ export const serializeAws_json1_1CreateModelVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.CreateModelVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateModelVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateModelVersionRequest(input, context));
@@ -314,7 +314,7 @@ export const serializeAws_json1_1CreateRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.CreateRule",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRuleRequest(input, context));
@@ -327,7 +327,7 @@ export const serializeAws_json1_1CreateVariableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.CreateVariable",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateVariable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVariableRequest(input, context));
@@ -340,7 +340,7 @@ export const serializeAws_json1_1DeleteDetectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteDetector",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteDetector",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDetectorRequest(input, context));
@@ -353,7 +353,7 @@ export const serializeAws_json1_1DeleteDetectorVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteDetectorVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteDetectorVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDetectorVersionRequest(input, context));
@@ -366,7 +366,7 @@ export const serializeAws_json1_1DeleteEntityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEntityType",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEntityType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEntityTypeRequest(input, context));
@@ -379,7 +379,7 @@ export const serializeAws_json1_1DeleteEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEvent",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEvent",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventRequest(input, context));
@@ -392,7 +392,7 @@ export const serializeAws_json1_1DeleteEventTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEventType",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEventType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventTypeRequest(input, context));
@@ -405,7 +405,7 @@ export const serializeAws_json1_1DeleteExternalModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteExternalModel",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteExternalModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteExternalModelRequest(input, context));
@@ -418,7 +418,7 @@ export const serializeAws_json1_1DeleteLabelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteLabel",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteLabel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLabelRequest(input, context));
@@ -431,7 +431,7 @@ export const serializeAws_json1_1DeleteModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteModel",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteModelRequest(input, context));
@@ -444,7 +444,7 @@ export const serializeAws_json1_1DeleteModelVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteModelVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteModelVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteModelVersionRequest(input, context));
@@ -457,7 +457,7 @@ export const serializeAws_json1_1DeleteOutcomeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteOutcome",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteOutcome",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteOutcomeRequest(input, context));
@@ -470,7 +470,7 @@ export const serializeAws_json1_1DeleteRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteRule",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteRule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRuleRequest(input, context));
@@ -483,7 +483,7 @@ export const serializeAws_json1_1DeleteVariableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteVariable",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteVariable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteVariableRequest(input, context));
@@ -496,7 +496,7 @@ export const serializeAws_json1_1DescribeDetectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DescribeDetector",
+    "x-amz-target": "AWSHawksNestServiceFacade.DescribeDetector",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDetectorRequest(input, context));
@@ -509,7 +509,7 @@ export const serializeAws_json1_1DescribeModelVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.DescribeModelVersions",
+    "x-amz-target": "AWSHawksNestServiceFacade.DescribeModelVersions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeModelVersionsRequest(input, context));
@@ -522,7 +522,7 @@ export const serializeAws_json1_1GetDetectorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectors",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetDetectors",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDetectorsRequest(input, context));
@@ -535,7 +535,7 @@ export const serializeAws_json1_1GetDetectorVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetDetectorVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetDetectorVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDetectorVersionRequest(input, context));
@@ -548,7 +548,7 @@ export const serializeAws_json1_1GetEntityTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetEntityTypes",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetEntityTypes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEntityTypesRequest(input, context));
@@ -561,7 +561,7 @@ export const serializeAws_json1_1GetEventPredictionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetEventPrediction",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetEventPrediction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEventPredictionRequest(input, context));
@@ -574,7 +574,7 @@ export const serializeAws_json1_1GetEventTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetEventTypes",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetEventTypes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEventTypesRequest(input, context));
@@ -587,7 +587,7 @@ export const serializeAws_json1_1GetExternalModelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetExternalModels",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetExternalModels",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetExternalModelsRequest(input, context));
@@ -600,7 +600,7 @@ export const serializeAws_json1_1GetKMSEncryptionKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetKMSEncryptionKey",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetKMSEncryptionKey",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -611,7 +611,7 @@ export const serializeAws_json1_1GetLabelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetLabels",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetLabels",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLabelsRequest(input, context));
@@ -624,7 +624,7 @@ export const serializeAws_json1_1GetModelsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetModels",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetModels",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetModelsRequest(input, context));
@@ -637,7 +637,7 @@ export const serializeAws_json1_1GetModelVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetModelVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetModelVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetModelVersionRequest(input, context));
@@ -650,7 +650,7 @@ export const serializeAws_json1_1GetOutcomesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetOutcomes",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetOutcomes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetOutcomesRequest(input, context));
@@ -663,7 +663,7 @@ export const serializeAws_json1_1GetRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetRules",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetRules",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRulesRequest(input, context));
@@ -676,7 +676,7 @@ export const serializeAws_json1_1GetVariablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.GetVariables",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetVariables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetVariablesRequest(input, context));
@@ -689,7 +689,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.ListTagsForResource",
+    "x-amz-target": "AWSHawksNestServiceFacade.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -702,7 +702,7 @@ export const serializeAws_json1_1PutDetectorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutDetector",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutDetector",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutDetectorRequest(input, context));
@@ -715,7 +715,7 @@ export const serializeAws_json1_1PutEntityTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutEntityType",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutEntityType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutEntityTypeRequest(input, context));
@@ -728,7 +728,7 @@ export const serializeAws_json1_1PutEventTypeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutEventType",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutEventType",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutEventTypeRequest(input, context));
@@ -741,7 +741,7 @@ export const serializeAws_json1_1PutExternalModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutExternalModel",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutExternalModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutExternalModelRequest(input, context));
@@ -754,7 +754,7 @@ export const serializeAws_json1_1PutKMSEncryptionKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutKMSEncryptionKey",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutKMSEncryptionKey",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutKMSEncryptionKeyRequest(input, context));
@@ -767,7 +767,7 @@ export const serializeAws_json1_1PutLabelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutLabel",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutLabel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutLabelRequest(input, context));
@@ -780,7 +780,7 @@ export const serializeAws_json1_1PutOutcomeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.PutOutcome",
+    "x-amz-target": "AWSHawksNestServiceFacade.PutOutcome",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutOutcomeRequest(input, context));
@@ -793,7 +793,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.TagResource",
+    "x-amz-target": "AWSHawksNestServiceFacade.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -806,7 +806,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UntagResource",
+    "x-amz-target": "AWSHawksNestServiceFacade.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -819,7 +819,7 @@ export const serializeAws_json1_1UpdateDetectorVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateDetectorVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionRequest(input, context));
@@ -832,7 +832,7 @@ export const serializeAws_json1_1UpdateDetectorVersionMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateDetectorVersionMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionMetadataRequest(input, context));
@@ -845,7 +845,7 @@ export const serializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateDetectorVersionStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionStatusRequest(input, context));
@@ -858,7 +858,7 @@ export const serializeAws_json1_1UpdateModelCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModel",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateModel",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateModelRequest(input, context));
@@ -871,7 +871,7 @@ export const serializeAws_json1_1UpdateModelVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModelVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateModelVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateModelVersionRequest(input, context));
@@ -884,7 +884,7 @@ export const serializeAws_json1_1UpdateModelVersionStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateModelVersionStatus",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateModelVersionStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateModelVersionStatusRequest(input, context));
@@ -897,7 +897,7 @@ export const serializeAws_json1_1UpdateRuleMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateRuleMetadata",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateRuleMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRuleMetadataRequest(input, context));
@@ -910,7 +910,7 @@ export const serializeAws_json1_1UpdateRuleVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateRuleVersion",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateRuleVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRuleVersionRequest(input, context));
@@ -923,7 +923,7 @@ export const serializeAws_json1_1UpdateVariableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHawksNestServiceFacade.UpdateVariable",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateVariable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateVariableRequest(input, context));

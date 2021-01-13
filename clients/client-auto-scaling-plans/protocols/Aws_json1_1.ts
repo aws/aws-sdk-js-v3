@@ -62,7 +62,7 @@ export const serializeAws_json1_1CreateScalingPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.CreateScalingPlan",
+    "x-amz-target": "AnyScaleScalingPlannerFrontendService.CreateScalingPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateScalingPlanRequest(input, context));
@@ -75,7 +75,7 @@ export const serializeAws_json1_1DeleteScalingPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan",
+    "x-amz-target": "AnyScaleScalingPlannerFrontendService.DeleteScalingPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteScalingPlanRequest(input, context));
@@ -88,7 +88,7 @@ export const serializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources",
+    "x-amz-target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlanResources",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScalingPlanResourcesRequest(input, context));
@@ -101,7 +101,7 @@ export const serializeAws_json1_1DescribeScalingPlansCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans",
+    "x-amz-target": "AnyScaleScalingPlannerFrontendService.DescribeScalingPlans",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeScalingPlansRequest(input, context));
@@ -114,7 +114,7 @@ export const serializeAws_json1_1GetScalingPlanResourceForecastDataCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData",
+    "x-amz-target": "AnyScaleScalingPlannerFrontendService.GetScalingPlanResourceForecastData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetScalingPlanResourceForecastDataRequest(input, context));
@@ -127,7 +127,7 @@ export const serializeAws_json1_1UpdateScalingPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan",
+    "x-amz-target": "AnyScaleScalingPlannerFrontendService.UpdateScalingPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateScalingPlanRequest(input, context));

@@ -26,7 +26,7 @@ export const serializeAws_json1_1QueryForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonForecastRuntime.QueryForecast",
+    "x-amz-target": "AmazonForecastRuntime.QueryForecast",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1QueryForecastRequest(input, context));

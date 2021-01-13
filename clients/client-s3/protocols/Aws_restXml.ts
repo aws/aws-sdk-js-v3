@@ -515,11 +515,11 @@ export const serializeAws_restXmlCopyObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
-    ...(isSerializableHeaderValue(input.CacheControl) && { "Cache-Control": input.CacheControl! }),
-    ...(isSerializableHeaderValue(input.ContentDisposition) && { "Content-Disposition": input.ContentDisposition! }),
-    ...(isSerializableHeaderValue(input.ContentEncoding) && { "Content-Encoding": input.ContentEncoding! }),
-    ...(isSerializableHeaderValue(input.ContentLanguage) && { "Content-Language": input.ContentLanguage! }),
-    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ContentDisposition) && { "content-disposition": input.ContentDisposition! }),
+    ...(isSerializableHeaderValue(input.ContentEncoding) && { "content-encoding": input.ContentEncoding! }),
+    ...(isSerializableHeaderValue(input.ContentLanguage) && { "content-language": input.ContentLanguage! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
     ...(isSerializableHeaderValue(input.CopySource) && { "x-amz-copy-source": input.CopySource! }),
     ...(isSerializableHeaderValue(input.CopySourceIfMatch) && {
       "x-amz-copy-source-if-match": input.CopySourceIfMatch!,
@@ -533,7 +533,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     ...(isSerializableHeaderValue(input.CopySourceIfUnmodifiedSince) && {
       "x-amz-copy-source-if-unmodified-since": __dateToUtcString(input.CopySourceIfUnmodifiedSince!).toString(),
     }),
-    ...(isSerializableHeaderValue(input.Expires) && { Expires: __dateToUtcString(input.Expires!).toString() }),
+    ...(isSerializableHeaderValue(input.Expires) && { expires: __dateToUtcString(input.Expires!).toString() }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -554,7 +554,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.SSEKMSKeyId) && {
       "x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
@@ -572,7 +572,7 @@ export const serializeAws_restXmlCopyObjectCommand = async (
       "x-amz-copy-source-server-side-encryption-customer-key": input.CopySourceSSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.CopySourceSSECustomerKeyMD5) && {
-      "x-amz-copy-source-server-side-encryption-customer-key-MD5": input.CopySourceSSECustomerKeyMD5!,
+      "x-amz-copy-source-server-side-encryption-customer-key-md5": input.CopySourceSSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.Tagging) && { "x-amz-tagging": input.Tagging! }),
@@ -592,10 +592,13 @@ export const serializeAws_restXmlCopyObjectCommand = async (
       "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     }),
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc["x-amz-meta-" + suffix] = input.Metadata![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -691,12 +694,12 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
-    ...(isSerializableHeaderValue(input.CacheControl) && { "Cache-Control": input.CacheControl! }),
-    ...(isSerializableHeaderValue(input.ContentDisposition) && { "Content-Disposition": input.ContentDisposition! }),
-    ...(isSerializableHeaderValue(input.ContentEncoding) && { "Content-Encoding": input.ContentEncoding! }),
-    ...(isSerializableHeaderValue(input.ContentLanguage) && { "Content-Language": input.ContentLanguage! }),
-    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.Expires) && { Expires: __dateToUtcString(input.Expires!).toString() }),
+    ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ContentDisposition) && { "content-disposition": input.ContentDisposition! }),
+    ...(isSerializableHeaderValue(input.ContentEncoding) && { "content-encoding": input.ContentEncoding! }),
+    ...(isSerializableHeaderValue(input.ContentLanguage) && { "content-language": input.ContentLanguage! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.Expires) && { expires: __dateToUtcString(input.Expires!).toString() }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -715,7 +718,7 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.SSEKMSKeyId) && {
       "x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
@@ -741,10 +744,13 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc["x-amz-meta-" + suffix] = input.Metadata![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -2175,15 +2181,15 @@ export const serializeAws_restXmlGetObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
     ...(isSerializableHeaderValue(input.IfModifiedSince) && {
-      "If-Modified-Since": __dateToUtcString(input.IfModifiedSince!).toString(),
+      "if-modified-since": __dateToUtcString(input.IfModifiedSince!).toString(),
     }),
-    ...(isSerializableHeaderValue(input.IfNoneMatch) && { "If-None-Match": input.IfNoneMatch! }),
+    ...(isSerializableHeaderValue(input.IfNoneMatch) && { "if-none-match": input.IfNoneMatch! }),
     ...(isSerializableHeaderValue(input.IfUnmodifiedSince) && {
-      "If-Unmodified-Since": __dateToUtcString(input.IfUnmodifiedSince!).toString(),
+      "if-unmodified-since": __dateToUtcString(input.IfUnmodifiedSince!).toString(),
     }),
-    ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! }),
+    ...(isSerializableHeaderValue(input.Range) && { range: input.Range! }),
     ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
       "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
     }),
@@ -2191,7 +2197,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
@@ -2624,15 +2630,15 @@ export const serializeAws_restXmlHeadObjectCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.IfMatch) && { "If-Match": input.IfMatch! }),
+    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
     ...(isSerializableHeaderValue(input.IfModifiedSince) && {
-      "If-Modified-Since": __dateToUtcString(input.IfModifiedSince!).toString(),
+      "if-modified-since": __dateToUtcString(input.IfModifiedSince!).toString(),
     }),
-    ...(isSerializableHeaderValue(input.IfNoneMatch) && { "If-None-Match": input.IfNoneMatch! }),
+    ...(isSerializableHeaderValue(input.IfNoneMatch) && { "if-none-match": input.IfNoneMatch! }),
     ...(isSerializableHeaderValue(input.IfUnmodifiedSince) && {
-      "If-Unmodified-Since": __dateToUtcString(input.IfUnmodifiedSince!).toString(),
+      "if-unmodified-since": __dateToUtcString(input.IfUnmodifiedSince!).toString(),
     }),
-    ...(isSerializableHeaderValue(input.Range) && { Range: input.Range! }),
+    ...(isSerializableHeaderValue(input.Range) && { range: input.Range! }),
     ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
       "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
     }),
@@ -2640,7 +2646,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
@@ -3133,7 +3139,7 @@ export const serializeAws_restXmlPutBucketAclCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -3228,7 +3234,7 @@ export const serializeAws_restXmlPutBucketCorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3273,7 +3279,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3449,7 +3455,7 @@ export const serializeAws_restXmlPutBucketLoggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3583,7 +3589,7 @@ export const serializeAws_restXmlPutBucketOwnershipControlsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3628,7 +3634,7 @@ export const serializeAws_restXmlPutBucketPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "text/plain",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ConfirmRemoveSelfBucketAccess) && {
       "x-amz-confirm-remove-self-bucket-access": input.ConfirmRemoveSelfBucketAccess!.toString(),
     }),
@@ -3674,7 +3680,7 @@ export const serializeAws_restXmlPutBucketReplicationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.Token) && { "x-amz-bucket-object-lock-token": input.Token! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -3720,7 +3726,7 @@ export const serializeAws_restXmlPutBucketRequestPaymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3765,7 +3771,7 @@ export const serializeAws_restXmlPutBucketTaggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3810,7 +3816,7 @@ export const serializeAws_restXmlPutBucketVersioningCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.MFA) && { "x-amz-mfa": input.MFA! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -3856,7 +3862,7 @@ export const serializeAws_restXmlPutBucketWebsiteCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -3902,14 +3908,14 @@ export const serializeAws_restXmlPutObjectCommand = async (
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
-    ...(isSerializableHeaderValue(input.CacheControl) && { "Cache-Control": input.CacheControl! }),
-    ...(isSerializableHeaderValue(input.ContentDisposition) && { "Content-Disposition": input.ContentDisposition! }),
-    ...(isSerializableHeaderValue(input.ContentEncoding) && { "Content-Encoding": input.ContentEncoding! }),
-    ...(isSerializableHeaderValue(input.ContentLanguage) && { "Content-Language": input.ContentLanguage! }),
-    ...(isSerializableHeaderValue(input.ContentLength) && { "Content-Length": input.ContentLength!.toString() }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
-    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
-    ...(isSerializableHeaderValue(input.Expires) && { Expires: __dateToUtcString(input.Expires!).toString() }),
+    ...(isSerializableHeaderValue(input.CacheControl) && { "cache-control": input.CacheControl! }),
+    ...(isSerializableHeaderValue(input.ContentDisposition) && { "content-disposition": input.ContentDisposition! }),
+    ...(isSerializableHeaderValue(input.ContentEncoding) && { "content-encoding": input.ContentEncoding! }),
+    ...(isSerializableHeaderValue(input.ContentLanguage) && { "content-language": input.ContentLanguage! }),
+    ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.Expires) && { expires: __dateToUtcString(input.Expires!).toString() }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -3928,7 +3934,7 @@ export const serializeAws_restXmlPutObjectCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.SSEKMSKeyId) && {
       "x-amz-server-side-encryption-aws-kms-key-id": input.SSEKMSKeyId!,
@@ -3954,10 +3960,13 @@ export const serializeAws_restXmlPutObjectCommand = async (
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
-        acc["x-amz-meta-" + suffix] = input.Metadata![suffix];
-        return acc;
-      }, {})),
+      Object.keys(input.Metadata).reduce(
+        (acc: any, suffix: string) => ({
+          ...acc,
+          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
+        }),
+        {}
+      )),
   };
   let resolvedPath = "/{Bucket}/{Key+}";
   if (input.Bucket !== undefined) {
@@ -4013,7 +4022,7 @@ export const serializeAws_restXmlPutObjectAclCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.ACL) && { "x-amz-acl": input.ACL! }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.GrantFullControl) && { "x-amz-grant-full-control": input.GrantFullControl! }),
     ...(isSerializableHeaderValue(input.GrantRead) && { "x-amz-grant-read": input.GrantRead! }),
     ...(isSerializableHeaderValue(input.GrantReadACP) && { "x-amz-grant-read-acp": input.GrantReadACP! }),
@@ -4081,7 +4090,7 @@ export const serializeAws_restXmlPutObjectLegalHoldCommand = async (
   const headers: any = {
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4144,7 +4153,7 @@ export const serializeAws_restXmlPutObjectLockConfigurationCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.Token) && { "x-amz-bucket-object-lock-token": input.Token! }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4193,7 +4202,7 @@ export const serializeAws_restXmlPutObjectRetentionCommand = async (
     ...(isSerializableHeaderValue(input.BypassGovernanceRetention) && {
       "x-amz-bypass-governance-retention": input.BypassGovernanceRetention!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4254,7 +4263,7 @@ export const serializeAws_restXmlPutObjectTaggingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4315,7 +4324,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/xml",
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     }),
@@ -4428,7 +4437,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
       "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -4517,8 +4526,8 @@ export const serializeAws_restXmlUploadPartCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.ContentLength) && { "Content-Length": input.ContentLength!.toString() }),
-    ...(isSerializableHeaderValue(input.ContentMD5) && { "Content-MD5": input.ContentMD5! }),
+    ...(isSerializableHeaderValue(input.ContentLength) && { "content-length": input.ContentLength!.toString() }),
+    ...(isSerializableHeaderValue(input.ContentMD5) && { "content-md5": input.ContentMD5! }),
     ...(isSerializableHeaderValue(input.SSECustomerAlgorithm) && {
       "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
     }),
@@ -4526,7 +4535,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {
@@ -4608,7 +4617,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
       "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.SSECustomerKeyMD5) && {
-      "x-amz-server-side-encryption-customer-key-MD5": input.SSECustomerKeyMD5!,
+      "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.CopySourceSSECustomerAlgorithm) && {
       "x-amz-copy-source-server-side-encryption-customer-algorithm": input.CopySourceSSECustomerAlgorithm!,
@@ -4617,7 +4626,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
       "x-amz-copy-source-server-side-encryption-customer-key": input.CopySourceSSECustomerKey!,
     }),
     ...(isSerializableHeaderValue(input.CopySourceSSECustomerKeyMD5) && {
-      "x-amz-copy-source-server-side-encryption-customer-key-MD5": input.CopySourceSSECustomerKeyMD5!,
+      "x-amz-copy-source-server-side-encryption-customer-key-md5": input.CopySourceSSECustomerKeyMD5!,
     }),
     ...(isSerializableHeaderValue(input.RequestPayer) && { "x-amz-request-payer": input.RequestPayer! }),
     ...(isSerializableHeaderValue(input.ExpectedBucketOwner) && {

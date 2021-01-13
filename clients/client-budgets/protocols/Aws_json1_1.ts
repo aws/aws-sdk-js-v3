@@ -133,7 +133,7 @@ export const serializeAws_json1_1CreateBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.CreateBudget",
+    "x-amz-target": "AWSBudgetServiceGateway.CreateBudget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBudgetRequest(input, context));
@@ -146,7 +146,7 @@ export const serializeAws_json1_1CreateBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.CreateBudgetAction",
+    "x-amz-target": "AWSBudgetServiceGateway.CreateBudgetAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateBudgetActionRequest(input, context));
@@ -159,7 +159,7 @@ export const serializeAws_json1_1CreateNotificationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.CreateNotification",
+    "x-amz-target": "AWSBudgetServiceGateway.CreateNotification",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateNotificationRequest(input, context));
@@ -172,7 +172,7 @@ export const serializeAws_json1_1CreateSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.CreateSubscriber",
+    "x-amz-target": "AWSBudgetServiceGateway.CreateSubscriber",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSubscriberRequest(input, context));
@@ -185,7 +185,7 @@ export const serializeAws_json1_1DeleteBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DeleteBudget",
+    "x-amz-target": "AWSBudgetServiceGateway.DeleteBudget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBudgetRequest(input, context));
@@ -198,7 +198,7 @@ export const serializeAws_json1_1DeleteBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DeleteBudgetAction",
+    "x-amz-target": "AWSBudgetServiceGateway.DeleteBudgetAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBudgetActionRequest(input, context));
@@ -211,7 +211,7 @@ export const serializeAws_json1_1DeleteNotificationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DeleteNotification",
+    "x-amz-target": "AWSBudgetServiceGateway.DeleteNotification",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteNotificationRequest(input, context));
@@ -224,7 +224,7 @@ export const serializeAws_json1_1DeleteSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DeleteSubscriber",
+    "x-amz-target": "AWSBudgetServiceGateway.DeleteSubscriber",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSubscriberRequest(input, context));
@@ -237,7 +237,7 @@ export const serializeAws_json1_1DescribeBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudget",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetRequest(input, context));
@@ -250,7 +250,7 @@ export const serializeAws_json1_1DescribeBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetAction",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionRequest(input, context));
@@ -263,7 +263,7 @@ export const serializeAws_json1_1DescribeBudgetActionHistoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionHistories",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionHistories",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionHistoriesRequest(input, context));
@@ -276,7 +276,7 @@ export const serializeAws_json1_1DescribeBudgetActionsForAccountCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionsForAccountRequest(input, context));
@@ -289,7 +289,7 @@ export const serializeAws_json1_1DescribeBudgetActionsForBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetActionsForBudgetRequest(input, context));
@@ -302,7 +302,7 @@ export const serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetPerformanceHistory",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest(input, context));
@@ -315,7 +315,7 @@ export const serializeAws_json1_1DescribeBudgetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeBudgets",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBudgetsRequest(input, context));
@@ -328,7 +328,7 @@ export const serializeAws_json1_1DescribeNotificationsForBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeNotificationsForBudget",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeNotificationsForBudget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeNotificationsForBudgetRequest(input, context));
@@ -341,7 +341,7 @@ export const serializeAws_json1_1DescribeSubscribersForNotificationCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.DescribeSubscribersForNotification",
+    "x-amz-target": "AWSBudgetServiceGateway.DescribeSubscribersForNotification",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSubscribersForNotificationRequest(input, context));
@@ -354,7 +354,7 @@ export const serializeAws_json1_1ExecuteBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.ExecuteBudgetAction",
+    "x-amz-target": "AWSBudgetServiceGateway.ExecuteBudgetAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExecuteBudgetActionRequest(input, context));
@@ -367,7 +367,7 @@ export const serializeAws_json1_1UpdateBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.UpdateBudget",
+    "x-amz-target": "AWSBudgetServiceGateway.UpdateBudget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateBudgetRequest(input, context));
@@ -380,7 +380,7 @@ export const serializeAws_json1_1UpdateBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.UpdateBudgetAction",
+    "x-amz-target": "AWSBudgetServiceGateway.UpdateBudgetAction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateBudgetActionRequest(input, context));
@@ -393,7 +393,7 @@ export const serializeAws_json1_1UpdateNotificationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.UpdateNotification",
+    "x-amz-target": "AWSBudgetServiceGateway.UpdateNotification",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateNotificationRequest(input, context));
@@ -406,7 +406,7 @@ export const serializeAws_json1_1UpdateSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSBudgetServiceGateway.UpdateSubscriber",
+    "x-amz-target": "AWSBudgetServiceGateway.UpdateSubscriber",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSubscriberRequest(input, context));

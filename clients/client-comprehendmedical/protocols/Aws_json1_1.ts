@@ -152,7 +152,7 @@ export const serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job",
+    "x-amz-target": "ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEntitiesDetectionV2JobRequest(input, context));
@@ -165,7 +165,7 @@ export const serializeAws_json1_1DescribeICD10CMInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DescribeICD10CMInferenceJob",
+    "x-amz-target": "ComprehendMedical_20181030.DescribeICD10CMInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeICD10CMInferenceJobRequest(input, context));
@@ -178,7 +178,7 @@ export const serializeAws_json1_1DescribePHIDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DescribePHIDetectionJob",
+    "x-amz-target": "ComprehendMedical_20181030.DescribePHIDetectionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribePHIDetectionJobRequest(input, context));
@@ -191,7 +191,7 @@ export const serializeAws_json1_1DescribeRxNormInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DescribeRxNormInferenceJob",
+    "x-amz-target": "ComprehendMedical_20181030.DescribeRxNormInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRxNormInferenceJobRequest(input, context));
@@ -204,7 +204,7 @@ export const serializeAws_json1_1DetectEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DetectEntities",
+    "x-amz-target": "ComprehendMedical_20181030.DetectEntities",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectEntitiesRequest(input, context));
@@ -217,7 +217,7 @@ export const serializeAws_json1_1DetectEntitiesV2Command = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DetectEntitiesV2",
+    "x-amz-target": "ComprehendMedical_20181030.DetectEntitiesV2",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectEntitiesV2Request(input, context));
@@ -230,7 +230,7 @@ export const serializeAws_json1_1DetectPHICommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.DetectPHI",
+    "x-amz-target": "ComprehendMedical_20181030.DetectPHI",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectPHIRequest(input, context));
@@ -243,7 +243,7 @@ export const serializeAws_json1_1InferICD10CMCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.InferICD10CM",
+    "x-amz-target": "ComprehendMedical_20181030.InferICD10CM",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1InferICD10CMRequest(input, context));
@@ -256,7 +256,7 @@ export const serializeAws_json1_1InferRxNormCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.InferRxNorm",
+    "x-amz-target": "ComprehendMedical_20181030.InferRxNorm",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1InferRxNormRequest(input, context));
@@ -269,7 +269,7 @@ export const serializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs",
+    "x-amz-target": "ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEntitiesDetectionV2JobsRequest(input, context));
@@ -282,7 +282,7 @@ export const serializeAws_json1_1ListICD10CMInferenceJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.ListICD10CMInferenceJobs",
+    "x-amz-target": "ComprehendMedical_20181030.ListICD10CMInferenceJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListICD10CMInferenceJobsRequest(input, context));
@@ -295,7 +295,7 @@ export const serializeAws_json1_1ListPHIDetectionJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.ListPHIDetectionJobs",
+    "x-amz-target": "ComprehendMedical_20181030.ListPHIDetectionJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPHIDetectionJobsRequest(input, context));
@@ -308,7 +308,7 @@ export const serializeAws_json1_1ListRxNormInferenceJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.ListRxNormInferenceJobs",
+    "x-amz-target": "ComprehendMedical_20181030.ListRxNormInferenceJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRxNormInferenceJobsRequest(input, context));
@@ -321,7 +321,7 @@ export const serializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StartEntitiesDetectionV2Job",
+    "x-amz-target": "ComprehendMedical_20181030.StartEntitiesDetectionV2Job",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartEntitiesDetectionV2JobRequest(input, context));
@@ -334,7 +334,7 @@ export const serializeAws_json1_1StartICD10CMInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StartICD10CMInferenceJob",
+    "x-amz-target": "ComprehendMedical_20181030.StartICD10CMInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartICD10CMInferenceJobRequest(input, context));
@@ -347,7 +347,7 @@ export const serializeAws_json1_1StartPHIDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StartPHIDetectionJob",
+    "x-amz-target": "ComprehendMedical_20181030.StartPHIDetectionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartPHIDetectionJobRequest(input, context));
@@ -360,7 +360,7 @@ export const serializeAws_json1_1StartRxNormInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StartRxNormInferenceJob",
+    "x-amz-target": "ComprehendMedical_20181030.StartRxNormInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartRxNormInferenceJobRequest(input, context));
@@ -373,7 +373,7 @@ export const serializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StopEntitiesDetectionV2Job",
+    "x-amz-target": "ComprehendMedical_20181030.StopEntitiesDetectionV2Job",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopEntitiesDetectionV2JobRequest(input, context));
@@ -386,7 +386,7 @@ export const serializeAws_json1_1StopICD10CMInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StopICD10CMInferenceJob",
+    "x-amz-target": "ComprehendMedical_20181030.StopICD10CMInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopICD10CMInferenceJobRequest(input, context));
@@ -399,7 +399,7 @@ export const serializeAws_json1_1StopPHIDetectionJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StopPHIDetectionJob",
+    "x-amz-target": "ComprehendMedical_20181030.StopPHIDetectionJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopPHIDetectionJobRequest(input, context));
@@ -412,7 +412,7 @@ export const serializeAws_json1_1StopRxNormInferenceJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ComprehendMedical_20181030.StopRxNormInferenceJob",
+    "x-amz-target": "ComprehendMedical_20181030.StopRxNormInferenceJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopRxNormInferenceJobRequest(input, context));

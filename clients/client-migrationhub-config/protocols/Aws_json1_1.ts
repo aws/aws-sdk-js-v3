@@ -39,7 +39,7 @@ export const serializeAws_json1_1CreateHomeRegionControlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSMigrationHubMultiAccountService.CreateHomeRegionControl",
+    "x-amz-target": "AWSMigrationHubMultiAccountService.CreateHomeRegionControl",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateHomeRegionControlRequest(input, context));
@@ -52,7 +52,7 @@ export const serializeAws_json1_1DescribeHomeRegionControlsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls",
+    "x-amz-target": "AWSMigrationHubMultiAccountService.DescribeHomeRegionControls",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeHomeRegionControlsRequest(input, context));
@@ -65,7 +65,7 @@ export const serializeAws_json1_1GetHomeRegionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSMigrationHubMultiAccountService.GetHomeRegion",
+    "x-amz-target": "AWSMigrationHubMultiAccountService.GetHomeRegion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetHomeRegionRequest(input, context));

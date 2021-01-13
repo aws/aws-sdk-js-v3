@@ -47,7 +47,7 @@ export const serializeAws_json1_1DeleteReportDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition",
+    "x-amz-target": "AWSOrigamiServiceGatewayService.DeleteReportDefinition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteReportDefinitionRequest(input, context));
@@ -60,7 +60,7 @@ export const serializeAws_json1_1DescribeReportDefinitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions",
+    "x-amz-target": "AWSOrigamiServiceGatewayService.DescribeReportDefinitions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeReportDefinitionsRequest(input, context));
@@ -73,7 +73,7 @@ export const serializeAws_json1_1ModifyReportDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition",
+    "x-amz-target": "AWSOrigamiServiceGatewayService.ModifyReportDefinition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyReportDefinitionRequest(input, context));
@@ -86,7 +86,7 @@ export const serializeAws_json1_1PutReportDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSOrigamiServiceGatewayService.PutReportDefinition",
+    "x-amz-target": "AWSOrigamiServiceGatewayService.PutReportDefinition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutReportDefinitionRequest(input, context));

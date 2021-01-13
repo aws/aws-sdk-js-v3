@@ -148,7 +148,7 @@ export const serializeAws_json1_1BatchCheckLayerAvailabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.BatchCheckLayerAvailability",
+    "x-amz-target": "SpencerFrontendService.BatchCheckLayerAvailability",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context));
@@ -161,7 +161,7 @@ export const serializeAws_json1_1BatchDeleteImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.BatchDeleteImage",
+    "x-amz-target": "SpencerFrontendService.BatchDeleteImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteImageRequest(input, context));
@@ -174,7 +174,7 @@ export const serializeAws_json1_1CompleteLayerUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.CompleteLayerUpload",
+    "x-amz-target": "SpencerFrontendService.CompleteLayerUpload",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CompleteLayerUploadRequest(input, context));
@@ -187,7 +187,7 @@ export const serializeAws_json1_1CreateRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.CreateRepository",
+    "x-amz-target": "SpencerFrontendService.CreateRepository",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRepositoryRequest(input, context));
@@ -200,7 +200,7 @@ export const serializeAws_json1_1DeleteRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.DeleteRepository",
+    "x-amz-target": "SpencerFrontendService.DeleteRepository",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRepositoryRequest(input, context));
@@ -213,7 +213,7 @@ export const serializeAws_json1_1DeleteRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.DeleteRepositoryPolicy",
+    "x-amz-target": "SpencerFrontendService.DeleteRepositoryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context));
@@ -226,7 +226,7 @@ export const serializeAws_json1_1DescribeImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.DescribeImages",
+    "x-amz-target": "SpencerFrontendService.DescribeImages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImagesRequest(input, context));
@@ -239,7 +239,7 @@ export const serializeAws_json1_1DescribeImageTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.DescribeImageTags",
+    "x-amz-target": "SpencerFrontendService.DescribeImageTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImageTagsRequest(input, context));
@@ -252,7 +252,7 @@ export const serializeAws_json1_1DescribeRegistriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.DescribeRegistries",
+    "x-amz-target": "SpencerFrontendService.DescribeRegistries",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRegistriesRequest(input, context));
@@ -265,7 +265,7 @@ export const serializeAws_json1_1DescribeRepositoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.DescribeRepositories",
+    "x-amz-target": "SpencerFrontendService.DescribeRepositories",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRepositoriesRequest(input, context));
@@ -278,7 +278,7 @@ export const serializeAws_json1_1GetAuthorizationTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.GetAuthorizationToken",
+    "x-amz-target": "SpencerFrontendService.GetAuthorizationToken",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAuthorizationTokenRequest(input, context));
@@ -291,7 +291,7 @@ export const serializeAws_json1_1GetRegistryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.GetRegistryCatalogData",
+    "x-amz-target": "SpencerFrontendService.GetRegistryCatalogData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRegistryCatalogDataRequest(input, context));
@@ -304,7 +304,7 @@ export const serializeAws_json1_1GetRepositoryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.GetRepositoryCatalogData",
+    "x-amz-target": "SpencerFrontendService.GetRepositoryCatalogData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRepositoryCatalogDataRequest(input, context));
@@ -317,7 +317,7 @@ export const serializeAws_json1_1GetRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.GetRepositoryPolicy",
+    "x-amz-target": "SpencerFrontendService.GetRepositoryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRepositoryPolicyRequest(input, context));
@@ -330,7 +330,7 @@ export const serializeAws_json1_1InitiateLayerUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.InitiateLayerUpload",
+    "x-amz-target": "SpencerFrontendService.InitiateLayerUpload",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1InitiateLayerUploadRequest(input, context));
@@ -343,7 +343,7 @@ export const serializeAws_json1_1PutImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.PutImage",
+    "x-amz-target": "SpencerFrontendService.PutImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
@@ -356,7 +356,7 @@ export const serializeAws_json1_1PutRegistryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.PutRegistryCatalogData",
+    "x-amz-target": "SpencerFrontendService.PutRegistryCatalogData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRegistryCatalogDataRequest(input, context));
@@ -369,7 +369,7 @@ export const serializeAws_json1_1PutRepositoryCatalogDataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.PutRepositoryCatalogData",
+    "x-amz-target": "SpencerFrontendService.PutRepositoryCatalogData",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRepositoryCatalogDataRequest(input, context));
@@ -382,7 +382,7 @@ export const serializeAws_json1_1SetRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.SetRepositoryPolicy",
+    "x-amz-target": "SpencerFrontendService.SetRepositoryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SetRepositoryPolicyRequest(input, context));
@@ -395,7 +395,7 @@ export const serializeAws_json1_1UploadLayerPartCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "SpencerFrontendService.UploadLayerPart",
+    "x-amz-target": "SpencerFrontendService.UploadLayerPart",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UploadLayerPartRequest(input, context));

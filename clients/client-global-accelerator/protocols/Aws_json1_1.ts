@@ -286,7 +286,7 @@ export const serializeAws_json1_1AddCustomRoutingEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.AddCustomRoutingEndpoints",
+    "x-amz-target": "GlobalAccelerator_V20180706.AddCustomRoutingEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddCustomRoutingEndpointsRequest(input, context));
@@ -299,7 +299,7 @@ export const serializeAws_json1_1AdvertiseByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.AdvertiseByoipCidr",
+    "x-amz-target": "GlobalAccelerator_V20180706.AdvertiseByoipCidr",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AdvertiseByoipCidrRequest(input, context));
@@ -312,7 +312,7 @@ export const serializeAws_json1_1AllowCustomRoutingTrafficCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic",
+    "x-amz-target": "GlobalAccelerator_V20180706.AllowCustomRoutingTraffic",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AllowCustomRoutingTrafficRequest(input, context));
@@ -325,7 +325,7 @@ export const serializeAws_json1_1CreateAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.CreateAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAcceleratorRequest(input, context));
@@ -338,7 +338,7 @@ export const serializeAws_json1_1CreateCustomRoutingAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.CreateCustomRoutingAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCustomRoutingAcceleratorRequest(input, context));
@@ -351,7 +351,7 @@ export const serializeAws_json1_1CreateCustomRoutingEndpointGroupCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.CreateCustomRoutingEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCustomRoutingEndpointGroupRequest(input, context));
@@ -364,7 +364,7 @@ export const serializeAws_json1_1CreateCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateCustomRoutingListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.CreateCustomRoutingListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCustomRoutingListenerRequest(input, context));
@@ -377,7 +377,7 @@ export const serializeAws_json1_1CreateEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.CreateEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEndpointGroupRequest(input, context));
@@ -390,7 +390,7 @@ export const serializeAws_json1_1CreateListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.CreateListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.CreateListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateListenerRequest(input, context));
@@ -403,7 +403,7 @@ export const serializeAws_json1_1DeleteAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeleteAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAcceleratorRequest(input, context));
@@ -416,7 +416,7 @@ export const serializeAws_json1_1DeleteCustomRoutingAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCustomRoutingAcceleratorRequest(input, context));
@@ -429,7 +429,7 @@ export const serializeAws_json1_1DeleteCustomRoutingEndpointGroupCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCustomRoutingEndpointGroupRequest(input, context));
@@ -442,7 +442,7 @@ export const serializeAws_json1_1DeleteCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteCustomRoutingListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeleteCustomRoutingListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCustomRoutingListenerRequest(input, context));
@@ -455,7 +455,7 @@ export const serializeAws_json1_1DeleteEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeleteEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEndpointGroupRequest(input, context));
@@ -468,7 +468,7 @@ export const serializeAws_json1_1DeleteListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeleteListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeleteListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteListenerRequest(input, context));
@@ -481,7 +481,7 @@ export const serializeAws_json1_1DenyCustomRoutingTrafficCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DenyCustomRoutingTraffic",
+    "x-amz-target": "GlobalAccelerator_V20180706.DenyCustomRoutingTraffic",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DenyCustomRoutingTrafficRequest(input, context));
@@ -494,7 +494,7 @@ export const serializeAws_json1_1DeprovisionByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DeprovisionByoipCidr",
+    "x-amz-target": "GlobalAccelerator_V20180706.DeprovisionByoipCidr",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeprovisionByoipCidrRequest(input, context));
@@ -507,7 +507,7 @@ export const serializeAws_json1_1DescribeAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAcceleratorRequest(input, context));
@@ -520,7 +520,7 @@ export const serializeAws_json1_1DescribeAcceleratorAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeAcceleratorAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAcceleratorAttributesRequest(input, context));
@@ -533,7 +533,7 @@ export const serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingAcceleratorRequest(input, context));
@@ -546,7 +546,7 @@ export const serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAcceleratorAttributes",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingAcceleratorAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesRequest(input, context));
@@ -559,7 +559,7 @@ export const serializeAws_json1_1DescribeCustomRoutingEndpointGroupCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingEndpointGroupRequest(input, context));
@@ -572,7 +572,7 @@ export const serializeAws_json1_1DescribeCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeCustomRoutingListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeCustomRoutingListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCustomRoutingListenerRequest(input, context));
@@ -585,7 +585,7 @@ export const serializeAws_json1_1DescribeEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEndpointGroupRequest(input, context));
@@ -598,7 +598,7 @@ export const serializeAws_json1_1DescribeListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.DescribeListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.DescribeListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeListenerRequest(input, context));
@@ -611,7 +611,7 @@ export const serializeAws_json1_1ListAcceleratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListAccelerators",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListAccelerators",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAcceleratorsRequest(input, context));
@@ -624,7 +624,7 @@ export const serializeAws_json1_1ListByoipCidrsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListByoipCidrs",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListByoipCidrs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListByoipCidrsRequest(input, context));
@@ -637,7 +637,7 @@ export const serializeAws_json1_1ListCustomRoutingAcceleratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingAccelerators",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingAccelerators",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCustomRoutingAcceleratorsRequest(input, context));
@@ -650,7 +650,7 @@ export const serializeAws_json1_1ListCustomRoutingEndpointGroupsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingEndpointGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCustomRoutingEndpointGroupsRequest(input, context));
@@ -663,7 +663,7 @@ export const serializeAws_json1_1ListCustomRoutingListenersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingListeners",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingListeners",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCustomRoutingListenersRequest(input, context));
@@ -676,7 +676,7 @@ export const serializeAws_json1_1ListCustomRoutingPortMappingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCustomRoutingPortMappingsRequest(input, context));
@@ -689,7 +689,7 @@ export const serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappingsByDestination",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListCustomRoutingPortMappingsByDestination",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCustomRoutingPortMappingsByDestinationRequest(input, context));
@@ -702,7 +702,7 @@ export const serializeAws_json1_1ListEndpointGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListEndpointGroups",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListEndpointGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEndpointGroupsRequest(input, context));
@@ -715,7 +715,7 @@ export const serializeAws_json1_1ListListenersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListListeners",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListListeners",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListListenersRequest(input, context));
@@ -728,7 +728,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ListTagsForResource",
+    "x-amz-target": "GlobalAccelerator_V20180706.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -741,7 +741,7 @@ export const serializeAws_json1_1ProvisionByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.ProvisionByoipCidr",
+    "x-amz-target": "GlobalAccelerator_V20180706.ProvisionByoipCidr",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ProvisionByoipCidrRequest(input, context));
@@ -754,7 +754,7 @@ export const serializeAws_json1_1RemoveCustomRoutingEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints",
+    "x-amz-target": "GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveCustomRoutingEndpointsRequest(input, context));
@@ -767,7 +767,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.TagResource",
+    "x-amz-target": "GlobalAccelerator_V20180706.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -780,7 +780,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UntagResource",
+    "x-amz-target": "GlobalAccelerator_V20180706.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -793,7 +793,7 @@ export const serializeAws_json1_1UpdateAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAcceleratorRequest(input, context));
@@ -806,7 +806,7 @@ export const serializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateAcceleratorAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAcceleratorAttributesRequest(input, context));
@@ -819,7 +819,7 @@ export const serializeAws_json1_1UpdateCustomRoutingAcceleratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAccelerator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCustomRoutingAcceleratorRequest(input, context));
@@ -832,7 +832,7 @@ export const serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateCustomRoutingAcceleratorAttributes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCustomRoutingAcceleratorAttributesRequest(input, context));
@@ -845,7 +845,7 @@ export const serializeAws_json1_1UpdateCustomRoutingListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateCustomRoutingListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateCustomRoutingListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCustomRoutingListenerRequest(input, context));
@@ -858,7 +858,7 @@ export const serializeAws_json1_1UpdateEndpointGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateEndpointGroup",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateEndpointGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateEndpointGroupRequest(input, context));
@@ -871,7 +871,7 @@ export const serializeAws_json1_1UpdateListenerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.UpdateListener",
+    "x-amz-target": "GlobalAccelerator_V20180706.UpdateListener",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateListenerRequest(input, context));
@@ -884,7 +884,7 @@ export const serializeAws_json1_1WithdrawByoipCidrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "GlobalAccelerator_V20180706.WithdrawByoipCidr",
+    "x-amz-target": "GlobalAccelerator_V20180706.WithdrawByoipCidr",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1WithdrawByoipCidrRequest(input, context));

@@ -64,7 +64,7 @@ export const serializeAws_json1_0CreateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.CreateConnection",
+    "x-amz-target": "CodeStar_connections_20191201.CreateConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateConnectionInput(input, context));
@@ -77,7 +77,7 @@ export const serializeAws_json1_0CreateHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.CreateHost",
+    "x-amz-target": "CodeStar_connections_20191201.CreateHost",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateHostInput(input, context));
@@ -90,7 +90,7 @@ export const serializeAws_json1_0DeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.DeleteConnection",
+    "x-amz-target": "CodeStar_connections_20191201.DeleteConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteConnectionInput(input, context));
@@ -103,7 +103,7 @@ export const serializeAws_json1_0DeleteHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.DeleteHost",
+    "x-amz-target": "CodeStar_connections_20191201.DeleteHost",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteHostInput(input, context));
@@ -116,7 +116,7 @@ export const serializeAws_json1_0GetConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.GetConnection",
+    "x-amz-target": "CodeStar_connections_20191201.GetConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetConnectionInput(input, context));
@@ -129,7 +129,7 @@ export const serializeAws_json1_0GetHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.GetHost",
+    "x-amz-target": "CodeStar_connections_20191201.GetHost",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0GetHostInput(input, context));
@@ -142,7 +142,7 @@ export const serializeAws_json1_0ListConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.ListConnections",
+    "x-amz-target": "CodeStar_connections_20191201.ListConnections",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListConnectionsInput(input, context));
@@ -155,7 +155,7 @@ export const serializeAws_json1_0ListHostsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.ListHosts",
+    "x-amz-target": "CodeStar_connections_20191201.ListHosts",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListHostsInput(input, context));
@@ -168,7 +168,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.ListTagsForResource",
+    "x-amz-target": "CodeStar_connections_20191201.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceInput(input, context));
@@ -181,7 +181,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.TagResource",
+    "x-amz-target": "CodeStar_connections_20191201.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceInput(input, context));
@@ -194,7 +194,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.UntagResource",
+    "x-amz-target": "CodeStar_connections_20191201.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceInput(input, context));
@@ -207,7 +207,7 @@ export const serializeAws_json1_0UpdateHostCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "CodeStar_connections_20191201.UpdateHost",
+    "x-amz-target": "CodeStar_connections_20191201.UpdateHost",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateHostInput(input, context));

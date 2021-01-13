@@ -152,8 +152,8 @@ export const serializeAws_restJson1PostContentCommand = async (
         "base64"
       ),
     }),
-    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
-    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
+    ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
+    ...(isSerializableHeaderValue(input.accept) && { accept: input.accept! }),
     ...(isSerializableHeaderValue(input.activeContexts) && {
       "x-amz-lex-active-contexts": Buffer.from(__LazyJsonString.fromObject(input.activeContexts!)).toString("base64"),
     }),
@@ -271,7 +271,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.accept) && { Accept: input.accept! }),
+    ...(isSerializableHeaderValue(input.accept) && { accept: input.accept! }),
   };
   let resolvedPath = "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
   if (input.botName !== undefined) {

@@ -141,7 +141,7 @@ export const serializeAws_json1_1CreateCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.CreateCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.CreateCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCertificateAuthorityRequest(input, context));
@@ -154,7 +154,7 @@ export const serializeAws_json1_1CreateCertificateAuthorityAuditReportCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.CreateCertificateAuthorityAuditReport",
+    "x-amz-target": "ACMPrivateCA.CreateCertificateAuthorityAuditReport",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest(input, context));
@@ -167,7 +167,7 @@ export const serializeAws_json1_1CreatePermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.CreatePermission",
+    "x-amz-target": "ACMPrivateCA.CreatePermission",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePermissionRequest(input, context));
@@ -180,7 +180,7 @@ export const serializeAws_json1_1DeleteCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.DeleteCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.DeleteCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCertificateAuthorityRequest(input, context));
@@ -193,7 +193,7 @@ export const serializeAws_json1_1DeletePermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.DeletePermission",
+    "x-amz-target": "ACMPrivateCA.DeletePermission",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePermissionRequest(input, context));
@@ -206,7 +206,7 @@ export const serializeAws_json1_1DeletePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.DeletePolicy",
+    "x-amz-target": "ACMPrivateCA.DeletePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePolicyRequest(input, context));
@@ -219,7 +219,7 @@ export const serializeAws_json1_1DescribeCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.DescribeCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.DescribeCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCertificateAuthorityRequest(input, context));
@@ -232,7 +232,7 @@ export const serializeAws_json1_1DescribeCertificateAuthorityAuditReportCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.DescribeCertificateAuthorityAuditReport",
+    "x-amz-target": "ACMPrivateCA.DescribeCertificateAuthorityAuditReport",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest(input, context));
@@ -245,7 +245,7 @@ export const serializeAws_json1_1GetCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.GetCertificate",
+    "x-amz-target": "ACMPrivateCA.GetCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCertificateRequest(input, context));
@@ -258,7 +258,7 @@ export const serializeAws_json1_1GetCertificateAuthorityCertificateCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.GetCertificateAuthorityCertificate",
+    "x-amz-target": "ACMPrivateCA.GetCertificateAuthorityCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCertificateAuthorityCertificateRequest(input, context));
@@ -271,7 +271,7 @@ export const serializeAws_json1_1GetCertificateAuthorityCsrCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.GetCertificateAuthorityCsr",
+    "x-amz-target": "ACMPrivateCA.GetCertificateAuthorityCsr",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCertificateAuthorityCsrRequest(input, context));
@@ -284,7 +284,7 @@ export const serializeAws_json1_1GetPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.GetPolicy",
+    "x-amz-target": "ACMPrivateCA.GetPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPolicyRequest(input, context));
@@ -297,7 +297,7 @@ export const serializeAws_json1_1ImportCertificateAuthorityCertificateCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.ImportCertificateAuthorityCertificate",
+    "x-amz-target": "ACMPrivateCA.ImportCertificateAuthorityCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportCertificateAuthorityCertificateRequest(input, context));
@@ -310,7 +310,7 @@ export const serializeAws_json1_1IssueCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.IssueCertificate",
+    "x-amz-target": "ACMPrivateCA.IssueCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1IssueCertificateRequest(input, context));
@@ -323,7 +323,7 @@ export const serializeAws_json1_1ListCertificateAuthoritiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.ListCertificateAuthorities",
+    "x-amz-target": "ACMPrivateCA.ListCertificateAuthorities",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCertificateAuthoritiesRequest(input, context));
@@ -336,7 +336,7 @@ export const serializeAws_json1_1ListPermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.ListPermissions",
+    "x-amz-target": "ACMPrivateCA.ListPermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListPermissionsRequest(input, context));
@@ -349,7 +349,7 @@ export const serializeAws_json1_1ListTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.ListTags",
+    "x-amz-target": "ACMPrivateCA.ListTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsRequest(input, context));
@@ -362,7 +362,7 @@ export const serializeAws_json1_1PutPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.PutPolicy",
+    "x-amz-target": "ACMPrivateCA.PutPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutPolicyRequest(input, context));
@@ -375,7 +375,7 @@ export const serializeAws_json1_1RestoreCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.RestoreCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.RestoreCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RestoreCertificateAuthorityRequest(input, context));
@@ -388,7 +388,7 @@ export const serializeAws_json1_1RevokeCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.RevokeCertificate",
+    "x-amz-target": "ACMPrivateCA.RevokeCertificate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RevokeCertificateRequest(input, context));
@@ -401,7 +401,7 @@ export const serializeAws_json1_1TagCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.TagCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.TagCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagCertificateAuthorityRequest(input, context));
@@ -414,7 +414,7 @@ export const serializeAws_json1_1UntagCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.UntagCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.UntagCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagCertificateAuthorityRequest(input, context));
@@ -427,7 +427,7 @@ export const serializeAws_json1_1UpdateCertificateAuthorityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "ACMPrivateCA.UpdateCertificateAuthority",
+    "x-amz-target": "ACMPrivateCA.UpdateCertificateAuthority",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCertificateAuthorityRequest(input, context));

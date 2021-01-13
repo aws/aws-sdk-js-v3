@@ -194,7 +194,7 @@ export const serializeAws_json1_1AssociateKmsKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.AssociateKmsKey",
+    "x-amz-target": "Logs_20140328.AssociateKmsKey",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateKmsKeyRequest(input, context));
@@ -207,7 +207,7 @@ export const serializeAws_json1_1CancelExportTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.CancelExportTask",
+    "x-amz-target": "Logs_20140328.CancelExportTask",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelExportTaskRequest(input, context));
@@ -220,7 +220,7 @@ export const serializeAws_json1_1CreateExportTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.CreateExportTask",
+    "x-amz-target": "Logs_20140328.CreateExportTask",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateExportTaskRequest(input, context));
@@ -233,7 +233,7 @@ export const serializeAws_json1_1CreateLogGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.CreateLogGroup",
+    "x-amz-target": "Logs_20140328.CreateLogGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLogGroupRequest(input, context));
@@ -246,7 +246,7 @@ export const serializeAws_json1_1CreateLogStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.CreateLogStream",
+    "x-amz-target": "Logs_20140328.CreateLogStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLogStreamRequest(input, context));
@@ -259,7 +259,7 @@ export const serializeAws_json1_1DeleteDestinationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteDestination",
+    "x-amz-target": "Logs_20140328.DeleteDestination",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDestinationRequest(input, context));
@@ -272,7 +272,7 @@ export const serializeAws_json1_1DeleteLogGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteLogGroup",
+    "x-amz-target": "Logs_20140328.DeleteLogGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLogGroupRequest(input, context));
@@ -285,7 +285,7 @@ export const serializeAws_json1_1DeleteLogStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteLogStream",
+    "x-amz-target": "Logs_20140328.DeleteLogStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLogStreamRequest(input, context));
@@ -298,7 +298,7 @@ export const serializeAws_json1_1DeleteMetricFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteMetricFilter",
+    "x-amz-target": "Logs_20140328.DeleteMetricFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMetricFilterRequest(input, context));
@@ -311,7 +311,7 @@ export const serializeAws_json1_1DeleteQueryDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteQueryDefinition",
+    "x-amz-target": "Logs_20140328.DeleteQueryDefinition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteQueryDefinitionRequest(input, context));
@@ -324,7 +324,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteResourcePolicy",
+    "x-amz-target": "Logs_20140328.DeleteResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
@@ -337,7 +337,7 @@ export const serializeAws_json1_1DeleteRetentionPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteRetentionPolicy",
+    "x-amz-target": "Logs_20140328.DeleteRetentionPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRetentionPolicyRequest(input, context));
@@ -350,7 +350,7 @@ export const serializeAws_json1_1DeleteSubscriptionFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DeleteSubscriptionFilter",
+    "x-amz-target": "Logs_20140328.DeleteSubscriptionFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSubscriptionFilterRequest(input, context));
@@ -363,7 +363,7 @@ export const serializeAws_json1_1DescribeDestinationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeDestinations",
+    "x-amz-target": "Logs_20140328.DescribeDestinations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDestinationsRequest(input, context));
@@ -376,7 +376,7 @@ export const serializeAws_json1_1DescribeExportTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeExportTasks",
+    "x-amz-target": "Logs_20140328.DescribeExportTasks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeExportTasksRequest(input, context));
@@ -389,7 +389,7 @@ export const serializeAws_json1_1DescribeLogGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeLogGroups",
+    "x-amz-target": "Logs_20140328.DescribeLogGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLogGroupsRequest(input, context));
@@ -402,7 +402,7 @@ export const serializeAws_json1_1DescribeLogStreamsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeLogStreams",
+    "x-amz-target": "Logs_20140328.DescribeLogStreams",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLogStreamsRequest(input, context));
@@ -415,7 +415,7 @@ export const serializeAws_json1_1DescribeMetricFiltersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeMetricFilters",
+    "x-amz-target": "Logs_20140328.DescribeMetricFilters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeMetricFiltersRequest(input, context));
@@ -428,7 +428,7 @@ export const serializeAws_json1_1DescribeQueriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeQueries",
+    "x-amz-target": "Logs_20140328.DescribeQueries",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeQueriesRequest(input, context));
@@ -441,7 +441,7 @@ export const serializeAws_json1_1DescribeQueryDefinitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeQueryDefinitions",
+    "x-amz-target": "Logs_20140328.DescribeQueryDefinitions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeQueryDefinitionsRequest(input, context));
@@ -454,7 +454,7 @@ export const serializeAws_json1_1DescribeResourcePoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeResourcePolicies",
+    "x-amz-target": "Logs_20140328.DescribeResourcePolicies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeResourcePoliciesRequest(input, context));
@@ -467,7 +467,7 @@ export const serializeAws_json1_1DescribeSubscriptionFiltersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DescribeSubscriptionFilters",
+    "x-amz-target": "Logs_20140328.DescribeSubscriptionFilters",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSubscriptionFiltersRequest(input, context));
@@ -480,7 +480,7 @@ export const serializeAws_json1_1DisassociateKmsKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.DisassociateKmsKey",
+    "x-amz-target": "Logs_20140328.DisassociateKmsKey",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateKmsKeyRequest(input, context));
@@ -493,7 +493,7 @@ export const serializeAws_json1_1FilterLogEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.FilterLogEvents",
+    "x-amz-target": "Logs_20140328.FilterLogEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1FilterLogEventsRequest(input, context));
@@ -506,7 +506,7 @@ export const serializeAws_json1_1GetLogEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.GetLogEvents",
+    "x-amz-target": "Logs_20140328.GetLogEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLogEventsRequest(input, context));
@@ -519,7 +519,7 @@ export const serializeAws_json1_1GetLogGroupFieldsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.GetLogGroupFields",
+    "x-amz-target": "Logs_20140328.GetLogGroupFields",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLogGroupFieldsRequest(input, context));
@@ -532,7 +532,7 @@ export const serializeAws_json1_1GetLogRecordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.GetLogRecord",
+    "x-amz-target": "Logs_20140328.GetLogRecord",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLogRecordRequest(input, context));
@@ -545,7 +545,7 @@ export const serializeAws_json1_1GetQueryResultsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.GetQueryResults",
+    "x-amz-target": "Logs_20140328.GetQueryResults",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetQueryResultsRequest(input, context));
@@ -558,7 +558,7 @@ export const serializeAws_json1_1ListTagsLogGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.ListTagsLogGroup",
+    "x-amz-target": "Logs_20140328.ListTagsLogGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsLogGroupRequest(input, context));
@@ -571,7 +571,7 @@ export const serializeAws_json1_1PutDestinationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutDestination",
+    "x-amz-target": "Logs_20140328.PutDestination",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutDestinationRequest(input, context));
@@ -584,7 +584,7 @@ export const serializeAws_json1_1PutDestinationPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutDestinationPolicy",
+    "x-amz-target": "Logs_20140328.PutDestinationPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutDestinationPolicyRequest(input, context));
@@ -597,7 +597,7 @@ export const serializeAws_json1_1PutLogEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutLogEvents",
+    "x-amz-target": "Logs_20140328.PutLogEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutLogEventsRequest(input, context));
@@ -610,7 +610,7 @@ export const serializeAws_json1_1PutMetricFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutMetricFilter",
+    "x-amz-target": "Logs_20140328.PutMetricFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutMetricFilterRequest(input, context));
@@ -623,7 +623,7 @@ export const serializeAws_json1_1PutQueryDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutQueryDefinition",
+    "x-amz-target": "Logs_20140328.PutQueryDefinition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutQueryDefinitionRequest(input, context));
@@ -636,7 +636,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutResourcePolicy",
+    "x-amz-target": "Logs_20140328.PutResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
@@ -649,7 +649,7 @@ export const serializeAws_json1_1PutRetentionPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutRetentionPolicy",
+    "x-amz-target": "Logs_20140328.PutRetentionPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRetentionPolicyRequest(input, context));
@@ -662,7 +662,7 @@ export const serializeAws_json1_1PutSubscriptionFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.PutSubscriptionFilter",
+    "x-amz-target": "Logs_20140328.PutSubscriptionFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutSubscriptionFilterRequest(input, context));
@@ -675,7 +675,7 @@ export const serializeAws_json1_1StartQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.StartQuery",
+    "x-amz-target": "Logs_20140328.StartQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartQueryRequest(input, context));
@@ -688,7 +688,7 @@ export const serializeAws_json1_1StopQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.StopQuery",
+    "x-amz-target": "Logs_20140328.StopQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopQueryRequest(input, context));
@@ -701,7 +701,7 @@ export const serializeAws_json1_1TagLogGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.TagLogGroup",
+    "x-amz-target": "Logs_20140328.TagLogGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagLogGroupRequest(input, context));
@@ -714,7 +714,7 @@ export const serializeAws_json1_1TestMetricFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.TestMetricFilter",
+    "x-amz-target": "Logs_20140328.TestMetricFilter",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TestMetricFilterRequest(input, context));
@@ -727,7 +727,7 @@ export const serializeAws_json1_1UntagLogGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Logs_20140328.UntagLogGroup",
+    "x-amz-target": "Logs_20140328.UntagLogGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagLogGroupRequest(input, context));

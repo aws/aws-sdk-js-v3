@@ -658,7 +658,7 @@ export const serializeAws_restJson1GetJobOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    ...(isSerializableHeaderValue(input.range) && { Range: input.range! }),
+    ...(isSerializableHeaderValue(input.range) && { range: input.range! }),
   };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
   if (input.accountId !== undefined) {
@@ -1435,7 +1435,7 @@ export const serializeAws_restJson1UploadMultipartPartCommand = async (
   const headers: any = {
     "content-type": "application/octet-stream",
     ...(isSerializableHeaderValue(input.checksum) && { "x-amz-sha256-tree-hash": input.checksum! }),
-    ...(isSerializableHeaderValue(input.range) && { "Content-Range": input.range! }),
+    ...(isSerializableHeaderValue(input.range) && { "content-range": input.range! }),
   };
   let resolvedPath = "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
   if (input.accountId !== undefined) {

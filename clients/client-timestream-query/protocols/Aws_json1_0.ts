@@ -40,7 +40,7 @@ export const serializeAws_json1_0CancelQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.CancelQuery",
+    "x-amz-target": "Timestream_20181101.CancelQuery",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CancelQueryRequest(input, context));
@@ -53,7 +53,7 @@ export const serializeAws_json1_0DescribeEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.DescribeEndpoints",
+    "x-amz-target": "Timestream_20181101.DescribeEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeEndpointsRequest(input, context));
@@ -66,7 +66,7 @@ export const serializeAws_json1_0QueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "Timestream_20181101.Query",
+    "x-amz-target": "Timestream_20181101.Query",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0QueryRequest(input, context));

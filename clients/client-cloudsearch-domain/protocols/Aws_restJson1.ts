@@ -98,7 +98,7 @@ export const serializeAws_restJson1UploadDocumentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.contentType) && { "Content-Type": input.contentType! }),
+    ...(isSerializableHeaderValue(input.contentType) && { "content-type": input.contentType! }),
   };
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {

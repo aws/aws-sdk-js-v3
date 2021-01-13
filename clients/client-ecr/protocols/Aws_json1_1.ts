@@ -228,7 +228,7 @@ export const serializeAws_json1_1BatchCheckLayerAvailabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchCheckLayerAvailabilityRequest(input, context));
@@ -241,7 +241,7 @@ export const serializeAws_json1_1BatchDeleteImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchDeleteImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteImageRequest(input, context));
@@ -254,7 +254,7 @@ export const serializeAws_json1_1BatchGetImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.BatchGetImage",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.BatchGetImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetImageRequest(input, context));
@@ -267,7 +267,7 @@ export const serializeAws_json1_1CompleteLayerUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CompleteLayerUpload",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CompleteLayerUploadRequest(input, context));
@@ -280,7 +280,7 @@ export const serializeAws_json1_1CreateRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.CreateRepository",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.CreateRepository",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRepositoryRequest(input, context));
@@ -293,7 +293,7 @@ export const serializeAws_json1_1DeleteLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteLifecyclePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLifecyclePolicyRequest(input, context));
@@ -306,7 +306,7 @@ export const serializeAws_json1_1DeleteRegistryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRegistryPolicyRequest(input, context));
@@ -319,7 +319,7 @@ export const serializeAws_json1_1DeleteRepositoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepository",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepository",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRepositoryRequest(input, context));
@@ -332,7 +332,7 @@ export const serializeAws_json1_1DeleteRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DeleteRepositoryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRepositoryPolicyRequest(input, context));
@@ -345,7 +345,7 @@ export const serializeAws_json1_1DescribeImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DescribeImages",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImagesRequest(input, context));
@@ -358,7 +358,7 @@ export const serializeAws_json1_1DescribeImageScanFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeImageScanFindings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImageScanFindingsRequest(input, context));
@@ -371,7 +371,7 @@ export const serializeAws_json1_1DescribeRegistryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeRegistry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRegistryRequest(input, context));
@@ -384,7 +384,7 @@ export const serializeAws_json1_1DescribeRepositoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.DescribeRepositories",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRepositoriesRequest(input, context));
@@ -397,7 +397,7 @@ export const serializeAws_json1_1GetAuthorizationTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAuthorizationTokenRequest(input, context));
@@ -410,7 +410,7 @@ export const serializeAws_json1_1GetDownloadUrlForLayerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetDownloadUrlForLayer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDownloadUrlForLayerRequest(input, context));
@@ -423,7 +423,7 @@ export const serializeAws_json1_1GetLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyRequest(input, context));
@@ -436,7 +436,7 @@ export const serializeAws_json1_1GetLifecyclePolicyPreviewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLifecyclePolicyPreviewRequest(input, context));
@@ -449,7 +449,7 @@ export const serializeAws_json1_1GetRegistryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRegistryPolicyRequest(input, context));
@@ -462,7 +462,7 @@ export const serializeAws_json1_1GetRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.GetRepositoryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRepositoryPolicyRequest(input, context));
@@ -475,7 +475,7 @@ export const serializeAws_json1_1InitiateLayerUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1InitiateLayerUploadRequest(input, context));
@@ -488,7 +488,7 @@ export const serializeAws_json1_1ListImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.ListImages",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.ListImages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListImagesRequest(input, context));
@@ -501,7 +501,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -514,7 +514,7 @@ export const serializeAws_json1_1PutImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutImage",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutImageRequest(input, context));
@@ -527,7 +527,7 @@ export const serializeAws_json1_1PutImageScanningConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImageScanningConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutImageScanningConfigurationRequest(input, context));
@@ -540,7 +540,7 @@ export const serializeAws_json1_1PutImageTagMutabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutImageTagMutability",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutImageTagMutabilityRequest(input, context));
@@ -553,7 +553,7 @@ export const serializeAws_json1_1PutLifecyclePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutLifecyclePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutLifecyclePolicyRequest(input, context));
@@ -566,7 +566,7 @@ export const serializeAws_json1_1PutRegistryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRegistryPolicyRequest(input, context));
@@ -579,7 +579,7 @@ export const serializeAws_json1_1PutReplicationConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutReplicationConfigurationRequest(input, context));
@@ -592,7 +592,7 @@ export const serializeAws_json1_1SetRepositoryPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SetRepositoryPolicyRequest(input, context));
@@ -605,7 +605,7 @@ export const serializeAws_json1_1StartImageScanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.StartImageScan",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.StartImageScan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartImageScanRequest(input, context));
@@ -618,7 +618,7 @@ export const serializeAws_json1_1StartLifecyclePolicyPreviewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.StartLifecyclePolicyPreview",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartLifecyclePolicyPreviewRequest(input, context));
@@ -631,7 +631,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.TagResource",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -644,7 +644,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.UntagResource",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -657,7 +657,7 @@ export const serializeAws_json1_1UploadLayerPartCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart",
+    "x-amz-target": "AmazonEC2ContainerRegistry_V20150921.UploadLayerPart",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UploadLayerPartRequest(input, context));

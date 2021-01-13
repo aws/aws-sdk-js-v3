@@ -36,7 +36,7 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ParticipantToken) && { "X-Amz-Bearer": input.ParticipantToken! }),
+    ...(isSerializableHeaderValue(input.ParticipantToken) && { "x-amz-bearer": input.ParticipantToken! }),
   };
   let resolvedPath = "/participant/connection";
   let body: any;
@@ -62,7 +62,7 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/disconnect";
   let body: any;
@@ -87,7 +87,7 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/transcript";
   let body: any;
@@ -120,7 +120,7 @@ export const serializeAws_restJson1SendEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/event";
   let body: any;
@@ -147,7 +147,7 @@ export const serializeAws_restJson1SendMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/json",
-    ...(isSerializableHeaderValue(input.ConnectionToken) && { "X-Amz-Bearer": input.ConnectionToken! }),
+    ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
   let resolvedPath = "/participant/message";
   let body: any;

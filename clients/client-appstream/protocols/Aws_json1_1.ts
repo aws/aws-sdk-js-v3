@@ -255,7 +255,7 @@ export const serializeAws_json1_1AssociateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.AssociateFleet",
+    "x-amz-target": "PhotonAdminProxyService.AssociateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateFleetRequest(input, context));
@@ -268,7 +268,7 @@ export const serializeAws_json1_1BatchAssociateUserStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.BatchAssociateUserStack",
+    "x-amz-target": "PhotonAdminProxyService.BatchAssociateUserStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchAssociateUserStackRequest(input, context));
@@ -281,7 +281,7 @@ export const serializeAws_json1_1BatchDisassociateUserStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.BatchDisassociateUserStack",
+    "x-amz-target": "PhotonAdminProxyService.BatchDisassociateUserStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDisassociateUserStackRequest(input, context));
@@ -294,7 +294,7 @@ export const serializeAws_json1_1CopyImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CopyImage",
+    "x-amz-target": "PhotonAdminProxyService.CopyImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CopyImageRequest(input, context));
@@ -307,7 +307,7 @@ export const serializeAws_json1_1CreateDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateDirectoryConfig",
+    "x-amz-target": "PhotonAdminProxyService.CreateDirectoryConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDirectoryConfigRequest(input, context));
@@ -320,7 +320,7 @@ export const serializeAws_json1_1CreateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateFleet",
+    "x-amz-target": "PhotonAdminProxyService.CreateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateFleetRequest(input, context));
@@ -333,7 +333,7 @@ export const serializeAws_json1_1CreateImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateImageBuilder",
+    "x-amz-target": "PhotonAdminProxyService.CreateImageBuilder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateImageBuilderRequest(input, context));
@@ -346,7 +346,7 @@ export const serializeAws_json1_1CreateImageBuilderStreamingURLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateImageBuilderStreamingURL",
+    "x-amz-target": "PhotonAdminProxyService.CreateImageBuilderStreamingURL",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateImageBuilderStreamingURLRequest(input, context));
@@ -359,7 +359,7 @@ export const serializeAws_json1_1CreateStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateStack",
+    "x-amz-target": "PhotonAdminProxyService.CreateStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateStackRequest(input, context));
@@ -372,7 +372,7 @@ export const serializeAws_json1_1CreateStreamingURLCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateStreamingURL",
+    "x-amz-target": "PhotonAdminProxyService.CreateStreamingURL",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateStreamingURLRequest(input, context));
@@ -385,7 +385,7 @@ export const serializeAws_json1_1CreateUsageReportSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateUsageReportSubscription",
+    "x-amz-target": "PhotonAdminProxyService.CreateUsageReportSubscription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUsageReportSubscriptionRequest(input, context));
@@ -398,7 +398,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.CreateUser",
+    "x-amz-target": "PhotonAdminProxyService.CreateUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserRequest(input, context));
@@ -411,7 +411,7 @@ export const serializeAws_json1_1DeleteDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteDirectoryConfig",
+    "x-amz-target": "PhotonAdminProxyService.DeleteDirectoryConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDirectoryConfigRequest(input, context));
@@ -424,7 +424,7 @@ export const serializeAws_json1_1DeleteFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteFleet",
+    "x-amz-target": "PhotonAdminProxyService.DeleteFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteFleetRequest(input, context));
@@ -437,7 +437,7 @@ export const serializeAws_json1_1DeleteImageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteImage",
+    "x-amz-target": "PhotonAdminProxyService.DeleteImage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteImageRequest(input, context));
@@ -450,7 +450,7 @@ export const serializeAws_json1_1DeleteImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteImageBuilder",
+    "x-amz-target": "PhotonAdminProxyService.DeleteImageBuilder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteImageBuilderRequest(input, context));
@@ -463,7 +463,7 @@ export const serializeAws_json1_1DeleteImagePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteImagePermissions",
+    "x-amz-target": "PhotonAdminProxyService.DeleteImagePermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteImagePermissionsRequest(input, context));
@@ -476,7 +476,7 @@ export const serializeAws_json1_1DeleteStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteStack",
+    "x-amz-target": "PhotonAdminProxyService.DeleteStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteStackRequest(input, context));
@@ -489,7 +489,7 @@ export const serializeAws_json1_1DeleteUsageReportSubscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteUsageReportSubscription",
+    "x-amz-target": "PhotonAdminProxyService.DeleteUsageReportSubscription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUsageReportSubscriptionRequest(input, context));
@@ -502,7 +502,7 @@ export const serializeAws_json1_1DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DeleteUser",
+    "x-amz-target": "PhotonAdminProxyService.DeleteUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserRequest(input, context));
@@ -515,7 +515,7 @@ export const serializeAws_json1_1DescribeDirectoryConfigsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeDirectoryConfigs",
+    "x-amz-target": "PhotonAdminProxyService.DescribeDirectoryConfigs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeDirectoryConfigsRequest(input, context));
@@ -528,7 +528,7 @@ export const serializeAws_json1_1DescribeFleetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeFleets",
+    "x-amz-target": "PhotonAdminProxyService.DescribeFleets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFleetsRequest(input, context));
@@ -541,7 +541,7 @@ export const serializeAws_json1_1DescribeImageBuildersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeImageBuilders",
+    "x-amz-target": "PhotonAdminProxyService.DescribeImageBuilders",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImageBuildersRequest(input, context));
@@ -554,7 +554,7 @@ export const serializeAws_json1_1DescribeImagePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeImagePermissions",
+    "x-amz-target": "PhotonAdminProxyService.DescribeImagePermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImagePermissionsRequest(input, context));
@@ -567,7 +567,7 @@ export const serializeAws_json1_1DescribeImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeImages",
+    "x-amz-target": "PhotonAdminProxyService.DescribeImages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeImagesRequest(input, context));
@@ -580,7 +580,7 @@ export const serializeAws_json1_1DescribeSessionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeSessions",
+    "x-amz-target": "PhotonAdminProxyService.DescribeSessions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeSessionsRequest(input, context));
@@ -593,7 +593,7 @@ export const serializeAws_json1_1DescribeStacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeStacks",
+    "x-amz-target": "PhotonAdminProxyService.DescribeStacks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeStacksRequest(input, context));
@@ -606,7 +606,7 @@ export const serializeAws_json1_1DescribeUsageReportSubscriptionsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUsageReportSubscriptions",
+    "x-amz-target": "PhotonAdminProxyService.DescribeUsageReportSubscriptions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUsageReportSubscriptionsRequest(input, context));
@@ -619,7 +619,7 @@ export const serializeAws_json1_1DescribeUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUsers",
+    "x-amz-target": "PhotonAdminProxyService.DescribeUsers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUsersRequest(input, context));
@@ -632,7 +632,7 @@ export const serializeAws_json1_1DescribeUserStackAssociationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DescribeUserStackAssociations",
+    "x-amz-target": "PhotonAdminProxyService.DescribeUserStackAssociations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeUserStackAssociationsRequest(input, context));
@@ -645,7 +645,7 @@ export const serializeAws_json1_1DisableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DisableUser",
+    "x-amz-target": "PhotonAdminProxyService.DisableUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableUserRequest(input, context));
@@ -658,7 +658,7 @@ export const serializeAws_json1_1DisassociateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.DisassociateFleet",
+    "x-amz-target": "PhotonAdminProxyService.DisassociateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisassociateFleetRequest(input, context));
@@ -671,7 +671,7 @@ export const serializeAws_json1_1EnableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.EnableUser",
+    "x-amz-target": "PhotonAdminProxyService.EnableUser",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableUserRequest(input, context));
@@ -684,7 +684,7 @@ export const serializeAws_json1_1ExpireSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ExpireSession",
+    "x-amz-target": "PhotonAdminProxyService.ExpireSession",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExpireSessionRequest(input, context));
@@ -697,7 +697,7 @@ export const serializeAws_json1_1ListAssociatedFleetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ListAssociatedFleets",
+    "x-amz-target": "PhotonAdminProxyService.ListAssociatedFleets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssociatedFleetsRequest(input, context));
@@ -710,7 +710,7 @@ export const serializeAws_json1_1ListAssociatedStacksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ListAssociatedStacks",
+    "x-amz-target": "PhotonAdminProxyService.ListAssociatedStacks",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssociatedStacksRequest(input, context));
@@ -723,7 +723,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.ListTagsForResource",
+    "x-amz-target": "PhotonAdminProxyService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -736,7 +736,7 @@ export const serializeAws_json1_1StartFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StartFleet",
+    "x-amz-target": "PhotonAdminProxyService.StartFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartFleetRequest(input, context));
@@ -749,7 +749,7 @@ export const serializeAws_json1_1StartImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StartImageBuilder",
+    "x-amz-target": "PhotonAdminProxyService.StartImageBuilder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartImageBuilderRequest(input, context));
@@ -762,7 +762,7 @@ export const serializeAws_json1_1StopFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StopFleet",
+    "x-amz-target": "PhotonAdminProxyService.StopFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopFleetRequest(input, context));
@@ -775,7 +775,7 @@ export const serializeAws_json1_1StopImageBuilderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.StopImageBuilder",
+    "x-amz-target": "PhotonAdminProxyService.StopImageBuilder",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopImageBuilderRequest(input, context));
@@ -788,7 +788,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.TagResource",
+    "x-amz-target": "PhotonAdminProxyService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -801,7 +801,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UntagResource",
+    "x-amz-target": "PhotonAdminProxyService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -814,7 +814,7 @@ export const serializeAws_json1_1UpdateDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateDirectoryConfig",
+    "x-amz-target": "PhotonAdminProxyService.UpdateDirectoryConfig",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDirectoryConfigRequest(input, context));
@@ -827,7 +827,7 @@ export const serializeAws_json1_1UpdateFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateFleet",
+    "x-amz-target": "PhotonAdminProxyService.UpdateFleet",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateFleetRequest(input, context));
@@ -840,7 +840,7 @@ export const serializeAws_json1_1UpdateImagePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateImagePermissions",
+    "x-amz-target": "PhotonAdminProxyService.UpdateImagePermissions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateImagePermissionsRequest(input, context));
@@ -853,7 +853,7 @@ export const serializeAws_json1_1UpdateStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "PhotonAdminProxyService.UpdateStack",
+    "x-amz-target": "PhotonAdminProxyService.UpdateStack",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateStackRequest(input, context));

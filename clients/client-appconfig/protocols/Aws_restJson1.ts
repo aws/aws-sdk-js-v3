@@ -251,10 +251,10 @@ export const serializeAws_restJson1CreateHostedConfigurationVersionCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "content-type": "application/octet-stream",
-    ...(isSerializableHeaderValue(input.Description) && { Description: input.Description! }),
-    ...(isSerializableHeaderValue(input.ContentType) && { "Content-Type": input.ContentType! }),
+    ...(isSerializableHeaderValue(input.Description) && { description: input.Description! }),
+    ...(isSerializableHeaderValue(input.ContentType) && { "content-type": input.ContentType! }),
     ...(isSerializableHeaderValue(input.LatestVersionNumber) && {
-      "Latest-Version-Number": input.LatestVersionNumber!.toString(),
+      "latest-version-number": input.LatestVersionNumber!.toString(),
     }),
   };
   let resolvedPath =

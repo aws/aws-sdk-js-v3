@@ -36,12 +36,12 @@ export const serializeAws_restJson1CompleteSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     ...(isSerializableHeaderValue(input.ChangedBlocksCount) && {
-      "x-amz-ChangedBlocksCount": input.ChangedBlocksCount!.toString(),
+      "x-amz-changedblockscount": input.ChangedBlocksCount!.toString(),
     }),
-    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
-    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
+    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-checksum": input.Checksum! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-checksum-algorithm": input.ChecksumAlgorithm! }),
     ...(isSerializableHeaderValue(input.ChecksumAggregationMethod) && {
-      "x-amz-Checksum-Aggregation-Method": input.ChecksumAggregationMethod!,
+      "x-amz-checksum-aggregation-method": input.ChecksumAggregationMethod!,
     }),
   };
   let resolvedPath = "/snapshots/completion/{SnapshotId}";
@@ -184,10 +184,10 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
   const headers: any = {
     "content-type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.DataLength) && { "x-amz-Data-Length": input.DataLength!.toString() }),
-    ...(isSerializableHeaderValue(input.Progress) && { "x-amz-Progress": input.Progress!.toString() }),
-    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
-    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
+    ...(isSerializableHeaderValue(input.DataLength) && { "x-amz-data-length": input.DataLength!.toString() }),
+    ...(isSerializableHeaderValue(input.Progress) && { "x-amz-progress": input.Progress!.toString() }),
+    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-checksum": input.Checksum! }),
+    ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-checksum-algorithm": input.ChecksumAlgorithm! }),
   };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
   if (input.SnapshotId !== undefined) {

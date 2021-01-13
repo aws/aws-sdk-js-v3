@@ -107,7 +107,7 @@ export const serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeAffectedAccountsForOrganization",
+    "x-amz-target": "AWSHealth_20160804.DescribeAffectedAccountsForOrganization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAffectedAccountsForOrganizationRequest(input, context));
@@ -120,7 +120,7 @@ export const serializeAws_json1_1DescribeAffectedEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeAffectedEntities",
+    "x-amz-target": "AWSHealth_20160804.DescribeAffectedEntities",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAffectedEntitiesRequest(input, context));
@@ -133,7 +133,7 @@ export const serializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization",
+    "x-amz-target": "AWSHealth_20160804.DescribeAffectedEntitiesForOrganization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAffectedEntitiesForOrganizationRequest(input, context));
@@ -146,7 +146,7 @@ export const serializeAws_json1_1DescribeEntityAggregatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEntityAggregates",
+    "x-amz-target": "AWSHealth_20160804.DescribeEntityAggregates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEntityAggregatesRequest(input, context));
@@ -159,7 +159,7 @@ export const serializeAws_json1_1DescribeEventAggregatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEventAggregates",
+    "x-amz-target": "AWSHealth_20160804.DescribeEventAggregates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventAggregatesRequest(input, context));
@@ -172,7 +172,7 @@ export const serializeAws_json1_1DescribeEventDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEventDetails",
+    "x-amz-target": "AWSHealth_20160804.DescribeEventDetails",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventDetailsRequest(input, context));
@@ -185,7 +185,7 @@ export const serializeAws_json1_1DescribeEventDetailsForOrganizationCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEventDetailsForOrganization",
+    "x-amz-target": "AWSHealth_20160804.DescribeEventDetailsForOrganization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventDetailsForOrganizationRequest(input, context));
@@ -198,7 +198,7 @@ export const serializeAws_json1_1DescribeEventsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEvents",
+    "x-amz-target": "AWSHealth_20160804.DescribeEvents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventsRequest(input, context));
@@ -211,7 +211,7 @@ export const serializeAws_json1_1DescribeEventsForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEventsForOrganization",
+    "x-amz-target": "AWSHealth_20160804.DescribeEventsForOrganization",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventsForOrganizationRequest(input, context));
@@ -224,7 +224,7 @@ export const serializeAws_json1_1DescribeEventTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeEventTypes",
+    "x-amz-target": "AWSHealth_20160804.DescribeEventTypes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEventTypesRequest(input, context));
@@ -237,7 +237,7 @@ export const serializeAws_json1_1DescribeHealthServiceStatusForOrganizationComma
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization",
+    "x-amz-target": "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -248,7 +248,7 @@ export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationComman
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.DisableHealthServiceAccessForOrganization",
+    "x-amz-target": "AWSHealth_20160804.DisableHealthServiceAccessForOrganization",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -259,7 +259,7 @@ export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSHealth_20160804.EnableHealthServiceAccessForOrganization",
+    "x-amz-target": "AWSHealth_20160804.EnableHealthServiceAccessForOrganization",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };

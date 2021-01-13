@@ -242,7 +242,7 @@ export const serializeAws_json1_1AcceptGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.AcceptGrant",
+    "x-amz-target": "AWSLicenseManager.AcceptGrant",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AcceptGrantRequest(input, context));
@@ -255,7 +255,7 @@ export const serializeAws_json1_1CheckInLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CheckInLicense",
+    "x-amz-target": "AWSLicenseManager.CheckInLicense",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CheckInLicenseRequest(input, context));
@@ -268,7 +268,7 @@ export const serializeAws_json1_1CheckoutBorrowLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CheckoutBorrowLicense",
+    "x-amz-target": "AWSLicenseManager.CheckoutBorrowLicense",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CheckoutBorrowLicenseRequest(input, context));
@@ -281,7 +281,7 @@ export const serializeAws_json1_1CheckoutLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CheckoutLicense",
+    "x-amz-target": "AWSLicenseManager.CheckoutLicense",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CheckoutLicenseRequest(input, context));
@@ -294,7 +294,7 @@ export const serializeAws_json1_1CreateGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CreateGrant",
+    "x-amz-target": "AWSLicenseManager.CreateGrant",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGrantRequest(input, context));
@@ -307,7 +307,7 @@ export const serializeAws_json1_1CreateGrantVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CreateGrantVersion",
+    "x-amz-target": "AWSLicenseManager.CreateGrantVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGrantVersionRequest(input, context));
@@ -320,7 +320,7 @@ export const serializeAws_json1_1CreateLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CreateLicense",
+    "x-amz-target": "AWSLicenseManager.CreateLicense",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLicenseRequest(input, context));
@@ -333,7 +333,7 @@ export const serializeAws_json1_1CreateLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CreateLicenseConfiguration",
+    "x-amz-target": "AWSLicenseManager.CreateLicenseConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLicenseConfigurationRequest(input, context));
@@ -346,7 +346,7 @@ export const serializeAws_json1_1CreateLicenseVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CreateLicenseVersion",
+    "x-amz-target": "AWSLicenseManager.CreateLicenseVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLicenseVersionRequest(input, context));
@@ -359,7 +359,7 @@ export const serializeAws_json1_1CreateTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.CreateToken",
+    "x-amz-target": "AWSLicenseManager.CreateToken",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTokenRequest(input, context));
@@ -372,7 +372,7 @@ export const serializeAws_json1_1DeleteGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.DeleteGrant",
+    "x-amz-target": "AWSLicenseManager.DeleteGrant",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteGrantRequest(input, context));
@@ -385,7 +385,7 @@ export const serializeAws_json1_1DeleteLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.DeleteLicense",
+    "x-amz-target": "AWSLicenseManager.DeleteLicense",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLicenseRequest(input, context));
@@ -398,7 +398,7 @@ export const serializeAws_json1_1DeleteLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.DeleteLicenseConfiguration",
+    "x-amz-target": "AWSLicenseManager.DeleteLicenseConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteLicenseConfigurationRequest(input, context));
@@ -411,7 +411,7 @@ export const serializeAws_json1_1DeleteTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.DeleteToken",
+    "x-amz-target": "AWSLicenseManager.DeleteToken",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTokenRequest(input, context));
@@ -424,7 +424,7 @@ export const serializeAws_json1_1ExtendLicenseConsumptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ExtendLicenseConsumption",
+    "x-amz-target": "AWSLicenseManager.ExtendLicenseConsumption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExtendLicenseConsumptionRequest(input, context));
@@ -437,7 +437,7 @@ export const serializeAws_json1_1GetAccessTokenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.GetAccessToken",
+    "x-amz-target": "AWSLicenseManager.GetAccessToken",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAccessTokenRequest(input, context));
@@ -450,7 +450,7 @@ export const serializeAws_json1_1GetGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.GetGrant",
+    "x-amz-target": "AWSLicenseManager.GetGrant",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetGrantRequest(input, context));
@@ -463,7 +463,7 @@ export const serializeAws_json1_1GetLicenseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.GetLicense",
+    "x-amz-target": "AWSLicenseManager.GetLicense",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLicenseRequest(input, context));
@@ -476,7 +476,7 @@ export const serializeAws_json1_1GetLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.GetLicenseConfiguration",
+    "x-amz-target": "AWSLicenseManager.GetLicenseConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLicenseConfigurationRequest(input, context));
@@ -489,7 +489,7 @@ export const serializeAws_json1_1GetLicenseUsageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.GetLicenseUsage",
+    "x-amz-target": "AWSLicenseManager.GetLicenseUsage",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetLicenseUsageRequest(input, context));
@@ -502,7 +502,7 @@ export const serializeAws_json1_1GetServiceSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.GetServiceSettings",
+    "x-amz-target": "AWSLicenseManager.GetServiceSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetServiceSettingsRequest(input, context));
@@ -515,7 +515,7 @@ export const serializeAws_json1_1ListAssociationsForLicenseConfigurationCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration",
+    "x-amz-target": "AWSLicenseManager.ListAssociationsForLicenseConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssociationsForLicenseConfigurationRequest(input, context));
@@ -528,7 +528,7 @@ export const serializeAws_json1_1ListDistributedGrantsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListDistributedGrants",
+    "x-amz-target": "AWSLicenseManager.ListDistributedGrants",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDistributedGrantsRequest(input, context));
@@ -541,7 +541,7 @@ export const serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCo
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations",
+    "x-amz-target": "AWSLicenseManager.ListFailuresForLicenseConfigurationOperations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsRequest(input, context));
@@ -554,7 +554,7 @@ export const serializeAws_json1_1ListLicenseConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListLicenseConfigurations",
+    "x-amz-target": "AWSLicenseManager.ListLicenseConfigurations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLicenseConfigurationsRequest(input, context));
@@ -567,7 +567,7 @@ export const serializeAws_json1_1ListLicensesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListLicenses",
+    "x-amz-target": "AWSLicenseManager.ListLicenses",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLicensesRequest(input, context));
@@ -580,7 +580,7 @@ export const serializeAws_json1_1ListLicenseSpecificationsForResourceCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListLicenseSpecificationsForResource",
+    "x-amz-target": "AWSLicenseManager.ListLicenseSpecificationsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLicenseSpecificationsForResourceRequest(input, context));
@@ -593,7 +593,7 @@ export const serializeAws_json1_1ListLicenseVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListLicenseVersions",
+    "x-amz-target": "AWSLicenseManager.ListLicenseVersions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListLicenseVersionsRequest(input, context));
@@ -606,7 +606,7 @@ export const serializeAws_json1_1ListReceivedGrantsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListReceivedGrants",
+    "x-amz-target": "AWSLicenseManager.ListReceivedGrants",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReceivedGrantsRequest(input, context));
@@ -619,7 +619,7 @@ export const serializeAws_json1_1ListReceivedLicensesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListReceivedLicenses",
+    "x-amz-target": "AWSLicenseManager.ListReceivedLicenses",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesRequest(input, context));
@@ -632,7 +632,7 @@ export const serializeAws_json1_1ListResourceInventoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListResourceInventory",
+    "x-amz-target": "AWSLicenseManager.ListResourceInventory",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListResourceInventoryRequest(input, context));
@@ -645,7 +645,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListTagsForResource",
+    "x-amz-target": "AWSLicenseManager.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -658,7 +658,7 @@ export const serializeAws_json1_1ListTokensCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListTokens",
+    "x-amz-target": "AWSLicenseManager.ListTokens",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTokensRequest(input, context));
@@ -671,7 +671,7 @@ export const serializeAws_json1_1ListUsageForLicenseConfigurationCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.ListUsageForLicenseConfiguration",
+    "x-amz-target": "AWSLicenseManager.ListUsageForLicenseConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListUsageForLicenseConfigurationRequest(input, context));
@@ -684,7 +684,7 @@ export const serializeAws_json1_1RejectGrantCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.RejectGrant",
+    "x-amz-target": "AWSLicenseManager.RejectGrant",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RejectGrantRequest(input, context));
@@ -697,7 +697,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.TagResource",
+    "x-amz-target": "AWSLicenseManager.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -710,7 +710,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.UntagResource",
+    "x-amz-target": "AWSLicenseManager.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -723,7 +723,7 @@ export const serializeAws_json1_1UpdateLicenseConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.UpdateLicenseConfiguration",
+    "x-amz-target": "AWSLicenseManager.UpdateLicenseConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLicenseConfigurationRequest(input, context));
@@ -736,7 +736,7 @@ export const serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand =
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource",
+    "x-amz-target": "AWSLicenseManager.UpdateLicenseSpecificationsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateLicenseSpecificationsForResourceRequest(input, context));
@@ -749,7 +749,7 @@ export const serializeAws_json1_1UpdateServiceSettingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSLicenseManager.UpdateServiceSettings",
+    "x-amz-target": "AWSLicenseManager.UpdateServiceSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateServiceSettingsRequest(input, context));

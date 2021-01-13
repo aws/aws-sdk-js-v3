@@ -92,7 +92,7 @@ export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEnvironmentEC2Request(input, context));
@@ -105,7 +105,7 @@ export const serializeAws_json1_1CreateEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentMembership",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateEnvironmentMembershipRequest(input, context));
@@ -118,7 +118,7 @@ export const serializeAws_json1_1DeleteEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.DeleteEnvironment",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEnvironmentRequest(input, context));
@@ -131,7 +131,7 @@ export const serializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.DeleteEnvironmentMembership",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEnvironmentMembershipRequest(input, context));
@@ -144,7 +144,7 @@ export const serializeAws_json1_1DescribeEnvironmentMembershipsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentMemberships",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentMembershipsRequest(input, context));
@@ -157,7 +157,7 @@ export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentsRequest(input, context));
@@ -170,7 +170,7 @@ export const serializeAws_json1_1DescribeEnvironmentStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeEnvironmentStatusRequest(input, context));
@@ -183,7 +183,7 @@ export const serializeAws_json1_1ListEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListEnvironments",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.ListEnvironments",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEnvironmentsRequest(input, context));
@@ -196,7 +196,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -209,7 +209,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.TagResource",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -222,7 +222,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UntagResource",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -235,7 +235,7 @@ export const serializeAws_json1_1UpdateEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateEnvironmentRequest(input, context));
@@ -248,7 +248,7 @@ export const serializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership",
+    "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironmentMembership",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateEnvironmentMembershipRequest(input, context));

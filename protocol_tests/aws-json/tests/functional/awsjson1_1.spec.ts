@@ -187,8 +187,8 @@ it("includes_x_amz_target_and_content_type:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.EmptyOperation");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.EmptyOperation");
   }
 });
 
@@ -824,8 +824,8 @@ it("AwsJson11SerializeStringUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -867,8 +867,8 @@ it("AwsJson11SerializeBooleanUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -910,8 +910,8 @@ it("AwsJson11SerializeNumberUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -953,8 +953,8 @@ it("AwsJson11SerializeBlobUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -996,8 +996,8 @@ it("AwsJson11SerializeTimestampUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -1039,8 +1039,8 @@ it("AwsJson11SerializeEnumUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -1082,8 +1082,8 @@ it("AwsJson11SerializeListUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -1129,8 +1129,8 @@ it("AwsJson11SerializeMapUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -1177,8 +1177,8 @@ it("AwsJson11SerializeStructureUnionValue:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.JsonUnions");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.JsonUnions");
 
     expect(r.body).toBeDefined();
     const bodyString = `{
@@ -3887,8 +3887,8 @@ it("can_call_operation_with_no_input_or_output:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
@@ -3924,8 +3924,8 @@ it("can_call_operation_with_optional_input:Request", async () => {
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-    expect(r.headers["X-Amz-Target"]).toBeDefined();
-    expect(r.headers["X-Amz-Target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
+    expect(r.headers["x-amz-target"]).toBeDefined();
+    expect(r.headers["x-amz-target"]).toBe("JsonProtocol.OperationWithOptionalInputOutput");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Value\":\"Hi\"}`;

@@ -58,7 +58,7 @@ export const serializeAws_json1_0CreateFHIRDatastoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "HealthLake.CreateFHIRDatastore",
+    "x-amz-target": "HealthLake.CreateFHIRDatastore",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateFHIRDatastoreRequest(input, context));
@@ -71,7 +71,7 @@ export const serializeAws_json1_0DeleteFHIRDatastoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "HealthLake.DeleteFHIRDatastore",
+    "x-amz-target": "HealthLake.DeleteFHIRDatastore",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteFHIRDatastoreRequest(input, context));
@@ -84,7 +84,7 @@ export const serializeAws_json1_0DescribeFHIRDatastoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "HealthLake.DescribeFHIRDatastore",
+    "x-amz-target": "HealthLake.DescribeFHIRDatastore",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeFHIRDatastoreRequest(input, context));
@@ -97,7 +97,7 @@ export const serializeAws_json1_0DescribeFHIRImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "HealthLake.DescribeFHIRImportJob",
+    "x-amz-target": "HealthLake.DescribeFHIRImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeFHIRImportJobRequest(input, context));
@@ -110,7 +110,7 @@ export const serializeAws_json1_0ListFHIRDatastoresCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "HealthLake.ListFHIRDatastores",
+    "x-amz-target": "HealthLake.ListFHIRDatastores",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListFHIRDatastoresRequest(input, context));
@@ -123,7 +123,7 @@ export const serializeAws_json1_0StartFHIRImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "HealthLake.StartFHIRImportJob",
+    "x-amz-target": "HealthLake.StartFHIRImportJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0StartFHIRImportJobRequest(input, context));

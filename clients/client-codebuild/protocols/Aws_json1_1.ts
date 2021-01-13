@@ -249,7 +249,7 @@ export const serializeAws_json1_1BatchDeleteBuildsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.BatchDeleteBuilds",
+    "x-amz-target": "CodeBuild_20161006.BatchDeleteBuilds",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteBuildsInput(input, context));
@@ -262,7 +262,7 @@ export const serializeAws_json1_1BatchGetBuildBatchesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.BatchGetBuildBatches",
+    "x-amz-target": "CodeBuild_20161006.BatchGetBuildBatches",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetBuildBatchesInput(input, context));
@@ -275,7 +275,7 @@ export const serializeAws_json1_1BatchGetBuildsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.BatchGetBuilds",
+    "x-amz-target": "CodeBuild_20161006.BatchGetBuilds",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetBuildsInput(input, context));
@@ -288,7 +288,7 @@ export const serializeAws_json1_1BatchGetProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.BatchGetProjects",
+    "x-amz-target": "CodeBuild_20161006.BatchGetProjects",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetProjectsInput(input, context));
@@ -301,7 +301,7 @@ export const serializeAws_json1_1BatchGetReportGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.BatchGetReportGroups",
+    "x-amz-target": "CodeBuild_20161006.BatchGetReportGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetReportGroupsInput(input, context));
@@ -314,7 +314,7 @@ export const serializeAws_json1_1BatchGetReportsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.BatchGetReports",
+    "x-amz-target": "CodeBuild_20161006.BatchGetReports",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetReportsInput(input, context));
@@ -327,7 +327,7 @@ export const serializeAws_json1_1CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.CreateProject",
+    "x-amz-target": "CodeBuild_20161006.CreateProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateProjectInput(input, context));
@@ -340,7 +340,7 @@ export const serializeAws_json1_1CreateReportGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.CreateReportGroup",
+    "x-amz-target": "CodeBuild_20161006.CreateReportGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateReportGroupInput(input, context));
@@ -353,7 +353,7 @@ export const serializeAws_json1_1CreateWebhookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.CreateWebhook",
+    "x-amz-target": "CodeBuild_20161006.CreateWebhook",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWebhookInput(input, context));
@@ -366,7 +366,7 @@ export const serializeAws_json1_1DeleteBuildBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteBuildBatch",
+    "x-amz-target": "CodeBuild_20161006.DeleteBuildBatch",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteBuildBatchInput(input, context));
@@ -379,7 +379,7 @@ export const serializeAws_json1_1DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteProject",
+    "x-amz-target": "CodeBuild_20161006.DeleteProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProjectInput(input, context));
@@ -392,7 +392,7 @@ export const serializeAws_json1_1DeleteReportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteReport",
+    "x-amz-target": "CodeBuild_20161006.DeleteReport",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteReportInput(input, context));
@@ -405,7 +405,7 @@ export const serializeAws_json1_1DeleteReportGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteReportGroup",
+    "x-amz-target": "CodeBuild_20161006.DeleteReportGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteReportGroupInput(input, context));
@@ -418,7 +418,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteResourcePolicy",
+    "x-amz-target": "CodeBuild_20161006.DeleteResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyInput(input, context));
@@ -431,7 +431,7 @@ export const serializeAws_json1_1DeleteSourceCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteSourceCredentials",
+    "x-amz-target": "CodeBuild_20161006.DeleteSourceCredentials",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSourceCredentialsInput(input, context));
@@ -444,7 +444,7 @@ export const serializeAws_json1_1DeleteWebhookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DeleteWebhook",
+    "x-amz-target": "CodeBuild_20161006.DeleteWebhook",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteWebhookInput(input, context));
@@ -457,7 +457,7 @@ export const serializeAws_json1_1DescribeCodeCoveragesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DescribeCodeCoverages",
+    "x-amz-target": "CodeBuild_20161006.DescribeCodeCoverages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeCodeCoveragesInput(input, context));
@@ -470,7 +470,7 @@ export const serializeAws_json1_1DescribeTestCasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.DescribeTestCases",
+    "x-amz-target": "CodeBuild_20161006.DescribeTestCases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeTestCasesInput(input, context));
@@ -483,7 +483,7 @@ export const serializeAws_json1_1GetReportGroupTrendCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.GetReportGroupTrend",
+    "x-amz-target": "CodeBuild_20161006.GetReportGroupTrend",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetReportGroupTrendInput(input, context));
@@ -496,7 +496,7 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.GetResourcePolicy",
+    "x-amz-target": "CodeBuild_20161006.GetResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourcePolicyInput(input, context));
@@ -509,7 +509,7 @@ export const serializeAws_json1_1ImportSourceCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ImportSourceCredentials",
+    "x-amz-target": "CodeBuild_20161006.ImportSourceCredentials",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportSourceCredentialsInput(input, context));
@@ -522,7 +522,7 @@ export const serializeAws_json1_1InvalidateProjectCacheCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.InvalidateProjectCache",
+    "x-amz-target": "CodeBuild_20161006.InvalidateProjectCache",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1InvalidateProjectCacheInput(input, context));
@@ -535,7 +535,7 @@ export const serializeAws_json1_1ListBuildBatchesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListBuildBatches",
+    "x-amz-target": "CodeBuild_20161006.ListBuildBatches",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBuildBatchesInput(input, context));
@@ -548,7 +548,7 @@ export const serializeAws_json1_1ListBuildBatchesForProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListBuildBatchesForProject",
+    "x-amz-target": "CodeBuild_20161006.ListBuildBatchesForProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBuildBatchesForProjectInput(input, context));
@@ -561,7 +561,7 @@ export const serializeAws_json1_1ListBuildsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListBuilds",
+    "x-amz-target": "CodeBuild_20161006.ListBuilds",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBuildsInput(input, context));
@@ -574,7 +574,7 @@ export const serializeAws_json1_1ListBuildsForProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListBuildsForProject",
+    "x-amz-target": "CodeBuild_20161006.ListBuildsForProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListBuildsForProjectInput(input, context));
@@ -587,7 +587,7 @@ export const serializeAws_json1_1ListCuratedEnvironmentImagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListCuratedEnvironmentImages",
+    "x-amz-target": "CodeBuild_20161006.ListCuratedEnvironmentImages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCuratedEnvironmentImagesInput(input, context));
@@ -600,7 +600,7 @@ export const serializeAws_json1_1ListProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListProjects",
+    "x-amz-target": "CodeBuild_20161006.ListProjects",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProjectsInput(input, context));
@@ -613,7 +613,7 @@ export const serializeAws_json1_1ListReportGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListReportGroups",
+    "x-amz-target": "CodeBuild_20161006.ListReportGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReportGroupsInput(input, context));
@@ -626,7 +626,7 @@ export const serializeAws_json1_1ListReportsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListReports",
+    "x-amz-target": "CodeBuild_20161006.ListReports",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReportsInput(input, context));
@@ -639,7 +639,7 @@ export const serializeAws_json1_1ListReportsForReportGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListReportsForReportGroup",
+    "x-amz-target": "CodeBuild_20161006.ListReportsForReportGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReportsForReportGroupInput(input, context));
@@ -652,7 +652,7 @@ export const serializeAws_json1_1ListSharedProjectsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListSharedProjects",
+    "x-amz-target": "CodeBuild_20161006.ListSharedProjects",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSharedProjectsInput(input, context));
@@ -665,7 +665,7 @@ export const serializeAws_json1_1ListSharedReportGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListSharedReportGroups",
+    "x-amz-target": "CodeBuild_20161006.ListSharedReportGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSharedReportGroupsInput(input, context));
@@ -678,7 +678,7 @@ export const serializeAws_json1_1ListSourceCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.ListSourceCredentials",
+    "x-amz-target": "CodeBuild_20161006.ListSourceCredentials",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSourceCredentialsInput(input, context));
@@ -691,7 +691,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.PutResourcePolicy",
+    "x-amz-target": "CodeBuild_20161006.PutResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutResourcePolicyInput(input, context));
@@ -704,7 +704,7 @@ export const serializeAws_json1_1RetryBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.RetryBuild",
+    "x-amz-target": "CodeBuild_20161006.RetryBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RetryBuildInput(input, context));
@@ -717,7 +717,7 @@ export const serializeAws_json1_1RetryBuildBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.RetryBuildBatch",
+    "x-amz-target": "CodeBuild_20161006.RetryBuildBatch",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RetryBuildBatchInput(input, context));
@@ -730,7 +730,7 @@ export const serializeAws_json1_1StartBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.StartBuild",
+    "x-amz-target": "CodeBuild_20161006.StartBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartBuildInput(input, context));
@@ -743,7 +743,7 @@ export const serializeAws_json1_1StartBuildBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.StartBuildBatch",
+    "x-amz-target": "CodeBuild_20161006.StartBuildBatch",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartBuildBatchInput(input, context));
@@ -756,7 +756,7 @@ export const serializeAws_json1_1StopBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.StopBuild",
+    "x-amz-target": "CodeBuild_20161006.StopBuild",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopBuildInput(input, context));
@@ -769,7 +769,7 @@ export const serializeAws_json1_1StopBuildBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.StopBuildBatch",
+    "x-amz-target": "CodeBuild_20161006.StopBuildBatch",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopBuildBatchInput(input, context));
@@ -782,7 +782,7 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.UpdateProject",
+    "x-amz-target": "CodeBuild_20161006.UpdateProject",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
@@ -795,7 +795,7 @@ export const serializeAws_json1_1UpdateReportGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.UpdateReportGroup",
+    "x-amz-target": "CodeBuild_20161006.UpdateReportGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateReportGroupInput(input, context));
@@ -808,7 +808,7 @@ export const serializeAws_json1_1UpdateWebhookCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "CodeBuild_20161006.UpdateWebhook",
+    "x-amz-target": "CodeBuild_20161006.UpdateWebhook",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateWebhookInput(input, context));

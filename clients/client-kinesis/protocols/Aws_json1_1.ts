@@ -156,7 +156,7 @@ export const serializeAws_json1_1AddTagsToStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.AddTagsToStream",
+    "x-amz-target": "Kinesis_20131202.AddTagsToStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddTagsToStreamInput(input, context));
@@ -169,7 +169,7 @@ export const serializeAws_json1_1CreateStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.CreateStream",
+    "x-amz-target": "Kinesis_20131202.CreateStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateStreamInput(input, context));
@@ -182,7 +182,7 @@ export const serializeAws_json1_1DecreaseStreamRetentionPeriodCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DecreaseStreamRetentionPeriod",
+    "x-amz-target": "Kinesis_20131202.DecreaseStreamRetentionPeriod",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DecreaseStreamRetentionPeriodInput(input, context));
@@ -195,7 +195,7 @@ export const serializeAws_json1_1DeleteStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DeleteStream",
+    "x-amz-target": "Kinesis_20131202.DeleteStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteStreamInput(input, context));
@@ -208,7 +208,7 @@ export const serializeAws_json1_1DeregisterStreamConsumerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DeregisterStreamConsumer",
+    "x-amz-target": "Kinesis_20131202.DeregisterStreamConsumer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeregisterStreamConsumerInput(input, context));
@@ -221,7 +221,7 @@ export const serializeAws_json1_1DescribeLimitsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DescribeLimits",
+    "x-amz-target": "Kinesis_20131202.DescribeLimits",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLimitsInput(input, context));
@@ -234,7 +234,7 @@ export const serializeAws_json1_1DescribeStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DescribeStream",
+    "x-amz-target": "Kinesis_20131202.DescribeStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeStreamInput(input, context));
@@ -247,7 +247,7 @@ export const serializeAws_json1_1DescribeStreamConsumerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DescribeStreamConsumer",
+    "x-amz-target": "Kinesis_20131202.DescribeStreamConsumer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeStreamConsumerInput(input, context));
@@ -260,7 +260,7 @@ export const serializeAws_json1_1DescribeStreamSummaryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DescribeStreamSummary",
+    "x-amz-target": "Kinesis_20131202.DescribeStreamSummary",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeStreamSummaryInput(input, context));
@@ -273,7 +273,7 @@ export const serializeAws_json1_1DisableEnhancedMonitoringCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.DisableEnhancedMonitoring",
+    "x-amz-target": "Kinesis_20131202.DisableEnhancedMonitoring",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableEnhancedMonitoringInput(input, context));
@@ -286,7 +286,7 @@ export const serializeAws_json1_1EnableEnhancedMonitoringCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.EnableEnhancedMonitoring",
+    "x-amz-target": "Kinesis_20131202.EnableEnhancedMonitoring",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1EnableEnhancedMonitoringInput(input, context));
@@ -299,7 +299,7 @@ export const serializeAws_json1_1GetRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.GetRecords",
+    "x-amz-target": "Kinesis_20131202.GetRecords",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRecordsInput(input, context));
@@ -312,7 +312,7 @@ export const serializeAws_json1_1GetShardIteratorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.GetShardIterator",
+    "x-amz-target": "Kinesis_20131202.GetShardIterator",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetShardIteratorInput(input, context));
@@ -325,7 +325,7 @@ export const serializeAws_json1_1IncreaseStreamRetentionPeriodCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.IncreaseStreamRetentionPeriod",
+    "x-amz-target": "Kinesis_20131202.IncreaseStreamRetentionPeriod",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1IncreaseStreamRetentionPeriodInput(input, context));
@@ -338,7 +338,7 @@ export const serializeAws_json1_1ListShardsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.ListShards",
+    "x-amz-target": "Kinesis_20131202.ListShards",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListShardsInput(input, context));
@@ -351,7 +351,7 @@ export const serializeAws_json1_1ListStreamConsumersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.ListStreamConsumers",
+    "x-amz-target": "Kinesis_20131202.ListStreamConsumers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListStreamConsumersInput(input, context));
@@ -364,7 +364,7 @@ export const serializeAws_json1_1ListStreamsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.ListStreams",
+    "x-amz-target": "Kinesis_20131202.ListStreams",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListStreamsInput(input, context));
@@ -377,7 +377,7 @@ export const serializeAws_json1_1ListTagsForStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.ListTagsForStream",
+    "x-amz-target": "Kinesis_20131202.ListTagsForStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForStreamInput(input, context));
@@ -390,7 +390,7 @@ export const serializeAws_json1_1MergeShardsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.MergeShards",
+    "x-amz-target": "Kinesis_20131202.MergeShards",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1MergeShardsInput(input, context));
@@ -403,7 +403,7 @@ export const serializeAws_json1_1PutRecordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.PutRecord",
+    "x-amz-target": "Kinesis_20131202.PutRecord",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRecordInput(input, context));
@@ -416,7 +416,7 @@ export const serializeAws_json1_1PutRecordsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.PutRecords",
+    "x-amz-target": "Kinesis_20131202.PutRecords",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutRecordsInput(input, context));
@@ -429,7 +429,7 @@ export const serializeAws_json1_1RegisterStreamConsumerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.RegisterStreamConsumer",
+    "x-amz-target": "Kinesis_20131202.RegisterStreamConsumer",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterStreamConsumerInput(input, context));
@@ -442,7 +442,7 @@ export const serializeAws_json1_1RemoveTagsFromStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.RemoveTagsFromStream",
+    "x-amz-target": "Kinesis_20131202.RemoveTagsFromStream",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveTagsFromStreamInput(input, context));
@@ -455,7 +455,7 @@ export const serializeAws_json1_1SplitShardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.SplitShard",
+    "x-amz-target": "Kinesis_20131202.SplitShard",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SplitShardInput(input, context));
@@ -468,7 +468,7 @@ export const serializeAws_json1_1StartStreamEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.StartStreamEncryption",
+    "x-amz-target": "Kinesis_20131202.StartStreamEncryption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartStreamEncryptionInput(input, context));
@@ -481,7 +481,7 @@ export const serializeAws_json1_1StopStreamEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.StopStreamEncryption",
+    "x-amz-target": "Kinesis_20131202.StopStreamEncryption",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopStreamEncryptionInput(input, context));
@@ -494,7 +494,7 @@ export const serializeAws_json1_1SubscribeToShardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.SubscribeToShard",
+    "x-amz-target": "Kinesis_20131202.SubscribeToShard",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SubscribeToShardInput(input, context));
@@ -507,7 +507,7 @@ export const serializeAws_json1_1UpdateShardCountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "Kinesis_20131202.UpdateShardCount",
+    "x-amz-target": "Kinesis_20131202.UpdateShardCount",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateShardCountInput(input, context));

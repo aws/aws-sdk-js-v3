@@ -243,7 +243,7 @@ export const serializeAws_json1_1AddAttributesToFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.AddAttributesToFindings",
+    "x-amz-target": "InspectorService.AddAttributesToFindings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AddAttributesToFindingsRequest(input, context));
@@ -256,7 +256,7 @@ export const serializeAws_json1_1CreateAssessmentTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.CreateAssessmentTarget",
+    "x-amz-target": "InspectorService.CreateAssessmentTarget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAssessmentTargetRequest(input, context));
@@ -269,7 +269,7 @@ export const serializeAws_json1_1CreateAssessmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.CreateAssessmentTemplate",
+    "x-amz-target": "InspectorService.CreateAssessmentTemplate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateAssessmentTemplateRequest(input, context));
@@ -282,7 +282,7 @@ export const serializeAws_json1_1CreateExclusionsPreviewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.CreateExclusionsPreview",
+    "x-amz-target": "InspectorService.CreateExclusionsPreview",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateExclusionsPreviewRequest(input, context));
@@ -295,7 +295,7 @@ export const serializeAws_json1_1CreateResourceGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.CreateResourceGroup",
+    "x-amz-target": "InspectorService.CreateResourceGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateResourceGroupRequest(input, context));
@@ -308,7 +308,7 @@ export const serializeAws_json1_1DeleteAssessmentRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DeleteAssessmentRun",
+    "x-amz-target": "InspectorService.DeleteAssessmentRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAssessmentRunRequest(input, context));
@@ -321,7 +321,7 @@ export const serializeAws_json1_1DeleteAssessmentTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DeleteAssessmentTarget",
+    "x-amz-target": "InspectorService.DeleteAssessmentTarget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAssessmentTargetRequest(input, context));
@@ -334,7 +334,7 @@ export const serializeAws_json1_1DeleteAssessmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DeleteAssessmentTemplate",
+    "x-amz-target": "InspectorService.DeleteAssessmentTemplate",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteAssessmentTemplateRequest(input, context));
@@ -347,7 +347,7 @@ export const serializeAws_json1_1DescribeAssessmentRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeAssessmentRuns",
+    "x-amz-target": "InspectorService.DescribeAssessmentRuns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAssessmentRunsRequest(input, context));
@@ -360,7 +360,7 @@ export const serializeAws_json1_1DescribeAssessmentTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeAssessmentTargets",
+    "x-amz-target": "InspectorService.DescribeAssessmentTargets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAssessmentTargetsRequest(input, context));
@@ -373,7 +373,7 @@ export const serializeAws_json1_1DescribeAssessmentTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeAssessmentTemplates",
+    "x-amz-target": "InspectorService.DescribeAssessmentTemplates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAssessmentTemplatesRequest(input, context));
@@ -386,7 +386,7 @@ export const serializeAws_json1_1DescribeCrossAccountAccessRoleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeCrossAccountAccessRole",
+    "x-amz-target": "InspectorService.DescribeCrossAccountAccessRole",
   };
   return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
 };
@@ -397,7 +397,7 @@ export const serializeAws_json1_1DescribeExclusionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeExclusions",
+    "x-amz-target": "InspectorService.DescribeExclusions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeExclusionsRequest(input, context));
@@ -410,7 +410,7 @@ export const serializeAws_json1_1DescribeFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeFindings",
+    "x-amz-target": "InspectorService.DescribeFindings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFindingsRequest(input, context));
@@ -423,7 +423,7 @@ export const serializeAws_json1_1DescribeResourceGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeResourceGroups",
+    "x-amz-target": "InspectorService.DescribeResourceGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeResourceGroupsRequest(input, context));
@@ -436,7 +436,7 @@ export const serializeAws_json1_1DescribeRulesPackagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.DescribeRulesPackages",
+    "x-amz-target": "InspectorService.DescribeRulesPackages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeRulesPackagesRequest(input, context));
@@ -449,7 +449,7 @@ export const serializeAws_json1_1GetAssessmentReportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.GetAssessmentReport",
+    "x-amz-target": "InspectorService.GetAssessmentReport",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetAssessmentReportRequest(input, context));
@@ -462,7 +462,7 @@ export const serializeAws_json1_1GetExclusionsPreviewCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.GetExclusionsPreview",
+    "x-amz-target": "InspectorService.GetExclusionsPreview",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetExclusionsPreviewRequest(input, context));
@@ -475,7 +475,7 @@ export const serializeAws_json1_1GetTelemetryMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.GetTelemetryMetadata",
+    "x-amz-target": "InspectorService.GetTelemetryMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTelemetryMetadataRequest(input, context));
@@ -488,7 +488,7 @@ export const serializeAws_json1_1ListAssessmentRunAgentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListAssessmentRunAgents",
+    "x-amz-target": "InspectorService.ListAssessmentRunAgents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssessmentRunAgentsRequest(input, context));
@@ -501,7 +501,7 @@ export const serializeAws_json1_1ListAssessmentRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListAssessmentRuns",
+    "x-amz-target": "InspectorService.ListAssessmentRuns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssessmentRunsRequest(input, context));
@@ -514,7 +514,7 @@ export const serializeAws_json1_1ListAssessmentTargetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListAssessmentTargets",
+    "x-amz-target": "InspectorService.ListAssessmentTargets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssessmentTargetsRequest(input, context));
@@ -527,7 +527,7 @@ export const serializeAws_json1_1ListAssessmentTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListAssessmentTemplates",
+    "x-amz-target": "InspectorService.ListAssessmentTemplates",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListAssessmentTemplatesRequest(input, context));
@@ -540,7 +540,7 @@ export const serializeAws_json1_1ListEventSubscriptionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListEventSubscriptions",
+    "x-amz-target": "InspectorService.ListEventSubscriptions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListEventSubscriptionsRequest(input, context));
@@ -553,7 +553,7 @@ export const serializeAws_json1_1ListExclusionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListExclusions",
+    "x-amz-target": "InspectorService.ListExclusions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListExclusionsRequest(input, context));
@@ -566,7 +566,7 @@ export const serializeAws_json1_1ListFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListFindings",
+    "x-amz-target": "InspectorService.ListFindings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListFindingsRequest(input, context));
@@ -579,7 +579,7 @@ export const serializeAws_json1_1ListRulesPackagesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListRulesPackages",
+    "x-amz-target": "InspectorService.ListRulesPackages",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRulesPackagesRequest(input, context));
@@ -592,7 +592,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.ListTagsForResource",
+    "x-amz-target": "InspectorService.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTagsForResourceRequest(input, context));
@@ -605,7 +605,7 @@ export const serializeAws_json1_1PreviewAgentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.PreviewAgents",
+    "x-amz-target": "InspectorService.PreviewAgents",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PreviewAgentsRequest(input, context));
@@ -618,7 +618,7 @@ export const serializeAws_json1_1RegisterCrossAccountAccessRoleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.RegisterCrossAccountAccessRole",
+    "x-amz-target": "InspectorService.RegisterCrossAccountAccessRole",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterCrossAccountAccessRoleRequest(input, context));
@@ -631,7 +631,7 @@ export const serializeAws_json1_1RemoveAttributesFromFindingsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.RemoveAttributesFromFindings",
+    "x-amz-target": "InspectorService.RemoveAttributesFromFindings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveAttributesFromFindingsRequest(input, context));
@@ -644,7 +644,7 @@ export const serializeAws_json1_1SetTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.SetTagsForResource",
+    "x-amz-target": "InspectorService.SetTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SetTagsForResourceRequest(input, context));
@@ -657,7 +657,7 @@ export const serializeAws_json1_1StartAssessmentRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.StartAssessmentRun",
+    "x-amz-target": "InspectorService.StartAssessmentRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartAssessmentRunRequest(input, context));
@@ -670,7 +670,7 @@ export const serializeAws_json1_1StopAssessmentRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.StopAssessmentRun",
+    "x-amz-target": "InspectorService.StopAssessmentRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopAssessmentRunRequest(input, context));
@@ -683,7 +683,7 @@ export const serializeAws_json1_1SubscribeToEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.SubscribeToEvent",
+    "x-amz-target": "InspectorService.SubscribeToEvent",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SubscribeToEventRequest(input, context));
@@ -696,7 +696,7 @@ export const serializeAws_json1_1UnsubscribeFromEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.UnsubscribeFromEvent",
+    "x-amz-target": "InspectorService.UnsubscribeFromEvent",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UnsubscribeFromEventRequest(input, context));
@@ -709,7 +709,7 @@ export const serializeAws_json1_1UpdateAssessmentTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "InspectorService.UpdateAssessmentTarget",
+    "x-amz-target": "InspectorService.UpdateAssessmentTarget",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAssessmentTargetRequest(input, context));

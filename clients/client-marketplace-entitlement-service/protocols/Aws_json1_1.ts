@@ -25,7 +25,7 @@ export const serializeAws_json1_1GetEntitlementsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSMPEntitlementService.GetEntitlements",
+    "x-amz-target": "AWSMPEntitlementService.GetEntitlements",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEntitlementsRequest(input, context));

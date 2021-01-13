@@ -24,7 +24,7 @@ export const serializeAws_json1_1SendSSHPublicKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSEC2InstanceConnectService.SendSSHPublicKey",
+    "x-amz-target": "AWSEC2InstanceConnectService.SendSSHPublicKey",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SendSSHPublicKeyRequest(input, context));

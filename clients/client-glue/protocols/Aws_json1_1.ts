@@ -806,7 +806,7 @@ export const serializeAws_json1_1BatchCreatePartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchCreatePartition",
+    "x-amz-target": "AWSGlue.BatchCreatePartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchCreatePartitionRequest(input, context));
@@ -819,7 +819,7 @@ export const serializeAws_json1_1BatchDeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchDeleteConnection",
+    "x-amz-target": "AWSGlue.BatchDeleteConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteConnectionRequest(input, context));
@@ -832,7 +832,7 @@ export const serializeAws_json1_1BatchDeletePartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchDeletePartition",
+    "x-amz-target": "AWSGlue.BatchDeletePartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeletePartitionRequest(input, context));
@@ -845,7 +845,7 @@ export const serializeAws_json1_1BatchDeleteTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchDeleteTable",
+    "x-amz-target": "AWSGlue.BatchDeleteTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteTableRequest(input, context));
@@ -858,7 +858,7 @@ export const serializeAws_json1_1BatchDeleteTableVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchDeleteTableVersion",
+    "x-amz-target": "AWSGlue.BatchDeleteTableVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchDeleteTableVersionRequest(input, context));
@@ -871,7 +871,7 @@ export const serializeAws_json1_1BatchGetCrawlersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchGetCrawlers",
+    "x-amz-target": "AWSGlue.BatchGetCrawlers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetCrawlersRequest(input, context));
@@ -884,7 +884,7 @@ export const serializeAws_json1_1BatchGetDevEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchGetDevEndpoints",
+    "x-amz-target": "AWSGlue.BatchGetDevEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetDevEndpointsRequest(input, context));
@@ -897,7 +897,7 @@ export const serializeAws_json1_1BatchGetJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchGetJobs",
+    "x-amz-target": "AWSGlue.BatchGetJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetJobsRequest(input, context));
@@ -910,7 +910,7 @@ export const serializeAws_json1_1BatchGetPartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchGetPartition",
+    "x-amz-target": "AWSGlue.BatchGetPartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetPartitionRequest(input, context));
@@ -923,7 +923,7 @@ export const serializeAws_json1_1BatchGetTriggersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchGetTriggers",
+    "x-amz-target": "AWSGlue.BatchGetTriggers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetTriggersRequest(input, context));
@@ -936,7 +936,7 @@ export const serializeAws_json1_1BatchGetWorkflowsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchGetWorkflows",
+    "x-amz-target": "AWSGlue.BatchGetWorkflows",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchGetWorkflowsRequest(input, context));
@@ -949,7 +949,7 @@ export const serializeAws_json1_1BatchStopJobRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchStopJobRun",
+    "x-amz-target": "AWSGlue.BatchStopJobRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchStopJobRunRequest(input, context));
@@ -962,7 +962,7 @@ export const serializeAws_json1_1BatchUpdatePartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.BatchUpdatePartition",
+    "x-amz-target": "AWSGlue.BatchUpdatePartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1BatchUpdatePartitionRequest(input, context));
@@ -975,7 +975,7 @@ export const serializeAws_json1_1CancelMLTaskRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CancelMLTaskRun",
+    "x-amz-target": "AWSGlue.CancelMLTaskRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelMLTaskRunRequest(input, context));
@@ -988,7 +988,7 @@ export const serializeAws_json1_1CheckSchemaVersionValidityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CheckSchemaVersionValidity",
+    "x-amz-target": "AWSGlue.CheckSchemaVersionValidity",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CheckSchemaVersionValidityInput(input, context));
@@ -1001,7 +1001,7 @@ export const serializeAws_json1_1CreateClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateClassifier",
+    "x-amz-target": "AWSGlue.CreateClassifier",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateClassifierRequest(input, context));
@@ -1014,7 +1014,7 @@ export const serializeAws_json1_1CreateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateConnection",
+    "x-amz-target": "AWSGlue.CreateConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateConnectionRequest(input, context));
@@ -1027,7 +1027,7 @@ export const serializeAws_json1_1CreateCrawlerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateCrawler",
+    "x-amz-target": "AWSGlue.CreateCrawler",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateCrawlerRequest(input, context));
@@ -1040,7 +1040,7 @@ export const serializeAws_json1_1CreateDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateDatabase",
+    "x-amz-target": "AWSGlue.CreateDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatabaseRequest(input, context));
@@ -1053,7 +1053,7 @@ export const serializeAws_json1_1CreateDevEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateDevEndpoint",
+    "x-amz-target": "AWSGlue.CreateDevEndpoint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDevEndpointRequest(input, context));
@@ -1066,7 +1066,7 @@ export const serializeAws_json1_1CreateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateJob",
+    "x-amz-target": "AWSGlue.CreateJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateJobRequest(input, context));
@@ -1079,7 +1079,7 @@ export const serializeAws_json1_1CreateMLTransformCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateMLTransform",
+    "x-amz-target": "AWSGlue.CreateMLTransform",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateMLTransformRequest(input, context));
@@ -1092,7 +1092,7 @@ export const serializeAws_json1_1CreatePartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreatePartition",
+    "x-amz-target": "AWSGlue.CreatePartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePartitionRequest(input, context));
@@ -1105,7 +1105,7 @@ export const serializeAws_json1_1CreatePartitionIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreatePartitionIndex",
+    "x-amz-target": "AWSGlue.CreatePartitionIndex",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreatePartitionIndexRequest(input, context));
@@ -1118,7 +1118,7 @@ export const serializeAws_json1_1CreateRegistryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateRegistry",
+    "x-amz-target": "AWSGlue.CreateRegistry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateRegistryInput(input, context));
@@ -1131,7 +1131,7 @@ export const serializeAws_json1_1CreateSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateSchema",
+    "x-amz-target": "AWSGlue.CreateSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSchemaInput(input, context));
@@ -1144,7 +1144,7 @@ export const serializeAws_json1_1CreateScriptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateScript",
+    "x-amz-target": "AWSGlue.CreateScript",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateScriptRequest(input, context));
@@ -1157,7 +1157,7 @@ export const serializeAws_json1_1CreateSecurityConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateSecurityConfiguration",
+    "x-amz-target": "AWSGlue.CreateSecurityConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateSecurityConfigurationRequest(input, context));
@@ -1170,7 +1170,7 @@ export const serializeAws_json1_1CreateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateTable",
+    "x-amz-target": "AWSGlue.CreateTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTableRequest(input, context));
@@ -1183,7 +1183,7 @@ export const serializeAws_json1_1CreateTriggerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateTrigger",
+    "x-amz-target": "AWSGlue.CreateTrigger",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTriggerRequest(input, context));
@@ -1196,7 +1196,7 @@ export const serializeAws_json1_1CreateUserDefinedFunctionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateUserDefinedFunction",
+    "x-amz-target": "AWSGlue.CreateUserDefinedFunction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateUserDefinedFunctionRequest(input, context));
@@ -1209,7 +1209,7 @@ export const serializeAws_json1_1CreateWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.CreateWorkflow",
+    "x-amz-target": "AWSGlue.CreateWorkflow",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWorkflowRequest(input, context));
@@ -1222,7 +1222,7 @@ export const serializeAws_json1_1DeleteClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteClassifier",
+    "x-amz-target": "AWSGlue.DeleteClassifier",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteClassifierRequest(input, context));
@@ -1235,7 +1235,7 @@ export const serializeAws_json1_1DeleteColumnStatisticsForPartitionCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteColumnStatisticsForPartition",
+    "x-amz-target": "AWSGlue.DeleteColumnStatisticsForPartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteColumnStatisticsForPartitionRequest(input, context));
@@ -1248,7 +1248,7 @@ export const serializeAws_json1_1DeleteColumnStatisticsForTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteColumnStatisticsForTable",
+    "x-amz-target": "AWSGlue.DeleteColumnStatisticsForTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteColumnStatisticsForTableRequest(input, context));
@@ -1261,7 +1261,7 @@ export const serializeAws_json1_1DeleteConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteConnection",
+    "x-amz-target": "AWSGlue.DeleteConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteConnectionRequest(input, context));
@@ -1274,7 +1274,7 @@ export const serializeAws_json1_1DeleteCrawlerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteCrawler",
+    "x-amz-target": "AWSGlue.DeleteCrawler",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteCrawlerRequest(input, context));
@@ -1287,7 +1287,7 @@ export const serializeAws_json1_1DeleteDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteDatabase",
+    "x-amz-target": "AWSGlue.DeleteDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDatabaseRequest(input, context));
@@ -1300,7 +1300,7 @@ export const serializeAws_json1_1DeleteDevEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteDevEndpoint",
+    "x-amz-target": "AWSGlue.DeleteDevEndpoint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteDevEndpointRequest(input, context));
@@ -1313,7 +1313,7 @@ export const serializeAws_json1_1DeleteJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteJob",
+    "x-amz-target": "AWSGlue.DeleteJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteJobRequest(input, context));
@@ -1326,7 +1326,7 @@ export const serializeAws_json1_1DeleteMLTransformCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteMLTransform",
+    "x-amz-target": "AWSGlue.DeleteMLTransform",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMLTransformRequest(input, context));
@@ -1339,7 +1339,7 @@ export const serializeAws_json1_1DeletePartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeletePartition",
+    "x-amz-target": "AWSGlue.DeletePartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePartitionRequest(input, context));
@@ -1352,7 +1352,7 @@ export const serializeAws_json1_1DeletePartitionIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeletePartitionIndex",
+    "x-amz-target": "AWSGlue.DeletePartitionIndex",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeletePartitionIndexRequest(input, context));
@@ -1365,7 +1365,7 @@ export const serializeAws_json1_1DeleteRegistryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteRegistry",
+    "x-amz-target": "AWSGlue.DeleteRegistry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRegistryInput(input, context));
@@ -1378,7 +1378,7 @@ export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteResourcePolicy",
+    "x-amz-target": "AWSGlue.DeleteResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
@@ -1391,7 +1391,7 @@ export const serializeAws_json1_1DeleteSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteSchema",
+    "x-amz-target": "AWSGlue.DeleteSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSchemaInput(input, context));
@@ -1404,7 +1404,7 @@ export const serializeAws_json1_1DeleteSchemaVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteSchemaVersions",
+    "x-amz-target": "AWSGlue.DeleteSchemaVersions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSchemaVersionsInput(input, context));
@@ -1417,7 +1417,7 @@ export const serializeAws_json1_1DeleteSecurityConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteSecurityConfiguration",
+    "x-amz-target": "AWSGlue.DeleteSecurityConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteSecurityConfigurationRequest(input, context));
@@ -1430,7 +1430,7 @@ export const serializeAws_json1_1DeleteTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteTable",
+    "x-amz-target": "AWSGlue.DeleteTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTableRequest(input, context));
@@ -1443,7 +1443,7 @@ export const serializeAws_json1_1DeleteTableVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteTableVersion",
+    "x-amz-target": "AWSGlue.DeleteTableVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTableVersionRequest(input, context));
@@ -1456,7 +1456,7 @@ export const serializeAws_json1_1DeleteTriggerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteTrigger",
+    "x-amz-target": "AWSGlue.DeleteTrigger",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteTriggerRequest(input, context));
@@ -1469,7 +1469,7 @@ export const serializeAws_json1_1DeleteUserDefinedFunctionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteUserDefinedFunction",
+    "x-amz-target": "AWSGlue.DeleteUserDefinedFunction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteUserDefinedFunctionRequest(input, context));
@@ -1482,7 +1482,7 @@ export const serializeAws_json1_1DeleteWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.DeleteWorkflow",
+    "x-amz-target": "AWSGlue.DeleteWorkflow",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteWorkflowRequest(input, context));
@@ -1495,7 +1495,7 @@ export const serializeAws_json1_1GetCatalogImportStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetCatalogImportStatus",
+    "x-amz-target": "AWSGlue.GetCatalogImportStatus",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCatalogImportStatusRequest(input, context));
@@ -1508,7 +1508,7 @@ export const serializeAws_json1_1GetClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetClassifier",
+    "x-amz-target": "AWSGlue.GetClassifier",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetClassifierRequest(input, context));
@@ -1521,7 +1521,7 @@ export const serializeAws_json1_1GetClassifiersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetClassifiers",
+    "x-amz-target": "AWSGlue.GetClassifiers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetClassifiersRequest(input, context));
@@ -1534,7 +1534,7 @@ export const serializeAws_json1_1GetColumnStatisticsForPartitionCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetColumnStatisticsForPartition",
+    "x-amz-target": "AWSGlue.GetColumnStatisticsForPartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetColumnStatisticsForPartitionRequest(input, context));
@@ -1547,7 +1547,7 @@ export const serializeAws_json1_1GetColumnStatisticsForTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetColumnStatisticsForTable",
+    "x-amz-target": "AWSGlue.GetColumnStatisticsForTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetColumnStatisticsForTableRequest(input, context));
@@ -1560,7 +1560,7 @@ export const serializeAws_json1_1GetConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetConnection",
+    "x-amz-target": "AWSGlue.GetConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConnectionRequest(input, context));
@@ -1573,7 +1573,7 @@ export const serializeAws_json1_1GetConnectionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetConnections",
+    "x-amz-target": "AWSGlue.GetConnections",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetConnectionsRequest(input, context));
@@ -1586,7 +1586,7 @@ export const serializeAws_json1_1GetCrawlerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetCrawler",
+    "x-amz-target": "AWSGlue.GetCrawler",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCrawlerRequest(input, context));
@@ -1599,7 +1599,7 @@ export const serializeAws_json1_1GetCrawlerMetricsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetCrawlerMetrics",
+    "x-amz-target": "AWSGlue.GetCrawlerMetrics",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCrawlerMetricsRequest(input, context));
@@ -1612,7 +1612,7 @@ export const serializeAws_json1_1GetCrawlersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetCrawlers",
+    "x-amz-target": "AWSGlue.GetCrawlers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetCrawlersRequest(input, context));
@@ -1625,7 +1625,7 @@ export const serializeAws_json1_1GetDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetDatabase",
+    "x-amz-target": "AWSGlue.GetDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDatabaseRequest(input, context));
@@ -1638,7 +1638,7 @@ export const serializeAws_json1_1GetDatabasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetDatabases",
+    "x-amz-target": "AWSGlue.GetDatabases",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDatabasesRequest(input, context));
@@ -1651,7 +1651,7 @@ export const serializeAws_json1_1GetDataCatalogEncryptionSettingsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetDataCatalogEncryptionSettings",
+    "x-amz-target": "AWSGlue.GetDataCatalogEncryptionSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDataCatalogEncryptionSettingsRequest(input, context));
@@ -1664,7 +1664,7 @@ export const serializeAws_json1_1GetDataflowGraphCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetDataflowGraph",
+    "x-amz-target": "AWSGlue.GetDataflowGraph",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDataflowGraphRequest(input, context));
@@ -1677,7 +1677,7 @@ export const serializeAws_json1_1GetDevEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetDevEndpoint",
+    "x-amz-target": "AWSGlue.GetDevEndpoint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDevEndpointRequest(input, context));
@@ -1690,7 +1690,7 @@ export const serializeAws_json1_1GetDevEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetDevEndpoints",
+    "x-amz-target": "AWSGlue.GetDevEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetDevEndpointsRequest(input, context));
@@ -1703,7 +1703,7 @@ export const serializeAws_json1_1GetJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetJob",
+    "x-amz-target": "AWSGlue.GetJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRequest(input, context));
@@ -1716,7 +1716,7 @@ export const serializeAws_json1_1GetJobBookmarkCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetJobBookmark",
+    "x-amz-target": "AWSGlue.GetJobBookmark",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobBookmarkRequest(input, context));
@@ -1729,7 +1729,7 @@ export const serializeAws_json1_1GetJobRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetJobRun",
+    "x-amz-target": "AWSGlue.GetJobRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRunRequest(input, context));
@@ -1742,7 +1742,7 @@ export const serializeAws_json1_1GetJobRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetJobRuns",
+    "x-amz-target": "AWSGlue.GetJobRuns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobRunsRequest(input, context));
@@ -1755,7 +1755,7 @@ export const serializeAws_json1_1GetJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetJobs",
+    "x-amz-target": "AWSGlue.GetJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetJobsRequest(input, context));
@@ -1768,7 +1768,7 @@ export const serializeAws_json1_1GetMappingCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetMapping",
+    "x-amz-target": "AWSGlue.GetMapping",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMappingRequest(input, context));
@@ -1781,7 +1781,7 @@ export const serializeAws_json1_1GetMLTaskRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetMLTaskRun",
+    "x-amz-target": "AWSGlue.GetMLTaskRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMLTaskRunRequest(input, context));
@@ -1794,7 +1794,7 @@ export const serializeAws_json1_1GetMLTaskRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetMLTaskRuns",
+    "x-amz-target": "AWSGlue.GetMLTaskRuns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMLTaskRunsRequest(input, context));
@@ -1807,7 +1807,7 @@ export const serializeAws_json1_1GetMLTransformCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetMLTransform",
+    "x-amz-target": "AWSGlue.GetMLTransform",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMLTransformRequest(input, context));
@@ -1820,7 +1820,7 @@ export const serializeAws_json1_1GetMLTransformsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetMLTransforms",
+    "x-amz-target": "AWSGlue.GetMLTransforms",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetMLTransformsRequest(input, context));
@@ -1833,7 +1833,7 @@ export const serializeAws_json1_1GetPartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetPartition",
+    "x-amz-target": "AWSGlue.GetPartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPartitionRequest(input, context));
@@ -1846,7 +1846,7 @@ export const serializeAws_json1_1GetPartitionIndexesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetPartitionIndexes",
+    "x-amz-target": "AWSGlue.GetPartitionIndexes",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPartitionIndexesRequest(input, context));
@@ -1859,7 +1859,7 @@ export const serializeAws_json1_1GetPartitionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetPartitions",
+    "x-amz-target": "AWSGlue.GetPartitions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPartitionsRequest(input, context));
@@ -1872,7 +1872,7 @@ export const serializeAws_json1_1GetPlanCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetPlan",
+    "x-amz-target": "AWSGlue.GetPlan",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetPlanRequest(input, context));
@@ -1885,7 +1885,7 @@ export const serializeAws_json1_1GetRegistryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetRegistry",
+    "x-amz-target": "AWSGlue.GetRegistry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetRegistryInput(input, context));
@@ -1898,7 +1898,7 @@ export const serializeAws_json1_1GetResourcePoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetResourcePolicies",
+    "x-amz-target": "AWSGlue.GetResourcePolicies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourcePoliciesRequest(input, context));
@@ -1911,7 +1911,7 @@ export const serializeAws_json1_1GetResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetResourcePolicy",
+    "x-amz-target": "AWSGlue.GetResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetResourcePolicyRequest(input, context));
@@ -1924,7 +1924,7 @@ export const serializeAws_json1_1GetSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetSchema",
+    "x-amz-target": "AWSGlue.GetSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSchemaInput(input, context));
@@ -1937,7 +1937,7 @@ export const serializeAws_json1_1GetSchemaByDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetSchemaByDefinition",
+    "x-amz-target": "AWSGlue.GetSchemaByDefinition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSchemaByDefinitionInput(input, context));
@@ -1950,7 +1950,7 @@ export const serializeAws_json1_1GetSchemaVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetSchemaVersion",
+    "x-amz-target": "AWSGlue.GetSchemaVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSchemaVersionInput(input, context));
@@ -1963,7 +1963,7 @@ export const serializeAws_json1_1GetSchemaVersionsDiffCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetSchemaVersionsDiff",
+    "x-amz-target": "AWSGlue.GetSchemaVersionsDiff",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSchemaVersionsDiffInput(input, context));
@@ -1976,7 +1976,7 @@ export const serializeAws_json1_1GetSecurityConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetSecurityConfiguration",
+    "x-amz-target": "AWSGlue.GetSecurityConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSecurityConfigurationRequest(input, context));
@@ -1989,7 +1989,7 @@ export const serializeAws_json1_1GetSecurityConfigurationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetSecurityConfigurations",
+    "x-amz-target": "AWSGlue.GetSecurityConfigurations",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetSecurityConfigurationsRequest(input, context));
@@ -2002,7 +2002,7 @@ export const serializeAws_json1_1GetTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTable",
+    "x-amz-target": "AWSGlue.GetTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTableRequest(input, context));
@@ -2015,7 +2015,7 @@ export const serializeAws_json1_1GetTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTables",
+    "x-amz-target": "AWSGlue.GetTables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTablesRequest(input, context));
@@ -2028,7 +2028,7 @@ export const serializeAws_json1_1GetTableVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTableVersion",
+    "x-amz-target": "AWSGlue.GetTableVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTableVersionRequest(input, context));
@@ -2041,7 +2041,7 @@ export const serializeAws_json1_1GetTableVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTableVersions",
+    "x-amz-target": "AWSGlue.GetTableVersions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTableVersionsRequest(input, context));
@@ -2054,7 +2054,7 @@ export const serializeAws_json1_1GetTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTags",
+    "x-amz-target": "AWSGlue.GetTags",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTagsRequest(input, context));
@@ -2067,7 +2067,7 @@ export const serializeAws_json1_1GetTriggerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTrigger",
+    "x-amz-target": "AWSGlue.GetTrigger",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTriggerRequest(input, context));
@@ -2080,7 +2080,7 @@ export const serializeAws_json1_1GetTriggersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetTriggers",
+    "x-amz-target": "AWSGlue.GetTriggers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetTriggersRequest(input, context));
@@ -2093,7 +2093,7 @@ export const serializeAws_json1_1GetUserDefinedFunctionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetUserDefinedFunction",
+    "x-amz-target": "AWSGlue.GetUserDefinedFunction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetUserDefinedFunctionRequest(input, context));
@@ -2106,7 +2106,7 @@ export const serializeAws_json1_1GetUserDefinedFunctionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetUserDefinedFunctions",
+    "x-amz-target": "AWSGlue.GetUserDefinedFunctions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetUserDefinedFunctionsRequest(input, context));
@@ -2119,7 +2119,7 @@ export const serializeAws_json1_1GetWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetWorkflow",
+    "x-amz-target": "AWSGlue.GetWorkflow",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkflowRequest(input, context));
@@ -2132,7 +2132,7 @@ export const serializeAws_json1_1GetWorkflowRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetWorkflowRun",
+    "x-amz-target": "AWSGlue.GetWorkflowRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkflowRunRequest(input, context));
@@ -2145,7 +2145,7 @@ export const serializeAws_json1_1GetWorkflowRunPropertiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetWorkflowRunProperties",
+    "x-amz-target": "AWSGlue.GetWorkflowRunProperties",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkflowRunPropertiesRequest(input, context));
@@ -2158,7 +2158,7 @@ export const serializeAws_json1_1GetWorkflowRunsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.GetWorkflowRuns",
+    "x-amz-target": "AWSGlue.GetWorkflowRuns",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetWorkflowRunsRequest(input, context));
@@ -2171,7 +2171,7 @@ export const serializeAws_json1_1ImportCatalogToGlueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ImportCatalogToGlue",
+    "x-amz-target": "AWSGlue.ImportCatalogToGlue",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportCatalogToGlueRequest(input, context));
@@ -2184,7 +2184,7 @@ export const serializeAws_json1_1ListCrawlersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListCrawlers",
+    "x-amz-target": "AWSGlue.ListCrawlers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCrawlersRequest(input, context));
@@ -2197,7 +2197,7 @@ export const serializeAws_json1_1ListDevEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListDevEndpoints",
+    "x-amz-target": "AWSGlue.ListDevEndpoints",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListDevEndpointsRequest(input, context));
@@ -2210,7 +2210,7 @@ export const serializeAws_json1_1ListJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListJobs",
+    "x-amz-target": "AWSGlue.ListJobs",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListJobsRequest(input, context));
@@ -2223,7 +2223,7 @@ export const serializeAws_json1_1ListMLTransformsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListMLTransforms",
+    "x-amz-target": "AWSGlue.ListMLTransforms",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListMLTransformsRequest(input, context));
@@ -2236,7 +2236,7 @@ export const serializeAws_json1_1ListRegistriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListRegistries",
+    "x-amz-target": "AWSGlue.ListRegistries",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListRegistriesInput(input, context));
@@ -2249,7 +2249,7 @@ export const serializeAws_json1_1ListSchemasCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListSchemas",
+    "x-amz-target": "AWSGlue.ListSchemas",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSchemasInput(input, context));
@@ -2262,7 +2262,7 @@ export const serializeAws_json1_1ListSchemaVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListSchemaVersions",
+    "x-amz-target": "AWSGlue.ListSchemaVersions",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListSchemaVersionsInput(input, context));
@@ -2275,7 +2275,7 @@ export const serializeAws_json1_1ListTriggersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListTriggers",
+    "x-amz-target": "AWSGlue.ListTriggers",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTriggersRequest(input, context));
@@ -2288,7 +2288,7 @@ export const serializeAws_json1_1ListWorkflowsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ListWorkflows",
+    "x-amz-target": "AWSGlue.ListWorkflows",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListWorkflowsRequest(input, context));
@@ -2301,7 +2301,7 @@ export const serializeAws_json1_1PutDataCatalogEncryptionSettingsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.PutDataCatalogEncryptionSettings",
+    "x-amz-target": "AWSGlue.PutDataCatalogEncryptionSettings",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutDataCatalogEncryptionSettingsRequest(input, context));
@@ -2314,7 +2314,7 @@ export const serializeAws_json1_1PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.PutResourcePolicy",
+    "x-amz-target": "AWSGlue.PutResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
@@ -2327,7 +2327,7 @@ export const serializeAws_json1_1PutSchemaVersionMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.PutSchemaVersionMetadata",
+    "x-amz-target": "AWSGlue.PutSchemaVersionMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutSchemaVersionMetadataInput(input, context));
@@ -2340,7 +2340,7 @@ export const serializeAws_json1_1PutWorkflowRunPropertiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.PutWorkflowRunProperties",
+    "x-amz-target": "AWSGlue.PutWorkflowRunProperties",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutWorkflowRunPropertiesRequest(input, context));
@@ -2353,7 +2353,7 @@ export const serializeAws_json1_1QuerySchemaVersionMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.QuerySchemaVersionMetadata",
+    "x-amz-target": "AWSGlue.QuerySchemaVersionMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1QuerySchemaVersionMetadataInput(input, context));
@@ -2366,7 +2366,7 @@ export const serializeAws_json1_1RegisterSchemaVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.RegisterSchemaVersion",
+    "x-amz-target": "AWSGlue.RegisterSchemaVersion",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RegisterSchemaVersionInput(input, context));
@@ -2379,7 +2379,7 @@ export const serializeAws_json1_1RemoveSchemaVersionMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.RemoveSchemaVersionMetadata",
+    "x-amz-target": "AWSGlue.RemoveSchemaVersionMetadata",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1RemoveSchemaVersionMetadataInput(input, context));
@@ -2392,7 +2392,7 @@ export const serializeAws_json1_1ResetJobBookmarkCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ResetJobBookmark",
+    "x-amz-target": "AWSGlue.ResetJobBookmark",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResetJobBookmarkRequest(input, context));
@@ -2405,7 +2405,7 @@ export const serializeAws_json1_1ResumeWorkflowRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.ResumeWorkflowRun",
+    "x-amz-target": "AWSGlue.ResumeWorkflowRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResumeWorkflowRunRequest(input, context));
@@ -2418,7 +2418,7 @@ export const serializeAws_json1_1SearchTablesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.SearchTables",
+    "x-amz-target": "AWSGlue.SearchTables",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1SearchTablesRequest(input, context));
@@ -2431,7 +2431,7 @@ export const serializeAws_json1_1StartCrawlerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartCrawler",
+    "x-amz-target": "AWSGlue.StartCrawler",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartCrawlerRequest(input, context));
@@ -2444,7 +2444,7 @@ export const serializeAws_json1_1StartCrawlerScheduleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartCrawlerSchedule",
+    "x-amz-target": "AWSGlue.StartCrawlerSchedule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartCrawlerScheduleRequest(input, context));
@@ -2457,7 +2457,7 @@ export const serializeAws_json1_1StartExportLabelsTaskRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartExportLabelsTaskRun",
+    "x-amz-target": "AWSGlue.StartExportLabelsTaskRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartExportLabelsTaskRunRequest(input, context));
@@ -2470,7 +2470,7 @@ export const serializeAws_json1_1StartImportLabelsTaskRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartImportLabelsTaskRun",
+    "x-amz-target": "AWSGlue.StartImportLabelsTaskRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartImportLabelsTaskRunRequest(input, context));
@@ -2483,7 +2483,7 @@ export const serializeAws_json1_1StartJobRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartJobRun",
+    "x-amz-target": "AWSGlue.StartJobRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartJobRunRequest(input, context));
@@ -2496,7 +2496,7 @@ export const serializeAws_json1_1StartMLEvaluationTaskRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartMLEvaluationTaskRun",
+    "x-amz-target": "AWSGlue.StartMLEvaluationTaskRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartMLEvaluationTaskRunRequest(input, context));
@@ -2509,7 +2509,7 @@ export const serializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartMLLabelingSetGenerationTaskRun",
+    "x-amz-target": "AWSGlue.StartMLLabelingSetGenerationTaskRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartMLLabelingSetGenerationTaskRunRequest(input, context));
@@ -2522,7 +2522,7 @@ export const serializeAws_json1_1StartTriggerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartTrigger",
+    "x-amz-target": "AWSGlue.StartTrigger",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartTriggerRequest(input, context));
@@ -2535,7 +2535,7 @@ export const serializeAws_json1_1StartWorkflowRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StartWorkflowRun",
+    "x-amz-target": "AWSGlue.StartWorkflowRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StartWorkflowRunRequest(input, context));
@@ -2548,7 +2548,7 @@ export const serializeAws_json1_1StopCrawlerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StopCrawler",
+    "x-amz-target": "AWSGlue.StopCrawler",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopCrawlerRequest(input, context));
@@ -2561,7 +2561,7 @@ export const serializeAws_json1_1StopCrawlerScheduleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StopCrawlerSchedule",
+    "x-amz-target": "AWSGlue.StopCrawlerSchedule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopCrawlerScheduleRequest(input, context));
@@ -2574,7 +2574,7 @@ export const serializeAws_json1_1StopTriggerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StopTrigger",
+    "x-amz-target": "AWSGlue.StopTrigger",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopTriggerRequest(input, context));
@@ -2587,7 +2587,7 @@ export const serializeAws_json1_1StopWorkflowRunCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.StopWorkflowRun",
+    "x-amz-target": "AWSGlue.StopWorkflowRun",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1StopWorkflowRunRequest(input, context));
@@ -2600,7 +2600,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.TagResource",
+    "x-amz-target": "AWSGlue.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TagResourceRequest(input, context));
@@ -2613,7 +2613,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UntagResource",
+    "x-amz-target": "AWSGlue.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UntagResourceRequest(input, context));
@@ -2626,7 +2626,7 @@ export const serializeAws_json1_1UpdateClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateClassifier",
+    "x-amz-target": "AWSGlue.UpdateClassifier",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateClassifierRequest(input, context));
@@ -2639,7 +2639,7 @@ export const serializeAws_json1_1UpdateColumnStatisticsForPartitionCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateColumnStatisticsForPartition",
+    "x-amz-target": "AWSGlue.UpdateColumnStatisticsForPartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateColumnStatisticsForPartitionRequest(input, context));
@@ -2652,7 +2652,7 @@ export const serializeAws_json1_1UpdateColumnStatisticsForTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateColumnStatisticsForTable",
+    "x-amz-target": "AWSGlue.UpdateColumnStatisticsForTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateColumnStatisticsForTableRequest(input, context));
@@ -2665,7 +2665,7 @@ export const serializeAws_json1_1UpdateConnectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateConnection",
+    "x-amz-target": "AWSGlue.UpdateConnection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateConnectionRequest(input, context));
@@ -2678,7 +2678,7 @@ export const serializeAws_json1_1UpdateCrawlerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateCrawler",
+    "x-amz-target": "AWSGlue.UpdateCrawler",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCrawlerRequest(input, context));
@@ -2691,7 +2691,7 @@ export const serializeAws_json1_1UpdateCrawlerScheduleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateCrawlerSchedule",
+    "x-amz-target": "AWSGlue.UpdateCrawlerSchedule",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateCrawlerScheduleRequest(input, context));
@@ -2704,7 +2704,7 @@ export const serializeAws_json1_1UpdateDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateDatabase",
+    "x-amz-target": "AWSGlue.UpdateDatabase",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDatabaseRequest(input, context));
@@ -2717,7 +2717,7 @@ export const serializeAws_json1_1UpdateDevEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateDevEndpoint",
+    "x-amz-target": "AWSGlue.UpdateDevEndpoint",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDevEndpointRequest(input, context));
@@ -2730,7 +2730,7 @@ export const serializeAws_json1_1UpdateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateJob",
+    "x-amz-target": "AWSGlue.UpdateJob",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateJobRequest(input, context));
@@ -2743,7 +2743,7 @@ export const serializeAws_json1_1UpdateMLTransformCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateMLTransform",
+    "x-amz-target": "AWSGlue.UpdateMLTransform",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateMLTransformRequest(input, context));
@@ -2756,7 +2756,7 @@ export const serializeAws_json1_1UpdatePartitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdatePartition",
+    "x-amz-target": "AWSGlue.UpdatePartition",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdatePartitionRequest(input, context));
@@ -2769,7 +2769,7 @@ export const serializeAws_json1_1UpdateRegistryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateRegistry",
+    "x-amz-target": "AWSGlue.UpdateRegistry",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateRegistryInput(input, context));
@@ -2782,7 +2782,7 @@ export const serializeAws_json1_1UpdateSchemaCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateSchema",
+    "x-amz-target": "AWSGlue.UpdateSchema",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSchemaInput(input, context));
@@ -2795,7 +2795,7 @@ export const serializeAws_json1_1UpdateTableCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateTable",
+    "x-amz-target": "AWSGlue.UpdateTable",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTableRequest(input, context));
@@ -2808,7 +2808,7 @@ export const serializeAws_json1_1UpdateTriggerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateTrigger",
+    "x-amz-target": "AWSGlue.UpdateTrigger",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateTriggerRequest(input, context));
@@ -2821,7 +2821,7 @@ export const serializeAws_json1_1UpdateUserDefinedFunctionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateUserDefinedFunction",
+    "x-amz-target": "AWSGlue.UpdateUserDefinedFunction",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateUserDefinedFunctionRequest(input, context));
@@ -2834,7 +2834,7 @@ export const serializeAws_json1_1UpdateWorkflowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
-    "X-Amz-Target": "AWSGlue.UpdateWorkflow",
+    "x-amz-target": "AWSGlue.UpdateWorkflow",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateWorkflowRequest(input, context));

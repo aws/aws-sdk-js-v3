@@ -202,7 +202,7 @@ export const serializeAws_json1_0AssociateFirewallPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.AssociateFirewallPolicy",
+    "x-amz-target": "NetworkFirewall_20201112.AssociateFirewallPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0AssociateFirewallPolicyRequest(input, context));
@@ -215,7 +215,7 @@ export const serializeAws_json1_0AssociateSubnetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.AssociateSubnets",
+    "x-amz-target": "NetworkFirewall_20201112.AssociateSubnets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0AssociateSubnetsRequest(input, context));
@@ -228,7 +228,7 @@ export const serializeAws_json1_0CreateFirewallCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.CreateFirewall",
+    "x-amz-target": "NetworkFirewall_20201112.CreateFirewall",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateFirewallRequest(input, context));
@@ -241,7 +241,7 @@ export const serializeAws_json1_0CreateFirewallPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.CreateFirewallPolicy",
+    "x-amz-target": "NetworkFirewall_20201112.CreateFirewallPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateFirewallPolicyRequest(input, context));
@@ -254,7 +254,7 @@ export const serializeAws_json1_0CreateRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.CreateRuleGroup",
+    "x-amz-target": "NetworkFirewall_20201112.CreateRuleGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0CreateRuleGroupRequest(input, context));
@@ -267,7 +267,7 @@ export const serializeAws_json1_0DeleteFirewallCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DeleteFirewall",
+    "x-amz-target": "NetworkFirewall_20201112.DeleteFirewall",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteFirewallRequest(input, context));
@@ -280,7 +280,7 @@ export const serializeAws_json1_0DeleteFirewallPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DeleteFirewallPolicy",
+    "x-amz-target": "NetworkFirewall_20201112.DeleteFirewallPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteFirewallPolicyRequest(input, context));
@@ -293,7 +293,7 @@ export const serializeAws_json1_0DeleteResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DeleteResourcePolicy",
+    "x-amz-target": "NetworkFirewall_20201112.DeleteResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteResourcePolicyRequest(input, context));
@@ -306,7 +306,7 @@ export const serializeAws_json1_0DeleteRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DeleteRuleGroup",
+    "x-amz-target": "NetworkFirewall_20201112.DeleteRuleGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DeleteRuleGroupRequest(input, context));
@@ -319,7 +319,7 @@ export const serializeAws_json1_0DescribeFirewallCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DescribeFirewall",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeFirewall",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeFirewallRequest(input, context));
@@ -332,7 +332,7 @@ export const serializeAws_json1_0DescribeFirewallPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DescribeFirewallPolicy",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeFirewallPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeFirewallPolicyRequest(input, context));
@@ -345,7 +345,7 @@ export const serializeAws_json1_0DescribeLoggingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DescribeLoggingConfiguration",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeLoggingConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeLoggingConfigurationRequest(input, context));
@@ -358,7 +358,7 @@ export const serializeAws_json1_0DescribeResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DescribeResourcePolicy",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeResourcePolicyRequest(input, context));
@@ -371,7 +371,7 @@ export const serializeAws_json1_0DescribeRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DescribeRuleGroup",
+    "x-amz-target": "NetworkFirewall_20201112.DescribeRuleGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeRuleGroupRequest(input, context));
@@ -384,7 +384,7 @@ export const serializeAws_json1_0DisassociateSubnetsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.DisassociateSubnets",
+    "x-amz-target": "NetworkFirewall_20201112.DisassociateSubnets",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DisassociateSubnetsRequest(input, context));
@@ -397,7 +397,7 @@ export const serializeAws_json1_0ListFirewallPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.ListFirewallPolicies",
+    "x-amz-target": "NetworkFirewall_20201112.ListFirewallPolicies",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListFirewallPoliciesRequest(input, context));
@@ -410,7 +410,7 @@ export const serializeAws_json1_0ListFirewallsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.ListFirewalls",
+    "x-amz-target": "NetworkFirewall_20201112.ListFirewalls",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListFirewallsRequest(input, context));
@@ -423,7 +423,7 @@ export const serializeAws_json1_0ListRuleGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.ListRuleGroups",
+    "x-amz-target": "NetworkFirewall_20201112.ListRuleGroups",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListRuleGroupsRequest(input, context));
@@ -436,7 +436,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.ListTagsForResource",
+    "x-amz-target": "NetworkFirewall_20201112.ListTagsForResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
@@ -449,7 +449,7 @@ export const serializeAws_json1_0PutResourcePolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.PutResourcePolicy",
+    "x-amz-target": "NetworkFirewall_20201112.PutResourcePolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0PutResourcePolicyRequest(input, context));
@@ -462,7 +462,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.TagResource",
+    "x-amz-target": "NetworkFirewall_20201112.TagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0TagResourceRequest(input, context));
@@ -475,7 +475,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UntagResource",
+    "x-amz-target": "NetworkFirewall_20201112.UntagResource",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UntagResourceRequest(input, context));
@@ -488,7 +488,7 @@ export const serializeAws_json1_0UpdateFirewallDeleteProtectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateFirewallDeleteProtection",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallDeleteProtection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateFirewallDeleteProtectionRequest(input, context));
@@ -501,7 +501,7 @@ export const serializeAws_json1_0UpdateFirewallDescriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateFirewallDescription",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallDescription",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateFirewallDescriptionRequest(input, context));
@@ -514,7 +514,7 @@ export const serializeAws_json1_0UpdateFirewallPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateFirewallPolicy",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallPolicy",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateFirewallPolicyRequest(input, context));
@@ -527,7 +527,7 @@ export const serializeAws_json1_0UpdateFirewallPolicyChangeProtectionCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateFirewallPolicyChangeProtection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateFirewallPolicyChangeProtectionRequest(input, context));
@@ -540,7 +540,7 @@ export const serializeAws_json1_0UpdateLoggingConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateLoggingConfiguration",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateLoggingConfiguration",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateLoggingConfigurationRequest(input, context));
@@ -553,7 +553,7 @@ export const serializeAws_json1_0UpdateRuleGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateRuleGroup",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateRuleGroup",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateRuleGroupRequest(input, context));
@@ -566,7 +566,7 @@ export const serializeAws_json1_0UpdateSubnetChangeProtectionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
-    "X-Amz-Target": "NetworkFirewall_20201112.UpdateSubnetChangeProtection",
+    "x-amz-target": "NetworkFirewall_20201112.UpdateSubnetChangeProtection",
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0UpdateSubnetChangeProtectionRequest(input, context));
