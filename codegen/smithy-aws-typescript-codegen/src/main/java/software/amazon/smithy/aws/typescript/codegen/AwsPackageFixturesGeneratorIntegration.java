@@ -23,6 +23,9 @@ import java.util.regex.Pattern;
 import software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -50,13 +53,18 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             writer.write(resource);
         });
         writerFactory.accept("README.md", writer -> {
+            ServiceShape service = settings.getService(model);
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
             resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
 
             AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
             SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, symbolProvider);
-            String clientName = decorated.toSymbol(settings.getService(model)).getName();
+            String clientName = decorated.toSymbol(service).getName();
             resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName.split("Client")[0]);
+
+            TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+            OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
+            resource = resource.replaceAll(Pattern.quote("${commandName}"), firstOperation.getId().getName());
 
             writer.write(resource);
         });

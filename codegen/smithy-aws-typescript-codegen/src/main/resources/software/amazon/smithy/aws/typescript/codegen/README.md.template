@@ -20,4 +20,14 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `${serviceId}Client` and
-the commands you need:
+the commands you need, for example `${commandName}Command`:
+
+```js
+// ES5 example
+const { ${serviceId}Client, ${commandName}Command } = require("${packageName}");
+```
+
+```ts
+// ES6+ example
+import { ${serviceId}Client, ${commandName}Command } from "${packageName}";
+```
