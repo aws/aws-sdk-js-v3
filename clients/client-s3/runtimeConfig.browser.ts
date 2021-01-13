@@ -7,7 +7,6 @@ import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
 import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
-import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
@@ -37,7 +36,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   sha256: Sha256,
   streamCollector,
   streamHasher,
-  urlParser: parseUrl,
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
 };

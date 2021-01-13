@@ -1,5 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { parseUrl } from "@aws-sdk/url-parser-node";
+import { parseUrl } from "@aws-sdk/url-parser-native";
 import { ClientDefaults } from "./ECSClient";
 import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
 

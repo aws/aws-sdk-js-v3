@@ -1,6 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import { parseUrl } from "@aws-sdk/url-parser-node";
+import { parseUrl } from "@aws-sdk/url-parser-native";
 import { ClientDefaults } from "./TranscribeStreamingClient";
 import { ClientDefaultValues as BrowserDefaults } from "./runtimeConfig.browser";
 
