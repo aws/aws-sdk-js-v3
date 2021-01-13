@@ -22,6 +22,7 @@ import java.util.function.Consumer;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -60,10 +61,11 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
             resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
 
-            AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
-            SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, symbolProvider);
-            String clientName = decorated.toSymbol(service).getName();
-            resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName.split("Client")[0]);
+            String sdkId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(null);
+            String clientName = Arrays.asList(sdkId.split(" ")).stream()
+                    .map(StringUtils::capitalize)
+                    .collect(Collectors.joining(""));
+            resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName);
 
             String rawDocumentation = service.getTrait(DocumentationTrait.class)
                     .map(DocumentationTrait::getValue)
