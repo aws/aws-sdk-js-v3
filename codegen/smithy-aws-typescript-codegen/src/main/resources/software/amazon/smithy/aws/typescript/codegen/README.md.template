@@ -180,3 +180,16 @@ We use the GitHub issues for tracking bugs and feature requests, but have limite
 - Join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3).
 - If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose).
 
+To test your universal JavaScript code in Node.js, browser and react-native environments,
+visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
+
+## Contributing
+
+This client code is generated automatically. Any modifications will be overwritten the next time the `${packageName}` package is updated.
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+
+## License
+
+This SDK is distributed under the
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
+see LICENSE for more information.
