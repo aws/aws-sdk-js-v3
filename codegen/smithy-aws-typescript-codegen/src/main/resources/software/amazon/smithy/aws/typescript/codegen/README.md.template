@@ -33,3 +33,117 @@ const { ${serviceId}Client, ${commandName}Command } = require("${packageName}");
 // ES6+ example
 import { ${serviceId}Client, ${commandName}Command } from "${packageName}";
 ```
+
+### Usage
+
+To send a request, you:
+
+- Initiate client with configuration (e.g. credentials, region).
+- Initiate command with input parameters.
+- Call `send` operation on client with command object as input.
+- If you are using a custom http handler, you may call `destroy()` to close open connections.
+
+```js
+// a client can be shared by difference commands.
+const client = new ${serviceId}Client({ region: "REGION" });
+
+const params = { /** input parameters */ };
+const command = new ${commandName}Command(params);
+```
+
+#### Async/await
+
+We recommend using [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+operator to wait for the promise returned by send operation as follows:
+
+```js
+// async/await.
+try {
+  const data = await client.send(command);
+  // process data.
+} catch (error) {
+  // error handling.
+} finally {
+  // finally.
+}
+```
+
+Async-await is clean, concise, intuitive, easy to debug and has better error handling
+as compared to using Promise chains or callbacks.
+
+#### Promises
+
+You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining)
+to execute send operation.
+
+```js
+client.send(command).then(
+  (data) => {
+    // process data.
+  },
+  (error) => {
+    // error handling.
+  }
+);
+```
+
+Promises can also be called using `.catch()` and `.finally()` as follows:
+
+```js
+client
+  .send(command)
+  .then((data) => {
+    // process data.
+  })
+  .catch((error) => {
+    // error handling.
+  })
+  .finally(() => {
+    // finally.
+  });
+```
+
+#### Callbacks
+
+We do not recommend using callbacks because of [callback hell](http://callbackhell.com/),
+but they are supported by the send operation.
+
+```js
+// callbacks.
+client.send(command, (err, data) => {
+  // proccess err and data.
+});
+```
+
+#### v2 compatible style
+
+The client can also send requests using v2 compatible style as follows:
+
+```ts
+import * as AWS from "${packageName}";
+const client = new AWS.${serviceId}({ region: "REGION" });
+
+// async/await.
+try {
+  const data = client.${operationName}(params);
+  // process data.
+} catch (error) {
+  // error handling.
+}
+
+// Promises.
+client
+  .${operationName}(params)
+  .then((data) => {
+    // process data.
+  })
+  .catch((error) => {
+    // error handling.
+  });
+
+// callbacks.
+client.${operationName}(params, (err, data) => {
+  // proccess err and data.
+});
+```
+
