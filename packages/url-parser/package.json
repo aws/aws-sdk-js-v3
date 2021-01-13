@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/url-parser-browser",
-  "version": "3.1.0",
+  "name": "@aws-sdk/url-parser",
+  "version": "3.0.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",

@@ -1,6 +1,6 @@
 import { Endpoint } from "@aws-sdk/types";
 
-import { parseUrl } from "./";
+import { parseUrl } from ".";
 
 describe("parseUrl", () => {
   const testCases = new Map<string, Endpoint>([
