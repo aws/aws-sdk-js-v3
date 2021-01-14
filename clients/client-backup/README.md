@@ -125,7 +125,9 @@ client.send(command, (err, data) => {
 
 #### v2 compatible style
 
-The client can also send requests using v2 compatible style as follows:
+The client can also send requests using v2 compatible style.
+However, it results in a bigger bundle size and may be dropped in next major version. More details in the blog post
+on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
 import * as AWS from "@aws-sdk/client-backup";
@@ -184,6 +186,8 @@ We use the GitHub issues for tracking bugs and feature requests, but have limite
 
 - Visit [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
   or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html).
+- Check out the blog posts tagged with [`aws-sdk-js`](https://aws.amazon.com/blogs/developer/tag/aws-sdk-js/)
+  on AWS Developer Blog.
 - Ask a question on [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js) and tag it with `aws-sdk-js`.
 - Join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3).
 - If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose).
