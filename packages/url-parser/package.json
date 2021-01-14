@@ -27,10 +27,10 @@
     "jest": "^26.1.0",
     "typescript": "~4.1.2"
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/url-parser-browser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/url-parser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/url-parser-browser"
+    "directory": "packages/url-parser"
   }
 }
