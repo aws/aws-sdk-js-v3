@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-config-provider",
-  "version": "3.1.0",
+  "version": "3.3.0",
   "description": "Load config default values from ini config files and environmental variable",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
@@ -20,7 +20,7 @@
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
   "dependencies": {
-    "@aws-sdk/property-provider": "3.1.0",
+    "@aws-sdk/property-provider": "3.3.0",
     "@aws-sdk/shared-ini-file-loader": "3.1.0",
     "@aws-sdk/types": "3.1.0",
     "tslib": "^1.8.0"

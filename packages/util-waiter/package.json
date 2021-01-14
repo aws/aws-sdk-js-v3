@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/util-waiter",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.1.0",
+    "@aws-sdk/abort-controller": "3.3.0",
     "@aws-sdk/types": "3.1.0",
     "tslib": "^1.8.0"
   },
