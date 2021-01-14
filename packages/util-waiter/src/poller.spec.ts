@@ -49,18 +49,16 @@ describe(runPolling.name, () => {
     expect(mockAcceptorChecks).toHaveBeenCalled();
     expect(mockAcceptorChecks).toHaveBeenCalledTimes(1);
     expect(mockAcceptorChecks).toHaveBeenCalledWith(config.client, input);
-
-    expect(sleep).toHaveBeenCalled();
-    expect(sleep).toHaveBeenCalledTimes(1);
-    expect(sleep).toHaveBeenCalledWith(config.minDelay);
+    expect(sleep).toHaveBeenCalledTimes(0);
   });
 
   it("returns state in case of success", async () => {
     mockAcceptorChecks = jest.fn().mockResolvedValueOnce(successState);
     await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(successState);
-    expect(sleep).toHaveBeenCalled();
-    expect(sleep).toHaveBeenCalledTimes(1);
-    expect(sleep).toHaveBeenCalledWith(config.minDelay);
+    expect(mockAcceptorChecks).toHaveBeenCalled();
+    expect(mockAcceptorChecks).toHaveBeenCalledTimes(1);
+    expect(mockAcceptorChecks).toHaveBeenCalledWith(config.client, input);
+    expect(sleep).toHaveBeenCalledTimes(0);
   });
 
   it("sleeps as per exponentialBackoff in case of retry", async () => {
@@ -72,11 +70,13 @@ describe(runPolling.name, () => {
       .mockResolvedValueOnce(retryState)
       .mockResolvedValueOnce(retryState)
       .mockResolvedValueOnce(retryState)
+      .mockResolvedValueOnce(retryState)
       .mockResolvedValueOnce(successState);
 
     await expect(runPolling(config, input, mockAcceptorChecks)).resolves.toStrictEqual(successState);
 
     expect(sleep).toHaveBeenCalled();
+    expect(mockAcceptorChecks).toHaveBeenCalledTimes(8);
     expect(sleep).toHaveBeenCalledTimes(7);
     expect(sleep).toHaveBeenNthCalledWith(1, 2); // min delay. random(2, 2)
     expect(sleep).toHaveBeenNthCalledWith(2, 3); // random(2, 4)
