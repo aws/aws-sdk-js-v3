@@ -5,7 +5,6 @@ import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS } from "@aws-sdk/middleware-retry";
-import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
@@ -33,7 +32,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   requestHandler: new FetchHttpHandler(),
   sha256: Sha256,
   streamCollector,
-  urlParser: parseUrl,
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
 };

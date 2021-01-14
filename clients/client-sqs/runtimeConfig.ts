@@ -7,7 +7,6 @@ import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { HashConstructor as __HashConstructor } from "@aws-sdk/types";
-import { parseUrl } from "@aws-sdk/url-parser-node";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
@@ -35,7 +34,6 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   requestHandler: new NodeHttpHandler(),
   sha256: Hash.bind(null, "sha256"),
   streamCollector,
-  urlParser: parseUrl,
   utf8Decoder: fromUtf8,
   utf8Encoder: toUtf8,
 };

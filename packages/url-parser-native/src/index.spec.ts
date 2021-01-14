@@ -44,20 +44,4 @@ describe("parseUrl", () => {
       });
     });
   });
-
-  describe("should throw error", () => {
-    const failureCases: [string, Error][] = [
-      ["example.com", new TypeError("Invalid URL: example.com")],
-      ["endpoint", new TypeError("Invalid URL: endpoint")],
-    ];
-
-    failureCases.forEach(([url, error]) => {
-      it(url, () => {
-        expect(() => {
-          const output = parseUrl(url);
-          console.log(output);
-        }).toThrow(error);
-      });
-    });
-  });
 });
