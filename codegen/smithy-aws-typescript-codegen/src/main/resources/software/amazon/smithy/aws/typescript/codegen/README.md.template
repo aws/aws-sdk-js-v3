@@ -117,7 +117,9 @@ client.send(command, (err, data) => {
 
 #### v2 compatible style
 
-The client can also send requests using v2 compatible style as follows:
+The client can also send requests using v2 compatible style.
+However, it results in a bigger bundle size and may be dropped in next major version. More details in the blog post
+on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
 import * as AWS from "${packageName}";
