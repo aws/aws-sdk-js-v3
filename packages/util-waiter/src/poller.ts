@@ -13,7 +13,8 @@ const exponentialBackoffWithJitter = (minDelay: number, maxDelay: number, attemp
 const randomInRange = (min: number, max: number) => min + Math.random() * (max - min);
 
 /**
- * Function that runs indefinite polling as part of waiters.
+ * Function that runs polling as part of waiters. This will make one inital attempt and then
+ * subsequent attempts with an increasing delay.
  * @param params options passed to the waiter.
  * @param client AWS SDK Client
  * @param input client input
@@ -24,6 +25,11 @@ export const runPolling = async <Client, Input>(
   input: Input,
   acceptorChecks: (client: Client, input: Input) => Promise<WaiterResult>
 ): Promise<WaiterResult> => {
+  const { state } = await acceptorChecks(client, input);
+  if (state !== WaiterState.RETRY) {
+    return { state };
+  }
+
   let currentAttempt = 1;
   const waitUntil = Date.now() + maxWaitTime * 1000;
   // The max attempt number that the derived delay time tend to increase.
