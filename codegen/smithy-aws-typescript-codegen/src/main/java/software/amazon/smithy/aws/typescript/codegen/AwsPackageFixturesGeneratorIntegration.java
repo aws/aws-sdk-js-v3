@@ -15,17 +15,25 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.StringUtils;
 
 public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
     @Override
@@ -49,8 +57,31 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             writer.write(resource);
         });
         writerFactory.accept("README.md", writer -> {
+            ServiceShape service = settings.getService(model);
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
             resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
+
+            String sdkId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(null);
+            String clientName = Arrays.asList(sdkId.split(" ")).stream()
+                    .map(StringUtils::capitalize)
+                    .collect(Collectors.joining(""));
+            resource = resource.replaceAll(Pattern.quote("${serviceId}"), clientName);
+
+            String rawDocumentation = service.getTrait(DocumentationTrait.class)
+                    .map(DocumentationTrait::getValue)
+                    .orElse("");
+            String documentation = Arrays.asList(rawDocumentation.split("\n")).stream()
+                    .map(StringUtils::trim)
+                    .collect(Collectors.joining("\n"));
+            resource = resource.replaceAll(Pattern.quote("${documentation}"), documentation);
+
+            TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+            OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
+            String operationName = firstOperation.getId().getName();
+            resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
+            resource = resource.replaceAll(Pattern.quote("${operationName}"),
+                    operationName.substring(0, 1).toLowerCase() + operationName.substring(1));
+
             writer.write(resource);
         });
     }

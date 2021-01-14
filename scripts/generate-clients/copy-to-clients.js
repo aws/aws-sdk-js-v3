@@ -17,6 +17,7 @@ const getOverwritablePredicate = (packageName) => (pathName) => {
     "runtimeConfig.native.ts",
     "index.ts",
     "endpoints.ts",
+    "README.md",
   ];
   return (
     pathName

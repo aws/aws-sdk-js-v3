@@ -1,256 +1,209 @@
 # @aws-sdk/client-transcribe-streaming
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-transcribe-streaming/gamma.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-transcribe-streaming/latest.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-transcribe-streaming.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
 
-## Introduction
+## Description
 
-Amazon Transcribe streaming enables you to send an audio stream and receive back a stream of text in real time.
-The API makes it easy for developers to add real-time speech-to-text capability to their applications. It can be used
-for a variety of purposes. For example:
+AWS SDK for JavaScript TranscribeStreaming Client for Node.js, Browser and React Native.
 
-- Streaming transcriptions can generate real-time subtitles for live broadcast media.
-- Lawyers can make real-time annotations on top of streaming transcriptions during courtroom depositions.
-- Video game chat can be transcribed in real time so that hosts can moderate content or run real-time analysis.
-- Streaming transcriptions can provide assistance to the hearing impaired.
+<p>Operations and objects for transcribing streaming speech to text.</p>
 
-The JavaScript SDK Transcribe Streaming client encapsulates the API into a JavaScript library that can be run on
-browsers, Node.js and _potentially_ React Native. By default, the client uses HTTP/2 connection on Node.js, and uses
-`WebSocket` connection on browsers and React Native.
+## Installing
+
+To install the this package, simply type add or install @aws-sdk/client-transcribe-streaming
+using your favorite package manager:
+
+- `npm install @aws-sdk/client-transcribe-streaming`
+- `yarn add @aws-sdk/client-transcribe-streaming`
+- `pnpm add @aws-sdk/client-transcribe-streaming`
 
 ## Getting Started
 
-In the sections bellow, we will explain the library by an example of using `startStreamTranscription` method to
-transcribe English speech to text.
+### Import
 
-If you haven't, please read [the root README](../../README.md) for guidance for creating a sample application and
-installation. After installation, in the `index.js`, you can import the Transcribe Streaming client like:
+The AWS SDK is modulized by clients and commands.
+To send a request, you only need to import the `TranscribeStreamingClient` and
+the commands you need, for example `StartMedicalStreamTranscriptionCommand`:
 
-```javascript
-const { TranscribeStreamingClient, StartStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming");
+```js
+// ES5 example
+const {
+  TranscribeStreamingClient,
+  StartMedicalStreamTranscriptionCommand,
+} = require("@aws-sdk/client-transcribe-streaming");
 ```
 
-If `require` is not available on the platform you are working on(browsers). You can import the client like:
-
-```javascript
-import { TranscribeStreamingClient, StartStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming";
+```ts
+// ES6+ example
+import {
+  TranscribeStreamingClient,
+  StartMedicalStreamTranscriptionCommand,
+} from "@aws-sdk/client-transcribe-streaming";
 ```
 
-## Constructing the Service Client
+### Usage
 
-You can create a service client like bellow:
+To send a request, you:
 
-```javascript
-const client = new TranscribeStreamingClient({
-  region,
-  credentials,
-});
-// region and credentials are optional in Node.js
-```
+- Initiate client with configuration (e.g. credentials, region).
+- Initiate command with input parameters.
+- Call `send` operation on client with command object as input.
+- If you are using a custom http handler, you may call `destroy()` to close open connections.
 
-## Acquire Speech Stream
+```js
+// a client can be shared by difference commands.
+const client = new TranscribeStreamingClient({ region: "REGION" });
 
-The Transcribe Streaming client accepts streaming speech input as an [async iterable]. You can construct them from either an async generator or using `Symbol.asyncIterable` to emit binary chunks.
-
-Here's an example of using async generator:
-
-```javascript
-const audioStream = async function* () {
-  await device.start();
-  while (device.ends !== true) {
-    const chunk = await device.read();
-    yield chunk; /* yield binary chunk */
-  }
+const params = {
+  /** input parameters */
 };
+const command = new StartMedicalStreamTranscriptionCommand(params);
 ```
 
-Then you need to construct the binary chunk into an audio chunk shape that can be recognized by the SDK:
+#### Async/await
 
-```javascript
-const audioStream = async function* () {
-  for await (const chunk of audioSource()) {
-    yield { AudioEvent: { AudioChunk: chunk } };
-  }
-};
-```
+We recommend using [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+operator to wait for the promise returned by send operation as follows:
 
-### Acquire from Node.js Stream API
-
-In Node.js you will mostly acquire the speech in [Stream API], from HTTP request or devices. Stream API in Node.js (>=
-10.0.0) itself is an async iterable. You can supply the streaming into the SDK input without explicit convert. You
-only need to construct the audio chunk shape that can be recognized by the SDK:
-
-```javascript
-const audioSource = req; //Incoming message
-const audioStream = async function* () {
-  for await (const payloadChunk of audioSource) {
-    yield { AudioEvent: { AudioChunk: payloadChunk } };
-  }
-};
-```
-
-If you see don't limit the chunk size on the client side, for example, streams from `fs`, you might see
-`The chunk is too big` error from the Transcribe Streaming. You can solve it by setting the [`HighWaterMark`][readable hightwatermark]:
-
-```javascript
-const { PassThrough } = require("stream");
-const { createReadStream } = require("fs");
-const audioSource = createReadStream("path/to/speech.wav");
-const audioPayloadStream = new PassThrough({ highWaterMark: 1 * 1024 }); // Stream chunk less than 1 KB
-audioSource.pipe(audioPayloadStream);
-const audioStream = async function* () {
-  for await (const payloadChunk of audioPayloadStream) {
-    yield { AudioEvent: { AudioChunk: payloadChunk } };
-  }
-};
-```
-
-Depending on the audio source, you may need to [PCM encode](#PCM-encoding) you audio chunk.
-
-### Acquire from Browsers
-
-The Transcribe Streaming SDK client also supports streaming from browsers. You can acquire the microphone data through
-[`getUserMedia` API][getusermedia api]. Note that this API is supported by [a subset of browsers][getusermedia support].
-Here's a code snippet of acquiring microphone audio stream using [`microphone-stream`][microphone-stream]
-
-```javascript
-const mic = require("microphone-stream");
-// this part should be put into an async function
-micStream.setStream(
-  await window.navigator.mediaDevices.getUserMedia({
-    video: false,
-    audio: true,
-  })
-);
-const audioStream = async function* () {
-  for await (const chunk of micStream) {
-    yield { AudioEvent: { AudioChunk: pcmEncodeChunk(chunk) /* pcm Encoding is optional depending on the source */ } };
-  }
-};
-```
-
-You can find the a full front-end example [here][front-end example repo]
-
-#### PCM encoding
-
-Currently Transcribe Streaming service only accepts [PCM][pcm] encoding. If your audio source is not already encoded,
-you need to PCM encoding the chunks. Here's an example:
-
-```javascript
-const pcmEncodeChunk = (chunk) => {
-  const input = mic.toRaw(chunk);
-  var offset = 0;
-  var buffer = new ArrayBuffer(input.length * 2);
-  var view = new DataView(buffer);
-  for (var i = 0; i < input.length; i++, offset += 2) {
-    var s = Math.max(-1, Math.min(1, input[i]));
-    view.setInt16(offset, s < 0 ? s * 0x8000 : s * 0x7fff, true);
-  }
-  return Buffer.from(buffer);
-};
-```
-
-## Send the Speech Stream
-
-```javascript
-const command = new StartStreamTranscriptionCommand({
-  // The language code for the input audio. Valid values are en-GB, en-US, es-US, fr-CA, and fr-FR
-  LanguageCode: "en-US",
-  // The encoding used for the input audio. The only valid value is pcm.
-  MediaEncoding: "pcm",
-  // The sample rate of the input audio in Hertz. We suggest that you use 8000 Hz for low-quality audio and 16000 Hz for
-  // high-quality audio. The sample rate must match the sample rate in the audio file.
-  MediaSampleRateHertz: 44100,
-  AudioStream: audioStream(),
-});
-const response = await client.send(command);
-```
-
-## Handling Text Stream
-
-If the request succeeds, you will get a response containing the streaming transcript like [this][response data example].
-Just like the input speech stream, the transcript stream is an [async iterable][async iterable] emitting the partial
-transcripts. Here is a code snippet of accessing the transcripts
-
-```javascript
-// This snippet should be put into an async function
-for await (const event of response.TranscriptResultStream) {
-  if (event.TranscriptEvent) {
-    const message = event.TranscriptEvent;
-    // Get multiple possible results
-    const results = event.TranscriptEvent.Transcript.Results;
-    // Print all the possible transcripts
-    results.map((result) => {
-      (result.Alternatives || []).map((alternative) => {
-        const transcript = alternative.Items.map((item) => item.Content).join(" ");
-        console.log(transcript);
-      });
-    });
-  }
-}
-```
-
-### Pipe Transcripts Stream
-
-In Node.js, you can pipe this `TranscriptResultStream` to other destinations easily with the [`from` API][readable.from]:
-
-```javascript
-const { Readable } = require("stream");
-const transcriptsStream = Readable.from(response.TranscriptResultStream);
-transcriptsStream.pipe(/* some destinations */);
-```
-
-## Error Handling
-
-If you are using `async...await` style code, you are able to catch the errors with `try...catch` block. There are 2
-categories of exceptions can be thrown:
-
-- Immediate exceptions thrown before transcription is started, like signature
-  exceptions, invalid parameters exceptions, and network errors;
-- Streaming exceptions that happens after transcription is
-  started, like `InternalFailureException` or `ConflictException`.
-
-For immediate exceptions, the SDK client will retry the request if the error is retryable, like network errors. You can
-config the client to behave as you intend to.
-
-For streaming exceptions, because the streaming transcription is already
-started, client cannot retry the request automatically. The client will throw these exceptions and users can handle the
-stream behavior accordingly.
-
-Here's an example of error handling flow:
-
-```javascript
+```js
+// async/await.
 try {
-  const response = await client.send(command);
-  await handleResponse(response);
-} catch (e) {
-  if (e.name === "InternalFailureException") {
-    /* handle InternalFailureException */
-  } else if (e.name === "ConflictException") {
-    /* handle ConflictException */
-  }
+  const data = await client.send(command);
+  // process data.
+} catch (error) {
+  // error handling.
 } finally {
-  /* clean resources like input stream */
+  // finally.
 }
 ```
 
-## Notes for React Native
+Async-await is clean, concise, intuitive, easy to debug and has better error handling
+as compared to using Promise chains or callbacks.
 
-This package is compatible with React Native (>= 0.60). However, it is not tested with any React Native libraries that
-converts microphone record into streaming data. Community input for integrating streaming microphone record data is
-welcome.
+#### Promises
 
-Thank you for reading this guide. If you want to know more about how streams are encoded, how connection is established,
-please refer to the [Service API guide][service api guide].
+You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining)
+to execute send operation.
 
-[async iterable]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
-[stream api]: https://nodejs.org/docs/latest-v12.x/api/stream.html
-[readable hightwatermark]: https://nodejs.org/docs/latest-v12.x/api/stream.html#stream_readable_readablehighwatermark
-[getusermedia api]: https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-[getusermedia support]: https://caniuse.com/#search=getusermedia
-[microphone-stream]: https://www.npmjs.com/package/microphone-stream
-[front-end example repo]: https://github.com/aws-samples/amazon-transcribe-websocket-static
-[pcm]: https://en.wikipedia.org/wiki/Pulse-code_modulation
-[response data example]: https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html
-[readable.from]: https://nodejs.org/docs/latest-v12.x/api/stream.html#stream_stream_readable_from_iterable_options
-[service api guide]: https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html
+```js
+client.send(command).then(
+  (data) => {
+    // process data.
+  },
+  (error) => {
+    // error handling.
+  }
+);
+```
+
+Promises can also be called using `.catch()` and `.finally()` as follows:
+
+```js
+client
+  .send(command)
+  .then((data) => {
+    // process data.
+  })
+  .catch((error) => {
+    // error handling.
+  })
+  .finally(() => {
+    // finally.
+  });
+```
+
+#### Callbacks
+
+We do not recommend using callbacks because of [callback hell](http://callbackhell.com/),
+but they are supported by the send operation.
+
+```js
+// callbacks.
+client.send(command, (err, data) => {
+  // proccess err and data.
+});
+```
+
+#### v2 compatible style
+
+The client can also send requests using v2 compatible style.
+However, it results in a bigger bundle size and may be dropped in next major version. More details in the blog post
+on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
+
+```ts
+import * as AWS from "@aws-sdk/client-transcribe-streaming";
+const client = new AWS.TranscribeStreaming({ region: "REGION" });
+
+// async/await.
+try {
+  const data = client.startMedicalStreamTranscription(params);
+  // process data.
+} catch (error) {
+  // error handling.
+}
+
+// Promises.
+client
+  .startMedicalStreamTranscription(params)
+  .then((data) => {
+    // process data.
+  })
+  .catch((error) => {
+    // error handling.
+  });
+
+// callbacks.
+client.startMedicalStreamTranscription(params, (err, data) => {
+  // proccess err and data.
+});
+```
+
+### Troubleshooting
+
+When the service returns an exception, the error will include the exception information,
+as well as response metadata (e.g. request id).
+
+```js
+try {
+  const data = await client.send(command);
+  // process data.
+} catch (error) {
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
+  console.log({ requestId, cfId, extendedRequestId });
+  /**
+   * The keys within exceptions are also parsed.
+   * You can access them by specifying exception names:
+   * if (error.name === 'SomeServiceException') {
+   *     const value = error.specialKeyInException;
+   * }
+   */
+}
+```
+
+## Getting Help
+
+Please use these community resources for getting help.
+We use the GitHub issues for tracking bugs and feature requests, but have limited bandwidth to address them.
+
+- Visit [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
+  or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html).
+- Check out the blog posts tagged with [`aws-sdk-js`](https://aws.amazon.com/blogs/developer/tag/aws-sdk-js/)
+  on AWS Developer Blog.
+- Ask a question on [StackOverflow](https://stackoverflow.com/questions/tagged/aws-sdk-js) and tag it with `aws-sdk-js`.
+- Join the AWS JavaScript community on [gitter](https://gitter.im/aws/aws-sdk-js-v3).
+- If it turns out that you may have found a bug, please [open an issue](https://github.com/aws/aws-sdk-js-v3/issues/new/choose).
+
+To test your universal JavaScript code in Node.js, browser and react-native environments,
+visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
+
+## Contributing
+
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-transcribe-streaming` package is updated.
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+
+## License
+
+This SDK is distributed under the
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
+see LICENSE for more information.
