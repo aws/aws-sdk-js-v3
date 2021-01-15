@@ -18,8 +18,6 @@ jobs:
           github-token: ${{ github.token }}
           issue-lock-inactive-days: 14
           pr-lock-inactive-days: 14
-          issue-exclude-created-before: '2020-10-01T00:00:00Z'
-          pr-exclude-created-before: '2020-10-01T00:00:00Z'
           issue-lock-comment: >
             This thread has been automatically locked since there has not been
             any recent activity after it was closed. Please open a 
