@@ -30,9 +30,3 @@ following options are supported:
   requests. If not specified, a default value of `1000` (one second) is used.
 - `maxRetries` - The maximum number of times any HTTP connections should be
   retried. If not specified, a default value of `0` will be used.
-
-Additionally, `fromInstanceMetadata` supports the following options:
-
-- `profile` - The configuration profile to use. If not specified, the provider
-  will use default profile name associated with the EC2 instance as reported by
-  the Instance Metadata Service.
