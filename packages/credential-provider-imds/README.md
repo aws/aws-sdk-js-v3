@@ -17,8 +17,11 @@ for more information on using IAM roles with Amazon ECS.
 
 A `CredentialProvider` function created with `fromInstanceMetadata` will return
 a promise that will resolve with credentials for the IAM role associated with
-an EC2 instance. Please see [IAM Roles for Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
+an EC2 instance.
+Please see [IAM Roles for Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
 for more information on using IAM roles with Amazon EC2.
+Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are supported.
+Please see [Configure the instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html) for more information.
 
 ## Supported configuration
 
