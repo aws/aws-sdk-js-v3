@@ -44,13 +44,7 @@ import {
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import {
-  RetryInputConfig,
-  RetryResolvedConfig,
-  getOmitRetryHeadersPlugin,
-  getRetryPlugin,
-  resolveRetryConfig,
-} from "@aws-sdk/middleware-retry";
+import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -248,7 +242,6 @@ export class PinpointSMSVoiceClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));
   }
 
   destroy(): void {
