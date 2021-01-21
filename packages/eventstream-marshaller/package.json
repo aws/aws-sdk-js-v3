@@ -7,6 +7,8 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild:cjs": "downlevel-dts dist/cjs dist/cjs/ts3.4",
+    "postbuild:es": "downlevel-dts dist/es dist/es/ts3.4",
     "test": "jest --coverage"
   },
   "main": "./dist/cjs/index.js",
@@ -36,6 +38,16 @@
   },
   "react-native": {
     "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
+  },
+  "typesVersions": {
+    "<3.9": {
+      "dist/cjs/*": [
+        "dist/cjs/ts3.4/*"
+      ],
+      "dist/es/*": [
+        "dist/es/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/eventstream-marshaller",
   "repository": {

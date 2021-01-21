@@ -8,6 +8,8 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild:cjs": "downlevel-dts dist/cjs dist/cjs/ts3.4",
+    "postbuild:es": "downlevel-dts dist/es dist/es/ts3.4",
     "prepublishOnly": "yarn build",
     "pretest": "yarn build",
     "test": "jest --passWithNoTests"
@@ -37,6 +39,16 @@
   },
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<3.9": {
+      "dist/cjs/*": [
+        "dist/cjs/ts3.4/*"
+      ],
+      "dist/es/*": [
+        "dist/es/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-transcribe-streaming",
   "repository": {

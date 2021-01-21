@@ -10,6 +10,8 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild:cjs": "downlevel-dts dist/cjs dist/cjs/ts3.4",
+    "postbuild:es": "downlevel-dts dist/es dist/es/ts3.4",
     "test": "jest"
   },
   "keywords": [
@@ -36,6 +38,16 @@
   "types": "./dist/cjs/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<3.9": {
+      "dist/cjs/*": [
+        "dist/cjs/ts3.4/*"
+      ],
+      "dist/es/*": [
+        "dist/es/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-ini",
   "repository": {
