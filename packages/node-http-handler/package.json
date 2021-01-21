@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "types": "./types/index.d.ts",
   "dependencies": {
     "@aws-sdk/abort-controller": "3.3.0",
     "@aws-sdk/protocol-http": "3.3.0",
