@@ -5,6 +5,7 @@
     "sourceMap": false,
     "declaration": true,
     "stripInternal": true,
+    "declarationDir": "./types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "importHelpers": true,

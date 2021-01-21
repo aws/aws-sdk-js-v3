@@ -2,6 +2,7 @@
   "compilerOptions": {
     "declaration": false,
     "strict": false,
+    "declarationDir": "./types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "baseUrl": "."
