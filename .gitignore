@@ -6,7 +6,6 @@ pids
 *.pid.lock
 lib-cov
 configuration
-coverage
 .nyc_output
 .grunt
 .lock-wscript
@@ -37,13 +36,9 @@ codegen/sdk-codegen/smithy-build.json
 */out/
 */*/out/
 
-protocol_tests/*/coverage
-protocol_tests/*/dist
-protocol_tests/*/types
-
-lib/*/coverage
-lib/*/dist
-lib/*/types
+coverage
+dist
+types
 
 /verdaccio/*
 !/verdaccio/config.yaml
