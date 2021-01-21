@@ -2,6 +2,7 @@
   "compilerOptions": {
     "lib": ["es5", "es2015.collection"],
     "stripInternal": true,
+    "declarationDir": "./types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "baseUrl": "."
