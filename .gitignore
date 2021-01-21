@@ -39,6 +39,7 @@ codegen/sdk-codegen/smithy-build.json
 coverage
 dist
 types
+!packages/types
 
 /verdaccio/*
 !/verdaccio/config.yaml
