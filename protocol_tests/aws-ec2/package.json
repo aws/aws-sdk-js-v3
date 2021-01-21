@@ -65,6 +65,7 @@
     "@aws-sdk/types": "3.1.0",
     "@types/node": "^12.7.5",
     "@types/uuid": "^3.0.0",
+    "downlevel-dts": "0.7.0",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
     "typedoc": "^0.19.2",
