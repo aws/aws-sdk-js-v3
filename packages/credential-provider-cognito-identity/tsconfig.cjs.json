@@ -3,7 +3,6 @@
     "declarationDir": "./types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
-    "declarationDir": "./dist/cjs",
     "noUnusedLocals": true,
     "baseUrl": "."
   },
