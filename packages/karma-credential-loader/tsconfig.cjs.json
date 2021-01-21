@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": false,
     "strict": false,
     "declarationDir": "./types",
     "rootDir": "./src",

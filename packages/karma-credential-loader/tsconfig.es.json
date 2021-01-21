@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "declaration": false,
     "strict": false,
     "lib": ["es2015"],
     "declarationDir": "./types",
