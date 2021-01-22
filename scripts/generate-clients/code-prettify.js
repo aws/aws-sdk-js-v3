@@ -5,7 +5,7 @@ const path = require("path");
 const prettifyCode = async (dir) =>
   spawnProcess(path.join(__dirname, "..", "..", "node_modules", ".bin", "pprettier"), [
     "--write",
-    `${dir}/**/*.{ts,js,md,json}`,
+    `${dir}/*/typescript-codegen/**/*.{ts,js,md,json}`,
   ]);
 
 module.exports = {
