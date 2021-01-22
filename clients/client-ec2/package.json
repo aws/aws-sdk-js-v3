@@ -13,7 +13,8 @@
     "test": "exit 0",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es"
+    "build": "yarn build:cjs && yarn build:es",
+    "postbuild": "downlevel-dts types types/ts3.4"
   },
   "main": "./dist/cjs/index.js",
   "types": "./types/index.d.ts",
@@ -66,6 +67,7 @@
     "@aws-sdk/client-documentation-generator": "3.1.0",
     "@types/node": "^12.7.5",
     "@types/uuid": "^3.0.0",
+    "downlevel-dts": "0.7.0",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
     "typedoc": "^0.19.2",
@@ -73,6 +75,13 @@
   },
   "engines": {
     "node": ">=10.0.0"
+  },
+  "typesVersions": {
+    "<3.9": {
+      "types/*": [
+        "types/ts3.4/*"
+      ]
+    }
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",

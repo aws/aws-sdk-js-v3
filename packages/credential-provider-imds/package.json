@@ -10,6 +10,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
+    "postbuild": "downlevel-dts types types/ts3.4",
     "test": "jest"
   },
   "keywords": [
@@ -36,6 +37,13 @@
   "types": "./types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<3.9": {
+      "types/*": [
+        "types/ts3.4/*"
+      ]
+    }
   },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-imds",
   "repository": {
