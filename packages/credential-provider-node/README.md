@@ -43,8 +43,8 @@ supported:
   code and `mfaCodeProvider` is not a valid function, the credential provider
   promise will be rejected.
 - `roleAssumer` - A function that assumes a role and returns a promise
-  fulfilled with credentials for the assumed role. If not specified, the SDK
-  will create an STS client and call its `assumeRole` method.
+  fulfilled with credentials for the assumed role. If not specified, no role
+  may be assumed, and an error will be thrown.
 - `timeout` - The connection timeout (in milliseconds) to apply to any remote
   requests. If not specified, a default value of `1000` (one second) is used.
 - `maxRetries` - The maximum number of times any HTTP connections should be
