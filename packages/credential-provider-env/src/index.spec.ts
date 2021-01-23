@@ -37,6 +37,31 @@ describe("fromEnv", () => {
     });
   });
 
+  it("should read credentials from prefixed environment variables", async () => {
+    const prefix = "TEST_PREFIX";
+    const PREFIXED_ENV_KEY = prefix + "_ACCESS_KEY_ID";
+    const PREFIXED_ENV_SECRET = prefix + "_SECRET_ACCESS_KEY";
+    const PREFIXED_ENV_SESSION = prefix + "_SESSION_TOKEN";
+    const PREFIXED_ENV_EXPIRATION = prefix + "_CREDENTIAL_EXPIRATION";
+    const dateString = "1970-01-01T07:00:00Z";
+    process.env[PREFIXED_ENV_KEY] = "foo";
+    process.env[PREFIXED_ENV_SECRET] = "bar";
+    process.env[PREFIXED_ENV_SESSION] = "baz";
+    process.env[PREFIXED_ENV_EXPIRATION] = dateString;
+
+    expect(await fromEnv({ prefix })()).toEqual({
+      accessKeyId: "foo",
+      secretAccessKey: "bar",
+      sessionToken: "baz",
+      expiration: new Date(dateString),
+    });
+
+    delete process.env[PREFIXED_ENV_KEY];
+    delete process.env[PREFIXED_ENV_SECRET];
+    delete process.env[PREFIXED_ENV_SESSION];
+    delete process.env[PREFIXED_ENV_EXPIRATION];
+  });
+
   it("can create credentials without a session token or expiration", async () => {
     process.env[ENV_KEY] = "foo";
     process.env[ENV_SECRET] = "bar";

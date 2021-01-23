@@ -20,3 +20,19 @@ the following environment variables:
 If either the `AWS_ACCESS_KEY_ID` or `AWS_SECRET_ACCESS_KEY` environment
 variable is not set or contains a falsy value, the promise returned by the
 `fromEnv` function will be rejected.
+
+### Environment variable prefixes
+
+An optional options object containing a `prefix` property can be provided, which will
+alter the environment variables from which credentials will be read. For example,
+
+```
+fromEnv({ prefix: "AMAZON" })
+```
+
+would read the environment variables:
+
+- `AMAZON_ACCESS_KEY_ID`
+- `AMAZON_SECRET_ACCESS_KEY`
+- `AMAZON_SESSION_TOKEN`
+- `AMAZON_CREDENTIAL_EXPIRATION`
