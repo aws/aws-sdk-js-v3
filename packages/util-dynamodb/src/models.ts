@@ -6,6 +6,10 @@
  * the `wrapNumbers` flag is set. This allows for numeric values that lose
  * precision when converted to JavaScript's `number` type.
  */
+export interface INativeAttributeValue<T> {
+  [key: string]: T;
+}
+
 export interface NumberValue {
   readonly value: string;
 }
