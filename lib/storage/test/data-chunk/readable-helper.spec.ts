@@ -7,6 +7,25 @@ describe(chunkFromReadable.name, () => {
   const fileStream = fs.createReadStream(__dirname + "/sample.file");
   const INPUT_STRING = "Farmer jack realized that big yellow quilts were expensive";
 
+  describe("Proper string handling", () => {
+    const JP_INPUT = "私はガラスを食べられます。それは私を傷つけません。";
+    expect(JP_INPUT.length).not.toEqual(Buffer.from(JP_INPUT).length);
+
+    const CHUNK_SIZE = 30;
+
+    it("Should decode encoded strings properly", async () => {
+      const chunks: Buffer[] = [];
+      const readableStream = Readable.from(JP_INPUT);
+      for await (const chunk of chunkFromReadable(readableStream, CHUNK_SIZE)) {
+        chunks.push(chunk.Body);
+      }
+
+      expect(chunks[0].length).toEqual(30);
+      expect(chunks[1].length).toEqual(30);
+      expect(chunks[2].length).toEqual(15);
+    });
+  });
+
   describe("Proper chunk creation", () => {
     let chunks: IteratorResult<DataPart>[] = [];
     const CHUNK_SIZE = 30;
