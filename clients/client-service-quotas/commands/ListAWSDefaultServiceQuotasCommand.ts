@@ -40,7 +40,6 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
   ListAWSDefaultServiceQuotasCommandOutput,
   ServiceQuotasClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,10 +57,7 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAWSDefaultServiceQuotasCommandInput, ListAWSDefaultServiceQuotasCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

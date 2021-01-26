@@ -29,7 +29,6 @@ export type GetWebACLCommandOutput = GetWebACLResponse & __MetadataBearer;
  * 		       <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
  */
 export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLCommandOutput, WAFClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,10 +46,7 @@ export class GetWebACLCommand extends $Command<GetWebACLCommandInput, GetWebACLC
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetWebACLCommandInput, GetWebACLCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

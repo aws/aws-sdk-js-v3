@@ -30,7 +30,6 @@ export class GetAssessmentCommand extends $Command<
   GetAssessmentCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class GetAssessmentCommand extends $Command<
     configuration: AuditManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAssessmentCommandInput, GetAssessmentCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

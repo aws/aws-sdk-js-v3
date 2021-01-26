@@ -24,7 +24,6 @@ export type CancelJobCommandOutput = CancelJobResponse & __MetadataBearer;
  * <p>Cancels a job.</p>
  */
 export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobCommandOutput, IoTClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,10 +41,7 @@ export class CancelJobCommand extends $Command<CancelJobCommandInput, CancelJobC
     configuration: IoTClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CancelJobCommandInput, CancelJobCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

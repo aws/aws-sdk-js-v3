@@ -54,7 +54,6 @@ export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandOutput,
   KinesisAnalyticsClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -72,10 +71,7 @@ export class CreateApplicationCommand extends $Command<
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateApplicationCommandInput, CreateApplicationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -38,7 +38,6 @@ export class UpdateClusterVersionCommand extends $Command<
   UpdateClusterVersionCommandOutput,
   EKSClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -56,10 +55,7 @@ export class UpdateClusterVersionCommand extends $Command<
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateClusterVersionCommandInput, UpdateClusterVersionCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

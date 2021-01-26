@@ -68,7 +68,6 @@ export class ListFragmentsCommand extends $Command<
   ListFragmentsCommandOutput,
   KinesisVideoArchivedMediaClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -86,10 +85,7 @@ export class ListFragmentsCommand extends $Command<
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListFragmentsCommandInput, ListFragmentsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

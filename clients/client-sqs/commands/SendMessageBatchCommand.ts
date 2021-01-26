@@ -47,7 +47,6 @@ export class SendMessageBatchCommand extends $Command<
   SendMessageBatchCommandOutput,
   SQSClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -65,11 +64,8 @@ export class SendMessageBatchCommand extends $Command<
     configuration: SQSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendMessageBatchCommandInput, SendMessageBatchCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getSendMessageBatchPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getSendMessageBatchPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

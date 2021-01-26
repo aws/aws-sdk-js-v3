@@ -33,7 +33,6 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
   ListAccountAssignmentCreationStatusCommandOutput,
   SSOAdminClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +50,7 @@ export class ListAccountAssignmentCreationStatusCommand extends $Command<
     configuration: SSOAdminClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAccountAssignmentCreationStatusCommandInput, ListAccountAssignmentCreationStatusCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

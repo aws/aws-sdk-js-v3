@@ -36,7 +36,6 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
   CreateOutboundCrossClusterSearchConnectionCommandOutput,
   ElasticsearchServiceClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -57,10 +56,7 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
     CreateOutboundCrossClusterSearchConnectionCommandInput,
     CreateOutboundCrossClusterSearchConnectionCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

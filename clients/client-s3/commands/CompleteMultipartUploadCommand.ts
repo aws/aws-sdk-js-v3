@@ -139,7 +139,6 @@ export class CompleteMultipartUploadCommand extends $Command<
   CompleteMultipartUploadCommandOutput,
   S3ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -157,12 +156,9 @@ export class CompleteMultipartUploadCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
-      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
+    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

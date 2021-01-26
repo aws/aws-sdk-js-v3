@@ -21,7 +21,6 @@ export type PeerVpcCommandOutput = PeerVpcResult & __MetadataBearer;
  * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>
  */
 export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommandOutput, LightsailClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -39,10 +38,7 @@ export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommand
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PeerVpcCommandInput, PeerVpcCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

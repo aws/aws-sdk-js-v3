@@ -86,7 +86,6 @@ export class DeleteObjectsCommand extends $Command<
   DeleteObjectsCommandOutput,
   S3ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -104,12 +103,9 @@ export class DeleteObjectsCommand extends $Command<
     configuration: S3ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteObjectsCommandInput, DeleteObjectsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-      this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
+    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

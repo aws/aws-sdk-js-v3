@@ -30,7 +30,6 @@ export class DescribeAcceleratorTypesCommand extends $Command<
   DescribeAcceleratorTypesCommandOutput,
   ElasticInferenceClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class DescribeAcceleratorTypesCommand extends $Command<
     configuration: ElasticInferenceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAcceleratorTypesCommandInput, DescribeAcceleratorTypesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

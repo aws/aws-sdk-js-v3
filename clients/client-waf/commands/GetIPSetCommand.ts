@@ -29,7 +29,6 @@ export type GetIPSetCommandOutput = GetIPSetResponse & __MetadataBearer;
  * 		       <p>Returns the <a>IPSet</a> that is specified by <code>IPSetId</code>.</p>
  */
 export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetCommandOutput, WAFClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,10 +46,7 @@ export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetComm
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIPSetCommandInput, GetIPSetCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

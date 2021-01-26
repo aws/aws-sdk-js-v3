@@ -23,7 +23,6 @@ export type GetIdCommandOutput = GetIdResponse & __MetadataBearer;
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
  */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,10 +40,7 @@ export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetIdCommandInput, GetIdCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

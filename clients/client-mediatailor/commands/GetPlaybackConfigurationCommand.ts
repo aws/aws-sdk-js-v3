@@ -28,7 +28,6 @@ export class GetPlaybackConfigurationCommand extends $Command<
   GetPlaybackConfigurationCommandOutput,
   MediaTailorClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class GetPlaybackConfigurationCommand extends $Command<
     configuration: MediaTailorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetPlaybackConfigurationCommandInput, GetPlaybackConfigurationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

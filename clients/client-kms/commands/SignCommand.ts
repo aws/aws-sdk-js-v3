@@ -58,7 +58,6 @@ export type SignCommandOutput = SignResponse & __MetadataBearer;
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -76,10 +75,7 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SignCommandInput, SignCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

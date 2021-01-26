@@ -55,7 +55,6 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
   GetBucketIntelligentTieringConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -76,11 +75,8 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
     GetBucketIntelligentTieringConfigurationCommandInput,
     GetBucketIntelligentTieringConfigurationCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

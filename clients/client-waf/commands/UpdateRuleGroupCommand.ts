@@ -60,7 +60,6 @@ export class UpdateRuleGroupCommand extends $Command<
   UpdateRuleGroupCommandOutput,
   WAFClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -78,10 +77,7 @@ export class UpdateRuleGroupCommand extends $Command<
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

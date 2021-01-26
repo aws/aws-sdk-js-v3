@@ -41,7 +41,6 @@ export class WriteRecordsCommand extends $Command<
   WriteRecordsCommandOutput,
   TimestreamWriteClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -59,10 +58,7 @@ export class WriteRecordsCommand extends $Command<
     configuration: TimestreamWriteClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<WriteRecordsCommandInput, WriteRecordsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -26,7 +26,6 @@ export type SubscribeCommandOutput = SubscribeResponse & __MetadataBearer;
  *         <p>This action is throttled at 100 transactions per second (TPS).</p>
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,10 +43,7 @@ export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeC
     configuration: SNSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubscribeCommandInput, SubscribeCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

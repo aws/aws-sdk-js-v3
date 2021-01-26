@@ -28,7 +28,6 @@ export class DescribeCodeBindingCommand extends $Command<
   DescribeCodeBindingCommandOutput,
   SchemasClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class DescribeCodeBindingCommand extends $Command<
     configuration: SchemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCodeBindingCommandInput, DescribeCodeBindingCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

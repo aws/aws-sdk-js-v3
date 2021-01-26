@@ -33,7 +33,6 @@ export type StopTaskCommandOutput = StopTaskResponse & __MetadataBearer;
  * 		       </note>
  */
 export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskCommandOutput, ECSClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +50,7 @@ export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskComm
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopTaskCommandInput, StopTaskCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

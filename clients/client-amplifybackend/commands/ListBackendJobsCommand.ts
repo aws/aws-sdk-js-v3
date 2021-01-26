@@ -28,7 +28,6 @@ export class ListBackendJobsCommand extends $Command<
   ListBackendJobsCommandOutput,
   AmplifyBackendClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class ListBackendJobsCommand extends $Command<
     configuration: AmplifyBackendClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBackendJobsCommandInput, ListBackendJobsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

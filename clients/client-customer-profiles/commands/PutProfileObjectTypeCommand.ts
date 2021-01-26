@@ -28,7 +28,6 @@ export class PutProfileObjectTypeCommand extends $Command<
   PutProfileObjectTypeCommandOutput,
   CustomerProfilesClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class PutProfileObjectTypeCommand extends $Command<
     configuration: CustomerProfilesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutProfileObjectTypeCommandInput, PutProfileObjectTypeCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

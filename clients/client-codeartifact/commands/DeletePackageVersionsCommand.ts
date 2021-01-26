@@ -36,7 +36,6 @@ export class DeletePackageVersionsCommand extends $Command<
   DeletePackageVersionsCommandOutput,
   CodeartifactClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,10 +53,7 @@ export class DeletePackageVersionsCommand extends $Command<
     configuration: CodeartifactClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePackageVersionsCommandInput, DeletePackageVersionsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

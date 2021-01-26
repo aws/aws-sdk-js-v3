@@ -35,7 +35,6 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
   DescribeCertificateAuthorityAuditReportCommandOutput,
   ACMPCAClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -56,10 +55,7 @@ export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
     DescribeCertificateAuthorityAuditReportCommandInput,
     DescribeCertificateAuthorityAuditReportCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

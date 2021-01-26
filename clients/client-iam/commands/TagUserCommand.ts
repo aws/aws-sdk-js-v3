@@ -65,7 +65,6 @@ export type TagUserCommandOutput = __MetadataBearer;
  *         <i>IAM User Guide</i>.</p>
  */
 export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommandOutput, IAMClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -83,10 +82,7 @@ export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommand
     configuration: IAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagUserCommandInput, TagUserCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

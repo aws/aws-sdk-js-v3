@@ -35,7 +35,6 @@ export class CreateTableCommand extends $Command<
   CreateTableCommandOutput,
   TimestreamWriteClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -53,10 +52,7 @@ export class CreateTableCommand extends $Command<
     configuration: TimestreamWriteClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateTableCommandInput, CreateTableCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

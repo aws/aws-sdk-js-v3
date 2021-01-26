@@ -40,7 +40,6 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
   GetEC2RecommendationProjectedMetricsCommandOutput,
   ComputeOptimizerClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,10 +57,7 @@ export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetEC2RecommendationProjectedMetricsCommandInput, GetEC2RecommendationProjectedMetricsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

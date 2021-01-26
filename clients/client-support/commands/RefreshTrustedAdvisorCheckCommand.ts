@@ -51,7 +51,6 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
   RefreshTrustedAdvisorCheckCommandOutput,
   SupportClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -69,10 +68,7 @@ export class RefreshTrustedAdvisorCheckCommand extends $Command<
     configuration: SupportClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RefreshTrustedAdvisorCheckCommandInput, RefreshTrustedAdvisorCheckCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

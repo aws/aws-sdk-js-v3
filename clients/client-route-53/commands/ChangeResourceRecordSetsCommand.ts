@@ -110,7 +110,6 @@ export class ChangeResourceRecordSetsCommand extends $Command<
   ChangeResourceRecordSetsCommandOutput,
   Route53ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -128,12 +127,9 @@ export class ChangeResourceRecordSetsCommand extends $Command<
     configuration: Route53ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ChangeResourceRecordSetsCommandInput, ChangeResourceRecordSetsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getChangeResourceRecordSetsPlugin(configuration));
-      this.middlewareStack.use(getIdNormalizerPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getChangeResourceRecordSetsPlugin(configuration));
+    this.middlewareStack.use(getIdNormalizerPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

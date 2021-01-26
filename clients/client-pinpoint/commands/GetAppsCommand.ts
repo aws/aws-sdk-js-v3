@@ -24,7 +24,6 @@ export type GetAppsCommandOutput = GetAppsResponse & __MetadataBearer;
  * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
  */
 export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommandOutput, PinpointClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,10 +41,7 @@ export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommand
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAppsCommandInput, GetAppsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

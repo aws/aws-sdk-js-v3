@@ -33,7 +33,6 @@ export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandOutput,
   CodeGuruReviewerClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,10 +50,7 @@ export class DescribeRepositoryAssociationCommand extends $Command<
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeRepositoryAssociationCommandInput, DescribeRepositoryAssociationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

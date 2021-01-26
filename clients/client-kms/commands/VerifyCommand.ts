@@ -43,7 +43,6 @@ export type VerifyCommandOutput = VerifyResponse & __MetadataBearer;
  * of a Customer Master Key</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
  */
 export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOutput, KMSClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -61,10 +60,7 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<VerifyCommandInput, VerifyCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

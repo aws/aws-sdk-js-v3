@@ -51,7 +51,6 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
   DeleteBucketIntelligentTieringConfigurationCommandOutput,
   S3ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -72,11 +71,8 @@ export class DeleteBucketIntelligentTieringConfigurationCommand extends $Command
     DeleteBucketIntelligentTieringConfigurationCommandInput,
     DeleteBucketIntelligentTieringConfigurationCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getBucketEndpointPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

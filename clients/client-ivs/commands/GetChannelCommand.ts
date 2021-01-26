@@ -28,7 +28,6 @@ export class GetChannelCommand extends $Command<
   GetChannelCommandOutput,
   IvsClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class GetChannelCommand extends $Command<
     configuration: IvsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetChannelCommandInput, GetChannelCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
