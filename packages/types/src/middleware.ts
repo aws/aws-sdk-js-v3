@@ -206,6 +206,13 @@ export interface HandlerOptions {
    * A unique name to refer to a middleware
    */
   name?: string;
+
+  /**
+   * A flag to override the existing middleware with the same name. Without
+   * setting it, adding middleware with duplicated name will throw an exception.
+   * @internal
+   */
+  override?: boolean;
 }
 export interface AbsoluteLocation {
   /**

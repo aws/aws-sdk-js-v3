@@ -153,7 +153,7 @@ export const constructStack = <Input extends object, Output extends object>(): M
 
   const stack = {
     add: (middleware: MiddlewareType<Input, Output>, options: HandlerOptions & AbsoluteLocation = {}) => {
-      const { name } = options;
+      const { name, override } = options;
       const entry: AbsoluteMiddlewareEntry<Input, Output> = {
         step: "initialize",
         priority: "normal",
@@ -162,7 +162,16 @@ export const constructStack = <Input extends object, Output extends object>(): M
       };
       if (name) {
         if (entriesNameSet.has(name)) {
-          throw new Error(`Duplicate middleware name '${name}'`);
+          if (!override) throw new Error(`Duplicate middleware name '${name}'`);
+          const toOverrideIndex = absoluteEntries.findIndex((entry) => entry.name === name);
+          const toOverride = absoluteEntries[toOverrideIndex];
+          if (toOverride.step !== entry.step || toOverride.priority !== entry.priority) {
+            throw new Error(
+              `"${name}" middleware with ${toOverride.priority} priority in ${toOverride.step} step cannot be ` +
+                `overridden by same-name middleware with ${entry.priority} priority in ${entry.step} step.`
+            );
+          }
+          absoluteEntries.splice(toOverrideIndex, 1);
         }
         entriesNameSet.add(name);
       }
@@ -170,14 +179,23 @@ export const constructStack = <Input extends object, Output extends object>(): M
     },
 
     addRelativeTo: (middleware: MiddlewareType<Input, Output>, options: HandlerOptions & RelativeLocation) => {
-      const { name } = options;
+      const { name, override } = options;
       const entry: RelativeMiddlewareEntry<Input, Output> = {
         middleware,
         ...options,
       };
       if (name) {
         if (entriesNameSet.has(name)) {
-          throw new Error(`Duplicated middleware name '${name}'`);
+          if (!override) throw new Error(`Duplicate middleware name '${name}'`);
+          const toOverrideIndex = relativeEntries.findIndex((entry) => entry.name === name);
+          const toOverride = relativeEntries[toOverrideIndex];
+          if (toOverride.toMiddleware !== entry.toMiddleware || toOverride.relation !== entry.relation) {
+            throw new Error(
+              `"${name}" middleware ${toOverride.relation} "${toOverride.toMiddleware}" middleware cannot be overridden ` +
+                `by same-name middleware ${entry.relation} "${entry.toMiddleware}" middleware.`
+            );
+          }
+          relativeEntries.splice(toOverrideIndex, 1);
         }
         entriesNameSet.add(name);
       }
