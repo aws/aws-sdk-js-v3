@@ -10,7 +10,11 @@ import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue
  * @param {marshallOptions} options - An optional configuration object for `convertToAttr`
  */
 export const convertToAttr = (data: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (Array.isArray(data)) {
+  if (data === undefined) {
+    throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+  } else if (data === null && typeof data === "object") {
+    return convertToNullAttr();
+  } else if (Array.isArray(data)) {
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
@@ -103,11 +107,7 @@ const convertToMapAttr = (
 });
 
 const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (data === undefined) {
-    throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
-  } else if (data === null && typeof data === "object") {
-    return convertToNullAttr();
-  } else if (typeof data === "boolean") {
+  if (typeof data === "boolean") {
     return { BOOL: data };
   } else if (typeof data === "number") {
     return convertToNumberAttr(data);
