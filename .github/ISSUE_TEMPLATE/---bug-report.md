@@ -10,7 +10,7 @@ assignees: ''
 ## Describe the bug
 A clear and concise description of what the bug is.
 
-### Your environment
+## Your environment
 #### SDK version number
 `@aws-sdk/package-name@version`
 
@@ -20,7 +20,7 @@ Browser/Node.js/ReactNative
 #### Details of the browser/Node.js/ReactNative version
 Paste output of `npx envinfo --browsers` or `node -v` or `react-native -v`
 
-### Steps to reproduce
+## Steps to reproduce
 Please share code or minimal repo, and steps to reproduce the behavior.
 #### Observed behavior
 A clear and concise description of what happens.
@@ -31,5 +31,5 @@ A clear and concise description of what you were expecting to happen.
 #### Screenshots
 If applicable, add screenshots to help explain your problem.
 
-### Additional context
+## Additional context
 Add any other context about the problem here.
