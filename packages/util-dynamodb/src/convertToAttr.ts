@@ -16,6 +16,14 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     return convertToSetAttr(data as Set<any>, options);
   } else if (data?.constructor?.name === "Object") {
     return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
+  } else if (isBinary(data)) {
+    // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
+    if (data.length === 0 && options?.convertEmptyValues) {
+      return convertToNullAttr();
+    }
+    // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
+    // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
+    return convertToBinaryAttr(data);
   } else {
     return convertToScalarAttr(data as NativeScalarAttributeValue, options);
   }
@@ -105,14 +113,6 @@ const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshal
     return convertToNumberAttr(data);
   } else if (typeof data === "bigint") {
     return convertToBigIntAttr(data);
-  } else if (isBinary(data)) {
-    // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
-    if (data.length === 0 && options?.convertEmptyValues) {
-      return convertToNullAttr();
-    }
-    // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
-    // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
-    return convertToBinaryAttr(data);
   } else if (typeof data === "string") {
     if (data.length === 0 && options?.convertEmptyValues) {
       return convertToNullAttr();
