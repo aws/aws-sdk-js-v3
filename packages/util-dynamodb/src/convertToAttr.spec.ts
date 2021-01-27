@@ -7,7 +7,9 @@ import { NativeAttributeValue } from "./models";
 describe("convertToAttr", () => {
   describe("null", () => {
     it(`returns for null`, () => {
-      expect(convertToAttr(null)).toEqual({ NULL: true });
+      [false, true].forEach((marshallObjects) => {
+        expect(convertToAttr(null, { marshallObjects })).toEqual({ NULL: true });
+      });
     });
   });
 
@@ -117,12 +119,16 @@ describe("convertToAttr", () => {
       new BigUint64Array(arr.map(BigInt)),
     ].forEach((data) => {
       it(`returns for binary: ${data.constructor.name}`, () => {
-        expect(convertToAttr(data)).toEqual({ B: data });
+        [false, true].forEach((marshallObjects) => {
+          expect(convertToAttr(data, { marshallObjects })).toEqual({ B: data });
+        });
       });
     });
 
     it("returns null for Binary when options.convertEmptyValues=true", () => {
-      expect(convertToAttr(new Uint8Array(), { convertEmptyValues: true })).toEqual({ NULL: true });
+      [false, true].forEach((marshallObjects) => {
+        expect(convertToAttr(new Uint8Array(), { marshallObjects, convertEmptyValues: true })).toEqual({ NULL: true });
+      });
     });
   });
 
