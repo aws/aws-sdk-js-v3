@@ -30,4 +30,5 @@ export const addGlacierApiVersionMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_GLACIER_VERSION"],
   name: "addGlacierApiVersionMiddleware",
+  override: true,
 };

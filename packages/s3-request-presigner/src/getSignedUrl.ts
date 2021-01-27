@@ -41,19 +41,12 @@ export const getSignedUrl = async <
     } as any;
   };
   const middlewareName = "presignInterceptMiddleware";
-  try {
-    client.middlewareStack.addRelativeTo(presignInterceptMiddleware, {
-      name: middlewareName,
-      relation: "before",
-      toMiddleware: "awsAuthMiddleware",
-    });
-  } catch (e) {
-    if (e.message!.includes(`Duplicated middleware name '${middlewareName}'`)) {
-      // Swallow if the interceptor is already added. See https://github.com/aws/aws-sdk-js-v3/issues/1857
-    } else {
-      throw e;
-    }
-  }
+  client.middlewareStack.addRelativeTo(presignInterceptMiddleware, {
+    name: middlewareName,
+    relation: "before",
+    toMiddleware: "awsAuthMiddleware",
+    override: true,
+  });
 
   let presigned: HttpRequest;
   try {

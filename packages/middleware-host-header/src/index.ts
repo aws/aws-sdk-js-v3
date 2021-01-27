@@ -37,6 +37,7 @@ export const hostHeaderMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation
   step: "build",
   priority: "low",
   tags: ["HOST"],
+  override: true,
 };
 
 export const getHostHeaderPlugin = (options: HostHeaderResolvedConfig): Pluggable<any, any> => ({

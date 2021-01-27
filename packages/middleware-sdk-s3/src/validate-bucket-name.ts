@@ -37,6 +37,7 @@ export const validateBucketNameMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BUCKET_NAME"],
   name: "validateBucketNameMiddleware",
+  override: true,
 };
 
 /**

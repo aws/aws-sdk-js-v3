@@ -58,4 +58,5 @@ export const websocketURLMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["WEBSOCKET", "EVENT_STREAM"],
   relation: "after",
   toMiddleware: "eventStreamHeaderMiddleware",
+  override: true,
 };

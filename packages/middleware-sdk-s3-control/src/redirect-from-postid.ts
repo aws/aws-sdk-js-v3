@@ -27,6 +27,7 @@ export const redirectFromPostIdMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   name: "redirectFromPostIdMiddleware",
   tags: ["OUTPOST"],
+  override: true,
 };
 
 export const getRedirectFromPostIdPlugin = (options: S3ControlResolvedConfig): Pluggable<any, any> => ({

@@ -27,6 +27,7 @@ export const retryMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLoc
   tags: ["RETRY"],
   step: "finalizeRequest",
   priority: "high",
+  override: true,
 };
 
 export const getRetryPlugin = (options: RetryResolvedConfig): Pluggable<any, any> => ({

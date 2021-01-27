@@ -42,6 +42,7 @@ export const loggerMiddlewareOptions: InitializeHandlerOptions & AbsoluteLocatio
   name: "loggerMiddleware",
   tags: ["LOGGER"],
   step: "initialize",
+  override: true,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

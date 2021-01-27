@@ -59,6 +59,7 @@ export const throw200ExceptionsMiddlewareOptions: RelativeMiddlewareOptions = {
   toMiddleware: "deserializerMiddleware",
   tags: ["THROW_200_EXCEPTIONS", "S3"],
   name: "throw200ExceptionsMiddleware",
+  override: true,
 };
 
 /**

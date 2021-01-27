@@ -31,6 +31,7 @@ export const acceptHeaderMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_ACCEPT_HEADER", "ACCEPT_HEADER"],
   name: "acceptHeaderMiddleware",
+  override: true,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

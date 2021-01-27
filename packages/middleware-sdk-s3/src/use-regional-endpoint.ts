@@ -40,6 +40,7 @@ export const useRegionalEndpointMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["USE_REGIONAL_ENDPOINT", "S3"],
   name: "useRegionalEndpointMiddleware",
+  override: true,
 };
 
 /**

@@ -67,6 +67,7 @@ export const changeResourceRecordSetsMiddlewareOptions: InitializeHandlerOptions
   step: "initialize",
   tags: ["ROUTE53_IDS", "CHANGE_RESOURCE_RECORD_SETS"],
   name: "changeResourceRecordSetsMiddleware",
+  override: true,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

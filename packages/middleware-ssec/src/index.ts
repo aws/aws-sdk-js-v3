@@ -59,6 +59,7 @@ export const ssecMiddlewareOptions: InitializeHandlerOptions = {
   name: "ssecMiddleware",
   step: "initialize",
   tags: ["SSE"],
+  override: true,
 };
 
 export const getSsecPlugin = (config: ResolvedSsecMiddlewareConfig): Pluggable<any, any> => ({

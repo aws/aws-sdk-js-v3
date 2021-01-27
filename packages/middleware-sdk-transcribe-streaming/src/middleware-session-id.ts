@@ -47,4 +47,5 @@ export const injectSessionIdMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   name: "injectSessionIdMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM"],
+  override: true,
 };

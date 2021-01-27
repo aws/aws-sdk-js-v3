@@ -76,6 +76,7 @@ export const getUserAgentMiddlewareOptions: BuildHandlerOptions & AbsoluteLocati
   step: "build",
   priority: "low",
   tags: ["SET_USER_AGENT", "USER_AGENT"],
+  override: true,
 };
 
 export const getUserAgentPlugin = (config: UserAgentResolvedConfig): Pluggable<any, any> => ({

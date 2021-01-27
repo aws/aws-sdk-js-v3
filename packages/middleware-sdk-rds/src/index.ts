@@ -109,6 +109,7 @@ export const crossRegionPresignedUrlMiddlewareOptions: InitializeHandlerOptions 
   step: "initialize",
   tags: ["CROSS_REGION_PRESIGNED_URL"],
   name: "crossRegionPresignedUrlMiddleware",
+  override: true,
 };
 
 export const getCrossRegionPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

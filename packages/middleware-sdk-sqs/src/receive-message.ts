@@ -52,6 +52,7 @@ export const receiveMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
   name: "receiveMessageMiddleware",
+  override: true,
 };
 
 export const getReceiveMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

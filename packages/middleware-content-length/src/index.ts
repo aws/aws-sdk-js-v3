@@ -46,6 +46,7 @@ export const contentLengthMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_CONTENT_LENGTH", "CONTENT_LENGTH"],
   name: "contentLengthMiddleware",
+  override: true,
 };
 
 export const getContentLengthPlugin = (options: { bodyLengthChecker: BodyLengthCalculator }): Pluggable<any, any> => ({

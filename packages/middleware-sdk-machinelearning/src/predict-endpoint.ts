@@ -41,6 +41,7 @@ export const predictEndpointMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["PREDICT_ENDPOINT"],
   name: "predictEndpointMiddleware",
+  override: true,
 };
 
 export const getPredictEndpointPlugin = (config: ResolvedPredictEndpointMiddlewareConfig): Pluggable<any, any> => ({
