@@ -15,6 +15,10 @@ export interface marshallOptions {
    * Whether to remove undefined values while marshalling.
    */
   removeUndefinedValues?: boolean;
+  /**
+   * Whether to marshall typeof object while marshalling.
+   */
+  marshallObjects?: boolean;
 }
 
 /**

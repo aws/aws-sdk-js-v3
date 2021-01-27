@@ -28,6 +28,8 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
     // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
     return convertToBinaryAttr(data);
+  } else if (options?.marshallObjects && typeof data === "object") {
+    return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   } else {
     return convertToScalarAttr(data as NativeScalarAttributeValue, options);
   }
