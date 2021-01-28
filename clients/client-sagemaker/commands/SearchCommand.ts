@@ -26,7 +26,6 @@ export type SearchCommandOutput = SearchResponse & __MetadataBearer;
  *       timestamp.</p>
  */
 export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOutput, SageMakerClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,10 +43,7 @@ export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOut
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchCommandInput, SearchCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

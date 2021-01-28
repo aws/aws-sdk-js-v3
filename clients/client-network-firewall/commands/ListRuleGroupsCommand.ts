@@ -30,7 +30,6 @@ export class ListRuleGroupsCommand extends $Command<
   ListRuleGroupsCommandOutput,
   NetworkFirewallClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class ListRuleGroupsCommand extends $Command<
     configuration: NetworkFirewallClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListRuleGroupsCommandInput, ListRuleGroupsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

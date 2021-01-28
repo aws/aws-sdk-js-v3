@@ -21,7 +21,6 @@ export type GetDiskCommandOutput = GetDiskResult & __MetadataBearer;
  * <p>Returns information about a specific block storage disk.</p>
  */
 export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommandOutput, LightsailClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -39,10 +38,7 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskCommandInput, GetDiskCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -32,7 +32,6 @@ export class GetOpenIdTokenCommand extends $Command<
   GetOpenIdTokenCommandOutput,
   CognitoIdentityClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,10 +49,7 @@ export class GetOpenIdTokenCommand extends $Command<
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetOpenIdTokenCommandInput, GetOpenIdTokenCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

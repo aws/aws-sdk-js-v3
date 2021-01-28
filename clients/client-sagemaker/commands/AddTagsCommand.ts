@@ -37,7 +37,6 @@ export type AddTagsCommandOutput = AddTagsOutput & __MetadataBearer;
  *         </note>
  */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, SageMakerClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,10 +54,7 @@ export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommand
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AddTagsCommandInput, AddTagsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

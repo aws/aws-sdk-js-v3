@@ -49,4 +49,5 @@ export const addChecksumHeadersMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_CHECKSUM_HEADERS"],
   name: "addChecksumHeadersMiddleware",
+  override: true,
 };

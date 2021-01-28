@@ -50,6 +50,7 @@ export const awsAuthMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["SIGNATURE", "AWSAUTH"],
   relation: "after",
   toMiddleware: "retryMiddleware",
+  override: true,
 };
 
 export const getAwsAuthPlugin = (options: AwsAuthResolvedConfig): Pluggable<any, any> => ({

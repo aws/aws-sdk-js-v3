@@ -24,7 +24,6 @@ export type ListBotsCommandOutput = ListBotsResponse & __MetadataBearer;
  * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>
  */
 export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsCommandOutput, ChimeClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,10 +41,7 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBotsCommandInput, ListBotsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

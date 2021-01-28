@@ -48,7 +48,6 @@ export class CreateParticipantConnectionCommand extends $Command<
   CreateParticipantConnectionCommandOutput,
   ConnectParticipantClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -66,10 +65,7 @@ export class CreateParticipantConnectionCommand extends $Command<
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateParticipantConnectionCommandInput, CreateParticipantConnectionCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

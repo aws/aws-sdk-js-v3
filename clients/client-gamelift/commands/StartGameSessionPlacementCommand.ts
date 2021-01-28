@@ -119,7 +119,6 @@ export class StartGameSessionPlacementCommand extends $Command<
   StartGameSessionPlacementCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -137,10 +136,7 @@ export class StartGameSessionPlacementCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartGameSessionPlacementCommandInput, StartGameSessionPlacementCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

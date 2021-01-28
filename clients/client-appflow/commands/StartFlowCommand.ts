@@ -31,7 +31,6 @@ export class StartFlowCommand extends $Command<
   StartFlowCommandOutput,
   AppflowClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,10 +48,7 @@ export class StartFlowCommand extends $Command<
     configuration: AppflowClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartFlowCommandInput, StartFlowCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

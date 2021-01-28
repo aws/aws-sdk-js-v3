@@ -25,4 +25,5 @@ export const accountIdDefaultMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ACCOUNT_ID_DEFAULT"],
   name: "accountIdDefaultMiddleware",
+  override: true,
 };

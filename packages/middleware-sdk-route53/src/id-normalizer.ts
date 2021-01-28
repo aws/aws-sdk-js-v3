@@ -43,6 +43,7 @@ export const idNormalizerMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["ROUTE53_IDS"],
   name: "idNormalizerMiddleware",
+  override: true,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -36,7 +36,6 @@ export class MigrateWorkspaceCommand extends $Command<
   MigrateWorkspaceCommandOutput,
   WorkSpacesClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,10 +53,7 @@ export class MigrateWorkspaceCommand extends $Command<
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

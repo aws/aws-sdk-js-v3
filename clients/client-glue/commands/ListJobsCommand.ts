@@ -25,7 +25,6 @@ export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
  *       filtering, only resources with the tag are retrieved.</p>
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, GlueClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,10 +42,7 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListJobsCommandInput, ListJobsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

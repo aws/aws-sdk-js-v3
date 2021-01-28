@@ -32,7 +32,6 @@ export class StartMonitoringScheduleCommand extends $Command<
   StartMonitoringScheduleCommandOutput,
   SageMakerClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,10 +49,7 @@ export class StartMonitoringScheduleCommand extends $Command<
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMonitoringScheduleCommandInput, StartMonitoringScheduleCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

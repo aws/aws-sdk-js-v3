@@ -33,7 +33,6 @@ export class UpdateIdentityProviderCommand extends $Command<
   UpdateIdentityProviderCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -51,11 +50,8 @@ export class UpdateIdentityProviderCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateIdentityProviderCommandInput, UpdateIdentityProviderCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getAwsAuthPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

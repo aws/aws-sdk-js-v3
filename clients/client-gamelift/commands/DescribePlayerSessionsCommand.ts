@@ -78,7 +78,6 @@ export class DescribePlayerSessionsCommand extends $Command<
   DescribePlayerSessionsCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -96,10 +95,7 @@ export class DescribePlayerSessionsCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePlayerSessionsCommandInput, DescribePlayerSessionsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

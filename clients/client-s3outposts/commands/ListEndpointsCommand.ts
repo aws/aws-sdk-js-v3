@@ -46,7 +46,6 @@ export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandOutput,
   S3OutpostsClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -64,10 +63,7 @@ export class ListEndpointsCommand extends $Command<
     configuration: S3OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListEndpointsCommandInput, ListEndpointsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

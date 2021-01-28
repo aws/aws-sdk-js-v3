@@ -35,6 +35,7 @@ export const addExpectContinueMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["SET_EXPECT_HEADER", "EXPECT_HEADER"],
   name: "addExpectContinueMiddleware",
+  override: true,
 };
 
 export const getAddExpectContinuePlugin = (options: PreviouslyResolved): Pluggable<any, any> => ({

@@ -28,7 +28,6 @@ export class GetLicenseConfigurationCommand extends $Command<
   GetLicenseConfigurationCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class GetLicenseConfigurationCommand extends $Command<
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetLicenseConfigurationCommandInput, GetLicenseConfigurationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

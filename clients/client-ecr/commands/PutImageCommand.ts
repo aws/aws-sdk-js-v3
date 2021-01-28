@@ -29,7 +29,6 @@ export type PutImageCommandOutput = PutImageResponse & __MetadataBearer;
  *          </note>
  */
 export class PutImageCommand extends $Command<PutImageCommandInput, PutImageCommandOutput, ECRClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,10 +46,7 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutImageCommandInput, PutImageCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

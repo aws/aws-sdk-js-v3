@@ -31,7 +31,6 @@ export class ListPlatformBranchesCommand extends $Command<
   ListPlatformBranchesCommandOutput,
   ElasticBeanstalkClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -49,10 +48,7 @@ export class ListPlatformBranchesCommand extends $Command<
     configuration: ElasticBeanstalkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPlatformBranchesCommandInput, ListPlatformBranchesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -112,7 +112,6 @@ export class CreateGameServerGroupCommand extends $Command<
   CreateGameServerGroupCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -130,10 +129,7 @@ export class CreateGameServerGroupCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGameServerGroupCommandInput, CreateGameServerGroupCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -40,7 +40,6 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
   ListCustomRoutingPortMappingsCommandOutput,
   GlobalAcceleratorClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -58,10 +57,7 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListCustomRoutingPortMappingsCommandInput, ListCustomRoutingPortMappingsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

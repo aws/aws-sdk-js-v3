@@ -50,6 +50,7 @@ export const applyMd5BodyChecksumMiddlewareOptions: BuildHandlerOptions = {
   name: "applyMd5BodyChecksumMiddleware",
   step: "build",
   tags: ["SET_CONTENT_MD5", "BODY_CHECKSUM"],
+  override: true,
 };
 
 export const getApplyMd5BodyChecksumPlugin = (config: Md5BodyChecksumResolvedConfig): Pluggable<any, any> => ({

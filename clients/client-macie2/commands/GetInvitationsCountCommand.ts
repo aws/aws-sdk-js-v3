@@ -28,7 +28,6 @@ export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandOutput,
   Macie2ClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class GetInvitationsCountCommand extends $Command<
     configuration: Macie2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetInvitationsCountCommandInput, GetInvitationsCountCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

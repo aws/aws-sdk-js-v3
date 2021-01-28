@@ -24,7 +24,6 @@ export type ListUsersCommandOutput = ListUsersResponse & __MetadataBearer;
  * Returns a list of all ActiveMQ users.
  */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, MqClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,10 +41,7 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
     configuration: MqClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

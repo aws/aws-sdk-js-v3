@@ -34,7 +34,6 @@ export class AdminEnableUserCommand extends $Command<
   AdminEnableUserCommandOutput,
   CognitoIdentityProviderClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,11 +51,8 @@ export class AdminEnableUserCommand extends $Command<
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AdminEnableUserCommandInput, AdminEnableUserCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getAwsAuthPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

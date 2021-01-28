@@ -36,6 +36,7 @@ export const sendMessageMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
   name: "sendMessageMiddleware",
+  override: true,
 };
 
 export const getSendMessagePlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

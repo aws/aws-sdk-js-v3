@@ -43,7 +43,6 @@ export class ListTablesCommand extends $Command<
   ListTablesCommandOutput,
   RedshiftDataClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -61,10 +60,7 @@ export class ListTablesCommand extends $Command<
     configuration: RedshiftDataClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListTablesCommandInput, ListTablesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

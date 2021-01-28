@@ -24,7 +24,6 @@ export type GetStreamCommandOutput = GetStreamResponse & __MetadataBearer;
  * <p>Gets information about the active (live) stream on a specified channel.</p>
  */
 export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamCommandOutput, IvsClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,10 +41,7 @@ export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamC
     configuration: IvsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetStreamCommandInput, GetStreamCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

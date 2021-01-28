@@ -30,7 +30,6 @@ export class DeleteEventTypeCommand extends $Command<
   DeleteEventTypeCommandOutput,
   FraudDetectorClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class DeleteEventTypeCommand extends $Command<
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteEventTypeCommandInput, DeleteEventTypeCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

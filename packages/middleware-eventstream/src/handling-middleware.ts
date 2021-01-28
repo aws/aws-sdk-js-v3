@@ -16,4 +16,5 @@ export const eventStreamHandlingMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "eventStreamHandlingMiddleware",
   relation: "after",
   toMiddleware: "awsAuthMiddleware",
+  override: true,
 };

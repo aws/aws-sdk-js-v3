@@ -37,7 +37,6 @@ export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandOutput,
   KinesisAnalyticsClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,10 +54,7 @@ export class DescribeApplicationCommand extends $Command<
     configuration: KinesisAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeApplicationCommandInput, DescribeApplicationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

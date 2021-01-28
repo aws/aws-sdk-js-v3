@@ -60,6 +60,7 @@ export const sendMessageBatchMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["VALIDATE_BODY_MD5"],
   name: "sendMessageBatchMiddleware",
+  override: true,
 };
 
 export const getSendMessageBatchPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

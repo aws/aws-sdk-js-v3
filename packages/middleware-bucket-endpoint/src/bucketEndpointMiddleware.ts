@@ -85,6 +85,7 @@ export const bucketEndpointMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "bucketEndpointMiddleware",
   relation: "before",
   toMiddleware: "hostHeaderMiddleware",
+  override: true,
 };
 
 export const getBucketEndpointPlugin = (options: BucketEndpointResolvedConfig): Pluggable<any, any> => ({

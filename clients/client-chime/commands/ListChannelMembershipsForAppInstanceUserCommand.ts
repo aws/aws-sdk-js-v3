@@ -33,7 +33,6 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
   ListChannelMembershipsForAppInstanceUserCommandOutput,
   ChimeClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,10 +53,7 @@ export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
     ListChannelMembershipsForAppInstanceUserCommandInput,
     ListChannelMembershipsForAppInstanceUserCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -22,7 +22,6 @@ export type DeleteAppCommandOutput = DeleteAppResponse & __MetadataBearer;
  *             the application and all AWS SMS replication jobs for servers in the application.</p>
  */
 export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppCommandOutput, SMSClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -40,10 +39,7 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteAppCommandInput, DeleteAppCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

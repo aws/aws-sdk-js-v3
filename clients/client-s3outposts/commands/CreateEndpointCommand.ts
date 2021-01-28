@@ -45,7 +45,6 @@ export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandOutput,
   S3OutpostsClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -63,10 +62,7 @@ export class CreateEndpointCommand extends $Command<
     configuration: S3OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateEndpointCommandInput, CreateEndpointCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

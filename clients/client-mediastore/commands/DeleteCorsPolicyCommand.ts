@@ -32,7 +32,6 @@ export class DeleteCorsPolicyCommand extends $Command<
   DeleteCorsPolicyCommandOutput,
   MediaStoreClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,10 +49,7 @@ export class DeleteCorsPolicyCommand extends $Command<
     configuration: MediaStoreClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -22,7 +22,6 @@ export type CreateAppCommandOutput = CreateAppResponse & __MetadataBearer;
  *             server group contain one or more servers.</p>
  */
 export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppCommandOutput, SMSClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -40,10 +39,7 @@ export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppC
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAppCommandInput, CreateAppCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

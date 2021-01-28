@@ -32,7 +32,6 @@ export class AssociateExternalConnectionCommand extends $Command<
   AssociateExternalConnectionCommandOutput,
   CodeartifactClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -50,10 +49,7 @@ export class AssociateExternalConnectionCommand extends $Command<
     configuration: CodeartifactClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssociateExternalConnectionCommandInput, AssociateExternalConnectionCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

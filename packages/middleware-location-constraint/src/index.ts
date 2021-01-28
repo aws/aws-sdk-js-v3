@@ -45,6 +45,7 @@ export const locationConstraintMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
   tags: ["LOCATION_CONSTRAINT", "CREATE_BUCKET_CONFIGURATION"],
   name: "locationConstraintMiddleware",
+  override: true,
 };
 
 export const getLocationConstraintPlugin = (config: LocationConstraintResolvedConfig): Pluggable<any, any> => ({

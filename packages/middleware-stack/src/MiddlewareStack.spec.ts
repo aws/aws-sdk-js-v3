@@ -57,6 +57,38 @@ describe("MiddlewareStack", () => {
         input: ["A", "B", "C", "D", "E", "F", "G"],
       });
     });
+
+    it("should throw if duplicated name is found", () => {
+      const stack = constructStack<input, output>();
+      const aMW = getConcatMiddleware("A");
+      stack.add(aMW, { name: "A" });
+      expect(() => stack.add(aMW, { name: "A" })).toThrow("Duplicate middleware name 'A'");
+    });
+
+    describe("config: override", () => {
+      it("should override the middleware with same name if override config is set", async () => {
+        const stack = constructStack<input, output>();
+        stack.add(getConcatMiddleware("A"), { name: "A" });
+        stack.add(getConcatMiddleware("override"), { name: "A", override: true });
+        const inner = jest.fn();
+        const composed = stack.resolve(inner, {} as any);
+        await composed({ input: [] });
+        expect(inner.mock.calls.length).toBe(1);
+        expect(inner).toBeCalledWith({
+          input: ["override"],
+        });
+      });
+
+      it("should throw if overriding middleware with same name different position", () => {
+        const stack = constructStack<input, output>();
+        stack.add(getConcatMiddleware("A"), { name: "A" });
+        expect(() =>
+          stack.add(getConcatMiddleware("override"), { name: "A", step: "serialize", override: true })
+        ).toThrow(
+          '"A" middleware with normal priority in initialize step cannot be overridden by same-name middleware with normal priority in serialize step.'
+        );
+      });
+    });
   });
 
   describe("addRelativeTo", () => {
@@ -165,6 +197,43 @@ describe("MiddlewareStack", () => {
       } catch (e) {
         expect(e.message).toBe("non_exist is not found when adding foo middleware before non_exist");
       }
+    });
+
+    describe("config: override", () => {
+      it("should override the middleware with same name if override config is set", async () => {
+        const stack = constructStack<input, output>();
+        stack.add(getConcatMiddleware("A"), { name: "A" });
+        stack.addRelativeTo(getConcatMiddleware("B"), { name: "B", relation: "after", toMiddleware: "A" });
+        stack.addRelativeTo(getConcatMiddleware("override"), {
+          name: "B",
+          relation: "after",
+          toMiddleware: "A",
+          override: true,
+        });
+        const inner = jest.fn();
+        const composed = stack.resolve(inner, {} as any);
+        await composed({ input: [] });
+        expect(inner.mock.calls.length).toBe(1);
+        expect(inner).toBeCalledWith({
+          input: ["A", "override"],
+        });
+      });
+
+      it("should throw if overriding middleware with same name different position", () => {
+        const stack = constructStack<input, output>();
+        stack.add(getConcatMiddleware("A"), { name: "A" });
+        stack.addRelativeTo(getConcatMiddleware("B"), { name: "B", relation: "after", toMiddleware: "A" });
+        expect(() =>
+          stack.addRelativeTo(getConcatMiddleware("override"), {
+            name: "B",
+            relation: "before",
+            toMiddleware: "A",
+            override: true,
+          })
+        ).toThrow(
+          '"B" middleware after "A" middleware cannot be overridden by same-name middleware before "A" middleware.'
+        );
+      });
     });
   });
 

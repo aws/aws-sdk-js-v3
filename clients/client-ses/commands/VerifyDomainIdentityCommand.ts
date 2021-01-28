@@ -34,7 +34,6 @@ export class VerifyDomainIdentityCommand extends $Command<
   VerifyDomainIdentityCommandOutput,
   SESClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,10 +51,7 @@ export class VerifyDomainIdentityCommand extends $Command<
     configuration: SESClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<VerifyDomainIdentityCommandInput, VerifyDomainIdentityCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

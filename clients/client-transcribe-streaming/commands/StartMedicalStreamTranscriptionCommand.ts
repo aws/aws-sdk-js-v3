@@ -35,7 +35,6 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
   StartMedicalStreamTranscriptionCommandOutput,
   TranscribeStreamingClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -53,11 +52,8 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     configuration: TranscribeStreamingClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StartMedicalStreamTranscriptionCommandInput, StartMedicalStreamTranscriptionCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getEventStreamPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getEventStreamPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -28,7 +28,6 @@ export class ListBuildBatchesForProjectCommand extends $Command<
   ListBuildBatchesForProjectCommandOutput,
   CodeBuildClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -46,10 +45,7 @@ export class ListBuildBatchesForProjectCommand extends $Command<
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListBuildBatchesForProjectCommandInput, ListBuildBatchesForProjectCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -18,4 +18,5 @@ export const eventStreamHeaderMiddlewareOptions: BuildHandlerOptions = {
   step: "build",
   tags: ["EVENT_STREAM", "HEADER", "CONTENT_TYPE", "CONTENT_SHA256"],
   name: "eventStreamHeaderMiddleware",
+  override: true,
 };

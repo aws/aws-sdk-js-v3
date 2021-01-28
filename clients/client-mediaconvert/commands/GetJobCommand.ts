@@ -21,7 +21,6 @@ export type GetJobCommandOutput = GetJobResponse & __MetadataBearer;
  * Retrieve the JSON for a specific completed transcoding job.
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, MediaConvertClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -39,10 +38,7 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
     configuration: MediaConvertClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetJobCommandInput, GetJobCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

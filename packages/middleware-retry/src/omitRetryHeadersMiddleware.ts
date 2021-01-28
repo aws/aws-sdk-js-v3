@@ -28,6 +28,7 @@ export const omitRetryHeadersMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["RETRY", "HEADERS", "OMIT_RETRY_HEADERS"],
   relation: "before",
   toMiddleware: "awsAuthMiddleware",
+  override: true,
 };
 
 export const getOmitRetryHeadersPlugin = (options: unknown): Pluggable<any, any> => ({

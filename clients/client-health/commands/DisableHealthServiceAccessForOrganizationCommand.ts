@@ -42,7 +42,6 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
   DisableHealthServiceAccessForOrganizationCommandOutput,
   HealthClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -63,10 +62,7 @@ export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
     DisableHealthServiceAccessForOrganizationCommandInput,
     DisableHealthServiceAccessForOrganizationCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

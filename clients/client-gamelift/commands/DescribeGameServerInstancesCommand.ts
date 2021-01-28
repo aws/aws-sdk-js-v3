@@ -97,7 +97,6 @@ export class DescribeGameServerInstancesCommand extends $Command<
   DescribeGameServerInstancesCommandOutput,
   GameLiftClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -115,10 +114,7 @@ export class DescribeGameServerInstancesCommand extends $Command<
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeGameServerInstancesCommandInput, DescribeGameServerInstancesCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

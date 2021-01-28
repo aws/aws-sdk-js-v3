@@ -16,12 +16,14 @@ export const deserializerMiddlewareOption: DeserializeHandlerOptions = {
   name: "deserializerMiddleware",
   step: "deserialize",
   tags: ["DESERIALIZER"],
+  override: true,
 };
 
 export const serializerMiddlewareOption: SerializeHandlerOptions = {
   name: "serializerMiddleware",
   step: "serialize",
   tags: ["SERIALIZER"],
+  override: true,
 };
 
 export function getSerdePlugin<

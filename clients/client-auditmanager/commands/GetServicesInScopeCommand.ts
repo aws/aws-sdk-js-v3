@@ -30,7 +30,6 @@ export class GetServicesInScopeCommand extends $Command<
   GetServicesInScopeCommandOutput,
   AuditManagerClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -48,10 +47,7 @@ export class GetServicesInScopeCommand extends $Command<
     configuration: AuditManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetServicesInScopeCommandInput, GetServicesInScopeCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

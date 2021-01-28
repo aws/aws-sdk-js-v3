@@ -29,7 +29,6 @@ export class PredictCommand extends $Command<
   PredictCommandOutput,
   MachineLearningClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -47,11 +46,8 @@ export class PredictCommand extends $Command<
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PredictCommandInput, PredictCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getPredictEndpointPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getPredictEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

@@ -22,7 +22,6 @@ export class XmlEmptyListsCommand extends $Command<
   XmlEmptyListsCommandOutput,
   EC2ProtocolClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -40,10 +39,7 @@ export class XmlEmptyListsCommand extends $Command<
     configuration: EC2ProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<XmlEmptyListsCommandInput, XmlEmptyListsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

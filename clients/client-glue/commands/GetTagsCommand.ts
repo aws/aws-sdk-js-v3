@@ -21,7 +21,6 @@ export type GetTagsCommandOutput = GetTagsResponse & __MetadataBearer;
  * <p>Retrieves a list of tags associated with a resource.</p>
  */
 export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommandOutput, GlueClientResolvedConfig> {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -39,10 +38,7 @@ export class GetTagsCommand extends $Command<GetTagsCommandInput, GetTagsCommand
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTagsCommandInput, GetTagsCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

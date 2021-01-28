@@ -34,7 +34,6 @@ export class DeleteTestGridProjectCommand extends $Command<
   DeleteTestGridProjectCommandOutput,
   DeviceFarmClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -52,10 +51,7 @@ export class DeleteTestGridProjectCommand extends $Command<
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteTestGridProjectCommandInput, DeleteTestGridProjectCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 

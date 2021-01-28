@@ -81,6 +81,7 @@ export const copySnapshotPresignedUrlMiddlewareOptions: InitializeHandlerOptions
   step: "initialize",
   tags: ["CROSS_REGION_PRESIGNED_URL"],
   name: "crossRegionPresignedUrlMiddleware",
+  override: true,
 };
 
 export const getCopySnapshotPresignedUrlPlugin = (config: PreviouslyResolved): Pluggable<any, any> => ({

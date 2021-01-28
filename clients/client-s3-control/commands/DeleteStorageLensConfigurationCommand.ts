@@ -37,7 +37,6 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
   DeleteStorageLensConfigurationCommandOutput,
   S3ControlClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -55,11 +54,8 @@ export class DeleteStorageLensConfigurationCommand extends $Command<
     configuration: S3ControlClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteStorageLensConfigurationCommandInput, DeleteStorageLensConfigurationCommandOutput> {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.middlewareStack.use(getProcessArnablesPlugin(configuration));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 

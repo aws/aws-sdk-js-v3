@@ -33,7 +33,6 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ModifyReplicationGroupShardConfigurationCommandOutput,
   ElastiCacheClientResolvedConfig
 > {
-  private resolved = false;
   // Start section: command_properties
   // End section: command_properties
 
@@ -54,10 +53,7 @@ export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
     ModifyReplicationGroupShardConfigurationCommandInput,
     ModifyReplicationGroupShardConfigurationCommandOutput
   > {
-    if (!this.resolved) {
-      this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-      this.resolved = true;
-    }
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
