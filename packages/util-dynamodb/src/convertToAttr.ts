@@ -27,11 +27,23 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
     // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
     return convertToBinaryAttr(data);
+  } else if (typeof data === "boolean") {
+    return { BOOL: data };
+  } else if (typeof data === "number") {
+    return convertToNumberAttr(data);
+  } else if (typeof data === "bigint") {
+    return convertToBigIntAttr(data);
+  } else if (typeof data === "string") {
+    if (data.length === 0 && options?.convertEmptyValues) {
+      return convertToNullAttr();
+    }
+    return convertToStringAttr(data);
   } else if (options?.convertClassInstanceToMap && typeof data === "object") {
     return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
-  } else {
-    return convertToScalarAttr(data as NativeScalarAttributeValue, options);
   }
+  throw new Error(
+    `Unsupported type passed: ${data}. Pass options.convertClassInstanceToMap=true to marshall typeof object as map attribute.`
+  );
 };
 
 const convertToListAttr = (data: NativeAttributeValue[], options?: marshallOptions): { L: AttributeValue[] } => ({
@@ -106,24 +118,6 @@ const convertToMapAttr = (
       {}
     ),
 });
-
-const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (typeof data === "boolean") {
-    return { BOOL: data };
-  } else if (typeof data === "number") {
-    return convertToNumberAttr(data);
-  } else if (typeof data === "bigint") {
-    return convertToBigIntAttr(data);
-  } else if (typeof data === "string") {
-    if (data.length === 0 && options?.convertEmptyValues) {
-      return convertToNullAttr();
-    }
-    return convertToStringAttr(data);
-  }
-  throw new Error(
-    `Unsupported type passed: ${data}. Pass options.convertClassInstanceToMap=true to marshall typeof object as map attribute.`
-  );
-};
 
 // For future-proofing: this functions are called from multiple places
 const convertToNullAttr = (): { NULL: true } => ({ NULL: true });
