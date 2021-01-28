@@ -279,7 +279,6 @@ describe("convertToAttr", () => {
     describe("unallowed set", () => {
       it("throws error", () => {
         expect(() => {
-          // @ts-expect-error Type 'Set<boolean>' is not assignable
           convertToAttr(new Set([true, false]));
         }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
       });
@@ -394,7 +393,6 @@ describe("convertToAttr", () => {
     [new Date(), new FooClass("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
-          // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
           convertToAttr(data);
         }).toThrowError(`Unsupported type passed: ${String(data)}`);
       });
@@ -417,7 +415,6 @@ describe("convertToAttr", () => {
       }
       expect(
         convertToAttr(
-          // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
           new FooClass(
             null,
             true,
@@ -454,7 +451,6 @@ describe("convertToAttr", () => {
     });
 
     it("returns empty for Date object", () => {
-      // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
       expect(convertToAttr(new Date(), { marshallObjects: true })).toEqual({ M: {} });
     });
   });
