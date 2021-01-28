@@ -394,7 +394,11 @@ describe("convertToAttr", () => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
           convertToAttr(data);
-        }).toThrowError(`Unsupported type passed: ${String(data)}`);
+        }).toThrowError(
+          `Unsupported type passed: ${String(
+            data
+          )}. Pass options.marshallObjects=true to marshall typeof object as map attribute.`
+        );
       });
     });
   });

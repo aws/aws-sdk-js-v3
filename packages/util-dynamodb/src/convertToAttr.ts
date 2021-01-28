@@ -120,7 +120,9 @@ const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshal
     }
     return convertToStringAttr(data);
   }
-  throw new Error(`Unsupported type passed: ${data}`);
+  throw new Error(
+    `Unsupported type passed: ${data}. Pass options.marshallObjects=true to marshall typeof object as map attribute.`
+  );
 };
 
 // For future-proofing: this functions are called from multiple places
