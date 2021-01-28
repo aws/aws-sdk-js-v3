@@ -14,7 +14,8 @@ export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
   | NativeAttributeValue[]
-  | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>;
+  | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>
+  | InstanceType<{ new (...args: any[]): any }>; // accepts any class instance with options.convertClassInstanceToMap
 
 export type NativeScalarAttributeValue =
   | null

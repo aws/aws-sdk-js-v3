@@ -6,123 +6,145 @@ import { NativeAttributeValue } from "./models";
 
 describe("convertToAttr", () => {
   describe("null", () => {
-    it(`returns for null`, () => {
-      expect(convertToAttr(null)).toEqual({ NULL: true });
+    [true, false].forEach((convertClassInstanceToMap) => {
+      it(`returns for null`, () => {
+        expect(convertToAttr(null, { convertClassInstanceToMap })).toEqual({ NULL: true });
+      });
     });
   });
 
   describe("boolean", () => {
-    [true, false].forEach((bool) => {
-      it(`returns for boolean: ${bool}`, () => {
-        expect(convertToAttr(bool)).toEqual({ BOOL: bool });
+    [true, false].forEach((convertClassInstanceToMap) => {
+      [true, false].forEach((isClassInstance) => {
+        [true, false].forEach((boolValue) => {
+          const bool = isClassInstance ? new Boolean(boolValue) : boolValue;
+          it(`returns for boolean: ${bool}`, () => {
+            expect(convertToAttr(bool, { convertClassInstanceToMap })).toEqual({ BOOL: bool.valueOf() });
+          });
+        });
       });
     });
   });
 
   describe("number", () => {
-    [1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER].forEach((num) => {
-      it(`returns for number (integer): ${num}`, () => {
-        expect(convertToAttr(num)).toEqual({ N: num.toString() });
-      });
-    });
+    [true, false].forEach((convertClassInstanceToMap) => {
+      [true, false].forEach((isClassInstance) => {
+        [1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER].forEach((numValue) => {
+          const num = isClassInstance ? new Number(numValue) : numValue;
+          it(`returns for number (integer): ${num}`, () => {
+            expect(convertToAttr(num, { convertClassInstanceToMap })).toEqual({ N: num.toString() });
+          });
+        });
 
-    [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((num) => {
-      it(`returns for number (floating point): ${num}`, () => {
-        expect(convertToAttr(num)).toEqual({ N: num.toString() });
-      });
-    });
+        [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((numValue) => {
+          const num = isClassInstance ? new Number(numValue) : numValue;
+          it(`returns for number (floating point): ${num}`, () => {
+            expect(convertToAttr(num, { convertClassInstanceToMap })).toEqual({ N: num.toString() });
+          });
+        });
 
-    [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].forEach((num) => {
-      it(`throws for number (special numeric value): ${num}`, () => {
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`Special numeric value ${num} is not allowed`);
-      });
-    });
+        [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].forEach((numValue) => {
+          const num = isClassInstance ? new Number(numValue) : numValue;
+          it(`throws for number (special numeric value): ${num}`, () => {
+            expect(() => {
+              convertToAttr(num, { convertClassInstanceToMap });
+            }).toThrowError(`Special numeric value ${num.toString()} is not allowed`);
+          });
+        });
 
-    [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((num) => {
-      it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
-        const errorPrefix = `Number ${num} is greater than Number.MAX_SAFE_INTEGER.`;
+        [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((numValue) => {
+          const num = isClassInstance ? new Number(numValue) : numValue;
+          it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
+            const errorPrefix = `Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`;
 
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Use BigInt.`);
+            expect(() => {
+              convertToAttr(num, { convertClassInstanceToMap });
+            }).toThrowError(`${errorPrefix} Use BigInt.`);
 
-        const BigIntConstructor = BigInt;
-        (BigInt as any) = undefined;
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Pass string value instead.`);
-        BigInt = BigIntConstructor;
-      });
-    });
+            const BigIntConstructor = BigInt;
+            (BigInt as any) = undefined;
+            expect(() => {
+              convertToAttr(num, { convertClassInstanceToMap });
+            }).toThrowError(`${errorPrefix} Pass string value instead.`);
+            BigInt = BigIntConstructor;
+          });
+        });
 
-    [Number.MIN_SAFE_INTEGER - 1].forEach((num) => {
-      it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
-        const errorPrefix = `Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`;
+        [Number.MIN_SAFE_INTEGER - 1].forEach((numValue) => {
+          const num = isClassInstance ? new Number(numValue) : numValue;
+          it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
+            const errorPrefix = `Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`;
 
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Use BigInt.`);
+            expect(() => {
+              convertToAttr(num, { convertClassInstanceToMap });
+            }).toThrowError(`${errorPrefix} Use BigInt.`);
 
-        const BigIntConstructor = BigInt;
-        (BigInt as any) = undefined;
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Pass string value instead.`);
-        BigInt = BigIntConstructor;
+            const BigIntConstructor = BigInt;
+            (BigInt as any) = undefined;
+            expect(() => {
+              convertToAttr(num, { convertClassInstanceToMap });
+            }).toThrowError(`${errorPrefix} Pass string value instead.`);
+            BigInt = BigIntConstructor;
+          });
+        });
       });
     });
   });
 
   describe("bigint", () => {
-    const maxSafe = BigInt(Number.MAX_SAFE_INTEGER);
-    [
-      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
-      1n,
-      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
-      maxSafe * 2n,
-      // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
-      maxSafe * -2n,
-      BigInt(Number.MAX_VALUE),
-      BigInt("0x1fffffffffffff"),
-      BigInt("0b11111111111111111111111111111111111111111111111111111"),
-    ].forEach((num) => {
-      it(`returns for bigint: ${num}`, () => {
-        expect(convertToAttr(num)).toEqual({ N: num.toString() });
+    [true, false].forEach((convertClassInstanceToMap) => {
+      const maxSafe = BigInt(Number.MAX_SAFE_INTEGER);
+      [
+        // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+        1n,
+        // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+        maxSafe * 2n,
+        // @ts-expect-error BigInt literals are not available when targeting lower than ES2020.
+        maxSafe * -2n,
+        BigInt(Number.MAX_VALUE),
+        BigInt("0x1fffffffffffff"),
+        BigInt("0b11111111111111111111111111111111111111111111111111111"),
+      ].forEach((num) => {
+        it(`returns for bigint: ${num}`, () => {
+          expect(convertToAttr(num, { convertClassInstanceToMap })).toEqual({ N: num.toString() });
+        });
       });
     });
   });
 
   describe("binary", () => {
-    const buffer = new ArrayBuffer(64);
-    const arr = [...Array(64).keys()];
-    const addPointOne = (num: number) => num + 0.1;
+    [true, false].forEach((convertClassInstanceToMap) => {
+      const buffer = new ArrayBuffer(64);
+      const arr = [...Array(64).keys()];
+      const addPointOne = (num: number) => num + 0.1;
 
-    [
-      buffer,
-      new Blob([new Uint8Array(buffer)]),
-      Buffer.from(buffer),
-      new DataView(buffer),
-      new Int8Array(arr),
-      new Uint8Array(arr),
-      new Uint8ClampedArray(arr),
-      new Int16Array(arr),
-      new Uint16Array(arr),
-      new Int32Array(arr),
-      new Uint32Array(arr),
-      new Float32Array(arr.map(addPointOne)),
-      new Float64Array(arr.map(addPointOne)),
-      new BigInt64Array(arr.map(BigInt)),
-      new BigUint64Array(arr.map(BigInt)),
-    ].forEach((data) => {
-      it(`returns for binary: ${data.constructor.name}`, () => {
-        expect(convertToAttr(data)).toEqual({ B: data });
+      [
+        buffer,
+        new Blob([new Uint8Array(buffer)]),
+        Buffer.from(buffer),
+        new DataView(buffer),
+        new Int8Array(arr),
+        new Uint8Array(arr),
+        new Uint8ClampedArray(arr),
+        new Int16Array(arr),
+        new Uint16Array(arr),
+        new Int32Array(arr),
+        new Uint32Array(arr),
+        new Float32Array(arr.map(addPointOne)),
+        new Float64Array(arr.map(addPointOne)),
+        new BigInt64Array(arr.map(BigInt)),
+        new BigUint64Array(arr.map(BigInt)),
+      ].forEach((data) => {
+        it(`returns for binary: ${data.constructor.name}`, () => {
+          expect(convertToAttr(data, { convertClassInstanceToMap })).toEqual({ B: data });
+        });
       });
-    });
 
-    it("returns null for Binary when options.convertEmptyValues=true", () => {
-      expect(convertToAttr(new Uint8Array(), { convertEmptyValues: true })).toEqual({ NULL: true });
+      it("returns null for Binary when options.convertEmptyValues=true", () => {
+        expect(convertToAttr(new Uint8Array(), { convertClassInstanceToMap, convertEmptyValues: true })).toEqual({
+          NULL: true,
+        });
+      });
     });
   });
 
@@ -273,7 +295,6 @@ describe("convertToAttr", () => {
     describe("unallowed set", () => {
       it("throws error", () => {
         expect(() => {
-          // @ts-expect-error Type 'Set<boolean>' is not assignable
           convertToAttr(new Set([true, false]));
         }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
       });
@@ -362,19 +383,25 @@ describe("convertToAttr", () => {
   });
 
   describe("string", () => {
-    ["", "string", "'single-quote'", '"double-quote"'].forEach((str) => {
-      it(`returns for string: ${str}`, () => {
-        expect(convertToAttr(str)).toEqual({ S: str });
-      });
-    });
+    [true, false].forEach((convertClassInstanceToMap) => {
+      [true, false].forEach((isClassInstance) => {
+        ["", "string", "'single-quote'", '"double-quote"'].forEach((strValue) => {
+          const str = isClassInstance ? new String(strValue) : strValue;
+          it(`returns for string: ${str}`, () => {
+            expect(convertToAttr(str, { convertClassInstanceToMap })).toEqual({ S: str.toString() });
+          });
+        });
 
-    it("returns null for string when options.convertEmptyValues=true", () => {
-      expect(convertToAttr("", { convertEmptyValues: true })).toEqual({ NULL: true });
+        it("returns null for string when options.convertEmptyValues=true", () => {
+          const str = isClassInstance ? new String("") : "";
+          expect(convertToAttr(str, { convertClassInstanceToMap, convertEmptyValues: true })).toEqual({ NULL: true });
+        });
+      });
     });
   });
 
   describe(`unsupported type`, () => {
-    class FooObj {
+    class FooClass {
       constructor(private readonly foo: string) {}
     }
 
@@ -385,13 +412,72 @@ describe("convertToAttr", () => {
     });
 
     // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
-    [new Date(), new FooObj("foo")].forEach((data) => {
+    [new Date(), new FooClass("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
-          // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
           convertToAttr(data);
-        }).toThrowError(`Unsupported type passed: ${String(data)}`);
+        }).toThrowError(
+          `Unsupported type passed: ${String(
+            data
+          )}. Pass options.convertClassInstanceToMap=true to marshall typeof object as map attribute.`
+        );
       });
+    });
+  });
+
+  describe("typeof object with options.convertClassInstanceToMap=true", () => {
+    it("returns map for class", () => {
+      class FooClass {
+        constructor(
+          private readonly nullAttr: null,
+          private readonly boolAttr: boolean,
+          private readonly strAttr: string,
+          private readonly numAttr: number,
+          private readonly bigintAttr: bigint,
+          private readonly binaryAttr: Uint8Array,
+          private readonly listAttr: any[],
+          private readonly mapAttr: { [key: string]: any }
+        ) {}
+      }
+      expect(
+        convertToAttr(
+          new FooClass(
+            null,
+            true,
+            "string",
+            1,
+            BigInt(Number.MAX_VALUE),
+            new Uint8Array([...Array(64).keys()]),
+            [null, 1, "two", true],
+            {
+              nullKey: null,
+              numKey: 1,
+              strKey: "string",
+              boolKey: true,
+            }
+          ),
+          {
+            convertClassInstanceToMap: true,
+          }
+        )
+      ).toEqual({
+        M: {
+          nullAttr: { NULL: true },
+          boolAttr: { BOOL: true },
+          strAttr: { S: "string" },
+          numAttr: { N: "1" },
+          bigintAttr: { N: BigInt(Number.MAX_VALUE).toString() },
+          binaryAttr: { B: new Uint8Array([...Array(64).keys()]) },
+          listAttr: { L: [{ NULL: true }, { N: "1" }, { S: "two" }, { BOOL: true }] },
+          mapAttr: {
+            M: { nullKey: { NULL: true }, numKey: { N: "1" }, strKey: { S: "string" }, boolKey: { BOOL: true } },
+          },
+        },
+      });
+    });
+
+    it("returns empty for Date object", () => {
+      expect(convertToAttr(new Date(), { convertClassInstanceToMap: true })).toEqual({ M: {} });
     });
   });
 });

@@ -10,15 +10,40 @@ import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue
  * @param {marshallOptions} options - An optional configuration object for `convertToAttr`
  */
 export const convertToAttr = (data: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (Array.isArray(data)) {
+  if (data === undefined) {
+    throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+  } else if (data === null && typeof data === "object") {
+    return convertToNullAttr();
+  } else if (Array.isArray(data)) {
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
   } else if (data?.constructor?.name === "Object") {
     return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
-  } else {
-    return convertToScalarAttr(data as NativeScalarAttributeValue, options);
+  } else if (isBinary(data)) {
+    if (data.length === 0 && options?.convertEmptyValues) {
+      return convertToNullAttr();
+    }
+    // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
+    // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
+    return convertToBinaryAttr(data);
+  } else if (typeof data === "boolean" || data?.constructor?.name === "Boolean") {
+    return { BOOL: data.valueOf() };
+  } else if (typeof data === "number" || data?.constructor?.name === "Number") {
+    return convertToNumberAttr(data);
+  } else if (typeof data === "bigint") {
+    return convertToBigIntAttr(data);
+  } else if (typeof data === "string" || data?.constructor?.name === "String") {
+    if (data.length === 0 && options?.convertEmptyValues) {
+      return convertToNullAttr();
+    }
+    return convertToStringAttr(data);
+  } else if (options?.convertClassInstanceToMap && typeof data === "object") {
+    return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   }
+  throw new Error(
+    `Unsupported type passed: ${data}. Pass options.convertClassInstanceToMap=true to marshall typeof object as map attribute.`
+  );
 };
 
 const convertToListAttr = (data: NativeAttributeValue[], options?: marshallOptions): { L: AttributeValue[] } => ({
@@ -94,51 +119,27 @@ const convertToMapAttr = (
     ),
 });
 
-const convertToScalarAttr = (data: NativeScalarAttributeValue, options?: marshallOptions): AttributeValue => {
-  if (data === undefined) {
-    throw new Error(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
-  } else if (data === null && typeof data === "object") {
-    return convertToNullAttr();
-  } else if (typeof data === "boolean") {
-    return { BOOL: data };
-  } else if (typeof data === "number") {
-    return convertToNumberAttr(data);
-  } else if (typeof data === "bigint") {
-    return convertToBigIntAttr(data);
-  } else if (isBinary(data)) {
-    // @ts-expect-error Property 'length' does not exist on type 'ArrayBuffer'.
-    if (data.length === 0 && options?.convertEmptyValues) {
-      return convertToNullAttr();
-    }
-    // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
-    // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
-    return convertToBinaryAttr(data);
-  } else if (typeof data === "string") {
-    if (data.length === 0 && options?.convertEmptyValues) {
-      return convertToNullAttr();
-    }
-    return convertToStringAttr(data);
-  }
-  throw new Error(`Unsupported type passed: ${data}`);
-};
-
 // For future-proofing: this functions are called from multiple places
 const convertToNullAttr = (): { NULL: true } => ({ NULL: true });
 const convertToBinaryAttr = (data: NativeAttributeBinary): { B: NativeAttributeBinary } => ({ B: data });
-const convertToStringAttr = (data: string): { S: string } => ({ S: data });
+const convertToStringAttr = (data: string | String): { S: string } => ({ S: data.toString() });
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
 const validateBigIntAndThrow = (errorPrefix: string) => {
   throw new Error(`${errorPrefix} ${typeof BigInt === "function" ? "Use BigInt." : "Pass string value instead."} `);
 };
 
-const convertToNumberAttr = (num: number): { N: string } => {
-  if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num)) {
-    throw new Error(`Special numeric value ${num} is not allowed`);
+const convertToNumberAttr = (num: number | Number): { N: string } => {
+  if (
+    [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
+      .map((val) => val.toString())
+      .includes(num.toString())
+  ) {
+    throw new Error(`Special numeric value ${num.toString()} is not allowed`);
   } else if (num > Number.MAX_SAFE_INTEGER) {
-    validateBigIntAndThrow(`Number ${num} is greater than Number.MAX_SAFE_INTEGER.`);
+    validateBigIntAndThrow(`Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`);
   } else if (num < Number.MIN_SAFE_INTEGER) {
-    validateBigIntAndThrow(`Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`);
+    validateBigIntAndThrow(`Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`);
   }
   return { N: num.toString() };
 };
