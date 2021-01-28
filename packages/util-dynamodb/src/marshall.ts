@@ -16,9 +16,9 @@ export interface marshallOptions {
    */
   removeUndefinedValues?: boolean;
   /**
-   * Whether to marshall typeof object while marshalling.
+   * Whether to convert typeof object to map attribute.
    */
-  marshallObjects?: boolean;
+  convertTypeofObject?: boolean;
 }
 
 /**

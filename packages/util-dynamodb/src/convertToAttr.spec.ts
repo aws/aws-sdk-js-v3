@@ -7,8 +7,8 @@ import { NativeAttributeValue } from "./models";
 describe("convertToAttr", () => {
   describe("null", () => {
     it(`returns for null`, () => {
-      [false, true].forEach((marshallObjects) => {
-        expect(convertToAttr(null, { marshallObjects })).toEqual({ NULL: true });
+      [false, true].forEach((convertTypeofObject) => {
+        expect(convertToAttr(null, { convertTypeofObject })).toEqual({ NULL: true });
       });
     });
   });
@@ -119,15 +119,17 @@ describe("convertToAttr", () => {
       new BigUint64Array(arr.map(BigInt)),
     ].forEach((data) => {
       it(`returns for binary: ${data.constructor.name}`, () => {
-        [false, true].forEach((marshallObjects) => {
-          expect(convertToAttr(data, { marshallObjects })).toEqual({ B: data });
+        [false, true].forEach((convertTypeofObject) => {
+          expect(convertToAttr(data, { convertTypeofObject })).toEqual({ B: data });
         });
       });
     });
 
     it("returns null for Binary when options.convertEmptyValues=true", () => {
-      [false, true].forEach((marshallObjects) => {
-        expect(convertToAttr(new Uint8Array(), { marshallObjects, convertEmptyValues: true })).toEqual({ NULL: true });
+      [false, true].forEach((convertTypeofObject) => {
+        expect(convertToAttr(new Uint8Array(), { convertTypeofObject, convertEmptyValues: true })).toEqual({
+          NULL: true,
+        });
       });
     });
   });
@@ -397,13 +399,13 @@ describe("convertToAttr", () => {
         }).toThrowError(
           `Unsupported type passed: ${String(
             data
-          )}. Pass options.marshallObjects=true to marshall typeof object as map attribute.`
+          )}. Pass options.convertTypeofObject=true to marshall typeof object as map attribute.`
         );
       });
     });
   });
 
-  describe("typeof object with options.marshallObjects=true", () => {
+  describe("typeof object with options.convertTypeofObject=true", () => {
     it("returns map for class", () => {
       class FooClass {
         constructor(
@@ -435,7 +437,7 @@ describe("convertToAttr", () => {
             }
           ),
           {
-            marshallObjects: true,
+            convertTypeofObject: true,
           }
         )
       ).toEqual({
@@ -455,7 +457,7 @@ describe("convertToAttr", () => {
     });
 
     it("returns empty for Date object", () => {
-      expect(convertToAttr(new Date(), { marshallObjects: true })).toEqual({ M: {} });
+      expect(convertToAttr(new Date(), { convertTypeofObject: true })).toEqual({ M: {} });
     });
   });
 });
