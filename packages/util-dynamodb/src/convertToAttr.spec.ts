@@ -17,9 +17,9 @@ describe("convertToAttr", () => {
     [true, false].forEach((convertClassInstanceToMap) => {
       [true, false].forEach((isClassInstance) => {
         [true, false].forEach((boolValue) => {
-          const bool = isClassInstance ? Boolean(boolValue) : boolValue;
+          const bool = isClassInstance ? new Boolean(boolValue) : boolValue;
           it(`returns for boolean: ${bool}`, () => {
-            expect(convertToAttr(bool, { convertClassInstanceToMap })).toEqual({ BOOL: bool });
+            expect(convertToAttr(bool, { convertClassInstanceToMap })).toEqual({ BOOL: bool.valueOf() });
           });
         });
       });
@@ -30,32 +30,32 @@ describe("convertToAttr", () => {
     [true, false].forEach((convertClassInstanceToMap) => {
       [true, false].forEach((isClassInstance) => {
         [1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER].forEach((numValue) => {
-          const num = isClassInstance ? Number(numValue) : numValue;
+          const num = isClassInstance ? new Number(numValue) : numValue;
           it(`returns for number (integer): ${num}`, () => {
             expect(convertToAttr(num, { convertClassInstanceToMap })).toEqual({ N: num.toString() });
           });
         });
 
         [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((numValue) => {
-          const num = isClassInstance ? Number(numValue) : numValue;
+          const num = isClassInstance ? new Number(numValue) : numValue;
           it(`returns for number (floating point): ${num}`, () => {
             expect(convertToAttr(num, { convertClassInstanceToMap })).toEqual({ N: num.toString() });
           });
         });
 
         [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].forEach((numValue) => {
-          const num = isClassInstance ? Number(numValue) : numValue;
+          const num = isClassInstance ? new Number(numValue) : numValue;
           it(`throws for number (special numeric value): ${num}`, () => {
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
-            }).toThrowError(`Special numeric value ${num} is not allowed`);
+            }).toThrowError(`Special numeric value ${num.toString()} is not allowed`);
           });
         });
 
         [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((numValue) => {
-          const num = isClassInstance ? Number(numValue) : numValue;
+          const num = isClassInstance ? new Number(numValue) : numValue;
           it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
-            const errorPrefix = `Number ${num} is greater than Number.MAX_SAFE_INTEGER.`;
+            const errorPrefix = `Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`;
 
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
@@ -71,9 +71,9 @@ describe("convertToAttr", () => {
         });
 
         [Number.MIN_SAFE_INTEGER - 1].forEach((numValue) => {
-          const num = isClassInstance ? Number(numValue) : numValue;
+          const num = isClassInstance ? new Number(numValue) : numValue;
           it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
-            const errorPrefix = `Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`;
+            const errorPrefix = `Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`;
 
             expect(() => {
               convertToAttr(num, { convertClassInstanceToMap });
@@ -386,14 +386,14 @@ describe("convertToAttr", () => {
     [true, false].forEach((convertClassInstanceToMap) => {
       [true, false].forEach((isClassInstance) => {
         ["", "string", "'single-quote'", '"double-quote"'].forEach((strValue) => {
-          const str = isClassInstance ? String(strValue) : strValue;
+          const str = isClassInstance ? new String(strValue) : strValue;
           it(`returns for string: ${str}`, () => {
-            expect(convertToAttr(str, { convertClassInstanceToMap })).toEqual({ S: str });
+            expect(convertToAttr(str, { convertClassInstanceToMap })).toEqual({ S: str.toString() });
           });
         });
 
         it("returns null for string when options.convertEmptyValues=true", () => {
-          const str = isClassInstance ? String("") : "";
+          const str = isClassInstance ? new String("") : "";
           expect(convertToAttr(str, { convertClassInstanceToMap, convertEmptyValues: true })).toEqual({ NULL: true });
         });
       });

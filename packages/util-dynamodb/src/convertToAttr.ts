@@ -130,12 +130,16 @@ const validateBigIntAndThrow = (errorPrefix: string) => {
 };
 
 const convertToNumberAttr = (num: number | Number): { N: string } => {
-  if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num as number)) {
-    throw new Error(`Special numeric value ${num} is not allowed`);
+  if (
+    [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
+      .map((val) => val.toString())
+      .includes(num.toString())
+  ) {
+    throw new Error(`Special numeric value ${num.toString()} is not allowed`);
   } else if (num > Number.MAX_SAFE_INTEGER) {
-    validateBigIntAndThrow(`Number ${num} is greater than Number.MAX_SAFE_INTEGER.`);
+    validateBigIntAndThrow(`Number ${num.toString()} is greater than Number.MAX_SAFE_INTEGER.`);
   } else if (num < Number.MIN_SAFE_INTEGER) {
-    validateBigIntAndThrow(`Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`);
+    validateBigIntAndThrow(`Number ${num.toString()} is lesser than Number.MIN_SAFE_INTEGER.`);
   }
   return { N: num.toString() };
 };
