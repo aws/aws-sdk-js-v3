@@ -380,7 +380,7 @@ describe("convertToAttr", () => {
   });
 
   describe(`unsupported type`, () => {
-    class FooObj {
+    class FooClass {
       constructor(private readonly foo: string) {}
     }
 
@@ -391,13 +391,71 @@ describe("convertToAttr", () => {
     });
 
     // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
-    [new Date(), new FooObj("foo")].forEach((data) => {
+    [new Date(), new FooClass("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
           // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
           convertToAttr(data);
         }).toThrowError(`Unsupported type passed: ${String(data)}`);
       });
+    });
+  });
+
+  describe("typeof object with options.marshallObjects=true", () => {
+    it("returns map for class", () => {
+      class FooClass {
+        constructor(
+          private readonly nullAttr: null,
+          private readonly boolAttr: boolean,
+          private readonly strAttr: string,
+          private readonly numAttr: number,
+          private readonly bigintAttr: bigint,
+          private readonly binaryAttr: Uint8Array,
+          private readonly listAttr: any[],
+          private readonly mapAttr: { [key: string]: any }
+        ) {}
+      }
+      expect(
+        convertToAttr(
+          // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
+          new FooClass(
+            null,
+            true,
+            "string",
+            1,
+            BigInt(Number.MAX_VALUE),
+            new Uint8Array([...Array(64).keys()]),
+            [null, 1, "two", true],
+            {
+              nullKey: null,
+              numKey: 1,
+              strKey: "string",
+              boolKey: true,
+            }
+          ),
+          {
+            marshallObjects: true,
+          }
+        )
+      ).toEqual({
+        M: {
+          nullAttr: { NULL: true },
+          boolAttr: { BOOL: true },
+          strAttr: { S: "string" },
+          numAttr: { N: "1" },
+          bigintAttr: { N: BigInt(Number.MAX_VALUE).toString() },
+          binaryAttr: { B: new Uint8Array([...Array(64).keys()]) },
+          listAttr: { L: [{ NULL: true }, { N: "1" }, { S: "two" }, { BOOL: true }] },
+          mapAttr: {
+            M: { nullKey: { NULL: true }, numKey: { N: "1" }, strKey: { S: "string" }, boolKey: { BOOL: true } },
+          },
+        },
+      });
+    });
+
+    it("returns empty for Date object", () => {
+      // @ts-expect-error Argument is not assignable to parameter of type 'NativeAttributeValue'
+      expect(convertToAttr(new Date(), { marshallObjects: true })).toEqual({ M: {} });
     });
   });
 });
