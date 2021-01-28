@@ -27,13 +27,13 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
     // @ts-expect-error Type '{ B: NativeAttributeBinary; }' is not assignable to type 'AttributeValue'
     return convertToBinaryAttr(data);
-  } else if (typeof data === "boolean") {
-    return { BOOL: data };
-  } else if (typeof data === "number") {
+  } else if (typeof data === "boolean" || data?.constructor?.name === "Boolean") {
+    return { BOOL: data.valueOf() };
+  } else if (typeof data === "number" || data?.constructor?.name === "Number") {
     return convertToNumberAttr(data);
   } else if (typeof data === "bigint") {
     return convertToBigIntAttr(data);
-  } else if (typeof data === "string") {
+  } else if (typeof data === "string" || data?.constructor?.name === "String") {
     if (data.length === 0 && options?.convertEmptyValues) {
       return convertToNullAttr();
     }
@@ -122,15 +122,15 @@ const convertToMapAttr = (
 // For future-proofing: this functions are called from multiple places
 const convertToNullAttr = (): { NULL: true } => ({ NULL: true });
 const convertToBinaryAttr = (data: NativeAttributeBinary): { B: NativeAttributeBinary } => ({ B: data });
-const convertToStringAttr = (data: string): { S: string } => ({ S: data });
+const convertToStringAttr = (data: string | String): { S: string } => ({ S: data.toString() });
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
 const validateBigIntAndThrow = (errorPrefix: string) => {
   throw new Error(`${errorPrefix} ${typeof BigInt === "function" ? "Use BigInt." : "Pass string value instead."} `);
 };
 
-const convertToNumberAttr = (num: number): { N: string } => {
-  if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num)) {
+const convertToNumberAttr = (num: number | Number): { N: string } => {
+  if ([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].includes(num as number)) {
     throw new Error(`Special numeric value ${num} is not allowed`);
   } else if (num > Number.MAX_SAFE_INTEGER) {
     validateBigIntAndThrow(`Number ${num} is greater than Number.MAX_SAFE_INTEGER.`);

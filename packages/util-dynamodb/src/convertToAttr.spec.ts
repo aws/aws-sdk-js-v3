@@ -14,65 +14,75 @@ describe("convertToAttr", () => {
   });
 
   describe("boolean", () => {
-    [true, false].forEach((bool) => {
-      it(`returns for boolean: ${bool}`, () => {
-        expect(convertToAttr(bool)).toEqual({ BOOL: bool });
+    [true, false].forEach((isClassInstance) => {
+      [true, false].forEach((boolValue) => {
+        const bool = isClassInstance ? Boolean(boolValue) : boolValue;
+        it(`returns for boolean: ${bool}`, () => {
+          expect(convertToAttr(bool)).toEqual({ BOOL: bool });
+        });
       });
     });
   });
 
   describe("number", () => {
-    [1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER].forEach((num) => {
-      it(`returns for number (integer): ${num}`, () => {
-        expect(convertToAttr(num)).toEqual({ N: num.toString() });
+    [true, false].forEach((isClassInstance) => {
+      [1, Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER].forEach((numValue) => {
+        const num = isClassInstance ? Number(numValue) : numValue;
+        it(`returns for number (integer): ${num}`, () => {
+          expect(convertToAttr(num)).toEqual({ N: num.toString() });
+        });
       });
-    });
 
-    [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((num) => {
-      it(`returns for number (floating point): ${num}`, () => {
-        expect(convertToAttr(num)).toEqual({ N: num.toString() });
+      [1.01, Math.PI, Math.E, Number.MIN_VALUE, Number.EPSILON].forEach((numValue) => {
+        const num = isClassInstance ? Number(numValue) : numValue;
+        it(`returns for number (floating point): ${num}`, () => {
+          expect(convertToAttr(num)).toEqual({ N: num.toString() });
+        });
       });
-    });
 
-    [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].forEach((num) => {
-      it(`throws for number (special numeric value): ${num}`, () => {
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`Special numeric value ${num} is not allowed`);
+      [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY].forEach((numValue) => {
+        const num = isClassInstance ? Number(numValue) : numValue;
+        it(`throws for number (special numeric value): ${num}`, () => {
+          expect(() => {
+            convertToAttr(num);
+          }).toThrowError(`Special numeric value ${num} is not allowed`);
+        });
       });
-    });
 
-    [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((num) => {
-      it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
-        const errorPrefix = `Number ${num} is greater than Number.MAX_SAFE_INTEGER.`;
+      [Number.MAX_SAFE_INTEGER + 1, Number.MAX_VALUE].forEach((numValue) => {
+        const num = isClassInstance ? Number(numValue) : numValue;
+        it(`throws for number greater than Number.MAX_SAFE_INTEGER: ${num}`, () => {
+          const errorPrefix = `Number ${num} is greater than Number.MAX_SAFE_INTEGER.`;
 
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Use BigInt.`);
+          expect(() => {
+            convertToAttr(num);
+          }).toThrowError(`${errorPrefix} Use BigInt.`);
 
-        const BigIntConstructor = BigInt;
-        (BigInt as any) = undefined;
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Pass string value instead.`);
-        BigInt = BigIntConstructor;
+          const BigIntConstructor = BigInt;
+          (BigInt as any) = undefined;
+          expect(() => {
+            convertToAttr(num);
+          }).toThrowError(`${errorPrefix} Pass string value instead.`);
+          BigInt = BigIntConstructor;
+        });
       });
-    });
 
-    [Number.MIN_SAFE_INTEGER - 1].forEach((num) => {
-      it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
-        const errorPrefix = `Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`;
+      [Number.MIN_SAFE_INTEGER - 1].forEach((numValue) => {
+        const num = isClassInstance ? Number(numValue) : numValue;
+        it(`throws for number lesser than Number.MIN_SAFE_INTEGER: ${num}`, () => {
+          const errorPrefix = `Number ${num} is lesser than Number.MIN_SAFE_INTEGER.`;
 
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Use BigInt.`);
+          expect(() => {
+            convertToAttr(num);
+          }).toThrowError(`${errorPrefix} Use BigInt.`);
 
-        const BigIntConstructor = BigInt;
-        (BigInt as any) = undefined;
-        expect(() => {
-          convertToAttr(num);
-        }).toThrowError(`${errorPrefix} Pass string value instead.`);
-        BigInt = BigIntConstructor;
+          const BigIntConstructor = BigInt;
+          (BigInt as any) = undefined;
+          expect(() => {
+            convertToAttr(num);
+          }).toThrowError(`${errorPrefix} Pass string value instead.`);
+          BigInt = BigIntConstructor;
+        });
       });
     });
   });
@@ -369,14 +379,18 @@ describe("convertToAttr", () => {
   });
 
   describe("string", () => {
-    ["", "string", "'single-quote'", '"double-quote"'].forEach((str) => {
-      it(`returns for string: ${str}`, () => {
-        expect(convertToAttr(str)).toEqual({ S: str });
+    [true, false].forEach((isClassInstance) => {
+      ["", "string", "'single-quote'", '"double-quote"'].forEach((strValue) => {
+        const str = isClassInstance ? String(strValue) : strValue;
+        it(`returns for string: ${str}`, () => {
+          expect(convertToAttr(str)).toEqual({ S: str });
+        });
       });
-    });
 
-    it("returns null for string when options.convertEmptyValues=true", () => {
-      expect(convertToAttr("", { convertEmptyValues: true })).toEqual({ NULL: true });
+      it("returns null for string when options.convertEmptyValues=true", () => {
+        const str = isClassInstance ? String("") : "";
+        expect(convertToAttr(str, { convertEmptyValues: true })).toEqual({ NULL: true });
+      });
     });
   });
 
