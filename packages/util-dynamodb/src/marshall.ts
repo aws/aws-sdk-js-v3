@@ -18,7 +18,7 @@ export interface marshallOptions {
   /**
    * Whether to convert typeof object to map attribute.
    */
-  convertTypeofObject?: boolean;
+  convertClassInstanceToMap?: boolean;
 }
 
 /**
