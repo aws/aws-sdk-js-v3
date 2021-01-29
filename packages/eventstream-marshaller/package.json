@@ -39,7 +39,7 @@
     "@aws-sdk/util-utf8-node": "@aws-sdk/util-utf8-browser"
   },
   "typesVersions": {
-    "<3.9": {
+    "<4.0": {
       "types/*": [
         "types/ts3.4/*"
       ]

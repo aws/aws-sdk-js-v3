@@ -33,7 +33,7 @@
   },
   "private": true,
   "typesVersions": {
-    "<3.9": {
+    "<4.0": {
       "types/*": [
         "types/ts3.4/*"
       ]
