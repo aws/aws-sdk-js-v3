@@ -40,7 +40,7 @@
     "@aws-sdk/util-base64-node": "@aws-sdk/util-base64-browser"
   },
   "typesVersions": {
-    "<3.9": {
+    "<4.0": {
       "types/*": [
         "types/ts3.4/*"
       ]
