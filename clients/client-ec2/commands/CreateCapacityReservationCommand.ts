@@ -25,7 +25,7 @@ export type CreateCapacityReservationCommandOutput = CreateCapacityReservationRe
  * 		       <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
  * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
  * 			By creating Capacity Reservations, you ensure that you always have access to Amazon EC2 capacity when you need it, for as long as you need it.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *
  * 		       <p>Your request to create a Capacity Reservation could fail if Amazon EC2 does not have sufficient capacity to
  * 			fulfill the request. If your request fails due to Amazon EC2 capacity constraints, either try
@@ -37,7 +37,7 @@ export type CreateCapacityReservationCommandOutput = CreateCapacityReservationRe
  * 			limit for the selected instance type. If your request fails due to limit constraints,
  * 			increase your On-Demand Instance limit for the required instance type and try again. For
  * 			more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 Service
- * 				Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 				Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class CreateCapacityReservationCommand extends $Command<
   CreateCapacityReservationCommandInput,

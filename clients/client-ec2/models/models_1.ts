@@ -20,6 +20,8 @@ import {
   LaunchTemplateEnclaveOptionsRequest,
   LaunchTemplateHibernationOptionsRequest,
   LaunchTemplateIamInstanceProfileSpecificationRequest,
+  LaunchTemplateInstanceMarketOptionsRequest,
+  LaunchTemplateLicenseConfigurationRequest,
   MarketType,
   ReservedInstancesListing,
   ResourceType,
@@ -42,82 +44,6 @@ import {
   VpcPeeringConnection,
   _InstanceType,
 } from "./models_0";
-
-/**
- * <p>The options for Spot Instances.</p>
- */
-export interface LaunchTemplateSpotMarketOptionsRequest {
-  /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
-   */
-  MaxPrice?: string;
-
-  /**
-   * <p>The Spot Instance request type.</p>
-   */
-  SpotInstanceType?: SpotInstanceType | string;
-
-  /**
-   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
-   */
-  BlockDurationMinutes?: number;
-
-  /**
-   * <p>The end date of the request.
-   *             For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached.
-   *             If the request is persistent, it remains active until it is canceled or this date and time is reached.
-   *             The default end date is 7 days from the current date.</p>
-   */
-  ValidUntil?: Date;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
-}
-
-export namespace LaunchTemplateSpotMarketOptionsRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The market (purchasing) option for the instances.</p>
- */
-export interface LaunchTemplateInstanceMarketOptionsRequest {
-  /**
-   * <p>The market type.</p>
-   */
-  MarketType?: MarketType | string;
-
-  /**
-   * <p>The options for Spot Instances.</p>
-   */
-  SpotOptions?: LaunchTemplateSpotMarketOptionsRequest;
-}
-
-export namespace LaunchTemplateInstanceMarketOptionsRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a license configuration.</p>
- */
-export interface LaunchTemplateLicenseConfigurationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-export namespace LaunchTemplateLicenseConfigurationRequest {
-  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
 
 export type LaunchTemplateInstanceMetadataEndpointState = "disabled" | "enabled";
 
@@ -5977,7 +5903,7 @@ export interface CreateVolumeRequest {
   /**
    * <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
    *     	volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is
-   *     	supported with  <code>io1</code> volumes only. For more information,
+   *     	supported with <code>io1</code> and <code>io2</code> volumes only. For more information,
    *     	see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
    *     		Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -8633,6 +8559,52 @@ export interface DeleteNetworkInsightsAnalysisRequest {
 
 export namespace DeleteNetworkInsightsAnalysisRequest {
   export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteNetworkInsightsAnalysisResult {
+  /**
+   * <p>The ID of the network insights analysis.</p>
+   */
+  NetworkInsightsAnalysisId?: string;
+}
+
+export namespace DeleteNetworkInsightsAnalysisResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteNetworkInsightsPathRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId: string | undefined;
+}
+
+export namespace DeleteNetworkInsightsPathRequest {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteNetworkInsightsPathResult {
+  /**
+   * <p>The ID of the path.</p>
+   */
+  NetworkInsightsPathId?: string;
+}
+
+export namespace DeleteNetworkInsightsPathResult {
+  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathResult): any => ({
     ...obj,
   });
 }

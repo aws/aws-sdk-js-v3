@@ -3,8 +3,6 @@ import {
   AccountAttributeName,
   ActiveInstance,
   Address,
-  AddressAttribute,
-  AddressAttributeName,
   AllocationState,
   AllowsMultipleInstanceTypes,
   AssociationStatus,
@@ -67,52 +65,6 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteTable,
 } from "./models_1";
-
-export interface DeleteNetworkInsightsAnalysisResult {
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId?: string;
-}
-
-export namespace DeleteNetworkInsightsAnalysisResult {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsAnalysisResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkInsightsPathRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId: string | undefined;
-}
-
-export namespace DeleteNetworkInsightsPathRequest {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteNetworkInsightsPathResult {
-  /**
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId?: string;
-}
-
-export namespace DeleteNetworkInsightsPathResult {
-  export const filterSensitiveLog = (obj: DeleteNetworkInsightsPathResult): any => ({
-    ...obj,
-  });
-}
 
 /**
  * <p>Contains the parameters for DeleteNetworkInterface.</p>
@@ -1635,31 +1587,6 @@ export namespace DescribeAddressesResult {
   });
 }
 
-export interface DescribeAddressesAttributeRequest {
-  AllocationIds?: string[];
-  Attribute?: AddressAttributeName | string;
-  NextToken?: string;
-  MaxResults?: number;
-  DryRun?: boolean;
-}
-
-export namespace DescribeAddressesAttributeRequest {
-  export const filterSensitiveLog = (obj: DescribeAddressesAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeAddressesAttributeResult {
-  Addresses?: AddressAttribute[];
-  NextToken?: string;
-}
-
-export namespace DescribeAddressesAttributeResult {
-  export const filterSensitiveLog = (obj: DescribeAddressesAttributeResult): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeAggregateIdFormatRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -2121,7 +2048,7 @@ export interface DescribeCapacityReservationsRequest {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>cancelled</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.</p>
+   *                         <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no longer available for your use.</p>
    *                   </li>
    *                   <li>
    *                      <p>
@@ -4806,9 +4733,9 @@ export namespace FleetLaunchTemplateConfig {
  *             <code>instant</code>.</p>
  *          </note>
  *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
- *             Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using
+ *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
  *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
- *             configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface CapacityReservationOptions {
   /**
@@ -4999,8 +4926,8 @@ export namespace SpotOptions {
  *          will launch instances until it reaches the maximum amount that you're willing to pay. When
  *          the maximum amount you're willing to pay is reached, the fleet stops launching instances
  *          even if it hasn’t met the target capacity. The <code>MaxTotalPrice</code> parameters are
- *          located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a>
- *          </p>
+ *          located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html">OnDemandOptions</a>
+ *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions">SpotOptions</a>.</p>
  */
 export interface TargetCapacitySpecification {
   /**
@@ -6262,7 +6189,7 @@ export interface Host {
   AvailableCapacity?: AvailableCapacity;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -6314,10 +6241,9 @@ export interface Host {
   HostRecovery?: HostRecovery | string;
 
   /**
-   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family,
-   * 			or a specific instance type only. <code>one</code> indicates that the Dedicated Host supports
-   * 			multiple instance types in the instance family. <code>off</code> indicates that the Dedicated
-   * 			Host supports a single instance type only.</p>
+   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family.
+   * 			If the value is <code>on</code>, the Dedicated Host supports multiple instance types in the instance family.
+   * 		    If the value is <code>off</code>, the Dedicated Host supports a single instance type only.</p>
    */
   AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
 
@@ -6506,7 +6432,6 @@ export namespace DescribeIdFormatResult {
 
 export type ImageAttributeName =
   | "blockDeviceMapping"
-  | "bootMode"
   | "description"
   | "kernel"
   | "launchPermission"
@@ -6610,11 +6535,6 @@ export interface ImageAttribute {
    * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
    */
   SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>Describes a value for a resource attribute that is a String.</p>
-   */
-  BootMode?: AttributeValue;
 }
 
 export namespace ImageAttribute {
@@ -6812,8 +6732,6 @@ export namespace DescribeImagesRequest {
 }
 
 export type ArchitectureValues = "arm64" | "i386" | "x86_64";
-
-export type BootModeValues = "legacy-bios" | "uefi";
 
 export type HypervisorType = "ovm" | "xen";
 
@@ -7054,8 +6972,6 @@ export interface Image {
    * <p>The type of virtualization of the AMI.</p>
    */
   VirtualizationType?: VirtualizationType | string;
-
-  BootMode?: BootModeValues | string;
 }
 
 export namespace Image {
@@ -8445,7 +8361,7 @@ export namespace ElasticInferenceAcceleratorAssociation {
  *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
  *                 prerequisites</a>. For
  *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface HibernationOptions {
   /**
@@ -9027,8 +8943,8 @@ export interface Instance {
    *             controls whether source/destination checking is enabled on the instance. A value of
    *                 <code>true</code> means that checking is enabled, and <code>false</code> means that
    *             checking is disabled. The value must be <code>false</code> for the instance to perform
-   *             NAT. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT Instances</a> in the
-   *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+   *             NAT. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT instances</a> in the
+   *                 <i>Amazon VPC User Guide</i>.</p>
    */
   SourceDestCheck?: boolean;
 
@@ -9510,8 +9426,7 @@ export namespace DescribeInstanceTypeOfferingsRequest {
  */
 export interface InstanceTypeOffering {
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -9561,8 +9476,7 @@ export interface DescribeInstanceTypesRequest {
   DryRun?: boolean;
 
   /**
-   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
+   * <p>The instance types. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceTypes?: (_InstanceType | string)[];
 
@@ -9848,8 +9762,8 @@ export enum EbsNvmeSupport {
  */
 export interface EbsInfo {
   /**
-   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-Optimized
-   *     Instances</a> in <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
+   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
    */
   EbsOptimizedSupport?: EbsOptimizedSupport | string;
 
@@ -9889,4 +9803,129 @@ export namespace FpgaDeviceMemoryInfo {
   export const filterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Describes the FPGA accelerator for the instance type.</p>
+ */
+export interface FpgaDeviceInfo {
+  /**
+   * <p>The name of the FPGA accelerator.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The manufacturer of the FPGA accelerator.</p>
+   */
+  Manufacturer?: string;
+
+  /**
+   * <p>The count of FPGA accelerators for the instance type.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
+   */
+  MemoryInfo?: FpgaDeviceMemoryInfo;
+}
+
+export namespace FpgaDeviceInfo {
+  export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the FPGAs for the instance type.</p>
+ */
+export interface FpgaInfo {
+  /**
+   * <p>Describes the FPGAs for the instance type.</p>
+   */
+  Fpgas?: FpgaDeviceInfo[];
+
+  /**
+   * <p>The total memory of all FPGA accelerators for the instance type.</p>
+   */
+  TotalFpgaMemoryInMiB?: number;
+}
+
+export namespace FpgaInfo {
+  export const filterSensitiveLog = (obj: FpgaInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the memory available to the GPU accelerator.</p>
+ */
+export interface GpuDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
+   */
+  SizeInMiB?: number;
+}
+
+export namespace GpuDeviceMemoryInfo {
+  export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the GPU accelerators for the instance type.</p>
+ */
+export interface GpuDeviceInfo {
+  /**
+   * <p>The name of the GPU accelerator.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The manufacturer of the GPU accelerator.</p>
+   */
+  Manufacturer?: string;
+
+  /**
+   * <p>The number of GPUs for the instance type.</p>
+   */
+  Count?: number;
+
+  /**
+   * <p>Describes the memory available to the GPU accelerator.</p>
+   */
+  MemoryInfo?: GpuDeviceMemoryInfo;
+}
+
+export namespace GpuDeviceInfo {
+  export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the GPU accelerators for the instance type.</p>
+ */
+export interface GpuInfo {
+  /**
+   * <p>Describes the GPU accelerators for the instance type.</p>
+   */
+  Gpus?: GpuDeviceInfo[];
+
+  /**
+   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
+   */
+  TotalGpuMemoryInMiB?: number;
+}
+
+export namespace GpuInfo {
+  export const filterSensitiveLog = (obj: GpuInfo): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceTypeHypervisor {
+  NITRO = "nitro",
+  XEN = "xen",
 }

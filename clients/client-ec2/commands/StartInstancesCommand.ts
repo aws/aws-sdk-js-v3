@@ -34,7 +34,7 @@ export type StartInstancesCommandOutput = StartInstancesResult & __MetadataBeare
  *         <p>Performing this operation on an instance that uses an instance store as its root
  *             device returns an error.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stopping instances</a> in the
- *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export class StartInstancesCommand extends $Command<
   StartInstancesCommandInput,

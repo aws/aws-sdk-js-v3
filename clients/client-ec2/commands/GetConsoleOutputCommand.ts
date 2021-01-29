@@ -33,7 +33,7 @@ export type GetConsoleOutputCommandOutput = GetConsoleOutputResult & __MetadataB
  *             instance lifecycle. This option is supported on instance types that use the Nitro
  *             hypervisor.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
- *                 Console Output</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *                 console output</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class GetConsoleOutputCommand extends $Command<
   GetConsoleOutputCommandInput,

@@ -960,33 +960,6 @@ export namespace Address {
   });
 }
 
-export interface PtrUpdateStatus {
-  Value?: string;
-  Status?: string;
-  Reason?: string;
-}
-
-export namespace PtrUpdateStatus {
-  export const filterSensitiveLog = (obj: PtrUpdateStatus): any => ({
-    ...obj,
-  });
-}
-
-export interface AddressAttribute {
-  PublicIp?: string;
-  AllocationId?: string;
-  PtrRecord?: string;
-  PtrRecordUpdate?: PtrUpdateStatus;
-}
-
-export namespace AddressAttribute {
-  export const filterSensitiveLog = (obj: AddressAttribute): any => ({
-    ...obj,
-  });
-}
-
-export type AddressAttributeName = "domain-name";
-
 export interface AdvertiseByoipCidrRequest {
   /**
    * <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
@@ -1065,6 +1038,96 @@ export namespace AdvertiseByoipCidrResult {
 
 export type Affinity = "default" | "host";
 
+export type ResourceType =
+  | "client-vpn-endpoint"
+  | "customer-gateway"
+  | "dedicated-host"
+  | "dhcp-options"
+  | "egress-only-internet-gateway"
+  | "elastic-gpu"
+  | "elastic-ip"
+  | "export-image-task"
+  | "export-instance-task"
+  | "fleet"
+  | "fpga-image"
+  | "host-reservation"
+  | "image"
+  | "import-image-task"
+  | "import-snapshot-task"
+  | "instance"
+  | "internet-gateway"
+  | "key-pair"
+  | "launch-template"
+  | "local-gateway-route-table-vpc-association"
+  | "natgateway"
+  | "network-acl"
+  | "network-insights-analysis"
+  | "network-insights-path"
+  | "network-interface"
+  | "placement-group"
+  | "reserved-instances"
+  | "route-table"
+  | "security-group"
+  | "snapshot"
+  | "spot-fleet-request"
+  | "spot-instances-request"
+  | "subnet"
+  | "traffic-mirror-filter"
+  | "traffic-mirror-session"
+  | "traffic-mirror-target"
+  | "transit-gateway"
+  | "transit-gateway-attachment"
+  | "transit-gateway-connect-peer"
+  | "transit-gateway-multicast-domain"
+  | "transit-gateway-route-table"
+  | "volume"
+  | "vpc"
+  | "vpc-flow-log"
+  | "vpc-peering-connection"
+  | "vpn-connection"
+  | "vpn-gateway";
+
+/**
+ * <p>The tags to apply to a resource when the resource is being created.</p>
+ */
+export interface TagSpecification {
+  /**
+   * <p>The type of resource to tag. Currently, the resource types that support tagging on
+   *          creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |
+   *             <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |
+   *     	   <code>dedicated-host</code> | <code>dhcp-options</code> | <code>egress-only-internet-gateway</code> | <code>elastic-ip</code> | <code>elastic-gpu</code> |
+   *     	   <code>export-image-task</code>
+   *          | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
+   *     	   <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> |
+   *             <code>import-snapshot-task</code> | <code>instance</code> |
+   *             <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
+   *     	   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> |
+   *     	   <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> |
+   *     	   <code>reserved-instances</code> |<code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code>
+   *          | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |
+   *             <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |
+   *             <code>traffic-mirror-target</code> | <code>transit-gateway</code> |
+   *     	   <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
+   *             <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |
+   *             <code>vpc-endpoint</code> (for interface and gateway endpoints) |
+   *             <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |
+   *             <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
+   *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tags to apply to the resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TagSpecification {
+  export const filterSensitiveLog = (obj: TagSpecification): any => ({
+    ...obj,
+  });
+}
+
 export interface AllocateAddressRequest {
   /**
    * <p>Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.</p>
@@ -1109,6 +1172,11 @@ export interface AllocateAddressRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The tags to assign to the Elastic IP address.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace AllocateAddressRequest {
@@ -1172,103 +1240,13 @@ export type AutoPlacement = "off" | "on";
 
 export type HostRecovery = "off" | "on";
 
-export type ResourceType =
-  | "client-vpn-endpoint"
-  | "customer-gateway"
-  | "dedicated-host"
-  | "dhcp-options"
-  | "egress-only-internet-gateway"
-  | "elastic-gpu"
-  | "elastic-ip"
-  | "export-image-task"
-  | "export-instance-task"
-  | "fleet"
-  | "fpga-image"
-  | "host-reservation"
-  | "image"
-  | "import-image-task"
-  | "import-snapshot-task"
-  | "instance"
-  | "internet-gateway"
-  | "key-pair"
-  | "launch-template"
-  | "local-gateway-route-table-vpc-association"
-  | "natgateway"
-  | "network-acl"
-  | "network-insights-analysis"
-  | "network-insights-path"
-  | "network-interface"
-  | "placement-group"
-  | "reserved-instances"
-  | "route-table"
-  | "security-group"
-  | "snapshot"
-  | "spot-fleet-request"
-  | "spot-instances-request"
-  | "subnet"
-  | "traffic-mirror-filter"
-  | "traffic-mirror-session"
-  | "traffic-mirror-target"
-  | "transit-gateway"
-  | "transit-gateway-attachment"
-  | "transit-gateway-connect-peer"
-  | "transit-gateway-multicast-domain"
-  | "transit-gateway-route-table"
-  | "volume"
-  | "vpc"
-  | "vpc-flow-log"
-  | "vpc-peering-connection"
-  | "vpn-connection"
-  | "vpn-gateway";
-
-/**
- * <p>The tags to apply to a resource when the resource is being created.</p>
- */
-export interface TagSpecification {
-  /**
-   * <p>The type of resource to tag. Currently, the resource types that support tagging on
-   *          creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> |
-   *             <code>client-vpn-endpoint</code> |  <code>customer-gateway</code> |
-   *             <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code>
-   *          | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
-   *             <code>host-reservation</code> | <code>import-image-task</code> |
-   *             <code>import-snapshot-task</code> | <code>instance</code> |
-   *             <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
-   *             <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> |
-   *             <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> |
-   *             <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code>
-   *          | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> |
-   *             <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> |
-   *             <code>traffic-mirror-target</code> | <code>transit-gateway</code> |
-   *     	    <code>transit-gateway-attachment</code> | <code>transit-gateway-connect-peer</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
-   *             <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> |
-   *             <code>vpc-endpoint</code> (for interface and gateway endpoints) |
-   *             <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> |
-   *             <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>The tags to apply to the resource.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace TagSpecification {
-  export const filterSensitiveLog = (obj: TagSpecification): any => ({
-    ...obj,
-  });
-}
-
 export interface AllocateHostsRequest {
   /**
    * <p>Indicates whether the host accepts any untargeted instance launches that
    *     		match its instance type configuration, or if it only accepts Host tenancy
    *     		instance launches that specify its unique host ID. For more information,
    *     		see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding">
-   *             	Understanding Instance Placement and Host Affinity</a> in the
-   *         	<i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         	Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *
    *         <p>Default: <code>on</code>
    *          </p>
@@ -1281,7 +1259,7 @@ export interface AllocateHostsRequest {
   AvailabilityZone: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -1323,7 +1301,7 @@ export interface AllocateHostsRequest {
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host.
    * 			Host recovery is disabled by default. For more information, see
    * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
-   * 				Host Recovery</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 			Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * 		       <p>Default: <code>off</code>
    *          </p>
    */
@@ -4037,14 +4015,12 @@ export type CapacityReservationTenancy = "dedicated" | "default";
 
 export interface CreateCapacityReservationRequest {
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>The instance type for which to reserve capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-   * 				Types</a> in the <i>Amazon Elastic Compute Cloud User
-   * 			Guide</i>.</p>
+   * <p>The instance type for which to reserve capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceType: string | undefined;
 
@@ -4263,7 +4239,7 @@ export interface CapacityReservation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>cancelled</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no
+   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
    * 					longer available for your use.</p>
    *             </li>
    *             <li>
@@ -4280,6 +4256,11 @@ export interface CapacityReservation {
    *          </ul>
    */
   State?: CapacityReservationState | string;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation was started.</p>
+   */
+  StartDate?: Date;
 
   /**
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
@@ -5439,7 +5420,7 @@ export enum FleetExcessCapacityTerminationPolicy {
  * <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
  *          an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching
  *             an instance from a launch template</a> in the
- *          <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface FleetLaunchTemplateSpecificationRequest {
   /**
@@ -5551,7 +5532,6 @@ export type _InstanceType =
   | "c6gn.8xlarge"
   | "c6gn.large"
   | "c6gn.medium"
-  | "c6gn.metal"
   | "c6gn.xlarge"
   | "cc1.4xlarge"
   | "cc2.8xlarge"
@@ -5564,15 +5544,12 @@ export type _InstanceType =
   | "d3.2xlarge"
   | "d3.4xlarge"
   | "d3.8xlarge"
-  | "d3.metal"
   | "d3.xlarge"
   | "d3en.12xlarge"
   | "d3en.2xlarge"
   | "d3en.4xlarge"
   | "d3en.6xlarge"
   | "d3en.8xlarge"
-  | "d3en.large"
-  | "d3en.metal"
   | "d3en.xlarge"
   | "f1.16xlarge"
   | "f1.2xlarge"
@@ -5584,10 +5561,8 @@ export type _InstanceType =
   | "g3.8xlarge"
   | "g3s.xlarge"
   | "g4ad.16xlarge"
-  | "g4ad.2xlarge"
   | "g4ad.4xlarge"
   | "g4ad.8xlarge"
-  | "g4ad.xlarge"
   | "g4dn.12xlarge"
   | "g4dn.16xlarge"
   | "g4dn.2xlarge"
@@ -5600,7 +5575,6 @@ export type _InstanceType =
   | "h1.4xlarge"
   | "h1.8xlarge"
   | "hi1.4xlarge"
-  | "hpc5a.48xlarge"
   | "hs1.8xlarge"
   | "i2.2xlarge"
   | "i2.4xlarge"
@@ -6020,9 +5994,9 @@ export enum FleetCapacityReservationUsageStrategy {
  *             <p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p>
  *          </note>
  *          <p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity
- *             Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using
+ *             Reservations</a> in the <i>Amazon EC2 User Guide</i>. For examples of using
  *          Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example
- *             configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             configurations</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface CapacityReservationOptionsRequest {
   /**
@@ -6110,7 +6084,7 @@ export enum FleetReplacementStrategy {
 /**
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
  *          Spot Instance is at an elevated risk of being interrupted. For more information, see
- *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface FleetSpotCapacityRebalanceRequest {
   /**
@@ -6232,7 +6206,8 @@ export enum DefaultTargetCapacityType {
  *          in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're
  *          willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops
  *          launching instances even if it hasn’t met the target capacity. The
- *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
+ *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a>
+ *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  */
 export interface TargetCapacitySpecificationRequest {
   /**
@@ -6321,7 +6296,7 @@ export interface CreateFleetRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>maintain</code> - The EC2 Fleet plaees an asynchronous request for your desired
+   *                   <code>maintain</code> - The EC2 Fleet places an asynchronous request for your desired
    *                capacity, and continues to maintain your desired Spot capacity by replenishing
    *                interrupted Spot Instances.</p>
    *             </li>
@@ -6340,7 +6315,7 @@ export interface CreateFleetRequest {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2 Fleet
-   *             request types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   Type?: FleetType | string;
 
@@ -6831,7 +6806,7 @@ export interface EbsBlockDevice {
   /**
    * <p>Indicates whether the EBS volume is deleted on instance termination. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving Amazon EBS volumes on instance termination</a> in the
-   *             Amazon Elastic Compute Cloud User Guide.</p>
+   *             <i>Amazon EC2 User Guide</i>.</p>
    */
   DeleteOnTermination?: boolean;
 
@@ -6885,11 +6860,7 @@ export interface EbsBlockDevice {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>st1</code>: 500-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sc1</code>: 500-16,384</p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6901,7 +6872,7 @@ export interface EbsBlockDevice {
 
   /**
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *             <i>Amazon Elastic Compute Cloud User Guide</i>. If the volume type is <code>io1</code> or <code>io2</code>,
+   *             <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or <code>io2</code>,
    *             you must specify the IOPS that the volume supports.</p>
    */
   VolumeType?: VolumeType | string;
@@ -6927,8 +6898,8 @@ export interface EbsBlockDevice {
    *             restored from a backing snapshot.
    *             The effect of setting the encryption state to <code>true</code> depends on
    * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS Encryption</a>
-   *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>In no case can you remove encryption from an encrypted volume.</p>
    *         <p>Encrypted volumes can only be attached to instances that support Amazon EBS
    *             encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
@@ -6973,8 +6944,7 @@ export interface BlockDeviceMapping {
   Ebs?: EbsBlockDevice;
 
   /**
-   * <p>Suppresses the specified device included in the block device mapping of the
-   *             AMI.</p>
+   * <p>To omit the device from the block device mapping, specify an empty string.</p>
    */
   NoDevice?: string;
 }
@@ -7719,3 +7689,79 @@ export type MarketType = "spot";
 export type InstanceInterruptionBehavior = "hibernate" | "stop" | "terminate";
 
 export type SpotInstanceType = "one-time" | "persistent";
+
+/**
+ * <p>The options for Spot Instances.</p>
+ */
+export interface LaunchTemplateSpotMarketOptionsRequest {
+  /**
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type.</p>
+   */
+  SpotInstanceType?: SpotInstanceType | string;
+
+  /**
+   * <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>The end date of the request.
+   *             For a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached.
+   *             If the request is persistent, it remains active until it is canceled or this date and time is reached.
+   *             The default end date is 7 days from the current date.</p>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+}
+
+export namespace LaunchTemplateSpotMarketOptionsRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateSpotMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The market (purchasing) option for the instances.</p>
+ */
+export interface LaunchTemplateInstanceMarketOptionsRequest {
+  /**
+   * <p>The market type.</p>
+   */
+  MarketType?: MarketType | string;
+
+  /**
+   * <p>The options for Spot Instances.</p>
+   */
+  SpotOptions?: LaunchTemplateSpotMarketOptionsRequest;
+}
+
+export namespace LaunchTemplateInstanceMarketOptionsRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateInstanceMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a license configuration.</p>
+ */
+export interface LaunchTemplateLicenseConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   */
+  LicenseConfigurationArn?: string;
+}
+
+export namespace LaunchTemplateLicenseConfigurationRequest {
+  export const filterSensitiveLog = (obj: LaunchTemplateLicenseConfigurationRequest): any => ({
+    ...obj,
+  });
+}

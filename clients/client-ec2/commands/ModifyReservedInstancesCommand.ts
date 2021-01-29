@@ -26,7 +26,7 @@ export type ModifyReservedInstancesCommandOutput = ModifyReservedInstancesResult
  *             modified must be identical, except for Availability Zone, network platform, and instance
  *             type.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
- * 				Instances</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+ * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class ModifyReservedInstancesCommand extends $Command<
   ModifyReservedInstancesCommandInput,

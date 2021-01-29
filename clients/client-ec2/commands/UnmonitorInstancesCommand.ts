@@ -22,8 +22,7 @@ export type UnmonitorInstancesCommandOutput = UnmonitorInstancesResult & __Metad
 
 /**
  * <p>Disables detailed monitoring for a running instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitoring
- *                 your instances and volumes</a> in the <i>Amazon Elastic Compute Cloud
- *                 User Guide</i>.</p>
+ *             your instances and volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class UnmonitorInstancesCommand extends $Command<
   UnmonitorInstancesCommandInput,
