@@ -354,6 +354,16 @@ describe("convertToAttr", () => {
       );
     });
 
+    it(`testing Object.create with function`, () => {
+      const person = {
+        isHuman: true,
+        printIntroduction: function () {
+          console.log(`Am I human? ${this.isHuman}`);
+        },
+      };
+      expect(convertToAttr(Object.create(person))).toEqual({ M: { isHuman: { BOOL: true } } });
+    });
+
     it(`testing Object.create(null)`, () => {
       expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
     });
