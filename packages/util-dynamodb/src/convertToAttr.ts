@@ -109,18 +109,19 @@ const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
   options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
-  M: Object.entries(data)
-    .filter(
-      ([key, value]: [string, NativeAttributeValue]) =>
-        !options?.removeUndefinedValues || (options?.removeUndefinedValues && value !== undefined)
-    )
-    .reduce(
-      (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
-        ...acc,
-        [key]: convertToAttr(value, options),
-      }),
-      {}
-    ),
+  M: (function getMapFromEnurablePropsInPrototypeChain(data) {
+    const map: { [key: string]: AttributeValue } = {};
+    for (const key in data) {
+      const value = data[key];
+      if (
+        typeof value !== "function" &&
+        (!options?.removeUndefinedValues || (options?.removeUndefinedValues && value !== undefined))
+      ) {
+        map[key] = convertToAttr(value, options);
+      }
+    }
+    return map;
+  })(data),
 });
 
 // For future-proofing: this functions are called from multiple places
