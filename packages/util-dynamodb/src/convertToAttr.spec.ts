@@ -459,6 +459,9 @@ describe("convertToAttr", () => {
           private readonly listAttr: any[],
           private readonly mapAttr: { [key: string]: any }
         ) {}
+        public exampleMethod() {
+          return "This method won't be marshalled";
+        }
       }
       expect(
         convertToAttr(
