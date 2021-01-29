@@ -28,11 +28,13 @@ import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.SetUtils;
 
 public class AddCrossRegionCopyingPlugin implements TypeScriptIntegration {
+    private static final Set<String> SHARED_PRESIGNED_URL_OPERATIONS = SetUtils.of(
+        "CopyDBClusterSnapshot",
+        "CreateDBCluster"
+    );
     private static final Set<String> RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(
         "CopyDBSnapshot",
-        "CreateDBInstanceReadReplica",
-        "CreateDBCluster",
-        "CopyDBClusterSnapshot"
+        "CreateDBInstanceReadReplica"
     );
 
     @Override
@@ -42,6 +44,12 @@ public class AddCrossRegionCopyingPlugin implements TypeScriptIntegration {
                 .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl",
                         HAS_MIDDLEWARE)
                 .operationPredicate((m, s, o) -> RDS_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName())
+                        && testServiceId(s, "RDS"))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl",
+                        HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> SHARED_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName())
                         && testServiceId(s, "RDS"))
                 .build()
         );
