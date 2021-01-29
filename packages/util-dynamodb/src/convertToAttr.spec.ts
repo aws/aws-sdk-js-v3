@@ -351,6 +351,10 @@ describe("convertToAttr", () => {
       }
     );
 
+    it(`testing Object.create(null)`, () => {
+      expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
+    });
+
     it(`testing map with options.convertEmptyValues=true`, () => {
       const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
       expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({

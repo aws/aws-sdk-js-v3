@@ -18,7 +18,11 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
-  } else if (data?.constructor?.name === "Object") {
+  } else if (
+    data?.constructor?.name === "Object" ||
+    // for object which is result of Object.create(null), which doesn't have constructor defined
+    (!data.constructor && typeof data === "object")
+  ) {
     return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   } else if (isBinary(data)) {
     if (data.length === 0 && options?.convertEmptyValues) {
