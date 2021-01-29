@@ -25,8 +25,7 @@ export type ModifyInstanceCreditSpecificationCommandOutput = ModifyInstanceCredi
  *             instance. The credit options are <code>standard</code> and
  *             <code>unlimited</code>.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
- *                 performance instances</a> in the <i>Amazon Elastic Compute Cloud User
- *                 Guide</i>.</p>
+ *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<
   ModifyInstanceCreditSpecificationCommandInput,

@@ -30,7 +30,7 @@ export type PurchaseReservedInstancesOfferingCommandOutput = PurchaseReservedIns
  *       purchase time, the default is the current time.</p>
  *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved Instances</a> and
  *    	   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
- *    	   in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *    	   in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class PurchaseReservedInstancesOfferingCommand extends $Command<
   PurchaseReservedInstancesOfferingCommandInput,

@@ -23,8 +23,7 @@ export type DeletePlacementGroupCommandOutput = __MetadataBearer;
 /**
  * <p>Deletes the specified placement group. You must terminate all instances in the
  *             placement group before you can delete the placement group. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon Elastic Compute Cloud User
- *                 Guide</i>.</p>
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export class DeletePlacementGroupCommand extends $Command<
   DeletePlacementGroupCommandInput,

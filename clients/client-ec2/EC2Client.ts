@@ -499,10 +499,6 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
-import {
-  DescribeAddressesAttributeCommandInput,
-  DescribeAddressesAttributeCommandOutput,
-} from "./commands/DescribeAddressesAttributeCommand";
 import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "./commands/DescribeAddressesCommand";
 import {
   DescribeAggregateIdFormatCommandInput,
@@ -1118,10 +1114,6 @@ import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./command
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand";
 import {
-  ModifyAddressAttributeCommandInput,
-  ModifyAddressAttributeCommandOutput,
-} from "./commands/ModifyAddressAttributeCommand";
-import {
   ModifyAvailabilityZoneGroupCommandInput,
   ModifyAvailabilityZoneGroupCommandOutput,
 } from "./commands/ModifyAvailabilityZoneGroupCommand";
@@ -1353,10 +1345,6 @@ import {
   RequestSpotInstancesCommandInput,
   RequestSpotInstancesCommandOutput,
 } from "./commands/RequestSpotInstancesCommand";
-import {
-  ResetAddressAttributeCommandInput,
-  ResetAddressAttributeCommandOutput,
-} from "./commands/ResetAddressAttributeCommand";
 import {
   ResetEbsDefaultKmsKeyIdCommandInput,
   ResetEbsDefaultKmsKeyIdCommandOutput,
@@ -1669,7 +1657,6 @@ export type ServiceInputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandInput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandInput
   | DescribeAccountAttributesCommandInput
-  | DescribeAddressesAttributeCommandInput
   | DescribeAddressesCommandInput
   | DescribeAggregateIdFormatCommandInput
   | DescribeAvailabilityZonesCommandInput
@@ -1846,7 +1833,6 @@ export type ServiceInputTypes =
   | ImportKeyPairCommandInput
   | ImportSnapshotCommandInput
   | ImportVolumeCommandInput
-  | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
   | ModifyClientVpnEndpointCommandInput
@@ -1917,7 +1903,6 @@ export type ServiceInputTypes =
   | ReportInstanceStatusCommandInput
   | RequestSpotFleetCommandInput
   | RequestSpotInstancesCommandInput
-  | ResetAddressAttributeCommandInput
   | ResetEbsDefaultKmsKeyIdCommandInput
   | ResetFpgaImageAttributeCommandInput
   | ResetImageAttributeCommandInput
@@ -2111,7 +2096,6 @@ export type ServiceOutputTypes =
   | DeregisterTransitGatewayMulticastGroupMembersCommandOutput
   | DeregisterTransitGatewayMulticastGroupSourcesCommandOutput
   | DescribeAccountAttributesCommandOutput
-  | DescribeAddressesAttributeCommandOutput
   | DescribeAddressesCommandOutput
   | DescribeAggregateIdFormatCommandOutput
   | DescribeAvailabilityZonesCommandOutput
@@ -2288,7 +2272,6 @@ export type ServiceOutputTypes =
   | ImportKeyPairCommandOutput
   | ImportSnapshotCommandOutput
   | ImportVolumeCommandOutput
-  | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
   | ModifyClientVpnEndpointCommandOutput
@@ -2359,7 +2342,6 @@ export type ServiceOutputTypes =
   | ReportInstanceStatusCommandOutput
   | RequestSpotFleetCommandOutput
   | RequestSpotInstancesCommandOutput
-  | ResetAddressAttributeCommandOutput
   | ResetEbsDefaultKmsKeyIdCommandOutput
   | ResetFpgaImageAttributeCommandOutput
   | ResetImageAttributeCommandOutput

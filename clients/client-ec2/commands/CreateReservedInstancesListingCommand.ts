@@ -36,7 +36,7 @@ export type CreateReservedInstancesListingCommandOutput = CreateReservedInstance
  *       view the details of your Standard Reserved Instance listing, you can use the
  *         <a>DescribeReservedInstancesListings</a> operation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the
- * 				<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 				<i>Amazon EC2 User Guide</i>.</p>
  */
 export class CreateReservedInstancesListingCommand extends $Command<
   CreateReservedInstancesListingCommandInput,

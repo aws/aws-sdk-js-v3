@@ -73,11 +73,9 @@ export type RunInstancesCommandOutput = Reservation & __MetadataBearer;
  *         <p>Linux instances have access to the public key of the key pair at boot. You can use
  *             this key to provide secure access to the instance. Amazon EC2 public images use this
  *             feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
- *                 pairs</a> in the <i>Amazon Elastic Compute Cloud User
- *             Guide</i>.</p>
+ *                 pairs</a>.</p>
  *         <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
- *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a> in the <i>Amazon Elastic
- *                 Compute Cloud User Guide</i>.</p>
+ *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
  */
 export class RunInstancesCommand extends $Command<
   RunInstancesCommandInput,

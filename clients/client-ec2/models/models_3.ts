@@ -11,6 +11,7 @@ import {
   CurrencyCodeValues,
   FleetLaunchTemplateSpecification,
   FleetType,
+  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceInterruptionBehavior,
   InternetGateway,
@@ -19,12 +20,14 @@ import {
   ResourceType,
   SpotInstanceType,
   Subnet,
+  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   Tenancy,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
+  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UserIdGroupPair,
@@ -78,137 +81,14 @@ import {
   EventInformation,
   FastSnapshotRestoreStateCode,
   Filter,
-  FpgaDeviceMemoryInfo,
+  FpgaInfo,
+  GpuInfo,
   IdFormat,
+  InstanceTypeHypervisor,
   PermissionGroup,
   ProductCode,
   VirtualizationType,
 } from "./models_2";
-
-/**
- * <p>Describes the FPGA accelerator for the instance type.</p>
- */
-export interface FpgaDeviceInfo {
-  /**
-   * <p>The name of the FPGA accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the FPGA accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The count of FPGA accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
-   */
-  MemoryInfo?: FpgaDeviceMemoryInfo;
-}
-
-export namespace FpgaDeviceInfo {
-  export const filterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the FPGAs for the instance type.</p>
- */
-export interface FpgaInfo {
-  /**
-   * <p>Describes the FPGAs for the instance type.</p>
-   */
-  Fpgas?: FpgaDeviceInfo[];
-
-  /**
-   * <p>The total memory of all FPGA accelerators for the instance type.</p>
-   */
-  TotalFpgaMemoryInMiB?: number;
-}
-
-export namespace FpgaInfo {
-  export const filterSensitiveLog = (obj: FpgaInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the memory available to the GPU accelerator.</p>
- */
-export interface GpuDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
-
-export namespace GpuDeviceMemoryInfo {
-  export const filterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- */
-export interface GpuDeviceInfo {
-  /**
-   * <p>The name of the GPU accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the GPU accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The number of GPUs for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory available to the GPU accelerator.</p>
-   */
-  MemoryInfo?: GpuDeviceMemoryInfo;
-}
-
-export namespace GpuDeviceInfo {
-  export const filterSensitiveLog = (obj: GpuDeviceInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the GPU accelerators for the instance type.</p>
- */
-export interface GpuInfo {
-  /**
-   * <p>Describes the GPU accelerators for the instance type.</p>
-   */
-  Gpus?: GpuDeviceInfo[];
-
-  /**
-   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
-   */
-  TotalGpuMemoryInMiB?: number;
-}
-
-export namespace GpuInfo {
-  export const filterSensitiveLog = (obj: GpuInfo): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
-}
 
 /**
  * <p>Describes the Inference accelerators for the instance type.</p>
@@ -458,8 +338,6 @@ export namespace ProcessorInfo {
   });
 }
 
-export type BootModeType = "legacy-bios" | "uefi";
-
 export type RootDeviceType = "ebs" | "instance-store";
 
 export type UsageClassType = "on-demand" | "spot";
@@ -505,8 +383,7 @@ export namespace VCpuInfo {
  */
 export interface InstanceTypeInfo {
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -619,8 +496,6 @@ export interface InstanceTypeInfo {
    * <p>Indicates whether auto recovery is supported.</p>
    */
   AutoRecoverySupported?: boolean;
-
-  SupportedBootModes?: (BootModeType | string)[];
 }
 
 export namespace InstanceTypeInfo {
@@ -631,8 +506,7 @@ export namespace InstanceTypeInfo {
 
 export interface DescribeInstanceTypesResult {
   /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute
-   *     Cloud User Guide</i>.</p>
+   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceTypes?: InstanceTypeInfo[];
 
@@ -4461,8 +4335,9 @@ export interface DescribeReservedInstancesOfferingsRequest {
   IncludeMarketplace?: boolean;
 
   /**
-   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see
+   *        <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -9171,7 +9046,11 @@ export interface VolumeModification {
    */
   TargetThroughput?: number;
 
+  /**
+   * <p>The target setting for Amazon EBS Multi-Attach.</p>
+   */
   TargetMultiAttachEnabled?: boolean;
+
   /**
    * <p>The original size of the volume, in GiB.</p>
    */
@@ -9192,7 +9071,11 @@ export interface VolumeModification {
    */
   OriginalThroughput?: number;
 
+  /**
+   * <p>The original setting for Amazon EBS Multi-Attach.</p>
+   */
   OriginalMultiAttachEnabled?: boolean;
+
   /**
    * <p>The modification progress, from 0 to 100 percent complete.</p>
    */
@@ -11440,6 +11323,126 @@ export interface DisassociateEnclaveCertificateIamRoleResult {
 
 export namespace DisassociateEnclaveCertificateIamRoleResult {
   export const filterSensitiveLog = (obj: DisassociateEnclaveCertificateIamRoleResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateIamInstanceProfileRequest {
+  /**
+   * <p>The ID of the IAM instance profile association.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+export namespace DisassociateIamInstanceProfileRequest {
+  export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateIamInstanceProfileResult {
+  /**
+   * <p>Information about the IAM instance profile association.</p>
+   */
+  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
+}
+
+export namespace DisassociateIamInstanceProfileResult {
+  export const filterSensitiveLog = (obj: DisassociateIamInstanceProfileResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateRouteTableRequest {
+  /**
+   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DisassociateRouteTableRequest {
+  export const filterSensitiveLog = (obj: DisassociateRouteTableRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateSubnetCidrBlockRequest {
+  /**
+   * <p>The association ID for the CIDR block.</p>
+   */
+  AssociationId: string | undefined;
+}
+
+export namespace DisassociateSubnetCidrBlockRequest {
+  export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateSubnetCidrBlockResult {
+  /**
+   * <p>Information about the IPv6 CIDR block association.</p>
+   */
+  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+}
+
+export namespace DisassociateSubnetCidrBlockResult {
+  export const filterSensitiveLog = (obj: DisassociateSubnetCidrBlockResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateTransitGatewayMulticastDomainRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The IDs of the subnets;</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DisassociateTransitGatewayMulticastDomainRequest {
+  export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateTransitGatewayMulticastDomainResult {
+  /**
+   * <p>Information about the association.</p>
+   */
+  Associations?: TransitGatewayMulticastDomainAssociations;
+}
+
+export namespace DisassociateTransitGatewayMulticastDomainResult {
+  export const filterSensitiveLog = (obj: DisassociateTransitGatewayMulticastDomainResult): any => ({
     ...obj,
   });
 }
