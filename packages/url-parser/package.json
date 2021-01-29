@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/url-parser",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -19,8 +19,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/querystring-parser": "3.4.0",
-    "@aws-sdk/types": "3.4.0",
+    "@aws-sdk/querystring-parser": "3.4.1",
+    "@aws-sdk/types": "3.4.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

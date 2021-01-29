@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-buffer-from",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -16,7 +16,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "3.4.0",
+    "@aws-sdk/is-array-buffer": "3.4.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
