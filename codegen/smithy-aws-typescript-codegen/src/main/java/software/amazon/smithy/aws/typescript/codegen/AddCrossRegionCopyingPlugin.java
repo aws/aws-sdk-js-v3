@@ -51,7 +51,7 @@ public class AddCrossRegionCopyingPlugin implements TypeScriptIntegration {
                 .withConventions(AwsDependency.RDS_MIDDLEWARE.dependency, "CrossRegionPresignedUrl",
                         HAS_MIDDLEWARE)
                 .operationPredicate((m, s, o) -> SHARED_PRESIGNED_URL_OPERATIONS.contains(o.getId().getName())
-                        && testServiceId(s, "RDS"))
+                        && (testServiceId(s, "RDS") || testServiceId(s, "DocDB")))
                 .build()
         );
     }
