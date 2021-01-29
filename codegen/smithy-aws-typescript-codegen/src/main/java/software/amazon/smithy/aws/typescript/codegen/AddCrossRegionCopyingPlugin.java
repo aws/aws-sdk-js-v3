@@ -34,7 +34,8 @@ public class AddCrossRegionCopyingPlugin implements TypeScriptIntegration {
     );
     private static final Set<String> RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(
         "CopyDBSnapshot",
-        "CreateDBInstanceReadReplica"
+        "CreateDBInstanceReadReplica",
+        "StartDBInstanceAutomatedBackupsReplication"
     );
 
     @Override
