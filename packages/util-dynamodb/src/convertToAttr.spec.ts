@@ -352,6 +352,40 @@ describe("convertToAttr", () => {
           });
         }
       );
+
+      it(`testing map with options.convertEmptyValues=true`, () => {
+        const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({
+          M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
+        });
+      });
+
+      describe(`testing map with options.removeUndefinedValues`, () => {
+        describe("throws error", () => {
+          const testErrorMapWithUndefinedValues = (useObjectCreate: boolean, options?: marshallOptions) => {
+            const input = { definedKey: "definedKey", undefinedKey: undefined };
+            const inputObject = useObjectCreate ? Object.create(input) : input;
+            expect(() => {
+              convertToAttr(inputObject, options);
+            }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+          };
+
+          [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+            it(`when options=${options}`, () => {
+              testErrorMapWithUndefinedValues(useObjectCreate, options);
+            });
+          });
+        });
+
+        it(`returns when options.removeUndefinedValues=true`, () => {
+          const input = { definedKey: "definedKey", undefinedKey: undefined };
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({
+            M: { definedKey: { S: "definedKey" } },
+          });
+        });
+      });
     });
 
     it(`testing Object.create with function`, () => {
@@ -366,36 +400,6 @@ describe("convertToAttr", () => {
 
     it(`testing Object.create(null)`, () => {
       expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
-    });
-
-    it(`testing map with options.convertEmptyValues=true`, () => {
-      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
-      expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
-        M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
-      });
-    });
-
-    describe(`testing map with options.removeUndefinedValues`, () => {
-      describe("throws error", () => {
-        const testErrorMapWithUndefinedValues = (options?: marshallOptions) => {
-          expect(() => {
-            convertToAttr({ definedKey: "definedKey", undefinedKey: undefined }, options);
-          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
-        };
-
-        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
-          it(`when options=${options}`, () => {
-            testErrorMapWithUndefinedValues(options);
-          });
-        });
-      });
-
-      it(`returns when options.removeUndefinedValues=true`, () => {
-        const input = { definedKey: "definedKey", undefinedKey: undefined };
-        expect(convertToAttr(input, { removeUndefinedValues: true })).toEqual({
-          M: { definedKey: { S: "definedKey" } },
-        });
-      });
     });
   });
 
