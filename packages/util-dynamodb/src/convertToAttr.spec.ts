@@ -500,6 +500,35 @@ describe("convertToAttr", () => {
       });
     });
 
+    it("returns inherited values from parent class in map", () => {
+      class Person {
+        protected name: string;
+        constructor(name: string) {
+          this.name = name;
+        }
+      }
+
+      class Employee extends Person {
+        private department: string;
+
+        constructor(name: string, department: string) {
+          super(name);
+          this.department = department;
+        }
+
+        public getElevatorPitch() {
+          return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+        }
+      }
+
+      expect(convertToAttr(new Employee("John", "Sales"), { convertClassInstanceToMap: true })).toEqual({
+        M: {
+          name: { S: "John" },
+          department: { S: "Sales" },
+        },
+      });
+    });
+
     it("returns empty for Date object", () => {
       expect(convertToAttr(new Date(), { convertClassInstanceToMap: true })).toEqual({ M: {} });
     });
