@@ -107,4 +107,12 @@ describe("s3 presigner", () => {
     expect(signedHeaders).toContain("x-amz-server-side-encryption");
     expect(signedHeaders).toContain("x-amz-server-side-encryption-customer-algorithm");
   });
+
+  it("should inject host header if not supplied", async () => {
+    const signer = new S3RequestPresigner(s3ResolvedConfig);
+    const signed = await signer.presign(minimalRequest);
+    expect(signed.headers).toMatchObject({
+      host: minimalRequest.hostname,
+    });
+  });
 });
