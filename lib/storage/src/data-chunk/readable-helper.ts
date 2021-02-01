@@ -10,9 +10,7 @@ export async function* chunkFromReadable(reader: Readable, chunkSize: number): A
   while (partNumber < DEFAULT.MAX_PART_NUMBER) {
     let currentBuffer = oldBuffer;
     if (reader.readable) {
-      reader.resume();
       currentBuffer = await _chunkFromStream(reader, chunkSize, oldBuffer);
-      reader.pause();
     }
 
     yield {
@@ -42,6 +40,7 @@ function _chunkFromStream(stream: Readable, chunkSize: number, oldBuffer: Buffer
       stream.removeAllListeners("data");
       stream.removeAllListeners("error");
       stream.removeAllListeners("end");
+      stream.pause();
     };
 
     stream.on("data", (chunk) => {
@@ -59,5 +58,7 @@ function _chunkFromStream(stream: Readable, chunkSize: number, oldBuffer: Buffer
       cleanupListeners();
       resolve(currentChunk);
     });
+
+    stream.resume();
   });
 }
