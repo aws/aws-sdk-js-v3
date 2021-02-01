@@ -1,4 +1,4 @@
-import { Readable } from "stream";
+import { PassThrough, Readable } from "stream";
 import { chunkFromReadable } from "../../src/data-chunk/readable-helper";
 import { DataPart } from "../../src/data-chunk/yield-chunk";
 
@@ -151,6 +151,45 @@ describe(chunkFromReadable.name, () => {
     it("should properly end the interation", async (done) => {
       expect(chunks[2].done).toEqual(true);
       expect(chunks[2].value).toEqual(undefined);
+      done();
+    });
+  });
+
+  describe("Completely read chunks from stream", () => {
+    const CHUNK_SIZE = 30;
+    const WRITE_ITERATIONS = 3;
+
+    it("should have read the same length than written data", async (done) => {
+      const passThrough = new PassThrough();
+      const interation = chunkFromReadable(passThrough, CHUNK_SIZE);
+
+      const readAllChunks = async () => {
+        let read = 0;
+        while (true) {
+          const { done, value } = await interation.next();
+          if (value) {
+            read += value.Body.length;
+          }
+          if (done) {
+            break;
+          }
+        }
+        return read;
+      };
+
+      const readPromise = readAllChunks();
+
+      let written = 0;
+      for (let i = 0; i < WRITE_ITERATIONS; i++) {
+        const buffer = Buffer.from(INPUT_STRING);
+        passThrough.write(buffer);
+        written += buffer.length;
+      }
+      passThrough.end();
+
+      const read = await readPromise;
+
+      expect(read).toEqual(written);
       done();
     });
   });
