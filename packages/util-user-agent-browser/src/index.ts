@@ -1,5 +1,5 @@
 import { Provider, UserAgent } from "@aws-sdk/types";
-import * as bowser from "bowser";
+import bowser from "bowser";
 
 import { DefaultUserAgentOptions } from "./configurations";
 
