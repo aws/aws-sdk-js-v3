@@ -10192,7 +10192,7 @@ const serializeAws_restXmlBucketLifecycleConfiguration = (
   input: BucketLifecycleConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("BucketLifecycleConfiguration");
+  const bodyNode = new __XmlNode("LifecycleConfiguration");
   if (input.Rules !== undefined && input.Rules !== null) {
     const nodes = serializeAws_restXmlLifecycleRules(input.Rules, context);
     nodes.map((node: any) => {
