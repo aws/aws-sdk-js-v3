@@ -9,7 +9,7 @@ describe("implementation selection", () => {
   });
 
   it("should return false for invalid hostnames", () => {
-    const invalidHostnames = ["foo.com/?bar", ".foo", `${new Array(64).fill("a").join("")}`];
+    const invalidHostnames = ["foo.com/?bar", ".foo"];
     for (const hostname of invalidHostnames) {
       expect(isValidHostname(hostname)).toBe(false);
     }

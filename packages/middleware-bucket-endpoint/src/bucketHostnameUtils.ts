@@ -13,8 +13,10 @@ export interface AccessPointArn extends ARN {
 }
 
 export interface BucketHostnameParams {
+  isCustomEndpoint: boolean;
   baseHostname: string;
   bucketName: string;
+  clientRegion: string;
   accelerateEndpoint?: boolean;
   dualstackEndpoint?: boolean;
   pathStyleEndpoint?: boolean;

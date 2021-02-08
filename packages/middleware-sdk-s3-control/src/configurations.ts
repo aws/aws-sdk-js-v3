@@ -13,11 +13,13 @@ export interface S3ControlInputConfig {
 }
 
 interface PreviouslyResolved {
+  isCustomEndpoint: boolean;
   region: Provider<string>;
   regionInfoProvider: RegionInfoProvider;
 }
 
 export interface S3ControlResolvedConfig {
+  isCustomEndpoint: boolean;
   useDualstackEndpoint: boolean;
   useArnRegion: Provider<boolean>;
   region: Provider<string>;

@@ -25,11 +25,13 @@ export interface BucketEndpointInputConfig {
 }
 
 interface PreviouslyResolved {
+  isCustomEndpoint: boolean;
   region: Provider<string>;
   regionInfoProvider: RegionInfoProvider;
 }
 
 export interface BucketEndpointResolvedConfig {
+  isCustomEndpoint: boolean;
   bucketEndpoint: boolean;
   forcePathStyle: boolean;
   useAccelerateEndpoint: boolean;
