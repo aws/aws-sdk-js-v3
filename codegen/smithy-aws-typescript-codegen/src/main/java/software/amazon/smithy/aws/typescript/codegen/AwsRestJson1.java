@@ -21,7 +21,7 @@ import software.amazon.smithy.model.shapes.ShapeId;
 /**
  * Handles generating the aws.rest-json-1 protocol for services.
  *
- * @inheritDoc
+ * {@inheritDoc}
  *
  * @see RestJsonProtocolGenerator
  */
