@@ -19,13 +19,13 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
   } else if (data?.constructor?.name === "Map") {
-    return convertMapToMapAttr(data as Map<string, NativeAttributeValue>, options);
+    return convertToMapAttrFromIterable(data as Map<string, NativeAttributeValue>, options);
   } else if (
     data?.constructor?.name === "Object" ||
     // for object which is result of Object.create(null), which doesn't have constructor defined
     (!data.constructor && typeof data === "object")
   ) {
-    return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
+    return convertToMapAttrFromEnumerableProps(data as { [key: string]: NativeAttributeValue }, options);
   } else if (isBinary(data)) {
     if (data.length === 0 && options?.convertEmptyValues) {
       return convertToNullAttr();
@@ -45,7 +45,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     }
     return convertToStringAttr(data);
   } else if (options?.convertClassInstanceToMap && typeof data === "object") {
-    return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
+    return convertToMapAttrFromEnumerableProps(data as { [key: string]: NativeAttributeValue }, options);
   }
   throw new Error(
     `Unsupported type passed: ${data}. Pass options.convertClassInstanceToMap=true to marshall typeof object as map attribute.`
@@ -107,11 +107,11 @@ const convertToSetAttr = (
   }
 };
 
-const convertMapToMapAttr = (
+const convertToMapAttrFromIterable = (
   data: Map<string, NativeAttributeValue>,
   options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
-  M: (function getMapFromIterable(data) {
+  M: ((data) => {
     const map: { [key: string]: AttributeValue } = {};
     for (const [key, value] of data) {
       if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
@@ -122,11 +122,11 @@ const convertMapToMapAttr = (
   })(data),
 });
 
-const convertToMapAttr = (
+const convertToMapAttrFromEnumerableProps = (
   data: { [key: string]: NativeAttributeValue },
   options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
-  M: (function getMapFromEnurablePropsInPrototypeChain(data) {
+  M: ((data) => {
     const map: { [key: string]: AttributeValue } = {};
     for (const key in data) {
       const value = data[key];
