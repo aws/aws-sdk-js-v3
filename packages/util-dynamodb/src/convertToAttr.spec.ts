@@ -347,63 +347,104 @@ describe("convertToAttr", () => {
       ({ input, output }) => {
         [true, false].forEach((useObjectCreate) => {
           const inputObject = useObjectCreate ? Object.create(input) : input;
-          it(`testing object: ${inputObject}`, () => {
+          it(`testing object: ${inputObject}${useObjectCreate && " with Object.create()"}`, () => {
             expect(convertToAttr(inputObject)).toEqual({ M: output });
           });
+        });
+
+        const inputMap = new Map(Object.entries(input));
+        it(`testing map: ${inputMap}`, () => {
+          expect(convertToAttr(inputMap)).toEqual({ M: output });
         });
       }
     );
 
-    [true, false].forEach((useObjectCreate) => {
-      it(`testing object with options.convertEmptyValues=true`, () => {
-        const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
+    describe(`with options.convertEmptyValues=true`, () => {
+      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
+      const output = { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } };
+
+      [true, false].forEach((useObjectCreate) => {
         const inputObject = useObjectCreate ? Object.create(input) : input;
-        expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({
-          M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
+        it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({ M: output });
         });
+      });
+
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map`, () => {
+        expect(convertToAttr(inputMap, { convertEmptyValues: true })).toEqual({ M: output });
       });
     });
 
-    [true, false].forEach((useObjectCreate) => {
-      describe(`testing object with options.removeUndefinedValues`, () => {
-        describe("throws error", () => {
-          const testErrorMapWithUndefinedValues = (useObjectCreate: boolean, options?: marshallOptions) => {
-            const input = { definedKey: "definedKey", undefinedKey: undefined };
-            const inputObject = useObjectCreate ? Object.create(input) : input;
-            expect(() => {
-              convertToAttr(inputObject, options);
-            }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
-          };
+    describe(`with options.removeUndefinedValues=true`, () => {
+      describe("throws error", () => {
+        const testErrorMapWithUndefinedValues = (input: any, options?: marshallOptions) => {
+          expect(() => {
+            convertToAttr(input, options);
+          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+        };
 
-          [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
-            it(`when options=${options}`, () => {
-              testErrorMapWithUndefinedValues(useObjectCreate, options);
+        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+          const input = { definedKey: "definedKey", undefinedKey: undefined };
+          [true, false].forEach((useObjectCreate) => {
+            const inputObject = useObjectCreate ? Object.create(input) : input;
+            it(`testing object${useObjectCreate && " with Object.create()"} when options=${options}`, () => {
+              testErrorMapWithUndefinedValues(inputObject, options);
             });
           });
+
+          const inputMap = new Map(Object.entries(input));
+          it(`testing map when options=${options}`, () => {
+            testErrorMapWithUndefinedValues(inputMap, options);
+          });
+        });
+      });
+
+      describe(`returns when options.removeUndefinedValues=true`, () => {
+        const input = { definedKey: "definedKey", undefinedKey: undefined };
+        const output = { definedKey: { S: "definedKey" } };
+        [true, false].forEach((useObjectCreate) => {
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+            expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({ M: output });
+          });
         });
 
-        it(`returns when options.removeUndefinedValues=true`, () => {
-          const input = { definedKey: "definedKey", undefinedKey: undefined };
-          const inputObject = useObjectCreate ? Object.create(input) : input;
-          expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({
-            M: { definedKey: { S: "definedKey" } },
-          });
+        const inputMap = new Map(Object.entries(input));
+        it(`testing map`, () => {
+          expect(convertToAttr(inputMap, { removeUndefinedValues: true })).toEqual({ M: output });
         });
       });
     });
 
-    it(`testing Object.create with function`, () => {
-      const person = {
-        isHuman: true,
-        printIntroduction: function () {
-          console.log(`Am I human? ${this.isHuman}`);
+    describe(`testing with function`, () => {
+      const input = {
+        bool: true,
+        func: function () {
+          console.log(`bool: ${this.bool}`);
         },
       };
-      expect(convertToAttr(Object.create(person))).toEqual({ M: { isHuman: { BOOL: true } } });
+      const output = { bool: { BOOL: true } };
+
+      [true, false].forEach((useObjectCreate) => {
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject)).toEqual({ M: output });
+        });
+      });
+
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map`, () => {
+        expect(convertToAttr(inputMap)).toEqual({ M: output });
+      });
     });
 
     it(`testing Object.create(null)`, () => {
       expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
+    });
+
+    it(`testing empty Map`, () => {
+      expect(convertToAttr(new Map())).toEqual({ M: {} });
     });
   });
 
