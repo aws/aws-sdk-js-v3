@@ -18,6 +18,8 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
+  } else if (data?.constructor?.name === "Map") {
+    return convertMapToMapAttr(data as Map<string, NativeAttributeValue>, options);
   } else if (
     data?.constructor?.name === "Object" ||
     // for object which is result of Object.create(null), which doesn't have constructor defined
@@ -104,6 +106,21 @@ const convertToSetAttr = (
     throw new Error(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
   }
 };
+
+const convertMapToMapAttr = (
+  data: Map<string, NativeAttributeValue>,
+  options?: marshallOptions
+): { M: { [key: string]: AttributeValue } } => ({
+  M: (function getMapFromIterable(data) {
+    const map: { [key: string]: AttributeValue } = {};
+    for (const [key, value] of data) {
+      if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
+        map[key] = convertToAttr(value, options);
+      }
+    }
+    return map;
+  })(data),
+});
 
 const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
