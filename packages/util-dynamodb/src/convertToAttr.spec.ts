@@ -306,79 +306,100 @@ describe("convertToAttr", () => {
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
 
-    ([
-      {
-        input: { nullKey: null, boolKey: false },
-        output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
-      },
-      {
-        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
-        output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
-      },
-      {
-        input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
-        output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
-      },
-      {
-        input: {
-          list1: [null, false],
-          list2: ["one", 1.01, BigInt(9007199254740996)],
+    [true, false].forEach((useObjectCreate) => {
+      ([
+        {
+          input: { nullKey: null, boolKey: false },
+          output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
         },
-        output: {
-          list1: { L: [{ NULL: true }, { BOOL: false }] },
-          list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+        {
+          input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+          output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
         },
-      },
-      {
-        input: {
-          numberSet: new Set([1, 2, 3]),
-          bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-          binarySet: new Set([uint8Arr, biguintArr]),
-          stringSet: new Set(["one", "two", "three"]),
+        {
+          input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+          output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
         },
-        output: {
-          numberSet: { NS: ["1", "2", "3"] },
-          bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
-          binarySet: { BS: [uint8Arr, biguintArr] },
-          stringSet: { SS: ["one", "two", "three"] },
+        {
+          input: {
+            list1: [null, false],
+            list2: ["one", 1.01, BigInt(9007199254740996)],
+          },
+          output: {
+            list1: { L: [{ NULL: true }, { BOOL: false }] },
+            list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
+          },
         },
-      },
-    ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
-      ({ input, output }) => {
-        it(`testing map: ${input}`, () => {
-          expect(convertToAttr(input)).toEqual({ M: output });
+        {
+          input: {
+            numberSet: new Set([1, 2, 3]),
+            bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+            binarySet: new Set([uint8Arr, biguintArr]),
+            stringSet: new Set(["one", "two", "three"]),
+          },
+          output: {
+            numberSet: { NS: ["1", "2", "3"] },
+            bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
+            binarySet: { BS: [uint8Arr, biguintArr] },
+            stringSet: { SS: ["one", "two", "three"] },
+          },
+        },
+      ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
+        ({ input, output }) => {
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          it(`testing map: ${inputObject}`, () => {
+            expect(convertToAttr(inputObject)).toEqual({ M: output });
+          });
+        }
+      );
+
+      it(`testing map with options.convertEmptyValues=true`, () => {
+        const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({
+          M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
         });
-      }
-    );
-
-    it(`testing map with options.convertEmptyValues=true`, () => {
-      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
-      expect(convertToAttr(input, { convertEmptyValues: true })).toEqual({
-        M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
       });
-    });
 
-    describe(`testing map with options.removeUndefinedValues`, () => {
-      describe("throws error", () => {
-        const testErrorMapWithUndefinedValues = (options?: marshallOptions) => {
-          expect(() => {
-            convertToAttr({ definedKey: "definedKey", undefinedKey: undefined }, options);
-          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
-        };
+      describe(`testing map with options.removeUndefinedValues`, () => {
+        describe("throws error", () => {
+          const testErrorMapWithUndefinedValues = (useObjectCreate: boolean, options?: marshallOptions) => {
+            const input = { definedKey: "definedKey", undefinedKey: undefined };
+            const inputObject = useObjectCreate ? Object.create(input) : input;
+            expect(() => {
+              convertToAttr(inputObject, options);
+            }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+          };
 
-        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
-          it(`when options=${options}`, () => {
-            testErrorMapWithUndefinedValues(options);
+          [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+            it(`when options=${options}`, () => {
+              testErrorMapWithUndefinedValues(useObjectCreate, options);
+            });
+          });
+        });
+
+        it(`returns when options.removeUndefinedValues=true`, () => {
+          const input = { definedKey: "definedKey", undefinedKey: undefined };
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({
+            M: { definedKey: { S: "definedKey" } },
           });
         });
       });
+    });
 
-      it(`returns when options.removeUndefinedValues=true`, () => {
-        const input = { definedKey: "definedKey", undefinedKey: undefined };
-        expect(convertToAttr(input, { removeUndefinedValues: true })).toEqual({
-          M: { definedKey: { S: "definedKey" } },
-        });
-      });
+    it(`testing Object.create with function`, () => {
+      const person = {
+        isHuman: true,
+        printIntroduction: function () {
+          console.log(`Am I human? ${this.isHuman}`);
+        },
+      };
+      expect(convertToAttr(Object.create(person))).toEqual({ M: { isHuman: { BOOL: true } } });
+    });
+
+    it(`testing Object.create(null)`, () => {
+      expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
     });
   });
 
@@ -438,6 +459,9 @@ describe("convertToAttr", () => {
           private readonly listAttr: any[],
           private readonly mapAttr: { [key: string]: any }
         ) {}
+        public exampleMethod() {
+          return "This method won't be marshalled";
+        }
       }
       expect(
         convertToAttr(
@@ -472,6 +496,35 @@ describe("convertToAttr", () => {
           mapAttr: {
             M: { nullKey: { NULL: true }, numKey: { N: "1" }, strKey: { S: "string" }, boolKey: { BOOL: true } },
           },
+        },
+      });
+    });
+
+    it("returns inherited values from parent class in map", () => {
+      class Person {
+        protected name: string;
+        constructor(name: string) {
+          this.name = name;
+        }
+      }
+
+      class Employee extends Person {
+        private department: string;
+
+        constructor(name: string, department: string) {
+          super(name);
+          this.department = department;
+        }
+
+        public getElevatorPitch() {
+          return `Hello, my name is ${this.name} and I work in ${this.department}.`;
+        }
+      }
+
+      expect(convertToAttr(new Employee("John", "Sales"), { convertClassInstanceToMap: true })).toEqual({
+        M: {
+          name: { S: "John" },
+          department: { S: "Sales" },
         },
       });
     });

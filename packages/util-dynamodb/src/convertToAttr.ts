@@ -18,7 +18,11 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
     return convertToListAttr(data, options);
   } else if (data?.constructor?.name === "Set") {
     return convertToSetAttr(data as Set<any>, options);
-  } else if (data?.constructor?.name === "Object") {
+  } else if (
+    data?.constructor?.name === "Object" ||
+    // for object which is result of Object.create(null), which doesn't have constructor defined
+    (!data.constructor && typeof data === "object")
+  ) {
     return convertToMapAttr(data as { [key: string]: NativeAttributeValue }, options);
   } else if (isBinary(data)) {
     if (data.length === 0 && options?.convertEmptyValues) {
@@ -105,18 +109,16 @@ const convertToMapAttr = (
   data: { [key: string]: NativeAttributeValue },
   options?: marshallOptions
 ): { M: { [key: string]: AttributeValue } } => ({
-  M: Object.entries(data)
-    .filter(
-      ([key, value]: [string, NativeAttributeValue]) =>
-        !options?.removeUndefinedValues || (options?.removeUndefinedValues && value !== undefined)
-    )
-    .reduce(
-      (acc: { [key: string]: AttributeValue }, [key, value]: [string, NativeAttributeValue]) => ({
-        ...acc,
-        [key]: convertToAttr(value, options),
-      }),
-      {}
-    ),
+  M: (function getMapFromEnurablePropsInPrototypeChain(data) {
+    const map: { [key: string]: AttributeValue } = {};
+    for (const key in data) {
+      const value = data[key];
+      if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
+        map[key] = convertToAttr(value, options);
+      }
+    }
+    return map;
+  })(data),
 });
 
 // For future-proofing: this functions are called from multiple places
