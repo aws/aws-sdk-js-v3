@@ -113,10 +113,7 @@ const convertToMapAttr = (
     const map: { [key: string]: AttributeValue } = {};
     for (const key in data) {
       const value = data[key];
-      if (
-        typeof value !== "function" &&
-        (!options?.removeUndefinedValues || (options?.removeUndefinedValues && value !== undefined))
-      ) {
+      if (typeof value !== "function" && (value !== undefined || !options?.removeUndefinedValues)) {
         map[key] = convertToAttr(value, options);
       }
     }
