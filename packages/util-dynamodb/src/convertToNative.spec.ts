@@ -86,6 +86,14 @@ describe("convertToNative", () => {
         );
       });
     });
+
+    [`${Number.MAX_SAFE_INTEGER + 2}.1`, `${Number.MIN_SAFE_INTEGER - 2}.1`].forEach((numString) => {
+      it(`throws if number cannot be converted into BigInt: ${numString}`, () => {
+        expect(() => {
+          convertToNative({ N: numString });
+        }).toThrowError(`${numString} can't be converted to BigInt. Set options.wrapNumbers to get string value.`);
+      });
+    });
   });
 
   describe("binary", () => {
