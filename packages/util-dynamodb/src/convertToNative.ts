@@ -58,10 +58,6 @@ const convertNumber = (numString: string, options?: unmarshallOptions): number |
     } else {
       throw new Error(`${numString} is outside SAFE_INTEGER bounds. Set options.wrapNumbers to get string value.`);
     }
-  } else if (num.toString() !== numString) {
-    throw new Error(
-      `Value ${numString} is outside IEEE 754 Floating-Point Arithmetic. Set options.wrapNumbers to get string value.`
-    );
   }
   return num;
 };
