@@ -82,7 +82,7 @@ Make sure you have [`yarn`](https://yarnpkg.com/en/) installed by:
 yarn --version
 ```
 
-If not, please refer to [yarn installation](https://yarnpkg.com/en/docs/install#mac-stable) to install `yarn`.
+If not, please refer to [yarn installation](https://yarnpkg.com/en/docs/install) to install `yarn`.
 
 To install the dependencies and link the library, run the following command:
 
