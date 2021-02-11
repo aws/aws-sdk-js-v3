@@ -17,6 +17,11 @@ import {
 
 describe("NodeHttpHandler", () => {
   describe("constructor", () => {
+    it("sets keepAlive to true by default", () => {
+      const nodeHttpHandler = new NodeHttpHandler();
+      expect((nodeHttpHandler as any).httpAgent.keepAlive).toEqual(true);
+    });
+
     it("can set httpAgent and httpsAgent", () => {
       let keepAlive = false;
       let maxSockets = Math.round(Math.random() * 50) + 1;
