@@ -42,8 +42,9 @@ export class NodeHttpHandler implements HttpHandler {
     this.connectionTimeout = connectionTimeout;
     this.socketTimeout = socketTimeout;
     const keepAlive = true;
-    this.httpAgent = httpAgent || new hAgent({ keepAlive });
-    this.httpsAgent = httpsAgent || new hsAgent({ keepAlive });
+    const maxSockets = 50;
+    this.httpAgent = httpAgent || new hAgent({ keepAlive, maxSockets });
+    this.httpsAgent = httpsAgent || new hsAgent({ keepAlive, maxSockets });
   }
 
   destroy(): void {
