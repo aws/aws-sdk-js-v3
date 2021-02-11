@@ -62,7 +62,7 @@ export class Upload extends EventEmitter {
    */
   async done(): Promise<ServiceOutputTypes> {
     try {
-      await this.uploader.intialize();
+      await this.uploader.initialize();
       await this.uploader.upload();
       const result = await this.uploader.complete();
       return result;
