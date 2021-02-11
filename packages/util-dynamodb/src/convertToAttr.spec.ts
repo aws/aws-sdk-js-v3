@@ -306,100 +306,145 @@ describe("convertToAttr", () => {
     const uint8Arr = new Uint32Array(arr);
     const biguintArr = new BigUint64Array(arr.map(BigInt));
 
-    [true, false].forEach((useObjectCreate) => {
-      ([
-        {
-          input: { nullKey: null, boolKey: false },
-          output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
+    ([
+      {
+        input: { nullKey: null, boolKey: false },
+        output: { nullKey: { NULL: true }, boolKey: { BOOL: false } },
+      },
+      {
+        input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
+        output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
+      },
+      {
+        input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
+        output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
+      },
+      {
+        input: {
+          list1: [null, false],
+          list2: ["one", 1.01, BigInt(9007199254740996)],
         },
-        {
-          input: { stringKey: "one", numberKey: 1.01, bigintKey: BigInt(9007199254740996) },
-          output: { stringKey: { S: "one" }, numberKey: { N: "1.01" }, bigintKey: { N: "9007199254740996" } },
+        output: {
+          list1: { L: [{ NULL: true }, { BOOL: false }] },
+          list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
         },
-        {
-          input: { uint8ArrKey: uint8Arr, biguintArrKey: biguintArr },
-          output: { uint8ArrKey: { B: uint8Arr }, biguintArrKey: { B: biguintArr } },
+      },
+      {
+        input: {
+          numberSet: new Set([1, 2, 3]),
+          bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
+          binarySet: new Set([uint8Arr, biguintArr]),
+          stringSet: new Set(["one", "two", "three"]),
         },
-        {
-          input: {
-            list1: [null, false],
-            list2: ["one", 1.01, BigInt(9007199254740996)],
-          },
-          output: {
-            list1: { L: [{ NULL: true }, { BOOL: false }] },
-            list2: { L: [{ S: "one" }, { N: "1.01" }, { N: "9007199254740996" }] },
-          },
+        output: {
+          numberSet: { NS: ["1", "2", "3"] },
+          bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
+          binarySet: { BS: [uint8Arr, biguintArr] },
+          stringSet: { SS: ["one", "two", "three"] },
         },
-        {
-          input: {
-            numberSet: new Set([1, 2, 3]),
-            bigintSet: new Set([BigInt(9007199254740996), BigInt(-9007199254740996)]),
-            binarySet: new Set([uint8Arr, biguintArr]),
-            stringSet: new Set(["one", "two", "three"]),
-          },
-          output: {
-            numberSet: { NS: ["1", "2", "3"] },
-            bigintSet: { NS: ["9007199254740996", "-9007199254740996"] },
-            binarySet: { BS: [uint8Arr, biguintArr] },
-            stringSet: { SS: ["one", "two", "three"] },
-          },
-        },
-      ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
-        ({ input, output }) => {
+      },
+    ] as { input: { [key: string]: NativeAttributeValue }; output: { [key: string]: AttributeValue } }[]).forEach(
+      ({ input, output }) => {
+        [true, false].forEach((useObjectCreate) => {
           const inputObject = useObjectCreate ? Object.create(input) : input;
-          it(`testing map: ${inputObject}`, () => {
+          it(`testing object: ${inputObject}${useObjectCreate && " with Object.create()"}`, () => {
             expect(convertToAttr(inputObject)).toEqual({ M: output });
           });
-        }
-      );
+        });
 
-      it(`testing map with options.convertEmptyValues=true`, () => {
-        const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
+        const inputMap = new Map(Object.entries(input));
+        it(`testing map: ${inputMap}`, () => {
+          expect(convertToAttr(inputMap)).toEqual({ M: output });
+        });
+      }
+    );
+
+    describe(`with options.convertEmptyValues=true`, () => {
+      const input = { stringKey: "", binaryKey: new Uint8Array(), setKey: new Set([]) };
+      const output = { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } };
+
+      [true, false].forEach((useObjectCreate) => {
         const inputObject = useObjectCreate ? Object.create(input) : input;
-        expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({
-          M: { stringKey: { NULL: true }, binaryKey: { NULL: true }, setKey: { NULL: true } },
+        it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject, { convertEmptyValues: true })).toEqual({ M: output });
         });
       });
 
-      describe(`testing map with options.removeUndefinedValues`, () => {
-        describe("throws error", () => {
-          const testErrorMapWithUndefinedValues = (useObjectCreate: boolean, options?: marshallOptions) => {
-            const input = { definedKey: "definedKey", undefinedKey: undefined };
-            const inputObject = useObjectCreate ? Object.create(input) : input;
-            expect(() => {
-              convertToAttr(inputObject, options);
-            }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
-          };
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map`, () => {
+        expect(convertToAttr(inputMap, { convertEmptyValues: true })).toEqual({ M: output });
+      });
+    });
 
-          [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
-            it(`when options=${options}`, () => {
-              testErrorMapWithUndefinedValues(useObjectCreate, options);
+    describe(`with options.removeUndefinedValues=true`, () => {
+      describe("throws error", () => {
+        const testErrorMapWithUndefinedValues = (input: any, options?: marshallOptions) => {
+          expect(() => {
+            convertToAttr(input, options);
+          }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
+        };
+
+        [undefined, {}, { convertEmptyValues: false }].forEach((options) => {
+          const input = { definedKey: "definedKey", undefinedKey: undefined };
+          [true, false].forEach((useObjectCreate) => {
+            const inputObject = useObjectCreate ? Object.create(input) : input;
+            it(`testing object${useObjectCreate && " with Object.create()"} when options=${options}`, () => {
+              testErrorMapWithUndefinedValues(inputObject, options);
             });
+          });
+
+          const inputMap = new Map(Object.entries(input));
+          it(`testing map when options=${options}`, () => {
+            testErrorMapWithUndefinedValues(inputMap, options);
+          });
+        });
+      });
+
+      describe(`returns when options.removeUndefinedValues=true`, () => {
+        const input = { definedKey: "definedKey", undefinedKey: undefined };
+        const output = { definedKey: { S: "definedKey" } };
+        [true, false].forEach((useObjectCreate) => {
+          const inputObject = useObjectCreate ? Object.create(input) : input;
+          it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+            expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({ M: output });
           });
         });
 
-        it(`returns when options.removeUndefinedValues=true`, () => {
-          const input = { definedKey: "definedKey", undefinedKey: undefined };
-          const inputObject = useObjectCreate ? Object.create(input) : input;
-          expect(convertToAttr(inputObject, { removeUndefinedValues: true })).toEqual({
-            M: { definedKey: { S: "definedKey" } },
-          });
+        const inputMap = new Map(Object.entries(input));
+        it(`testing map`, () => {
+          expect(convertToAttr(inputMap, { removeUndefinedValues: true })).toEqual({ M: output });
         });
       });
     });
 
-    it(`testing Object.create with function`, () => {
-      const person = {
-        isHuman: true,
-        printIntroduction: function () {
-          console.log(`Am I human? ${this.isHuman}`);
+    describe(`testing with function`, () => {
+      const input = {
+        bool: true,
+        func: function () {
+          console.log(`bool: ${this.bool}`);
         },
       };
-      expect(convertToAttr(Object.create(person))).toEqual({ M: { isHuman: { BOOL: true } } });
+      const output = { bool: { BOOL: true } };
+
+      [true, false].forEach((useObjectCreate) => {
+        const inputObject = useObjectCreate ? Object.create(input) : input;
+        it(`testing object${useObjectCreate && " with Object.create()"}`, () => {
+          expect(convertToAttr(inputObject)).toEqual({ M: output });
+        });
+      });
+
+      const inputMap = new Map(Object.entries(input));
+      it(`testing map`, () => {
+        expect(convertToAttr(inputMap)).toEqual({ M: output });
+      });
     });
 
     it(`testing Object.create(null)`, () => {
       expect(convertToAttr(Object.create(null))).toEqual({ M: {} });
+    });
+
+    it(`testing empty Map`, () => {
+      expect(convertToAttr(new Map())).toEqual({ M: {} });
     });
   });
 
@@ -432,7 +477,6 @@ describe("convertToAttr", () => {
       }).toThrowError(`Pass options.removeUndefinedValues=true to remove undefined values from map/array/set.`);
     });
 
-    // ToDo: Serialize ES6 class objects as string https://github.com/aws/aws-sdk-js-v3/issues/1535
     [new Date(), new FooClass("foo")].forEach((data) => {
       it(`throws for: ${String(data)}`, () => {
         expect(() => {
