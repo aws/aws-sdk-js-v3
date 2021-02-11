@@ -47,7 +47,7 @@ export abstract class Uploader extends EventEmitter {
   abstract _completeMultipartUpload(command: CompleteMultipartUploadRequest): Promise<ServiceOutputTypes>;
   abstract _abortUpload(command: AbortMultipartUploadRequest): Promise<ServiceOutputTypes>;
 
-  /** @deprecated */
+  /** @deprecated Use `initialize` instead. */
   async intialize() {
     return this.initialize();
   }
