@@ -72,18 +72,15 @@ describe("convertToNative", () => {
         });
       });
 
-    [
-      `${Number.MAX_SAFE_INTEGER}.1`,
-      `${Number.MIN_SAFE_INTEGER}.1`,
-      `${Number.MIN_VALUE}1`,
-      `-${Number.MIN_VALUE}1`,
-    ].forEach((numString) => {
-      it(`throws if number is outside IEEE 754 Floating-Point Arithmetic: ${numString}`, () => {
-        expect(() => {
-          convertToNative({ N: numString });
-        }).toThrowError(
-          `Value ${numString} is outside IEEE 754 Floating-Point Arithmetic. Set options.wrapNumbers to get string value.`
-        );
+    [`0.0000001`, `0.0000000001`, `0.00000000000000000001`].forEach((numString) => {
+      it(`returns for small numbers: ${numString}`, () => {
+        expect(convertToNative({ N: numString })).toEqual(Number(numString));
+      });
+    });
+
+    [`1e-7`, `1e-20`, `1e15`].forEach((numString) => {
+      it(`returns numbers stored in scientific notation: ${numString}`, () => {
+        expect(convertToNative({ N: numString })).toEqual(Number(numString));
       });
     });
 
