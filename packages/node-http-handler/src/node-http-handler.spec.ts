@@ -17,16 +17,30 @@ import {
 
 describe("NodeHttpHandler", () => {
   describe("constructor", () => {
+    it("sets keepAlive=true by default", () => {
+      const nodeHttpHandler = new NodeHttpHandler();
+      expect((nodeHttpHandler as any).httpAgent.keepAlive).toEqual(true);
+    });
+
+    it("sets maxSockets=50 by default", () => {
+      const nodeHttpHandler = new NodeHttpHandler();
+      expect((nodeHttpHandler as any).httpAgent.maxSockets).toEqual(50);
+    });
+
     it("can set httpAgent and httpsAgent", () => {
+      let keepAlive = false;
       let maxSockets = Math.round(Math.random() * 50) + 1;
       let nodeHttpHandler = new NodeHttpHandler({
-        httpAgent: new http.Agent({ maxSockets }),
+        httpAgent: new http.Agent({ keepAlive, maxSockets }),
       });
+      expect((nodeHttpHandler as any).httpAgent.keepAlive).toEqual(keepAlive);
       expect((nodeHttpHandler as any).httpAgent.maxSockets).toEqual(maxSockets);
+      keepAlive = true;
       maxSockets = Math.round(Math.random() * 50) + 1;
       nodeHttpHandler = new NodeHttpHandler({
-        httpsAgent: new https.Agent({ maxSockets }),
+        httpsAgent: new https.Agent({ keepAlive, maxSockets }),
       });
+      expect((nodeHttpHandler as any).httpsAgent.keepAlive).toEqual(keepAlive);
       expect((nodeHttpHandler as any).httpsAgent.maxSockets).toEqual(maxSockets);
     });
   });
