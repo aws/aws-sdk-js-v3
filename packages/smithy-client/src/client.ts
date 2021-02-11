@@ -3,6 +3,9 @@ import { Client as IClient, Command, MetadataBearer, RequestHandler } from "@aws
 
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
+  /**
+   * @internal
+   */
   readonly apiVersion: string;
 }
 
