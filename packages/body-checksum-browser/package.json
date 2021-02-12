@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-browser",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/chunked-blob-reader": "3.4.1",
-    "@aws-sdk/protocol-http": "3.4.1",
+    "@aws-sdk/protocol-http": "3.5.0",
     "@aws-sdk/sha256-tree-hash": "3.4.1",
     "@aws-sdk/types": "3.4.1",
     "@aws-sdk/util-hex-encoding": "3.4.1",

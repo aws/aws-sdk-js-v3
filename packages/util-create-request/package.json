@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "3.4.1",
+  "version": "3.5.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -20,12 +20,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/middleware-stack": "3.4.1",
-    "@aws-sdk/smithy-client": "3.4.1",
+    "@aws-sdk/smithy-client": "3.5.0",
     "@aws-sdk/types": "3.4.1",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/protocol-http": "3.4.1",
+    "@aws-sdk/protocol-http": "3.5.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.3",
     "jest": "^26.1.0",
