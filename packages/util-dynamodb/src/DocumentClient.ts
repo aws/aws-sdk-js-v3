@@ -77,7 +77,6 @@ export class DocumentClient extends DynamoDBClient {
     cb?: (err: any, data?: DocumentPutOutput) => void
   ): Promise<DocumentPutOutput> | void {
     // Do input translation on args, and send translated args to PutItemCommand
-    // @ts-ignore: TypeScript throws "Property 'TableName' is missing"
     const command = new PutItemCommand({ ...args, Item: marshall(args.Item) });
 
     const getUnmarshalledResponse = (data: PutItemCommandOutput) => ({
