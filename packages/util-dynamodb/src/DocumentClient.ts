@@ -1,4 +1,4 @@
-import { DynamoDB, PutItemCommand, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
+import { AttributeValue, DynamoDB, PutItemCommand, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { marshall } from "./marshall";
@@ -82,14 +82,18 @@ export class DocumentClient extends DynamoDB {
 
     const getUnmarshalledResponse = (data: PutItemCommandOutput) => ({
       ...data,
-      Attributes: unmarshall(data.Attributes),
+      Attributes: unmarshall(data.Attributes as { [key: string]: AttributeValue }),
     });
 
     const cbAfterUnmarshall = (callback: (err: any, data?: DocumentPutOutput) => void) => (
       err: any,
       data?: PutItemCommandOutput
     ) => {
-      callback(err, getUnmarshalledResponse(data));
+      if (data) {
+        callback(err, getUnmarshalledResponse(data));
+      } else {
+        callback(err);
+      }
     };
 
     if (typeof optionsOrCb === "function") {
