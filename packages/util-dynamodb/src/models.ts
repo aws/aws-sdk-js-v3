@@ -1,3 +1,5 @@
+import { PutItemCommandInput, PutItemCommandOutput } from "clients/client-dynamodb";
+
 /**
  * A interface recognizable as a numeric value that stores the underlying number
  * as a string.
@@ -44,3 +46,11 @@ export type NativeAttributeBinary =
   | Float64Array
   | BigInt64Array
   | BigUint64Array;
+
+export type DocumentPutInput = Omit<PutItemCommandInput, "Item"> & {
+  Item: { [key: string]: NativeAttributeValue } | undefined;
+};
+
+export type DocumentPutOutput = Omit<PutItemCommandOutput, "Attributes"> & {
+  Attributes: { [key: string]: NativeAttributeValue };
+};

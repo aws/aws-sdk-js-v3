@@ -1,6 +1,7 @@
 import { DynamoDB, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
+import { DocumentPutInput, DocumentPutOutput } from "./models";
 /**
  * The document client simplifies working with items in Amazon DynamoDB
  * by abstracting away the notion of attribute values. This abstraction
@@ -60,14 +61,18 @@ export class DocumentClient extends DynamoDB {
    *  }
    *
    */
-  public put(args: any, options?: __HttpHandlerOptions): Promise<any>;
-  public put(args: any, cb: (err: any, data?: any) => void): void;
-  public put(args: any, options: __HttpHandlerOptions, cb: (err: any, data?: any) => void): void;
+  public put(args: DocumentPutInput, options?: __HttpHandlerOptions): Promise<DocumentPutOutput>;
+  public put(args: DocumentPutInput, cb: (err: any, data?: DocumentPutOutput) => void): void;
   public put(
-    args: any,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: any) => void),
-    cb?: (err: any, data?: any) => void
-  ): Promise<any> | void {
+    args: DocumentPutInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DocumentPutOutput) => void
+  ): void;
+  public put(
+    args: DocumentPutInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DocumentPutOutput) => void),
+    cb?: (err: any, data?: DocumentPutOutput) => void
+  ): Promise<DocumentPutOutput> | void {
     // Do input translation on args, and send translated args to PutItemCommand
     const command = new PutItemCommand(args);
 
