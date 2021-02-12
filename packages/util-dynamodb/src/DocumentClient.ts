@@ -76,17 +76,19 @@ export class DocumentClient extends DynamoDB {
     cb?: (err: any, data?: DocumentPutOutput) => void
   ): Promise<DocumentPutOutput> | void {
     // Do input translation on args, and send translated args to PutItemCommand
-    // ToDo: investigate why TypeScript throws "Property 'TableName' is missing"
-    const commandArgs: PutItemCommandInput = { ...args, Item: marshall(args.Item) };
-    const command = new PutItemCommand(commandArgs);
+    // @ts-ignore: TypeScript throws "Property 'TableName' is missing"
+    const command = new PutItemCommand({ ...args, Item: marshall(args.Item) });
 
     // Create new callback to perform output translation on second value of cb or optionsOrCb
     if (typeof optionsOrCb === "function") {
+      // @ts-ignore
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      // @ts-ignore
       this.send(command, optionsOrCb || {}, cb);
     } else {
+      // @ts-ignore
       return this.send(command, optionsOrCb);
     }
   }

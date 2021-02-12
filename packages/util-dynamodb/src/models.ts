@@ -1,4 +1,4 @@
-import { PutItemCommandInput, PutItemCommandOutput } from "clients/client-dynamodb";
+import { PutItemCommandInput, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
 
 /**
  * A interface recognizable as a numeric value that stores the underlying number
