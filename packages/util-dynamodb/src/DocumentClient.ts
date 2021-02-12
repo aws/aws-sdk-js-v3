@@ -1,9 +1,11 @@
-import { DynamoDBClient, PutItemCommand, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
-import { marshall } from "./marshall";
-import { DocumentPutInput, DocumentPutOutput } from "./models";
-import { unmarshall } from "./unmarshall";
+import {
+  PutItemDocumentCommand,
+  PutItemDocumentCommandInput,
+  PutItemDocumentCommandOutput,
+} from "./commands/PutItemDocumentCommand";
 
 /**
  * The document client simplifies working with items in Amazon DynamoDB
@@ -64,53 +66,27 @@ export class DocumentClient extends DynamoDBClient {
    *  }
    *
    */
-  public put(args: DocumentPutInput, options?: __HttpHandlerOptions): Promise<DocumentPutOutput>;
-  public put(args: DocumentPutInput, cb: (err: any, data?: DocumentPutOutput) => void): void;
+  public put(args: PutItemDocumentCommandInput, options?: __HttpHandlerOptions): Promise<PutItemDocumentCommandOutput>;
+  public put(args: PutItemDocumentCommandInput, cb: (err: any, data?: PutItemDocumentCommandOutput) => void): void;
   public put(
-    args: DocumentPutInput,
+    args: PutItemDocumentCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DocumentPutOutput) => void
+    cb: (err: any, data?: PutItemDocumentCommandOutput) => void
   ): void;
   public put(
-    args: DocumentPutInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DocumentPutOutput) => void),
-    cb?: (err: any, data?: DocumentPutOutput) => void
-  ): Promise<DocumentPutOutput> | void {
-    // Do input translation on args, and send translated args to PutItemCommand
-    const command = new PutItemCommand({ ...args, Item: marshall(args.Item) });
-
-    const getUnmarshalledResponse = (data: PutItemCommandOutput) =>
-      ({
-        ...data,
-        ...(data.Attributes && { Attributes: unmarshall(data.Attributes) }),
-      } as DocumentPutOutput);
-
-    const cbAfterUnmarshall = (callback: (err: any, data?: DocumentPutOutput) => void) => (
-      err: any,
-      data?: PutItemCommandOutput
-    ) => {
-      if (data) {
-        callback(err, getUnmarshalledResponse(data));
-      } else {
-        callback(err);
-      }
-    };
+    args: PutItemDocumentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutItemDocumentCommandOutput) => void),
+    cb?: (err: any, data?: PutItemDocumentCommandOutput) => void
+  ): Promise<PutItemDocumentCommandOutput> | void {
+    const command = new PutItemDocumentCommand(args);
 
     if (typeof optionsOrCb === "function") {
-      this.send(command, cbAfterUnmarshall(optionsOrCb));
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cbAfterUnmarshall(cb));
+      this.send(command, optionsOrCb || {}, cb);
     } else {
-      return new Promise((resolve, reject) => {
-        this.send(command, optionsOrCb)
-          .then((data) => {
-            resolve(getUnmarshalledResponse(data));
-          })
-          .catch((err) => {
-            reject(err);
-          });
-      });
+      this.send(command, optionsOrCb);
     }
   }
 }
