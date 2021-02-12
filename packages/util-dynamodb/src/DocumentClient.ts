@@ -80,24 +80,28 @@ export class DocumentClient extends DynamoDB {
     // @ts-ignore: TypeScript throws "Property 'TableName' is missing"
     const command = new PutItemCommand({ ...args, Item: marshall(args.Item) });
 
-    // Create new callback to perform output translation on second value of cb or optionsOrCb
-    const getCallBack = (callback: (err: any, data?: DocumentPutOutput) => void) => (
+    const getUnmarshalledResponse = (data: PutItemCommandOutput) => ({
+      ...data,
+      Attributes: unmarshall(data.Attributes),
+    });
+
+    const cbAfterUnmarshall = (callback: (err: any, data?: DocumentPutOutput) => void) => (
       err: any,
       data?: PutItemCommandOutput
     ) => {
-      callback(err, { ...data, Attributes: unmarshall(data.Attributes) });
+      callback(err, getUnmarshalledResponse(data));
     };
 
     if (typeof optionsOrCb === "function") {
-      this.send(command, getCallBack(optionsOrCb));
+      this.send(command, cbAfterUnmarshall(optionsOrCb));
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, getCallBack(cb));
+      this.send(command, optionsOrCb || {}, cbAfterUnmarshall(cb));
     } else {
       return new Promise((resolve, reject) => {
         this.send(command, optionsOrCb)
           .then((data) => {
-            resolve({ ...data, Attributes: unmarshall(data.Attributes) });
+            resolve(getUnmarshalledResponse(data));
           })
           .catch((err) => {
             reject(err);
