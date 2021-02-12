@@ -79,10 +79,11 @@ export class DocumentClient extends DynamoDBClient {
     // Do input translation on args, and send translated args to PutItemCommand
     const command = new PutItemCommand({ ...args, Item: marshall(args.Item) });
 
-    const getUnmarshalledResponse = (data: PutItemCommandOutput) => ({
-      ...data,
-      Attributes: unmarshall(data.Attributes as { [key: string]: AttributeValue }),
-    });
+    const getUnmarshalledResponse = (data: PutItemCommandOutput) =>
+      ({
+        ...data,
+        ...(data.Attributes && { Attributes: unmarshall(data.Attributes) }),
+      } as DocumentPutOutput);
 
     const cbAfterUnmarshall = (callback: (err: any, data?: DocumentPutOutput) => void) => (
       err: any,
