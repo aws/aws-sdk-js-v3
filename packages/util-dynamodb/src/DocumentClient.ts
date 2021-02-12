@@ -1,8 +1,9 @@
-import { DynamoDB, PutItemCommand, PutItemCommandInput } from "@aws-sdk/client-dynamodb";
+import { DynamoDB, PutItemCommand, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { marshall } from "./marshall";
 import { DocumentPutInput, DocumentPutOutput } from "./models";
+import { unmarshall } from "./unmarshall";
 
 /**
  * The document client simplifies working with items in Amazon DynamoDB
@@ -80,13 +81,18 @@ export class DocumentClient extends DynamoDB {
     const command = new PutItemCommand({ ...args, Item: marshall(args.Item) });
 
     // Create new callback to perform output translation on second value of cb or optionsOrCb
+    const getCallBack = (callback: (err: any, data?: DocumentPutOutput) => void) => (
+      err: any,
+      data?: PutItemCommandOutput
+    ) => {
+      callback(err, { ...data, Attributes: unmarshall(data.Attributes) });
+    };
+
     if (typeof optionsOrCb === "function") {
-      // @ts-ignore
-      this.send(command, optionsOrCb);
+      this.send(command, getCallBack(optionsOrCb));
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      // @ts-ignore
-      this.send(command, optionsOrCb || {}, cb);
+      this.send(command, optionsOrCb || {}, getCallBack(cb));
     } else {
       // @ts-ignore
       return this.send(command, optionsOrCb);
