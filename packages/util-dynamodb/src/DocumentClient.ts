@@ -1,4 +1,4 @@
-import { AttributeValue, DynamoDB, PutItemCommand, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
+import { AttributeValue, DynamoDBClient, PutItemCommand, PutItemCommandOutput } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { marshall } from "./marshall";
@@ -32,7 +32,7 @@ import { unmarshall } from "./unmarshall";
  * | Buffer, File, Blob, ArrayBuffer, DataView, and JavaScript typed arrays | B                       |
  *
  */
-export class DocumentClient extends DynamoDB {
+export class DocumentClient extends DynamoDBClient {
   /**
    * Creates a new item, or replaces an old item with a new item by
    * delegating to `DynamoDB.putItem()`.
