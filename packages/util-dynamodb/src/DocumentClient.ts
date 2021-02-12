@@ -1,7 +1,9 @@
-import { DynamoDB, PutItemCommand } from "@aws-sdk/client-dynamodb";
+import { DynamoDB, PutItemCommand, PutItemCommandInput } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
+import { marshall } from "./marshall";
 import { DocumentPutInput, DocumentPutOutput } from "./models";
+
 /**
  * The document client simplifies working with items in Amazon DynamoDB
  * by abstracting away the notion of attribute values. This abstraction
@@ -74,7 +76,9 @@ export class DocumentClient extends DynamoDB {
     cb?: (err: any, data?: DocumentPutOutput) => void
   ): Promise<DocumentPutOutput> | void {
     // Do input translation on args, and send translated args to PutItemCommand
-    const command = new PutItemCommand(args);
+    // ToDo: investigate why TypeScript throws "Property 'TableName' is missing"
+    const commandArgs: PutItemCommandInput = { ...args, Item: marshall(args.Item) };
+    const command = new PutItemCommand(commandArgs);
 
     // Create new callback to perform output translation on second value of cb or optionsOrCb
     if (typeof optionsOrCb === "function") {
