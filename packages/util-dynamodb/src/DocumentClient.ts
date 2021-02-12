@@ -94,8 +94,15 @@ export class DocumentClient extends DynamoDB {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, getCallBack(cb));
     } else {
-      // @ts-ignore
-      return this.send(command, optionsOrCb);
+      return new Promise((resolve, reject) => {
+        this.send(command, optionsOrCb)
+          .then((data) => {
+            resolve({ ...data, Attributes: unmarshall(data.Attributes) });
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
     }
   }
 }
