@@ -16,8 +16,11 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -33,8 +36,15 @@ public class AddDocumentClientCommandsPlugin implements TypeScriptIntegration {
       SymbolProvider symbolProvider,
       BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
   ) {
-      writerFactory.accept("commands/PutNativeItemCommand.ts", writer -> {
-        writer.write("// Hello!");
-      });
+      ServiceShape service = settings.getService(model);
+      if (testServiceId(service, "DynamoDB")) {
+        writerFactory.accept("commands/PutNativeItemCommand.ts", writer -> {
+          writer.write("// Hello!");
+        });
+      }
+  }
+
+  private static boolean testServiceId(Shape serviceShape, String expectedId) {
+      return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
   }
 }
