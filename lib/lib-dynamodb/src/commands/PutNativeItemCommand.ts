@@ -10,6 +10,8 @@ import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
+import { TranslateConfiguration } from "./types";
+
 export type PutNativeItemCommandInput = Omit<PutItemCommandInput, "Item"> & {
   Item: { [key: string]: NativeAttributeValue } | undefined;
 };
@@ -56,9 +58,15 @@ export class PutNativeItemCommand extends $Command<
 > {
   private command: PutItemCommand;
 
-  constructor(readonly input: PutNativeItemCommandInput) {
+  constructor(
+    readonly input: PutNativeItemCommandInput,
+    private readonly translateConfiguration?: TranslateConfiguration
+  ) {
     super();
-    this.command = new PutItemCommand({ ...input, Item: marshall(input.Item) });
+    this.command = new PutItemCommand({
+      ...input,
+      Item: marshall(input.Item, translateConfiguration.marshallOptions),
+    });
   }
 
   /**
@@ -79,7 +87,9 @@ export class PutNativeItemCommand extends $Command<
               ...data,
               output: {
                 ...data.output,
-                ...(data.output.Attributes && { Attributes: unmarshall(data.output.Attributes) }),
+                ...(data.output.Attributes && {
+                  Attributes: unmarshall(data.output.Attributes, this.translateConfiguration.unmarshallOptions),
+                }),
               } as PutNativeItemCommandOutput,
             });
           })
