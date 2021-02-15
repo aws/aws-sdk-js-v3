@@ -1,5 +1,5 @@
-### Issue #
-Refs: #, if available
+### Issue
+Issue number, if available
 
 ### Description
 What does this implement/fix? Explain your changes.

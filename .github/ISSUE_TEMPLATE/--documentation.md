@@ -12,6 +12,7 @@ A clear and concise description of what the issue is.
 
 ## Steps to reproduce
 Please share code or minimal repo if required, and steps to reproduce the behavior.
+
 #### Observed behavior
 A clear and concise description of what happens.
 
