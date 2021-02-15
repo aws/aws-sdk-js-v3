@@ -65,7 +65,7 @@ export class PutNativeItemCommand extends $Command<
     super();
     this.command = new PutItemCommand({
       ...input,
-      Item: marshall(input.Item, translateConfiguration.marshallOptions),
+      Item: marshall(input.Item, translateConfiguration?.marshallOptions),
     });
   }
 
@@ -88,7 +88,7 @@ export class PutNativeItemCommand extends $Command<
               output: {
                 ...data.output,
                 ...(data.output.Attributes && {
-                  Attributes: unmarshall(data.output.Attributes, this.translateConfiguration.unmarshallOptions),
+                  Attributes: unmarshall(data.output.Attributes, this.translateConfiguration?.unmarshallOptions),
                 }),
               } as PutNativeItemCommandOutput,
             });
