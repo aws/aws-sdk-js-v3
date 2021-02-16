@@ -32,7 +32,8 @@ public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of(
         "ConnectParticipant",
         "IoT Data Plane",
-        "IoT"
+        "IoT",
+        "Kinesis Video Signaling"
     );
 
     @Override
