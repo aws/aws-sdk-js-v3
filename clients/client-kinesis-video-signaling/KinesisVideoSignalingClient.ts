@@ -25,7 +25,7 @@ import {
   RetryResolvedConfig,
   getOmitRetryHeadersPlugin,
   getRetryPlugin,
-  resolveRetryConfig
+  resolveRetryConfig,
 } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
