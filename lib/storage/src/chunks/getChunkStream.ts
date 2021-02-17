@@ -20,7 +20,11 @@ export async function* getChunk<T>(
 
     while (currentBuffer.length >= partSize) {
       // concat all the buffers together once.
-      const dataChunk: Buffer = Buffer.concat(currentBuffer.chunks);
+      let dataChunk: Buffer = currentBuffer.chunks[0];
+      if(currentBuffer.chunks.length) {
+        dataChunk = Buffer.concat(currentBuffer.chunks);
+      }
+  
       yield {
         partNumber,
         data: dataChunk.slice(0, partSize),
