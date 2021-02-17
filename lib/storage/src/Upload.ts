@@ -154,7 +154,7 @@ export class Upload extends EventEmitter {
     // Create and start concurrent uploads.
     await Promise.all(this.concurrentUploaders);
     if (this.abortController.signal.aborted) {
-      return {} as ServiceOutputTypes;
+      throw Object.assign(new Error("Upload aborted."), { name: "AbortError" });
     }
 
     this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
