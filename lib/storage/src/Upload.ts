@@ -23,9 +23,9 @@ const MIN_PART_SIZE = 1024 * 1024 * 5;
 
 export class Upload extends EventEmitter {
   /**
-   * S3 multipart upload does not allow more than 1000 parts.
+   * S3 multipart upload does not allow more than 10000 parts.
    */
-  private MAX_PARTS = 1000;
+  private MAX_PARTS = 10000;
 
   // Defaults.
   private queueSize = 4;
