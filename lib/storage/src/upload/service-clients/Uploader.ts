@@ -47,7 +47,12 @@ export abstract class Uploader extends EventEmitter {
   abstract _completeMultipartUpload(command: CompleteMultipartUploadRequest): Promise<ServiceOutputTypes>;
   abstract _abortUpload(command: AbortMultipartUploadRequest): Promise<ServiceOutputTypes>;
 
+  /** @deprecated Use `initialize` instead. */
   async intialize() {
+    return this.initialize();
+  }
+
+  async initialize() {
     const intializeCommand = {
       Bucket: this.destination.Bucket,
       Key: this.destination.Key,
