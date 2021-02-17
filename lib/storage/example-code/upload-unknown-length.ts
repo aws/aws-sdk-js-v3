@@ -1,5 +1,5 @@
 import { S3Client } from "@aws-sdk/client-s3";
-import { Upload } from "../";
+import { Upload } from "@aws-sdk/lib-storage";
 
 import { Readable } from "stream";
 import { configuration } from "./config";
@@ -19,9 +19,9 @@ async function* generateContents() {
     yield `[Part ${index}] ${"#".repeat(2000000)}`;
   }
 }
+const fakeStreamOfUnknownlength = Readable.from(generateContents());
 
-const uploadIndeterminateLengthStreamNode = async () => {
-  const streamOfUnknownlength = Readable.from(generateContents());
+const uploadIndeterminateLengthStreamNode = async () => {  
 
   const Key = configuration.Key;
   let upload = new Upload({
@@ -29,7 +29,7 @@ const uploadIndeterminateLengthStreamNode = async () => {
     params: {
       Key,
       Bucket,
-      Body: streamOfUnknownlength,
+      Body: fakeStreamOfUnknownlength,
     },
   });
 

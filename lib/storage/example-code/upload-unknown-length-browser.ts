@@ -14,6 +14,18 @@ const sleep = async (seconds: number) => {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 };
 
+const fakeStreamOfUnknownlength = new ReadableStream({
+  start: async (controller) => {
+    for (let index = 0; index < 8; index++) {
+      const time = Math.random() * 5;
+      await sleep(time);
+      console.log(`Delaying part ${index} for ${time}`);
+      controller.enqueue(`[part ${index}] with ${"#".repeat(2000000)}`);
+    }
+    controller.close();
+  },
+});
+
 const uploadIndeterminateLengthStreamBrowser = async () => {
   const client = new S3Client({
     region,
@@ -23,18 +35,6 @@ const uploadIndeterminateLengthStreamBrowser = async () => {
     }),
   });
 
-  const streamOfUnknownlength = new ReadableStream({
-    start: async (controller) => {
-      for (let index = 0; index < 8; index++) {
-        const time = Math.random() * 5;
-        await sleep(time);
-        console.log(`Delaying part ${index} for ${time}`);
-        controller.enqueue(`[part ${index}] with ${"#".repeat(2000000)}`);
-      }
-      controller.close();
-    },
-  });
-
   const Key = configuration.Key;
 
   let upload = new Upload({
@@ -42,7 +42,7 @@ const uploadIndeterminateLengthStreamBrowser = async () => {
     params: {
       Key,
       Bucket,
-      Body: streamOfUnknownlength,
+      Body: fakeStreamOfUnknownlength,
     },
   });
 

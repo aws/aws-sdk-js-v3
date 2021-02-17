@@ -1,4 +1,4 @@
-import { Upload } from "../src/index";
+import { Upload } from "@aws-sdk/lib-storage";
 import { S3 } from "@aws-sdk/client-s3";
 import { configuration } from "./config";
 
