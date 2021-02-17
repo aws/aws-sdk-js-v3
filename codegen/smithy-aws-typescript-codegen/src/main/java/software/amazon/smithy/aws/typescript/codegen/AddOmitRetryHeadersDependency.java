@@ -34,13 +34,13 @@ public class AddOmitRetryHeadersDependency implements TypeScriptIntegration {
         "IoT Data Plane", // P40355845
         "IoT", // P39759657
         "Kinesis Video Signaling",
-        "AppFlow",
-        "AppIntegrations",
-        "AuditManager",
-        "Connect Contact Lens",
-        "Customer Profiles",
-        "DevOps Guru",
-        "Service Catalog AppRegistry"
+        "AppFlow", // P44424582
+        "AppIntegrations", // P44426207
+        "AuditManager", // P44428767
+        "Connect Contact Lens", // P44429036
+        "Customer Profiles", // P44430824
+        "DevOps Guru", // P44429743
+        "Service Catalog AppRegistry" // P44430229
     );
 
     @Override
