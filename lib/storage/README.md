@@ -9,10 +9,16 @@ Upload allows for easy and efficient uploading of buffers, blobs, or streams, us
 
 ```
   import { Upload } from "@aws-sdk/lib-storage";
+  import { S3Client, S3 } from "@aws-sdk/client-s3";
+
   const target = { Bucket, Key, Body };
   try {
     const paralellUploads3 = new Upload({
-      client: new S3({}),
+      client: new S3({}) || new S3Client({}),
+      tags: [...], // optional tags
+      queueSize: 4, // optional concurrency configuration
+      partSize: 5MB, // optional size of each part
+      leavePartsOnError: false, // optional manually handle dropped parts
       params: target,
     });
 
