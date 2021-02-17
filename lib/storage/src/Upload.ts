@@ -3,6 +3,7 @@ import {
   CompleteMultipartUploadCommand,
   CreateMultipartUploadCommand,
   PutObjectCommandInput,
+  PutObjectTaggingCommand,
   ServiceOutputTypes,
   Tag,
   UploadPartCommand,
@@ -168,6 +169,17 @@ export class Upload extends EventEmitter {
         },
       })
     );
+    
+    // Add tags to the object after it's completed the upload.
+    if(this.tags.length) {
+      await this.client.send(new PutObjectTaggingCommand({
+        ...this.params,
+        Tagging: {
+          TagSet: this.tags
+        }
+      }));
+    }
+
     return completeMultipartUpload;
   }
 

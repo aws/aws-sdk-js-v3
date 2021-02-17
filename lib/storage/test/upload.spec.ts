@@ -9,6 +9,10 @@ const completeMultipartMock = jest.fn().mockResolvedValue({
   Success: "This actually works!",
 });
 
+const putObjectTaggingMock = jest.fn().mockResolvedValue({
+  Success: "Tags have been applied!",
+});
+
 jest.mock("@aws-sdk/client-s3", () => ({
   ...jest.requireActual("@aws-sdk/client-s3"),
   S3: jest.fn().mockReturnValue({
@@ -20,6 +24,7 @@ jest.mock("@aws-sdk/client-s3", () => ({
   CreateMultipartUploadCommand: createMultipartMock,
   UploadPartCommand: uploadPartMock,
   CompleteMultipartUploadCommand: completeMultipartMock,
+  PutObjectTaggingCommand: putObjectTaggingMock,
 }));
 
 import { S3 } from "@aws-sdk/client-s3";
@@ -88,8 +93,43 @@ describe(Upload.name, () => {
       },
     });
 
+    // no tags were passed
+    expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
+
     done();
   });
+
+  it("should add tags to the object if tags have been added", async (done) => {
+    const tags = [{
+      Key: "k1",
+      Value: "v1",
+    },{
+      Key: "k2",
+      Value: "v2",
+    }];
+
+    const upload = new Upload({
+      params,
+      tags,
+      client: new S3({}),
+    });
+
+    await upload.done();
+
+    expect(sendMock).toHaveBeenCalledTimes(4);
+
+    // tags were passed
+    expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
+    expect(putObjectTaggingMock).toHaveBeenCalledWith({
+      ...params,
+      Tagging: {
+        TagSet: tags
+      }
+    });
+
+    done();
+  });
+
 
   it("should validate partsize", async (done) => {
     try {
