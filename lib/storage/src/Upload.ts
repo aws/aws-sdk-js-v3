@@ -1,0 +1,185 @@
+import {
+  CompletedPart,
+  CompleteMultipartUploadCommand,
+  CreateMultipartUploadCommand,
+  PutObjectCommandInput,
+  ServiceOutputTypes,
+  Tag,
+  UploadPartCommand,
+} from "@aws-sdk/client-s3";
+import { EventEmitter } from "events";
+import { BodyDataTypes, Options, Progress, ServiceClients } from "./types";
+import { getChunk } from "./chunker";
+import { byteLength } from "./bytelength";
+import { AbortController, AbortSignal } from "@aws-sdk/abort-controller";
+
+export interface RawDataPart {
+  partNumber: number;
+  data: BodyDataTypes;
+}
+
+const MIN_PART_SIZE = 1024 * 1024 * 5;
+
+export class Upload extends EventEmitter {
+  /**
+   * S3 multipart upload does not allow more than 1000 parts.
+   */
+  private MAX_PARTS = 1000;
+
+  // Defaults
+  private queueSize = 4;
+  private partSize = MIN_PART_SIZE;
+  private leavePartsOnError = false;
+  private tags: Tag[] = [];
+
+  private client: ServiceClients;
+  private params: PutObjectCommandInput;
+
+  // used for reporting progress
+  private totalBytes?: number;
+  private bytesUploadedSoFar: number;
+
+  // used in the upload
+  private abortSignal: AbortController;
+  private concurrentUploaders: Promise<void>[] = [];
+
+  private uploadedParts: CompletedPart[] = [];
+  private uploadId?: string;
+
+  uploadEvent?: string;
+
+  constructor(options: Options) {
+    super();
+
+    // set defaults from options
+    this.queueSize = options.queueSize || this.queueSize;
+    this.partSize = options.partSize || this.partSize;
+    this.leavePartsOnError = options.leavePartsOnError || this.leavePartsOnError;
+    this.tags = options.tags || this.tags;
+
+    if (this.partSize < MIN_PART_SIZE) {
+      throw new Error(
+        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${MIN_PART_SIZE}] (5MB)`
+      );
+    }
+
+    if (this.queueSize < 1) {
+      throw new Error(`Queue size: Must have atleast one uploading queue.`);
+    }
+
+    this.client = options.client;
+    this.params = options.params;
+
+    // set progress defaults
+    this.totalBytes = byteLength(this.params.Body);
+    this.bytesUploadedSoFar = 0;
+    this.abortSignal = new AbortController();
+  }
+
+  async abort(): Promise<void> {
+    /**
+     * Abort stops all new uploads and immediately exists the top level promise on this.done()
+     * Concurrent threads in flight clean up eventually.
+     */
+    this.abortSignal.abort();
+  }
+
+  async done(): Promise<ServiceOutputTypes> {
+    return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortSignal.signal)]);
+  }
+
+  on(event: "httpUploadProgress", listener: (progress: Progress) => void): any {
+    this.uploadEvent = event;
+    super.on(event, listener);
+  }
+
+  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart>, id: number): Promise<void> {
+    for await (const dataPart of dataFeeder) {
+      if (this.uploadedParts.length > this.MAX_PARTS) {
+        throw new Error(
+          `Exceeded ${this.MAX_PARTS} as part of the upload to ${this.params.Key} and ${this.params.Bucket}.`
+        );
+      }
+
+      try {
+        let partResult = await this.client.send(
+          new UploadPartCommand({
+            ...this.params,
+            UploadId: this.uploadId,
+            Body: dataPart.data,
+            PartNumber: dataPart.partNumber,
+          })
+        );
+        if (this.abortSignal.signal.aborted) {
+          return;
+        }
+
+        this.uploadedParts.push({
+          PartNumber: dataPart.partNumber,
+          ETag: partResult.ETag,
+        });
+
+        this.bytesUploadedSoFar += byteLength(dataPart.data);
+        this.__notifyProgress({
+          loaded: this.bytesUploadedSoFar,
+          total: this.totalBytes,
+          part: dataPart.partNumber,
+          Key: this.params.Key,
+          Bucket: this.params.Bucket,
+        });
+      } catch (e) {
+        // on leavePartsOnError throw an error so users can deal with it themselves,
+        // otherwise swallow the error
+        if (this.leavePartsOnError) {
+          throw e;
+        }
+      }
+    }
+  }
+
+  async __doMultipartUpload(): Promise<ServiceOutputTypes> {
+    let createMultipartUploadResult = await this.client.send(new CreateMultipartUploadCommand(this.params));
+    this.uploadId = createMultipartUploadResult.UploadId;
+
+    // Set up data input chunks
+    const dataFeeder = getChunk(this.params.Body, this.partSize);
+
+    // Create and start concurrent uploads
+    for (let index = 0; index < this.queueSize; index++) {
+      const currentUpload = this.__doConcurrentUpload(dataFeeder, index);
+      this.concurrentUploaders.push(currentUpload);
+    }
+
+    // Create and start concurrent uploads
+    await Promise.all(this.concurrentUploaders);
+    if (this.abortSignal.signal.aborted) {
+      return {} as ServiceOutputTypes;
+    }
+
+    this.uploadedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
+    const completeMultipartUpload = await this.client.send(
+      new CompleteMultipartUploadCommand({
+        ...this.params,
+        Bucket: this.params.Bucket,
+        Key: this.params.Key,
+        UploadId: this.uploadId,
+        MultipartUpload: {
+          Parts: this.uploadedParts,
+        },
+      })
+    );
+    return completeMultipartUpload;
+  }
+
+  __notifyProgress(progress: Progress) {
+    if (this.uploadEvent) {
+      this.emit(this.uploadEvent, progress);
+    }
+  }
+
+  async __abortTimeout(abortSignal: AbortSignal): Promise<ServiceOutputTypes> {
+    return new Promise((resolve) => {
+      abortSignal.onabort = () => resolve({} as ServiceOutputTypes);
+    });
+  }
+}
