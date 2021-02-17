@@ -103,7 +103,7 @@ export class Upload extends EventEmitter {
       }
 
       try {
-        let partResult = await this.client.send(
+        const partResult = await this.client.send(
           new UploadPartCommand({
             ...this.params,
             UploadId: this.uploadId,
@@ -139,7 +139,7 @@ export class Upload extends EventEmitter {
   }
 
   async __doMultipartUpload(): Promise<ServiceOutputTypes> {
-    let createMultipartUploadResult = await this.client.send(new CreateMultipartUploadCommand(this.params));
+    const createMultipartUploadResult = await this.client.send(new CreateMultipartUploadCommand(this.params));
     this.uploadId = createMultipartUploadResult.UploadId;
 
     // Set up data input chunks.
