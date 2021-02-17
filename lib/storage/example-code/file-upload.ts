@@ -1,29 +1,24 @@
 import { Upload } from "../src/index";
 import { S3 } from "@aws-sdk/client-s3";
+import { configuration } from "./config";
 
 const fs = require("fs");
-const fileStream = fs.createReadStream("./big.file");
+const fileStream = fs.createReadStream(__dirname + "/big.file");
 
 (async () => {
-  const target = {
-    Bucket: "aws-sdk-js-mock-files",
-    Key: "data_key",
-    Body: fileStream,
-  };
+  const upload = new Upload({
+    params: {
+      Bucket: configuration.Bucket,
+      Key: configuration.Key,
+      Body: fileStream,
+    },
+    client: new S3({}),
+    queueSize: 3,
+  });
 
-  try {
-    const upload = new Upload({
-      params: target,
-      client: new S3({}),
-      queueSize: 3,
-    });
+  upload.on("httpUploadProgress", (progress) => {
+    console.log(progress);
+  });
 
-    upload.on("httpUploadProgress", (progress) => {
-      console.log(progress);
-    });
-
-    await upload.done();
-  } catch (e) {
-    console.log(e);
-  }
+  await upload.done();
 })();
