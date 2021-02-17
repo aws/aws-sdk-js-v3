@@ -8,7 +8,7 @@ export interface Progress {
   Bucket?: string;
 }
 
-// string | Uint8Array | Buffer | Readable | ReadableStream | Blob;
+// string | Uint8Array | Buffer | Readable | ReadableStream | Blob.
 export type BodyDataTypes = PutObjectCommandInput["Body"];
 
 export type ServiceClients = S3Client;
@@ -39,7 +39,6 @@ export interface Configuration {
   tags: Tag[];
 }
 
-// body : string | Buffer | Uint8Array | Blob | Readable
 export interface Options extends Partial<Configuration> {
   /**
    * This is the data that is uploaded.

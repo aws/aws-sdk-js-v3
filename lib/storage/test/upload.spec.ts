@@ -65,11 +65,11 @@ describe(Upload.name, () => {
 
     expect(sendMock).toHaveBeenCalledTimes(3);
 
-    // create multipartMock is called correctly
+    // create multipartMock is called correctly.
     expect(createMultipartMock).toHaveBeenCalledTimes(1);
     expect(createMultipartMock).toHaveBeenCalledWith(params);
 
-    // upload parts is called correctly
+    // upload parts is called correctly.
     expect(uploadPartMock).toHaveBeenCalledTimes(1);
     expect(uploadPartMock).toHaveBeenCalledWith({
       ...params,
@@ -78,7 +78,7 @@ describe(Upload.name, () => {
       UploadId: "mockuploadId",
     });
 
-    // complete multipart upload is called correctly
+    // complete multipart upload is called correctly.
     expect(completeMultipartMock).toHaveBeenCalledTimes(1);
     expect(completeMultipartMock).toHaveBeenLastCalledWith({
       ...params,
@@ -93,7 +93,7 @@ describe(Upload.name, () => {
       },
     });
 
-    // no tags were passed
+    // no tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(0);
 
     done();
@@ -118,7 +118,7 @@ describe(Upload.name, () => {
 
     expect(sendMock).toHaveBeenCalledTimes(4);
 
-    // tags were passed
+    // tags were passed.
     expect(putObjectTaggingMock).toHaveBeenCalledTimes(1);
     expect(putObjectTaggingMock).toHaveBeenCalledWith({
       ...params,
@@ -139,7 +139,7 @@ describe(Upload.name, () => {
         client: new S3({}),
       });
 
-      //should not get here
+      //should not get here.
       expect(1).toEqual(0);
     } catch (error) {
       expect(error).toBeDefined();
@@ -155,7 +155,7 @@ describe(Upload.name, () => {
         client: new S3({}),
       });
 
-      //should not get here
+      //should not get here.
       expect(1).toEqual(0);
     } catch (error) {
       expect(error).toBeDefined();

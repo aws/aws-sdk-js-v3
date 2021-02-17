@@ -13,12 +13,11 @@ export const getChunk = (data: BodyDataTypes, partSize: number) => {
   } else if (data instanceof stream.Readable) {
     return getChunkStream<stream.Readable>(data, partSize, getNextDataReadable);
   } else if (data instanceof String || typeof data == "string" || data instanceof Uint8Array) {
-    // chunk Strings
-    // chunk Uint8Array
+    // chunk Strings, Uint8Array.
     return getChunkBuffer(Buffer.from(data), partSize);
   }
   if (typeof (data as any).stream === "function") {
-    // approximate support for Blobs
+    // approximate support for Blobs.
     return getChunkStream<ReadableStream>((data as any).stream(), partSize, getNextDataReadableStream);
   } else if (data instanceof ReadableStream) {
     return getChunkStream<ReadableStream>(data, partSize, getNextDataReadableStream);

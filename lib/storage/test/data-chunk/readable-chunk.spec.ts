@@ -7,7 +7,8 @@ import { RawDataPart as DataPart } from "../../src/Upload";
 const fs = require("fs");
 
 describe(chunkFromReadable.name, () => {
-  const _6MB = 1024 * 1024 * 6; // larger than the 5mb min chunk size
+  // larger than the 5mb min chunk size.
+  const _6MB = 1024 * 1024 * 6;
 
   const getUnknownEnding = async function* (chunksize: number, totalchunks: number) {
     for (let index = 0; index < totalchunks; index++) {

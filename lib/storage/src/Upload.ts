@@ -27,7 +27,7 @@ export class Upload extends EventEmitter {
    */
   private MAX_PARTS = 1000;
 
-  // Defaults
+  // Defaults.
   private queueSize = 4;
   private partSize = MIN_PART_SIZE;
   private leavePartsOnError = false;
@@ -36,12 +36,12 @@ export class Upload extends EventEmitter {
   private client: ServiceClients;
   private params: PutObjectCommandInput;
 
-  // used for reporting progress
+  // used for reporting progress.
   private totalBytes?: number;
   private bytesUploadedSoFar: number;
 
-  // used in the upload
-  private abortSignal: AbortController;
+  // used in the upload.
+  private abortController: AbortController;
   private concurrentUploaders: Promise<void>[] = [];
 
   private uploadedParts: CompletedPart[] = [];
@@ -52,7 +52,7 @@ export class Upload extends EventEmitter {
   constructor(options: Options) {
     super();
 
-    // set defaults from options
+    // set defaults from options.
     this.queueSize = options.queueSize || this.queueSize;
     this.partSize = options.partSize || this.partSize;
     this.leavePartsOnError = options.leavePartsOnError || this.leavePartsOnError;
@@ -74,7 +74,7 @@ export class Upload extends EventEmitter {
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
-    this.abortSignal = new AbortController();
+    this.abortController = new AbortController();
   }
 
   async abort(): Promise<void> {
@@ -82,11 +82,11 @@ export class Upload extends EventEmitter {
      * Abort stops all new uploads and immediately exists the top level promise on this.done()
      * Concurrent threads in flight clean up eventually.
      */
-    this.abortSignal.abort();
+    this.abortController.abort();
   }
 
   async done(): Promise<ServiceOutputTypes> {
-    return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortSignal.signal)]);
+    return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
   }
 
   on(event: "httpUploadProgress", listener: (progress: Progress) => void): any {
@@ -94,7 +94,7 @@ export class Upload extends EventEmitter {
     super.on(event, listener);
   }
 
-  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart>, id: number): Promise<void> {
+  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart>): Promise<void> {
     for await (const dataPart of dataFeeder) {
       if (this.uploadedParts.length > this.MAX_PARTS) {
         throw new Error(
@@ -111,7 +111,7 @@ export class Upload extends EventEmitter {
             PartNumber: dataPart.partNumber,
           })
         );
-        if (this.abortSignal.signal.aborted) {
+        if (this.abortController.signal.aborted) {
           return;
         }
 
@@ -130,7 +130,7 @@ export class Upload extends EventEmitter {
         });
       } catch (e) {
         // on leavePartsOnError throw an error so users can deal with it themselves,
-        // otherwise swallow the error
+        // otherwise swallow the error.
         if (this.leavePartsOnError) {
           throw e;
         }
@@ -142,18 +142,18 @@ export class Upload extends EventEmitter {
     let createMultipartUploadResult = await this.client.send(new CreateMultipartUploadCommand(this.params));
     this.uploadId = createMultipartUploadResult.UploadId;
 
-    // Set up data input chunks
+    // Set up data input chunks.
     const dataFeeder = getChunk(this.params.Body, this.partSize);
 
-    // Create and start concurrent uploads
+    // Create and start concurrent uploads.
     for (let index = 0; index < this.queueSize; index++) {
-      const currentUpload = this.__doConcurrentUpload(dataFeeder, index);
+      const currentUpload = this.__doConcurrentUpload(dataFeeder);
       this.concurrentUploaders.push(currentUpload);
     }
 
-    // Create and start concurrent uploads
+    // Create and start concurrent uploads.
     await Promise.all(this.concurrentUploaders);
-    if (this.abortSignal.signal.aborted) {
+    if (this.abortController.signal.aborted) {
       return {} as ServiceOutputTypes;
     }
 

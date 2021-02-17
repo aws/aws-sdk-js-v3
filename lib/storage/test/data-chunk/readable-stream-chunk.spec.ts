@@ -7,7 +7,8 @@ import { getNextData } from "../../src/chunks/getDataReadableStream";
 import { RawDataPart as DataPart } from "../../src/Upload";
 
 describe("chunkFromReadable.name", () => {
-  const _6MB = 1024 * 1024 * 6; // larger than the 5mb min chunk size
+  // larger than the 5mb min chunk size
+  const _6MB = 1024 * 1024 * 6;
 
   const getStreamOfUnknownlength = (chunksize: number, totalchunks: number) =>
     new ReadableStream({

@@ -19,7 +19,7 @@ export async function* getChunk<T>(
     currentBuffer.length += datum.length;
 
     while (currentBuffer.length >= partSize) {
-      // concat all the buffers together once.
+      // Concat all the buffers together once.
       let dataChunk: Buffer = currentBuffer.chunks[0];
       if(currentBuffer.chunks.length) {
         dataChunk = Buffer.concat(currentBuffer.chunks);
@@ -30,7 +30,7 @@ export async function* getChunk<T>(
         data: dataChunk.slice(0, partSize),
       };
 
-      //reset the buffer
+      // Reset the buffer.
       currentBuffer.chunks = [dataChunk.slice(partSize)];
       currentBuffer.length = currentBuffer.chunks[0].length;
       partNumber += 1;
