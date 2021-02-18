@@ -42,7 +42,7 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  * @see fromContainerMetadata   The function used to source credentials from the
  *                              ECS Container Metadata Service
  */
-export function defaultProvider(init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider {
+export const defaultProvider = (init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider => {
   const options = { profile: process.env[ENV_PROFILE], ...init };
   if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
   const providers = [fromIni(options), fromProcess(options), remoteProvider(options)];
@@ -54,9 +54,9 @@ export function defaultProvider(init: FromIniInit & RemoteProviderInit & FromPro
     (credentials) => credentials.expiration !== undefined && credentials.expiration.getTime() - Date.now() < 300000,
     (credentials) => credentials.expiration !== undefined
   );
-}
+};
 
-function remoteProvider(init: RemoteProviderInit): CredentialProvider {
+const remoteProvider = (init: RemoteProviderInit): CredentialProvider => {
   if (process.env[ENV_CMDS_RELATIVE_URI] || process.env[ENV_CMDS_FULL_URI]) {
     return fromContainerMetadata(init);
   }
@@ -66,4 +66,4 @@ function remoteProvider(init: RemoteProviderInit): CredentialProvider {
   }
 
   return fromInstanceMetadata(init);
-}
+};
