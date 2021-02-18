@@ -31,6 +31,7 @@
     "@aws-sdk/credential-provider-ini": "3.4.1",
     "@aws-sdk/credential-provider-process": "3.4.1",
     "@aws-sdk/property-provider": "3.4.1",
+    "@aws-sdk/shared-ini-file-loader": "3.4.1",
     "@aws-sdk/types": "3.4.1",
     "tslib": "^1.8.0"
   },

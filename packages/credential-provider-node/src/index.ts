@@ -9,6 +9,7 @@ import {
 import { ENV_PROFILE, fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
 import { fromProcess, FromProcessInit } from "@aws-sdk/credential-provider-process";
 import { chain, memoize, ProviderError } from "@aws-sdk/property-provider";
+import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider } from "@aws-sdk/types";
 
 export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
@@ -43,6 +44,7 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  */
 export function defaultProvider(init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider {
   const options = { profile: process.env[ENV_PROFILE], ...init };
+  if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
   const providers = [fromIni(options), fromProcess(options), remoteProvider(options)];
   if (!options.profile) providers.unshift(fromEnv());
   const providerChain = chain(...providers);
