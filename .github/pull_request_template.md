@@ -1,5 +1,5 @@
 ### Issue
-Issue number, if available
+Issue number, if available, prefixed with "#"
 
 ### Description
 What does this implement/fix? Explain your changes.
