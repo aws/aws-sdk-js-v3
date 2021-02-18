@@ -10,6 +10,17 @@ jest.mock("@aws-sdk/credential-provider-env", () => {
 });
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 
+const loadedConfig = {
+  credentialsFile: {
+    foo: { aws_access_key_id: "key", aws_secret_access_key: "secret" },
+  },
+  configFile: { bar: { aws_access_key_id: "key", aws_secret_access_key: "secret" } },
+};
+jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
+  loadSharedConfigFiles: jest.fn().mockReturnValue(loadedConfig),
+}));
+import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
+
 jest.mock("@aws-sdk/credential-provider-ini", () => {
   const iniProvider = jest.fn();
   return {
@@ -39,6 +50,7 @@ jest.mock("@aws-sdk/credential-provider-imds", () => {
     ENV_CMDS_RELATIVE_URI: "AWS_CONTAINER_CREDENTIALS_RELATIVE_URI",
   };
 });
+
 import {
   ENV_CMDS_FULL_URI,
   ENV_CMDS_RELATIVE_URI,
@@ -78,6 +90,7 @@ beforeEach(() => {
   (fromProcess as any).mockClear();
   (fromContainerMetadata as any).mockClear();
   (fromInstanceMetadata as any).mockClear();
+  (loadSharedConfigFiles as any).mockClear();
 });
 
 afterAll(() => {
@@ -200,6 +213,23 @@ describe("defaultProvider", () => {
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
 
+  it("should read config files only once for all providers", async () => {
+    const creds = {
+      accessKeyId: "foo",
+      secretAccessKey: "bar",
+    };
+
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
+    (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
+
+    await expect(defaultProvider()()).resolves;
+    expect((loadSharedConfigFiles as any).mock.calls.length).toBe(1);
+    expect((fromIni as any).mock.calls[1][0]).toMatchObject({ loadedConfig: loadSharedConfigFiles() });
+    expect((fromProcess as any).mock.calls[1][0]).toMatchObject({ loadedConfig: loadSharedConfigFiles() });
+  });
+
   it("should pass configuration on to the ini provider", async () => {
     const iniConfig: FromIniInit = {
       profile: "foo",
@@ -226,7 +256,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(iniConfig)()).resolves;
 
     expect((fromIni as any).mock.calls.length).toBe(1);
-    expect((fromIni as any).mock.calls[0][0]).toBe(iniConfig);
+    expect((fromIni as any).mock.calls[0][0]).toEqual({ ...iniConfig, loadedConfig });
   });
 
   it("should pass configuration on to the process provider", async () => {
@@ -249,7 +279,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(processConfig)()).resolves;
     expect((fromProcess as any).mock.calls.length).toBe(1);
     expect((fromProcess as any).mock.calls.length).toBe(1);
-    expect((fromProcess as any).mock.calls[0][0]).toBe(processConfig);
+    expect((fromProcess as any).mock.calls[0][0]).toEqual({ ...processConfig, loadedConfig });
   });
 
   it("should pass configuration on to the IMDS provider", async () => {
@@ -273,7 +303,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(imdsConfig)()).resolves;
 
     expect((fromInstanceMetadata as any).mock.calls.length).toBe(1);
-    expect((fromInstanceMetadata as any).mock.calls[0][0]).toBe(imdsConfig);
+    expect((fromInstanceMetadata as any).mock.calls[0][0]).toEqual({ ...imdsConfig, loadedConfig });
   });
 
   it("should pass configuration on to the ECS IMDS provider", async () => {
@@ -298,7 +328,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(ecsImdsConfig)()).resolves;
 
     expect((fromContainerMetadata as any).mock.calls.length).toBe(1);
-    expect((fromContainerMetadata as any).mock.calls[0][0]).toBe(ecsImdsConfig);
+    expect((fromContainerMetadata as any).mock.calls[0][0]).toEqual({ ...ecsImdsConfig, loadedConfig });
   });
 
   it("should return the same promise across invocations", async () => {
