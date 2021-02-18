@@ -18,6 +18,8 @@ export interface FromProcessInit extends SharedConfigInit {
   /**
    * A promise that will be resolved with loaded and parsed credentials files.
    * Used to avoid loading shared config files multiple times.
+   *
+   * @internal
    */
   loadedConfig?: Promise<SharedConfigFiles>;
 }
