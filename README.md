@@ -18,10 +18,10 @@ or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/).
 
 If you are starting a new project with AWS SDK for JavaScript v3, then you can refer
 [aws-sdk-js-notes-app](https://github.com/aws-samples/aws-sdk-js-notes-app) which shows examples of calling
-multiple AWS Services with AWS SDK for JaavScript v3.
+multiple AWS Services in a note taking application.
 If you are migrating from v2 to v3, then you can visit our [self-guided workshop](https://github.com/aws-samples/aws-sdk-js-v3-workshop)
-which builds a simple note taking application using JavaScript SDK version 2
-and provides step-by-step migration instructions to version 3.
+which builds as basic version of note taking application using AWS SDK for JavaScript v2
+and provides step-by-step migration instructions to v3.
 
 To test your universal JavaScript code in Node.js, browser and react-native environments,
 visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
