@@ -44,7 +44,7 @@ export interface AssumeRoleParams {
   TokenCode?: string;
 }
 
-export interface FromIniInit extends SharedConfigInit {
+export interface SourceProfileInit extends SharedConfigInit {
   /**
    * The configuration profile to use.
    */
@@ -57,7 +57,9 @@ export interface FromIniInit extends SharedConfigInit {
    * @internal
    */
   loadedConfig?: Promise<SharedConfigFiles>;
+}
 
+export interface FromIniInit extends SourceProfileInit {
   /**
    * A function that returna a promise fulfilled with an MFA token code for
    * the provided MFA Serial code. If a profile requires an MFA code and
@@ -84,51 +86,64 @@ interface StaticCredsProfile extends Profile {
   aws_session_token?: string;
 }
 
-function isStaticCredsProfile(arg: any): arg is StaticCredsProfile {
-  return (
-    Boolean(arg) &&
-    typeof arg === "object" &&
-    typeof arg.aws_access_key_id === "string" &&
-    typeof arg.aws_secret_access_key === "string" &&
-    ["undefined", "string"].indexOf(typeof arg.aws_session_token) > -1
-  );
-}
+const isStaticCredsProfile = (arg: any): arg is StaticCredsProfile =>
+  Boolean(arg) &&
+  typeof arg === "object" &&
+  typeof arg.aws_access_key_id === "string" &&
+  typeof arg.aws_secret_access_key === "string" &&
+  ["undefined", "string"].indexOf(typeof arg.aws_session_token) > -1;
 
 interface AssumeRoleProfile extends Profile {
   role_arn: string;
   source_profile: string;
 }
 
-function isAssumeRoleProfile(arg: any): arg is AssumeRoleProfile {
-  return (
-    Boolean(arg) &&
-    typeof arg === "object" &&
-    typeof arg.role_arn === "string" &&
-    typeof arg.source_profile === "string" &&
-    ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
-    ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
-    ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1
-  );
-}
+const isAssumeRoleProfile = (arg: any): arg is AssumeRoleProfile =>
+  Boolean(arg) &&
+  typeof arg === "object" &&
+  typeof arg.role_arn === "string" &&
+  typeof arg.source_profile === "string" &&
+  ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1 &&
+  ["undefined", "string"].indexOf(typeof arg.external_id) > -1 &&
+  ["undefined", "string"].indexOf(typeof arg.mfa_serial) > -1;
 
 /**
  * Creates a credential provider that will read from ini files and supports
  * role assumption and multi-factor authentication.
  */
-export function fromIni(init: FromIniInit = {}): CredentialProvider {
-  return () => parseKnownFiles(init).then((profiles) => resolveProfileData(getMasterProfileName(init), profiles, init));
-}
+export const fromIni = (init: FromIniInit = {}): CredentialProvider => () =>
+  parseKnownFiles(init).then((profiles) => resolveProfileData(getMasterProfileName(init), profiles, init));
 
-export function getMasterProfileName(init: FromIniInit): string {
-  return init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
-}
+/**
+ * Load profiles from credentials and config INI files and normalize them into a
+ * single profile list.
+ *
+ * @internal
+ */
+export const parseKnownFiles = async (init: SourceProfileInit): Promise<ParsedIniData> => {
+  const { loadedConfig = loadSharedConfigFiles(init) } = init;
 
-async function resolveProfileData(
+  return loadedConfig.then((parsedFiles) => {
+    const { configFile, credentialsFile } = parsedFiles;
+    return {
+      ...configFile,
+      ...credentialsFile,
+    };
+  });
+};
+
+/**
+ * @internal
+ */
+export const getMasterProfileName = (init: { profile?: string }): string =>
+  init.profile || process.env[ENV_PROFILE] || DEFAULT_PROFILE;
+
+const resolveProfileData = async (
   profileName: string,
   profiles: ParsedIniData,
   options: FromIniInit,
   visitedProfiles: { [profileName: string]: true } = {}
-): Promise<Credentials> {
+): Promise<Credentials> => {
   const data = profiles[profileName];
 
   // If this is not the first profile visited, static credentials should be
@@ -196,24 +211,11 @@ async function resolveProfileData(
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
   throw new ProviderError(`Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`);
-}
+};
 
-export function parseKnownFiles(init: FromIniInit): Promise<ParsedIniData> {
-  const { loadedConfig = loadSharedConfigFiles(init) } = init;
-
-  return loadedConfig.then((parsedFiles) => {
-    const { configFile, credentialsFile } = parsedFiles;
-    return {
-      ...configFile,
-      ...credentialsFile,
-    };
-  });
-}
-
-function resolveStaticCredentials(profile: StaticCredsProfile): Promise<Credentials> {
-  return Promise.resolve({
+const resolveStaticCredentials = (profile: StaticCredsProfile): Promise<Credentials> =>
+  Promise.resolve({
     accessKeyId: profile.aws_access_key_id,
     secretAccessKey: profile.aws_secret_access_key,
     sessionToken: profile.aws_session_token,
   });
-}
