@@ -226,7 +226,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(iniConfig)()).resolves;
 
     expect((fromIni as any).mock.calls.length).toBe(1);
-    expect((fromIni as any).mock.calls[0][0]).toBe(iniConfig);
+    expect((fromIni as any).mock.calls[0][0]).toEqual(iniConfig);
   });
 
   it("should pass configuration on to the process provider", async () => {
@@ -249,7 +249,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(processConfig)()).resolves;
     expect((fromProcess as any).mock.calls.length).toBe(1);
     expect((fromProcess as any).mock.calls.length).toBe(1);
-    expect((fromProcess as any).mock.calls[0][0]).toBe(processConfig);
+    expect((fromProcess as any).mock.calls[0][0]).toEqual(processConfig);
   });
 
   it("should pass configuration on to the IMDS provider", async () => {
@@ -273,7 +273,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(imdsConfig)()).resolves;
 
     expect((fromInstanceMetadata as any).mock.calls.length).toBe(1);
-    expect((fromInstanceMetadata as any).mock.calls[0][0]).toBe(imdsConfig);
+    expect((fromInstanceMetadata as any).mock.calls[0][0]).toEqual(imdsConfig);
   });
 
   it("should pass configuration on to the ECS IMDS provider", async () => {
@@ -298,7 +298,7 @@ describe("defaultProvider", () => {
     await expect(defaultProvider(ecsImdsConfig)()).resolves;
 
     expect((fromContainerMetadata as any).mock.calls.length).toBe(1);
-    expect((fromContainerMetadata as any).mock.calls[0][0]).toBe(ecsImdsConfig);
+    expect((fromContainerMetadata as any).mock.calls[0][0]).toEqual(ecsImdsConfig);
   });
 
   it("should return the same promise across invocations", async () => {

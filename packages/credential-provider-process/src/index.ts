@@ -4,6 +4,9 @@ import { ParsedIniData, SharedConfigFiles, SharedConfigInit } from "@aws-sdk/sha
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { exec } from "child_process";
 
+/**
+ * @internal
+ */
 export const ENV_PROFILE = "AWS_PROFILE";
 
 export interface FromProcessInit extends SharedConfigInit {

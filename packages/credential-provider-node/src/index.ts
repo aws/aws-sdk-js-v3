@@ -42,10 +42,10 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  *                              ECS Container Metadata Service
  */
 export function defaultProvider(init: FromIniInit & RemoteProviderInit & FromProcessInit = {}): CredentialProvider {
-  const { profile = process.env[ENV_PROFILE] } = init;
-  const providerChain = profile
-    ? chain(fromIni(init), fromProcess(init))
-    : chain(fromEnv(), fromIni(init), fromProcess(init), remoteProvider(init));
+  const options = { profile: process.env[ENV_PROFILE], ...init };
+  const providers = [fromIni(options), fromProcess(options), remoteProvider(options)];
+  if (!options.profile) providers.unshift(fromEnv());
+  const providerChain = chain(...providers);
 
   return memoize(
     providerChain,
