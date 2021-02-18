@@ -111,6 +111,7 @@ export class Upload extends EventEmitter {
             PartNumber: dataPart.partNumber,
           })
         );
+
         if (this.abortController.signal.aborted) {
           return;
         }
@@ -190,8 +191,12 @@ export class Upload extends EventEmitter {
   }
 
   async __abortTimeout(abortSignal: AbortSignal): Promise<ServiceOutputTypes> {
-    return new Promise((resolve) => {
-      abortSignal.onabort = () => resolve({} as ServiceOutputTypes);
+    return new Promise((resolve, reject) => {
+      abortSignal.onabort = () => {
+        const abortError = new Error("Upload aborted.");
+        abortError.name = "AbortError";
+        reject(abortError);
+      };
     });
   }
 }
