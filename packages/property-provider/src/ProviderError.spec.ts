@@ -8,4 +8,16 @@ describe("ProviderError", () => {
   it("should allow errors to halt the chain", () => {
     expect(new ProviderError("PANIC", false).tryNextLink).toBe(false);
   });
+
+  describe("from()", () => {
+    it("should create ProviderError from existing error", () => {
+      const error = new Error("PANIC");
+      //@ts-expect-error
+      error.someValue = "foo";
+      const providerError = ProviderError.from(error);
+      //@ts-expect-error
+      expect(providerError.someValue).toBe("foo");
+      expect(providerError.tryNextLink).toBe(true);
+    });
+  });
 });
