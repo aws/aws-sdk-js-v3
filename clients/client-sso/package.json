@@ -39,7 +39,6 @@
     "@aws-sdk/middleware-logger": "3.5.0",
     "@aws-sdk/middleware-retry": "3.5.0",
     "@aws-sdk/middleware-serde": "3.4.1",
-    "@aws-sdk/middleware-signing": "3.5.0",
     "@aws-sdk/middleware-stack": "3.4.1",
     "@aws-sdk/middleware-user-agent": "3.5.0",
     "@aws-sdk/node-config-provider": "3.4.1",

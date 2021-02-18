@@ -22,7 +22,6 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
@@ -160,7 +159,6 @@ export type SSOOIDCClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOpt
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
-  AwsAuthInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig;
@@ -169,7 +167,6 @@ export type SSOOIDCClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
-  AwsAuthResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
@@ -209,12 +206,11 @@ export class SSOOIDCClient extends __Client<
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveAwsAuthConfig(_config_2);
-    let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveHostHeaderConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_3 = resolveRetryConfig(_config_2);
+    let _config_4 = resolveHostHeaderConfig(_config_3);
+    let _config_5 = resolveUserAgentConfig(_config_4);
+    super(_config_5);
+    this.config = _config_5;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

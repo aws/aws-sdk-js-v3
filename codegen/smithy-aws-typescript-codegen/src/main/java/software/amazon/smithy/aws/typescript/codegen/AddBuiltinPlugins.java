@@ -54,6 +54,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
+                        .servicePredicate((m, s) -> !isAllOptionalAuthOperation(m, s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
@@ -174,5 +175,16 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
             }
         }
         return false;
+    }
+
+    private static boolean isAllOptionalAuthOperation(Model model, ServiceShape service) {
+        TopDownIndex topDownIndex = TopDownIndex.of(model);
+        Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
+        for (OperationShape operation : operations) {
+            if (!operation.getTrait(OptionalAuthTrait.class).isPresent()) {
+                return false;
+            }
+        }
+        return true;
     }
 }
