@@ -58,10 +58,10 @@
   "react-native": {
     "./runtimeConfig": "./src/runtimeConfig.native"
   },
-  "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/master/lib/storage",
+  "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/master/lib/lib-storage",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "lib/storage"
+    "directory": "lib/lib-storage"
   }
 }
