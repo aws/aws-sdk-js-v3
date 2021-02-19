@@ -43,4 +43,5 @@ export * from "./commands/XmlMapsCommand";
 export * from "./commands/XmlMapsXmlNameCommand";
 export * from "./commands/XmlNamespacesCommand";
 export * from "./commands/XmlTimestampsCommand";
+export * from "./commands/XmlUnionsCommand";
 export * from "./models/index";

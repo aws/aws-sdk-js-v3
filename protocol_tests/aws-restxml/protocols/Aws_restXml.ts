@@ -110,6 +110,7 @@ import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCo
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
+import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
 import {
   ComplexError,
   ComplexNestedErrorData,
@@ -125,6 +126,8 @@ import {
   StructureListMember,
   XmlAttributesInputOutput,
   XmlNamespaceNested,
+  XmlNestedUnionStruct,
+  XmlUnionShape,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -1777,6 +1780,34 @@ export const serializeAws_restXmlXmlTimestampsCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlXmlUnionsCommand = async (
+  input: XmlUnionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  let resolvedPath = "/XmlUnions";
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("XmlUnionsInputOutput");
+  if (input.unionValue !== undefined) {
+    const node = serializeAws_restXmlXmlUnionShape(input.unionValue, context).withName("unionValue");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -4248,6 +4279,53 @@ const deserializeAws_restXmlXmlTimestampsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlXmlUnionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlUnionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlXmlUnionsCommandError(output, context);
+  }
+  const contents: XmlUnionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    unionValue: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data["unionValue"] !== undefined) {
+    contents.unionValue = deserializeAws_restXmlXmlUnionShape(data["unionValue"], context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlXmlUnionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlUnionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restXmlComplexErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4524,6 +4602,100 @@ const serializeAws_restXmlXmlNamespaceNested = (input: XmlNamespaceNested, conte
     });
     bodyNode.addChildNode(containerNode);
   }
+  return bodyNode;
+};
+
+const serializeAws_restXmlXmlNestedUnionStruct = (input: XmlNestedUnionStruct, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("XmlNestedUnionStruct");
+  if (input.stringValue !== undefined && input.stringValue !== null) {
+    const node = new __XmlNode("String").addChildNode(new __XmlText(input.stringValue)).withName("stringValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.booleanValue !== undefined && input.booleanValue !== null) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.booleanValue)))
+      .withName("booleanValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.byteValue !== undefined && input.byteValue !== null) {
+    const node = new __XmlNode("Byte").addChildNode(new __XmlText(String(input.byteValue))).withName("byteValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.shortValue !== undefined && input.shortValue !== null) {
+    const node = new __XmlNode("Short").addChildNode(new __XmlText(String(input.shortValue))).withName("shortValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.integerValue !== undefined && input.integerValue !== null) {
+    const node = new __XmlNode("Integer")
+      .addChildNode(new __XmlText(String(input.integerValue)))
+      .withName("integerValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.longValue !== undefined && input.longValue !== null) {
+    const node = new __XmlNode("Long").addChildNode(new __XmlText(String(input.longValue))).withName("longValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.floatValue !== undefined && input.floatValue !== null) {
+    const node = new __XmlNode("Float").addChildNode(new __XmlText(String(input.floatValue))).withName("floatValue");
+    bodyNode.addChildNode(node);
+  }
+  if (input.doubleValue !== undefined && input.doubleValue !== null) {
+    const node = new __XmlNode("Double").addChildNode(new __XmlText(String(input.doubleValue))).withName("doubleValue");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlXmlUnionShape = (input: XmlUnionShape, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("XmlUnionShape");
+  XmlUnionShape.visit(input, {
+    stringValue: (value) => {
+      const node = new __XmlNode("String").addChildNode(new __XmlText(value)).withName("stringValue");
+      bodyNode.addChildNode(node);
+    },
+    booleanValue: (value) => {
+      const node = new __XmlNode("Boolean").addChildNode(new __XmlText(String(value))).withName("booleanValue");
+      bodyNode.addChildNode(node);
+    },
+    byteValue: (value) => {
+      const node = new __XmlNode("Byte").addChildNode(new __XmlText(String(value))).withName("byteValue");
+      bodyNode.addChildNode(node);
+    },
+    shortValue: (value) => {
+      const node = new __XmlNode("Short").addChildNode(new __XmlText(String(value))).withName("shortValue");
+      bodyNode.addChildNode(node);
+    },
+    integerValue: (value) => {
+      const node = new __XmlNode("Integer").addChildNode(new __XmlText(String(value))).withName("integerValue");
+      bodyNode.addChildNode(node);
+    },
+    longValue: (value) => {
+      const node = new __XmlNode("Long").addChildNode(new __XmlText(String(value))).withName("longValue");
+      bodyNode.addChildNode(node);
+    },
+    floatValue: (value) => {
+      const node = new __XmlNode("Float").addChildNode(new __XmlText(String(value))).withName("floatValue");
+      bodyNode.addChildNode(node);
+    },
+    doubleValue: (value) => {
+      const node = new __XmlNode("Double").addChildNode(new __XmlText(String(value))).withName("doubleValue");
+      bodyNode.addChildNode(node);
+    },
+    unionValue: (value) => {
+      const node = serializeAws_restXmlXmlUnionShape(value, context).withName("unionValue");
+      bodyNode.addChildNode(node);
+    },
+    structValue: (value) => {
+      const node = serializeAws_restXmlXmlNestedUnionStruct(value, context).withName("structValue");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+    },
+  });
   return bodyNode;
 };
 
@@ -4909,6 +5081,98 @@ const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeC
     );
   }
   return contents;
+};
+
+const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __SerdeContext): XmlNestedUnionStruct => {
+  let contents: any = {
+    stringValue: undefined,
+    booleanValue: undefined,
+    byteValue: undefined,
+    shortValue: undefined,
+    integerValue: undefined,
+    longValue: undefined,
+    floatValue: undefined,
+    doubleValue: undefined,
+  };
+  if (output["stringValue"] !== undefined) {
+    contents.stringValue = output["stringValue"];
+  }
+  if (output["booleanValue"] !== undefined) {
+    contents.booleanValue = output["booleanValue"] == "true";
+  }
+  if (output["byteValue"] !== undefined) {
+    contents.byteValue = parseInt(output["byteValue"]);
+  }
+  if (output["shortValue"] !== undefined) {
+    contents.shortValue = parseInt(output["shortValue"]);
+  }
+  if (output["integerValue"] !== undefined) {
+    contents.integerValue = parseInt(output["integerValue"]);
+  }
+  if (output["longValue"] !== undefined) {
+    contents.longValue = parseInt(output["longValue"]);
+  }
+  if (output["floatValue"] !== undefined) {
+    contents.floatValue = parseFloat(output["floatValue"]);
+  }
+  if (output["doubleValue"] !== undefined) {
+    contents.doubleValue = parseFloat(output["doubleValue"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlXmlUnionShape = (output: any, context: __SerdeContext): XmlUnionShape => {
+  if (output["stringValue"] !== undefined) {
+    return {
+      stringValue: output["stringValue"],
+    };
+  }
+  if (output["booleanValue"] !== undefined) {
+    return {
+      booleanValue: output["booleanValue"] == "true",
+    };
+  }
+  if (output["byteValue"] !== undefined) {
+    return {
+      byteValue: parseInt(output["byteValue"]),
+    };
+  }
+  if (output["shortValue"] !== undefined) {
+    return {
+      shortValue: parseInt(output["shortValue"]),
+    };
+  }
+  if (output["integerValue"] !== undefined) {
+    return {
+      integerValue: parseInt(output["integerValue"]),
+    };
+  }
+  if (output["longValue"] !== undefined) {
+    return {
+      longValue: parseInt(output["longValue"]),
+    };
+  }
+  if (output["floatValue"] !== undefined) {
+    return {
+      floatValue: parseFloat(output["floatValue"]),
+    };
+  }
+  if (output["doubleValue"] !== undefined) {
+    return {
+      doubleValue: parseFloat(output["doubleValue"]),
+    };
+  }
+  if (output["unionValue"] !== undefined) {
+    return {
+      unionValue: deserializeAws_restXmlXmlUnionShape(output["unionValue"], context),
+    };
+  }
+  if (output["structValue"] !== undefined) {
+    return {
+      structValue: deserializeAws_restXmlXmlNestedUnionStruct(output["structValue"], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restXmlBooleanList = (output: any, context: __SerdeContext): boolean[] => {

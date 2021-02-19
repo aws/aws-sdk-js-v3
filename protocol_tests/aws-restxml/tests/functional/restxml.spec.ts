@@ -41,6 +41,7 @@ import { XmlMapsCommand } from "../../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
+import { XmlUnionsCommand } from "../../commands/XmlUnionsCommand";
 import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -468,7 +469,7 @@ it("FlattenedXmlMap:Request", async () => {
             <value>Baz</value>
         </myMap>
     </FlattenedXmlMapInputOutput>`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -567,7 +568,7 @@ it("FlattenedXmlMapWithXmlName:Request", async () => {
             <V>B</V>
         </KVP>
     </FlattenedXmlMapWithXmlNameInputOutput>`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -855,7 +856,9 @@ it("HttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
+    const bodyString = `blobby blob blob`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
   }
 });
 
@@ -1003,7 +1006,9 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
-    expect(r.body).toMatchObject(Uint8Array.from("blobby blob blob", (c) => c.charCodeAt(0)));
+    const bodyString = `blobby blob blob`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
   }
 });
 
@@ -1087,7 +1092,7 @@ it("HttpPayloadWithStructure:Request", async () => {
         <name>Phreddy</name>
     </NestedPayload>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1171,7 +1176,7 @@ it("HttpPayloadWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `<Hello><name>Phreddy</name></Hello>`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1251,7 +1256,7 @@ it("HttpPayloadWithXmlNamespace:Request", async () => {
     const bodyString = `<PayloadWithXmlNamespace xmlns=\"http://foo.com\">
         <name>Phreddy</name>
     </PayloadWithXmlNamespace>`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1333,7 +1338,7 @@ it("HttpPayloadWithXmlNamespaceAndPrefix:Request", async () => {
     const bodyString = `<PayloadWithXmlNamespaceAndPrefix xmlns:baz=\"http://foo.com\">
         <name>Phreddy</name>
     </PayloadWithXmlNamespaceAndPrefix>`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2453,7 +2458,7 @@ it("RecursiveShapes:Request", async () => {
         </nested>
     </RecursiveShapesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2585,7 +2590,7 @@ it("SimpleScalarProperties:Request", async () => {
         <DoubleDribble>6.5</DoubleDribble>
     </SimpleScalarPropertiesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2627,7 +2632,7 @@ it("SimpleScalarPropertiesWithEscapedCharacter:Request", async () => {
         <stringValue>&lt;string&gt;</stringValue>
     </SimpleScalarPropertiesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2669,7 +2674,7 @@ it("SimpleScalarPropertiesWithWhiteSpace:Request", async () => {
         <stringValue>string with white    space</stringValue>
     </SimpleScalarPropertiesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3025,7 +3030,7 @@ it("XmlAttributes:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3065,7 +3070,7 @@ it("XmlAttributesWithEscaping:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3150,7 +3155,7 @@ it("XmlAttributesOnPayload:Request", async () => {
         <foo>hi</foo>
     </XmlAttributesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3233,7 +3238,7 @@ it("XmlBlobs:Request", async () => {
         <data>dmFsdWU=</data>
     </XmlBlobsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3397,7 +3402,7 @@ it("XmlEmptyLists:Request", async () => {
             <stringSet></stringSet>
     </XmlListsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3479,7 +3484,7 @@ it("XmlEmptyMaps:Request", async () => {
         <myMap></myMap>
     </XmlMapsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3599,7 +3604,7 @@ it("XmlEmptyStrings:Request", async () => {
         <emptyString></emptyString>
     </XmlEmptyStringsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3753,7 +3758,7 @@ it("XmlEnums:Request", async () => {
         </fooEnumMap>
     </XmlEnumsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3953,7 +3958,7 @@ it("XmlLists:Request", async () => {
         </myStructureList>
     </XmlListsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4148,7 +4153,7 @@ it("XmlMaps:Request", async () => {
         </myMap>
     </XmlMapsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4269,7 +4274,7 @@ it("XmlMapsXmlName:Request", async () => {
         </myMap>
     </XmlMapsXmlNameInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4379,7 +4384,7 @@ it("XmlNamespaces:Request", async () => {
         </nested>
     </XmlNamespacesInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4468,7 +4473,7 @@ it("XmlTimestamps:Request", async () => {
         <normal>2014-04-29T18:30:38Z</normal>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4506,7 +4511,7 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
         <dateTime>2014-04-29T18:30:38Z</dateTime>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4544,7 +4549,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
         <epochSeconds>1398796238</epochSeconds>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4582,7 +4587,7 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
         <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
     </XmlTimestampsInputOutput>
     `;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4752,10 +4757,433 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
 });
 
 /**
+ * Serializes union struct member
+ */
+it("XmlUnionsWithStructMember:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlUnionsCommand({
+    unionValue: {
+      structValue: {
+        stringValue: "string",
+
+        booleanValue: true,
+
+        byteValue: 1,
+
+        shortValue: 2,
+
+        integerValue: 3,
+
+        longValue: 4,
+
+        floatValue: 5.5,
+
+        doubleValue: 6.5,
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `<XmlUnionsInputOutput>
+        <unionValue>
+           <structValue>
+              <stringValue>string</stringValue>
+              <booleanValue>true</booleanValue>
+              <byteValue>1</byteValue>
+              <shortValue>2</shortValue>
+              <integerValue>3</integerValue>
+              <longValue>4</longValue>
+              <floatValue>5.5</floatValue>
+              <doubleValue>6.5</doubleValue>
+           </structValue>
+        </unionValue>
+    </XmlUnionsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * serialize union string member
+ */
+it("XmlUnionsWithStringMember:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlUnionsCommand({
+    unionValue: {
+      stringValue: "some string",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `<XmlUnionsInputOutput>
+       <unionValue>
+          <stringValue>some string</stringValue>
+       </unionValue>
+    </XmlUnionsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes union boolean member
+ */
+it("XmlUnionsWithBooleanMember:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlUnionsCommand({
+    unionValue: {
+      booleanValue: true,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `<XmlUnionsInputOutput>
+       <unionValue>
+          <booleanValue>true</booleanValue>
+       </unionValue>
+    </XmlUnionsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes union union member
+ */
+it("XmlUnionsWithUnionMember:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlUnionsCommand({
+    unionValue: {
+      unionValue: {
+        booleanValue: true,
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/XmlUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `<XmlUnionsInputOutput>
+       <unionValue>
+          <unionValue>
+             <booleanValue>true</booleanValue>
+          </unionValue>
+       </unionValue>
+    </XmlUnionsInputOutput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes union struct member
+ */
+it("XmlUnionsWithStructMember:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlUnionsInputOutput>
+          <unionValue>
+             <structValue>
+                <stringValue>string</stringValue>
+                <booleanValue>true</booleanValue>
+                <byteValue>1</byteValue>
+                <shortValue>2</shortValue>
+                <integerValue>3</integerValue>
+                <longValue>4</longValue>
+                <floatValue>5.5</floatValue>
+                <doubleValue>6.5</doubleValue>
+             </structValue>
+          </unionValue>
+      </XmlUnionsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      unionValue: {
+        structValue: {
+          stringValue: "string",
+
+          booleanValue: true,
+
+          byteValue: 1,
+
+          shortValue: 2,
+
+          integerValue: 3,
+
+          longValue: 4,
+
+          floatValue: 5.5,
+
+          doubleValue: 6.5,
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes union string member
+ */
+it("XmlUnionsWithStringMember:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlUnionsInputOutput>
+         <unionValue>
+            <stringValue>some string</stringValue>
+         </unionValue>
+      </XmlUnionsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      unionValue: {
+        stringValue: "some string",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes union boolean member
+ */
+it("XmlUnionsWithBooleanMember:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlUnionsInputOutput>
+         <unionValue>
+            <booleanValue>true</booleanValue>
+         </unionValue>
+      </XmlUnionsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      unionValue: {
+        booleanValue: true,
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes union union member
+ */
+it("XmlUnionsWithUnionMember:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlUnionsInputOutput>
+         <unionValue>
+            <unionValue>
+               <booleanValue>true</booleanValue>
+            </unionValue>
+         </unionValue>
+      </XmlUnionsInputOutput>
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      unionValue: {
+        unionValue: {
+          booleanValue: true,
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentUnknownTypeBodies = (
+  config: any,
+  expectedBody: string,
+  generatedBody: string | Uint8Array
+): Object => {
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = {
+    Value: generatedBody instanceof Uint8Array ? config.utf8Encoder(generatedBody) : generatedBody,
+  };
+
+  return compareParts(expectedParts, generatedParts);
+};
+
+/**
+ * Returns a map of key names that were un-equal to value objects showing the
+ * discrepancies between the components.
+ */
+const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string): Object => {
   const decodeEscapedXml = (str: string) => {
     return str
       .replace(/&amp;/g, "&")

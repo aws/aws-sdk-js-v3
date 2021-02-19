@@ -176,7 +176,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -449,7 +449,7 @@ it("Ec2NestedStructures:Request", async () => {
     &Nested.StringArg=foo
     &Nested.OtherArg=true
     &Nested.RecursiveArg.StringArg=baz`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -483,7 +483,7 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -553,7 +553,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &Token=00000000-0000-4000-8000-000000000000`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -591,7 +591,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &Token=00000000-0000-4000-8000-000000000123`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -642,7 +642,7 @@ it("Ec2Lists:Request", async () => {
     &ListArg.3=baz
     &ComplexListArg.1.Hi=hello
     &ComplexListArg.2.Hi=hola`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -678,7 +678,7 @@ it("Ec2EmptyQueryLists:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -716,7 +716,7 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
     &Version=2020-01-08
     &ListArgWithXmlNameMember.1=A
     &ListArgWithXmlNameMember.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -754,7 +754,7 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Hi.1=A
     &Hi.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -798,7 +798,7 @@ it("Ec2TimestampsInput:Request", async () => {
     &NormalFormat=2015-01-25T08%3A00%3A00Z
     &EpochMember=1422172800
     &EpochTarget=1422172800`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -906,7 +906,7 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Bar=val2`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -947,7 +947,7 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Baz=true`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -985,7 +985,7 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Baz=false`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1023,7 +1023,7 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Bam=10`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1061,7 +1061,7 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Boo=10.8`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1099,7 +1099,7 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Qux=dmFsdWU%3D`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1137,7 +1137,7 @@ it("Ec2Enums:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &FooEnum=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1175,7 +1175,7 @@ it("Ec2Query:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &A=Hi`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1213,7 +1213,7 @@ it("Ec2QueryIsPreferred:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &B=Hi`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1251,7 +1251,7 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &C=Hi`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1932,7 +1932,7 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentFormUrlencodedBodies = (expectedBody: string, generatedBody: string): Object => {
   const fromEntries = (components: string[][]): { [key: string]: string } => {
     const parts: { [key: string]: string } = {};
 

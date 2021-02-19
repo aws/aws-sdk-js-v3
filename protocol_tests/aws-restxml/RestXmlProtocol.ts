@@ -198,6 +198,7 @@ import {
   XmlTimestampsCommandInput,
   XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
+import { XmlUnionsCommand, XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -1567,6 +1568,29 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: XmlTimestampsCommandOutput) => void
   ): Promise<XmlTimestampsCommandOutput> | void {
     const command = new XmlTimestampsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public xmlUnions(args: XmlUnionsCommandInput, options?: __HttpHandlerOptions): Promise<XmlUnionsCommandOutput>;
+  public xmlUnions(args: XmlUnionsCommandInput, cb: (err: any, data?: XmlUnionsCommandOutput) => void): void;
+  public xmlUnions(
+    args: XmlUnionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlUnionsCommandOutput) => void
+  ): void;
+  public xmlUnions(
+    args: XmlUnionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: XmlUnionsCommandOutput) => void),
+    cb?: (err: any, data?: XmlUnionsCommandOutput) => void
+  ): Promise<XmlUnionsCommandOutput> | void {
+    const command = new XmlUnionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

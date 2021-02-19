@@ -110,6 +110,7 @@ import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCom
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
+import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -204,7 +205,8 @@ export type ServiceInputTypes =
   | XmlMapsCommandInput
   | XmlMapsXmlNameCommandInput
   | XmlNamespacesCommandInput
-  | XmlTimestampsCommandInput;
+  | XmlTimestampsCommandInput
+  | XmlUnionsCommandInput;
 
 export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
@@ -249,7 +251,8 @@ export type ServiceOutputTypes =
   | XmlMapsCommandOutput
   | XmlMapsXmlNameCommandOutput
   | XmlNamespacesCommandOutput
-  | XmlTimestampsCommandOutput;
+  | XmlTimestampsCommandOutput
+  | XmlUnionsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
