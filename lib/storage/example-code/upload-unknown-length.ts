@@ -21,8 +21,7 @@ async function* generateContents() {
 }
 const fakeStreamOfUnknownlength = Readable.from(generateContents());
 
-const uploadIndeterminateLengthStreamNode = async () => {  
-
+const uploadIndeterminateLengthStreamNode = async () => {
   const Key = configuration.Key;
   let upload = new Upload({
     client: new S3Client({ region }),

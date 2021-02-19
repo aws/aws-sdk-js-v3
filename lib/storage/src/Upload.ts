@@ -62,7 +62,7 @@ export class Upload extends EventEmitter {
     this.params = options.params;
 
     this.__validateInput();
-    
+
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
@@ -162,15 +162,17 @@ export class Upload extends EventEmitter {
         },
       })
     );
-    
+
     // Add tags to the object after it's completed the upload.
-    if(this.tags.length) {
-      await this.client.send(new PutObjectTaggingCommand({
-        ...this.params,
-        Tagging: {
-          TagSet: this.tags
-        }
-      }));
+    if (this.tags.length) {
+      await this.client.send(
+        new PutObjectTaggingCommand({
+          ...this.params,
+          Tagging: {
+            TagSet: this.tags,
+          },
+        })
+      );
     }
 
     return completeMultipartUpload;

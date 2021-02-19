@@ -20,15 +20,15 @@ export async function* getChunkStream<T>(
 
     while (currentBuffer.length >= partSize) {
       let dataChunk: Buffer = currentBuffer.chunks[0];
-      
+
       /**
-       * Concat all the buffers together once if there is more than one to concat. Attempt 
+       * Concat all the buffers together once if there is more than one to concat. Attempt
        * to minimize concats as Buffer.Concat is an extremely expensive operation.
        */
       if (currentBuffer.chunks.length > 1) {
         dataChunk = Buffer.concat(currentBuffer.chunks);
       }
-  
+
       yield {
         partNumber,
         data: dataChunk.slice(0, partSize),

@@ -13,7 +13,7 @@ export async function* getDataReadableStream(data: ReadableStream): AsyncGenerat
       // Else yield the chunk.
       yield Buffer.from(value);
     }
-  } catch(e) {
+  } catch (e) {
     throw e;
   } finally {
     // release the lock for reading from this stream.

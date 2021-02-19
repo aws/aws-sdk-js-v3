@@ -100,13 +100,16 @@ describe(Upload.name, () => {
   });
 
   it("should add tags to the object if tags have been added", async (done) => {
-    const tags = [{
-      Key: "k1",
-      Value: "v1",
-    },{
-      Key: "k2",
-      Value: "v2",
-    }];
+    const tags = [
+      {
+        Key: "k1",
+        Value: "v1",
+      },
+      {
+        Key: "k2",
+        Value: "v2",
+      },
+    ];
 
     const upload = new Upload({
       params,
@@ -123,13 +126,12 @@ describe(Upload.name, () => {
     expect(putObjectTaggingMock).toHaveBeenCalledWith({
       ...params,
       Tagging: {
-        TagSet: tags
-      }
+        TagSet: tags,
+      },
     });
 
     done();
   });
-
 
   it("should validate partsize", async (done) => {
     try {
