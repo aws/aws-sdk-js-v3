@@ -35,7 +35,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/url-parser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/url-parser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

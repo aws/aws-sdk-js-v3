@@ -37,7 +37,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/eventstream-serde-config-resolver",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/eventstream-serde-config-resolver",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

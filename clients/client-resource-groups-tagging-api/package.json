@@ -83,7 +83,7 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-resource-groups-tagging-api",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-resource-groups-tagging-api",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

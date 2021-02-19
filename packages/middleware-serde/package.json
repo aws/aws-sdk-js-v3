@@ -37,7 +37,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-serde",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-serde",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

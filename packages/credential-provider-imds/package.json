@@ -45,7 +45,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-imds",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-imds",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

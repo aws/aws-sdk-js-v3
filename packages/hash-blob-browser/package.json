@@ -41,7 +41,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/hash-blob-browser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/hash-blob-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

@@ -45,7 +45,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/eventstream-marshaller",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/eventstream-marshaller",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

@@ -41,7 +41,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-create-request",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-create-request",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

@@ -42,7 +42,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/node-config-provider",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/node-config-provider",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

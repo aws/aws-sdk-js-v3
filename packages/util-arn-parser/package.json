@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-arn-parser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-arn-parser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

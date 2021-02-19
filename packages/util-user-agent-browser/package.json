@@ -39,7 +39,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-user-agent-browser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-user-agent-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

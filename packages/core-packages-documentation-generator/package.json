@@ -39,7 +39,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/core-packages-documentation-generator",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/core-packages-documentation-generator",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

@@ -88,7 +88,7 @@
   },
   "license": "Apache-2.0",
   "private": true,
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/aws-restjson",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-restjson",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

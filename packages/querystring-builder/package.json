@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/querystring-builder",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/querystring-builder",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

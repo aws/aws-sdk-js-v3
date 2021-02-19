@@ -40,7 +40,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/body-checksum-browser",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/body-checksum-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

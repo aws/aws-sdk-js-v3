@@ -40,7 +40,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/hash-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/hash-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

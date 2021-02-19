@@ -43,7 +43,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-retry",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-retry",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

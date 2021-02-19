@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/karma-credential-loader",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/karma-credential-loader",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
