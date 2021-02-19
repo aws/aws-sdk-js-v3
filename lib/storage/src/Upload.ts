@@ -58,19 +58,11 @@ export class Upload extends EventEmitter {
     this.leavePartsOnError = options.leavePartsOnError || this.leavePartsOnError;
     this.tags = options.tags || this.tags;
 
-    if (this.partSize < MIN_PART_SIZE) {
-      throw new Error(
-        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${MIN_PART_SIZE}] (5MB)`
-      );
-    }
-
-    if (this.queueSize < 1) {
-      throw new Error(`Queue size: Must have atleast one uploading queue.`);
-    }
-
     this.client = options.client;
     this.params = options.params;
 
+    this.__validateInput();
+    
     // set progress defaults
     this.totalBytes = byteLength(this.params.Body);
     this.bytesUploadedSoFar = 0;
@@ -94,7 +86,7 @@ export class Upload extends EventEmitter {
     super.on(event, listener);
   }
 
-  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart>): Promise<void> {
+  async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
       if (this.uploadedParts.length > this.MAX_PARTS) {
         throw new Error(
@@ -198,5 +190,25 @@ export class Upload extends EventEmitter {
         reject(abortError);
       };
     });
+  }
+
+  __validateInput() {
+    if (!this.params) {
+      throw new Error(`InputError: Upload requires params to be passed to upload.`);
+    }
+
+    if (!this.client) {
+      throw new Error(`InputError: Upload requires a AWS client to do uploads with.`);
+    }
+
+    if (this.partSize < MIN_PART_SIZE) {
+      throw new Error(
+        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${MIN_PART_SIZE}] (5MB)`
+      );
+    }
+
+    if (this.queueSize < 1) {
+      throw new Error(`Queue size: Must have at least one uploading queue.`);
+    }
   }
 }

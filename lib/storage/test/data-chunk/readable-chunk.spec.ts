@@ -1,7 +1,7 @@
 import { Readable } from "stream";
 import { byteLength } from "../../src/bytelength";
-import { getChunk as chunkFromReadable } from "../../src/chunks/getChunkStream";
-import { getNextData } from "../../src/chunks/getDataReadable";
+import { getChunkStream as chunkFromReadable } from "../../src/chunks/getChunkStream";
+import { getDataReadable } from "../../src/chunks/getDataReadable";
 import { RawDataPart as DataPart } from "../../src/Upload";
 
 const fs = require("fs");
@@ -23,7 +23,7 @@ describe(chunkFromReadable.name, () => {
   ): Promise<DataPart[]> => {
     const stream = Readable.from(getUnknownEnding(streamYieldSize, streamYieldCount));
     const chunks: DataPart[] = [];
-    const chunker = chunkFromReadable<Readable>(stream, partsize, getNextData);
+    const chunker = chunkFromReadable<Readable>(stream, partsize, getDataReadable);
 
     for await (const chunk of chunker) {
       chunks.push(chunk);
@@ -49,7 +49,7 @@ describe(chunkFromReadable.name, () => {
   it("should properly chunk a file", async (done) => {
     const fileStream = fs.createReadStream(__dirname + "/sample.file");
     const chunks: DataPart[] = [];
-    const chunker = chunkFromReadable<Readable>(fileStream, _6MB, getNextData);
+    const chunker = chunkFromReadable<Readable>(fileStream, _6MB, getDataReadable);
     for await (const chunk of chunker) {
       chunks.push(chunk);
     }

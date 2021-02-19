@@ -2,8 +2,8 @@
 import { ReadableStream } from "web-streams-polyfill";
 
 import { byteLength } from "../../src/bytelength";
-import { getChunk as chunkFromReadable } from "../../src/chunks/getChunkStream";
-import { getNextData } from "../../src/chunks/getDataReadableStream";
+import { getChunkStream as chunkFromReadable } from "../../src/chunks/getChunkStream";
+import { getDataReadableStream } from "../../src/chunks/getDataReadableStream";
 import { RawDataPart as DataPart } from "../../src/Upload";
 
 describe("chunkFromReadable.name", () => {
@@ -27,7 +27,7 @@ describe("chunkFromReadable.name", () => {
   ): Promise<DataPart[]> => {
     const stream = getStreamOfUnknownlength(streamYieldSize, streamYieldCount);
     const chunks: DataPart[] = [];
-    const chunker = chunkFromReadable<ReadableStream>(stream, partsize, getNextData);
+    const chunker = chunkFromReadable<ReadableStream>(stream, partsize, getDataReadableStream);
 
     for await (const chunk of chunker) {
       chunks.push(chunk);

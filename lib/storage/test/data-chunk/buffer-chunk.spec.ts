@@ -1,7 +1,7 @@
 import { byteLength } from "../../src/bytelength";
-import { getChunk as getChunkFromBuffer } from "../../src/chunks/getChunkBuffer";
+import { getChunkBuffer } from "../../src/chunks/getChunkBuffer";
 
-describe.only(getChunkFromBuffer.name, () => {
+describe.only(getChunkBuffer.name, () => {
   const getBuffer = (size: number) => Buffer.from("#".repeat(size));
 
   describe("Buffer chunking", () => {
@@ -9,7 +9,7 @@ describe.only(getChunkFromBuffer.name, () => {
       const chunklength = 100;
       const totalLength = 1000;
       const buffer = getBuffer(totalLength);
-      const chunker = getChunkFromBuffer(buffer, chunklength);
+      const chunker = getChunkBuffer(buffer, chunklength);
 
       let chunkNum = 0;
       for await (const chunk of chunker) {
@@ -27,7 +27,7 @@ describe.only(getChunkFromBuffer.name, () => {
       const totalLength = 2200;
       const buffer = getBuffer(totalLength);
 
-      const chunker = getChunkFromBuffer(buffer, chunklength);
+      const chunker = getChunkBuffer(buffer, chunklength);
       const chunks = [];
       for await (const chunk of chunker) {
         chunks.push(chunk);
@@ -45,7 +45,7 @@ describe.only(getChunkFromBuffer.name, () => {
       const totalLength = 200;
       const buffer = getBuffer(totalLength);
 
-      const chunker = getChunkFromBuffer(buffer, chunklength);
+      const chunker = getChunkBuffer(buffer, chunklength);
       const chunks = [];
       for await (const chunk of chunker) {
         chunks.push(chunk);
