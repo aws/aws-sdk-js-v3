@@ -46,7 +46,7 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/chai-as-promised": "^7.1.2",
-    "@types/fs-extra": "^8.0.1",
+    "@types/fs-extra": "^9.0.7",
     "@types/jest": "^26.0.4",
     "@typescript-eslint/eslint-plugin": "4.9.0",
     "@typescript-eslint/parser": "4.9.0",
