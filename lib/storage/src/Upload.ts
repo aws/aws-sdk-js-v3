@@ -154,8 +154,6 @@ export class Upload extends EventEmitter {
     const completeMultipartUpload = await this.client.send(
       new CompleteMultipartUploadCommand({
         ...this.params,
-        Bucket: this.params.Bucket,
-        Key: this.params.Key,
         UploadId: this.uploadId,
         MultipartUpload: {
           Parts: this.uploadedParts,
