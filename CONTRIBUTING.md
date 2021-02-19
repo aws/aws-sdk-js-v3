@@ -108,5 +108,5 @@ Please refer [sdk-codegen](./codegen/sdk-codegen/README.md)
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
 [license]: http://aws.amazon.com/apache2.0/
 [cla]: http://en.wikipedia.org/wiki/Contributor_License_Agreement
-[aws service models]: https://github.com/aws/aws-sdk-js-v3/tree/master/models
+[aws service models]: https://github.com/aws/aws-sdk-js-v3/tree/main/models
 [conventional commits]: https://www.conventionalcommits.org/

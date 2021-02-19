@@ -149,7 +149,7 @@ All clients have been published to NPM and can be installed as described above. 
    yarn && yarn test:all
    ```
 
-   For more information, please refer to [contributing guide](https://github.com/aws/aws-sdk-js-v3/blob/master/CONTRIBUTING.md#setup-and-testing).
+   For more information, please refer to [contributing guide](https://github.com/aws/aws-sdk-js-v3/blob/main/CONTRIBUTING.md#setup-and-testing).
 
 1. After the repository is successfully built, change directory to the client that you want to install, for example:
 
