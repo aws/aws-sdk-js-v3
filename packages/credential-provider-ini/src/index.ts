@@ -111,8 +111,10 @@ const isAssumeRoleProfile = (arg: any): arg is AssumeRoleProfile =>
  * Creates a credential provider that will read from ini files and supports
  * role assumption and multi-factor authentication.
  */
-export const fromIni = (init: FromIniInit = {}): CredentialProvider => () =>
-  parseKnownFiles(init).then((profiles) => resolveProfileData(getMasterProfileName(init), profiles, init));
+export const fromIni = (init: FromIniInit = {}): CredentialProvider => async () => {
+  const profiles = await parseKnownFiles(init);
+  return resolveProfileData(getMasterProfileName(init), profiles, init);
+};
 
 /**
  * Load profiles from credentials and config INI files and normalize them into a
@@ -123,13 +125,11 @@ export const fromIni = (init: FromIniInit = {}): CredentialProvider => () =>
 export const parseKnownFiles = async (init: SourceProfileInit): Promise<ParsedIniData> => {
   const { loadedConfig = loadSharedConfigFiles(init) } = init;
 
-  return loadedConfig.then((parsedFiles) => {
-    const { configFile, credentialsFile } = parsedFiles;
-    return {
-      ...configFile,
-      ...credentialsFile,
-    };
-  });
+  const parsedFiles = await loadedConfig;
+  return {
+    ...parsedFiles.configFile,
+    ...parsedFiles.credentialsFile,
+  };
 };
 
 /**

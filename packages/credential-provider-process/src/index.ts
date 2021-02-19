@@ -15,10 +15,12 @@ export interface FromProcessInit extends SourceProfileInit {}
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  */
-export const fromProcess = (init: FromProcessInit = {}): CredentialProvider => () =>
-  parseKnownFiles(init).then((profiles) => resolveProcessCredentials(getMasterProfileName(init), profiles));
+export const fromProcess = (init: FromProcessInit = {}): CredentialProvider => async () => {
+  const profiles = await parseKnownFiles(init);
+  return resolveProcessCredentials(getMasterProfileName(init), profiles);
+};
 
-async function resolveProcessCredentials(profileName: string, profiles: ParsedIniData): Promise<Credentials> {
+const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<Credentials> => {
   const profile = profiles[profileName];
 
   if (profiles[profileName]) {
@@ -80,7 +82,7 @@ async function resolveProcessCredentials(profileName: string, profiles: ParsedIn
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
     throw new ProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
-}
+};
 
 const execPromise = (command: string) =>
   new Promise(function (resolve, reject) {
