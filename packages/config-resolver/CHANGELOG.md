@@ -3,14 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.5.1-rc.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.5.0...v3.5.1-rc.0) (2021-02-19)
-
-**Note:** Version bump only for package @aws-sdk/config-resolver
-
-
-
-
-
 # [3.5.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.4.1...v3.5.0) (2021-02-12)
 
 **Note:** Version bump only for package @aws-sdk/config-resolver
