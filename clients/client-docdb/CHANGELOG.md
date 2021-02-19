@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1-rc.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.5.0...v3.5.1-rc.0) (2021-02-19)
+
+
+### Bug Fixes
+
+* **deps:** add @aws-sdk/middleware-sdk-rds in DocDB and Neptune ([#2042](https://github.com/aws/aws-sdk-js-v3/issues/2042)) ([a0068f3](https://github.com/aws/aws-sdk-js-v3/commit/a0068f34f24191bd4b3b5b56a8746b5a942cda65))
+
+
+
+
+
 # [3.5.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.4.1...v3.5.0) (2021-02-12)
 
 **Note:** Version bump only for package @aws-sdk/client-docdb

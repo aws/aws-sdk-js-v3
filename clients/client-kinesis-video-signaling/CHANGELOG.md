@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1-rc.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.5.0...v3.5.1-rc.0) (2021-02-19)
+
+
+### Bug Fixes
+
+* **client-kinesis-video-signaling:** remove retry headers ([#1963](https://github.com/aws/aws-sdk-js-v3/issues/1963)) ([8b35943](https://github.com/aws/aws-sdk-js-v3/commit/8b35943f0d45700c9350abded09e9bb7e8fe51f7))
+
+
+
+
+
 # [3.5.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.4.1...v3.5.0) (2021-02-12)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video-signaling
