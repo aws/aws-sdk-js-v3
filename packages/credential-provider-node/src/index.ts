@@ -35,7 +35,7 @@ export const ENV_IMDS_DISABLED = "AWS_EC2_METADATA_DISABLED";
  *                              environment variables
  * @see fromIni                 The function used to source credentials from INI
  *                              files
- * @see fromProcess             The functino used to sources credentials from
+ * @see fromProcess             The function used to sources credentials from
  *                              credential_process in INI files
  * @see fromInstanceMetadata    The function used to source credentials from the
  *                              EC2 Instance Metadata Service
