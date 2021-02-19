@@ -3,17 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.5.1-rc.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.5.0...v3.5.1-rc.0) (2021-02-19)
-
-
-### Features
-
-* **client-sso*:** remove auth dependencies if client doesn't need ([#2037](https://github.com/aws/aws-sdk-js-v3/issues/2037)) ([f1e190c](https://github.com/aws/aws-sdk-js-v3/commit/f1e190cd9a8d79679e2d37bc997f96ae5216ad9e))
-
-
-
-
-
 # [3.5.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.4.1...v3.5.0) (2021-02-12)
 
 **Note:** Version bump only for package @aws-sdk/client-sso
