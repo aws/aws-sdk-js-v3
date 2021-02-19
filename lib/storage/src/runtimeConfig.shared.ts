@@ -1,0 +1,4 @@
+/**
+ * @internal
+ */
+export const ClientSharedValues = {};

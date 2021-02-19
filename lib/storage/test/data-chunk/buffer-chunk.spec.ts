@@ -1,46 +1,58 @@
-import { chunkFromBuffer } from "../../src/data-chunk/buffer-helper";
-import { DataPart } from "../../src/data-chunk/yield-chunk";
+import { byteLength } from "../../src/bytelength";
+import { getChunkBuffer } from "../../src/chunks/getChunkBuffer";
 
-describe(chunkFromBuffer.name, () => {
-  const INPUT_STRING = "Farmer jack realized that big yellow quilts were expensive";
+describe.only(getChunkBuffer.name, () => {
+  const getBuffer = (size: number) => Buffer.from("#".repeat(size));
 
-  describe("String chunking", () => {
+  describe("Buffer chunking", () => {
     it("should come back with small sub buffers", async (done) => {
-      const length = 10;
-      const chunker = chunkFromBuffer(Buffer.from(INPUT_STRING), length);
-      const result = await chunker.next();
-      const dataChunk = result.value as DataPart;
-      expect(dataChunk.PartNumber).toEqual(1);
-      expect(dataChunk.Body.toString()).toEqual(INPUT_STRING.substring(0, length));
+      const chunklength = 100;
+      const totalLength = 1000;
+      const buffer = getBuffer(totalLength);
+      const chunker = getChunkBuffer(buffer, chunklength);
 
+      let chunkNum = 0;
+      for await (const chunk of chunker) {
+        chunkNum += 1;
+        expect(byteLength(chunk.data)).toEqual(chunklength);
+        expect(chunk.partNumber).toEqual(chunkNum);
+      }
+
+      expect(chunkNum).toEqual(totalLength / chunklength);
       done();
     });
 
-    it("should come back with many chunks on subsequent calls", async (done) => {
-      const length = 10;
-      const chunker = chunkFromBuffer(Buffer.from(INPUT_STRING), length);
+    it("should come back with the last chunk the remainder size", async (done) => {
+      const chunklength = 1000;
+      const totalLength = 2200;
+      const buffer = getBuffer(totalLength);
 
-      let result = await chunker.next();
-      let dataChunk = result.value as DataPart;
-      expect(dataChunk.PartNumber).toEqual(1);
-      expect(dataChunk.Body.toString()).toEqual(INPUT_STRING.substring(0, length));
+      const chunker = getChunkBuffer(buffer, chunklength);
+      const chunks = [];
+      for await (const chunk of chunker) {
+        chunks.push(chunk);
+      }
 
-      result = await chunker.next();
-      dataChunk = result.value as DataPart;
-      expect(dataChunk.PartNumber).toEqual(2);
-      expect(dataChunk.Body.toString()).toEqual(INPUT_STRING.substring(length, length * 2));
-
+      expect(chunks.length).toEqual(3);
+      expect(byteLength(chunks[0].data)).toBe(chunklength);
+      expect(byteLength(chunks[1].data)).toBe(chunklength);
+      expect(byteLength(chunks[2].data)).toBe(totalLength % chunklength);
       done();
     });
 
-    it("should have the last sub buffer be the remainder length", async (done) => {
-      const length = 30;
-      const chunker = chunkFromBuffer(Buffer.from(INPUT_STRING), length);
-      let result = await chunker.next();
-      result = await chunker.next();
-      const dataChunk = result.value as DataPart;
-      expect(dataChunk.Body.toString()).toEqual(INPUT_STRING.substring(length));
+    it("should come back with one chunk if it is a small buffer", async (done) => {
+      const chunklength = 1000;
+      const totalLength = 200;
+      const buffer = getBuffer(totalLength);
 
+      const chunker = getChunkBuffer(buffer, chunklength);
+      const chunks = [];
+      for await (const chunk of chunker) {
+        chunks.push(chunk);
+      }
+
+      expect(chunks.length).toEqual(1);
+      expect(byteLength(chunks[0].data)).toBe(totalLength % chunklength);
       done();
     });
   });

@@ -1,1 +1,2 @@
-export * from "./upload/Upload";
+export * from "./Upload";
+export * from "./types";

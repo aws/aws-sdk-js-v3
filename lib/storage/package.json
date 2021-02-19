@@ -23,11 +23,11 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/abort-controller": "3.4.1",
     "@aws-sdk/client-s3": "3.5.0",
     "buffer": "^5.6.0",
     "stream-browserify": "^3.0.0",
-    "tslib": "^1.8.0",
-    "web-streams-polyfill": "^3.0.0"
+    "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.4",
@@ -40,7 +40,8 @@
     "karma-spec-reporter": "^0.0.32",
     "karma-typescript": "^5.2.0",
     "ts-jest": "^26.4.1",
-    "typescript": "~4.1.2"
+    "typescript": "~4.1.2",
+    "web-streams-polyfill": "^3.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -48,6 +49,14 @@
         "types/ts3.4/*"
       ]
     }
+  },
+  "browser": {
+    "stream": "stream-browserify",
+    "fs": "./src/runtimeConfig.browser",
+    "./runtimeConfig": "./src/runtimeConfig.browser"
+  },
+  "react-native": {
+    "./runtimeConfig": "./src/runtimeConfig.native"
   },
   "homepage": "https://github.com/trivikr/aws-sdk-js-v3/tree/master/lib/storage",
   "repository": {
