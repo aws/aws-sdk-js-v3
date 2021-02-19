@@ -722,7 +722,7 @@ it("AwsJson11Enums:Request", async () => {
             \"zero\": \"0\"
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -833,7 +833,7 @@ it("AwsJson11SerializeStringUnionValue:Request", async () => {
             \"stringValue\": \"foo\"
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -876,7 +876,7 @@ it("AwsJson11SerializeBooleanUnionValue:Request", async () => {
             \"booleanValue\": true
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -919,7 +919,7 @@ it("AwsJson11SerializeNumberUnionValue:Request", async () => {
             \"numberValue\": 1
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -962,7 +962,7 @@ it("AwsJson11SerializeBlobUnionValue:Request", async () => {
             \"blobValue\": \"Zm9v\"
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1005,7 +1005,7 @@ it("AwsJson11SerializeTimestampUnionValue:Request", async () => {
             \"timestampValue\": 1398796238
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1048,7 +1048,7 @@ it("AwsJson11SerializeEnumUnionValue:Request", async () => {
             \"enumValue\": \"Foo\"
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1091,7 +1091,7 @@ it("AwsJson11SerializeListUnionValue:Request", async () => {
             \"listValue\": [\"foo\", \"bar\"]
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1141,7 +1141,7 @@ it("AwsJson11SerializeMapUnionValue:Request", async () => {
             }
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1188,7 +1188,7 @@ it("AwsJson11SerializeStructureUnionValue:Request", async () => {
             }
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1631,7 +1631,7 @@ it("serializes_string_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"String\":\"abc xyz\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1668,7 +1668,7 @@ it("serializes_string_shapes_with_jsonvalue_trait:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"JsonValue\":\"{\\"string\\":\\"value\\",\\"number\\":1234.5,\\"boolTrue\\":true,\\"boolFalse\\":false,\\"array\\":[1,2,3,4],\\"object\\":{\\"key\\":\\"value\\"},\\"null\\":null}\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1704,7 +1704,7 @@ it("serializes_integer_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Integer\":1234}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1740,7 +1740,7 @@ it("serializes_long_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Long\":999999999999}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1776,7 +1776,7 @@ it("serializes_float_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Float\":1234.5}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1812,7 +1812,7 @@ it("serializes_double_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Double\":1234.5}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1848,7 +1848,7 @@ it("serializes_blob_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Blob\":\"YmluYXJ5LXZhbHVl\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1884,7 +1884,7 @@ it("serializes_boolean_shapes_true:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Boolean\":true}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1920,7 +1920,7 @@ it("serializes_boolean_shapes_false:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Boolean\":false}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1956,7 +1956,7 @@ it("serializes_timestamp_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Timestamp\":946845296}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1992,7 +1992,7 @@ it("serializes_timestamp_shapes_with_iso8601_timestampformat:Request", async () 
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Iso8601Timestamp\":\"2000-01-02T20:34:56Z\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2028,7 +2028,7 @@ it("serializes_timestamp_shapes_with_httpdate_timestampformat:Request", async ()
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"HttpdateTimestamp\":\"Sun, 02 Jan 2000 20:34:56 GMT\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2064,7 +2064,7 @@ it("serializes_timestamp_shapes_with_unixtimestamp_timestampformat:Request", asy
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"UnixTimestamp\":946845296}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2100,7 +2100,7 @@ it("serializes_list_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStrings\":[\"abc\",\"mno\",\"xyz\"]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2136,7 +2136,7 @@ it("serializes_empty_list_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStrings\":[]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2184,7 +2184,7 @@ it("serializes_list_of_map_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfMapsOfStrings\":[{\"foo\":\"bar\"},{\"abc\":\"xyz\"},{\"red\":\"blue\"}]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2232,7 +2232,7 @@ it("serializes_list_of_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"ListOfStructs\":[{\"Value\":\"abc\"},{\"Value\":\"mno\"},{\"Value\":\"xyz\"}]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2280,7 +2280,7 @@ it("serializes_list_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"RecursiveList\":[{\"RecursiveList\":[{\"RecursiveList\":[{\"Integer\":123}]}]}]}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2320,7 +2320,7 @@ it("serializes_map_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStrings\":{\"abc\":\"xyz\",\"mno\":\"hjk\"}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2356,7 +2356,7 @@ it("serializes_empty_map_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStrings\":{}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2396,7 +2396,7 @@ it("serializes_map_of_list_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfListsOfStrings\":{\"abc\":[\"abc\",\"xyz\"],\"mno\":[\"xyz\",\"abc\"]}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2440,7 +2440,7 @@ it("serializes_map_of_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"MapOfStructs\":{\"key1\":{\"Value\":\"value-1\"},\"key2\":{\"Value\":\"value-2\"}}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2488,7 +2488,7 @@ it("serializes_map_of_recursive_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"RecursiveMap\":{\"key1\":{\"RecursiveMap\":{\"key2\":{\"RecursiveMap\":{\"key3\":{\"Boolean\":false}}}}}}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2526,7 +2526,7 @@ it("serializes_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"SimpleStruct\":{\"Value\":\"abc\"}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2564,7 +2564,7 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"StructWithLocationName\":{\"RenamedMember\":\"some-value\"}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2600,7 +2600,7 @@ it("serializes_empty_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"SimpleStruct\":{}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2636,7 +2636,7 @@ it("serializes_structure_which_have_no_members:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"EmptyStruct\":{}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2696,7 +2696,7 @@ it("serializes_recursive_structure_shapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"String\":\"top-value\",\"Boolean\":false,\"RecursiveStruct\":{\"String\":\"nested-value\",\"Boolean\":true,\"RecursiveList\":[{\"String\":\"string-only\"},{\"RecursiveStruct\":{\"MapOfStrings\":{\"color\":\"red\",\"size\":\"large\"}}}]}}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3660,7 +3660,7 @@ it("AwsJson11StructuresDontSerializeNullValues:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3701,7 +3701,7 @@ it("AwsJson11MapsSerializeNullValues:Request", async () => {
             \"foo\": null
         }
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3740,7 +3740,7 @@ it("AwsJson11ListsSerializeNull:Request", async () => {
             null
         ]
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3892,7 +3892,7 @@ it("can_call_operation_with_no_input_or_output:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3929,7 +3929,7 @@ it("can_call_operation_with_optional_input:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"Value\":\"Hi\"}`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -3969,7 +3969,7 @@ it("PutAndGetInlineDocumentsInput:Request", async () => {
     const bodyString = `{
         \"inlineDocument\": {\"foo\": \"bar\"}
     }`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4020,7 +4020,7 @@ it("PutAndGetInlineDocumentsInput:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string): Object => {
   const expectedParts = JSON.parse(expectedBody);
   const generatedParts = JSON.parse(generatedBody);
 

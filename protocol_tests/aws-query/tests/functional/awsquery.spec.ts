@@ -184,7 +184,7 @@ it("QueryEmptyInputAndEmptyOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=EmptyInputAndEmptyOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -606,7 +606,7 @@ it("NestedStructures:Request", async () => {
     &Nested.StringArg=foo
     &Nested.OtherArg=true
     &Nested.RecursiveArg.StringArg=baz`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -640,7 +640,7 @@ it("QueryNoInputAndNoOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndNoOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -696,7 +696,7 @@ it("QueryNoInputAndOutput:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=NoInputAndOutput
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -756,7 +756,7 @@ it("QueryProtocolIdempotencyTokenAutoFill:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &token=00000000-0000-4000-8000-000000000000`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -794,7 +794,7 @@ it("QueryProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
     const bodyString = `Action=QueryIdempotencyTokenAutoFill
     &Version=2020-01-08
     &token=00000000-0000-4000-8000-000000000123`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -845,7 +845,7 @@ it("QueryLists:Request", async () => {
     &ListArg.member.3=baz
     &ComplexListArg.member.1.hi=hello
     &ComplexListArg.member.2.hi=hola`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -881,7 +881,7 @@ it("EmptyQueryLists:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryLists
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -919,7 +919,7 @@ it("FlattenedQueryLists:Request", async () => {
     &Version=2020-01-08
     &FlattenedListArg.1=A
     &FlattenedListArg.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -957,7 +957,7 @@ it("QueryListArgWithXmlNameMember:Request", async () => {
     &Version=2020-01-08
     &ListArgWithXmlNameMember.item.1=A
     &ListArgWithXmlNameMember.item.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -995,7 +995,7 @@ it("QueryFlattenedListArgWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Hi.1=A
     &Hi.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1039,7 +1039,7 @@ it("QuerySimpleQueryMaps:Request", async () => {
     &MapArg.entry.1.value=Bar
     &MapArg.entry.2.key=foo
     &MapArg.entry.2.value=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1079,7 +1079,7 @@ it("QuerySimpleQueryMapsWithXmlName:Request", async () => {
     &Version=2020-01-08
     &Foo.entry.1.key=foo
     &Foo.entry.1.value=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1127,7 +1127,7 @@ it("QueryComplexQueryMaps:Request", async () => {
     &ComplexMapArg.entry.1.value.hi=Bar
     &ComplexMapArg.entry.2.key=foo
     &ComplexMapArg.entry.2.value.hi=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1163,7 +1163,7 @@ it("QueryEmptyQueryMaps:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=QueryMaps
     &Version=2020-01-08`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1207,7 +1207,7 @@ it("QueryQueryMapWithMemberXmlName:Request", async () => {
     &MapWithXmlMemberName.entry.1.V=Bar
     &MapWithXmlMemberName.entry.2.K=foo
     &MapWithXmlMemberName.entry.2.V=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1251,7 +1251,7 @@ it("QueryFlattenedQueryMaps:Request", async () => {
     &FlattenedMap.1.value=Bar
     &FlattenedMap.2.key=foo
     &FlattenedMap.2.value=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1295,7 +1295,7 @@ it("QueryFlattenedQueryMapsWithXmlName:Request", async () => {
     &Hi.1.V=Bar
     &Hi.2.K=foo
     &Hi.2.V=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1341,7 +1341,7 @@ it("QueryQueryMapOfLists:Request", async () => {
     &MapOfLists.entry.2.key=foo
     &MapOfLists.entry.2.value.member.1=A
     &MapOfLists.entry.2.value.member.2=B`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1385,7 +1385,7 @@ it("QueryTimestampsInput:Request", async () => {
     &normalFormat=2015-01-25T08%3A00%3A00Z
     &epochMember=1422172800
     &epochTarget=1422172800`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1494,7 +1494,7 @@ it("QuerySimpleInputParamsStrings:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Bar=val2`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1535,7 +1535,7 @@ it("QuerySimpleInputParamsStringAndBooleanTrue:Request", async () => {
     &Version=2020-01-08
     &Foo=val1
     &Baz=true`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1573,7 +1573,7 @@ it("QuerySimpleInputParamsStringsAndBooleanFalse:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Baz=false`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1611,7 +1611,7 @@ it("QuerySimpleInputParamsInteger:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Bam=10`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1649,7 +1649,7 @@ it("QuerySimpleInputParamsFloat:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Boo=10.8`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1687,7 +1687,7 @@ it("QuerySimpleInputParamsBlob:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &Qux=dmFsdWU%3D`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1725,7 +1725,7 @@ it("QueryEnums:Request", async () => {
     const bodyString = `Action=SimpleInputParams
     &Version=2020-01-08
     &FooEnum=Foo`;
-    const unequalParts: any = compareEquivalentBodies(bodyString, r.body.toString());
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -2634,7 +2634,7 @@ it("QueryXmlTimestampsWithHttpDateFormat:Response", async () => {
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentBodies = (expectedBody: string, generatedBody: string): Object => {
+const compareEquivalentFormUrlencodedBodies = (expectedBody: string, generatedBody: string): Object => {
   const fromEntries = (components: string[][]): { [key: string]: string } => {
     const parts: { [key: string]: string } = {};
 

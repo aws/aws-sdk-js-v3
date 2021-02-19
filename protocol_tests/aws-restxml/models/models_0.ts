@@ -598,6 +598,234 @@ export namespace XmlTimestampsInputOutput {
   });
 }
 
+export interface XmlNestedUnionStruct {
+  stringValue?: string;
+  booleanValue?: boolean;
+  byteValue?: number;
+  shortValue?: number;
+  integerValue?: number;
+  longValue?: number;
+  floatValue?: number;
+  doubleValue?: number;
+}
+
+export namespace XmlNestedUnionStruct {
+  export const filterSensitiveLog = (obj: XmlNestedUnionStruct): any => ({
+    ...obj,
+  });
+}
+
+export type XmlUnionShape =
+  | XmlUnionShape.BooleanValueMember
+  | XmlUnionShape.ByteValueMember
+  | XmlUnionShape.DoubleValueMember
+  | XmlUnionShape.FloatValueMember
+  | XmlUnionShape.IntegerValueMember
+  | XmlUnionShape.LongValueMember
+  | XmlUnionShape.ShortValueMember
+  | XmlUnionShape.StringValueMember
+  | XmlUnionShape.StructValueMember
+  | XmlUnionShape.UnionValueMember
+  | XmlUnionShape.$UnknownMember;
+
+export namespace XmlUnionShape {
+  export interface StringValueMember {
+    stringValue: string;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface BooleanValueMember {
+    stringValue?: never;
+    booleanValue: boolean;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface ByteValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue: number;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface ShortValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue: number;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface IntegerValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue: number;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface LongValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue: number;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface FloatValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue: number;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface DoubleValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue: number;
+    unionValue?: never;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface UnionValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue: XmlUnionShape;
+    structValue?: never;
+    $unknown?: never;
+  }
+
+  export interface StructValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue: XmlNestedUnionStruct;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    stringValue?: never;
+    booleanValue?: never;
+    byteValue?: never;
+    shortValue?: never;
+    integerValue?: never;
+    longValue?: never;
+    floatValue?: never;
+    doubleValue?: never;
+    unionValue?: never;
+    structValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    booleanValue: (value: boolean) => T;
+    byteValue: (value: number) => T;
+    shortValue: (value: number) => T;
+    integerValue: (value: number) => T;
+    longValue: (value: number) => T;
+    floatValue: (value: number) => T;
+    doubleValue: (value: number) => T;
+    unionValue: (value: XmlUnionShape) => T;
+    structValue: (value: XmlNestedUnionStruct) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: XmlUnionShape, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.byteValue !== undefined) return visitor.byteValue(value.byteValue);
+    if (value.shortValue !== undefined) return visitor.shortValue(value.shortValue);
+    if (value.integerValue !== undefined) return visitor.integerValue(value.integerValue);
+    if (value.longValue !== undefined) return visitor.longValue(value.longValue);
+    if (value.floatValue !== undefined) return visitor.floatValue(value.floatValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.unionValue !== undefined) return visitor.unionValue(value.unionValue);
+    if (value.structValue !== undefined) return visitor.structValue(value.structValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  export const filterSensitiveLog = (obj: XmlUnionShape): any => {
+    if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
+    if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
+    if (obj.byteValue !== undefined) return { byteValue: obj.byteValue };
+    if (obj.shortValue !== undefined) return { shortValue: obj.shortValue };
+    if (obj.integerValue !== undefined) return { integerValue: obj.integerValue };
+    if (obj.longValue !== undefined) return { longValue: obj.longValue };
+    if (obj.floatValue !== undefined) return { floatValue: obj.floatValue };
+    if (obj.doubleValue !== undefined) return { doubleValue: obj.doubleValue };
+    if (obj.unionValue !== undefined) return { unionValue: XmlUnionShape.filterSensitiveLog(obj.unionValue) };
+    if (obj.structValue !== undefined) return { structValue: XmlNestedUnionStruct.filterSensitiveLog(obj.structValue) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
 export interface RecursiveShapesInputOutputNested1 {
   foo?: string;
   nested?: RecursiveShapesInputOutputNested2;
@@ -617,6 +845,17 @@ export interface RecursiveShapesInputOutputNested2 {
 export namespace RecursiveShapesInputOutputNested2 {
   export const filterSensitiveLog = (obj: RecursiveShapesInputOutputNested2): any => ({
     ...obj,
+  });
+}
+
+export interface XmlUnionsInputOutput {
+  unionValue?: XmlUnionShape;
+}
+
+export namespace XmlUnionsInputOutput {
+  export const filterSensitiveLog = (obj: XmlUnionsInputOutput): any => ({
+    ...obj,
+    ...(obj.unionValue && { unionValue: XmlUnionShape.filterSensitiveLog(obj.unionValue) }),
   });
 }
 
