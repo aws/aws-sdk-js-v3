@@ -26,7 +26,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
-      this.send(command, optionsOrCb);
+      return this.send(command, optionsOrCb);
     }
   }
 
@@ -46,7 +46,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
       if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but put ${typeof optionsOrCb}`);
       this.send(command, optionsOrCb || {}, cb);
     } else {
-      this.send(command, optionsOrCb);
+      return this.send(command, optionsOrCb);
     }
   }
 }
