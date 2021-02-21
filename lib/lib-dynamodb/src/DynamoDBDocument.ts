@@ -1,25 +1,11 @@
-import {
-  DynamoDBClient,
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "@aws-sdk/client-dynamodb";
-import { Client as __Client } from "@aws-sdk/smithy-client";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions } from "@aws-sdk/types";
 
 import { GetCommand, GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
 import { PutCommand, PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
+import { DynamoDBDocumentClient } from "./DynamoDBDocumentClient";
 
-export class DynamoDBDocument extends __Client<
-  HttpHandlerOptions,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  DynamoDBClientResolvedConfig
-> {
-  private constructor(client: DynamoDBClient) {
-    super(client.config);
-  }
-
+export class DynamoDBDocument extends DynamoDBDocumentClient {
   static from(client: DynamoDBClient) {
     return new DynamoDBDocument(client);
   }
