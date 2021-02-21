@@ -1,8 +1,8 @@
 import {
   DynamoDBClientResolvedConfig,
-  PutItemCommand,
-  PutItemCommandInput,
-  PutItemCommandOutput,
+  GetItemCommand,
+  GetItemCommandInput,
+  GetItemCommandOutput,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
@@ -12,21 +12,22 @@ import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamo
 
 import { TranslateConfiguration } from "./types";
 
-export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
-  Item: { [key: string]: NativeAttributeValue } | undefined;
+export type GetCommandInput = Omit<GetItemCommandInput, "Key"> & {
+  Key: { [key: string]: NativeAttributeValue } | undefined;
 };
 
-export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes"> & {
-  Attributes: { [key: string]: NativeAttributeValue };
+export type GetCommandOutput = Omit<GetItemCommandOutput, "Item"> & {
+  Item: { [key: string]: NativeAttributeValue };
 };
-export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBClientResolvedConfig> {
-  private command: PutItemCommand;
 
-  constructor(readonly input: PutCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
+export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBClientResolvedConfig> {
+  private command: GetItemCommand;
+
+  constructor(readonly input: GetCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
     super();
-    this.command = new PutItemCommand({
+    this.command = new GetItemCommand({
       ...input,
-      Item: marshall(input.Item, translateConfiguration?.marshallOptions),
+      Key: marshall(input.Key, translateConfiguration?.marshallOptions),
     });
   }
 
@@ -37,7 +38,7 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: HttpHandlerOptions
-  ): Handler<PutCommandInput, PutCommandOutput> {
+  ): Handler<GetCommandInput, GetCommandOutput> {
     const handler = this.command.resolveMiddleware(clientStack, configuration, options);
 
     return () =>
@@ -48,10 +49,10 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
               ...data,
               output: {
                 ...data.output,
-                ...(data.output.Attributes && {
-                  Attributes: unmarshall(data.output.Attributes, this.translateConfiguration?.unmarshallOptions),
+                ...(data.output.Item && {
+                  Item: unmarshall(data.output.Item, this.translateConfiguration?.unmarshallOptions),
                 }),
-              } as PutCommandOutput,
+              } as GetCommandOutput,
             });
           })
           .catch((err) => {
