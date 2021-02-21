@@ -1,6 +1,7 @@
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions } from "@aws-sdk/types";
 
+import { DeleteCommand, DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
 import { GetCommand, GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
 import { PutCommand, PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
 import { DynamoDBDocumentClient } from "./DynamoDBDocumentClient";
@@ -8,6 +9,30 @@ import { DynamoDBDocumentClient } from "./DynamoDBDocumentClient";
 export class DynamoDBDocument extends DynamoDBDocumentClient {
   static from(client: DynamoDBClient) {
     return new DynamoDBDocument(client);
+  }
+
+  public delete(args: DeleteCommandInput, options?: HttpHandlerOptions): Promise<DeleteCommandOutput>;
+  public delete(args: DeleteCommandInput, cb: (err: any, data?: DeleteCommandOutput) => void): void;
+  public delete(
+    args: DeleteCommandInput,
+    options: HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCommandOutput) => void
+  ): void;
+  public delete(
+    args: DeleteCommandInput,
+    optionsOrCb?: HttpHandlerOptions | ((err: any, data?: DeleteCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCommandOutput) => void
+  ): Promise<DeleteCommandOutput> | void {
+    const command = new DeleteCommand(args);
+
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but delete ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
   }
 
   public get(args: GetCommandInput, options?: HttpHandlerOptions): Promise<GetCommandOutput>;
