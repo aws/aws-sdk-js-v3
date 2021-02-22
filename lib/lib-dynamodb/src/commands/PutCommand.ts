@@ -6,10 +6,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
-import { NativeItemCommand } from "./NativeItemCommand";
 import { TranslateConfiguration } from "./types";
 
 export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
@@ -19,8 +19,8 @@ export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
 export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes"> & {
   Attributes: { [key: string]: NativeAttributeValue };
 };
-export class PutCommand extends NativeItemCommand<PutCommandInput, PutCommandOutput, DynamoDBClientResolvedConfig> {
-  constructor(readonly input: PutCommandInput, public translateConfiguration?: TranslateConfiguration) {
+export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBClientResolvedConfig> {
+  constructor(readonly input: PutCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
     super();
   }
 

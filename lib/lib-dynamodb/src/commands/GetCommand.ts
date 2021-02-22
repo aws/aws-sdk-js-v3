@@ -6,10 +6,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
+import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
-import { NativeItemCommand } from "./NativeItemCommand";
 import { TranslateConfiguration } from "./types";
 
 export type GetCommandInput = Omit<GetItemCommandInput, "Key"> & {
@@ -20,8 +20,8 @@ export type GetCommandOutput = Omit<GetItemCommandOutput, "Item"> & {
   Item: { [key: string]: NativeAttributeValue };
 };
 
-export class GetCommand extends NativeItemCommand<GetCommandInput, GetCommandOutput, DynamoDBClientResolvedConfig> {
-  constructor(readonly input: GetCommandInput, public translateConfiguration?: TranslateConfiguration) {
+export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBClientResolvedConfig> {
+  constructor(readonly input: GetCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
     super();
   }
 
