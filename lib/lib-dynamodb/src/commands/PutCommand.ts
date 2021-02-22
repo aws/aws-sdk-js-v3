@@ -20,14 +20,8 @@ export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes"> & {
   Attributes: { [key: string]: NativeAttributeValue };
 };
 export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBClientResolvedConfig> {
-  private command: PutItemCommand;
-
   constructor(readonly input: PutCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
     super();
-    this.command = new PutItemCommand({
-      ...input,
-      Item: marshall(input.Item, translateConfiguration?.marshallOptions),
-    });
   }
 
   /**
@@ -38,11 +32,15 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     configuration: DynamoDBClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<PutCommandInput, PutCommandOutput> {
-    const handler = this.command.resolveMiddleware(clientStack, configuration, options);
+    const command = new PutItemCommand({
+      ...this.input,
+      Item: marshall(this.input.Item, this.translateConfiguration?.marshallOptions),
+    });
+    const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return () =>
       new Promise((resolve, reject) => {
-        handler(this.command)
+        handler(command)
           .then((data) => {
             resolve({
               ...data,

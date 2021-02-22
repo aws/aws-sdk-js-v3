@@ -21,14 +21,8 @@ export type DeleteCommandOutput = Omit<DeleteItemCommandOutput, "Item"> & {
 };
 
 export class DeleteCommand extends $Command<DeleteCommandInput, DeleteCommandOutput, DynamoDBClientResolvedConfig> {
-  private command: DeleteItemCommand;
-
   constructor(readonly input: DeleteCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
     super();
-    this.command = new DeleteItemCommand({
-      ...input,
-      Key: marshall(input.Key, translateConfiguration?.marshallOptions),
-    });
   }
 
   /**
@@ -39,11 +33,15 @@ export class DeleteCommand extends $Command<DeleteCommandInput, DeleteCommandOut
     configuration: DynamoDBClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<DeleteCommandInput, DeleteCommandOutput> {
-    const handler = this.command.resolveMiddleware(clientStack, configuration, options);
+    const command = new DeleteItemCommand({
+      ...this.input,
+      Key: marshall(this.input.Key, this.translateConfiguration?.marshallOptions),
+    });
+    const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return () =>
       new Promise((resolve, reject) => {
-        handler(this.command)
+        handler(command)
           .then((data) => {
             resolve({
               ...data,

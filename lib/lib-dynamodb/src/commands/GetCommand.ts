@@ -21,14 +21,8 @@ export type GetCommandOutput = Omit<GetItemCommandOutput, "Item"> & {
 };
 
 export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBClientResolvedConfig> {
-  private command: GetItemCommand;
-
   constructor(readonly input: GetCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
     super();
-    this.command = new GetItemCommand({
-      ...input,
-      Key: marshall(input.Key, translateConfiguration?.marshallOptions),
-    });
   }
 
   /**
@@ -39,11 +33,15 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
     configuration: DynamoDBClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<GetCommandInput, GetCommandOutput> {
-    const handler = this.command.resolveMiddleware(clientStack, configuration, options);
+    const command = new GetItemCommand({
+      ...this.input,
+      Key: marshall(this.input.Key, this.translateConfiguration?.marshallOptions),
+    });
+    const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return () =>
       new Promise((resolve, reject) => {
-        handler(this.command)
+        handler(command)
           .then((data) => {
             resolve({
               ...data,
