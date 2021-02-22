@@ -6,10 +6,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
-import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
+import { NativeItemCommand } from "./NativeItemCommand";
 import { TranslateConfiguration } from "./types";
 
 export type DeleteCommandInput = Omit<DeleteItemCommandInput, "Key"> & {
@@ -20,8 +20,12 @@ export type DeleteCommandOutput = Omit<DeleteItemCommandOutput, "Item"> & {
   Item: { [key: string]: NativeAttributeValue };
 };
 
-export class DeleteCommand extends $Command<DeleteCommandInput, DeleteCommandOutput, DynamoDBClientResolvedConfig> {
-  constructor(readonly input: DeleteCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
+export class DeleteCommand extends NativeItemCommand<
+  DeleteCommandInput,
+  DeleteCommandOutput,
+  DynamoDBClientResolvedConfig
+> {
+  constructor(readonly input: DeleteCommandInput, public translateConfiguration?: TranslateConfiguration) {
     super();
   }
 
