@@ -20,7 +20,6 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 
 import java.util.List;
 import java.util.Set;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
