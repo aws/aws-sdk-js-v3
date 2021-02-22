@@ -40,7 +40,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/eventstream-serde-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/eventstream-serde-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

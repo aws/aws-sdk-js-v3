@@ -33,7 +33,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/chunked-blob-reader",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/chunked-blob-reader",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

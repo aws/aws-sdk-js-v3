@@ -41,7 +41,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-s3-control",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-sdk-s3-control",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

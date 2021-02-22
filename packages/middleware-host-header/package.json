@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-host-header",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-host-header",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

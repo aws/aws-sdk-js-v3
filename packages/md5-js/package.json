@@ -46,7 +46,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/md5-js",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/md5-js",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

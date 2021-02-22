@@ -34,7 +34,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/invalid-dependency",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/invalid-dependency",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

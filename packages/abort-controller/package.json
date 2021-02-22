@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/abort-controller",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/abort-controller",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

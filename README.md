@@ -1,7 +1,7 @@
 # AWS SDK for JavaScript v3
 
-![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMmtFajZWQmNUbEhidnBKN1VncjRrNVI3d0JUcFpGWUd3STh4T3N3Rnljc1BMaEIrYm9HU2t4YTV1RlE1YmlnUG9XM3luY0Ftc2tBc0xTeVFJMkVOa24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IlBDMDl6UEROK1dlU1h1OWciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
-[![codecov](https://codecov.io/gh/aws/aws-sdk-js-v3/branch/master/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-js-v3)
+![Build Status](https://codebuild.us-west-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiMmtFajZWQmNUbEhidnBKN1VncjRrNVI3d0JUcFpGWUd3STh4T3N3Rnljc1BMaEIrYm9HU2t4YTV1RlE1YmlnUG9XM3luY0Ftc2tBc0xTeVFJMkVOa24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IlBDMDl6UEROK1dlU1h1OWciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=main)
+[![codecov](https://codecov.io/gh/aws/aws-sdk-js-v3/branch/main/graph/badge.svg)](https://codecov.io/gh/aws/aws-sdk-js-v3)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=aws/aws-sdk-js-v3)](https://dependabot.com)
 
@@ -149,7 +149,7 @@ All clients have been published to NPM and can be installed as described above. 
    yarn && yarn test:all
    ```
 
-   For more information, please refer to [contributing guide](https://github.com/aws/aws-sdk-js-v3/blob/master/CONTRIBUTING.md#setup-and-testing).
+   For more information, please refer to [contributing guide](https://github.com/aws/aws-sdk-js-v3/blob/main/CONTRIBUTING.md#setup-and-testing).
 
 1. After the repository is successfully built, change directory to the client that you want to install, for example:
 

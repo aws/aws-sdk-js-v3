@@ -197,7 +197,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 ## Contributing
 
 This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/client-workspaces` package is updated.
-To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/master/scripts/generate-clients).
+To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
 

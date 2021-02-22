@@ -40,7 +40,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/config-resolver",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/config-resolver",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

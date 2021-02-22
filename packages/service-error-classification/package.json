@@ -34,7 +34,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/service-error-classification",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/service-error-classification",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

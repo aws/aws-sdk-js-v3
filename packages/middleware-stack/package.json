@@ -39,7 +39,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-stack",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-stack",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

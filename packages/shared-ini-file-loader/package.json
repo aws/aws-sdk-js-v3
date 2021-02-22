@@ -37,7 +37,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/shared-ini-file-loader",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/shared-ini-file-loader",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

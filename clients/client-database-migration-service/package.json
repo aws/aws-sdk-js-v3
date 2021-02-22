@@ -84,7 +84,7 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/clients/client-database-migration-service",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-database-migration-service",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

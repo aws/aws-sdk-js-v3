@@ -44,7 +44,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/signature-v4",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/fetch-http-handler",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/fetch-http-handler",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

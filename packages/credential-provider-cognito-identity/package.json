@@ -40,7 +40,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-cognito-identity",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/credential-provider-cognito-identity",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

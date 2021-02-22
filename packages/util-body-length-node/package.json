@@ -38,7 +38,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-body-length-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-body-length-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",

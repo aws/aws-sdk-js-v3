@@ -42,7 +42,7 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-utf8-node",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-utf8-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
