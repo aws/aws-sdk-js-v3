@@ -1,14 +1,14 @@
 version: 0.2
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 10
   build:
     commands:
       # Fake credentials for protocol tests to get past signing.
       - export AWS_ACCESS_KEY_ID=foo
       - export AWS_SECRET_ACCESS_KEY=bar
-      # Switch to runtime-versions nodejs 10 once codebuild upgrades its docker images
-      # Refs: https://github.com/aws/aws-codebuild-docker-images/pull/400
-      - n 10
       - echo Building...
       - yarn --frozen-lockfile
       # Run the actual tests.
