@@ -4,11 +4,12 @@ import { HttpHandlerOptions } from "@aws-sdk/types";
 import { DeleteCommand, DeleteCommandInput, DeleteCommandOutput } from "./commands/DeleteCommand";
 import { GetCommand, GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
 import { PutCommand, PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
+import { TranslateConfiguration } from "./commands/types";
 import { DynamoDBDocumentClient } from "./DynamoDBDocumentClient";
 
 export class DynamoDBDocument extends DynamoDBDocumentClient {
-  static from(client: DynamoDBClient) {
-    return new DynamoDBDocument(client);
+  static from(client: DynamoDBClient, translateConfiguration?: TranslateConfiguration) {
+    return new DynamoDBDocument(client, translateConfiguration);
   }
 
   public delete(args: DeleteCommandInput, options?: HttpHandlerOptions): Promise<DeleteCommandOutput>;
@@ -23,7 +24,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: HttpHandlerOptions | ((err: any, data?: DeleteCommandOutput) => void),
     cb?: (err: any, data?: DeleteCommandOutput) => void
   ): Promise<DeleteCommandOutput> | void {
-    const command = new DeleteCommand(args);
+    const command = new DeleteCommand(args, this.translateConfiguration);
 
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
@@ -43,7 +44,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: HttpHandlerOptions | ((err: any, data?: GetCommandOutput) => void),
     cb?: (err: any, data?: GetCommandOutput) => void
   ): Promise<GetCommandOutput> | void {
-    const command = new GetCommand(args);
+    const command = new GetCommand(args, this.translateConfiguration);
 
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
@@ -63,7 +64,7 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     optionsOrCb?: HttpHandlerOptions | ((err: any, data?: PutCommandOutput) => void),
     cb?: (err: any, data?: PutCommandOutput) => void
   ): Promise<PutCommandOutput> | void {
-    const command = new PutCommand(args);
+    const command = new PutCommand(args, this.translateConfiguration);
 
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
