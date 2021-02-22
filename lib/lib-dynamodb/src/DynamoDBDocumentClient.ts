@@ -6,23 +6,29 @@ import {
 } from "@aws-sdk/client-dynamodb";
 import { Client as __Client } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions } from "@aws-sdk/types";
+import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
-import { TranslateConfiguration } from "./commands/types";
+export type TranslateConfiguration = {
+  marshallOptions?: marshallOptions;
+  unmarshallOptions?: unmarshallOptions;
+};
 
+export type DynamoDBDocumentClientResolvedConfig = DynamoDBClientResolvedConfig & {
+  translateConfiguration?: TranslateConfiguration;
+};
 export class DynamoDBDocumentClient extends __Client<
   HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  DynamoDBClientResolvedConfig
+  DynamoDBDocumentClientResolvedConfig
 > {
-  readonly config: DynamoDBClientResolvedConfig;
-  readonly translateConfiguration?: TranslateConfiguration;
+  readonly config: DynamoDBDocumentClientResolvedConfig;
 
   protected constructor(client: DynamoDBClient, translateConfiguration?: TranslateConfiguration) {
     super(client.config);
     this.config = client.config;
+    this.config.translateConfiguration = translateConfiguration;
     this.middlewareStack = client.middlewareStack;
-    this.translateConfiguration = translateConfiguration;
   }
 
   static from(client: DynamoDBClient, translateConfiguration?: TranslateConfiguration) {

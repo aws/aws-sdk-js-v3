@@ -1,5 +1,4 @@
 import {
-  DynamoDBClientResolvedConfig,
   PutItemCommand,
   PutItemCommandInput,
   PutItemCommandOutput,
@@ -10,7 +9,7 @@ import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
-import { TranslateConfiguration } from "./types";
+import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
 export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
   Item: { [key: string]: NativeAttributeValue } | undefined;
@@ -19,8 +18,8 @@ export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
 export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes"> & {
   Attributes: { [key: string]: NativeAttributeValue };
 };
-export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBClientResolvedConfig> {
-  constructor(readonly input: PutCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
+export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
+  constructor(readonly input: PutCommandInput) {
     super();
   }
 
@@ -29,12 +28,12 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DynamoDBClientResolvedConfig,
+    configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<PutCommandInput, PutCommandOutput> {
     const command = new PutItemCommand({
       ...this.input,
-      Item: marshall(this.input.Item, this.translateConfiguration?.marshallOptions),
+      Item: marshall(this.input.Item, configuration.translateConfiguration?.marshallOptions),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -47,7 +46,10 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
               output: {
                 ...data.output,
                 ...(data.output.Attributes && {
-                  Attributes: unmarshall(data.output.Attributes, this.translateConfiguration?.unmarshallOptions),
+                  Attributes: unmarshall(
+                    data.output.Attributes,
+                    configuration.translateConfiguration?.unmarshallOptions
+                  ),
                 }),
               } as PutCommandOutput,
             });

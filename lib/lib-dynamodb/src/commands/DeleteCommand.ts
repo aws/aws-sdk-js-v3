@@ -2,7 +2,6 @@ import {
   DeleteItemCommand,
   DeleteItemCommandInput,
   DeleteItemCommandOutput,
-  DynamoDBClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
@@ -10,7 +9,7 @@ import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
-import { TranslateConfiguration } from "./types";
+import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
 export type DeleteCommandInput = Omit<DeleteItemCommandInput, "Key"> & {
   Key: { [key: string]: NativeAttributeValue } | undefined;
@@ -20,8 +19,12 @@ export type DeleteCommandOutput = Omit<DeleteItemCommandOutput, "Item"> & {
   Item: { [key: string]: NativeAttributeValue };
 };
 
-export class DeleteCommand extends $Command<DeleteCommandInput, DeleteCommandOutput, DynamoDBClientResolvedConfig> {
-  constructor(readonly input: DeleteCommandInput, private readonly translateConfiguration?: TranslateConfiguration) {
+export class DeleteCommand extends $Command<
+  DeleteCommandInput,
+  DeleteCommandOutput,
+  DynamoDBDocumentClientResolvedConfig
+> {
+  constructor(readonly input: DeleteCommandInput) {
     super();
   }
 
@@ -30,12 +33,12 @@ export class DeleteCommand extends $Command<DeleteCommandInput, DeleteCommandOut
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DynamoDBClientResolvedConfig,
+    configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<DeleteCommandInput, DeleteCommandOutput> {
     const command = new DeleteItemCommand({
       ...this.input,
-      Key: marshall(this.input.Key, this.translateConfiguration?.marshallOptions),
+      Key: marshall(this.input.Key, configuration.translateConfiguration?.marshallOptions),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -48,7 +51,10 @@ export class DeleteCommand extends $Command<DeleteCommandInput, DeleteCommandOut
               output: {
                 ...data.output,
                 ...(data.output.Attributes && {
-                  Attributes: unmarshall(data.output.Attributes, this.translateConfiguration?.unmarshallOptions),
+                  Attributes: unmarshall(
+                    data.output.Attributes,
+                    configuration.translateConfiguration?.unmarshallOptions
+                  ),
                 }),
               } as DeleteCommandOutput,
             });
