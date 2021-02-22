@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.typescript.codegen;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.Consumer;
-
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
