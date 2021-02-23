@@ -20,7 +20,6 @@ import static software.amazon.smithy.typescript.codegen.integration.RuntimeClien
 
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
@@ -39,8 +38,6 @@ import software.amazon.smithy.utils.ListUtils;
  * Add S3Control customization.
  */
 public class AddS3ControlDependency implements TypeScriptIntegration {
-
-    private static final Logger LOGGER = Logger.getLogger(AddS3ControlDependency.class.getName());
 
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {

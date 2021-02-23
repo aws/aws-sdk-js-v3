@@ -19,7 +19,6 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
-import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
@@ -36,8 +35,6 @@ import software.amazon.smithy.utils.SetUtils;
  */
 public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of("Glacier");
-
-    private static final Logger LOGGER = Logger.getLogger(AddBodyChecksumGeneratorDependency.class.getName());
 
     @Override
     public void addConfigInterfaceFields(
