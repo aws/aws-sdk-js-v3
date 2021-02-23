@@ -38,7 +38,7 @@ public class AddDocumentClientCommandsPlugin implements TypeScriptIntegration {
   ) {
       ServiceShape service = settings.getService(model);
       if (testServiceId(service, "DynamoDB")) {
-        writerFactory.accept("commands/PutNativeItemCommand.ts", writer -> {
+        writerFactory.accept("document-client/commands/PutCommand.ts", writer -> {
           writer.write("// Hello!");
         });
       }
