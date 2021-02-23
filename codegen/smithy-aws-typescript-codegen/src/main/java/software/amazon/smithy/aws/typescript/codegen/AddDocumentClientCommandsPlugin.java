@@ -12,18 +12,23 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 
 /**
  * Generates Commands for DynamoDB Document Client.
@@ -38,13 +43,23 @@ public class AddDocumentClientCommandsPlugin implements TypeScriptIntegration {
   ) {
       ServiceShape service = settings.getService(model);
       if (testServiceId(service, "DynamoDB")) {
-        writerFactory.accept("document-client/commands/PutCommand.ts", writer -> {
-          writer.write("// Hello!");
-        });
+        Set<OperationShape> containedOperations = new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
+        for (OperationShape operation : containedOperations) {
+          String operationName = operation.getId().getName();
+          if (containsAttributeValue(operation)) {
+            writerFactory.accept("document-client/commands/" + operationName + ".ts", writer -> {
+              writer.write("// Hello!");
+            });
+          }
+        }
       }
   }
 
-  private static boolean testServiceId(Shape serviceShape, String expectedId) {
+  private boolean testServiceId(Shape serviceShape, String expectedId) {
       return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
+  }
+
+  private boolean containsAttributeValue(OperationShape operationShape) {
+      return true;
   }
 }
