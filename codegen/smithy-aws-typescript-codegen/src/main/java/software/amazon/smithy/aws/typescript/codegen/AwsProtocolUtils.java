@@ -80,7 +80,7 @@ final class AwsProtocolUtils {
             ShapeVisitor<Void> visitor
     ) {
         // Walk all the shapes within those in the document and generate for them as well.
-        Walker shapeWalker = new Walker(context.getModel().getKnowledge(NeighborProviderIndex.class).getProvider());
+        Walker shapeWalker = new Walker(NeighborProviderIndex.of(context.getModel()).getProvider());
         Set<Shape> shapesToGenerate = new TreeSet<>(shapes);
         shapes.forEach(shape -> shapesToGenerate.addAll(shapeWalker.walkShapes(shape)));
         shapesToGenerate.forEach(shape -> shape.accept(visitor));
@@ -264,7 +264,7 @@ final class AwsProtocolUtils {
             Format defaultFormat,
             String inputLocation
     ) {
-        HttpBindingIndex httpIndex = context.getModel().getKnowledge(HttpBindingIndex.class);
+        HttpBindingIndex httpIndex = HttpBindingIndex.of(context.getModel());
         TimestampFormatTrait.Format format = httpIndex.determineTimestampFormat(memberShape, DOCUMENT, defaultFormat);
         return HttpProtocolGeneratorUtils.getTimestampInputParam(context, inputLocation, memberShape, format);
     }
