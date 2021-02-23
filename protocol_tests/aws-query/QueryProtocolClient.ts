@@ -2,6 +2,11 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
 import { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "./commands/FlattenedXmlMapCommand";
 import {
   FlattenedXmlMapWithXmlNameCommandInput,
@@ -95,6 +100,8 @@ import {
 
 export type ServiceInputTypes =
   | EmptyInputAndEmptyOutputCommandInput
+  | EndpointOperationCommandInput
+  | EndpointWithHostLabelOperationCommandInput
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
   | FlattenedXmlMapWithXmlNamespaceCommandInput
@@ -123,6 +130,8 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | EmptyInputAndEmptyOutputCommandOutput
+  | EndpointOperationCommandOutput
+  | EndpointWithHostLabelOperationCommandOutput
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
   | FlattenedXmlMapWithXmlNamespaceCommandOutput

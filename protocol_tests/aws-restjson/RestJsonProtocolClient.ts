@@ -14,6 +14,11 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
@@ -154,6 +159,8 @@ export type ServiceInputTypes =
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
   | EmptyInputAndEmptyOutputCommandInput
+  | EndpointOperationCommandInput
+  | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
@@ -193,6 +200,8 @@ export type ServiceOutputTypes =
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
+  | EndpointOperationCommandOutput
+  | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput

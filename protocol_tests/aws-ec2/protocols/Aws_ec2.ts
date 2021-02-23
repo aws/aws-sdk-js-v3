@@ -2,6 +2,11 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
@@ -36,6 +41,7 @@ import {
   FooEnum,
   GreetingStruct,
   GreetingWithErrorsOutput,
+  HostLabelInput,
   IgnoresWrappingXmlNameOutput,
   InvalidGreeting,
   NestedStructuresInput,
@@ -57,7 +63,11 @@ import {
   XmlNamespacesOutput,
   XmlTimestampsOutput,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -88,6 +98,54 @@ export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2EndpointOperationCommand = async (
+  input: EndpointOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "EndpointOperation",
+    Version: "2020-01-08",
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "foo." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+export const serializeAws_ec2EndpointWithHostLabelOperationCommand = async (
+  input: EndpointWithHostLabelOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2HostLabelInput(input, context),
+    Action: "EndpointWithHostLabelOperation",
+    Version: "2020-01-08",
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "foo.{label}." + resolvedHostname;
+    if (input.label === undefined) {
+      throw new Error("Empty value provided for input host prefix: label.");
+    }
+    resolvedHostname = resolvedHostname.replace("{label}", input.label!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 export const serializeAws_ec2GreetingWithErrorsCommand = async (
@@ -359,6 +417,92 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2EndpointOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2EndpointOperationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: EndpointOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2EndpointOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2EndpointWithHostLabelOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointWithHostLabelOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2EndpointWithHostLabelOperationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: EndpointWithHostLabelOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2EndpointWithHostLabelOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1202,6 +1346,14 @@ const serializeAws_ec2EmptyInputAndEmptyOutputInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  return entries;
+};
+
+const serializeAws_ec2HostLabelInput = (input: HostLabelInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.label !== undefined && input.label !== null) {
+    entries["Label"] = input.label;
+  }
   return entries;
 };
 
