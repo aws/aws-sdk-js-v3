@@ -138,7 +138,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
             OperationShape operationShape,
             Set<String> expectedMemberNames
     ) {
-        OperationIndex operationIndex = model.getKnowledge(OperationIndex.class);
+        OperationIndex operationIndex = OperationIndex.of(model);
         return operationIndex.getInput(operationShape)
                 .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
                 .isPresent();
