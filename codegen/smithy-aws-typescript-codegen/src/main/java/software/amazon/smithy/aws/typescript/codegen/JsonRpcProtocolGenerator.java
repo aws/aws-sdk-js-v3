@@ -108,6 +108,14 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     }
 
     @Override
+    protected boolean writeUndefinedInputBody(GenerationContext context, OperationShape operation) {
+        TypeScriptWriter writer = context.getWriter();
+
+        writer.write("const body = '{}';");
+        return true;
+    }
+
+    @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
 
