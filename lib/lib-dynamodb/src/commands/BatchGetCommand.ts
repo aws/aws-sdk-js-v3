@@ -18,7 +18,7 @@ export type BatchGetCommandInput = Omit<BatchGetItemCommandInput, "RequestItems"
 
 export type BatchGetCommandOutput = Omit<BatchGetItemCommandOutput, "Responses" | "UnprocessedItems"> & {
   Responses?: { [key: string]: { [key: string]: NativeAttributeValue }[] };
-  UnprocessedKeys: { [key: string]: DocClientKeysAndAttributes };
+  UnprocessedKeys?: { [key: string]: DocClientKeysAndAttributes };
 };
 
 export class BatchGetCommand extends $Command<
@@ -45,9 +45,11 @@ export class BatchGetCommand extends $Command<
           ...acc,
           [tableName]: {
             ...keysAndAttributes,
-            Keys: keysAndAttributes.Keys.map((key) =>
-              marshall(key, configuration.translateConfiguration?.marshallOptions)
-            ),
+            ...(keysAndAttributes.Keys && {
+              Keys: keysAndAttributes.Keys.map((key) =>
+                marshall(key, configuration.translateConfiguration?.marshallOptions)
+              ),
+            }),
           },
         }),
         {}
@@ -74,7 +76,7 @@ export class BatchGetCommand extends $Command<
                             unmarshall(key, configuration.translateConfiguration?.unmarshallOptions)
                           ),
                         }),
-                      } as DocClientKeysAndAttributes,
+                      },
                     }),
                     {}
                   ),
@@ -90,7 +92,7 @@ export class BatchGetCommand extends $Command<
                     {}
                   ),
                 }),
-              } as BatchGetCommandOutput,
+              },
             });
           })
           .catch((err) => {

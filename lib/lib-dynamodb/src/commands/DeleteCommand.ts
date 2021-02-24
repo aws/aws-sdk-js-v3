@@ -16,7 +16,7 @@ export type DeleteCommandInput = Omit<DeleteItemCommandInput, "Key"> & {
 };
 
 export type DeleteCommandOutput = Omit<DeleteItemCommandOutput, "Item"> & {
-  Item: { [key: string]: NativeAttributeValue };
+  Item?: { [key: string]: NativeAttributeValue };
 };
 
 export class DeleteCommand extends $Command<
@@ -56,7 +56,7 @@ export class DeleteCommand extends $Command<
                     configuration.translateConfiguration?.unmarshallOptions
                   ),
                 }),
-              } as DeleteCommandOutput,
+              },
             });
           })
           .catch((err) => {

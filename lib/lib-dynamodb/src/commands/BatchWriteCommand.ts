@@ -20,7 +20,7 @@ export type BatchWriteCommandOutput = Omit<
   BatchWriteItemCommandOutput,
   "UnprocessedItems" | "ItemCollectionMetrics"
 > & {
-  UnprocessedItems: { [key: string]: DocClientWriteRequest[] };
+  UnprocessedItems?: { [key: string]: DocClientWriteRequest[] };
   ItemCollectionMetrics?: { [key: string]: DocClientItemCollectionMetrics[] };
 };
 
@@ -117,7 +117,7 @@ export class BatchWriteCommand extends $Command<
                     {}
                   ),
                 }),
-              } as BatchWriteCommandOutput,
+              },
             });
           })
           .catch((err) => {

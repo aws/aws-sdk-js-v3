@@ -16,7 +16,7 @@ export type GetCommandInput = Omit<GetItemCommandInput, "Key"> & {
 };
 
 export type GetCommandOutput = Omit<GetItemCommandOutput, "Item"> & {
-  Item: { [key: string]: NativeAttributeValue };
+  Item?: { [key: string]: NativeAttributeValue };
 };
 
 export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBDocumentClientResolvedConfig> {
@@ -49,7 +49,7 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
                 ...(data.output.Item && {
                   Item: unmarshall(data.output.Item, configuration.translateConfiguration?.unmarshallOptions),
                 }),
-              } as GetCommandOutput,
+              },
             });
           })
           .catch((err) => {

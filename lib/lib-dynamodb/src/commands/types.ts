@@ -8,7 +8,7 @@ import {
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
 
 export type DocClientKeysAndAttributes = Omit<KeysAndAttributes, "Keys"> & {
-  Keys: { [key: string]: NativeAttributeValue }[];
+  Keys: { [key: string]: NativeAttributeValue }[] | undefined;
 };
 
 export type DocClientWriteRequest = Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
@@ -17,11 +17,11 @@ export type DocClientWriteRequest = Omit<WriteRequest, "PutRequest" | "DeleteReq
 };
 
 export type DocClientPutRequest = Omit<PutRequest, "Item"> & {
-  Item: { [key: string]: NativeAttributeValue };
+  Item: { [key: string]: NativeAttributeValue } | undefined;
 };
 
 export type DocClientDeleteRequest = Omit<DeleteRequest, "Key"> & {
-  Key: { [key: string]: NativeAttributeValue };
+  Key: { [key: string]: NativeAttributeValue } | undefined;
 };
 
 export type DocClientItemCollectionMetrics = Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
