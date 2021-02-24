@@ -69,7 +69,8 @@ export const serializeAws_json1_1EmptyOperationCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "JsonProtocol.EmptyOperation",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1EndpointOperationCommand = async (
@@ -80,6 +81,7 @@ export const serializeAws_json1_1EndpointOperationCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "JsonProtocol.EndpointOperation",
   };
+  const body = "{}";
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo." + resolvedHostname;
@@ -87,7 +89,7 @@ export const serializeAws_json1_1EndpointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, undefined);
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 export const serializeAws_json1_1EndpointWithHostLabelOperationCommand = async (
@@ -122,7 +124,8 @@ export const serializeAws_json1_1GreetingWithErrorsCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "JsonProtocol.GreetingWithErrors",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1JsonEnumsCommand = async (

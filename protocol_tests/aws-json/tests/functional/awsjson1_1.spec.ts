@@ -233,40 +233,6 @@ it("json_1_1_client_sends_empty_payload_for_no_input_shape:Request", async () =>
 });
 
 /**
- * Service implementations must support no payload or an empty
- * object payload for operations that define no input. However,
- * despite the lack of a payload, a Content-Type header is still
- * required in order for the service to properly detect the
- * protocol.
- */
-it("json_1_1_service_supports_empty_payload_for_no_input_shape:Request", async () => {
-  const client = new JsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new EmptyOperationCommand({});
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
-
-    expect(r.body).toBeFalsy();
-  }
-});
-
-/**
  * When no output is defined, the service is expected to return
  * an empty payload, however, client must ignore a JSON payload
  * if one is returned. This ensures that if output is added later,

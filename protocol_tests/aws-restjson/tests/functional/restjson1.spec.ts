@@ -401,40 +401,6 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
 });
 
 /**
- * Similar to RestJsonEmptyInputAndEmptyOutput, but ensures that
- * services gracefully handles receiving a JSON object.
- */
-it("RestJsonEmptyInputAndEmptyOutputWithJson:Request", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new RequestSerializationTestHandler(),
-  });
-
-  const command = new EmptyInputAndEmptyOutputCommand({} as any);
-  try {
-    await client.send(command);
-    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
-    return;
-  } catch (err) {
-    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
-      fail(err);
-      return;
-    }
-    const r = err.request;
-    expect(r.method).toBe("POST");
-    expect(r.path).toBe("/EmptyInputAndEmptyOutput");
-
-    expect(r.headers["content-type"]).toBeDefined();
-    expect(r.headers["content-type"]).toBe("application/json");
-
-    expect(r.body).toBeDefined();
-    const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
-    expect(unequalParts).toBeUndefined();
-  }
-});
-
-/**
  * As of January 2021, server implementations are expected to
  * respond with a JSON object regardless of if the output
  * parameters are empty.

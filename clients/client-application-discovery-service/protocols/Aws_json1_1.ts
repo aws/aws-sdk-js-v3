@@ -347,7 +347,8 @@ export const serializeAws_json1_1ExportConfigurationsCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSPoseidonService_V2015_11_01.ExportConfigurations",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1GetDiscoverySummaryCommand = async (
