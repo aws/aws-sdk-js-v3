@@ -2,51 +2,26 @@ import {
   BatchWriteItemCommand,
   BatchWriteItemCommandInput,
   BatchWriteItemCommandOutput,
-  DeleteRequest,
-  ItemCollectionMetrics,
-  PutRequest,
   ServiceInputTypes,
   ServiceOutputTypes,
-  WriteRequest,
 } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
-import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
+import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DocClientItemCollectionMetrics, DocClientWriteRequest } from "./types";
 
 export type BatchWriteCommandInput = Omit<BatchWriteItemCommandInput, "RequestItems"> & {
-  RequestItems: {
-    [key: string]: (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
-      PutRequest?: Omit<PutRequest, "Item"> & {
-        Item: { [key: string]: NativeAttributeValue };
-      };
-      DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-        Key: { [key: string]: NativeAttributeValue };
-      };
-    })[];
-  };
+  RequestItems: { [key: string]: DocClientWriteRequest[] };
 };
 
 export type BatchWriteCommandOutput = Omit<
   BatchWriteItemCommandOutput,
   "UnprocessedItems" | "ItemCollectionMetrics"
 > & {
-  UnprocessedItems: {
-    [key: string]: (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
-      PutRequest?: Omit<PutRequest, "Item"> & {
-        Item: { [key: string]: NativeAttributeValue };
-      };
-      DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-        Key: { [key: string]: NativeAttributeValue };
-      };
-    })[];
-  };
-  ItemCollectionMetrics?: {
-    [key: string]: (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-      ItemCollectionKey?: { [key: string]: NativeAttributeValue };
-    })[];
-  };
+  UnprocessedItems: { [key: string]: DocClientWriteRequest[] };
+  ItemCollectionMetrics?: { [key: string]: DocClientItemCollectionMetrics[] };
 };
 
 export class BatchWriteCommand extends $Command<
@@ -69,18 +44,18 @@ export class BatchWriteCommand extends $Command<
     const command = new BatchWriteItemCommand({
       ...this.input,
       RequestItems: Object.entries(this.input.RequestItems).reduce(
-        (acc: any, [key, value]: [string, any]) => ({
+        (acc, [tableName, writeRequests]) => ({
           ...acc,
-          [key]: value.map((writeItem: any) => ({
-            ...writeItem,
-            ...(writeItem.PutRequest && {
+          [tableName]: writeRequests.map((writeRequest) => ({
+            ...writeRequest,
+            ...(writeRequest.PutRequest && {
               PutRequest: {
-                Item: marshall(writeItem.PutRequest.Item, configuration.translateConfiguration?.marshallOptions),
+                Item: marshall(writeRequest.PutRequest.Item, configuration.translateConfiguration?.marshallOptions),
               },
             }),
-            ...(writeItem.DeleteRequest && {
+            ...(writeRequest.DeleteRequest && {
               DeleteRequest: {
-                Key: marshall(writeItem.DeleteRequest.Key, configuration.translateConfiguration?.marshallOptions),
+                Key: marshall(writeRequest.DeleteRequest.Key, configuration.translateConfiguration?.marshallOptions),
               },
             }),
           })),
@@ -100,21 +75,25 @@ export class BatchWriteCommand extends $Command<
                 ...data.output,
                 ...(data.output.UnprocessedItems && {
                   UnprocessedItems: Object.entries(data.output.UnprocessedItems).reduce(
-                    (acc: any, [key, value]: [string, any]) => ({
+                    (acc, [tableName, writeRequests]) => ({
                       ...acc,
-                      [key]: value.map((writeItem: any) => ({
-                        ...writeItem,
-                        ...(writeItem.PutRequest && {
-                          PutRequest: unmarshall(
-                            writeItem.PutRequest,
-                            configuration.translateConfiguration?.unmarshallOptions
-                          ),
+                      [tableName]: writeRequests.map((writeRequest) => ({
+                        ...writeRequest,
+                        ...(writeRequest.PutRequest && {
+                          PutRequest: {
+                            Item: unmarshall(
+                              writeRequest.PutRequest.Item!,
+                              configuration.translateConfiguration?.unmarshallOptions
+                            ),
+                          },
                         }),
-                        ...(writeItem.DeleteRequest && {
-                          DeleteRequest: unmarshall(
-                            writeItem.DeleteRequest,
-                            configuration.translateConfiguration?.unmarshallOptions
-                          ),
+                        ...(writeRequest.DeleteRequest && {
+                          DeleteRequest: {
+                            Key: unmarshall(
+                              writeRequest.DeleteRequest.Key!,
+                              configuration.translateConfiguration?.unmarshallOptions
+                            ),
+                          },
                         }),
                       })),
                     }),
@@ -123,17 +102,17 @@ export class BatchWriteCommand extends $Command<
                 }),
                 ...(data.output.ItemCollectionMetrics && {
                   ItemCollectionMetrics: Object.entries(data.output.ItemCollectionMetrics).reduce(
-                    (acc: any, [key, value]: [string, any]) => ({
+                    (acc, [tableName, itemCollectionMetrics]) => ({
                       ...acc,
-                      [key]: {
-                        ...value,
-                        ...(value.ItemCollectionKey && {
+                      [tableName]: itemCollectionMetrics.map((itemCollectionMetric) => ({
+                        ...itemCollectionMetric,
+                        ...(itemCollectionMetric.ItemCollectionKey && {
                           ItemCollectionKey: unmarshall(
-                            value.ItemCollectionKey,
+                            itemCollectionMetric.ItemCollectionKey,
                             configuration.translateConfiguration?.unmarshallOptions
                           ),
                         }),
-                      },
+                      })),
                     }),
                     {}
                   ),

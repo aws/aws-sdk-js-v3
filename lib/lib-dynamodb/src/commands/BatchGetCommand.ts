@@ -2,7 +2,6 @@ import {
   BatchGetItemCommand,
   BatchGetItemCommandInput,
   BatchGetItemCommandOutput,
-  KeysAndAttributes,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
@@ -11,22 +10,15 @@ import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DocClientKeysAndAttributes } from "./types";
 
 export type BatchGetCommandInput = Omit<BatchGetItemCommandInput, "RequestItems"> & {
-  RequestItems: {
-    [key: string]: Omit<KeysAndAttributes, "Keys"> & {
-      Keys?: { [key: string]: NativeAttributeValue }[];
-    };
-  };
+  RequestItems: { [key: string]: DocClientKeysAndAttributes };
 };
 
-export type BatchGetCommandOutput = Omit<BatchGetItemCommandOutput, "UnprocessedItems" | "ItemCollectionMetrics"> & {
-  UnprocessedKeys: {
-    [key: string]: Omit<KeysAndAttributes, "Keys"> & {
-      Keys?: { [key: string]: NativeAttributeValue }[];
-    };
-  };
+export type BatchGetCommandOutput = Omit<BatchGetItemCommandOutput, "Responses" | "UnprocessedItems"> & {
   Responses?: { [key: string]: { [key: string]: NativeAttributeValue }[] };
+  UnprocessedKeys: { [key: string]: DocClientKeysAndAttributes };
 };
 
 export class BatchGetCommand extends $Command<
@@ -49,11 +41,13 @@ export class BatchGetCommand extends $Command<
     const command = new BatchGetItemCommand({
       ...this.input,
       RequestItems: Object.entries(this.input.RequestItems).reduce(
-        (acc: any, [key, value]: [string, any]) => ({
+        (acc, [tableName, keysAndAttributes]) => ({
           ...acc,
-          [key]: {
-            ...value,
-            Keys: value.Keys.map((key: any) => marshall(key, configuration.translateConfiguration?.marshallOptions)),
+          [tableName]: {
+            ...keysAndAttributes,
+            Keys: keysAndAttributes.Keys.map((key) =>
+              marshall(key, configuration.translateConfiguration?.marshallOptions)
+            ),
           },
         }),
         {}
@@ -71,26 +65,26 @@ export class BatchGetCommand extends $Command<
                 ...data.output,
                 ...(data.output.UnprocessedKeys && {
                   UnprocessedKeys: Object.entries(data.output.UnprocessedKeys).reduce(
-                    (acc: any, [key, value]: [string, any]) => ({
+                    (acc, [tableName, keysAndAttributes]) => ({
                       ...acc,
-                      [key]: value.map((keysAndAttributes: any) => ({
+                      [tableName]: {
                         ...keysAndAttributes,
                         ...(keysAndAttributes.Keys && {
-                          Keys: keysAndAttributes.Keys.map((key: any) =>
+                          Keys: keysAndAttributes.Keys.map((key) =>
                             unmarshall(key, configuration.translateConfiguration?.unmarshallOptions)
                           ),
                         }),
-                      })),
+                      } as DocClientKeysAndAttributes,
                     }),
                     {}
                   ),
                 }),
                 ...(data.output.Responses && {
                   Responses: Object.entries(data.output.Responses).reduce(
-                    (acc: any, [key, value]: [string, any]) => ({
+                    (acc, [tableName, results]) => ({
                       ...acc,
-                      [key]: value.map((val: any) =>
-                        unmarshall(val, configuration.translateConfiguration?.unmarshallOptions)
+                      [tableName]: results.map((result) =>
+                        unmarshall(result, configuration.translateConfiguration?.unmarshallOptions)
                       ),
                     }),
                     {}
