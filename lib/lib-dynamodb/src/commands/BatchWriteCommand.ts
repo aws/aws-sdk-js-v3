@@ -121,8 +121,8 @@ export class BatchWriteCommand extends $Command<
                     {}
                   ),
                 }),
-                ...(data.output.ItemCollectionMetrics &&
-                  Object.entries(data.output.ItemCollectionMetrics).reduce(
+                ...(data.output.ItemCollectionMetrics && {
+                  ItemCollectionMetrics: Object.entries(data.output.ItemCollectionMetrics).reduce(
                     (acc: any, [key, value]: [string, any]) => ({
                       ...acc,
                       [key]: {
@@ -136,7 +136,8 @@ export class BatchWriteCommand extends $Command<
                       },
                     }),
                     {}
-                  )),
+                  ),
+                }),
               } as BatchWriteCommandOutput,
             });
           })

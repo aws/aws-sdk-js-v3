@@ -70,7 +70,7 @@ export class BatchGetCommand extends $Command<
               output: {
                 ...data.output,
                 ...(data.output.UnprocessedKeys && {
-                  UnprocessedItems: Object.entries(data.output.UnprocessedKeys).reduce(
+                  UnprocessedKeys: Object.entries(data.output.UnprocessedKeys).reduce(
                     (acc: any, [key, value]: [string, any]) => ({
                       ...acc,
                       [key]: value.map((keysAndAttributes: any) => ({
@@ -85,8 +85,8 @@ export class BatchGetCommand extends $Command<
                     {}
                   ),
                 }),
-                ...(data.output.Responses &&
-                  Object.entries(data.output.Responses).reduce(
+                ...(data.output.Responses && {
+                  Responses: Object.entries(data.output.Responses).reduce(
                     (acc: any, [key, value]: [string, any]) => ({
                       ...acc,
                       [key]: value.map((val: any) =>
@@ -94,7 +94,8 @@ export class BatchGetCommand extends $Command<
                       ),
                     }),
                     {}
-                  )),
+                  ),
+                }),
               } as BatchGetCommandOutput,
             });
           })
