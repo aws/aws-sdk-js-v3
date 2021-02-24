@@ -129,9 +129,9 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
     }
 
     private static boolean hasEventStreamInput(Model model, ServiceShape service) {
-        TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+        TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
-        EventStreamIndex eventStreamIndex = model.getKnowledge(EventStreamIndex.class);
+        EventStreamIndex eventStreamIndex = EventStreamIndex.of(model);
         for (OperationShape operation : operations) {
             if (eventStreamIndex.getInputInfo(operation).isPresent()) {
                 return true;
@@ -141,7 +141,7 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
     }
 
     private static boolean hasEventStreamInput(Model model, ServiceShape service, OperationShape operation) {
-        EventStreamIndex eventStreamIndex = model.getKnowledge(EventStreamIndex.class);
+        EventStreamIndex eventStreamIndex = EventStreamIndex.of(model);
         return eventStreamIndex.getInputInfo(operation).isPresent();
     }
 }
