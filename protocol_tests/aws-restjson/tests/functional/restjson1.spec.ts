@@ -507,7 +507,7 @@ it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("POST");
-    expect(r.path).toBe("/EndpointOperation");
+    expect(r.path).toBe("/EndpointWithHostLabelOperation");
 
     expect(r.body).toBeDefined();
     const bodyString = `{\"label\": \"bar\"}`;

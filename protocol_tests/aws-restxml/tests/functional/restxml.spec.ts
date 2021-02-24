@@ -484,7 +484,7 @@ it("RestXmlEndpointTraitWithHostLabelAndHttpBinding:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("POST");
-    expect(r.path).toBe("/EndpointOperation");
+    expect(r.path).toBe("/EndpointWithHostLabelHeaderOperation");
 
     expect(r.headers["x-amz-account-id"]).toBeDefined();
     expect(r.headers["x-amz-account-id"]).toBe("bar");
@@ -518,7 +518,7 @@ it("RestXmlEndpointTraitWithHostLabel:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("POST");
-    expect(r.path).toBe("/EndpointOperation");
+    expect(r.path).toBe("/EndpointWithHostLabelOperation");
 
     expect(r.body).toBeDefined();
     const bodyString = `<HostLabelInput>

@@ -283,7 +283,7 @@ it("Ec2QueryEndpointTraitWithHostLabel:Request", async () => {
     expect(r.body).toBeDefined();
     const bodyString = `Action=EndpointWithHostLabelOperation
     &Version=2020-01-08
-    &label=bar`;
+    &Label=bar`;
     const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
