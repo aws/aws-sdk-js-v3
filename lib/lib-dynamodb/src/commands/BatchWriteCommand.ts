@@ -74,10 +74,14 @@ export class BatchWriteCommand extends $Command<
           [key]: value.map((writeItem: any) => ({
             ...writeItem,
             ...(writeItem.PutRequest && {
-              PutRequest: marshall(writeItem.PutRequest, configuration.translateConfiguration?.marshallOptions),
+              PutRequest: {
+                Item: marshall(writeItem.PutRequest.Item, configuration.translateConfiguration?.marshallOptions),
+              },
             }),
             ...(writeItem.DeleteRequest && {
-              DeleteRequest: marshall(writeItem.DeleteRequest, configuration.translateConfiguration?.marshallOptions),
+              DeleteRequest: {
+                Key: marshall(writeItem.DeleteRequest.Key, configuration.translateConfiguration?.marshallOptions),
+              },
             }),
           })),
         }),
