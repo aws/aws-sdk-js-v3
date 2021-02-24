@@ -18,6 +18,7 @@ export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
 export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes"> & {
   Attributes?: { [key: string]: NativeAttributeValue };
 };
+
 export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
   constructor(readonly input: PutCommandInput) {
     super();
