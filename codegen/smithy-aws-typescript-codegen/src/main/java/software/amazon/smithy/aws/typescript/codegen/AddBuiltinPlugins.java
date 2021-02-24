@@ -23,11 +23,8 @@ import java.util.Set;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
-import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -51,16 +48,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
                         .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
-                        .servicePredicate((m, s) -> !isAllOptionalAuthOperation(m, s))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
-                        // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
-                        .servicePredicate(
-                            (m, s) -> !testServiceId(s, "STS") && !hasOptionalAuthOperation(m, s)
-                        ).build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
                         .build(),
@@ -124,10 +111,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_HOST_HEADER.dependency, "HostHeader")
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
-                        .operationPredicate(AddBuiltinPlugins::operationUsesAwsAuth)
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_LOGGER.dependency, "Logger", HAS_MIDDLEWARE)
                         .build()
         );
@@ -138,7 +121,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
             OperationShape operationShape,
             Set<String> expectedMemberNames
     ) {
-        OperationIndex operationIndex = model.getKnowledge(OperationIndex.class);
+        OperationIndex operationIndex = OperationIndex.of(model);
         return operationIndex.getInput(operationShape)
                 .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
                 .isPresent();
@@ -146,44 +129,5 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
-    }
-
-    private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {
-        // STS doesn't need auth for AssumeRoleWithWebIdentity, AssumeRoleWithSAML.
-        // Remove when optionalAuth model update is published in 0533102932.
-        if (testServiceId(service, "STS")) {
-            Boolean isUnsignedCommand = SetUtils
-                    .of("AssumeRoleWithWebIdentity", "AssumeRoleWithSAML")
-                    .contains(operation.getId().getName());
-            return !isUnsignedCommand;
-        }
-
-        // optionalAuth trait doesn't require authentication.
-        if (hasOptionalAuthOperation(model, service)) {
-            return !operation.getTrait(OptionalAuthTrait.class).isPresent();
-        }
-        return false;
-    }
-
-    private static boolean hasOptionalAuthOperation(Model model, ServiceShape service) {
-        TopDownIndex topDownIndex = TopDownIndex.of(model);
-        Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
-        for (OperationShape operation : operations) {
-            if (operation.getTrait(OptionalAuthTrait.class).isPresent()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private static boolean isAllOptionalAuthOperation(Model model, ServiceShape service) {
-        TopDownIndex topDownIndex = TopDownIndex.of(model);
-        Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
-        for (OperationShape operation : operations) {
-            if (!operation.getTrait(OptionalAuthTrait.class).isPresent()) {
-                return false;
-            }
-        }
-        return true;
     }
 }
