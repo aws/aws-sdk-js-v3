@@ -51,14 +51,10 @@ export class BatchGetCommand extends $Command<
       RequestItems: Object.entries(this.input.RequestItems).reduce(
         (acc: any, [key, value]: [string, any]) => ({
           ...acc,
-          [key]: value.map((keysAndAttributes: any) => ({
-            ...keysAndAttributes,
-            ...(keysAndAttributes.Keys && {
-              Keys: keysAndAttributes.Keys.map((key: any) =>
-                marshall(key, configuration.translateConfiguration?.marshallOptions)
-              ),
-            }),
-          })),
+          [key]: {
+            ...value,
+            Keys: value.Keys.map((key: any) => marshall(key, configuration.translateConfiguration?.marshallOptions)),
+          },
         }),
         {}
       ),
