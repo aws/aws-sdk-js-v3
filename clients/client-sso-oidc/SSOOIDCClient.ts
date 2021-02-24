@@ -37,7 +37,6 @@ import {
 import {
   Provider,
   RegionInfoProvider,
-  Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
@@ -122,11 +121,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   serviceId?: string;
-
-  /**
-   * Default credentials provider; Not available in browser runtime
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * The AWS region to which this client will send requests
