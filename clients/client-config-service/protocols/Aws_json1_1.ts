@@ -1193,7 +1193,8 @@ export const serializeAws_json1_1GetComplianceSummaryByConfigRuleCommand = async
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "StarlingDoveService.GetComplianceSummaryByConfigRule",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1GetComplianceSummaryByResourceTypeCommand = async (

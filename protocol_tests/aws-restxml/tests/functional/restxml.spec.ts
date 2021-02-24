@@ -3,6 +3,9 @@ import { AllQueryStringTypesCommand } from "../../commands/AllQueryStringTypesCo
 import { ConstantAndVariableQueryStringCommand } from "../../commands/ConstantAndVariableQueryStringCommand";
 import { ConstantQueryStringCommand } from "../../commands/ConstantQueryStringCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommand } from "../../commands/EndpointOperationCommand";
+import { EndpointWithHostLabelHeaderOperationCommand } from "../../commands/EndpointWithHostLabelHeaderOperationCommand";
+import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
 import { FlattenedXmlMapCommand } from "../../commands/FlattenedXmlMapCommand";
 import { FlattenedXmlMapWithXmlNameCommand } from "../../commands/FlattenedXmlMapWithXmlNameCommand";
 import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../commands/FlattenedXmlMapWithXmlNamespaceCommand";
@@ -424,6 +427,107 @@ it("EmptyInputAndEmptyOutput:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait.
+ */
+it("RestXmlEndpointTrait:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EndpointOperation");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait, and can use the host label trait to define
+ * further customization based on user input. The label must also
+ * be serialized in into any other location it is bound to, such
+ * as the body or in this case an http header.
+ */
+it("RestXmlEndpointTraitWithHostLabelAndHttpBinding:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointWithHostLabelHeaderOperationCommand({
+    accountId: "bar",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EndpointWithHostLabelHeaderOperation");
+
+    expect(r.headers["x-amz-account-id"]).toBeDefined();
+    expect(r.headers["x-amz-account-id"]).toBe("bar");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait, and can use the host label trait to define
+ * further customization based on user input.
+ */
+it("RestXmlEndpointTraitWithHostLabel:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointWithHostLabelOperationCommand({
+    label: "bar",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EndpointWithHostLabelOperation");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `<HostLabelInput>
+        <label>bar</label>
+    </HostLabelInput>
+    `;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
 });
 
 /**

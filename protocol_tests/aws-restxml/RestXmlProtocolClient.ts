@@ -14,6 +14,15 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelHeaderOperationCommandInput,
+  EndpointWithHostLabelHeaderOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelHeaderOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
 import { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "./commands/FlattenedXmlMapCommand";
 import {
   FlattenedXmlMapWithXmlNameCommandInput,
@@ -167,6 +176,9 @@ export type ServiceInputTypes =
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
   | EmptyInputAndEmptyOutputCommandInput
+  | EndpointOperationCommandInput
+  | EndpointWithHostLabelHeaderOperationCommandInput
+  | EndpointWithHostLabelOperationCommandInput
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
   | FlattenedXmlMapWithXmlNamespaceCommandInput
@@ -213,6 +225,9 @@ export type ServiceOutputTypes =
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
+  | EndpointOperationCommandOutput
+  | EndpointWithHostLabelHeaderOperationCommandOutput
+  | EndpointWithHostLabelOperationCommandOutput
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
   | FlattenedXmlMapWithXmlNamespaceCommandOutput

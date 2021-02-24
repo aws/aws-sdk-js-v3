@@ -3,6 +3,8 @@ import { AllQueryStringTypesCommand } from "../../commands/AllQueryStringTypesCo
 import { ConstantAndVariableQueryStringCommand } from "../../commands/ConstantAndVariableQueryStringCommand";
 import { ConstantQueryStringCommand } from "../../commands/ConstantQueryStringCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommand } from "../../commands/EndpointOperationCommand";
+import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { HttpPayloadTraitsCommand } from "../../commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../commands/HttpPayloadTraitsWithMediaTypeCommand";
@@ -370,7 +372,9 @@ it("RestJsonConstantQueryString:Request", async () => {
 });
 
 /**
- * Empty input serializes no payload
+ * Clients should not serialize a JSON payload when no parameters
+ * are given that are sent in the body. A service will tolerate
+ * clients that omit a payload or that send a JSON object.
  */
 it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
@@ -397,9 +401,41 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
 });
 
 /**
- * Empty output serializes no payload
+ * As of January 2021, server implementations are expected to
+ * respond with a JSON object regardless of if the output
+ * parameters are empty.
  */
 it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new EmptyInputAndEmptyOutputCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * This test ensures that clients can gracefully handle
+ * situations where a service omits a JSON payload entirely.
+ */
+it("RestJsonEmptyInputAndEmptyOutputJsonObjectOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
@@ -419,16 +455,89 @@ it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
 });
 
 /**
- * Empty output serializes no payload
+ * Operations can prepend to the given host if they define the
+ * endpoint trait.
  */
-it("RestJsonEmptyInputAndEmptyJsonObjectOutput:Response", async () => {
+it("RestJsonEndpointTrait:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{}`),
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EndpointOperation");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait, and can use the host label trait to define
+ * further customization based on user input.
+ */
+it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointWithHostLabelOperationCommand({
+    label: "bar",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EndpointWithHostLabelOperation");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{\"label\": \"bar\"}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Ensures that operations with errors successfully know how
+ * to deserialize a successful response. As of January 2021,
+ * server implementations are expected to respond with a
+ * JSON object regardless of if the output parameters are
+ * empty.
+ */
+it("RestJsonGreetingWithErrors:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "x-greeting": "Hello",
+      },
+      `{}`
+    ),
   });
 
   const params: any = {};
-  const command = new EmptyInputAndEmptyOutputCommand(params);
+  const command = new GreetingWithErrorsCommand(params);
 
   let r: any;
   try {
@@ -438,24 +547,32 @@ it("RestJsonEmptyInputAndEmptyJsonObjectOutput:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      greeting: "Hello",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
- * Ensures that operations with errors successfully know how to deserialize the successful response
+ * This test is similar to RestJsonGreetingWithErrors, but it
+ * ensures that clients can gracefully deal with a server
+ * omitting a response payload.
  */
-it("RestJsonGreetingWithErrors:Response", async () => {
+it("RestJsonGreetingWithErrorsNoPayload:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
       {
-        "content-type": "application/json",
         "x-greeting": "Hello",
       },
-      `{
-          "greeting": "Hello"
-      }`
+      ``
     ),
   });
 
@@ -952,6 +1069,8 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.path).toBe("/HttpPayloadTraits");
     expect(r.headers["content-length"]).toBeDefined();
 
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/octet-stream");
     expect(r.headers["x-foo"]).toBeDefined();
     expect(r.headers["x-foo"]).toBe("Foo");
 
@@ -1524,7 +1643,11 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
 });
 
 /**
- * Binds the http response code to an output structure.
+ * Binds the http response code to an output structure. Note that
+ * even though all members are bound outside of the payload, an
+ * empty JSON object is serialized in the response. However,
+ * clients should be able to handle an empty JSON object or an
+ * empty payload without failing to deserialize a response.
  */
 it("RestJsonHttpResponseCode:Response", async () => {
   const client = new RestJsonProtocolClient({
@@ -1535,7 +1658,7 @@ it("RestJsonHttpResponseCode:Response", async () => {
       {
         "content-type": "application/json",
       },
-      ``
+      `{}`
     ),
   });
 
@@ -1562,7 +1685,43 @@ it("RestJsonHttpResponseCode:Response", async () => {
 });
 
 /**
- * Query parameters must be ignored when serializing the output of an operation
+ * This test ensures that clients gracefully handle cases where
+ * the service responds with no payload rather than an empty JSON
+ * object.
+ */
+it("RestJsonHttpResponseCodeWithNoPayload:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 201, undefined, ``),
+  });
+
+  const params: any = {};
+  const command = new HttpResponseCodeCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(201);
+  const paramsToValidate: any = [
+    {
+      Status: 201,
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Query parameters must be ignored when serializing the output
+ * of an operation. As of January 2021, server implementations
+ * are expected to respond with a JSON object regardless of
+ * if the output parameters are empty.
  */
 it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
@@ -1573,8 +1732,32 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
       {
         "content-type": "application/json",
       },
-      ``
+      `{}`
     ),
+  });
+
+  const params: any = {};
+  const command = new IgnoreQueryParamsInResponseCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * This test is similar to RestJsonIgnoreQueryParamsInResponse,
+ * but it ensures that clients gracefully handle responses from
+ * the server that do not serialize an empty JSON object.
+ */
+it("RestJsonIgnoreQueryParamsInResponseNoPayload:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
   const params: any = {};
@@ -4345,7 +4528,9 @@ it("MediaTypeHeaderOutputBase64:Response", async () => {
 });
 
 /**
- * No input serializes no payload
+ * No input serializes no payload. When clients do not need to
+ * serialize any data in the payload, they should omit a payload
+ * altogether.
  */
 it("RestJsonNoInputAndNoOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
@@ -4366,16 +4551,20 @@ it("RestJsonNoInputAndNoOutput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndNoOutput");
+
+    expect(r.body).toBeFalsy();
   }
 });
 
 /**
- * No output serializes no payload
+ * When an operation does not define output, the service will respond
+ * with an empty payload, and may optionally include the content-type
+ * header.
  */
 it("RestJsonNoInputAndNoOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
   const params: any = {};
@@ -4392,7 +4581,9 @@ it("RestJsonNoInputAndNoOutput:Response", async () => {
 });
 
 /**
- * No input serializes no payload
+ * No input serializes no payload. When clients do not need to
+ * serialize any data in the payload, they should omit a payload
+ * altogether.
  */
 it("RestJsonNoInputAndOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
@@ -4413,16 +4604,50 @@ it("RestJsonNoInputAndOutput:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndOutputOutput");
+
+    expect(r.body).toBeFalsy();
   }
 });
 
 /**
- * Empty output serializes no payload
+ * Operations that define output and do not bind anything to
+ * the payload return a JSON object in the response.
  */
-it("RestJsonNoInputAndOutput:Response", async () => {
+it("RestJsonNoInputAndOutputWithJson:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{}`
+    ),
+  });
+
+  const params: any = {};
+  const command = new NoInputAndOutputCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * This test is similar to RestJsonNoInputAndOutputWithJson, but
+ * it ensures that clients can gracefully handle responses that
+ * omit a JSON payload.
+ */
+it("RestJsonNoInputAndOutputNoPayload:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
   });
 
   const params: any = {};

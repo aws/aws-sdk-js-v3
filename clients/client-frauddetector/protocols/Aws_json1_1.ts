@@ -602,7 +602,8 @@ export const serializeAws_json1_1GetKMSEncryptionKeyCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSHawksNestServiceFacade.GetKMSEncryptionKey",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1GetLabelsCommand = async (

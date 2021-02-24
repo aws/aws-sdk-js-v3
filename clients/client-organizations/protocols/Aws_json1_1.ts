@@ -411,7 +411,8 @@ export const serializeAws_json1_1DeleteOrganizationCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSOrganizationsV20161128.DeleteOrganization",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DeleteOrganizationalUnitCommand = async (
@@ -513,7 +514,8 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSOrganizationsV20161128.DescribeOrganization",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DescribeOrganizationalUnitCommand = async (
@@ -641,7 +643,8 @@ export const serializeAws_json1_1LeaveOrganizationCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSOrganizationsV20161128.LeaveOrganization",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1ListAccountsCommand = async (

@@ -4,6 +4,8 @@ export * from "./commands/AllQueryStringTypesCommand";
 export * from "./commands/ConstantAndVariableQueryStringCommand";
 export * from "./commands/ConstantQueryStringCommand";
 export * from "./commands/EmptyInputAndEmptyOutputCommand";
+export * from "./commands/EndpointOperationCommand";
+export * from "./commands/EndpointWithHostLabelOperationCommand";
 export * from "./commands/GreetingWithErrorsCommand";
 export * from "./commands/HttpPayloadTraitsCommand";
 export * from "./commands/HttpPayloadTraitsWithMediaTypeCommand";

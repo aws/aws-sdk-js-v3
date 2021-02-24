@@ -2,6 +2,11 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
   IgnoresWrappingXmlNameCommandInput,
@@ -81,6 +86,8 @@ import {
 
 export type ServiceInputTypes =
   | EmptyInputAndEmptyOutputCommandInput
+  | EndpointOperationCommandInput
+  | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
   | IgnoresWrappingXmlNameCommandInput
   | NestedStructuresCommandInput
@@ -101,6 +108,8 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | EmptyInputAndEmptyOutputCommandOutput
+  | EndpointOperationCommandOutput
+  | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
   | IgnoresWrappingXmlNameCommandOutput
   | NestedStructuresCommandOutput

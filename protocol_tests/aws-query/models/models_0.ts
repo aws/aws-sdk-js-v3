@@ -17,6 +17,16 @@ export namespace EmptyInputAndEmptyOutputOutput {
   });
 }
 
+export interface HostLabelInput {
+  label: string | undefined;
+}
+
+export namespace HostLabelInput {
+  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
+    ...obj,
+  });
+}
+
 export enum FooEnum {
   BAR = "Bar",
   BAZ = "Baz",
