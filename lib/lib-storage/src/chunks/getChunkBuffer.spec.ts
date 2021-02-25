@@ -1,5 +1,5 @@
-import { byteLength } from "../../src/bytelength";
-import { getChunkBuffer } from "../../src/chunks/getChunkBuffer";
+import { byteLength } from "../bytelength";
+import { getChunkBuffer } from "./getChunkBuffer";
 
 describe.only(getChunkBuffer.name, () => {
   const getBuffer = (size: number) => Buffer.from("#".repeat(size));

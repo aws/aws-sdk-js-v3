@@ -1,4 +1,4 @@
-import * as Storage from "../src/index";
+import * as Storage from "./index";
 
 describe("Storage Packages", () => {
   it("has Upload", () => {

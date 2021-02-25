@@ -28,7 +28,7 @@ jest.mock("@aws-sdk/client-s3", () => ({
 }));
 
 import { S3 } from "@aws-sdk/client-s3";
-import { Upload, Progress } from "../src/index";
+import { Upload, Progress } from "./index";
 
 describe(Upload.name, () => {
   beforeEach(() => {
