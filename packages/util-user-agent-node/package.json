@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.6.1",
+  "version": "3.7.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/node-config-provider": "3.6.1",
+    "@aws-sdk/node-config-provider": "3.7.0",
     "@aws-sdk/types": "3.6.1",
     "tslib": "^1.8.0"
   },

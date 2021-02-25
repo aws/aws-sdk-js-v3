@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/property-provider",
-  "version": "3.6.1",
+  "version": "3.7.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
