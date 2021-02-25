@@ -1,7 +1,8 @@
 import {
-  QueryCommand as __QueryCommand,
-  QueryCommandInput as __QueryCommandInput,
-  QueryCommandOutput as __QueryCommandOutput,
+  Condition,
+  ScanCommand as __ScanCommand,
+  ScanCommandInput as __ScanCommandInput,
+  ScanCommandOutput as __ScanCommandOutput,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
@@ -11,22 +12,24 @@ import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamo
 
 import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
-export type QueryCommandInput = Omit<__QueryCommandInput, "ExclusiveStartKey" | "ExpressionAttributeValues"> & {
+export type ScanCommandInput = Omit<
+  __ScanCommandInput,
+  "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
+> & {
+  ScanFilter?: {
+    [key: string]: Omit<Condition, "AttributeValueList"> & { AttributeValueList: NativeAttributeValue[] };
+  };
   ExclusiveStartKey?: { [key: string]: NativeAttributeValue };
   ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
 };
 
-export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvaluatedKey"> & {
+export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluatedKey"> & {
   Items?: { [key: string]: NativeAttributeValue }[];
   LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
 };
 
-export class QueryCommand extends $Command<
-  QueryCommandInput,
-  QueryCommandOutput,
-  DynamoDBDocumentClientResolvedConfig
-> {
-  constructor(readonly input: QueryCommandInput) {
+export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBDocumentClientResolvedConfig> {
+  constructor(readonly input: ScanCommandInput) {
     super();
   }
 
@@ -37,10 +40,24 @@ export class QueryCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
-  ): Handler<QueryCommandInput, QueryCommandOutput> {
+  ): Handler<ScanCommandInput, ScanCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
-    const command = new __QueryCommand({
+    const command = new __ScanCommand({
       ...this.input,
+      ...(this.input.ScanFilter && {
+        ScanFilter: Object.entries(this.input.ScanFilter).reduce(
+          (acc, [key, condition]) => ({
+            ...acc,
+            [key]: {
+              ...condition,
+              ...(condition.AttributeValueList && {
+                AttributeValueList: condition.AttributeValueList.map((value) => marshall(value, marshallOptions)),
+              }),
+            },
+          }),
+          {}
+        ),
+      }),
       ...(this.input.ExclusiveStartKey && {
         ExclusiveStartKey: marshall(this.input.ExclusiveStartKey, marshallOptions),
       }),
