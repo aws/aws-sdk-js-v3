@@ -1,5 +1,5 @@
 module.exports = {
   // remove testMatch once we move to ts-jest
   preset: "ts-jest",
-  testMatch: ["**/src/**/*.spec.ts", "!**/src/**/*.browser.spec.ts"],
+  testMatch: ["**/*.spec.ts", "!**/*.browser.spec.ts", "!**/*.integ.spec.ts"],
 };
