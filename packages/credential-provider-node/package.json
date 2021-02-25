@@ -36,7 +36,6 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/shared-ini-file-loader": "3.4.1",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
