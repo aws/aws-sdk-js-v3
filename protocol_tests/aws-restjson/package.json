@@ -6,7 +6,6 @@
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
     "prepublishOnly": "yarn build",
-    "pretest": "yarn build:cjs",
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
