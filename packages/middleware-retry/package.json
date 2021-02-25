@@ -3,7 +3,6 @@
   "version": "3.8.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
-    "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",

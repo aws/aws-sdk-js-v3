@@ -4,7 +4,6 @@
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
-    "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
