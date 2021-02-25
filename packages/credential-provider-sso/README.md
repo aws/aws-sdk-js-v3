@@ -39,7 +39,7 @@ to login to an AWS SSO session. Here's a brief walk-through:
    to your AWS SSO account and prompt for the name of the profile:
 
 ```console
-aws configure sso
+$ aws configure sso
 ...
 ...
 CLI profile name [123456789011_ReadOnly]: my-sso-profile<ENTER>
