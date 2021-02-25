@@ -32,9 +32,10 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<GetCommandInput, GetCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new GetItemCommand({
       ...this.input,
-      Key: marshall(this.input.Key, configuration.translateConfiguration?.marshallOptions),
+      Key: marshall(this.input.Key, marshallOptions),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -47,7 +48,7 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
               output: {
                 ...data.output,
                 ...(data.output.Item && {
-                  Item: unmarshall(data.output.Item, configuration.translateConfiguration?.unmarshallOptions),
+                  Item: unmarshall(data.output.Item, unmarshallOptions),
                 }),
               },
             });

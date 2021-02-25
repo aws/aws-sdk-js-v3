@@ -38,6 +38,7 @@ export class BatchGetCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<BatchGetCommandInput, BatchGetCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new BatchGetItemCommand({
       ...this.input,
       RequestItems: Object.entries(this.input.RequestItems).reduce(
@@ -46,9 +47,7 @@ export class BatchGetCommand extends $Command<
           [tableName]: {
             ...keysAndAttributes,
             ...(keysAndAttributes.Keys && {
-              Keys: keysAndAttributes.Keys.map((key) =>
-                marshall(key, configuration.translateConfiguration?.marshallOptions)
-              ),
+              Keys: keysAndAttributes.Keys.map((key) => marshall(key, marshallOptions)),
             }),
           },
         }),
@@ -72,9 +71,7 @@ export class BatchGetCommand extends $Command<
                       [tableName]: {
                         ...keysAndAttributes,
                         ...(keysAndAttributes.Keys && {
-                          Keys: keysAndAttributes.Keys.map((key) =>
-                            unmarshall(key, configuration.translateConfiguration?.unmarshallOptions)
-                          ),
+                          Keys: keysAndAttributes.Keys.map((key) => unmarshall(key, unmarshallOptions)),
                         }),
                       },
                     }),

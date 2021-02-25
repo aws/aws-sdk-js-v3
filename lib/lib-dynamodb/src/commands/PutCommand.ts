@@ -32,9 +32,10 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<PutCommandInput, PutCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new PutItemCommand({
       ...this.input,
-      Item: marshall(this.input.Item, configuration.translateConfiguration?.marshallOptions),
+      Item: marshall(this.input.Item, marshallOptions),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -47,10 +48,7 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
               output: {
                 ...data.output,
                 ...(data.output.Attributes && {
-                  Attributes: unmarshall(
-                    data.output.Attributes,
-                    configuration.translateConfiguration?.unmarshallOptions
-                  ),
+                  Attributes: unmarshall(data.output.Attributes, unmarshallOptions),
                 }),
               },
             });

@@ -36,9 +36,10 @@ export class DeleteCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<DeleteCommandInput, DeleteCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new DeleteItemCommand({
       ...this.input,
-      Key: marshall(this.input.Key, configuration.translateConfiguration?.marshallOptions),
+      Key: marshall(this.input.Key, marshallOptions),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -51,10 +52,7 @@ export class DeleteCommand extends $Command<
               output: {
                 ...data.output,
                 ...(data.output.Attributes && {
-                  Attributes: unmarshall(
-                    data.output.Attributes,
-                    configuration.translateConfiguration?.unmarshallOptions
-                  ),
+                  Attributes: unmarshall(data.output.Attributes, unmarshallOptions),
                 }),
               },
             });

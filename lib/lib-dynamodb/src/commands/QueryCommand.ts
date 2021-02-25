@@ -38,13 +38,11 @@ export class QueryCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new __QueryCommand({
       ...this.input,
-      ExclusiveStartKey: marshall(this.input.ExclusiveStartKey, configuration.translateConfiguration?.marshallOptions),
-      ExpressionAttributeValues: marshall(
-        this.input.ExpressionAttributeValues,
-        configuration.translateConfiguration?.marshallOptions
-      ),
+      ExclusiveStartKey: marshall(this.input.ExclusiveStartKey, marshallOptions),
+      ExpressionAttributeValues: marshall(this.input.ExpressionAttributeValues, marshallOptions),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -57,15 +55,10 @@ export class QueryCommand extends $Command<
               output: {
                 ...data.output,
                 ...(data.output.Items && {
-                  Items: data.output.Items.map((item) =>
-                    unmarshall(item, configuration.translateConfiguration?.unmarshallOptions)
-                  ),
+                  Items: data.output.Items.map((item) => unmarshall(item, unmarshallOptions)),
                 }),
                 ...(data.output.LastEvaluatedKey && {
-                  LastEvaluatedKey: unmarshall(
-                    data.output.LastEvaluatedKey,
-                    configuration.translateConfiguration?.unmarshallOptions
-                  ),
+                  LastEvaluatedKey: unmarshall(data.output.LastEvaluatedKey, unmarshallOptions),
                 }),
               },
             });

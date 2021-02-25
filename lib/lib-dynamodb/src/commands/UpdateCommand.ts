@@ -46,14 +46,15 @@ export class UpdateCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<UpdateCommandInput, UpdateCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new UpdateItemCommand({
       ...this.input,
-      Key: marshall(this.input.Key, configuration.translateConfiguration?.marshallOptions),
+      Key: marshall(this.input.Key, marshallOptions),
       ...(this.input.AttributeUpdates && {
         AttributeUpdates: Object.entries(this.input.AttributeUpdates).reduce(
           (acc, [tableName, attributeValueUpdate]) => ({
             ...acc,
-            [tableName]: marshall(attributeValueUpdate, configuration.translateConfiguration?.marshallOptions),
+            [tableName]: marshall(attributeValueUpdate, marshallOptions),
           }),
           {}
         ),
@@ -62,16 +63,13 @@ export class UpdateCommand extends $Command<
         Expected: Object.entries(this.input.Expected).reduce(
           (acc, [tableName, expectedAttributeValue]) => ({
             ...acc,
-            [tableName]: marshall(expectedAttributeValue, configuration.translateConfiguration?.marshallOptions),
+            [tableName]: marshall(expectedAttributeValue, marshallOptions),
           }),
           {}
         ),
       }),
       ...(this.input.ExpressionAttributeValues && {
-        ExpressionAttributeValues: marshall(
-          this.input.ExpressionAttributeValues,
-          configuration.translateConfiguration?.marshallOptions
-        ),
+        ExpressionAttributeValues: marshall(this.input.ExpressionAttributeValues, marshallOptions),
       }),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
@@ -85,10 +83,7 @@ export class UpdateCommand extends $Command<
               output: {
                 ...data.output,
                 ...(data.output.Attributes && {
-                  Attributes: unmarshall(
-                    data.output.Attributes,
-                    configuration.translateConfiguration?.unmarshallOptions
-                  ),
+                  Attributes: unmarshall(data.output.Attributes, unmarshallOptions),
                 }),
                 ...(data.output.ItemCollectionMetrics && {
                   ItemCollectionMetrics: {
@@ -96,7 +91,7 @@ export class UpdateCommand extends $Command<
                     ...(data.output.ItemCollectionMetrics.ItemCollectionKey && {
                       ItemCollectionKey: unmarshall(
                         data.output.ItemCollectionMetrics.ItemCollectionKey,
-                        configuration.translateConfiguration?.unmarshallOptions
+                        unmarshallOptions
                       ),
                     }),
                   },

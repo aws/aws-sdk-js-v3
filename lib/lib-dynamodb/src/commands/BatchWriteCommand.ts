@@ -41,6 +41,7 @@ export class BatchWriteCommand extends $Command<
     configuration: DynamoDBDocumentClientResolvedConfig,
     options?: HttpHandlerOptions
   ): Handler<BatchWriteCommandInput, BatchWriteCommandOutput> {
+    const { marshallOptions, unmarshallOptions } = configuration.translateConfiguration || {};
     const command = new BatchWriteItemCommand({
       ...this.input,
       RequestItems: Object.entries(this.input.RequestItems).reduce(
@@ -50,12 +51,12 @@ export class BatchWriteCommand extends $Command<
             ...writeRequest,
             ...(writeRequest.PutRequest && {
               PutRequest: {
-                Item: marshall(writeRequest.PutRequest.Item, configuration.translateConfiguration?.marshallOptions),
+                Item: marshall(writeRequest.PutRequest.Item, marshallOptions),
               },
             }),
             ...(writeRequest.DeleteRequest && {
               DeleteRequest: {
-                Key: marshall(writeRequest.DeleteRequest.Key, configuration.translateConfiguration?.marshallOptions),
+                Key: marshall(writeRequest.DeleteRequest.Key, marshallOptions),
               },
             }),
           })),
@@ -81,18 +82,12 @@ export class BatchWriteCommand extends $Command<
                         ...writeRequest,
                         ...(writeRequest.PutRequest && {
                           PutRequest: {
-                            Item: unmarshall(
-                              writeRequest.PutRequest.Item!,
-                              configuration.translateConfiguration?.unmarshallOptions
-                            ),
+                            Item: unmarshall(writeRequest.PutRequest.Item!, unmarshallOptions),
                           },
                         }),
                         ...(writeRequest.DeleteRequest && {
                           DeleteRequest: {
-                            Key: unmarshall(
-                              writeRequest.DeleteRequest.Key!,
-                              configuration.translateConfiguration?.unmarshallOptions
-                            ),
+                            Key: unmarshall(writeRequest.DeleteRequest.Key!, unmarshallOptions),
                           },
                         }),
                       })),
@@ -107,10 +102,7 @@ export class BatchWriteCommand extends $Command<
                       [tableName]: itemCollectionMetrics.map((itemCollectionMetric) => ({
                         ...itemCollectionMetric,
                         ...(itemCollectionMetric.ItemCollectionKey && {
-                          ItemCollectionKey: unmarshall(
-                            itemCollectionMetric.ItemCollectionKey,
-                            configuration.translateConfiguration?.unmarshallOptions
-                          ),
+                          ItemCollectionKey: unmarshall(itemCollectionMetric.ItemCollectionKey, unmarshallOptions),
                         }),
                       })),
                     }),
