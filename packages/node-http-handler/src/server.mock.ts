@@ -6,7 +6,7 @@ import { createServer as createHttpsServer, Server as HttpsServer } from "https"
 import { join } from "path";
 import { Readable } from "stream";
 
-const fixturesDir = join(__dirname, "../..", "fixtures");
+const fixturesDir = join(__dirname, "..", "fixtures");
 
 export function createResponseFunction(httpResp: HttpResponse) {
   return function (request: IncomingMessage, response: ServerResponse) {
