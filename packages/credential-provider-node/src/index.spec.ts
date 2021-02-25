@@ -469,7 +469,7 @@ describe("defaultProvider", () => {
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
 
-    it("should on consult SSO provider if the profile environment variable has been set", async () => {
+    it("should only consult SSO provider if the profile environment variable has been set", async () => {
       const creds = {
         accessKeyId: "foo",
         secretAccessKey: "bar",

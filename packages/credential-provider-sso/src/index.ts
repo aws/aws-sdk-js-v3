@@ -8,7 +8,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 /**
- * The time window(15 mins) that SDK will treat the SSO token expired before the defined expiration date in token.
+ * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.
  * This is needed because server side may have invalidated the token before the defined expiration date.
  *
  * @internal
@@ -53,11 +53,11 @@ const resolveSSOCredentials = async (
   }
   const { sso_start_url: startUrl, sso_account_id: accountId, sso_region: region, sso_role_name: roleName } = profile;
   if (!startUrl && !accountId && !region && !roleName) {
-    throw new ProviderError(`Profile ${profileName} is not configured with SSO credential`);
+    throw new ProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
   }
   if (!startUrl || !accountId || !region || !roleName) {
     throw new ProviderError(
-      `Profile ${profileName} is not a valid SSO credential. Required parameters "sso_account_id", "sso_region", ` +
+      `Profile ${profileName} does not have valid SSO credentials. Required parameters "sso_account_id", "sso_region", ` +
         `"sso_role_name", "sso_start_url". Reference: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
     );
@@ -68,10 +68,8 @@ const resolveSSOCredentials = async (
   let token: SSOToken;
   try {
     token = JSON.parse(readFileSync(tokenFile, { encoding: "utf-8" }));
-    // console.log("tokenFile", token);
-    // console.log("now", new Date().toISOString());
     if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
-      throw new Error("Token is expired");
+      throw new Error("SSO token is expired.");
     }
   } catch (e) {
     throw new ProviderError(

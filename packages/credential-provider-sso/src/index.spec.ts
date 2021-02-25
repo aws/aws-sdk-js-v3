@@ -103,7 +103,7 @@ describe("fromSSO", () => {
     return expect(async () => {
       await fromSSO()();
     }).rejects.toMatchObject({
-      message: `Profile ${profile} is not configured with SSO credential`,
+      message: `Profile ${profile} is not configured with SSO credentials.`,
       tryNextLink: true,
     });
   });
@@ -120,7 +120,7 @@ describe("fromSSO", () => {
       try {
         await fromSSO()();
       } catch (e) {
-        expect(e.message).toContain("Profile default is not a valid SSO credential.");
+        expect(e.message).toContain("Profile default does not have valid SSO credentials.");
         expect(e.tryNextLink).toBeFalsy();
       }
     });
