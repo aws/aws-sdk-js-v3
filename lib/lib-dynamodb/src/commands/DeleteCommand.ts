@@ -2,6 +2,7 @@ import {
   DeleteItemCommand,
   DeleteItemCommandInput,
   DeleteItemCommandOutput,
+  ExpectedAttributeValue,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
@@ -11,8 +12,10 @@ import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamo
 
 import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
-export type DeleteCommandInput = Omit<DeleteItemCommandInput, "Key"> & {
+export type DeleteCommandInput = Omit<DeleteItemCommandInput, "Key" | "Expected" | "ExpressionAttributeValues"> & {
   Key: { [key: string]: NativeAttributeValue } | undefined;
+  Expected?: { [key: string]: Omit<ExpectedAttributeValue, "Value"> & { Value: NativeAttributeValue } };
+  ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
 };
 
 export type DeleteCommandOutput = Omit<DeleteItemCommandOutput, "Item"> & {
@@ -40,6 +43,18 @@ export class DeleteCommand extends $Command<
     const command = new DeleteItemCommand({
       ...this.input,
       Key: marshall(this.input.Key, marshallOptions),
+      ...(this.input.Expected && {
+        Expected: Object.entries(this.input.Expected).reduce(
+          (acc, [tableName, expectedAttributeValue]) => ({
+            ...acc,
+            [tableName]: marshall(expectedAttributeValue, marshallOptions),
+          }),
+          {}
+        ),
+      }),
+      ...(this.input.ExpressionAttributeValues && {
+        ExpressionAttributeValues: marshall(this.input.ExpressionAttributeValues, marshallOptions),
+      }),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -53,6 +68,17 @@ export class DeleteCommand extends $Command<
                 ...data.output,
                 ...(data.output.Attributes && {
                   Attributes: unmarshall(data.output.Attributes, unmarshallOptions),
+                }),
+                ...(data.output.ItemCollectionMetrics && {
+                  ItemCollectionMetrics: {
+                    ...data.output.ItemCollectionMetrics,
+                    ...(data.output.ItemCollectionMetrics.ItemCollectionKey && {
+                      ItemCollectionKey: unmarshall(
+                        data.output.ItemCollectionMetrics.ItemCollectionKey,
+                        unmarshallOptions
+                      ),
+                    }),
+                  },
                 }),
               },
             });

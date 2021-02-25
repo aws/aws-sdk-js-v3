@@ -1,4 +1,5 @@
 import {
+  ExpectedAttributeValue,
   PutItemCommand,
   PutItemCommandInput,
   PutItemCommandOutput,
@@ -10,13 +11,20 @@ import { Handler, HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { marshall, NativeAttributeValue, unmarshall } from "@aws-sdk/util-dynamodb";
 
 import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DocClientItemCollectionMetrics } from "./types";
 
-export type PutCommandInput = Omit<PutItemCommandInput, "Item"> & {
+export type PutCommandInput = Omit<
+  PutItemCommandInput,
+  "Item" | "ExpectedAttributeValue" | "ExpressionAttributeValues"
+> & {
   Item: { [key: string]: NativeAttributeValue } | undefined;
+  Expected?: { [key: string]: Omit<ExpectedAttributeValue, "Value"> & { Value: NativeAttributeValue } };
+  ExpressionAttributeValues?: { [key: string]: NativeAttributeValue };
 };
 
-export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes"> & {
+export type PutCommandOutput = Omit<PutItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
   Attributes?: { [key: string]: NativeAttributeValue };
+  ItemCollectionMetrics?: DocClientItemCollectionMetrics;
 };
 
 export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
@@ -36,6 +44,18 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     const command = new PutItemCommand({
       ...this.input,
       Item: marshall(this.input.Item, marshallOptions),
+      ...(this.input.Expected && {
+        Expected: Object.entries(this.input.Expected).reduce(
+          (acc, [tableName, expectedAttributeValue]) => ({
+            ...acc,
+            [tableName]: marshall(expectedAttributeValue, marshallOptions),
+          }),
+          {}
+        ),
+      }),
+      ...(this.input.ExpressionAttributeValues && {
+        ExpressionAttributeValues: marshall(this.input.ExpressionAttributeValues, marshallOptions),
+      }),
     });
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
@@ -49,6 +69,17 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
                 ...data.output,
                 ...(data.output.Attributes && {
                   Attributes: unmarshall(data.output.Attributes, unmarshallOptions),
+                }),
+                ...(data.output.ItemCollectionMetrics && {
+                  ItemCollectionMetrics: {
+                    ...data.output.ItemCollectionMetrics,
+                    ...(data.output.ItemCollectionMetrics.ItemCollectionKey && {
+                      ItemCollectionKey: unmarshall(
+                        data.output.ItemCollectionMetrics.ItemCollectionKey,
+                        unmarshallOptions
+                      ),
+                    }),
+                  },
                 }),
               },
             });
