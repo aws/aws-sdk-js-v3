@@ -1162,6 +1162,9 @@ export interface BatchExecuteStatementRequest {
 export namespace BatchExecuteStatementRequest {
   export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
     ...obj,
+    ...(obj.parameterSets && {
+      parameterSets: obj.parameterSets.map((item) => item.map((item) => SqlParameter.filterSensitiveLog(item))),
+    }),
   });
 }
 
@@ -1236,6 +1239,7 @@ export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
     ...obj,
     ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
+    ...(obj.records && { records: obj.records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
   });
 }
 

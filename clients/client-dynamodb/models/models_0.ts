@@ -7484,6 +7484,15 @@ export interface TransactWriteItemsOutput {
 export namespace TransactWriteItemsOutput {
   export const filterSensitiveLog = (obj: TransactWriteItemsOutput): any => ({
     ...obj,
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
+        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
+          ...acc,
+          [key]: value.map((item) => ItemCollectionMetrics.filterSensitiveLog(item)),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8195,6 +8204,23 @@ export interface BatchGetItemOutput {
 export namespace BatchGetItemOutput {
   export const filterSensitiveLog = (obj: BatchGetItemOutput): any => ({
     ...obj,
+    ...(obj.Responses && {
+      Responses: Object.entries(obj.Responses).reduce(
+        (acc: any, [key, value]: [string, { [key: string]: AttributeValue }[]]) => ({
+          ...acc,
+          [key]: value.map((item) =>
+            Object.entries(item).reduce(
+              (acc: any, [key, value]: [string, AttributeValue]) => ({
+                ...acc,
+                [key]: AttributeValue.filterSensitiveLog(value),
+              }),
+              {}
+            )
+          ),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8575,6 +8601,15 @@ export interface BatchWriteItemInput {
 export namespace BatchWriteItemInput {
   export const filterSensitiveLog = (obj: BatchWriteItemInput): any => ({
     ...obj,
+    ...(obj.RequestItems && {
+      RequestItems: Object.entries(obj.RequestItems).reduce(
+        (acc: any, [key, value]: [string, WriteRequest[]]) => ({
+          ...acc,
+          [key]: value.map((item) => WriteRequest.filterSensitiveLog(item)),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -9478,6 +9513,24 @@ export interface BatchWriteItemOutput {
 export namespace BatchWriteItemOutput {
   export const filterSensitiveLog = (obj: BatchWriteItemOutput): any => ({
     ...obj,
+    ...(obj.UnprocessedItems && {
+      UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
+        (acc: any, [key, value]: [string, WriteRequest[]]) => ({
+          ...acc,
+          [key]: value.map((item) => WriteRequest.filterSensitiveLog(item)),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.ItemCollectionMetrics && {
+      ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
+        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
+          ...acc,
+          [key]: value.map((item) => ItemCollectionMetrics.filterSensitiveLog(item)),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
