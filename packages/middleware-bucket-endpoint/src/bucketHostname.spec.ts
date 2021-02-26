@@ -393,7 +393,7 @@ describe("bucketHostname", () => {
         [
           {
             bucketArn: "arn:aws:sqs:us-west-2:123456789012:someresource",
-            message: "Expect 's3' or 's3-outposts' in ARN service component",
+            message: "Expect 's3' or 's3-outposts' or 's3-object-lambda' in ARN service component",
           },
           {
             bucketArn: "arn:aws:s3:us-west-2:123456789012:bucket_name:mybucket",
@@ -711,6 +711,25 @@ describe("bucketHostname", () => {
       });
       expect(signingRegion).toBe("us-west-2");
       expect(signingService).toBe("s3-outposts");
+    });
+  });
+
+  describe("from Object Lamdba ARN", () => {
+    describe("populates access point endpoint from ARN", () => {
+      it("should use the proper endpoint", () => {
+        const region = "eu-west-1";
+        const expectedEndpoint = "js-sdk-ap-name-123456789012.s3-object-lambda.eu-west-1.amazonaws.com";
+        ["arn:aws:s3-object-lambda:eu-west-1:123456789012:accesspoint/js-sdk-ap-name"].forEach((outpostArn) => {
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn(outpostArn),
+            baseHostname: "s3.eu-west-1.amazonaws.com",
+            isCustomEndpoint: false,
+            clientRegion: region,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe(expectedEndpoint);
+        });
+      });
     });
   });
 });
