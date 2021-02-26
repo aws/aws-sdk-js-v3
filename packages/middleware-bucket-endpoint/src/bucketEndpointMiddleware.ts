@@ -28,7 +28,6 @@ export const bucketEndpointMiddleware = (options: BucketEndpointResolvedConfig):
     if (options.bucketEndpoint) {
       request.hostname = bucketName;
     } else if (validateArn(bucketName)) {
-      debugger;
       const bucketArn = parseArn(bucketName);
       const clientRegion = getPseudoRegion(await options.region());
       const { partition, signingRegion = clientRegion } = (await options.regionInfoProvider(clientRegion)) || {};
