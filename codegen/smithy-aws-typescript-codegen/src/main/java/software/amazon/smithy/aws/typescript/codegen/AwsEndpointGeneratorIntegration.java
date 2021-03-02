@@ -39,6 +39,10 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
     ) {
+        if (!settings.generateClient()) {
+            return;
+        }
+
         writerFactory.accept("endpoints.ts", writer -> {
             new EndpointGenerator(settings.getService(model), writer).run();
         });
@@ -51,6 +55,10 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
+        if (!settings.generateClient()) {
+            return;
+        }
+
         writer.addImport("RegionInfoProvider", "RegionInfoProvider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.writeDocs("Fetch related hostname, signing name or signing region with given region.");
         writer.write("regionInfoProvider?: RegionInfoProvider;\n");
@@ -63,6 +71,10 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             SymbolProvider symbolProvider,
             LanguageTarget target
     ) {
+        if (!settings.generateClient()) {
+            return Collections.emptyMap();
+        }
+
         switch (target) {
             case SHARED:
                 return MapUtils.of("regionInfoProvider", writer -> {
