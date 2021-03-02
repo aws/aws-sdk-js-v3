@@ -105,9 +105,7 @@ const copyToClients = async (sourceDir, destinationDir) => {
     const destPath = join(destinationDir, clientName);
     const overwritablePredicate = getOverwritablePredicate(packageName);
 
-    // Code to move `document-client` folder contents to `lib/lib-dynamodb`
-    // artifactPath contains "typescript-codegen" dir which contains generated code.
-    // destinationDir contains clients folder in aws-sdk-js-v3.
+    // Code to move files/folders prefixed with `doc-client-` to `lib/lib-dynamodb`
     if (clientName === "client-dynamodb") {
       for (const packageSub of readdirSync(artifactPath)) {
         if (packageSub.startsWith("doc-client-")) {
