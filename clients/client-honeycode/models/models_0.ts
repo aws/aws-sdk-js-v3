@@ -1257,6 +1257,7 @@ export namespace ResultSet {
   export const filterSensitiveLog = (obj: ResultSet): any => ({
     ...obj,
     ...(obj.headers && { headers: obj.headers.map((item) => ColumnMetadata.filterSensitiveLog(item)) }),
+    ...(obj.rows && { rows: obj.rows.map((item) => ResultRow.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1587,6 +1588,7 @@ export interface ListTableRowsResult {
 export namespace ListTableRowsResult {
   export const filterSensitiveLog = (obj: ListTableRowsResult): any => ({
     ...obj,
+    ...(obj.rows && { rows: obj.rows.map((item) => TableRow.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1758,6 +1760,7 @@ export interface QueryTableRowsResult {
 export namespace QueryTableRowsResult {
   export const filterSensitiveLog = (obj: QueryTableRowsResult): any => ({
     ...obj,
+    ...(obj.rows && { rows: obj.rows.map((item) => TableRow.filterSensitiveLog(item)) }),
   });
 }
 

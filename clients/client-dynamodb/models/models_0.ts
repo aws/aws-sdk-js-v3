@@ -6771,6 +6771,7 @@ export interface BatchExecuteStatementInput {
 export namespace BatchExecuteStatementInput {
   export const filterSensitiveLog = (obj: BatchExecuteStatementInput): any => ({
     ...obj,
+    ...(obj.Statements && { Statements: obj.Statements.map((item) => BatchStatementRequest.filterSensitiveLog(item)) }),
   });
 }
 
@@ -6809,6 +6810,9 @@ export interface ExecuteTransactionInput {
 export namespace ExecuteTransactionInput {
   export const filterSensitiveLog = (obj: ExecuteTransactionInput): any => ({
     ...obj,
+    ...(obj.TransactStatements && {
+      TransactStatements: obj.TransactStatements.map((item) => ParameterizedStatement.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -7194,6 +7198,15 @@ export interface BatchGetItemInput {
 export namespace BatchGetItemInput {
   export const filterSensitiveLog = (obj: BatchGetItemInput): any => ({
     ...obj,
+    ...(obj.RequestItems && {
+      RequestItems: Object.entries(obj.RequestItems).reduce(
+        (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
+          ...acc,
+          [key]: KeysAndAttributes.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -8217,6 +8230,15 @@ export namespace BatchGetItemOutput {
               {}
             )
           ),
+        }),
+        {}
+      ),
+    }),
+    ...(obj.UnprocessedKeys && {
+      UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
+        (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
+          ...acc,
+          [key]: KeysAndAttributes.filterSensitiveLog(value),
         }),
         {}
       ),
