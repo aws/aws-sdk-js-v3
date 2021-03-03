@@ -33,6 +33,18 @@ export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluat
 };
 
 export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBDocumentClientResolvedConfig> {
+  private readonly inputKeyNodes = [
+    {
+      key: "ScanFilter",
+      children: {
+        children: [{ key: "AttributeValueList" }],
+      },
+    },
+    { key: "ExclusiveStartKey" },
+    { key: "ExpressionAttributeValues" },
+  ];
+  private readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+
   constructor(readonly input: ScanCommandInput) {
     super();
   }
@@ -46,26 +58,14 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
     options?: __HttpHandlerOptions
   ): Handler<ScanCommandInput, ScanCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      {
-        key: "ScanFilter",
-        children: {
-          children: [{ key: "AttributeValueList" }],
-        },
-      },
-      { key: "ExclusiveStartKey" },
-      { key: "ExpressionAttributeValues" },
-    ];
-    const outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
-
-    const command = new __ScanCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __ScanCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

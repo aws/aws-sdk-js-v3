@@ -36,6 +36,21 @@ export class DeleteCommand extends $Command<
   DeleteCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
+  private readonly inputKeyNodes = [
+    { key: "Key" },
+    {
+      key: "Expected",
+      children: {
+        children: [{ key: "Value" }, { key: "AttributeValueList" }],
+      },
+    },
+    { key: "ExpressionAttributeValues" },
+  ];
+  private readonly outputKeyNodes = [
+    { key: "Attributes" },
+    { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
+  ];
+
   constructor(readonly input: DeleteCommandInput) {
     super();
   }
@@ -49,29 +64,14 @@ export class DeleteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteCommandInput, DeleteCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      { key: "Key" },
-      {
-        key: "Expected",
-        children: {
-          children: [{ key: "Value" }, { key: "AttributeValueList" }],
-        },
-      },
-      { key: "ExpressionAttributeValues" },
-    ];
-    const outputKeyNodes = [
-      { key: "Attributes" },
-      { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
-    ];
-
-    const command = new __DeleteItemCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __DeleteItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

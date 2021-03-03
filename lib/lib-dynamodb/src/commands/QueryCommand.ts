@@ -42,6 +42,24 @@ export class QueryCommand extends $Command<
   QueryCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
+  private readonly inputKeyNodes = [
+    {
+      key: "KeyConditions",
+      children: {
+        children: [{ key: "AttributeValueList" }],
+      },
+    },
+    {
+      key: "QueryFilter",
+      children: {
+        children: [{ key: "AttributeValueList" }],
+      },
+    },
+    { key: "ExclusiveStartKey" },
+    { key: "ExpressionAttributeValues" },
+  ];
+  private readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+
   constructor(readonly input: QueryCommandInput) {
     super();
   }
@@ -55,32 +73,14 @@ export class QueryCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      {
-        key: "KeyConditions",
-        children: {
-          children: [{ key: "AttributeValueList" }],
-        },
-      },
-      {
-        key: "QueryFilter",
-        children: {
-          children: [{ key: "AttributeValueList" }],
-        },
-      },
-      { key: "ExclusiveStartKey" },
-      { key: "ExpressionAttributeValues" },
-    ];
-    const outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
-
-    const command = new __QueryCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __QueryCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

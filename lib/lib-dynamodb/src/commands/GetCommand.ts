@@ -20,6 +20,9 @@ export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
 };
 
 export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBDocumentClientResolvedConfig> {
+  private readonly inputKeyNodes = [{ key: "Key" }];
+  private readonly outputKeyNodes = [{ key: "Item" }];
+
   constructor(readonly input: GetCommandInput) {
     super();
   }
@@ -33,17 +36,14 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
     options?: __HttpHandlerOptions
   ): Handler<GetCommandInput, GetCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [{ key: "Key" }];
-    const outputKeyNodes = [{ key: "Item" }];
-
-    const command = new __GetItemCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __GetItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

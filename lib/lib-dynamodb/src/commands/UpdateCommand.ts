@@ -45,6 +45,27 @@ export class UpdateCommand extends $Command<
   UpdateCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
+  private readonly inputKeyNodes = [
+    { key: "Key" },
+    {
+      key: "AttributeUpdates",
+      children: {
+        children: [{ key: "Value" }],
+      },
+    },
+    {
+      key: "Expected",
+      children: {
+        children: [{ key: "Value" }, { key: "AttributeValueList" }],
+      },
+    },
+    { key: "ExpressionAttributeValues" },
+  ];
+  private readonly outputKeyNodes = [
+    { key: "Attributes" },
+    { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
+  ];
+
   constructor(readonly input: UpdateCommandInput) {
     super();
   }
@@ -58,35 +79,14 @@ export class UpdateCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateCommandInput, UpdateCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      { key: "Key" },
-      {
-        key: "AttributeUpdates",
-        children: {
-          children: [{ key: "Value" }],
-        },
-      },
-      {
-        key: "Expected",
-        children: {
-          children: [{ key: "Value" }, { key: "AttributeValueList" }],
-        },
-      },
-      { key: "ExpressionAttributeValues" },
-    ];
-    const outputKeyNodes = [
-      { key: "Attributes" },
-      { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
-    ];
-
-    const command = new __UpdateItemCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __UpdateItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

@@ -32,6 +32,21 @@ export type PutCommandOutput = Omit<__PutItemCommandOutput, "Attributes" | "Item
 };
 
 export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
+  private readonly inputKeyNodes = [
+    { key: "Item" },
+    {
+      key: "Expected",
+      children: {
+        children: [{ key: "Value" }, { key: "AttributeValueList" }],
+      },
+    },
+    { key: "ExpressionAttributeValues" },
+  ];
+  private readonly outputKeyNodes = [
+    { key: "Attributes" },
+    { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
+  ];
+
   constructor(readonly input: PutCommandInput) {
     super();
   }
@@ -45,29 +60,14 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
     options?: __HttpHandlerOptions
   ): Handler<PutCommandInput, PutCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      { key: "Item" },
-      {
-        key: "Expected",
-        children: {
-          children: [{ key: "Value" }, { key: "AttributeValueList" }],
-        },
-      },
-      { key: "ExpressionAttributeValues" },
-    ];
-    const outputKeyNodes = [
-      { key: "Attributes" },
-      { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
-    ];
-
-    const command = new __PutItemCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __PutItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

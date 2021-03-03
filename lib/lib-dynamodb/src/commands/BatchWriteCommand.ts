@@ -56,6 +56,35 @@ export class BatchWriteCommand extends $Command<
   BatchWriteCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
+  private readonly inputKeyNodes = [
+    {
+      key: "RequestItems",
+      children: {
+        children: [
+          { key: "PutRequest", children: [{ key: "Item" }] },
+          { key: "DeleteRequest", children: [{ key: "Key" }] },
+        ],
+      },
+    },
+  ];
+  private readonly outputKeyNodes = [
+    {
+      key: "UnprocessedItems",
+      children: {
+        children: [
+          { key: "PutRequest", children: [{ key: "Item" }] },
+          { key: "DeleteRequest", children: [{ key: "Key" }] },
+        ],
+      },
+    },
+    {
+      key: "ItemCollectionMetrics",
+      children: {
+        children: [{ key: "ItemCollectionKey" }],
+      },
+    },
+  ];
+
   constructor(readonly input: BatchWriteCommandInput) {
     super();
   }
@@ -69,43 +98,14 @@ export class BatchWriteCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchWriteCommandInput, BatchWriteCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      {
-        key: "RequestItems",
-        children: {
-          children: [
-            { key: "PutRequest", children: [{ key: "Item" }] },
-            { key: "DeleteRequest", children: [{ key: "Key" }] },
-          ],
-        },
-      },
-    ];
-    const outputKeyNodes = [
-      {
-        key: "UnprocessedItems",
-        children: {
-          children: [
-            { key: "PutRequest", children: [{ key: "Item" }] },
-            { key: "DeleteRequest", children: [{ key: "Key" }] },
-          ],
-        },
-      },
-      {
-        key: "ItemCollectionMetrics",
-        children: {
-          children: [{ key: "ItemCollectionKey" }],
-        },
-      },
-    ];
-
-    const command = new __BatchWriteItemCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __BatchWriteItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

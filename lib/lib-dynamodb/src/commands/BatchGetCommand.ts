@@ -48,6 +48,24 @@ export class BatchGetCommand extends $Command<
   BatchGetCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
+  private readonly inputKeyNodes = [
+    {
+      key: "RequestItems",
+      children: {
+        children: [{ key: "Keys" }],
+      },
+    },
+  ];
+  private readonly outputKeyNodes = [
+    { key: "Responses", children: {} },
+    {
+      key: "UnprocessedKeys",
+      children: {
+        children: [{ key: "Keys" }],
+      },
+    },
+  ];
+
   constructor(readonly input: BatchGetCommandInput) {
     super();
   }
@@ -61,32 +79,14 @@ export class BatchGetCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<BatchGetCommandInput, BatchGetCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [
-      {
-        key: "RequestItems",
-        children: {
-          children: [{ key: "Keys" }],
-        },
-      },
-    ];
-    const outputKeyNodes = [
-      { key: "Responses", children: {} },
-      {
-        key: "UnprocessedKeys",
-        children: {
-          children: [{ key: "Keys" }],
-        },
-      },
-    ];
-
-    const command = new __BatchGetItemCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __BatchGetItemCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }

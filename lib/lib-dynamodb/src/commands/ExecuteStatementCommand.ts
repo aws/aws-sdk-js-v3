@@ -26,6 +26,9 @@ export class ExecuteStatementCommand extends $Command<
   ExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
+  private readonly inputKeyNodes = [{ key: "Parameters" }];
+  private readonly outputKeyNodes = [{ key: "Items" }];
+
   constructor(readonly input: ExecuteStatementCommandInput) {
     super();
   }
@@ -39,17 +42,14 @@ export class ExecuteStatementCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ExecuteStatementCommandInput, ExecuteStatementCommandOutput> {
     const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};
-    const inputKeyNodes = [{ key: "Parameters" }];
-    const outputKeyNodes = [{ key: "Items" }];
-
-    const command = new __ExecuteStatementCommand(marshallInput(this.input, inputKeyNodes, marshallOptions));
+    const command = new __ExecuteStatementCommand(marshallInput(this.input, this.inputKeyNodes, marshallOptions));
     const handler = command.resolveMiddleware(clientStack, configuration, options);
 
     return async () => {
       const data = await handler(command);
       return {
         ...data,
-        output: unmarshallOutput(data.output, outputKeyNodes, unmarshallOptions),
+        output: unmarshallOutput(data.output, this.outputKeyNodes, unmarshallOptions),
       };
     };
   }
