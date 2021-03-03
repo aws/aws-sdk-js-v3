@@ -94,9 +94,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                 name, inputTypeName, outputTypeName, configType, () -> {
 
             // Section for adding custom command properties.
-            writer.write("// Start section: $L", COMMAND_PROPERTIES_SECTION);
             writer.pushState(COMMAND_PROPERTIES_SECTION).popState();
-            writer.write("// End section: $L", COMMAND_PROPERTIES_SECTION);
             writer.write("");
 
             generateCommandConstructor();
@@ -104,21 +102,16 @@ final class DocumentClientCommandGenerator implements Runnable {
             generateCommandMiddlewareResolver(configType);
 
             // Hook for adding more methods to the command.
-            writer.write("// Start section: $L", COMMAND_BODY_EXTRA_SECTION)
-                    .pushState(COMMAND_BODY_EXTRA_SECTION)
-                    .popState()
-                    .write("// End section: $L", COMMAND_BODY_EXTRA_SECTION);
+            writer.pushState(COMMAND_BODY_EXTRA_SECTION).popState();
         });
     }
 
     private void generateCommandConstructor() {
         writer.openBlock("constructor(readonly input: $L) {", "}", inputTypeName, () -> {
             // The constructor can be intercepted and changed.
-            writer.write("// Start section: $L", COMMAND_CONSTRUCTOR_SECTION)
-                    .pushState(COMMAND_CONSTRUCTOR_SECTION)
+            writer.pushState(COMMAND_CONSTRUCTOR_SECTION)
                     .write("super();")
-                    .popState()
-                    .write("// End section: $L", COMMAND_CONSTRUCTOR_SECTION);
+                    .popState();
         });
     }
 
