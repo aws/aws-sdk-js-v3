@@ -21,15 +21,18 @@ import java.util.Optional;
 import java.util.Set;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 
 final class DocumentClientUtils {
     static final String CLIENT_NAME = "DynamoDBDocumentClient";
+    static final String CLIENT_FULL_NAME = "DynamoDBDocument";
     static final String CLIENT_CONFIG_NAME = getResolvedConfigTypeName(CLIENT_NAME);
     static final String CLIENT_COMMANDS_FOLDER = "commands";
     static final String CLIENT_UTILS_FILE = "utils";
@@ -47,6 +50,19 @@ final class DocumentClientUtils {
 
     static String getModifiedName(String name) {
       return name.replace("Items", "").replace("Item", "");
+    }
+
+    static boolean containsAttributeValue(
+        Model model,
+        SymbolProvider symbolProvider,
+        OperationShape operation
+    ) {
+        OperationIndex operationIndex = OperationIndex.of(model);
+        if (containsAttributeValue(model, symbolProvider, operationIndex.getInput(operation))
+                || containsAttributeValue(model, symbolProvider, operationIndex.getOutput(operation))) {
+            return true;
+        }
+        return false;
     }
 
     static boolean containsAttributeValue(

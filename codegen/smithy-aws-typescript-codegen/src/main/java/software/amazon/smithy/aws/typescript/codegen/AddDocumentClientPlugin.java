@@ -24,7 +24,6 @@ import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.knowledge.OperationIndex;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -58,7 +57,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 String commandFileName = String.format("%s%s/%s.ts", docClientPrefix,
                     DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.getModifiedName(operationName));
 
-                if (containsAttributeValue(model, symbolProvider, operation)) {
+                if (DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation)) {
                     overridenOperationsList.add(operation);
                     writerFactory.accept(commandFileName,
                         writer -> new DocumentClientCommandGenerator(
@@ -70,6 +69,9 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
             writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_NAME),
                 writer -> new DocumentClientGenerator(settings, model, symbolProvider, writer).run());
 
+            writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_FULL_NAME),
+                writer -> new DocumentFullClientGenerator(settings, model, symbolProvider, writer).run());
+
             writerFactory.accept(String.format("%sindex.ts", docClientPrefix), writer -> {
                 for (OperationShape operationOverriden: overridenOperationsList) {
                     String operationFileName = DocumentClientUtils.getModifiedName(
@@ -79,6 +81,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                         DocumentClientUtils.CLIENT_COMMANDS_FOLDER, operationFileName);
                 }
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
+                writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
             });
 
             writerFactory.accept(String.format("%s%s/%s.ts", docClientPrefix,
@@ -90,16 +93,5 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
 
     private boolean testServiceId(Shape serviceShape, String expectedId) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
-    }
-
-    private boolean containsAttributeValue(Model model, SymbolProvider symbolProvider, OperationShape operation) {
-        OperationIndex operationIndex = OperationIndex.of(model);
-        if (DocumentClientUtils.containsAttributeValue(
-                model, symbolProvider, operationIndex.getInput(operation))
-                || DocumentClientUtils.containsAttributeValue(
-                    model, symbolProvider, operationIndex.getOutput(operation))) {
-            return true;
-        }
-        return false;
     }
 }
