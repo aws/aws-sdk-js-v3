@@ -53,13 +53,8 @@ export class TransactWriteCommand extends $Command<
   TransactWriteCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: TransactWriteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -102,6 +97,4 @@ export class TransactWriteCommand extends $Command<
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

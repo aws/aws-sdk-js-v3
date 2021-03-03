@@ -36,13 +36,8 @@ export class DeleteCommand extends $Command<
   DeleteCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: DeleteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -80,6 +75,4 @@ export class DeleteCommand extends $Command<
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

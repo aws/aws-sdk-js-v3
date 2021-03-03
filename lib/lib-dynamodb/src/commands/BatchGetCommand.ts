@@ -48,13 +48,8 @@ export class BatchGetCommand extends $Command<
   BatchGetCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: BatchGetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -95,6 +90,4 @@ export class BatchGetCommand extends $Command<
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

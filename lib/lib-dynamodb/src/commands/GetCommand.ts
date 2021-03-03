@@ -20,13 +20,8 @@ export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
 };
 
 export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: GetCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -52,6 +47,4 @@ export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, Dyna
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -33,13 +33,8 @@ export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluat
 };
 
 export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: ScanCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -74,6 +69,4 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

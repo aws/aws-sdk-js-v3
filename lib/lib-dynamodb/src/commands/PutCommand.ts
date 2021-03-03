@@ -32,13 +32,8 @@ export type PutCommandOutput = Omit<__PutItemCommandOutput, "Attributes" | "Item
 };
 
 export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, DynamoDBDocumentClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: PutCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -76,6 +71,4 @@ export class PutCommand extends $Command<PutCommandInput, PutCommandOutput, Dyna
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -56,13 +56,8 @@ export class BatchWriteCommand extends $Command<
   BatchWriteCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: BatchWriteCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -114,6 +109,4 @@ export class BatchWriteCommand extends $Command<
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

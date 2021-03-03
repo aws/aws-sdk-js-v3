@@ -45,13 +45,8 @@ export class UpdateCommand extends $Command<
   UpdateCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: UpdateCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -95,6 +90,4 @@ export class UpdateCommand extends $Command<
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }

@@ -32,13 +32,8 @@ export class ExecuteTransactionCommand extends $Command<
   ExecuteTransactionCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  // Start section: command_properties
-  // End section: command_properties
-
   constructor(readonly input: ExecuteTransactionCommandInput) {
-    // Start section: command_constructor
     super();
-    // End section: command_constructor
   }
 
   /**
@@ -64,6 +59,4 @@ export class ExecuteTransactionCommand extends $Command<
       };
     };
   }
-  // Start section: command_body_extra
-  // End section: command_body_extra
 }
