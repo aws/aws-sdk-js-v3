@@ -31,11 +31,62 @@ import { UpdateCommand, UpdateCommandInput, UpdateCommandOutput } from "./comman
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
+/**
+ * The document client simplifies working with items in Amazon DynamoDB by
+ * abstracting away the notion of attribute values. This abstraction annotates native
+ * JavaScript types supplied as input parameters, as well as converts annotated
+ * response data to native JavaScript types.
+ *
+ * ## Marshalling Input and Unmarshalling Response Data
+ *
+ * The document client affords developers the use of native JavaScript types
+ * instead of `AttributeValue`s to simplify the JavaScript development
+ * experience with Amazon DynamoDB. JavaScript objects passed in as parameters
+ * are marshalled into `AttributeValue` shapes required by Amazon DynamoDB.
+ * Responses from DynamoDB are unmarshalled into plain JavaScript objects
+ * by the `DocumentClient`. The `DocumentClient` does not accept
+ * `AttributeValue`s in favor of native JavaScript types.
+ *
+ * |          JavaScript Type          | DynamoDB AttributeValue |
+ * | :-------------------------------: | ----------------------- |
+ * |              String               | S                       |
+ * |          Number / BigInt          | N                       |
+ * |              Boolean              | BOOL                    |
+ * |               null                | NULL                    |
+ * |               Array               | L                       |
+ * |              Object               | M                       |
+ * |                Set                | BS / NS / SS            |
+ * | Uint8Array, Buffer, File, Blob... | B                       |
+ *
+ * ### Example
+ *
+ * Here is an example list which is sent to DynamoDB client in an operation:
+ *
+ * ```json
+ * { "L": [{ "NULL": true }, { "BOOL": false }, { "N": 1 }, { "S": "two" }] }
+ * ```
+ *
+ * The DynamoDB document client abstracts the attribute values as follows in
+ * both input and output:
+ *
+ * ```json
+ * [null, false, 1, "two"]
+ * ```
+ *
+ * @see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}
+ */
 export class DynamoDBDocument extends DynamoDBDocumentClient {
   static from(client: DynamoDBClient, translateConfig?: TranslateConfig) {
     return new DynamoDBDocument(client, translateConfig);
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * BatchExecuteStatementCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
     options?: __HttpHandlerOptions
@@ -65,6 +116,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * BatchGetItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public batchGet(args: BatchGetCommandInput, options?: __HttpHandlerOptions): Promise<BatchGetCommandOutput>;
   public batchGet(args: BatchGetCommandInput, cb: (err: any, data?: BatchGetCommandOutput) => void): void;
   public batchGet(
@@ -88,6 +146,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * BatchWriteItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public batchWrite(args: BatchWriteCommandInput, options?: __HttpHandlerOptions): Promise<BatchWriteCommandOutput>;
   public batchWrite(args: BatchWriteCommandInput, cb: (err: any, data?: BatchWriteCommandOutput) => void): void;
   public batchWrite(
@@ -111,6 +176,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * DeleteItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public delete(args: DeleteCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommandOutput>;
   public delete(args: DeleteCommandInput, cb: (err: any, data?: DeleteCommandOutput) => void): void;
   public delete(
@@ -134,6 +206,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * ExecuteStatementCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public executeStatement(
     args: ExecuteStatementCommandInput,
     options?: __HttpHandlerOptions
@@ -163,6 +242,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * ExecuteTransactionCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public executeTransaction(
     args: ExecuteTransactionCommandInput,
     options?: __HttpHandlerOptions
@@ -192,6 +278,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * GetItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public get(args: GetCommandInput, options?: __HttpHandlerOptions): Promise<GetCommandOutput>;
   public get(args: GetCommandInput, cb: (err: any, data?: GetCommandOutput) => void): void;
   public get(
@@ -215,6 +308,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * PutItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public put(args: PutCommandInput, options?: __HttpHandlerOptions): Promise<PutCommandOutput>;
   public put(args: PutCommandInput, cb: (err: any, data?: PutCommandOutput) => void): void;
   public put(
@@ -238,6 +338,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * QueryCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
   public query(args: QueryCommandInput, cb: (err: any, data?: QueryCommandOutput) => void): void;
   public query(
@@ -261,6 +368,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * ScanCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public scan(args: ScanCommandInput, options?: __HttpHandlerOptions): Promise<ScanCommandOutput>;
   public scan(args: ScanCommandInput, cb: (err: any, data?: ScanCommandOutput) => void): void;
   public scan(
@@ -284,6 +398,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * TransactGetItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public transactGet(args: TransactGetCommandInput, options?: __HttpHandlerOptions): Promise<TransactGetCommandOutput>;
   public transactGet(args: TransactGetCommandInput, cb: (err: any, data?: TransactGetCommandOutput) => void): void;
   public transactGet(
@@ -307,6 +428,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * TransactWriteItemsCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public transactWrite(
     args: TransactWriteCommandInput,
     options?: __HttpHandlerOptions
@@ -336,6 +464,13 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     }
   }
 
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * UpdateItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
   public update(args: UpdateCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommandOutput>;
   public update(args: UpdateCommandInput, cb: (err: any, data?: UpdateCommandOutput) => void): void;
   public update(

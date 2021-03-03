@@ -21,6 +21,13 @@ export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput
   }[];
 };
 
+/**
+ * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+ * ExecuteStatementCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ *
+ * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+ * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ */
 export class ExecuteStatementCommand extends $Command<
   ExecuteStatementCommandInput,
   ExecuteStatementCommandOutput,

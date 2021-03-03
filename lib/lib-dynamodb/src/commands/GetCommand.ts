@@ -19,6 +19,13 @@ export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
   Item?: { [key: string]: NativeAttributeValue };
 };
 
+/**
+ * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+ * GetItemCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ *
+ * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+ * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ */
 export class GetCommand extends $Command<GetCommandInput, GetCommandOutput, DynamoDBDocumentClientResolvedConfig> {
   private readonly inputKeyNodes = [{ key: "Key" }];
   private readonly outputKeyNodes = [{ key: "Item" }];

@@ -20,34 +20,30 @@ Responses from DynamoDB are unmarshalled into plain JavaScript objects
 by the `DocumentClient`. The `DocumentClient` does not accept
 `AttributeValue`s in favor of native JavaScript types.
 
+|          JavaScript Type          | DynamoDB AttributeValue |
+| :-------------------------------: | ----------------------- |
+|              String               | S                       |
+|          Number / BigInt          | N                       |
+|              Boolean              | BOOL                    |
+|               null                | NULL                    |
+|               Array               | L                       |
+|              Object               | M                       |
+|                Set                | BS / NS / SS            |
+| Uint8Array, Buffer, File, Blob... | B                       |
+
 ### Example
 
-Here is an example `Key` which is sent to DynamoDB client in GetItem operation:
+Here is an example list which is sent to DynamoDB client in an operation:
 
 ```json
-{ "KEY_NAME": { "ATTRIBUTE_VALUE": VALUE } }
+{ "L": [{ "NULL": true }, { "BOOL": false }, { "N": 1 }, { "S": "two" }] }
 ```
 
-where `ATTRIBUTE_VALUE` can be one of the following:
-
-| ATTRIBUTE_VALUE | type       | TypeScript type                        |
-| --------------- | ---------- | -------------------------------------- |
-| NULL            | Null       | null                                   |
-| BOOL            | Boolean    | boolean                                |
-| BS              | Binary Set | Set\<Unit8Array\>                      |
-| NS              | Number Set | Set\<number \| BigInt\>                |
-| SS              | String Set | Set\<string\>                          |
-| S               | String     | string                                 |
-| B               | Binary     | Uint8Array, Buffer, File, Blob...      |
-| M               | Map        | { [key: string]: \<ATTRIBUTE_VALUE\> } |
-| L               | List       | \<ATTRIBUTE_VALUE\>[]                  |
-| N               | Number     | number, BigInt                         |
-
-The DynamoDB document client should abstract the attribute values as follows in
+The DynamoDB document client abstracts the attribute values as follows in
 both input and output:
 
 ```json
-{ "KEY_NAME": VALUE }
+[null, false, 1, "two"]
 ```
 
 ## Usage

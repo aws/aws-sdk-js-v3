@@ -17,6 +17,50 @@ export type DynamoDBDocumentClientResolvedConfig = DynamoDBClientResolvedConfig 
   translateConfig?: TranslateConfig;
 };
 
+/**
+ * The document client simplifies working with items in Amazon DynamoDB by
+ * abstracting away the notion of attribute values. This abstraction annotates native
+ * JavaScript types supplied as input parameters, as well as converts annotated
+ * response data to native JavaScript types.
+ *
+ * ## Marshalling Input and Unmarshalling Response Data
+ *
+ * The document client affords developers the use of native JavaScript types
+ * instead of `AttributeValue`s to simplify the JavaScript development
+ * experience with Amazon DynamoDB. JavaScript objects passed in as parameters
+ * are marshalled into `AttributeValue` shapes required by Amazon DynamoDB.
+ * Responses from DynamoDB are unmarshalled into plain JavaScript objects
+ * by the `DocumentClient`. The `DocumentClient` does not accept
+ * `AttributeValue`s in favor of native JavaScript types.
+ *
+ * |          JavaScript Type          | DynamoDB AttributeValue |
+ * | :-------------------------------: | ----------------------- |
+ * |              String               | S                       |
+ * |          Number / BigInt          | N                       |
+ * |              Boolean              | BOOL                    |
+ * |               null                | NULL                    |
+ * |               Array               | L                       |
+ * |              Object               | M                       |
+ * |                Set                | BS / NS / SS            |
+ * | Uint8Array, Buffer, File, Blob... | B                       |
+ *
+ * ### Example
+ *
+ * Here is an example list which is sent to DynamoDB client in an operation:
+ *
+ * ```json
+ * { "L": [{ "NULL": true }, { "BOOL": false }, { "N": 1 }, { "S": "two" }] }
+ * ```
+ *
+ * The DynamoDB document client abstracts the attribute values as follows in
+ * both input and output:
+ *
+ * ```json
+ * [null, false, 1, "two"]
+ * ```
+ *
+ * @see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}
+ */
 export class DynamoDBDocumentClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,

@@ -32,6 +32,13 @@ export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluat
   LastEvaluatedKey?: { [key: string]: NativeAttributeValue };
 };
 
+/**
+ * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+ * ScanCommand operation from {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.
+ *
+ * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+ * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+ */
 export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBDocumentClientResolvedConfig> {
   private readonly inputKeyNodes = [
     {
