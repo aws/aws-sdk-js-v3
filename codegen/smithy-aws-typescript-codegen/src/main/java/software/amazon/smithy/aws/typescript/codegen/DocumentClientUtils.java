@@ -126,4 +126,48 @@ final class DocumentClientUtils {
       }
       return false;
     }
+
+    static String getCommandDocs(String operationName) {
+        return "Accepts native JavaScript types instead of `AttributeValue`s, and calls\n"
+            + operationName + " operation from "
+            + "{@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}.\n\n"
+            + "JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes \n"
+            + "required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.";
+    }
+
+    static String getClientDocs() {
+        return "The document client simplifies working with items in Amazon DynamoDB by\n"
+        + "abstracting away the notion of attribute values. This abstraction annotates native\n"
+        + "JavaScript types supplied as input parameters, as well as converts annotated\n"
+        + "response data to native JavaScript types.\n\n"
+        + "## Marshalling Input and Unmarshalling Response Data\n\n"
+        + "The document client affords developers the use of native JavaScript types\n"
+        + "instead of `AttributeValue`s to simplify the JavaScript development\n"
+        + "experience with Amazon DynamoDB. JavaScript objects passed in as parameters\n"
+        + "are marshalled into `AttributeValue` shapes required by Amazon DynamoDB.\n"
+        + "Responses from DynamoDB are unmarshalled into plain JavaScript objects\n"
+        + "by the `DocumentClient`. The `DocumentClient` does not accept\n"
+        + "`AttributeValue`s in favor of native JavaScript types.\n\n"
+        + "|          JavaScript Type          | DynamoDB AttributeValue |\n"
+        + "| :-------------------------------: | ----------------------- |\n"
+        + "|              String               | S                       |\n"
+        + "|          Number / BigInt          | N                       |\n"
+        + "|              Boolean              | BOOL                    |\n"
+        + "|               null                | NULL                    |\n"
+        + "|               Array               | L                       |\n"
+        + "|              Object               | M                       |\n"
+        + "|                Set                | BS / NS / SS            |\n"
+        + "| Uint8Array, Buffer, File, Blob... | B                       |\n"
+        + "\n### Example\n\n"
+        + "Here is an example list which is sent to DynamoDB client in an operation:\n\n"
+        + "```json\n"
+        + "{ \"L\": [{ \"NULL\": true }, { \"BOOL\": false }, { \"N\": 1 }, { \"S\": \"two\" }] }\n"
+        + "```\n"
+        + "\nThe DynamoDB document client abstracts the attribute values as follows in\n"
+        + "both input and output:\n\n"
+        + "```json\n"
+        + "[null, false, 1, \"two\"]\n"
+        + "```\n\n"
+        + "@see {@link https://www.npmjs.com/package/@aws-sdk/client-dynamodb @aws-sdk/client-dynamodb}";
+    }
 }

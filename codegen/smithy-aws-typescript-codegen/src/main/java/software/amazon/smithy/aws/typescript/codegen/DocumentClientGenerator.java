@@ -63,6 +63,7 @@ final class DocumentClientGenerator implements Runnable {
 
         generateConfiguration();
 
+        writer.writeDocs(DocumentClientUtils.getClientDocs());
         writer.openBlock("export class $L extends __Client<$T, $L, $L, $L> {", "}",
             DocumentClientUtils.CLIENT_NAME,
             ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType(),

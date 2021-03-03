@@ -92,7 +92,7 @@ final class DocumentClientCommandGenerator implements Runnable {
         generateInputAndOutputTypes();
 
         String name = DocumentClientUtils.getModifiedName(symbol.getName());
-        // writer.writeShapeDocs(operation);
+        writer.writeDocs(DocumentClientUtils.getCommandDocs(symbol.getName()));
         writer.openBlock("export class $L extends $$Command<$L, $L, $L> {", "}",
                 name, inputTypeName, outputTypeName, configType, () -> {
 

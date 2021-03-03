@@ -61,6 +61,7 @@ final class DocumentFullClientGenerator implements Runnable {
     public void run() {
         writer.addImport(DocumentClientUtils.CLIENT_NAME,
             DocumentClientUtils.CLIENT_NAME, "./" + DocumentClientUtils.CLIENT_NAME);
+        writer.writeDocs(DocumentClientUtils.getClientDocs());
         writer.openBlock("export class $L extends $L {", "}",
             DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME, () -> {
 
@@ -108,6 +109,7 @@ final class DocumentFullClientGenerator implements Runnable {
                 );
 
                 // Generate a multiple overloaded methods for each command.
+                writer.writeDocs(DocumentClientUtils.getCommandDocs(operationSymbol.getName()));
                 writer.write("public $L(\n"
                             + "  args: $L,\n"
                             + "  options?: $T,\n"
