@@ -41,6 +41,9 @@ final class DocumentClientCommandGenerator implements Runnable {
     static final String COMMAND_BODY_EXTRA_SECTION = "command_body_extra";
     static final String COMMAND_CONSTRUCTOR_SECTION = "command_constructor";
 
+    static final String COMMAND_INPUT_KEYNODES = "inputKeyNodes";
+    static final String COMMAND_OUTPUT_KEYNODES = "outputKeyNodes";
+
     private final Model model;
     private final OperationShape operation;
     private final SymbolProvider symbolProvider;
@@ -94,7 +97,18 @@ final class DocumentClientCommandGenerator implements Runnable {
                 name, inputTypeName, outputTypeName, configType, () -> {
 
             // Section for adding custom command properties.
-            writer.pushState(COMMAND_PROPERTIES_SECTION).popState();
+            writer.pushState(COMMAND_PROPERTIES_SECTION);
+            if (!inputMembersWithAttr.isEmpty()) {
+                writer.openBlock("private readonly $L = [", "];", COMMAND_INPUT_KEYNODES, () -> {
+                    writeKeyNodes(inputMembersWithAttr);
+                });
+            }
+            if (!outputMembersWithAttr.isEmpty()) {
+                writer.openBlock("private readonly $L = [", "];", COMMAND_OUTPUT_KEYNODES, () -> {
+                    writeKeyNodes(outputMembersWithAttr);
+                });
+            }
+            writer.popState();
             writer.write("");
 
             generateCommandConstructor();
@@ -136,23 +150,9 @@ final class DocumentClientCommandGenerator implements Runnable {
         writer.openBlock("): $L<$L, $L> {", "}", handler, inputTypeName, outputTypeName, () -> {
             String marshallOptions = DocumentClientUtils.CLIENT_MARSHALL_OPTIONS;
             String unmarshallOptions = DocumentClientUtils.CLIENT_UNMARSHALL_OPTIONS;
-            String inputKeyNodes = "inputKeyNodes";
-            String outputKeyNodes = "outputKeyNodes";
 
             writer.write("const { $L, $L } = configuration.$L || {};", marshallOptions, unmarshallOptions,
                     DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY);
-
-            if (!inputMembersWithAttr.isEmpty()) {
-                writer.openBlock("const $L = [", "];", inputKeyNodes, () -> {
-                    writeKeyNodes(inputMembersWithAttr);
-                });
-            }
-            if (!outputMembersWithAttr.isEmpty()) {
-                writer.openBlock("const $L = [", "];", outputKeyNodes, () -> {
-                    writeKeyNodes(outputMembersWithAttr);
-                });
-            }
-            writer.write("");
 
             writer.addImport(symbol.getName(), "__" + symbol.getName(), "@aws-sdk/client-dynamodb");
 
@@ -171,7 +171,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                     } else {
                         writer.openBlock("$L(", ")", marshallInput, () -> {
                             writer.write("this.input,");
-                            writer.write("$L,", inputKeyNodes);
+                            writer.write("this.$L,", COMMAND_INPUT_KEYNODES);
                             writer.write("$L,", marshallOptions);
                         });
                     }
@@ -190,8 +190,8 @@ final class DocumentClientCommandGenerator implements Runnable {
                     writer.write("const $L = await $L($L);", dataVarName, handlerVarName, commandVarName);
                     writer.openBlock("return {", "};", () -> {
                         writer.write("...$L,", dataVarName);
-                        writer.write("$1L: $2L($3L.$1L, $4L, $5L),", outputVarName, unmarshallOutput,
-                            dataVarName, outputKeyNodes, unmarshallOptions);
+                        writer.write("$1L: $2L($3L.$1L, this.$4L, $5L),", outputVarName, unmarshallOutput,
+                            dataVarName, COMMAND_OUTPUT_KEYNODES, unmarshallOptions);
                     });
                 });
             }
