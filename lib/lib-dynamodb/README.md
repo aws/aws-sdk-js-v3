@@ -157,3 +157,19 @@ await ddbDocClient.put({
   },
 });
 ```
+
+### Destroying document client
+
+The `destroy()` call on document client is a no-op as document client does not
+create a new DynamoDB client. You need to call `destroy()` on DynamoDB client to
+clean resources used by it as shown below.
+
+```js
+const client = new DynamoDBClient({});
+const ddbDocClient = DynamoDBDocumentClient.from(client);
+
+// Perform operations on document client.
+
+ddbDocClient.destroy(); // no-op
+client.destroy(); // destroys DynamoDBClient
+```
