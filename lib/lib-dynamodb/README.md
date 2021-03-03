@@ -66,7 +66,7 @@ const client = new DynamoDBClient({});
 import { DynamoDB } from "@aws-sdk/client-dynamodb"; // ES6 import
 // const { DynamoDB } = require("@aws-sdk/client-dynamodb"); // CommonJS import
 
-// Bare-bones DynamoDB Client
+// Full DynamoDB Client
 const client = new DynamoDB({});
 ```
 
@@ -83,7 +83,7 @@ document client or full document client as follows:
 import { DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb"; // ES6 import
 // const { DynamoDBDocumentClient } = require("@aws-sdk/lib-dynamodb"); // CommonJS import
 
-// Bare-bones DocumentClient
+// Bare-bones document client
 const ddbDocClient = DynamoDBDocumentClient.from(client); // client is DynamoDB client
 ```
 
@@ -91,7 +91,7 @@ const ddbDocClient = DynamoDBDocumentClient.from(client); // client is DynamoDB 
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb"; // ES6 import
 // const { DynamoDBDocument } = require("@aws-sdk/lib-dynamodb"); // CommonJS import
 
-// Full DocumentClient
+// Full document client
 const ddbDocClient = DynamoDBDocument.from(client); // client is DynamoDB client
 ```
 
