@@ -29,7 +29,21 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 
 final class DocumentClientUtils {
+    static final String CLIENT_NAME = "DynamoDBDocumentClient";
+    static final String CLIENT_CONFIG_NAME = getResolvedConfigTypeName(CLIENT_NAME);
+    static final String CLIENT_COMMANDS_FOLDER = "commands";
+    static final String CLIENT_UTILS_FILE = "utils";
+
+    static final String CLIENT_TRANSLATE_CONFIG_KEY = "translateConfig";
+    static final String CLIENT_TRANSLATE_CONFIG_TYPE = "TranslateConfig";
+    static final String CLIENT_MARSHALL_OPTIONS = "marshallOptions";
+    static final String CLIENT_UNMARSHALL_OPTIONS = "unmarshallOptions";
+
     private DocumentClientUtils() {}
+
+    static String getResolvedConfigTypeName(String symbolName) {
+        return symbolName + "ResolvedConfig";
+    }
 
     static String getModifiedName(String name) {
       return name.replace("Items", "").replace("Item", "");

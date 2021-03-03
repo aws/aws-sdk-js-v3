@@ -35,7 +35,7 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.IoUtils;
 
 /**
- * Generates Commands for DynamoDB Document Client.
+ * Generates Client and Commands for DynamoDB Document Client.
  */
 public class AddDocumentClientPlugin implements TypeScriptIntegration {
 
@@ -54,9 +54,9 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
             List<OperationShape> overridenOperationsList = new ArrayList<>();
 
             for (OperationShape operation : containedOperations) {
-                String operationName = operation.getId().getName();
-                String commandFileName = docClientPrefix + "commands/"
-                    + DocumentClientUtils.getModifiedName(operationName) + "Command.ts";
+                String operationName = symbolProvider.toSymbol(operation).getName();
+                String commandFileName = String.format("%s%s/%s.ts", docClientPrefix,
+                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.getModifiedName(operationName));
 
                 if (containsAttributeValue(model, symbolProvider, operation)) {
                     overridenOperationsList.add(operation);
@@ -67,20 +67,22 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 }
             }
 
-            writerFactory.accept(docClientPrefix + "DynamoDBDocumentClient.ts",
+            writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_NAME),
                 writer -> new DocumentClientGenerator(settings, model, symbolProvider, writer).run());
 
-            writerFactory.accept(docClientPrefix + "index.ts", writer -> {
+            writerFactory.accept(String.format("%sindex.ts", docClientPrefix), writer -> {
                 for (OperationShape operationOverriden: overridenOperationsList) {
                     String operationFileName = DocumentClientUtils.getModifiedName(
                         symbolProvider.toSymbol(operationOverriden).getName()
                     );
-                    writer.write("export * from './commands/$L';", operationFileName);
+                    writer.write("export * from './$L/$L';",
+                        DocumentClientUtils.CLIENT_COMMANDS_FOLDER, operationFileName);
                 }
-                writer.write("export * from './DynamoDBDocumentClient';");
+                writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
             });
 
-            writerFactory.accept(docClientPrefix + "commands/utils.ts", writer -> {
+            writerFactory.accept(String.format("%s%s/%s.ts", docClientPrefix,
+                DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE), writer -> {
                 writer.write(IoUtils.readUtf8Resource(AddDocumentClientPlugin.class, "doc-client-utils.ts"));
             });
         }

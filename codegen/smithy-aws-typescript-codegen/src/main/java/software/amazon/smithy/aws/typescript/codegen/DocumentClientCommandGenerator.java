@@ -79,16 +79,12 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     @Override
     public void run() {
-        String serviceName = "DynamoDBDocumentClient";
-        String configType = serviceName + "ResolvedConfig";
+        String serviceName = DocumentClientUtils.CLIENT_NAME;
+        String configType = DocumentClientUtils.CLIENT_CONFIG_NAME;
 
         // Add required imports.
         writer.addImport(configType, configType, "./" + serviceName);
-        writer.addImport("ServiceInputTypes", "ServiceInputTypes", "@aws-sdk/client-dynamodb");
-        writer.addImport("ServiceOutputTypes", "ServiceOutputTypes", "@aws-sdk/client-dynamodb");
         writer.addImport("Command", "$Command", "@aws-sdk/smithy-client");
-        writer.addImport("Handler", "Handler", "@aws-sdk/types");
-        writer.addImport("MiddlewareStack", "MiddlewareStack", "@aws-sdk/types");
 
         generateInputAndOutputTypes();
 
@@ -128,22 +124,38 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void generateCommandMiddlewareResolver(String configType) {
         writer.writeDocs("@internal");
+
+        String serviceInputTypes = "ServiceInputTypes";
+        String serviceOutputTypes = "ServiceOutputTypes";
+        String handler = "Handler";
+        String middlewareStack = "MiddlewareStack";
+        writer.addImport(serviceInputTypes, serviceInputTypes, "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceOutputTypes, serviceOutputTypes, "@aws-sdk/client-dynamodb");
+        writer.addImport(handler, handler, "@aws-sdk/types");
+        writer.addImport(middlewareStack, middlewareStack, "@aws-sdk/types");
+
         writer.write("resolveMiddleware(")
                 .indent()
-                .write("clientStack: MiddlewareStack<$L, $L>,", "ServiceInputTypes", "ServiceOutputTypes")
+                .write("clientStack: $L<$L, $L>,", middlewareStack, serviceInputTypes, serviceOutputTypes)
                 .write("configuration: $L,", configType)
                 .write("options?: $T", ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType())
                 .dedent();
-        writer.openBlock("): Handler<$L, $L> {", "}", inputTypeName, outputTypeName, () -> {
-            writer.write("const { marshallOptions, unmarshallOptions } = configuration.translateConfig || {};");
+        writer.openBlock("): $L<$L, $L> {", "}", handler, inputTypeName, outputTypeName, () -> {
+            String marshallOptions = DocumentClientUtils.CLIENT_MARSHALL_OPTIONS;
+            String unmarshallOptions = DocumentClientUtils.CLIENT_UNMARSHALL_OPTIONS;
+            String inputKeyNodes = "inputKeyNodes";
+            String outputKeyNodes = "outputKeyNodes";
+
+            writer.write("const { $L, $L } = configuration.$L || {};", marshallOptions, unmarshallOptions,
+                    DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY);
 
             if (!inputMembersWithAttr.isEmpty()) {
-                writer.openBlock("const inputKeyNodes = [", "];", () -> {
+                writer.openBlock("const $L = [", "];", inputKeyNodes, () -> {
                     writeKeyNodes(inputMembersWithAttr);
                 });
             }
             if (!outputMembersWithAttr.isEmpty()) {
-                writer.openBlock("const outputKeyNodes = [", "];", () -> {
+                writer.openBlock("const $L = [", "];", outputKeyNodes, () -> {
                     writeKeyNodes(outputMembersWithAttr);
                 });
             }
@@ -153,32 +165,40 @@ final class DocumentClientCommandGenerator implements Runnable {
 
             String marshallInput = "marshallInput";
             String unmarshallOutput = "unmarshallOutput";
-            writer.addImport(marshallInput, marshallInput, "./commands/utils");
-            writer.addImport(unmarshallOutput, unmarshallOutput, "./commands/utils");
+            String utilsFileLocation = String.format("./%s/%s",
+                DocumentClientUtils.CLIENT_COMMANDS_FOLDER, DocumentClientUtils.CLIENT_UTILS_FILE);
+            writer.addImport(marshallInput, marshallInput, utilsFileLocation);
+            writer.addImport(unmarshallOutput, unmarshallOutput, utilsFileLocation);
 
-            writer.openBlock("const command = new $L(", ");", "__" + symbol.getName(),
+            String commandVarName = "command";
+            writer.openBlock("const $L = new $L(", ");", commandVarName, "__" + symbol.getName(),
                 () -> {
                     if (inputMembersWithAttr.isEmpty()) {
                         writer.write("this.input,");
                     } else {
                         writer.openBlock("$L(", ")", marshallInput, () -> {
                             writer.write("this.input,");
-                            writer.write("inputKeyNodes,");
-                            writer.write("marshallOptions,");
+                            writer.write("$L,", inputKeyNodes);
+                            writer.write("$L,", marshallOptions);
                         });
                     }
                 });
-            writer.write("const handler = command.resolveMiddleware(clientStack, configuration, options);");
+            String handlerVarName = "handler";
+            writer.write("const $L = $L.resolveMiddleware(clientStack, configuration, options);",
+                handlerVarName, commandVarName);
             writer.write("");
 
             if (outputMembersWithAttr.isEmpty()) {
-                writer.write("return handler;");
+                writer.write("return $L;", handlerVarName);
             } else {
                 writer.openBlock("return async () => {", "};", () -> {
-                    writer.write("const data = await handler(command);");
+                    String dataVarName = "data";
+                    String outputVarName = "output";
+                    writer.write("const $L = await $L($L);", dataVarName, handlerVarName, commandVarName);
                     writer.openBlock("return {", "};", () -> {
-                        writer.write("...data,");
-                        writer.write("output: $L(data.output, outputKeyNodes, unmarshallOptions),", unmarshallOutput);
+                        writer.write("...$L,", dataVarName);
+                        writer.write("$1L: $2L($3L.$1L, $4L, $5L),", outputVarName, unmarshallOutput,
+                            dataVarName, outputKeyNodes, unmarshallOptions);
                     });
                 });
             }
@@ -341,8 +361,9 @@ final class DocumentClientCommandGenerator implements Runnable {
     }
 
     private void writeNativeAttributeValue() {
-        writer.addImport("NativeAttributeValue", "NativeAttributeValue", "@aws-sdk/util-dynamodb");
-        writer.write("NativeAttributeValue");
+        String nativeAttributeValue = "NativeAttributeValue";
+        writer.addImport(nativeAttributeValue, nativeAttributeValue, "@aws-sdk/util-dynamodb");
+        writer.write(nativeAttributeValue);
     }
 
     /**

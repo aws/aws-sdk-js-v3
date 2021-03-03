@@ -33,9 +33,7 @@ final class DocumentClientGenerator implements Runnable {
     private final TypeScriptWriter writer;
     private final Symbol symbol;
     private final String serviceName;
-    private final String originalServiceName;
     private final String configType;
-    private final String originalConfigType;
 
     DocumentClientGenerator(
             TypeScriptSettings settings,
@@ -47,14 +45,8 @@ final class DocumentClientGenerator implements Runnable {
         this.writer = writer;
 
         symbol = symbolProvider.toSymbol(service);
-        serviceName = "DynamoDBDocumentClient";
-        originalServiceName = symbol.getName();
-        configType = serviceName + "ResolvedConfig";
-        originalConfigType = getResolvedConfigTypeName(symbol);
-    }
-
-    static String getResolvedConfigTypeName(Symbol symbol) {
-        return symbol.getName() + "ResolvedConfig";
+        serviceName = symbol.getName();
+        configType = DocumentClientUtils.getResolvedConfigTypeName(symbol.getName());
     }
 
     @Override
@@ -63,19 +55,19 @@ final class DocumentClientGenerator implements Runnable {
         String serviceOutputTypes = "ServiceOutputTypes";
 
         // Add required imports.
-        writer.addImport(originalServiceName, originalServiceName, "@aws-sdk/client-dynamodb");
-        writer.addImport(originalConfigType, originalConfigType, "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
+        writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
         writer.addImport(serviceInputTypes, serviceInputTypes, "@aws-sdk/client-dynamodb");
         writer.addImport(serviceOutputTypes, serviceOutputTypes, "@aws-sdk/client-dynamodb");
         writer.addImport("Client", "__Client", "@aws-sdk/smithy-client");
 
-        writer.addImport("unmarshallOptions", "unmarshallOptions", "@aws-sdk/util-dynamodb");
-
         generateConfiguration();
 
         writer.openBlock("export class $L extends __Client<$T, $L, $L, $L> {", "}",
-            serviceName, ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType(),
-            serviceInputTypes, serviceOutputTypes, configType, () -> {
+            DocumentClientUtils.CLIENT_NAME,
+            ApplicationProtocol.createDefaultHttpApplicationProtocol().getOptionsType(),
+            serviceInputTypes, serviceOutputTypes,
+            DocumentClientUtils.CLIENT_CONFIG_NAME, () -> {
 
             generateClientProperties();
             writer.write("");
@@ -96,21 +88,21 @@ final class DocumentClientGenerator implements Runnable {
     }
 
     private void generateStaticFactoryFrom() {
-        writer.openBlock("static from(client: $L, translateConfig?: TranslateConfig) {", "}",
-            originalServiceName, () -> {
-                writer.write("return new $L(client, translateConfig);", serviceName);
+        writer.openBlock("static from(client: $L, translateConfig?: $L) {", "}",
+            serviceName, DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE, () -> {
+                writer.write("return new $L(client, translateConfig);", DocumentClientUtils.CLIENT_NAME);
             });
     }
 
     private void generateClientProperties() {
         writer.pushState(CLIENT_PROPERTIES_SECTION);
-        writer.write("readonly config: $L;\n", configType);
+        writer.write("readonly config: $L;\n", DocumentClientUtils.CLIENT_CONFIG_NAME);
         writer.popState();
     }
 
     private void generateClientConstructor() {
-        writer.openBlock("protected constructor(client: $L, translateConfig?: TranslateConfig){", "}",
-            symbol.getName(), () -> {
+        writer.openBlock("protected constructor(client: $L, translateConfig?: $L){", "}",
+            symbol.getName(), DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE, () -> {
                 writer.pushState(CLIENT_CONSTRUCTOR_SECTION);
                 writer.write("super(client.config);");
                 writer.write("this.config = client.config;");
@@ -122,14 +114,16 @@ final class DocumentClientGenerator implements Runnable {
 
     private void generateConfiguration() {
         writer.pushState(CLIENT_CONFIG_SECTION);
-        writer.openBlock("export type TranslateConfig = {", "}", () -> {
-            generateTranslateConfigOption("marshallOptions");
-            generateTranslateConfigOption("unmarshallOptions");
+        String translateConfigType = DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE;
+        writer.openBlock("export type $L = {", "}", translateConfigType, () -> {
+            generateTranslateConfigOption(DocumentClientUtils.CLIENT_MARSHALL_OPTIONS);
+            generateTranslateConfigOption(DocumentClientUtils.CLIENT_UNMARSHALL_OPTIONS);
         });
         writer.write("");
-        writer.openBlock("export type $L = $L & {", "};", configType, originalConfigType, () -> {
-            writer.write("translateConfig?: TranslateConfig;");
-        });
+        writer.openBlock("export type $L = $L & {", "};", DocumentClientUtils.CLIENT_CONFIG_NAME,
+            configType, () -> {
+                writer.write("$L?: $L;", DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_KEY, translateConfigType);
+            });
         writer.write("");
         writer.popState();
     }
