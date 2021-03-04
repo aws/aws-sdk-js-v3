@@ -2757,6 +2757,7 @@ export interface UpdateProxySessionResponse {
 export namespace UpdateProxySessionResponse {
   export const filterSensitiveLog = (obj: UpdateProxySessionResponse): any => ({
     ...obj,
+    ...(obj.ProxySession && { ProxySession: ProxySession.filterSensitiveLog(obj.ProxySession) }),
   });
 }
 
