@@ -1,10 +1,8 @@
-import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   BatchStatementRequest,
   BatchStatementResponse,
-  ServiceInputTypes,
-  ServiceOutputTypes,
   BatchExecuteStatementCommand as __BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput as __BatchExecuteStatementCommandInput,
   BatchExecuteStatementCommandOutput as __BatchExecuteStatementCommandOutput,

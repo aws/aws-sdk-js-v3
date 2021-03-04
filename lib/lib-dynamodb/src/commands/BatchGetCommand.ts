@@ -1,9 +1,7 @@
-import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   KeysAndAttributes,
-  ServiceInputTypes,
-  ServiceOutputTypes,
   BatchGetItemCommand as __BatchGetItemCommand,
   BatchGetItemCommandInput as __BatchGetItemCommandInput,
   BatchGetItemCommandOutput as __BatchGetItemCommandOutput,

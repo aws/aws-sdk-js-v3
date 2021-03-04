@@ -1,10 +1,8 @@
-import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   ItemResponse,
   ParameterizedStatement,
-  ServiceInputTypes,
-  ServiceOutputTypes,
   ExecuteTransactionCommand as __ExecuteTransactionCommand,
   ExecuteTransactionCommandInput as __ExecuteTransactionCommandInput,
   ExecuteTransactionCommandOutput as __ExecuteTransactionCommandOutput,

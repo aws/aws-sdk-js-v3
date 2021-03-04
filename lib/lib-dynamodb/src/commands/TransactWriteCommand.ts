@@ -1,12 +1,10 @@
-import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   ConditionCheck,
   Delete,
   ItemCollectionMetrics,
   Put,
-  ServiceInputTypes,
-  ServiceOutputTypes,
   TransactWriteItem,
   Update,
   TransactWriteItemsCommand as __TransactWriteItemsCommand,

@@ -1,10 +1,8 @@
-import { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   ExpectedAttributeValue,
   ItemCollectionMetrics,
-  ServiceInputTypes,
-  ServiceOutputTypes,
   DeleteItemCommand as __DeleteItemCommand,
   DeleteItemCommandInput as __DeleteItemCommandInput,
   DeleteItemCommandOutput as __DeleteItemCommandOutput,
