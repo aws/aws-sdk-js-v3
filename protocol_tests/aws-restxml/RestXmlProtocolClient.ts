@@ -14,6 +14,15 @@ import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelHeaderOperationCommandInput,
+  EndpointWithHostLabelHeaderOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelHeaderOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
 import { FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput } from "./commands/FlattenedXmlMapCommand";
 import {
   FlattenedXmlMapWithXmlNameCommandInput,
@@ -167,6 +176,9 @@ export type ServiceInputTypes =
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
   | EmptyInputAndEmptyOutputCommandInput
+  | EndpointOperationCommandInput
+  | EndpointWithHostLabelHeaderOperationCommandInput
+  | EndpointWithHostLabelOperationCommandInput
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
   | FlattenedXmlMapWithXmlNamespaceCommandInput
@@ -213,6 +225,9 @@ export type ServiceOutputTypes =
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
+  | EndpointOperationCommandOutput
+  | EndpointWithHostLabelHeaderOperationCommandOutput
+  | EndpointWithHostLabelOperationCommandOutput
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
@@ -319,11 +334,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * Default credentials provider; Not available in browser runtime
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
@@ -337,6 +347,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -354,18 +369,18 @@ export type RestXmlProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHa
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
-  AwsAuthInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
+  AwsAuthInputConfig &
   UserAgentInputConfig;
 
 export type RestXmlProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
-  AwsAuthResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
+  AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
 
 /**
@@ -386,17 +401,17 @@ export class RestXmlProtocolClient extends __Client<
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveAwsAuthConfig(_config_2);
-    let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_3 = resolveRetryConfig(_config_2);
+    let _config_4 = resolveHostHeaderConfig(_config_3);
+    let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

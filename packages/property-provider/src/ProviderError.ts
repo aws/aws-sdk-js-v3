@@ -11,4 +11,13 @@ export class ProviderError extends Error {
   constructor(message: string, public readonly tryNextLink: boolean = true) {
     super(message);
   }
+  static from(error: Error, tryNextLink = true): ProviderError {
+    Object.defineProperty(error, "tryNextLink", {
+      value: tryNextLink,
+      configurable: false,
+      enumerable: false,
+      writable: false,
+    });
+    return error as ProviderError;
+  }
 }

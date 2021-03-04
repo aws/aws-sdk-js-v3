@@ -871,7 +871,8 @@ export const serializeAws_json1_1DescribeLocationsCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "OvertureService.DescribeLocations",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DescribeTagsCommand = async (
@@ -895,7 +896,8 @@ export const serializeAws_json1_1DescribeVirtualGatewaysCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "OvertureService.DescribeVirtualGateways",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DescribeVirtualInterfacesCommand = async (

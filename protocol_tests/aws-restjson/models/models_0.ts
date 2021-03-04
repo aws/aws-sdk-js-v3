@@ -115,6 +115,16 @@ export namespace EmptyInputAndEmptyOutputOutput {
   });
 }
 
+export interface HostLabelInput {
+  label: string | undefined;
+}
+
+export namespace HostLabelInput {
+  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.

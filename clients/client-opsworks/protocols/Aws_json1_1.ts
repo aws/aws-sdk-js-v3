@@ -729,7 +729,8 @@ export const serializeAws_json1_1DescribeMyUserProfileCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "OpsWorks_20130218.DescribeMyUserProfile",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DescribeOperatingSystemsCommand = async (
@@ -740,7 +741,8 @@ export const serializeAws_json1_1DescribeOperatingSystemsCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "OpsWorks_20130218.DescribeOperatingSystems",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DescribePermissionsCommand = async (

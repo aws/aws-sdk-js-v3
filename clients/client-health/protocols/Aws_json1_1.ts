@@ -239,7 +239,8 @@ export const serializeAws_json1_1DescribeHealthServiceStatusForOrganizationComma
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand = async (
@@ -250,7 +251,8 @@ export const serializeAws_json1_1DisableHealthServiceAccessForOrganizationComman
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSHealth_20160804.DisableHealthServiceAccessForOrganization",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand = async (
@@ -261,7 +263,8 @@ export const serializeAws_json1_1EnableHealthServiceAccessForOrganizationCommand
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "AWSHealth_20160804.EnableHealthServiceAccessForOrganization",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand = async (

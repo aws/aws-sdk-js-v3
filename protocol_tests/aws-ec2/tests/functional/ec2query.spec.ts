@@ -1,5 +1,7 @@
 import { EC2ProtocolClient } from "../../EC2ProtocolClient";
 import { EmptyInputAndEmptyOutputCommand } from "../../commands/EmptyInputAndEmptyOutputCommand";
+import { EndpointOperationCommand } from "../../commands/EndpointOperationCommand";
+import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { IgnoresWrappingXmlNameCommand } from "../../commands/IgnoresWrappingXmlNameCommand";
 import { NestedStructuresCommand } from "../../commands/NestedStructuresCommand";
@@ -211,6 +213,80 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait.
+ */
+it("Ec2QueryEndpointTrait:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=EndpointOperation
+    &Version=2020-01-08`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait, and can use the host label trait to define
+ * further customization based on user input.
+ */
+it("Ec2QueryEndpointTraitWithHostLabel:Request", async () => {
+  const client = new EC2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointWithHostLabelOperationCommand({
+    label: "bar",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-www-form-urlencoded");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `Action=EndpointWithHostLabelOperation
+    &Version=2020-01-08
+    &Label=bar`;
+    const unequalParts: any = compareEquivalentFormUrlencodedBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
 });
 
 /**

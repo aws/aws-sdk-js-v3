@@ -20,6 +20,21 @@ import {
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
+  EndpointOperationCommand,
+  EndpointOperationCommandInput,
+  EndpointOperationCommandOutput,
+} from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelHeaderOperationCommand,
+  EndpointWithHostLabelHeaderOperationCommandInput,
+  EndpointWithHostLabelHeaderOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelHeaderOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommand,
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
+import {
   FlattenedXmlMapCommand,
   FlattenedXmlMapCommandInput,
   FlattenedXmlMapCommandOutput,
@@ -331,6 +346,93 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): Promise<EmptyInputAndEmptyOutputCommandOutput> | void {
     const command = new EmptyInputAndEmptyOutputCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EndpointOperationCommandOutput>;
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    cb: (err: any, data?: EndpointOperationCommandOutput) => void
+  ): void;
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EndpointOperationCommandOutput) => void
+  ): void;
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EndpointOperationCommandOutput) => void),
+    cb?: (err: any, data?: EndpointOperationCommandOutput) => void
+  ): Promise<EndpointOperationCommandOutput> | void {
+    const command = new EndpointOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public endpointWithHostLabelHeaderOperation(
+    args: EndpointWithHostLabelHeaderOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EndpointWithHostLabelHeaderOperationCommandOutput>;
+  public endpointWithHostLabelHeaderOperation(
+    args: EndpointWithHostLabelHeaderOperationCommandInput,
+    cb: (err: any, data?: EndpointWithHostLabelHeaderOperationCommandOutput) => void
+  ): void;
+  public endpointWithHostLabelHeaderOperation(
+    args: EndpointWithHostLabelHeaderOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EndpointWithHostLabelHeaderOperationCommandOutput) => void
+  ): void;
+  public endpointWithHostLabelHeaderOperation(
+    args: EndpointWithHostLabelHeaderOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EndpointWithHostLabelHeaderOperationCommandOutput) => void),
+    cb?: (err: any, data?: EndpointWithHostLabelHeaderOperationCommandOutput) => void
+  ): Promise<EndpointWithHostLabelHeaderOperationCommandOutput> | void {
+    const command = new EndpointWithHostLabelHeaderOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EndpointWithHostLabelOperationCommandOutput>;
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
+  ): void;
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
+  ): void;
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void),
+    cb?: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
+  ): Promise<EndpointWithHostLabelOperationCommandOutput> | void {
+    const command = new EndpointWithHostLabelOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

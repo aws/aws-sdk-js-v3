@@ -5,6 +5,16 @@ import {
   EmptyInputAndEmptyOutputCommandOutput,
 } from "./commands/EmptyInputAndEmptyOutputCommand";
 import {
+  EndpointOperationCommand,
+  EndpointOperationCommandInput,
+  EndpointOperationCommandOutput,
+} from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommand,
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
+import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
@@ -104,6 +114,64 @@ export class EC2Protocol extends EC2ProtocolClient {
     cb?: (err: any, data?: EmptyInputAndEmptyOutputCommandOutput) => void
   ): Promise<EmptyInputAndEmptyOutputCommandOutput> | void {
     const command = new EmptyInputAndEmptyOutputCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EndpointOperationCommandOutput>;
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    cb: (err: any, data?: EndpointOperationCommandOutput) => void
+  ): void;
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EndpointOperationCommandOutput) => void
+  ): void;
+  public endpointOperation(
+    args: EndpointOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EndpointOperationCommandOutput) => void),
+    cb?: (err: any, data?: EndpointOperationCommandOutput) => void
+  ): Promise<EndpointOperationCommandOutput> | void {
+    const command = new EndpointOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EndpointWithHostLabelOperationCommandOutput>;
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
+  ): void;
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
+  ): void;
+  public endpointWithHostLabelOperation(
+    args: EndpointWithHostLabelOperationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void),
+    cb?: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
+  ): Promise<EndpointWithHostLabelOperationCommandOutput> | void {
+    const command = new EndpointWithHostLabelOperationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -1,5 +1,6 @@
 software.amazon.smithy.aws.typescript.codegen.AddAwsRuntimeConfig
 software.amazon.smithy.aws.typescript.codegen.AddBuiltinPlugins
+software.amazon.smithy.aws.typescript.codegen.AddAwsAuthPlugin
 software.amazon.smithy.aws.typescript.codegen.AddProtocols
 software.amazon.smithy.aws.typescript.codegen.AwsEndpointGeneratorIntegration
 software.amazon.smithy.aws.typescript.codegen.AwsServiceIdIntegration

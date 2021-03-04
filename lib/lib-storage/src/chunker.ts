@@ -1,4 +1,4 @@
-import stream from "stream";
+import { Readable } from "stream";
 import { Buffer } from "buffer";
 
 import { BodyDataTypes } from "./types";
@@ -10,8 +10,8 @@ import { getDataReadable } from "./chunks/getDataReadable";
 export const getChunk = (data: BodyDataTypes, partSize: number) => {
   if (data instanceof Buffer) {
     return getChunkBuffer(data, partSize);
-  } else if (data instanceof stream.Readable) {
-    return getChunkStream<stream.Readable>(data, partSize, getDataReadable);
+  } else if (data instanceof Readable) {
+    return getChunkStream<Readable>(data, partSize, getDataReadable);
   } else if (data instanceof String || typeof data === "string" || data instanceof Uint8Array) {
     // chunk Strings, Uint8Array.
     return getChunkBuffer(Buffer.from(data), partSize);

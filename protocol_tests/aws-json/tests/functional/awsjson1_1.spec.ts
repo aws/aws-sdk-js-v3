@@ -1,5 +1,7 @@
 import { JsonProtocolClient } from "../../JsonProtocolClient";
 import { EmptyOperationCommand } from "../../commands/EmptyOperationCommand";
+import { EndpointOperationCommand } from "../../commands/EndpointOperationCommand";
+import { EndpointWithHostLabelOperationCommand } from "../../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { JsonEnumsCommand } from "../../commands/JsonEnumsCommand";
 import { JsonUnionsCommand } from "../../commands/JsonUnionsCommand";
@@ -193,7 +195,48 @@ it("includes_x_amz_target_and_content_type:Request", async () => {
 });
 
 /**
- * Handles empty output shapes
+ * Clients must always send an empty JSON object payload for
+ * operations with no input (that is, `{}`). While AWS service
+ * implementations support requests with no payload or requests
+ * that send `{}`, always sending `{}` from the client is
+ * preferred for forward compatibility in case input is ever
+ * added to an operation.
+ */
+it("json_1_1_client_sends_empty_payload_for_no_input_shape:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EmptyOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.1");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * When no output is defined, the service is expected to return
+ * an empty payload, however, client must ignore a JSON payload
+ * if one is returned. This ensures that if output is added later,
+ * then it will not break the client.
  */
 it("handles_empty_output_shape:Response", async () => {
   const client = new JsonProtocolClient({
@@ -219,6 +262,138 @@ it("handles_empty_output_shape:Response", async () => {
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * This client-only test builds on handles_empty_output_shape,
+ * by including unexpected fields in the JSON. A client
+ * needs to ignore JSON output that is empty or that contains
+ * JSON object data.
+ */
+it("handles_unexpected_json_output:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "foo": true
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new EmptyOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * When no output is defined, the service is expected to return
+ * an empty payload. Despite the lack of a payload, the service
+ * is expected to always send a Content-Type header. Clients must
+ * handle cases where a service returns a JSON object and where
+ * a service returns no JSON at all.
+ */
+it("json_1_1_service_responds_with_no_payload:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new EmptyOperationCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait.
+ */
+it("AwsJson11EndpointTrait:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Operations can prepend to the given host if they define the
+ * endpoint trait, and can use the host label trait to define
+ * further customization based on user input.
+ */
+it("AwsJson11EndpointTraitWithHostLabel:Request", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new EndpointWithHostLabelOperationCommand({
+    label: "bar",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{\"label\": \"bar\"}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
 });
 
 /**
@@ -4023,6 +4198,23 @@ it("PutAndGetInlineDocumentsInput:Response", async () => {
 const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string): Object => {
   const expectedParts = JSON.parse(expectedBody);
   const generatedParts = JSON.parse(generatedBody);
+
+  return compareParts(expectedParts, generatedParts);
+};
+
+/**
+ * Returns a map of key names that were un-equal to value objects showing the
+ * discrepancies between the components.
+ */
+const compareEquivalentUnknownTypeBodies = (
+  config: any,
+  expectedBody: string,
+  generatedBody: string | Uint8Array
+): Object => {
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = {
+    Value: generatedBody instanceof Uint8Array ? config.utf8Encoder(generatedBody) : generatedBody,
+  };
 
   return compareParts(expectedParts, generatedParts);
 };
