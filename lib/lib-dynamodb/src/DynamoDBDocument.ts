@@ -55,7 +55,9 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * |               null                | NULL                    |
  * |               Array               | L                       |
  * |              Object               | M                       |
- * |                Set                | BS / NS / SS            |
+ * |   Set\<Uint8Array, Blob, ...\>    | BS                      |
+ * |       Set\<Number, BigInt\>       | NS                      |
+ * |           Set\<String\>           | SS                      |
  * | Uint8Array, Buffer, File, Blob... | B                       |
  *
  * ### Example
