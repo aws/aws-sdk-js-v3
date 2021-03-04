@@ -57,10 +57,13 @@ final class DocumentClientGenerator implements Runnable {
         // Add required imports.
         writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
         writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
-        writer.addImport(serviceInputTypes, serviceInputTypes, "@aws-sdk/client-dynamodb");
-        writer.addImport(serviceOutputTypes, serviceOutputTypes, "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceInputTypes, String.format("__%s", serviceInputTypes), "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceOutputTypes, String.format("__%s", serviceOutputTypes), "@aws-sdk/client-dynamodb");
         writer.addImport("Client", "__Client", "@aws-sdk/smithy-client");
 
+        generateTypeUnion(serviceInputTypes);
+        generateTypeUnion(serviceOutputTypes);
+        writer.write("");
         generateConfiguration();
 
         writer.writeDocs(DocumentClientUtils.getClientDocs());
@@ -78,6 +81,10 @@ final class DocumentClientGenerator implements Runnable {
             writer.write("");
             generateDestroy();
         });
+    }
+
+    private void generateTypeUnion(String serviceType) {
+        writer.write("export type $L = $L", serviceType, String.format("__%s", serviceType));
     }
 
     private void generateDestroy() {

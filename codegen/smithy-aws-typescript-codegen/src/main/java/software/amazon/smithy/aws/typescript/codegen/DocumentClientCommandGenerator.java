@@ -136,8 +136,10 @@ final class DocumentClientCommandGenerator implements Runnable {
         String serviceOutputTypes = "ServiceOutputTypes";
         String handler = "Handler";
         String middlewareStack = "MiddlewareStack";
-        writer.addImport(serviceInputTypes, serviceInputTypes, "@aws-sdk/client-dynamodb");
-        writer.addImport(serviceOutputTypes, serviceOutputTypes, "@aws-sdk/client-dynamodb");
+
+        String serviceName = DocumentClientUtils.CLIENT_NAME;
+        writer.addImport(serviceInputTypes, serviceInputTypes, "./" + serviceName);
+        writer.addImport(serviceOutputTypes, serviceOutputTypes, "./" + serviceName);
         writer.addImport(handler, handler, "@aws-sdk/types");
         writer.addImport(middlewareStack, middlewareStack, "@aws-sdk/types");
 
