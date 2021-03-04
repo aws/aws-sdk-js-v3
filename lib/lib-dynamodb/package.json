@@ -10,7 +10,9 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
-    "postbuild": "downlevel-dts types types/ts3.4"
+    "pretest": "yarn build:cjs",
+    "postbuild": "downlevel-dts types types/ts3.4",
+    "test": "jest"
   },
   "engines": {
     "node": ">= 10.0.0"
