@@ -1,3 +1,5 @@
+import { lstatSync } from "fs";
+
 export const byteLength = (input: any) => {
   if (input === null || input === undefined) return 0;
   if (typeof input === "string") input = Buffer.from(input);
@@ -9,7 +11,7 @@ export const byteLength = (input: any) => {
     return input.size;
   } else if (typeof input.path === "string") {
     try {
-      return require("fs").lstatSync(input.path).size;
+      return lstatSync(input.path).size;
     } catch (error) {
       return undefined;
     }
