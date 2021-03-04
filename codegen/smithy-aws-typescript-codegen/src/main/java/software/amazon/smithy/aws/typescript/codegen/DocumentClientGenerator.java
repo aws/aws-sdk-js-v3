@@ -83,7 +83,8 @@ final class DocumentClientGenerator implements Runnable {
     private void generateDestroy() {
         writer.pushState(CLIENT_DESTROY_SECTION);
         writer.openBlock("destroy(): void {", "}", () -> {
-            writer.write("// A no-op, since client is passed in constructor");
+            writer.write("throw new Error(\"Document Client doesn't destroy client."
+                + "Call destroy() on DynamoDB client passed during Docuement client creation instead.\")");
         });
         writer.popState();
     }

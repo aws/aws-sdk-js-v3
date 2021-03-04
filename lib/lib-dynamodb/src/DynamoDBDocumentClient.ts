@@ -81,6 +81,8 @@ export class DynamoDBDocumentClient extends __Client<
   }
 
   destroy(): void {
-    // A no-op, since client is passed in constructor
+    throw new Error(
+      "Document Client doesn't destroy client.Call destroy() on DynamoDB client passed during Docuement client creation instead."
+    );
   }
 }
