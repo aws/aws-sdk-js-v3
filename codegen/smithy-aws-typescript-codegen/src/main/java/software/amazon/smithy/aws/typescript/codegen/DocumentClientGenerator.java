@@ -15,9 +15,16 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -29,6 +36,8 @@ final class DocumentClientGenerator implements Runnable {
     static final String CLIENT_CONSTRUCTOR_SECTION = "client_constructor";
     static final String CLIENT_DESTROY_SECTION = "client_destroy";
 
+    private final Model model;
+    private final SymbolProvider symbolProvider;
     private final ServiceShape service;
     private final TypeScriptWriter writer;
     private final Symbol symbol;
@@ -41,6 +50,8 @@ final class DocumentClientGenerator implements Runnable {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
+        this.model = model;
+        this.symbolProvider = symbolProvider;
         this.service = settings.getService(model);
         this.writer = writer;
 
@@ -57,12 +68,13 @@ final class DocumentClientGenerator implements Runnable {
         // Add required imports.
         writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
         writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
-        writer.addImport(serviceInputTypes, String.format("__%s", serviceInputTypes), "@aws-sdk/client-dynamodb");
-        writer.addImport(serviceOutputTypes, String.format("__%s", serviceOutputTypes), "@aws-sdk/client-dynamodb");
         writer.addImport("Client", "__Client", "@aws-sdk/smithy-client");
+        generateInputOutputImports();
 
-        generateTypeUnion(serviceInputTypes);
-        generateTypeUnion(serviceOutputTypes);
+        generateInputOutputTypeUnion(serviceInputTypes,
+            operationSymbol -> operationSymbol.expectProperty("inputType", Symbol.class).getName());
+        generateInputOutputTypeUnion(serviceOutputTypes,
+            operationSymbol -> operationSymbol.expectProperty("outputType", Symbol.class).getName());
         writer.write("");
         generateConfiguration();
 
@@ -83,8 +95,48 @@ final class DocumentClientGenerator implements Runnable {
         });
     }
 
-    private void generateTypeUnion(String serviceType) {
-        writer.write("export type $L = $L", serviceType, String.format("__%s", serviceType));
+    private void generateInputOutputImports() {
+        Set<OperationShape> containedOperations =
+                new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
+
+        for (OperationShape operation : containedOperations) {
+            if (DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation)) {
+                Symbol operationSymbol = symbolProvider.toSymbol(operation);
+
+                String name = DocumentClientUtils.getModifiedName(operationSymbol.getName());
+                String input = DocumentClientUtils.getModifiedName(
+                    operationSymbol.expectProperty("inputType", Symbol.class).getName()
+                );
+                String output = DocumentClientUtils.getModifiedName(
+                    operationSymbol.expectProperty("outputType", Symbol.class).getName()
+                );
+
+                String commandFileLocation = String.format("./%s/%s",
+                    DocumentClientUtils.CLIENT_COMMANDS_FOLDER, name);
+                writer.addImport(input, input, commandFileLocation);
+                writer.addImport(output, output, commandFileLocation);
+            }
+        }
+    }
+
+    private void generateInputOutputTypeUnion(String typeName, Function<Symbol, String> mapper) {
+        Set<OperationShape> containedOperations =
+                new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
+
+        List<String> operationTypeNames = containedOperations.stream()
+                .filter(operation -> DocumentClientUtils.containsAttributeValue(model, symbolProvider, operation))
+                .map(symbolProvider::toSymbol)
+                .map(operation -> mapper.apply(operation))
+                .map(operationtypeName -> DocumentClientUtils.getModifiedName(operationtypeName))
+                .collect(Collectors.toList());
+
+        writer.write("export type $L = ", typeName);
+        writer.indent();
+        for (int i = 0; i < operationTypeNames.size(); i++) {
+            writer.write("| $L$L", operationTypeNames.get(i), i == operationTypeNames.size() - 1 ? ";" : "");
+        }
+        writer.dedent();
+        writer.write("");
     }
 
     private void generateDestroy() {
