@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config-resolver",
-  "version": "3.7.0",
+  "version": "3.8.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "3.7.0",
+    "@aws-sdk/node-config-provider": "3.8.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "tslib": "^1.8.0",
