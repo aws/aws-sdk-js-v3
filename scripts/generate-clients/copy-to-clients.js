@@ -105,6 +105,19 @@ const copyToClients = async (sourceDir, destinationDir) => {
     const destPath = join(destinationDir, clientName);
     const overwritablePredicate = getOverwritablePredicate(packageName);
 
+    // Code to move files/folders prefixed with `doc-client-` to `lib/lib-dynamodb`
+    if (clientName === "client-dynamodb") {
+      for (const packageSub of readdirSync(artifactPath)) {
+        if (packageSub.startsWith("doc-client-")) {
+          const destinationFileName = packageSub.replace("doc-client-", "");
+          const docClientArtifactPath = join(artifactPath, packageSub);
+          const docClientDestPath = join(destinationDir, "..", "lib", "lib-dynamodb", "src", destinationFileName);
+          copySync(docClientArtifactPath, docClientDestPath, { overwrite: true });
+          removeSync(docClientArtifactPath);
+        }
+      }
+    }
+
     for (const packageSub of readdirSync(artifactPath)) {
       const packageSubPath = join(artifactPath, packageSub);
       const destSubPath = join(destPath, packageSub);
