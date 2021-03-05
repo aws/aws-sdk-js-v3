@@ -69,7 +69,7 @@ final class DocumentClientGenerator implements Runnable {
         writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
         writer.addImport(configType, configType, "@aws-sdk/client-dynamodb");
         writer.addImport("Client", "__Client", "@aws-sdk/smithy-client");
-        generateInputOutputImports();
+        generateInputOutputImports(serviceInputTypes, serviceOutputTypes);
 
         generateInputOutputTypeUnion(serviceInputTypes,
             operationSymbol -> operationSymbol.expectProperty("inputType", Symbol.class).getName());
@@ -95,7 +95,9 @@ final class DocumentClientGenerator implements Runnable {
         });
     }
 
-    private void generateInputOutputImports() {
+    private void generateInputOutputImports(String serviceInputTypes, String serviceOutputTypes) {
+        writer.addImport(serviceInputTypes, String.format("__%s", serviceInputTypes), "@aws-sdk/client-dynamodb");
+        writer.addImport(serviceOutputTypes, String.format("__%s", serviceOutputTypes), "@aws-sdk/client-dynamodb");
         Set<OperationShape> containedOperations =
                 new TreeSet<>(TopDownIndex.of(model).getContainedOperations(service));
 
@@ -130,7 +132,7 @@ final class DocumentClientGenerator implements Runnable {
                 .map(operationtypeName -> DocumentClientUtils.getModifiedName(operationtypeName))
                 .collect(Collectors.toList());
 
-        writer.write("export type $L = ", typeName);
+        writer.write("export type $L = $L", typeName, String.format("__%s", typeName));
         writer.indent();
         for (int i = 0; i < operationTypeNames.size(); i++) {
             writer.write("| $L$L", operationTypeNames.get(i), i == operationTypeNames.size() - 1 ? ";" : "");
