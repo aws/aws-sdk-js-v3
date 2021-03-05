@@ -14,12 +14,18 @@ import { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
 import { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
 import { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
 import { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
-import { DynamoDBClient, DynamoDBClientResolvedConfig } from "@aws-sdk/client-dynamodb";
+import {
+  DynamoDBClient,
+  DynamoDBClientResolvedConfig,
+  ServiceInputTypes as __ServiceInputTypes,
+  ServiceOutputTypes as __ServiceOutputTypes,
+} from "@aws-sdk/client-dynamodb";
 import { Client as __Client } from "@aws-sdk/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 import { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
 export type ServiceInputTypes =
+  | __ServiceInputTypes
   | BatchExecuteStatementCommandInput
   | BatchGetCommandInput
   | BatchWriteCommandInput
@@ -35,6 +41,7 @@ export type ServiceInputTypes =
   | UpdateCommandInput;
 
 export type ServiceOutputTypes =
+  | __ServiceOutputTypes
   | BatchExecuteStatementCommandOutput
   | BatchGetCommandOutput
   | BatchWriteCommandOutput
