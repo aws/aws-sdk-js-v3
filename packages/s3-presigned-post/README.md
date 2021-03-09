@@ -1,4 +1,4 @@
-# @aws-sdk/s3-resigned-post
+# @aws-sdk/s3-presigned-post
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/s3-presigned-post/latest.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/s3-presigned-post.svg)](https://www.npmjs.com/package/@aws-sdk/s3-presigned-post)
