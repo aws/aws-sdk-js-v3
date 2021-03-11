@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-app-mesh",
   "description": "AWS SDK for JavaScript App Mesh Client for Node.js, Browser and React Native",
-  "version": "3.8.0",
+  "version": "3.8.1",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
@@ -39,7 +39,7 @@
     "@aws-sdk/middleware-logger": "3.6.1",
     "@aws-sdk/middleware-retry": "3.8.0",
     "@aws-sdk/middleware-serde": "3.6.1",
-    "@aws-sdk/middleware-signing": "3.6.1",
+    "@aws-sdk/middleware-signing": "3.8.1",
     "@aws-sdk/middleware-stack": "3.6.1",
     "@aws-sdk/middleware-user-agent": "3.6.1",
     "@aws-sdk/node-config-provider": "3.8.0",
