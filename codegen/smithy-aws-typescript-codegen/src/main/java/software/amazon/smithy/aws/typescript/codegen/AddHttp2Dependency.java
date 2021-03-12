@@ -27,6 +27,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 
 public class AddHttp2Dependency implements TypeScriptIntegration {
@@ -57,6 +58,6 @@ public class AddHttp2Dependency implements TypeScriptIntegration {
         String serviceId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("");
         // TODO: Add "Kinesis" service to http2 applicable, but blocked by potential breaking change.
         // Reference: https://github.com/aws/aws-sdk-js-v3/issues/1206
-        return serviceId.equals("Transcribe Streaming");
+        return ListUtils.of("Lex Runtime V2", "Transcribe Streaming").contains(serviceId);
     }
 }
