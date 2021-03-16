@@ -18,16 +18,15 @@ export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  */
 export const fromContainerMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
   const { timeout, maxRetries } = providerConfigFromInit(init);
-  return async () => {
-    const requestOptions = await getCmdsUri();
-    return await retry(async () => {
+  return () =>
+    retry(async () => {
+      const requestOptions = await getCmdsUri();
       const credsResponse = JSON.parse(await requestFromEcsImds(timeout, requestOptions));
       if (!isImdsCredentials(credsResponse)) {
         throw new ProviderError("Invalid response received from instance metadata service.");
       }
       return fromImdsCredentials(credsResponse);
     }, maxRetries);
-  };
 };
 
 const requestFromEcsImds = async (timeout: number, options: RequestOptions): Promise<string> => {
