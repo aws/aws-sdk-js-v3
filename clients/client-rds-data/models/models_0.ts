@@ -1162,6 +1162,9 @@ export interface BatchExecuteStatementRequest {
 export namespace BatchExecuteStatementRequest {
   export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
     ...obj,
+    ...(obj.parameterSets && {
+      parameterSets: obj.parameterSets.map((item) => item.map((item) => SqlParameter.filterSensitiveLog(item))),
+    }),
   });
 }
 
@@ -1179,6 +1182,7 @@ export interface BatchExecuteStatementResponse {
 export namespace BatchExecuteStatementResponse {
   export const filterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
     ...obj,
+    ...(obj.updateResults && { updateResults: obj.updateResults.map((item) => UpdateResult.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1236,6 +1240,7 @@ export namespace ExecuteStatementResponse {
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
     ...obj,
     ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
+    ...(obj.records && { records: obj.records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
   });
 }
 
@@ -1257,6 +1262,7 @@ export interface ResultFrame {
 export namespace ResultFrame {
   export const filterSensitiveLog = (obj: ResultFrame): any => ({
     ...obj,
+    ...(obj.records && { records: obj.records.map((item) => _Record.filterSensitiveLog(item)) }),
   });
 }
 
@@ -1282,6 +1288,7 @@ export interface SqlStatementResult {
 export namespace SqlStatementResult {
   export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
     ...obj,
+    ...(obj.resultFrame && { resultFrame: ResultFrame.filterSensitiveLog(obj.resultFrame) }),
   });
 }
 

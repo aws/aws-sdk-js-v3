@@ -108,7 +108,12 @@ const slurpFile = (path: string): Promise<string> =>
     });
   });
 
-const getHomeDir = (): string => {
+/**
+ * Get the HOME directory for the current runtime.
+ *
+ * @internal
+ */
+export const getHomeDir = (): string => {
   const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${sep}` } = process.env;
 
   if (HOME) return HOME;

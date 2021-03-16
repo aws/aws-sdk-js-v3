@@ -1,4 +1,9 @@
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "../commands/EmptyOperationCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "../commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "../commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "../commands/JsonEnumsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/JsonUnionsCommand";
@@ -25,6 +30,7 @@ import {
   FooError,
   GreetingStruct,
   GreetingWithErrorsOutput,
+  HostLabelInput,
   InvalidGreeting,
   JsonEnumsInputOutput,
   KitchenSink,
@@ -35,7 +41,11 @@ import {
   StructWithLocationName,
   UnionInputOutput,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
 import {
   DocumentType as __DocumentType,
   LazyJsonString as __LazyJsonString,
@@ -59,7 +69,51 @@ export const serializeAws_json1_1EmptyOperationCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "JsonProtocol.EmptyOperation",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1EndpointOperationCommand = async (
+  input: EndpointOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.EndpointOperation",
+  };
+  const body = "{}";
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "foo." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+export const serializeAws_json1_1EndpointWithHostLabelOperationCommand = async (
+  input: EndpointWithHostLabelOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.EndpointWithHostLabelOperation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1HostLabelInput(input, context));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "foo.{label}." + resolvedHostname;
+    if (input.label === undefined) {
+      throw new Error("Empty value provided for input host prefix: label.");
+    }
+    resolvedHostname = resolvedHostname.replace("{label}", input.label!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 export const serializeAws_json1_1GreetingWithErrorsCommand = async (
@@ -70,7 +124,8 @@ export const serializeAws_json1_1GreetingWithErrorsCommand = async (
     "content-type": "application/x-amz-json-1.1",
     "x-amz-target": "JsonProtocol.GreetingWithErrors",
   };
-  return buildHttpRpcRequest(context, headers, "/", undefined, undefined);
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1JsonEnumsCommand = async (
@@ -169,6 +224,92 @@ const deserializeAws_json1_1EmptyOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EmptyOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1EndpointOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1EndpointOperationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: EndpointOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1EndpointOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1EndpointWithHostLabelOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointWithHostLabelOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1EndpointWithHostLabelOperationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: EndpointWithHostLabelOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1EndpointWithHostLabelOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -637,6 +778,12 @@ const serializeAws_json1_1Document = (input: __DocumentType.Value, context: __Se
 
 const serializeAws_json1_1EmptyStruct = (input: EmptyStruct, context: __SerdeContext): any => {
   return {};
+};
+
+const serializeAws_json1_1HostLabelInput = (input: HostLabelInput, context: __SerdeContext): any => {
+  return {
+    ...(input.label !== undefined && input.label !== null && { label: input.label }),
+  };
 };
 
 const serializeAws_json1_1JsonEnumsInputOutput = (input: JsonEnumsInputOutput, context: __SerdeContext): any => {

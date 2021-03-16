@@ -100,6 +100,26 @@ export namespace EmptyInputAndEmptyOutputOutput {
   });
 }
 
+export interface HostLabelHeaderInput {
+  accountId: string | undefined;
+}
+
+export namespace HostLabelHeaderInput {
+  export const filterSensitiveLog = (obj: HostLabelHeaderInput): any => ({
+    ...obj,
+  });
+}
+
+export interface HostLabelInput {
+  label: string | undefined;
+}
+
+export namespace HostLabelInput {
+  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
+    ...obj,
+  });
+}
+
 export interface FlattenedXmlMapInputOutput {
   myMap?: { [key: string]: FooEnum | string };
 }

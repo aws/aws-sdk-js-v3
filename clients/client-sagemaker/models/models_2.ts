@@ -8307,6 +8307,7 @@ export interface SearchResponse {
 export namespace SearchResponse {
   export const filterSensitiveLog = (obj: SearchResponse): any => ({
     ...obj,
+    ...(obj.Results && { Results: obj.Results.map((item) => SearchRecord.filterSensitiveLog(item)) }),
   });
 }
 

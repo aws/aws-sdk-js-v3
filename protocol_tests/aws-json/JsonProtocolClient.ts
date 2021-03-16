@@ -1,4 +1,9 @@
 import { EmptyOperationCommandInput, EmptyOperationCommandOutput } from "./commands/EmptyOperationCommand";
+import { EndpointOperationCommandInput, EndpointOperationCommandOutput } from "./commands/EndpointOperationCommand";
+import {
+  EndpointWithHostLabelOperationCommandInput,
+  EndpointWithHostLabelOperationCommandOutput,
+} from "./commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
@@ -68,6 +73,8 @@ import {
 
 export type ServiceInputTypes =
   | EmptyOperationCommandInput
+  | EndpointOperationCommandInput
+  | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
   | JsonEnumsCommandInput
   | JsonUnionsCommandInput
@@ -78,6 +85,8 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | EmptyOperationCommandOutput
+  | EndpointOperationCommandOutput
+  | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
   | JsonEnumsCommandOutput
   | JsonUnionsCommandOutput
@@ -151,11 +160,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * Default credentials provider; Not available in browser runtime
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
@@ -169,6 +173,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -186,18 +195,18 @@ export type JsonProtocolClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
-  AwsAuthInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
+  AwsAuthInputConfig &
   UserAgentInputConfig;
 
 export type JsonProtocolClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
-  AwsAuthResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
+  AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
 
 export class JsonProtocolClient extends __Client<
@@ -215,17 +224,17 @@ export class JsonProtocolClient extends __Client<
     };
     let _config_1 = resolveRegionConfig(_config_0);
     let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveAwsAuthConfig(_config_2);
-    let _config_4 = resolveRetryConfig(_config_3);
-    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_3 = resolveRetryConfig(_config_2);
+    let _config_4 = resolveHostHeaderConfig(_config_3);
+    let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

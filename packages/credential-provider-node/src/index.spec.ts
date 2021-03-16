@@ -21,6 +21,14 @@ jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
 }));
 import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 
+jest.mock("@aws-sdk/credential-provider-sso", () => {
+  const ssoProvider = jest.fn();
+  return {
+    fromSSO: jest.fn().mockReturnValue(ssoProvider),
+  };
+});
+import { fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
+
 jest.mock("@aws-sdk/credential-provider-ini", () => {
   const iniProvider = jest.fn();
   return {
@@ -81,11 +89,13 @@ beforeEach(() => {
   });
 
   (fromEnv() as any).mockClear();
+  (fromSSO() as any).mockClear();
   (fromIni() as any).mockClear();
   (fromProcess() as any).mockClear();
   (fromContainerMetadata() as any).mockClear();
   (fromInstanceMetadata() as any).mockClear();
   (fromEnv as any).mockClear();
+  (fromSSO as any).mockClear();
   (fromIni as any).mockClear();
   (fromProcess as any).mockClear();
   (fromContainerMetadata as any).mockClear();
@@ -120,6 +130,24 @@ describe("defaultProvider", () => {
     expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
   });
 
+  it("should stop after the SSO provider if credentials have been found", async () => {
+    const creds = {
+      accessKeyId: "foo",
+      secretAccessKey: "bar",
+    };
+
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromSSO() as any).mockImplementation(() => Promise.resolve(creds));
+
+    expect(await defaultProvider()()).toEqual(creds);
+    expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect((fromSSO() as any).mock.calls.length).toBe(1);
+    expect((fromIni() as any).mock.calls.length).toBe(0);
+    expect((fromProcess() as any).mock.calls.length).toBe(0);
+    expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
+    expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+  });
+
   it("should stop after the ini provider if credentials have been found", async () => {
     const creds = {
       accessKeyId: "foo",
@@ -127,10 +155,12 @@ describe("defaultProvider", () => {
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect((fromSSO() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(0);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
@@ -144,11 +174,13 @@ describe("defaultProvider", () => {
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect((fromSSO() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
@@ -161,12 +193,14 @@ describe("defaultProvider", () => {
       secretAccessKey: "bar",
     };
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect((fromSSO() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
@@ -180,6 +214,7 @@ describe("defaultProvider", () => {
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
@@ -198,6 +233,7 @@ describe("defaultProvider", () => {
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
@@ -207,6 +243,7 @@ describe("defaultProvider", () => {
 
     expect(await defaultProvider()()).toEqual(creds);
     expect((fromEnv() as any).mock.calls.length).toBe(1);
+    expect((fromSSO() as any).mock.calls.length).toBe(1);
     expect((fromIni() as any).mock.calls.length).toBe(1);
     expect((fromProcess() as any).mock.calls.length).toBe(1);
     expect((fromContainerMetadata() as any).mock.calls.length).toBe(1);
@@ -220,6 +257,7 @@ describe("defaultProvider", () => {
     };
 
     (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("Nope!")));
     (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
     (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("Nor here!")));
     (fromInstanceMetadata() as any).mockImplementation(() => Promise.resolve(creds));
@@ -227,7 +265,31 @@ describe("defaultProvider", () => {
     await expect(defaultProvider()()).resolves;
     expect((loadSharedConfigFiles as any).mock.calls.length).toBe(1);
     expect((fromIni as any).mock.calls[1][0]).toMatchObject({ loadedConfig: loadSharedConfigFiles() });
+    expect((fromSSO as any).mock.calls[1][0]).toMatchObject({ loadedConfig: loadSharedConfigFiles() });
     expect((fromProcess as any).mock.calls[1][0]).toMatchObject({ loadedConfig: loadSharedConfigFiles() });
+  });
+
+  it("should pass configuration on to the SSO provider", async () => {
+    const ssoConfig: FromSSOInit = {
+      profile: "foo",
+      filepath: "/home/user/.secrets/credentials.ini",
+      configFilepath: "/home/user/.secrets/credentials.ini",
+    };
+
+    (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("Keep moving!")));
+    (fromSSO() as any).mockImplementation(() =>
+      Promise.resolve({
+        accessKeyId: "foo",
+        secretAccessKey: "bar",
+      })
+    );
+
+    (fromSSO as any).mockClear();
+
+    await expect(defaultProvider(ssoConfig)()).resolves;
+
+    expect((fromSSO as any).mock.calls.length).toBe(1);
+    expect((fromSSO as any).mock.calls[0][0]).toEqual({ ...ssoConfig, loadedConfig });
   });
 
   it("should pass configuration on to the ini provider", async () => {
@@ -387,41 +449,65 @@ describe("defaultProvider", () => {
 
   // CF https://github.com/boto/botocore/blob/1.8.32/botocore/credentials.py#L104
   describe("explicit profiles", () => {
-    it("should only consult the ini provider if a profile has been specified", async () => {
+    it("should only consult SSO provider if profile has been set", async () => {
       const creds = {
         accessKeyId: "foo",
         secretAccessKey: "bar",
       };
 
-      (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromSSO() as any).mockImplementation(() => Promise.resolve(Promise.resolve(creds)));
+      (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
 
       expect(await defaultProvider({ profile: "foo" })()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
-      expect((fromIni() as any).mock.calls.length).toBe(1);
+      expect((fromSSO() as any).mock.calls.length).toBe(1);
+      expect((fromIni() as any).mock.calls.length).toBe(0);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
 
-    it("should only consult the ini provider if the profile environment variable has been set", async () => {
+    it("should only consult SSO provider if the profile environment variable has been set", async () => {
       const creds = {
         accessKeyId: "foo",
         secretAccessKey: "bar",
       };
 
-      (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromIni() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromProcess() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromSSO() as any).mockImplementation(() => Promise.resolve(creds));
+      (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromProcess() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
 
       process.env[ENV_PROFILE] = "foo";
       expect(await defaultProvider()()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
-      expect((fromIni() as any).mock.calls.length).toBe(1);
+      expect((fromSSO() as any).mock.calls.length).toBe(1);
+      expect((fromIni() as any).mock.calls.length).toBe(0);
       expect((fromProcess() as any).mock.calls.length).toBe(0);
+      expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
+      expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
+    });
+
+    it("should consult ini provider if no credentials is not found in SSO provider", async () => {
+      const creds = {
+        accessKeyId: "foo",
+        secretAccessKey: "bar",
+      };
+
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromIni() as any).mockImplementation(() => Promise.resolve(Promise.resolve(creds)));
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+
+      expect(await defaultProvider({ profile: "foo" })()).toEqual(creds);
+      expect((fromEnv() as any).mock.calls.length).toBe(0);
+      expect((fromSSO() as any).mock.calls.length).toBe(1);
+      expect((fromIni() as any).mock.calls.length).toBe(1);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);
       expect((fromInstanceMetadata() as any).mock.calls.length).toBe(0);
     });
@@ -432,15 +518,17 @@ describe("defaultProvider", () => {
         secretAccessKey: "bar",
       };
 
-      (fromEnv() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("Nothing here!")));
+      (fromEnv() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromSSO() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromIni() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
       (fromProcess() as any).mockImplementation(() => Promise.resolve(creds));
-      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
-      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new Error("PANIC")));
+      (fromInstanceMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
+      (fromContainerMetadata() as any).mockImplementation(() => Promise.reject(new ProviderError("PANIC")));
 
       process.env[ENV_PROFILE] = "foo";
       expect(await defaultProvider()()).toEqual(creds);
       expect((fromEnv() as any).mock.calls.length).toBe(0);
+      expect((fromSSO() as any).mock.calls.length).toBe(1);
       expect((fromIni() as any).mock.calls.length).toBe(1);
       expect((fromProcess() as any).mock.calls.length).toBe(1);
       expect((fromContainerMetadata() as any).mock.calls.length).toBe(0);

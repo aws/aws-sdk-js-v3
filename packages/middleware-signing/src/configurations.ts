@@ -1,5 +1,9 @@
+import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
+
+// 5 minutes buffer time the refresh the credential before it really expires
+const CREDENTIAL_EXPIRE_WINDOW = 300000;
 
 export interface AwsAuthInputConfig {
   /**
@@ -42,9 +46,13 @@ export interface AwsAuthResolvedConfig {
   signingEscapePath: boolean;
   systemClockOffset: number;
 }
-export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & PreviouslyResolved): T & AwsAuthResolvedConfig {
-  const credentials = input.credentials || input.credentialDefaultProvider(input as any);
-  const normalizedCreds = normalizeProvider(credentials);
+
+export const resolveAwsAuthConfig = <T>(
+  input: T & AwsAuthInputConfig & PreviouslyResolved
+): T & AwsAuthResolvedConfig => {
+  const normalizedCreds = input.credentials
+    ? normalizeCredentialProvider(input.credentials)
+    : input.credentialDefaultProvider(input as any);
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {
@@ -81,12 +89,25 @@ export function resolveAwsAuthConfig<T>(input: T & AwsAuthInputConfig & Previous
     credentials: normalizedCreds,
     signer,
   };
-}
+};
 
-function normalizeProvider<T>(input: T | Provider<T>): Provider<T> {
+const normalizeProvider = <T>(input: T | Provider<T>): Provider<T> => {
   if (typeof input === "object") {
     const promisified = Promise.resolve(input);
     return () => promisified;
   }
   return input as Provider<T>;
-}
+};
+
+const normalizeCredentialProvider = (credentials: Credentials | Provider<Credentials>): Provider<Credentials> => {
+  if (typeof credentials === "function") {
+    return memoize(
+      credentials,
+      (credentials) =>
+        credentials.expiration !== undefined &&
+        credentials.expiration.getTime() - Date.now() < CREDENTIAL_EXPIRE_WINDOW,
+      (credentials) => credentials.expiration !== undefined
+    );
+  }
+  return normalizeProvider(credentials);
+};

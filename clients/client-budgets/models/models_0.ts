@@ -356,6 +356,7 @@ export interface ActionHistoryDetails {
 export namespace ActionHistoryDetails {
   export const filterSensitiveLog = (obj: ActionHistoryDetails): any => ({
     ...obj,
+    ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
   });
 }
 
@@ -403,6 +404,9 @@ export interface ActionHistory {
 export namespace ActionHistory {
   export const filterSensitiveLog = (obj: ActionHistory): any => ({
     ...obj,
+    ...(obj.ActionHistoryDetails && {
+      ActionHistoryDetails: ActionHistoryDetails.filterSensitiveLog(obj.ActionHistoryDetails),
+    }),
   });
 }
 
@@ -1147,6 +1151,7 @@ export interface DeleteBudgetActionResponse {
 export namespace DeleteBudgetActionResponse {
   export const filterSensitiveLog = (obj: DeleteBudgetActionResponse): any => ({
     ...obj,
+    ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
   });
 }
 
@@ -1333,6 +1338,7 @@ export interface DescribeBudgetActionResponse {
 export namespace DescribeBudgetActionResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetActionResponse): any => ({
     ...obj,
+    ...(obj.Action && { Action: Action.filterSensitiveLog(obj.Action) }),
   });
 }
 
@@ -1997,6 +2003,8 @@ export interface UpdateBudgetActionResponse {
 export namespace UpdateBudgetActionResponse {
   export const filterSensitiveLog = (obj: UpdateBudgetActionResponse): any => ({
     ...obj,
+    ...(obj.OldAction && { OldAction: Action.filterSensitiveLog(obj.OldAction) }),
+    ...(obj.NewAction && { NewAction: Action.filterSensitiveLog(obj.NewAction) }),
   });
 }
 

@@ -2808,6 +2808,7 @@ export interface CreateProxySessionResponse {
 export namespace CreateProxySessionResponse {
   export const filterSensitiveLog = (obj: CreateProxySessionResponse): any => ({
     ...obj,
+    ...(obj.ProxySession && { ProxySession: ProxySession.filterSensitiveLog(obj.ProxySession) }),
   });
 }
 
@@ -5183,6 +5184,7 @@ export interface GetProxySessionResponse {
 export namespace GetProxySessionResponse {
   export const filterSensitiveLog = (obj: GetProxySessionResponse): any => ({
     ...obj,
+    ...(obj.ProxySession && { ProxySession: ProxySession.filterSensitiveLog(obj.ProxySession) }),
   });
 }
 

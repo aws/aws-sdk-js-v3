@@ -650,6 +650,7 @@ export interface GetStatementResultResponse {
 export namespace GetStatementResultResponse {
   export const filterSensitiveLog = (obj: GetStatementResultResponse): any => ({
     ...obj,
+    ...(obj.Records && { Records: obj.Records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
   });
 }
 

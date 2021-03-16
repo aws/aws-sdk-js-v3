@@ -39,6 +39,16 @@ export namespace EmptyStruct {
   });
 }
 
+export interface HostLabelInput {
+  label: string | undefined;
+}
+
+export namespace HostLabelInput {
+  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
+    ...obj,
+  });
+}
+
 export interface SimpleStruct {
   Value?: string;
 }

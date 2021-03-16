@@ -32,16 +32,14 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.MapUtils;
 
 /**
- * AWS clients need to know the service name for collecting metrics,
- * credentials for signing requests, and the region name used to resolve
- * endpoints.
+ * AWS clients need to know the service name for collecting metrics, the
+ * region name used to resolve endpoints, the max attempt to retry a request
+ * and logger instance to print the log.
  *
  * <p>This plugin adds the following config interface fields:
  *
  * <ul>
  *     <li>serviceId: Unique name to identify the service.</li>
- *     <li>credentialDefaultProvider: Provides credentials if no credentials
- *     are explicitly provided.</li>
  *     <li>region: The AWS region to which this client will send requests</li>
  *     <li>maxAttempts: Provides value for how many times a request will be
  *     made at most in case of retry.</li>
@@ -52,8 +50,6 @@ import software.amazon.smithy.utils.MapUtils;
  *
  * <ul>
  *     <li>serviceId: Unique name to identify the service.</li>
- *     <li>credentialDefaultProvider: Uses the default credential provider that
- *     checks things like environment variables and the AWS config file.</li>
  *     <li>region: Uses the default region provider that checks things like
  *      environment variables and the AWS config file.</li>
  *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
@@ -65,9 +61,6 @@ import software.amazon.smithy.utils.MapUtils;
  *
  * <ul>
  *     <li>serviceId: Unique name to identify the service.</li>
- *     <li>credentialDefaultProvider: Throws an exception since credentials must
- *     be explicitly provided in the browser (environment variables and
- *     the shared config can't be resolved from the browser).</li>
  *     <li>region: Throws an exception since a region must
  *     be explicitly provided in the browser (environment variables and
  *     the shared config can't be resolved from the browser).</li>
@@ -87,13 +80,10 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             TypeScriptWriter writer
     ) {
         writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
         writer.writeDocs("Unique service identifier.\n@internal")
                 .write("serviceId?: string;\n");
-        writer.writeDocs("Default credentials provider; Not available in browser runtime")
-                .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         writer.writeDocs("The AWS region to which this client will send requests")
                 .write("region?: string | __Provider<string>;\n");
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
@@ -145,11 +135,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                     TypeScriptDependency.INVALID_DEPENDENCY.packageName);
                             writer.write("region: invalidProvider(\"Region is missing\"),");
                         },
-                        "credentialDefaultProvider", writer -> {
-                            writer.write(
-                                    "credentialDefaultProvider: (_: unknown) => () => Promise.reject(new Error("
-                                        + "\"Credential is missing\")),");
-                        },
                         "maxAttempts", writer -> {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
@@ -170,12 +155,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                                     TypeScriptDependency.CONFIG_RESOLVER.packageName);
                             writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
-                        },
-                        "credentialDefaultProvider", writer -> {
-                            writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
-                            writer.addImport("defaultProvider", "credentialDefaultProvider",
-                                    AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                            writer.write("credentialDefaultProvider,");
                         },
                         "maxAttempts", writer -> {
                             writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
