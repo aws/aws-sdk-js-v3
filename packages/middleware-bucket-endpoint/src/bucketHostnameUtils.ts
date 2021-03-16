@@ -87,8 +87,8 @@ export const validateArnEndpointOptions = (options: {
 };
 
 export const validateService = (service: string) => {
-  if (service !== "s3" && service !== "s3-outposts") {
-    throw new Error("Expect 's3' or 's3-outposts' in ARN service component");
+  if (service !== "s3" && service !== "s3-outposts" && service !== "s3-object-lambda") {
+    throw new Error("Expect 's3' or 's3-outposts' or 's3-object-lambda' in ARN service component");
   }
 };
 
