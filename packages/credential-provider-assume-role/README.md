@@ -40,3 +40,5 @@ The following options are supported:
   `~/.aws/config` by default.
 - `roleAssumer` - A function that assumes a role and returns a promise
   fulfilled with credentials for the assumed role.
+- `roleAssumerWithWebIdentity` - A function that assumes a role with web identity
+  and returns a promise fulfilled with credentials for the assumed role.
