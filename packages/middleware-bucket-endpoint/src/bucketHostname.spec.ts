@@ -742,7 +742,7 @@ describe("bucketHostname", () => {
           accelerateEndpoint: true,
         });
         // should never get here
-        expect(1).toEqual(0);
+        expect.assertions(1);
       } catch (e) {
         // should throw since these are error cases
         expect(1).toEqual(1);
@@ -759,7 +759,7 @@ describe("bucketHostname", () => {
           dualstackEndpoint: true,
         });
         // should never get here
-        expect(1).toEqual(0);
+        expect.assertions(1);
       } catch (e) {
         // should throw since these are error cases
         expect(1).toEqual(1);
@@ -910,7 +910,7 @@ describe("bucketHostname", () => {
               useArnRegion: useArnRegion,
             });
             // should never get here
-            expect(1).toEqual(0);
+            expect.assertions(1);
           } catch (e) {
             // should throw since these are error cases
             expect(1).toEqual(1);
