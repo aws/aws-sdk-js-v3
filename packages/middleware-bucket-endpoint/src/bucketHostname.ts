@@ -68,17 +68,26 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   validateAccountId(accountId);
   validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
   const { accesspointName, outpostId } = getArnResources(resource);
-  validateDNSHostLabel(`${accesspointName}-${accountId}`, { tlsCompatible });
+  const DNSHostLabel = `${accesspointName}-${accountId}`;
+  validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
 
   const endpointRegion = useArnRegion ? region : clientRegion;
   const signingRegion = useArnRegion ? region : clientSigningRegion;
-  if (outpostId) {
+  if (service === "s3-object-lambda") {
+    validateNoDualstack(dualstackEndpoint);
+    return {
+      bucketEndpoint: true,
+      hostname: `${DNSHostLabel}.${service}.${endpointRegion}.${hostnameSuffix}`,
+      signingRegion,
+      signingService: service,
+    };
+  } else if (outpostId) {
     // if this is an Outpost ARN
     validateOutpostService(service);
     validateDNSHostLabel(outpostId, { tlsCompatible });
     validateNoDualstack(dualstackEndpoint);
     validateNoFIPS(endpointRegion);
-    const hostnamePrefix = `${accesspointName}-${accountId}.${outpostId}`;
+    const hostnamePrefix = `${DNSHostLabel}.${outpostId}`;
     return {
       bucketEndpoint: true,
       hostname: `${hostnamePrefix}${isCustomEndpoint ? "" : `.s3-outposts.${endpointRegion}`}.${hostnameSuffix}`,
@@ -88,7 +97,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   }
   // construct endpoint from Accesspoint ARN
   validateS3Service(service);
-  const hostnamePrefix = `${accesspointName}-${accountId}`;
+  const hostnamePrefix = `${DNSHostLabel}`;
   return {
     bucketEndpoint: true,
     hostname: `${hostnamePrefix}${
