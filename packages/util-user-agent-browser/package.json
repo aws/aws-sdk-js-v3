@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-browser",
-  "version": "3.6.1",
+  "version": "3.9.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",

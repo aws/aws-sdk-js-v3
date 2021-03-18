@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/polly-request-presigner",
-  "version": "3.8.1",
+  "version": "3.9.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "pretest": "yarn build:cjs",
@@ -28,7 +28,7 @@
     "tslib": "^1.8.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-polly": "3.8.1",
+    "@aws-sdk/client-polly": "3.9.0",
     "@aws-sdk/hash-node": "3.6.1",
     "@types/jest": "^26.0.4",
     "@types/node": "^12.0.2",

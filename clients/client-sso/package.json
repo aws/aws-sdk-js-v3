@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sso",
   "description": "AWS SDK for JavaScript Sso Client for Node.js, Browser and React Native",
-  "version": "3.8.0",
+  "version": "3.9.0",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
@@ -51,7 +51,7 @@
     "@aws-sdk/util-base64-node": "3.6.1",
     "@aws-sdk/util-body-length-browser": "3.6.1",
     "@aws-sdk/util-body-length-node": "3.6.1",
-    "@aws-sdk/util-user-agent-browser": "3.6.1",
+    "@aws-sdk/util-user-agent-browser": "3.9.0",
     "@aws-sdk/util-user-agent-node": "3.8.0",
     "@aws-sdk/util-utf8-browser": "3.6.1",
     "@aws-sdk/util-utf8-node": "3.6.1",
