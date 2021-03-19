@@ -1,10 +1,10 @@
 // polyfill exposes the same ReadableStream API as web, allowing easy testing
 import { ReadableStream } from "web-streams-polyfill";
 
-import { byteLength } from "../../src/bytelength";
-import { getChunkStream as chunkFromReadable } from "../../src/chunks/getChunkStream";
-import { getDataReadableStream } from "../../src/chunks/getDataReadableStream";
-import { RawDataPart as DataPart } from "../../src/Upload";
+import { byteLength } from "../bytelength";
+import { getChunkStream as chunkFromReadable } from "./getChunkStream";
+import { getDataReadableStream } from "./getDataReadableStream";
+import { RawDataPart as DataPart } from "../Upload";
 
 describe("chunkFromReadable.name", () => {
   // larger than the 5mb min chunk size
