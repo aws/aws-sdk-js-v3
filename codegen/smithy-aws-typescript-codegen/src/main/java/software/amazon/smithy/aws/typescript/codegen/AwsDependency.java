@@ -52,7 +52,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser", "^1.0.0-rc.1"),
     BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node", "^1.0.0-rc.1"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder", "^1.0.0-rc.1"),
-    XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "3.17.4"),
+    XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "3.19.0"),
     UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^3.0.0"),
     UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^3.0.0"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream", "^1.0.0-rc.1"),
