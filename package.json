@@ -81,7 +81,7 @@
     "lint-staged": "^10.0.1",
     "mocha": "^8.0.1",
     "prettier": "2.2.1",
-    "puppeteer": "^5.1.0",
+    "puppeteer": "^8.0.0",
     "ts-jest": "^26.4.1",
     "ts-loader": "^7.0.5",
     "typedoc-plugin-lerna-packages": "^0.3.1",
