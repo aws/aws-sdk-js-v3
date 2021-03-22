@@ -1,4 +1,4 @@
-import { lstatSync } from "fs";
+import { ClientDefaultValues } from "./runtimeConfig";
 
 export const byteLength = (input: any) => {
   if (input === null || input === undefined) return 0;
@@ -11,7 +11,7 @@ export const byteLength = (input: any) => {
     return input.size;
   } else if (typeof input.path === "string") {
     try {
-      return lstatSync(input.path).size;
+      return ClientDefaultValues.lstatSync(input.path).size;
     } catch (error) {
       return undefined;
     }
