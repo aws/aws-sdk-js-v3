@@ -1,20 +1,22 @@
 # Upgrading Notes (2.x to 3.x)
 
-This document captures notable changes from v2 SDK to v3 SDK, as known as modular JavaScript SDK for AWS.
+This document captures notable changes from AWS SDK for JavaScript v2 to v3.
+The v3 is also known as modular AWS SDK for JavaScript.
 
 Because v3 is a modular rewrite of v2, some basic conceptions are different between v2 and v3. You can learn about
-these changes in our fast growing list of [blog posts](https://aws.amazon.com/blogs/developer/category/developer-tools/aws-sdk-for-javascript-in-node-js/). Among the blog posts, The following 2 will get you up-to-speed:
+these changes in our [blog posts](https://aws.amazon.com/blogs/developer/category/developer-tools/aws-sdk-for-javascript-in-node-js/).
+The following blog posts will get you up to speed:
 
-- [modular packages](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
-- [middleware stack](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
+- [Modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
+- [Introducing Middleware Stack in Modular AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/first-class-typescript-support-in-modular-aws-sdk-for-javascript/)
 
-Bellow are a summary of interface changes from v2 to v3 SDK. The goal is to help you easily find the v3 equivalents of
-the v2 APIs you are already familiar with.
+The summary of interface changes from AWS SDK for JavaScript v2 to v3 is given below.
+The goal is to help you easily find the v3 equivalents of the v2 APIs you are already familiar with.
 
 ## Client Constructors
 
-This list is indexed by [parameters in v2 SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html). For
-options shown as `Planned` in v3, they are confirmed to be supported, but no timeline can be shared at the moment. They
+This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html). For
+options shown as `Planned` in v3, they will be supported but no timeline can be shared at the moment. They
 might not have the same name either.
 
 - [`computeChecksums`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#computeChecksums-property)
@@ -34,8 +36,8 @@ might not have the same name either.
   - **v3**: No change.
 - [`credentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#credentials-property)
   - **v2**: The AWS credentials to sign requests with.
-  - **v3**: No change. It can also be an async function that returns a credential.
-    See [v3 reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials)
+  - **v3**: No change. It can also be an async function that returns credentials.
+    See [v3 reference for AwsAuthInputConfig credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials).
 - [`endpointCacheSize`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#endpointCacheSize-property)
   - **v2**: The size of the global cache storing endpoints from endpoint discovery operations.
   - **v3**: Not available. Planned. This option configures endpoint discovery behavior, which is not yet available in v3.
@@ -47,9 +49,11 @@ might not have the same name either.
   - **v3**: **Deprecated**. SDK _always_ injects the hostname prefix when necessary.
 - [`httpOptions`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#httpOptions-property)
 
-  A set of options to pass to the low-level HTTP request. These options are aggregated differently in V3. You can
+  A set of options to pass to the low-level HTTP request. These options are aggregated differently in v3. You can
   configure them by supplying a new `requestHandler`. Here's the example of setting http options in Node.js runtime. You
-  can find more in [v3 reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_node_http_handler.nodehttphandler-1.html).
+  can find more in [v3 reference for NodeHttpHandler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_node_http_handler.nodehttphandler-1.html).
+
+  All v3 requests use HTTPS by default. You only need to provide custom httpsAgent.
 
   ```javascript
   const { Agent } = require("https");
@@ -60,17 +64,30 @@ might not have the same name either.
       httpsAgent: new Agent({
         /*params*/
       }),
-      httpAgent: new HttpAgnet({
-        /*params*/
-      }),
       connectionTimeout: /*number in milliseconds*/
       socketTimeout: /*number in milliseconds*/
     }),
   });
   ```
 
-  If the client is suppose to run in browsers, a different set of options is available. You can find more in [v3
-  reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_fetch_http_handler.fetchhttphandler-1.html).
+  If you are passing custom endpoint which uses http, then you need to provide httpAgent.
+
+  ```javascript
+  const { Agent } = require("http");
+  const { NodeHttpHandler } = require("@aws-sdk/node-http-handler");
+
+  const dynamodbClient = new DynamoDBClient({
+    requestHandler: new NodeHttpHandler({
+      httpAgent: new Agent({
+        /*params*/
+      }),
+    }),
+    endpoint: "http://example.com",
+  });
+  ```
+
+  If the client is running in browsers, a different set of options is available. You can find more in [v3
+  reference for FetchHttpHandler](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/classes/_aws_sdk_fetch_http_handler.fetchhttphandler-1.html).
 
   ```javascript
   const { FetchHttpHandler } = require("@aws-sdk/fetch-http-handler");
@@ -81,15 +98,15 @@ might not have the same name either.
   });
   ```
 
-  Each option of `httpOptions` is specified bellow:
+  Each option of `httpOptions` is specified below:
 
-  - `httpOptions.proxy`
+  - `proxy`
     - **v2**: The URL to proxy requests through
-    - **v3**: You can set up a proxy with an agent following [this guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-configuring-proxies.html)
+    - **v3**: You can set up a proxy with an agent following [Configuring proxies for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/node-configuring-proxies.html)
   - `agent`
 
     - **v2**: The Agent object to perform HTTP requests with. Used for connection pooling.
-    - **v3**: You can configure `httpAgent` or `httpsAgent` like in the examples above.
+    - **v3**: You can configure `httpAgent` or `httpsAgent` as shown in the examples above.
 
   - `connectionTimeout`
     - **v2**: Sets the socket to timeout after failing to establish a connection with the server after connectTimeout
@@ -114,7 +131,8 @@ might not have the same name either.
   - **v3**: **Deprecated**. SDK _does not_ follow redirects to avoid unintentional cross-region requests.
 - [`maxRetries`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#maxRetries-property)
   - **v2**: The maximum amount of retries to perform for a service request.
-  - **v3**: Changed to `maxAttempts`. See more in [v3 reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_retry.retryinputconfig-2.html#maxattempts). Note that the `maxAttempt` should be `maxRetries` + 1.
+  - **v3**: Changed to `maxAttempts`. See more in [v3 reference for RetryInputConfig](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_retry.retryinputconfig-2.html#maxattempts).
+    Note that the `maxAttempt` should be `maxRetries + 1`.
 - [`paramValidation`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#paramValidation-property)
   - **v2**: Whether input parameters should be validated against the operation description before sending the request.
   - **v3**: **Deprecated**. SDK _does not_ do validation on client-side at runtime.

@@ -135,7 +135,8 @@ It returns a function that accepts args, an object that contains the parameters 
 
 #### Other Changes
 
-If you are looking for a breakdown of the API changes from v2 to v3, we have them listed in [UPGRADING.md](./UPGRADING.md).
+If you are looking for a breakdown of the API changes from AWS SDK for JavaScript v2 to v3,
+we have them listed in [UPGRADING.md](./UPGRADING.md).
 
 ### Install from Source
 
