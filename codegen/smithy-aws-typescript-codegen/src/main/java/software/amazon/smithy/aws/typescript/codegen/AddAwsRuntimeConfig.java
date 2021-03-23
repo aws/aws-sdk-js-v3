@@ -82,10 +82,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         writer.addImport("Provider", "__Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
         writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
 
-        writer.writeDocs("Unique service identifier.\n@internal")
-                .write("serviceId?: string;\n");
-        writer.writeDocs("The AWS region to which this client will send requests")
-                .write("region?: string | __Provider<string>;\n");
+        if (isAwsService(settings, model)) {
+            writer.writeDocs("Unique service identifier.\n@internal")
+                    .write("serviceId?: string;\n");
+            writer.writeDocs("The AWS region to which this client will send requests")
+                    .write("region?: string | __Provider<string>;\n");
+        }
         writer.writeDocs("Value for how many times a request will be made at most in case of retry.")
                 .write("maxAttempts?: number | __Provider<number>;\n");
         writer.writeDocs("Optional logger for logging debug/info/warn/error.")
@@ -114,11 +116,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         + "trait was found on " + service.getId());
             }
         }
-        runtimeConfigs.putAll(getDefaultConfig(target));
+        runtimeConfigs.putAll(getDefaultConfig(target, isAwsService(settings, model)));
         return runtimeConfigs;
     }
 
-    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target) {
+    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target, boolean isAwsService) {
+        Map<String, Consumer<TypeScriptWriter>> defaultConfigs = new HashMap();
         switch (target) {
             case SHARED:
                 return MapUtils.of(
@@ -128,42 +131,51 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         }
                 );
             case BROWSER:
-                return MapUtils.of(
-                        "region", writer -> {
-                            writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
-                            writer.addImport("invalidProvider", "invalidProvider",
-                                    TypeScriptDependency.INVALID_DEPENDENCY.packageName);
-                            writer.write("region: invalidProvider(\"Region is missing\"),");
-                        },
-                        "maxAttempts", writer -> {
-                            writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
-                            writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
-                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
-                        }
-                );
+                if (isAwsService) {
+                    defaultConfigs.put("region", writer -> {
+                        writer.addDependency(TypeScriptDependency.INVALID_DEPENDENCY);
+                        writer.addImport("invalidProvider", "invalidProvider",
+                                TypeScriptDependency.INVALID_DEPENDENCY.packageName);
+                        writer.write("region: invalidProvider(\"Region is missing\"),");
+                    });
+                }
+                defaultConfigs.put("maxAttempts", writer -> {
+                    writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
+                    writer.addImport("DEFAULT_MAX_ATTEMPTS", "DEFAULT_MAX_ATTEMPTS",
+                            TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                    writer.write("maxAttempts: DEFAULT_MAX_ATTEMPTS,");
+                });
+                return defaultConfigs;
             case NODE:
-                return MapUtils.of(
-                        "region", writer -> {
-                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
-                            writer.addImport("loadConfig", "loadNodeConfig",
-                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
-                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
-                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
-                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
-                            writer.write(
+                if (isAwsService) {
+                    defaultConfigs.put("region", writer -> {
+                        writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
+                                AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                        writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                        writer.addImport("NODE_REGION_CONFIG_OPTIONS", "NODE_REGION_CONFIG_OPTIONS",
+                                TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                        writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
+                                TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                        writer.write(
                                 "region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),");
-                        },
-                        "maxAttempts", writer -> {
-                            writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
-                                TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
-                        }
-                );
+                    });
+                }
+                defaultConfigs.put("maxAttempts", writer -> {
+                    writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                    writer.addImport("loadConfig", "loadNodeConfig",
+                            AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                    writer.addImport("NODE_MAX_ATTEMPT_CONFIG_OPTIONS", "NODE_MAX_ATTEMPT_CONFIG_OPTIONS",
+                        TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                    writer.write("maxAttempts: loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),");
+                });
+                return defaultConfigs;
             default:
                 return Collections.emptyMap();
         }
+    }
+
+    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
+        return settings.getService(model).getTrait(ServiceTrait.class).isPresent();
     }
 }

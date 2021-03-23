@@ -44,6 +44,8 @@ import software.amazon.smithy.utils.SetUtils;
 /**
  * Configure clients with AWS auth configurations and plugin.
  */
+// TODO: Should this check for the presence of SigV4 trait instead of assuming the AWS service supports it?
+// TODO: Think about AWS Auth supported for only some operations and not all, when not AWS service
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
 
     @Override
@@ -54,7 +56,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
-        if (!areAllOptionalAuthOperations(model, service)) {
+        if (isAwsService(service) && !areAllOptionalAuthOperations(model, service)) {
             writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
             writer.writeDocs("Default credentials provider; Not available in browser runtime.")
                 .write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
@@ -66,16 +68,17 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
-                    .servicePredicate((m, s) -> !areAllOptionalAuthOperations(m, s))
+                    .servicePredicate((m, s) -> isAwsService(s) && !areAllOptionalAuthOperations(m, s))
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                     // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
                     .servicePredicate(
-                        (m, s) -> !testServiceId(s, "STS") && !hasOptionalAuthOperation(m, s)
+                        (m, s) -> isAwsService(s) && !testServiceId(s, "STS") && !hasOptionalAuthOperation(m, s)
                     ).build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
+                    // TODO: Does isAwsService need to be checked here again?
                     .operationPredicate(AddAwsAuthPlugin::operationUsesAwsAuth)
                     .build()
         );
@@ -89,7 +92,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
-        if (areAllOptionalAuthOperations(model, service)) {
+        if (!isAwsService(service) || areAllOptionalAuthOperations(model, service)) {
             return Collections.emptyMap();
         }
         switch (target) {
@@ -117,6 +120,10 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
+    }
+
+    private static boolean isAwsService(Shape serviceShape) {
+        return serviceShape.getTrait(ServiceTrait.class).isPresent();
     }
 
     private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {

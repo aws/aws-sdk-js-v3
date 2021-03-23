@@ -19,8 +19,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
+import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -33,12 +35,15 @@ import software.amazon.smithy.utils.MapUtils;
 /**
  * Add client plubins and configs to support injecting user agent.
  */
+// TODO: Looks to add this back for non-AWS service clients, by fixing the dependency on ClientSharedValues.serviceId
 public class AddUserAgentDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent").build());
+                        .withConventions(AwsDependency.MIDDLEWARE_USER_AGENT.dependency, "UserAgent")
+                        .servicePredicate((m, s) -> isAwsService(s))
+                        .build());
     }
 
     @Override
@@ -48,11 +53,13 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-        writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
-                + "`x-amz-user-agent` header\n@internal");
-        writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");
+        if (isAwsService(settings, model)) {
+            writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+            writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+            writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
+                    + "`x-amz-user-agent` header\n@internal");
+            writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");
+        }
     }
 
     @Override
@@ -62,6 +69,9 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
+        if (!isAwsService(settings, model)) {
+            return Collections.emptyMap();
+        }
         switch (target) {
             case NODE:
                 return MapUtils.of(
@@ -88,5 +98,13 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
             default:
                 return Collections.emptyMap();
         }
+    }
+
+    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
+        return isAwsService(settings.getService(model));
+    }
+
+    private static boolean isAwsService(ServiceShape serviceShape) {
+        return serviceShape.getTrait(ServiceTrait.class).isPresent();
     }
 }

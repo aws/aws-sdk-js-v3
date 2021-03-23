@@ -56,7 +56,8 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             writer.write(resource);
         });
 
-        if (!settings.generateClient()) {
+        // TODO: May need to generate a different/modified README.md for these cases
+        if (!settings.generateClient() || !isAwsService(settings, model)) {
             return;
         }
 
@@ -88,5 +89,9 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
 
             writer.write(resource);
         });
+    }
+
+    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
+        return settings.getService(model).getTrait(ServiceTrait.class).isPresent();
     }
 }

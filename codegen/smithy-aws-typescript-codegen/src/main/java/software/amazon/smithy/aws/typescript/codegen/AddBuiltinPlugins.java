@@ -44,6 +44,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
+                        .servicePredicate((m, s) -> testAwsService(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
@@ -129,5 +130,9 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
+    }
+
+    private static boolean testAwsService(Shape serviceShape) {
+        return serviceShape.getTrait(ServiceTrait.class).isPresent();
     }
 }
