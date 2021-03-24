@@ -13,10 +13,10 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
-    "postbuild": "downlevel-dts types types/ts3.4"
+    "postbuild": "downlevel-dts dist/types dist/types/ts3.4"
   },
   "main": "./dist/cjs/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {
     "./runtimeConfig": "./runtimeConfig.browser"

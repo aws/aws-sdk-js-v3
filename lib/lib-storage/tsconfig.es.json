@@ -5,7 +5,7 @@
     "sourceMap": false,
     "declaration": true,
     "stripInternal": true,
-    "declarationDir": "./types",
+    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "importHelpers": true,
