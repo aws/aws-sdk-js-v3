@@ -34,18 +34,16 @@ describe("endpoint", () => {
 });
 
 describe("Accesspoint ARN", () => {
-  const endpointValidator: BuildMiddleware<any, any> = (next, context) => (args) => {
+  const endpointValidator: BuildMiddleware<any, any> = (next, context) => async (args) =>
     // middleware intercept the request and return it early
-    const request = args.request as HttpRequest;
-    return Promise.resolve({
+    ({
       output: {
         $metadata: { attempts: 0, httpStatusCode: 200 },
-        request,
+        request: args.request as HttpRequest,
         context,
       } as any,
       response: {} as any,
     });
-  };
 
   it("should succeed with access point ARN", async () => {
     const client = new S3({ region: "us-west-2" });
