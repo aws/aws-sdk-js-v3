@@ -46,7 +46,7 @@ const Key = "user/eric/1";
 const Fields = {
   acl: "public-read",
 };
-const { url, fields } = await createPresignedPost({
+const { url, fields } = await createPresignedPost(client, {
   Bucket,
   Key,
   Conditions,
