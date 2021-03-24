@@ -5,9 +5,9 @@ import { ParsedIniData, Profile } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 
-export const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
-export const ENV_ROLE_ARN = "AWS_ROLE_ARN";
-export const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
+const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
+const ENV_ROLE_ARN = "AWS_ROLE_ARN";
+const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
 export interface FromTokenFileInit extends SourceProfileInit {
   /**

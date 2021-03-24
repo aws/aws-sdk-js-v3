@@ -4,7 +4,11 @@ import { ProviderError } from "@aws-sdk/property-provider";
 import { Credentials } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 
-import { ENV_ROLE_ARN, ENV_ROLE_SESSION_NAME, ENV_TOKEN_FILE, fromTokenFile, FromTokenFileInit } from "./fromTokenFile";
+import { fromTokenFile, FromTokenFileInit } from "./fromTokenFile";
+
+const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
+const ENV_ROLE_ARN = "AWS_ROLE_ARN";
+const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
 jest.mock("fs");
 jest.mock("@aws-sdk/credential-provider-ini");
