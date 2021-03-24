@@ -16,7 +16,7 @@
     "postbuild": "downlevel-dts types types/ts3.4"
   },
   "main": "./dist/cjs/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {
     "./runtimeConfig": "./runtimeConfig.browser"

@@ -4,7 +4,7 @@
   "description": "Storage higher order operation",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "build:cjs": "tsc -p tsconfig.cjs.json",

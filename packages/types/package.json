@@ -3,7 +3,7 @@
   "version": "3.6.1",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "description": "Types for the AWS SDK",
   "devDependencies": {
     "typescript": "~4.1.2"

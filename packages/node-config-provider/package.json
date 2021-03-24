@@ -18,7 +18,7 @@
   "license": "Apache-2.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "dependencies": {
     "@aws-sdk/property-provider": "3.8.0",
     "@aws-sdk/shared-ini-file-loader": "3.8.0",
