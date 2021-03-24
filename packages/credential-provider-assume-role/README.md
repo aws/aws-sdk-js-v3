@@ -15,8 +15,8 @@ The function `fromTokenFile` returns `CredentialProvider` that reads credentials
 - Reads IAM role wanting to be assumed from either environment or config file paramters.
 - Reads optional role session name to be used to distinguish sessions from either environment or config file paramters.
   If session name is not defined, it comes up with a role session name.
-- Reads OIDC roken from file on disk.
-- Calls sts:AssumeRoleWithWebIdentity to get credentials.
+- Reads OIDC token from file on disk.
+- Calls sts:AssumeRoleWithWebIdentity via `roleAssumerWithWebIdentity` option to get credentials.
 - Uses credentials of source_profile to assume the role specified if specified.
 
 | **Environment Variable**    | **Config Variable**     | **Required** | **Description**                                   |
@@ -39,9 +39,11 @@ The following options are supported:
   provider will use the value in the `AWS_CONFIG_FILE` environment variable or
   `~/.aws/config` by default.
 - `roleAssumer` - A function that assumes a role and returns a promise
-  fulfilled with credentials for the assumed role.
+  fulfilled with credentials for the assumed role. You may call `sts:assumeRole`
+  API within this function.
 - `roleAssumerWithWebIdentity` - A function that assumes a role with web identity
-  and returns a promise fulfilled with credentials for the assumed role.
+  and returns a promise fulfilled with credentials for the assumed role. You may call
+  `sts:assumeRoleWithWebIdentity` API within this function.
 
 ### Examples
 
