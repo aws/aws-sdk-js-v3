@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": false,
     "lib": ["es2015"],
-    "declarationDir": "./types",
+    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "baseUrl": "."

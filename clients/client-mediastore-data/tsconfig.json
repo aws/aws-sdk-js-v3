@@ -12,9 +12,9 @@
     "incremental": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "declarationDir": "./types",
+    "declarationDir": "./dist/types",
     "outDir": "dist/cjs",
-    "types": ["mocha"]
+    "dist/types": ["mocha"]
   },
   "typedocOptions": {
     "exclude": ["**/node_modules/**", "**/*.spec.ts", "./protocols/*.ts", "./e2e/*.ts", "./endpoints.ts"],
