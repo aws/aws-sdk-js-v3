@@ -1,14 +1,9 @@
-/// <reference types="mocha" />
+/// <reference types="jest" />
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildMiddleware, SerializeMiddleware } from "@aws-sdk/types";
-import chai from "chai";
-import chaiAsPromised from "chai-as-promised";
 import { PassThrough } from "stream";
 
 import { S3 } from "./S3";
-
-chai.use(chaiAsPromised);
-const { expect } = chai;
 
 describe("endpoint", () => {
   it("users can override endpoint from client.", async () => {
@@ -16,12 +11,12 @@ describe("endpoint", () => {
     const endpointValidator: SerializeMiddleware<any, any> = (next) => (args) => {
       // middleware intercept the request and return it early
       const request = args.request as HttpRequest;
-      expect(request.protocol).to.equal("http:");
-      expect(request.hostname).to.equal("localhost");
-      expect(request.port).to.equal(8080);
+      expect(request.protocol).toEqual("http:");
+      expect(request.hostname).toEqual("localhost");
+      expect(request.port).toEqual(8080);
       //query and path should not be overwritten
-      expect(request.query).not.to.contain({ foo: "bar" });
-      expect(request.path).not.to.equal("/path");
+      expect(request.query).not.toContainEqual({ foo: "bar" });
+      expect(request.path).not.toEqual("/path");
       return Promise.resolve({ output: {} as any, response: {} as any });
     };
     const client = new S3({ endpoint: "http://localhost:8080/path?foo=bar" });
@@ -60,7 +55,7 @@ describe("Accesspoint ARN", async () => {
       Key: "key",
       Body: "body",
     });
-    expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+    expect(result.request.hostname).toEqual("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
   });
 
   it("should sign request with region from ARN is useArnRegion is set", async () => {
@@ -75,9 +70,9 @@ describe("Accesspoint ARN", async () => {
       Key: "key",
       Body: "body",
     });
-    expect(result.request.hostname).to.eql("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+    expect(result.request.hostname).toEqual("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
     // Sign request with us-west-2 region from bucket access point ARN
-    expect(result.request.headers.authorization).to.contain("/us-west-2/s3/aws4_request, SignedHeaders=");
+    expect(result.request.headers.authorization).toContain("/us-west-2/s3/aws4_request, SignedHeaders=");
   });
 
   it("should succeed with outposts ARN", async () => {
@@ -92,9 +87,9 @@ describe("Accesspoint ARN", async () => {
       Key: "key",
       Body: "body",
     });
-    expect(result.request.hostname).to.eql(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
+    expect(result.request.hostname).toEqual(`abc-111-${AccountId}.${OutpostId}.s3-outposts.us-west-2.amazonaws.com`);
     const date = new Date().toISOString().substr(0, 10).replace(/-/g, ""); //20201029
-    expect(result.request.headers["authorization"]).contains(
+    expect(result.request.headers["authorization"]).toContain(
       `Credential=${credentials.accessKeyId}/${date}/${region}/s3-outposts/aws4_request`
     );
   });
@@ -133,40 +128,36 @@ describe("Throw 200 response", () => {
 
   it("should throw if CopyObject() return with 200 and empty payload", async () => {
     response.body.end("");
-    return expect(client.copyObject(params)).to.eventually.be.rejectedWith("S3 aborted request");
+    return expect(client.copyObject(params)).rejects.toThrow("S3 aborted request");
   });
 
   it("should throw if CopyObject() return with 200 and error preamble", async () => {
     response.body.end(errorBody);
-    return expect(client.copyObject(params)).to.eventually.be.rejectedWith(
-      "We encountered an internal error. Please try again."
-    );
+    return expect(client.copyObject(params)).rejects.toThrow("We encountered an internal error. Please try again.");
   });
 
   it("should throw if UploadPartCopy() return with 200 and empty payload", async () => {
     response.body.end("");
-    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
+    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).rejects.toThrow(
       "S3 aborted request"
     );
   });
 
   it("should throw if UploadPartCopy() return with 200 and error preamble", async () => {
     response.body.end(errorBody);
-    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).to.eventually.be.rejectedWith(
+    return expect(client.uploadPartCopy({ ...params, UploadId: "id", PartNumber: 1 })).rejects.toThrow(
       "We encountered an internal error. Please try again."
     );
   });
 
   it("should throw if CompleteMultipartUpload() return with 200 and empty payload", async () => {
     response.body.end("");
-    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
-      "S3 aborted request"
-    );
+    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).rejects.toThrow("S3 aborted request");
   });
 
   it("should throw if CompleteMultipartUpload() return with 200 and error preamble", async () => {
     response.body.end(errorBody);
-    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).to.eventually.be.rejectedWith(
+    return expect(client.completeMultipartUpload({ ...params, UploadId: "id" })).rejects.toThrow(
       "We encountered an internal error. Please try again."
     );
   });
