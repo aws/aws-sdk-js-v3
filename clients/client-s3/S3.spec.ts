@@ -33,7 +33,7 @@ describe("endpoint", () => {
   });
 });
 
-describe("Accesspoint ARN", async () => {
+describe("Accesspoint ARN", () => {
   const endpointValidator: BuildMiddleware<any, any> = (next, context) => (args) => {
     // middleware intercept the request and return it early
     const request = args.request as HttpRequest;
