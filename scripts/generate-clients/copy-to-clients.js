@@ -135,6 +135,9 @@ const copyToClients = async (sourceDir, destinationDir) => {
             directory: `clients/${clientName}`,
           },
         };
+        if (clientName === "client-sts" && destManifest.exports) {
+          mergedManifest["exports"] = destManifest.exports;
+        }
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overwritablePredicate(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);

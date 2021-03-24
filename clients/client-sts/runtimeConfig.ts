@@ -22,7 +22,12 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Decoder: fromBase64,
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
-  credentialDefaultProvider,
+  credentialDefaultProvider: (input) => {
+    /**
+     * Inline require to avoid circular dependencies
+     */
+    return require("./defaultRoleAssumers").decorateDefaultCredentialProvider(credentialDefaultProvider)(input);
+  },
   defaultUserAgentProvider: defaultUserAgent({
     serviceId: ClientSharedValues.serviceId,
     clientVersion: packageInfo.version,
