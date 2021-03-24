@@ -14,7 +14,7 @@
     "esModuleInterop": true,
     "declarationDir": "./dist/types",
     "outDir": "dist/cjs",
-    "dist/types": ["mocha"]
+    "types": ["mocha"]
   },
   "typedocOptions": {
     "exclude": ["**/node_modules/**", "**/*.spec.ts", "./protocols/*.ts", "./e2e/*.ts", "./endpoints.ts"],
