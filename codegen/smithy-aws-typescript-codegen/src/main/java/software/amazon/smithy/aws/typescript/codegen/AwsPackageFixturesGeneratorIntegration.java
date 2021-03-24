@@ -55,6 +55,11 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
             writer.write(resource);
         });
+
+        if (!settings.generateClient()) {
+            return;
+        }
+
         writerFactory.accept("README.md", writer -> {
             ServiceShape service = settings.getService(model);
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");
