@@ -107,6 +107,7 @@ describe("@aws-sdk/client-s3", () => {
   });
 
   describe("GetObject", function () {
+    // @ts-ignore: 'this' implicitly has type 'any'
     this.timeout(10 * 1000);
     before(async () => {
       Key = `${Date.now()}`;
