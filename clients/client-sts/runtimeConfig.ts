@@ -1,5 +1,6 @@
 import packageInfo from "./package.json";
 
+import { decorateDefaultCredentialProvider } from "./defaultRoleAssumers";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "@aws-sdk/config-resolver";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { Hash } from "@aws-sdk/hash-node";
