@@ -104,10 +104,26 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
+                        if (!testServiceId(service, "STS")) {
+                            writer.addDependency(AwsDependency.STS_CLIENT);
+                            writer.addImport("decorateDefaultCredentialProvider",
+                                    "decorateDefaultCredentialProvider", AwsDependency.STS_CLIENT.packageName
+                                        + "/defaultRoleAssumers");
+                        }
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                        writer.write("credentialDefaultProvider,");
+                        if (testServiceId(service, "STS")) {
+                            writer.openBlock("credentialDefaultProvider: (input) => {", "},", () -> {
+                                writer.writeDocs("Inline require to avoid circular dependencies");
+                                writer.write("return require(\"./defaultRoleAssumers\")."
+                                    + "decorateDefaultCredentialProvider(credentialDefaultProvider)(input);");
+                            });
+                        } else {
+                            writer.write(
+                                "credentialDefaultProvider: decorateDefaultCredentialProvider("
+                                    + "credentialDefaultProvider),");
+                        }
                     }
                 );
             default:

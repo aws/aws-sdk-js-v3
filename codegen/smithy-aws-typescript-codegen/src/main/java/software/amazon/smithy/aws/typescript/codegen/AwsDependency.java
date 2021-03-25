@@ -30,6 +30,7 @@ import software.amazon.smithy.codegen.core.SymbolDependencyContainer;
 public enum AwsDependency implements SymbolDependencyContainer {
 
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "^1.0.0-rc.1"),
+    STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts", "^3.9.0"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node", "^1.0.0-rc.1"),
     ACCEPT_HEADER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-api-gateway", "^1.0.0-rc.1"),
     S3_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-s3", "^1.0.0-rc.1"),
