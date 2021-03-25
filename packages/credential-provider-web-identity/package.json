@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/credential-provider-assume-role",
+  "name": "@aws-sdk/credential-provider-web-identity",
   "version": "3.0.0",
   "description": "AWS credential provider that calls STS assumeRole for temporary AWS credentials",
   "main": "./dist/cjs/index.js",
@@ -44,10 +44,10 @@
       ]
     }
   },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-assume-role",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-web-identity",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/credential-provider-assume-role"
+    "directory": "packages/credential-provider-web-identity"
   }
 }
