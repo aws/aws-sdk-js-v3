@@ -72,7 +72,7 @@ export const fromTokenFile = (init: FromTokenFileInit): CredentialProvider => as
 
   return roleAssumerWithWebIdentity({
     WebIdentityToken: readFileSync(webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE]!, { encoding: "ascii" }),
-    RoleArn: roleArn ?? process.env[ENV_ROLE_ARN],
+    RoleArn: roleArn ?? process.env[ENV_ROLE_ARN]!,
     RoleSessionName: roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME] ?? `aws-sdk-js-session-${Date.now()}`,
   });
 };
