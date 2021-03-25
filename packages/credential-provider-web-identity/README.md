@@ -5,42 +5,29 @@
 
 ## AWS Credential Provider for Node.js - AssumeRole
 
-This module includes functions which get credentials by calling STS assumeRole\* APIs.
+This module includes functions which get credentials by calling STS assumeRoleWithWebIdentity API.
 
 ## fromTokenFile
 
 The function `fromTokenFile` returns `CredentialProvider` that reads credentials as follows:
 
-- Reads file location of where the OIDC token is stored from either environment or config file parameters.
-- Reads IAM role wanting to be assumed from either environment or config file paramters.
-- Reads optional role session name to be used to distinguish sessions from either environment or config file paramters.
+- Reads file location of where the OIDC token is stored from either provided option `webIdentityTokenFile` or environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
+- Reads IAM role wanting to be assumed from either provided option `roleArn` or environment variable `AWS_ROLE_ARN`.
+- Reads optional role session name to be used to distinguish sessions from provided option `roleSessionName` or environment variable `AWS_ROLE_SESSION_NAME`.
   If session name is not defined, it comes up with a role session name.
 - Reads OIDC token from file on disk.
 - Calls sts:AssumeRoleWithWebIdentity via `roleAssumerWithWebIdentity` option to get credentials.
-- Uses credentials of source_profile to assume the role specified if specified.
 
-| **Environment Variable**    | **Config Variable**     | **Required** | **Description**                                   |
-| --------------------------- | ----------------------- | ------------ | ------------------------------------------------- |
-| AWS_WEB_IDENTITY_TOKEN_FILE | web_identity_token_file | true         | File location of where the `OIDC` token is stored |
-| AWS_IAM_ROLE_ARN            | role_arn                | true         | The IAM role wanting to be assumed                |
-| AWS_IAM_ROLE_SESSION_NAME   | role_session_name       | false        | The IAM session name used to distinguish sessions |
+| **Configuration Key** | **Environment Variable**    | **Required** | **Description**                                   |
+| --------------------- | --------------------------- | ------------ | ------------------------------------------------- |
+| webIdentityTokenFile  | AWS_WEB_IDENTITY_TOKEN_FILE | true         | File location of where the `OIDC` token is stored |
+| roleArn               | AWS_IAM_ROLE_ARN            | true         | The IAM role wanting to be assumed                |
+| roleSessionName       | AWS_IAM_ROLE_SESSION_NAME   | false        | The IAM session name used to distinguish sessions |
 
 ### Supported configuration
 
 The following options are supported:
 
-- `profile` - The configuration profile to use. If not specified, the provider
-  will use the value in the `AWS_PROFILE` environment variable or `default` by
-  default.
-- `filepath` - The path to the shared credentials file. If not specified, the
-  provider will use the value in the `AWS_SHARED_CREDENTIALS_FILE` environment
-  variable or `~/.aws/credentials` by default.
-- `configFilepath` - The path to the shared config file. If not specified, the
-  provider will use the value in the `AWS_CONFIG_FILE` environment variable or
-  `~/.aws/config` by default.
-- `roleAssumer` - A function that assumes a role and returns a promise
-  fulfilled with credentials for the assumed role. You may call `sts:assumeRole`
-  API within this function.
 - `roleAssumerWithWebIdentity` - A function that assumes a role with web identity
   and returns a promise fulfilled with credentials for the assumed role. You may call
   `sts:assumeRoleWithWebIdentity` API within this function.
@@ -90,12 +77,17 @@ $ node
 }
 ```
 
-#### Values in configuration files
+#### Values in configuration keys
 
-The values can be defined in configuration files as follows:
+The values can be defined in configuration keys as follows:
 
-```
-[sample-profile]
-web_identity_token_file = /temp/token
-role_session_name = arn:aws:iam::123456789012:role/example-role-arn
+```js
+...
+const client = new FooClient({
+  credentials: fromTokenFile({
+    webIdentityTokenFile: "/temp/token",
+    roleArn: "arn:aws:iam::123456789012:role/example-role-arn",
+    roleAssumerWithWebIdentity
+  });
+});
 ```
