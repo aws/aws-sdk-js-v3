@@ -22,7 +22,6 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-sts": "3.9.0",
     "@aws-sdk/property-provider": "3.8.0",
     "@aws-sdk/types": "3.6.1",
     "tslib": "^1.8.0"

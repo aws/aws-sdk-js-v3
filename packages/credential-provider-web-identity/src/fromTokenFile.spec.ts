@@ -1,9 +1,7 @@
-import { AssumeRoleWithWebIdentityCommandInput } from "@aws-sdk/client-sts";
 import { ProviderError } from "@aws-sdk/property-provider";
-import { Credentials } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 
-import { fromTokenFile, FromTokenFileInit } from "./fromTokenFile";
+import { AssumeRoleWithWebIdentityParams, fromTokenFile, FromTokenFileInit } from "./fromTokenFile";
 
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
@@ -74,7 +72,7 @@ describe(fromTokenFile.name, () => {
 
     const creds = await fromTokenFile({
       ...init,
-      roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityCommandInput) => {
+      roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityParams) => {
         expect(params.RoleSessionName).toEqual(`aws-sdk-js-session-${mockDateNow}`);
         return MOCK_CREDS;
       },
@@ -106,7 +104,7 @@ describe(fromTokenFile.name, () => {
 
     it("throws if ENV_TOKEN_FILE read from disk failed", async () => {
       return testReadFileSyncError({
-        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityCommandInput) => {
+        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityParams) => {
           return MOCK_CREDS;
         },
       });
@@ -114,7 +112,7 @@ describe(fromTokenFile.name, () => {
 
     it("passes values to roleAssumerWithWebIdentity", async () => {
       return testRoleAssumerWithWebIdentitySuccess({
-        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityCommandInput) => {
+        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityParams) => {
           expect(params.WebIdentityToken).toEqual(mockTokenValue);
           expect(params.RoleArn).toEqual(mockRoleArn);
           expect(params.RoleSessionName).toEqual(mockRoleSessionName);
@@ -155,7 +153,7 @@ describe(fromTokenFile.name, () => {
         webIdentityTokenFile: mockTokenFile,
         roleArn: mockRoleArn,
         roleSessionName: mockRoleSessionName,
-        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityCommandInput) => {
+        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityParams) => {
           return MOCK_CREDS;
         },
       });
@@ -166,7 +164,7 @@ describe(fromTokenFile.name, () => {
         webIdentityTokenFile: mockTokenFile,
         roleArn: mockRoleArn,
         roleSessionName: mockRoleSessionName,
-        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityCommandInput) => {
+        roleAssumerWithWebIdentity: async (params: AssumeRoleWithWebIdentityParams) => {
           expect(params.WebIdentityToken).toEqual(mockTokenValue);
           expect(params.RoleArn).toEqual(mockRoleArn);
           expect(params.RoleSessionName).toEqual(mockRoleSessionName);
