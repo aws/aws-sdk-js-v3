@@ -21,7 +21,7 @@
     "@aws-sdk/service-error-classification": "3.10.0",
     "@aws-sdk/types": "3.10.0",
     "tslib": "^1.8.0",
-    "uuid": "^3.0.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@aws-sdk/node-config-provider": "3.10.0",
