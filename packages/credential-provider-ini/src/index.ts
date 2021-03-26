@@ -62,7 +62,7 @@ export interface SourceProfileInit extends SharedConfigInit {
 
 export interface FromIniInit extends SourceProfileInit {
   /**
-   * A function that returna a promise fulfilled with an MFA token code for
+   * A function that returns a promise fulfilled with an MFA token code for
    * the provided MFA Serial code. If a profile requires an MFA code and
    * `mfaCodeProvider` is not a valid function, the credential provider
    * promise will be rejected.
