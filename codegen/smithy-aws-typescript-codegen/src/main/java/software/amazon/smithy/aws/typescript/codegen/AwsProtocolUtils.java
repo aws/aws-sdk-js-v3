@@ -230,6 +230,9 @@ final class AwsProtocolUtils {
                     // Include the uuid package and import the v4 function as our more clearly named alias.
                     writer.addDependency(AwsDependency.UUID_GENERATOR);
                     writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
+                    // Polyfill for react-native https://github.com/uuidjs/uuid#getrandomvalues-not-supported
+                    writer.addDependency(AwsDependency.REACT_NATIVE_GET_RANDOM_VALUES);
+                    writer.addImport("getRandomValues", "getRandomValues", "react-native-get-random-values");
                     writer.addImport("v4", "generateIdempotencyToken", "uuid");
                 });
     }

@@ -55,6 +55,7 @@ public enum AwsDependency implements SymbolDependencyContainer {
     XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "3.19.0"),
     UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^8.3.2"),
     UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^8.3.0"),
+    REACT_NATIVE_GET_RANDOM_VALUES(NORMAL_DEPENDENCY, "react-native-get-random-values", "^1.6.0"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream", "^1.0.0-rc.1"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node", "^1.0.0-rc.1"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming",
