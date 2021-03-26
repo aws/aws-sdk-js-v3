@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-stream-node",
-  "version": "3.6.1",
+  "version": "3.10.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,12 +18,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "3.6.1",
+    "@aws-sdk/types": "3.10.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "^1.0.0",
-    "@aws-sdk/util-hex-encoding": "3.6.1",
+    "@aws-sdk/util-hex-encoding": "3.10.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^10.0.0",
     "jest": "^26.1.0",
