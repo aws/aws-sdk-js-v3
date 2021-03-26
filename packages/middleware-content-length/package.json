@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-content-length",
-  "version": "3.6.1",
+  "version": "3.10.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,8 +18,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "3.6.1",
-    "@aws-sdk/types": "3.6.1",
+    "@aws-sdk/protocol-http": "3.10.0",
+    "@aws-sdk/types": "3.10.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {
