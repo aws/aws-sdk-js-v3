@@ -1,3 +1,4 @@
+import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
 import { join, sep } from "path";
@@ -48,7 +49,10 @@ jest.mock("os", () => {
 
   return os;
 });
+
 import { homedir } from "os";
+
+jest.mock("@aws-sdk/credential-provider-web-identity");
 
 const DEFAULT_CREDS = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
@@ -83,6 +87,7 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
 
 beforeEach(() => {
   __clearMatchers();
+  jest.clearAllMocks();
   Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
@@ -745,6 +750,109 @@ source_profile = default`.trim()
       return expect(provider()).rejects.toMatchObject({
         message: "Profile foo requires multi-factor authentication, but no MFA code callback was provided.",
         tryNextLink: false,
+      });
+    });
+  });
+
+  describe("assume role with web identity", () => {
+    it("should call fromTokenFile with data from profile", async () => {
+      (fromTokenFile as jest.Mock).mockReturnValueOnce(() => Promise.resolve(FOO_CREDS));
+      const webIdentityTokenFile = "/temp/foo/token";
+      const roleArn = "arn:aws:iam::123456789:role/bar";
+      const roleSessionName = "bazSession";
+      const roleAssumerWithWebIdentity = jest.fn();
+      __addMatcher(
+        join(homedir(), ".aws", "credentials"),
+        `
+[foo]
+web_identity_token_file = ${webIdentityTokenFile}
+role_arn = ${roleArn}
+role_session_name = ${roleSessionName}`.trim()
+      );
+
+      const provider = fromIni({
+        profile: "foo",
+        roleAssumerWithWebIdentity,
+      });
+
+      expect(await provider()).toEqual(FOO_CREDS);
+      expect(fromTokenFile).toHaveBeenCalledTimes(1);
+      expect(fromTokenFile).toHaveBeenCalledWith({
+        webIdentityTokenFile,
+        roleArn,
+        roleSessionName,
+        roleAssumerWithWebIdentity,
+      });
+    });
+
+    it("should call fromTokenFile with assume role chaining", async () => {
+      (fromTokenFile as jest.Mock).mockReturnValueOnce(() => Promise.resolve(DEFAULT_CREDS));
+      const webIdentityTokenFile = "/temp/foo/token";
+      const roleArn = "arn:aws:iam::123456789:role/bar";
+      const roleSessionName = "bazSession";
+      const roleAssumerWithWebIdentity = jest.fn();
+
+      const fooRoleArn = "arn:aws:iam::123456789:role/foo";
+      const fooSessionName = "fooSession";
+      __addMatcher(
+        join(homedir(), ".aws", "credentials"),
+        `
+[bar]
+web_identity_token_file = ${webIdentityTokenFile}
+role_arn = ${roleArn}
+role_session_name = ${roleSessionName}
+
+[foo]
+role_arn = ${fooRoleArn}
+role_session_name = ${fooSessionName}
+source_profile = bar`.trim()
+      );
+
+      const provider = fromIni({
+        profile: "foo",
+        roleAssumer(sourceCreds: Credentials, params: AssumeRoleParams): Promise<Credentials> {
+          expect(sourceCreds).toEqual(DEFAULT_CREDS);
+          expect(params.RoleArn).toEqual(fooRoleArn);
+          expect(params.RoleSessionName).toEqual(fooSessionName);
+          return Promise.resolve(FOO_CREDS);
+        },
+        roleAssumerWithWebIdentity,
+      });
+
+      expect(await provider()).toEqual(FOO_CREDS);
+      expect(fromTokenFile).toHaveBeenCalledTimes(1);
+      expect(fromTokenFile).toHaveBeenCalledWith({
+        webIdentityTokenFile,
+        roleArn,
+        roleSessionName,
+        roleAssumerWithWebIdentity,
+      });
+    });
+
+    it("should call fromTokenFile without roleSessionName if not present in profile", async () => {
+      (fromTokenFile as jest.Mock).mockReturnValueOnce(() => Promise.resolve(FOO_CREDS));
+      const webIdentityTokenFile = "/temp/foo/token";
+      const roleArn = "arn:aws:iam::123456789:role/bar";
+      const roleAssumerWithWebIdentity = jest.fn();
+      __addMatcher(
+        join(homedir(), ".aws", "credentials"),
+        `
+[foo]
+web_identity_token_file = ${webIdentityTokenFile}
+role_arn = ${roleArn}`.trim()
+      );
+
+      const provider = fromIni({
+        profile: "foo",
+        roleAssumerWithWebIdentity,
+      });
+
+      expect(await provider()).toEqual(FOO_CREDS);
+      expect(fromTokenFile).toHaveBeenCalledTimes(1);
+      expect(fromTokenFile).toHaveBeenCalledWith({
+        webIdentityTokenFile,
+        roleArn,
+        roleAssumerWithWebIdentity,
       });
     });
   });
