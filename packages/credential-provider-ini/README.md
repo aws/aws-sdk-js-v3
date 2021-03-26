@@ -5,12 +5,13 @@
 
 ## AWS Credential Provider for Node.JS - Shared Configuration Files
 
-This module provides a function, `fromSharedConfigFiles` that will create
+This module provides a function, `fromIni` that will create
 `CredentialProvider` functions that read from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both
 files are expected to be INI formatted with section names corresponding to
 profiles. Sections in the credentials file are treated as profile names, whereas
-profile sections in the config file must have the format of`[profile profile-name]`, except for the default profile. Please see the [sample
+profile sections in the config file must have the format of`[profile profile-name]`,
+except for the default profile. Please see the [sample
 files](#sample-files) below for examples of well-formed configuration and
 credentials files.
 
@@ -21,8 +22,7 @@ in the config file.
 ## Supported configuration
 
 You may customize how credentials are resolved by providing an options hash to
-the `fromSharedConfigFiles` factory function. The following options are
-supported:
+the `fromIni` factory function. The following options are supported:
 
 - `profile` - The configuration profile to use. If not specified, the provider
   will use the value in the `AWS_PROFILE` environment variable or a default of
@@ -38,7 +38,11 @@ supported:
   code and `mfaCodeProvider` is not a valid function, the credential provider
   promise will be rejected.
 - `roleAssumer` - A function that assumes a role and returns a promise
-  fulfilled with credentials for the assumed role.
+  fulfilled with credentials for the assumed role. You may call `sts:assumeRole`
+  API within this function.
+- `roleAssumerWithWebIdentity` - A function that assumes a role with web identity
+  and returns a promise fulfilled with credentials for the assumed role. You may call
+  `sts:assumeRoleWithWebIdentity` API within this function.
 
 ## Sample files
 
@@ -76,4 +80,24 @@ aws_secret_access_key=bar3
 [profile "testing host"]
 aws_access_key_id=foo4
 aws_secret_access_key=bar4
+```
+
+### source profile with static credentials
+
+```ini
+[second]
+aws_access_key_id=foo
+aws_secret_access_key=bar
+
+[first]
+source_profile=first
+role_arn=arn:aws:iam::123456789012:role/example-role-arn
+```
+
+### profile with web_identity_token_file
+
+```ini
+[default]
+web_identity_token_file=/temp/token
+role_arn=arn:aws:iam::123456789012:role/example-role-arn
 ```
