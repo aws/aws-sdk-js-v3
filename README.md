@@ -133,6 +133,11 @@ In the above example, we’re adding a middleware to our DynamoDB client’s mid
 The first argument is a function that accepts next, the next middleware in the stack to call, and context, an object that contains some information about the operation being called.
 It returns a function that accepts args, an object that contains the parameters passed to the operation and the request, and returns the result from calling the next middleware with args.
 
+#### Other Changes
+
+If you are looking for a breakdown of the API changes from AWS SDK for JavaScript v2 to v3,
+we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/main/UPGRADING.md).
+
 ### Install from Source
 
 All clients have been published to NPM and can be installed as described above. If you want to play with latest clients, you can build from source as follows:
