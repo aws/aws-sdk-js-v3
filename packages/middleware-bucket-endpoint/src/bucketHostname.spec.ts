@@ -393,7 +393,7 @@ describe("bucketHostname", () => {
         [
           {
             bucketArn: "arn:aws:sqs:us-west-2:123456789012:someresource",
-            message: "Expect 's3' or 's3-outposts' in ARN service component",
+            message: "Expect 's3' or 's3-outposts' or 's3-object-lambda' in ARN service component",
           },
           {
             bucketArn: "arn:aws:s3:us-west-2:123456789012:bucket_name:mybucket",
@@ -711,6 +711,212 @@ describe("bucketHostname", () => {
       });
       expect(signingRegion).toBe("us-west-2");
       expect(signingService).toBe("s3-outposts");
+    });
+  });
+
+  describe("from Object Lamdba ARN", () => {
+    describe("populates access point endpoint from ARN", () => {
+      it("should use the proper endpoint", () => {
+        const region = "eu-west-1";
+        const expectedEndpoint = "js-sdk-ap-name-123456789012.s3-object-lambda.eu-west-1.amazonaws.com";
+        ["arn:aws:s3-object-lambda:eu-west-1:123456789012:accesspoint/js-sdk-ap-name"].forEach((outpostArn) => {
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn(outpostArn),
+            baseHostname: "s3.eu-west-1.amazonaws.com",
+            isCustomEndpoint: false,
+            clientRegion: region,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe(expectedEndpoint);
+        });
+      });
+    });
+
+    it("should not be able to use accelerate", () => {
+      try {
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner"),
+          baseHostname: "s3.us-west-2.amazonaws.com",
+          isCustomEndpoint: false,
+          clientRegion: "us-west-2",
+          accelerateEndpoint: true,
+        });
+        // should never get here
+        expect.assertions(1);
+      } catch (e) {
+        // should throw since these are error cases
+        expect(1).toEqual(1);
+      }
+    });
+
+    it("should not be able to use dualstack", () => {
+      try {
+        bucketHostname({
+          bucketName: parseArn("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner"),
+          baseHostname: "s3.us-west-2.amazonaws.com",
+          isCustomEndpoint: false,
+          clientRegion: "us-west-2",
+          dualstackEndpoint: true,
+        });
+        // should never get here
+        expect.assertions(1);
+      } catch (e) {
+        // should throw since these are error cases
+        expect(1).toEqual(1);
+      }
+    });
+
+    it("should support a custom endpoint", () => {
+      const { hostname } = bucketHostname({
+        bucketName: parseArn("arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/mybanner"),
+        baseHostname: "my-endpoint.com",
+        isCustomEndpoint: true,
+        clientRegion: "us-west-2",
+      });
+      expect(hostname).toEqual("mybanner-123456789012.s3-object-lambda.us-west-2.my-endpoint.com");
+    });
+
+    describe("object lambda general test cases", () => {
+      it("should match expectations in valid configurations", () => {
+        const validLambdaExpectations: [string, string, boolean, string][] = [
+          [
+            "arn:aws:s3-object-lambda:us-west-2:1123456789012:accesspoint/mybanner",
+            "us-west-2",
+            false,
+            "mybanner-1123456789012.s3-object-lambda.us-west-2.amazonaws.com",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:2123456789012:accesspoint:mybanner",
+            "us-west-2",
+            false,
+            "mybanner-2123456789012.s3-object-lambda.us-west-2.amazonaws.com",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:3123456789012:accesspoint/mybanner",
+            "us-west-2",
+            true,
+            "mybanner-3123456789012.s3-object-lambda.us-east-1.amazonaws.com",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:4123456789012:accesspoint/mybanner",
+            "s3-external-1",
+            true,
+            "mybanner-4123456789012.s3-object-lambda.us-east-1.amazonaws.com",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:5123456789012:accesspoint/mybanner",
+            "aws-global",
+            true,
+            "mybanner-5123456789012.s3-object-lambda.us-east-1.amazonaws.com",
+          ],
+        ];
+        validLambdaExpectations.forEach((lambdaArn) => {
+          const arn = lambdaArn[0];
+          const region = lambdaArn[1];
+          const useArnRegion = lambdaArn[2];
+          const exoectedEndpoint = lambdaArn[3];
+          const { bucketEndpoint, hostname } = bucketHostname({
+            bucketName: parseArn(arn),
+            baseHostname: `s3.${region}.amazonaws.com`,
+            isCustomEndpoint: false,
+            clientRegion: region,
+            useArnRegion: useArnRegion,
+          });
+          expect(bucketEndpoint).toBe(true);
+          expect(hostname).toBe(exoectedEndpoint);
+        });
+      });
+
+      it("should match not work with invalid configurations", () => {
+        const invalidLambdaConfigurations: [string, string, boolean, string][] = [
+          [
+            "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",
+            "us-west-2",
+            false,
+            "Invalid configuration, cross region Access Point ARN",
+          ],
+          [
+            "arn:aws-cn:s3-object-lambda:cn-north-1:123456789012:accesspoint/mybanner",
+            "us-west-2",
+            true,
+            "Invalid configuration, cross partition Access Point ARN",
+          ],
+          [
+            "arn:aws:sqs:us-west-2:123456789012:someresource",
+            "us-west-2",
+            false,
+            "Invalid ARN not S3 Access Point ARN",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:123456789012:bucket_name:mybucket",
+            "us-west-2",
+            false,
+            "Invalid ARN not S3 Access Point ARN",
+          ],
+          [
+            "arn:aws:s3-object-lambda::123456789012:accesspoint/mybanner",
+            "us-west-2",
+            false,
+            "Invalid ARN, missing region",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2::accesspoint/mybanner",
+            "us-west-2",
+            false,
+            "Invalid ARN, missing account-id",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:123.45678.9012:accesspoint:mybucket",
+            "us-west-2",
+            false,
+            "Invalid ARN, account-id contains invalid character, ..",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint",
+            "us-west-2",
+            false,
+            "Invalid ARN, missing Access Point name",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:*",
+            "us-west-2",
+            false,
+            "Invalid ARN, Access Point Name contains invalid character, *",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:my.bucket",
+            "us-west-2",
+            false,
+            "Invalid ARN, Access Point Name contains invalid character, .",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint:mybucket:object:foo",
+            "us-west-2",
+            false,
+            "Invalid ARN, Access Point ARN contains sub resources",
+          ],
+        ];
+
+        invalidLambdaConfigurations.forEach((lambdaArn) => {
+          const arn = lambdaArn[0];
+          const region = lambdaArn[1];
+          const useArnRegion = lambdaArn[2];
+          try {
+            bucketHostname({
+              bucketName: parseArn(arn),
+              baseHostname: "s3.us-west-2.amazonaws.com",
+              isCustomEndpoint: false,
+              clientRegion: region,
+              useArnRegion: useArnRegion,
+            });
+            // should never get here
+            expect.assertions(1);
+          } catch (e) {
+            // should throw since these are error cases
+            expect(1).toEqual(1);
+          }
+        });
+      });
     });
   });
 });

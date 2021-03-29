@@ -6,7 +6,7 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "lib": ["dom", "es5", "es2015.collection"],
-    "declarationDir": "./types",
+    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/es",
     "baseUrl": "."

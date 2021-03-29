@@ -1,7 +1,7 @@
 {
   "name": "aws-sdk-js-v3",
   "private": true,
-  "version": "3.8.0",
+  "version": "3.10.0",
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "generate-clients": "node ./scripts/generate-clients",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
-    "clear-build-cache": "rimraf ./packages/*/build  ./packages/*/build-es ./clients/*/dist",
-    "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
+    "clear-build-cache": "rimraf ./packages/*/dist ./clients/*/dist ./lib/*/dist ./packages/*/types ./clients/*/types ./lib/*/types",
+    "clear-build-info": "rimraf ./packages/**/*.tsbuildinfo ./clients/**/*.tsbuildinfo  ./lib/**/*.tsbuildinfo",
     "remove-documentation": "rimraf ./docs",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/{types,util-utf8-browser,util-locate-window,hash-node}' --include-dependencies pretest",
     "build:protocols": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/aws-*' --include-dependencies pretest",
@@ -82,6 +82,7 @@
     "mocha": "^8.0.1",
     "prettier": "2.2.1",
     "puppeteer": "^5.1.0",
+    "ts-jest": "^26.4.1",
     "ts-loader": "^7.0.5",
     "typedoc-plugin-lerna-packages": "^0.3.1",
     "typescript": "~4.1.2",

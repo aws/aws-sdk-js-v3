@@ -1,4 +1,6 @@
 /**
  * @internal
  */
-export const ClientSharedValues = {};
+export const ClientSharedValues = {
+  lstatSync: () => {},
+};

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noUnusedLocals": true,
-    "declarationDir": "./types",
+    "declarationDir": "./dist/types",
     "rootDir": "./src",
     "outDir": "./dist/cjs",
     "baseUrl": "."

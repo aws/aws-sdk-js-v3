@@ -1,25 +1,8 @@
+import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { ProviderError } from "@aws-sdk/property-provider";
+import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 
 import { defaultProvider, ENV_IMDS_DISABLED } from "./";
-
-jest.mock("@aws-sdk/credential-provider-env", () => {
-  const envProvider = jest.fn();
-  return {
-    fromEnv: jest.fn().mockReturnValue(envProvider),
-  };
-});
-import { fromEnv } from "@aws-sdk/credential-provider-env";
-
-const loadedConfig = {
-  credentialsFile: {
-    foo: { aws_access_key_id: "key", aws_secret_access_key: "secret" },
-  },
-  configFile: { bar: { aws_access_key_id: "key", aws_secret_access_key: "secret" } },
-};
-jest.mock("@aws-sdk/shared-ini-file-loader", () => ({
-  loadSharedConfigFiles: jest.fn().mockReturnValue(loadedConfig),
-}));
-import { loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
 
 jest.mock("@aws-sdk/credential-provider-sso", () => {
   const ssoProvider = jest.fn();
@@ -67,6 +50,9 @@ import {
   RemoteProviderInit,
 } from "@aws-sdk/credential-provider-imds";
 
+jest.mock("@aws-sdk/credential-provider-env");
+jest.mock("@aws-sdk/shared-ini-file-loader");
+
 const envAtLoadTime: { [key: string]: string | undefined } = [
   ENV_CONFIG_PATH,
   ENV_CREDENTIALS_PATH,
@@ -83,24 +69,23 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   return envState;
 }, {});
 
+const loadedConfig = {
+  credentialsFile: {
+    foo: { aws_access_key_id: "key", aws_secret_access_key: "secret" },
+  },
+  configFile: { bar: { aws_access_key_id: "key", aws_secret_access_key: "secret" } },
+};
+
 beforeEach(() => {
+  (fromEnv as jest.Mock).mockReturnValue(jest.fn());
+  (loadSharedConfigFiles as jest.Mock).mockReturnValue(loadedConfig);
+});
+
+afterEach(() => {
   Object.keys(envAtLoadTime).forEach((envKey) => {
     delete process.env[envKey];
   });
-
-  (fromEnv() as any).mockClear();
-  (fromSSO() as any).mockClear();
-  (fromIni() as any).mockClear();
-  (fromProcess() as any).mockClear();
-  (fromContainerMetadata() as any).mockClear();
-  (fromInstanceMetadata() as any).mockClear();
-  (fromEnv as any).mockClear();
-  (fromSSO as any).mockClear();
-  (fromIni as any).mockClear();
-  (fromProcess as any).mockClear();
-  (fromContainerMetadata as any).mockClear();
-  (fromInstanceMetadata as any).mockClear();
-  (loadSharedConfigFiles as any).mockClear();
+  jest.clearAllMocks();
 });
 
 afterAll(() => {

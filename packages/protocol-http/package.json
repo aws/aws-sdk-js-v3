@@ -1,18 +1,17 @@
 {
   "name": "@aws-sdk/protocol-http",
-  "version": "3.6.1",
+  "version": "3.10.0",
   "scripts": {
     "prepublishOnly": "yarn build:cjs && yarn build:es",
-    "pretest": "yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
-    "postbuild": "downlevel-dts types types/ts3.4",
+    "postbuild": "downlevel-dts dist/types dist/types/ts3.4",
     "test": "jest"
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "email": "",
@@ -20,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "3.6.1",
+    "@aws-sdk/types": "3.10.0",
     "tslib": "^1.8.0"
   },
   "devDependencies": {

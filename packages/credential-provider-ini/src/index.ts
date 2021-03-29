@@ -1,3 +1,4 @@
+import { AssumeRoleWithWebIdentityParams, fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { ProviderError } from "@aws-sdk/property-provider";
 import {
   loadSharedConfigFiles,
@@ -61,7 +62,7 @@ export interface SourceProfileInit extends SharedConfigInit {
 
 export interface FromIniInit extends SourceProfileInit {
   /**
-   * A function that returna a promise fulfilled with an MFA token code for
+   * A function that returns a promise fulfilled with an MFA token code for
    * the provided MFA Serial code. If a profile requires an MFA code and
    * `mfaCodeProvider` is not a valid function, the credential provider
    * promise will be rejected.
@@ -78,6 +79,15 @@ export interface FromIniInit extends SourceProfileInit {
    * @param params
    */
   roleAssumer?: (sourceCreds: Credentials, params: AssumeRoleParams) => Promise<Credentials>;
+
+  /**
+   * A function that assumes a role with web identity and returns a promise fulfilled with
+   * credentials for the assumed role.
+   *
+   * @param sourceCreds The credentials with which to assume a role.
+   * @param params
+   */
+  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<Credentials>;
 }
 
 interface StaticCredsProfile extends Profile {
@@ -93,12 +103,24 @@ const isStaticCredsProfile = (arg: any): arg is StaticCredsProfile =>
   typeof arg.aws_secret_access_key === "string" &&
   ["undefined", "string"].indexOf(typeof arg.aws_session_token) > -1;
 
+interface WebIdentityProfile extends Profile {
+  web_identity_token_file: string;
+  role_arn: string;
+  role_session_name?: string;
+}
+
+const isWebIdentityProfile = (arg: any): arg is WebIdentityProfile =>
+  Boolean(arg) &&
+  typeof arg === "object" &&
+  typeof arg.web_identity_token_file === "string" &&
+  typeof arg.role_arn === "string" &&
+  ["undefined", "string"].indexOf(typeof arg.role_session_name) > -1;
 interface AssumeRoleProfile extends Profile {
   role_arn: string;
   source_profile: string;
 }
 
-const isAssumeRoleProfile = (arg: any): arg is AssumeRoleProfile =>
+const isAssumeRoleWithSourceProfile = (arg: any): arg is AssumeRoleProfile =>
   Boolean(arg) &&
   typeof arg === "object" &&
   typeof arg.role_arn === "string" &&
@@ -155,7 +177,7 @@ const resolveProfileData = async (
 
   // If this is the first profile visited, role assumption keys should be
   // given precedence over static credentials.
-  if (isAssumeRoleProfile(data)) {
+  if (isAssumeRoleWithSourceProfile(data)) {
     const {
       external_id: ExternalId,
       mfa_serial,
@@ -205,6 +227,12 @@ const resolveProfileData = async (
     return resolveStaticCredentials(data);
   }
 
+  // If no static credentials are present, attempt to assume role with
+  // web identity if web_identity_token_file and role_arn is available
+  if (isWebIdentityProfile(data)) {
+    return resolveWebIdentityCredentials(data, options);
+  }
+
   // If the profile cannot be parsed or contains neither static credentials
   // nor role assumption metadata, throw an error. This should be considered a
   // terminal resolution error if a profile has been specified by the user
@@ -219,3 +247,11 @@ const resolveStaticCredentials = (profile: StaticCredsProfile): Promise<Credenti
     secretAccessKey: profile.aws_secret_access_key,
     sessionToken: profile.aws_session_token,
   });
+
+const resolveWebIdentityCredentials = async (profile: WebIdentityProfile, options: FromIniInit): Promise<Credentials> =>
+  fromTokenFile({
+    webIdentityTokenFile: profile.web_identity_token_file,
+    roleArn: profile.role_arn,
+    roleSessionName: profile.role_session_name,
+    roleAssumerWithWebIdentity: options.roleAssumerWithWebIdentity,
+  })();
