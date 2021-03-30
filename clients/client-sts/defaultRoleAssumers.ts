@@ -28,17 +28,17 @@ const decorateDefaultRegion = (region: STSClientConfig["region"]): STSClientConf
 };
 
 /**
- * The default role assumer that used by credential providers when STS.AssumeRole API is needed.
+ * The default role assumer that used by credential providers when sts:AssumeRole API is needed.
  */
-const getDefaultAssumer = (stsOptions: STSClientConfig): RoleAssumer => {
+export const getDefaultRoleAssumer = (stsOptions: Pick<STSClientConfig, "logger" | "region">): RoleAssumer => {
   let stsClient: STSClient;
   return async (sourceCreds, params) => {
     if (!stsClient) {
-      const { logger } = stsOptions;
+      const { logger, region } = stsOptions;
       stsClient = new STSClient({
         logger,
         credentials: sourceCreds,
-        region: decorateDefaultRegion(stsOptions.region),
+        region: decorateDefaultRegion(region),
       });
     }
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
@@ -57,16 +57,18 @@ const getDefaultAssumer = (stsOptions: STSClientConfig): RoleAssumer => {
 type RoleAssumerWithWebIdentity = (params: AssumeRoleWithWebIdentityCommandInput) => Promise<Credentials>;
 
 /**
- * The default role assumer that used by credential providers when STS.AssumeRole API is needed.
+ * The default role assumer that used by credential providers when sts:AssumeRoleWithWebIdentity API is needed.
  */
-const getDefaultAssumerWithWebIdentity = (stsOptions: STSClientConfig): RoleAssumerWithWebIdentity => {
+export const getDefaultRoleAssumerWithWebIdentity = (
+  stsOptions: Pick<STSClientConfig, "logger" | "region">
+): RoleAssumerWithWebIdentity => {
   let stsClient: STSClient;
   return async (params) => {
     if (!stsClient) {
-      const { logger } = stsOptions;
+      const { logger, region } = stsOptions;
       stsClient = new STSClient({
         logger,
-        region: decorateDefaultRegion(stsOptions.region),
+        region: decorateDefaultRegion(region),
       });
     }
     const { Credentials } = await stsClient.send(new AssumeRoleWithWebIdentityCommand(params));
@@ -96,7 +98,7 @@ export const decorateDefaultCredentialProvider = (provider: DefaultCredentialPro
   input: any
 ) =>
   provider({
-    roleAssumer: getDefaultAssumer(input),
-    roleAssumerWithWebIdentity: getDefaultAssumerWithWebIdentity(input),
+    roleAssumer: getDefaultRoleAssumer(input),
+    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input),
     ...input,
   });

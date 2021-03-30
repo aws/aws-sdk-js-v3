@@ -82,7 +82,7 @@ aws_access_key_id=foo4
 aws_secret_access_key=bar4
 ```
 
-### source profile with static credentials
+### source profile with assume role credentials
 
 ```ini
 [second]
@@ -94,10 +94,37 @@ source_profile=first
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
 ```
 
+If your credentials or config file contains assume role credentials, you are required to supply `roleAssumer`, which
+will call sts:AssumeRole API. SDK provide a default `roleAssumer`, you can import and supply it like below:
+
+```javascript
+const { getDefaultRoleAssumer } = require("@aws-sdk/client-sts/defaultRoleAssumers"); //CJS
+// import { getDefaultRoleAssumer } from "@aws-sdk/client-sts/defaultRoleAssumers"; //ESM
+
+const provider = fromIni({
+  //...other parameters
+  roleAssumer: getDefaultRoleAssumer();
+})
+```
+
 ### profile with web_identity_token_file
 
 ```ini
 [default]
 web_identity_token_file=/temp/token
 role_arn=arn:aws:iam::123456789012:role/example-role-arn
+```
+
+If your credentials or config file indicates web identity token file credentials, you are required to supply
+`roleAssumerWithWebIdentity` parameter, which will call sts:AssumeRoleWithWebIdentity API. SDK provide a default
+`roleAssumerWithWebIdentity`, you can import and supply it like below:
+
+```javascript
+const { getDefaultRoleAssumerWithWebIdentity } = require("@aws-sdk/client-sts/defaultRoleAssumers"); //CJS
+// import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts/defaultRoleAssumers"; //ESM
+
+const provider = fromIni({
+  //...other parameters
+  roleAssumerFromWebIdentity: getDefaultRoleAssumerWithWebIdentity();
+})
 ```
