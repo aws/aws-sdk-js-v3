@@ -30,6 +30,8 @@ export * from "./commands/NullAndEmptyHeadersClientCommand";
 export * from "./commands/NullAndEmptyHeadersServerCommand";
 export * from "./commands/OmitsNullSerializesEmptyStringCommand";
 export * from "./commands/QueryIdempotencyTokenAutoFillCommand";
+export * from "./commands/QueryParamsAsStringListMapCommand";
+export * from "./commands/QueryPrecedenceCommand";
 export * from "./commands/RecursiveShapesCommand";
 export * from "./commands/SimpleScalarPropertiesCommand";
 export * from "./commands/TimestampFormatHeadersCommand";

@@ -28,6 +28,7 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
+  queryParamsMapOfStrings?: { [key: string]: string };
 }
 
 export namespace AllQueryStringTypesInput {
@@ -422,6 +423,28 @@ export interface QueryIdempotencyTokenAutoFillInput {
 
 export namespace QueryIdempotencyTokenAutoFillInput {
   export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
+    ...obj,
+  });
+}
+
+export interface QueryParamsAsStringListMapInput {
+  qux?: string;
+  foo?: { [key: string]: string[] };
+}
+
+export namespace QueryParamsAsStringListMapInput {
+  export const filterSensitiveLog = (obj: QueryParamsAsStringListMapInput): any => ({
+    ...obj,
+  });
+}
+
+export interface QueryPrecedenceInput {
+  foo?: string;
+  baz?: { [key: string]: string };
+}
+
+export namespace QueryPrecedenceInput {
+  export const filterSensitiveLog = (obj: QueryPrecedenceInput): any => ({
     ...obj,
   });
 }

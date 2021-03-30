@@ -33,6 +33,7 @@ export interface AllQueryStringTypesInput {
   queryTimestampList?: Date[];
   queryEnum?: FooEnum | string;
   queryEnumList?: (FooEnum | string)[];
+  queryParamsMapOfStrings?: { [key: string]: string };
 }
 
 export namespace AllQueryStringTypesInput {
@@ -434,6 +435,16 @@ export namespace JsonTimestampsInputOutput {
   });
 }
 
+export interface RenamedGreeting {
+  salutation?: string;
+}
+
+export namespace RenamedGreeting {
+  export const filterSensitiveLog = (obj: RenamedGreeting): any => ({
+    ...obj,
+  });
+}
+
 /**
  * A union with a representative set of types for members.
  */
@@ -444,6 +455,7 @@ export type MyUnion =
   | MyUnion.ListValueMember
   | MyUnion.MapValueMember
   | MyUnion.NumberValueMember
+  | MyUnion.RenamedStructureValueMember
   | MyUnion.StringValueMember
   | MyUnion.StructureValueMember
   | MyUnion.TimestampValueMember
@@ -460,6 +472,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -473,6 +486,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -486,6 +500,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -499,6 +514,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -512,6 +528,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -525,6 +542,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -538,6 +556,7 @@ export namespace MyUnion {
     listValue: string[];
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -551,6 +570,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue: { [key: string]: string };
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown?: never;
   }
 
@@ -564,6 +584,21 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue: GreetingStruct;
+    renamedStructureValue?: never;
+    $unknown?: never;
+  }
+
+  export interface RenamedStructureValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    renamedStructureValue: RenamedGreeting;
     $unknown?: never;
   }
 
@@ -577,6 +612,7 @@ export namespace MyUnion {
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
+    renamedStructureValue?: never;
     $unknown: [string, any];
   }
 
@@ -590,6 +626,7 @@ export namespace MyUnion {
     listValue: (value: string[]) => T;
     mapValue: (value: { [key: string]: string }) => T;
     structureValue: (value: GreetingStruct) => T;
+    renamedStructureValue: (value: RenamedGreeting) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -603,6 +640,7 @@ export namespace MyUnion {
     if (value.listValue !== undefined) return visitor.listValue(value.listValue);
     if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
     if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
+    if (value.renamedStructureValue !== undefined) return visitor.renamedStructureValue(value.renamedStructureValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -617,6 +655,8 @@ export namespace MyUnion {
     if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
     if (obj.structureValue !== undefined)
       return { structureValue: GreetingStruct.filterSensitiveLog(obj.structureValue) };
+    if (obj.renamedStructureValue !== undefined)
+      return { renamedStructureValue: RenamedGreeting.filterSensitiveLog(obj.renamedStructureValue) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -695,6 +735,28 @@ export interface QueryIdempotencyTokenAutoFillInput {
 
 export namespace QueryIdempotencyTokenAutoFillInput {
   export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
+    ...obj,
+  });
+}
+
+export interface QueryParamsAsStringListMapInput {
+  qux?: string;
+  foo?: { [key: string]: string[] };
+}
+
+export namespace QueryParamsAsStringListMapInput {
+  export const filterSensitiveLog = (obj: QueryParamsAsStringListMapInput): any => ({
+    ...obj,
+  });
+}
+
+export interface QueryPrecedenceInput {
+  foo?: string;
+  baz?: { [key: string]: string };
+}
+
+export namespace QueryPrecedenceInput {
+  export const filterSensitiveLog = (obj: QueryPrecedenceInput): any => ({
     ...obj,
   });
 }

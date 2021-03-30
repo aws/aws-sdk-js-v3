@@ -31,6 +31,8 @@ import { NoInputAndOutputCommand } from "../../commands/NoInputAndOutputCommand"
 import { NullAndEmptyHeadersClientCommand } from "../../commands/NullAndEmptyHeadersClientCommand";
 import { OmitsNullSerializesEmptyStringCommand } from "../../commands/OmitsNullSerializesEmptyStringCommand";
 import { QueryIdempotencyTokenAutoFillCommand } from "../../commands/QueryIdempotencyTokenAutoFillCommand";
+import { QueryParamsAsStringListMapCommand } from "../../commands/QueryParamsAsStringListMapCommand";
+import { QueryPrecedenceCommand } from "../../commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommand } from "../../commands/RecursiveShapesCommand";
 import { SimpleScalarPropertiesCommand } from "../../commands/SimpleScalarPropertiesCommand";
 import { StreamingTraitsCommand } from "../../commands/StreamingTraitsCommand";
@@ -213,6 +215,12 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
+
+    queryParamsMapOfStrings: {
+      QueryParamsStringKeyA: "Foo",
+
+      QueryParamsStringKeyB: "Bar",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -262,6 +270,8 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+    expect(queryString).toContain("QueryParamsStringKeyA=Foo");
+    expect(queryString).toContain("QueryParamsStringKeyB=Bar");
 
     expect(r.body).toBeFalsy();
   }
@@ -1076,7 +1086,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1226,7 +1236,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -4051,6 +4061,51 @@ it("RestJsonSerializeStructureUnionValue:Request", async () => {
 });
 
 /**
+ * Serializes a renamed structure union value
+ */
+it("RestJsonSerializeRenamedStructureUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand({
+    contents: {
+      renamedStructureValue: {
+        salutation: "hello!",
+      } as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `{
+        \"contents\": {
+            \"renamedStructureValue\": {
+                \"salutation\": \"hello!\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Deserializes a string union value
  */
 it("RestJsonDeserializeStringUnionValue:Response", async () => {
@@ -4701,9 +4756,9 @@ it("RestJsonNullAndEmptyHeaders:Request", async () => {
 });
 
 /**
- * Serializes empty query strings but omits null
+ * Omits null query values
  */
-it("RestJsonOmitsNullSerializesEmptyString:Request", async () => {
+it("RestJsonOmitsNullQuery:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -4711,7 +4766,34 @@ it("RestJsonOmitsNullSerializesEmptyString:Request", async () => {
 
   const command = new OmitsNullSerializesEmptyStringCommand({
     nullValue: null,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/OmitsNullSerializesEmptyString");
 
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes empty query strings
+ */
+it("RestJsonSerializesEmptyQueryValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OmitsNullSerializesEmptyStringCommand({
     emptyString: "",
   } as any);
   try {
@@ -4793,6 +4875,83 @@ it("RestJsonQueryIdempotencyTokenAutoFillIsSet:Request", async () => {
 
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("token=00000000-0000-4000-8000-000000000000");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serialize query params from map of list strings
+ */
+it("RestJsonQueryParamsStringListMap:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryParamsAsStringListMapCommand({
+    qux: "named",
+
+    foo: {
+      baz: ["bar", "qux"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StringListMap");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("corge=named");
+    expect(queryString).toContain("baz=bar");
+    expect(queryString).toContain("baz=qux");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Prefer named query parameters when serializing
+ */
+it("RestJsonQueryPrecedence:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryPrecedenceCommand({
+    foo: "named",
+
+    baz: {
+      bar: "fromMap",
+
+      qux: "alsoFromMap",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/Precedence");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("bar=named");
+    expect(queryString).toContain("qux=alsoFromMap");
 
     expect(r.body).toBeFalsy();
   }
@@ -5020,7 +5179,7 @@ it("RestJsonDoesntSerializeNullStructureValues:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `{}`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5157,7 +5316,7 @@ it("RestJsonStreamingTraitsWithBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5318,7 +5477,7 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5478,7 +5637,7 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5656,15 +5815,9 @@ const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentUnknownTypeBodies = (
-  config: any,
-  expectedBody: string,
-  generatedBody: string | Uint8Array
-): Object => {
+const compareEquivalentOctetStreamBodies = (config: any, expectedBody: string, generatedBody: Uint8Array): Object => {
   const expectedParts = { Value: expectedBody };
-  const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? config.utf8Encoder(generatedBody) : generatedBody,
-  };
+  const generatedParts = { Value: config.utf8Encoder(generatedBody) };
 
   return compareParts(expectedParts, generatedParts);
 };
