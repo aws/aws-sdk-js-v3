@@ -68,19 +68,19 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.EC2_MIDDLEWARE.dependency,
                                          "CopySnapshotPresignedUrl", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CopySnapshot")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CopySnapshot")
                                             && testServiceId(s, "EC2"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
                                 HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("Predict")
                                             && testServiceId(s, "Machine Learning"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
                                          "ChangeResourceRecordSets", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("ChangeResourceRecordSets")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ChangeResourceRecordSets")
                                             && testServiceId(s, "Route 53"))
                         .build(),
                 RuntimeClientPlugin.builder()
@@ -92,19 +92,19 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("SendMessage")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessage")
                                             && testServiceId(s, "SQS"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessageBatch",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("SendMessageBatch")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("SendMessageBatch")
                                             && testServiceId(s, "SQS"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("ReceiveMessage")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage")
                                             && testServiceId(s, "SQS"))
                         .build(),
                 RuntimeClientPlugin.builder()

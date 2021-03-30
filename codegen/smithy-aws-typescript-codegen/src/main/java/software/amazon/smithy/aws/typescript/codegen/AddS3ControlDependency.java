@@ -52,7 +52,7 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                             "ProcessArnables",
                             HAS_MIDDLEWARE
                         )
-                        .operationPredicate((m, s, o) ->  isS3Control(s) && isArnableOperation(o))
+                        .operationPredicate((m, s, o) ->  isS3Control(s) && isArnableOperation(o, s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(
@@ -60,7 +60,7 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                             "RedirectFromPostId",
                             HAS_MIDDLEWARE
                         )
-                        .operationPredicate((m, s, o) ->  isS3Control(s) && !isArnableOperation(o))
+                        .operationPredicate((m, s, o) ->  isS3Control(s) && !isArnableOperation(o, s))
                         .build());
     }
 
@@ -70,9 +70,10 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         if (!isS3Control(settings.getService(model))) {
             return model;
         }
+        ServiceShape serviceShape = model.expectShape(settings.getService(), ServiceShape.class);
         return ModelTransformer.create().mapShapes(model, shape -> {
             Optional<MemberShape> modified = shape.asMemberShape()
-                    .filter(memberShape -> memberShape.getTarget().getName().equals("AccountId"))
+                    .filter(memberShape -> memberShape.getTarget().getName(serviceShape).equals("AccountId"))
                     .filter(memberShape -> model.expectShape(memberShape.getTarget()).isStringShape())
                     .filter(memberShape -> memberShape.isRequired())
                     .map(memberShape -> Shape.shapeToBuilder(memberShape).removeTrait(RequiredTrait.ID).build());
@@ -85,8 +86,8 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
         return serviceId.equals("S3 Control");
     }
 
-    private static boolean isArnableOperation(OperationShape operation) {
-        String operationName = operation.getId().getName();
+    private static boolean isArnableOperation(OperationShape operation, ServiceShape serviceShape) {
+        String operationName = operation.getId().getName(serviceShape);
         return !operationName.equals("CreateBucket") && !operationName.equals("ListRegionalBuckets");
     }
 }

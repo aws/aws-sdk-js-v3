@@ -76,7 +76,7 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
 
             TopDownIndex topDownIndex = TopDownIndex.of(model);
             OperationShape firstOperation = topDownIndex.getContainedOperations(service).iterator().next();
-            String operationName = firstOperation.getId().getName();
+            String operationName = firstOperation.getId().getName(service);
             resource = resource.replaceAll(Pattern.quote("${commandName}"), operationName);
             resource = resource.replaceAll(Pattern.quote("${operationName}"),
                     operationName.substring(0, 1).toLowerCase() + operationName.substring(1));

@@ -23,6 +23,7 @@ import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -183,12 +184,13 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     protected void serializeStructure(GenerationContext context, StructureShape shape) {
         TypeScriptWriter writer = context.getWriter();
+        ServiceShape serviceShape = context.getService();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the structure itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName());
+                .orElse(shape.getId().getName(serviceShape));
 
         // Create the structure's node.
         writer.write("const bodyNode = new __XmlNode($S);", nodeName);
@@ -298,19 +300,20 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
     @Override
     protected void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
+        ServiceShape serviceShape = context.getService();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
         writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
 
         // Handle the @xmlName trait for the union itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName());
+                .orElse(shape.getId().getName(serviceShape));
 
         // Create the union's node.
         writer.write("const bodyNode = new __XmlNode($S);", nodeName);
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(), () -> {
+        writer.openBlock("$L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
             Map<String, MemberShape> members = shape.getAllMembers();
             members.forEach((memberName, memberShape) -> {
                 writer.openBlock("$L: value => {", "},", memberName, () -> {

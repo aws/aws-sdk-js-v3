@@ -127,7 +127,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                                 .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "throw200Exceptions",
                                         HAS_MIDDLEWARE)
                                 .operationPredicate(
-                                        (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName())
+                                        (m, s, o) -> EXCEPTIONS_OF_200_OPERATIONS.contains(o.getId().getName(s))
                                                 && testServiceId(s))
                                 .build(),
                 RuntimeClientPlugin.builder()
@@ -143,7 +143,7 @@ public final class AddS3Config implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket")
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket")
                                             && testServiceId(s))
                         .build(),
                  /**
@@ -158,13 +158,13 @@ public final class AddS3Config implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName())
+                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
                                             && testServiceId(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName())
+                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName(s))
                                             && testServiceId(s))
                         .build()
         );
