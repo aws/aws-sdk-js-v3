@@ -9599,7 +9599,7 @@ const parseBody = (streamBody: any, context: __SerdeContext): any =>
         ignoreAttributes: false,
         parseNodeValue: false,
         trimValues: false,
-        tagValueProcessor: (val, tagName) => decodeEscapedXML(val),
+        tagValueProcessor: (val, tagName) => (val.trim() === "" ? "" : decodeEscapedXML(val)),
       });
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
