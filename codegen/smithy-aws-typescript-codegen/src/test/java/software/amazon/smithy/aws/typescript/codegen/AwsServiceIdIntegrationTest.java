@@ -25,9 +25,9 @@ public class AwsServiceIdIntegrationTest {
                 .unwrap();
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
-        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
-        SymbolProvider decorated = integration.decorateSymbolProvider(
-                new TypeScriptSettings(), model, provider);
+        TypeScriptSettings settings = new TypeScriptSettings();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
+        SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("NotSameClient"));
@@ -44,9 +44,9 @@ public class AwsServiceIdIntegrationTest {
                 .unwrap();
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
-        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
-        SymbolProvider decorated = integration.decorateSymbolProvider(
-                new TypeScriptSettings(), model, provider);
+        TypeScriptSettings settings = new TypeScriptSettings();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
+        SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("FirstNotCapitalizedClient"));
@@ -63,9 +63,9 @@ public class AwsServiceIdIntegrationTest {
                 .unwrap();
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
-        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model);
-        SymbolProvider decorated = integration.decorateSymbolProvider(
-                new TypeScriptSettings(), model, provider);
+        TypeScriptSettings settings = new TypeScriptSettings();
+        SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
+        SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
         Symbol symbol = decorated.toSymbol(service);
 
         assertThat(symbol.getName(), equalTo("RestNotCapitalizedClient"));
