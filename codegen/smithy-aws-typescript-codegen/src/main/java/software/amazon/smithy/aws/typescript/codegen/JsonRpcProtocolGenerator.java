@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Set;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
@@ -88,7 +89,8 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         // AWS JSON RPC protocols use a combination of the service and operation shape names,
         // separated by a '.' character, for the target header.
         TypeScriptWriter writer = context.getWriter();
-        String target = context.getService().getId().getName() + "." + operation.getId().getName();
+        ServiceShape serviceShape = context.getService();
+        String target = serviceShape.getId().getName(serviceShape) + "." + operation.getId().getName(serviceShape);
         writer.write("'x-amz-target': $S,", target);
     }
 

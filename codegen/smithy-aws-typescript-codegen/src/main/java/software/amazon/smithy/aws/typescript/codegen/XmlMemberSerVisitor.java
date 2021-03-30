@@ -49,9 +49,11 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
 final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
+    private final GenerationContext context;
 
     XmlMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.context = context;
     }
 
     @Override
@@ -112,7 +114,7 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
         // Handle the @xmlName trait for the shape itself.
         String nodeName = shape.getTrait(XmlNameTrait.class)
                 .map(XmlNameTrait::getValue)
-                .orElse(shape.getId().getName());
+                .orElse(shape.getId().getName(context.getService()));
 
         TypeScriptWriter writer = getContext().getWriter();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");

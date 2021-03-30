@@ -19,6 +19,7 @@ import java.util.Set;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
 import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
@@ -134,8 +135,9 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
             writer.write("...$L,",
                     inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME)));
             // Set the protocol required values.
-            writer.write("Action: $S,", operation.getId().getName());
-            writer.write("Version: $S,", context.getService().getVersion());
+            ServiceShape serviceShape = context.getService();
+            writer.write("Action: $S,", operation.getId().getName(serviceShape));
+            writer.write("Version: $S,", serviceShape.getVersion());
         });
     }
 
@@ -160,7 +162,7 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
 
-        String dataSource = "data." + operation.getId().getName() + "Result";
+        String dataSource = "data." + operation.getId().getName(context.getService()) + "Result";
         writer.write("contents = $L;",
                 outputStructure.accept(new XmlMemberDeserVisitor(context, dataSource, Format.DATE_TIME)));
     }
