@@ -125,7 +125,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         if (testServiceId(service, "STS")) {
             Boolean isUnsignedCommand = SetUtils
                     .of("AssumeRoleWithWebIdentity", "AssumeRoleWithSAML")
-                    .contains(operation.getId().getName());
+                    .contains(operation.getId().getName(service));
             return !isUnsignedCommand;
         }
 

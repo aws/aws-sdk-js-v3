@@ -23,6 +23,7 @@ import software.amazon.smithy.model.shapes.CollectionShape;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
@@ -152,9 +153,10 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     public void serializeUnion(GenerationContext context, UnionShape shape) {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
+        ServiceShape serviceShape = context.getService();
 
         // Visit over the union type, then get the right serialization for the member.
-        writer.openBlock("return $L.visit(input, {", "});", shape.getId().getName(), () -> {
+        writer.openBlock("return $L.visit(input, {", "});", shape.getId().getName(serviceShape), () -> {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {

@@ -26,6 +26,7 @@ import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
@@ -178,8 +179,9 @@ final class AwsProtocolUtils {
         // Set the form encoded string.
         writer.openBlock("const body = buildFormUrlencodedString({", "});", () -> {
             // Set the protocol required values.
-            writer.write("Action: $S,", operation.getId().getName());
-            writer.write("Version: $S,", context.getService().getVersion());
+            ServiceShape serviceShape = context.getService();
+            writer.write("Action: $S,", operation.getId().getName(serviceShape));
+            writer.write("Version: $S,", serviceShape.getVersion());
         });
 
         return true;

@@ -24,6 +24,7 @@ import software.amazon.smithy.model.knowledge.HttpBinding;
 import software.amazon.smithy.model.knowledge.HttpBinding.Location;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
@@ -153,6 +154,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             return;
         }
 
+        ServiceShape serviceShape = context.getService();
         SymbolProvider symbolProvider = context.getSymbolProvider();
         ShapeId inputShapeId = documentBindings.get(0).getMember().getContainer();
 
@@ -160,11 +162,11 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
-        writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName());
+        writer.write("const bodyNode = new __XmlNode($S);", inputShapeId.getName(serviceShape));
 
         // Add @xmlNamespace value of the service to the root node,
         // fall back to one from the input shape.
-        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, context.getService(), "bodyNode");
+        boolean serviceXmlns = AwsProtocolUtils.writeXmlNamespace(context, serviceShape, "bodyNode");
         if (!serviceXmlns) {
             StructureShape inputShape = context.getModel().expectShape(inputShapeId, StructureShape.class);
             AwsProtocolUtils.writeXmlNamespace(context, inputShape, "bodyNode");
