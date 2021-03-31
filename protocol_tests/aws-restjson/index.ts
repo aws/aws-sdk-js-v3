@@ -39,4 +39,6 @@ export * from "./commands/StreamingTraitsCommand";
 export * from "./commands/StreamingTraitsRequireLengthCommand";
 export * from "./commands/StreamingTraitsWithMediaTypeCommand";
 export * from "./commands/TimestampFormatHeadersCommand";
+export * as Aws_restJson1 from "./protocols/Aws_restJson1";
+export * from "./server/index";
 export * from "./models/index";

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-restjson",
   "description": "@aws-sdk/aws-restjson client",
-  "version": "3.9.0",
+  "version": "1.0.0-alpha.1",
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
@@ -13,10 +13,10 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:cjs && yarn build:es",
-    "postbuild": "downlevel-dts types types/ts3.4"
+    "postbuild": "downlevel-dts dist/types dist/types/ts3.4"
   },
   "main": "./dist/cjs/index.js",
-  "types": "./types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "module": "./dist/es/index.js",
   "browser": {
     "./runtimeConfig": "./runtimeConfig.browser"
@@ -26,8 +26,8 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@aws-crypto/sha256-browser": "^1.0.0",
-    "@aws-crypto/sha256-js": "^1.0.0",
+    "@aws-crypto/sha256-browser": "^1.1.0",
+    "@aws-crypto/sha256-js": "^1.1.0",
     "@aws-sdk/config-resolver": "3.8.0",
     "@aws-sdk/credential-provider-node": "3.9.0",
     "@aws-sdk/fetch-http-handler": "3.6.1",
@@ -62,14 +62,13 @@
   },
   "devDependencies": {
     "@aws-sdk/client-documentation-generator": "3.6.1",
-    "@aws-sdk/types": "3.1.0",
     "@types/node": "^12.7.5",
     "@types/uuid": "^3.0.0",
     "downlevel-dts": "0.7.0",
     "jest": "^26.1.0",
     "rimraf": "^3.0.0",
     "ts-jest": "^26.4.1",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.20.0",
     "typescript": "~4.1.2"
   },
   "engines": {
