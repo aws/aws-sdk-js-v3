@@ -26,7 +26,19 @@ and provides step-by-step migration instructions to v3.
 To test your universal JavaScript code in Node.js, browser and react-native environments,
 visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
-## Getting started
+# Table of Contents
+
+1. [Getting Started](#getting-started)
+1. [New Features](#new-features)
+   1. [Modularized packages](#modularized-packages)
+   1. [API consistency changes](#api-changes)
+      1. [Configuration](#configuration)
+      1. [Middleware Stack](#Middleware)
+   1. [How to upgrade](#other-changes)
+1. [Install from Source](#install-from-Source)
+1. [Giving feedback and contributing](#giving-feedback-and-contributing)
+
+## Getting Started
 
 Let’s walk through setting up a project that depends on DynamoDB from the SDK and makes a simple service call. The following steps use yarn as an example. These steps assume you have Node.js and yarn already installed.
 
