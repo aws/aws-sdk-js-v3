@@ -5301,7 +5301,8 @@ const compareEquivalentXmlBodies = (expectedBody: string, generatedBody: string)
     attributeNamePrefix: "",
     ignoreAttributes: false,
     parseNodeValue: false,
-    tagValueProcessor: (val: any, tagName: any) => decodeEscapedXml(val),
+    trimValues: false,
+    tagValueProcessor: (val: any, tagName: any) => (val.trim() === "" ? "" : decodeEscapedXml(val)),
   };
 
   const parseXmlBody = (body: string) => {
