@@ -248,6 +248,11 @@ export class CloudHSMV2Client extends __Client<
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 
+  /**
+   * Destroy underlying resources, like sockets. It's usually not necessary to do this.
+   * However in Node.js, it's best to explicitly shut down the client's agent when it is no longer needed.
+   * Otherwise, sockets might stay open for quite a long time before the server terminates them.
+   */
   destroy(): void {
     super.destroy();
   }
