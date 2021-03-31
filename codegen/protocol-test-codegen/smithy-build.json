@@ -84,6 +84,7 @@
       ],
       "plugins": {
         "typescript-codegen": {
+          "generateServerSdk": true,
           "package": "@aws-sdk/aws-restjson",
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
