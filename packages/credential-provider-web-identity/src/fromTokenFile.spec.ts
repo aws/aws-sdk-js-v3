@@ -1,7 +1,8 @@
 import { ProviderError } from "@aws-sdk/property-provider";
 import { readFileSync } from "fs";
 
-import { AssumeRoleWithWebIdentityParams, fromTokenFile, FromTokenFileInit } from "./fromTokenFile";
+import { fromTokenFile, FromTokenFileInit } from "./fromTokenFile";
+import { AssumeRoleWithWebIdentityParams } from "./index";
 
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
