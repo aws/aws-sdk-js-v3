@@ -50,12 +50,6 @@ After you have both an IAM role with configured privileges and an application re
 providers, you can set up the SDK to get credentials for the IAM role using helper code, as follows:
 
 ```javascript
- = new AWS.WebIdentityCredentials({
-   RoleArn: 'arn:aws:iam::<AWS_ACCOUNT_ID>/:role/<WEB_IDENTITY_ROLE_NAME>',
-   ProviderId: 'graph.facebook.com|www.amazon.com', // this is null for Google
-   WebIdentityToken: ACCESS_TOKEN
-});
-
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts";
 import { fromWebToken } from "@aws-sdk/credential-provider-web-identity";

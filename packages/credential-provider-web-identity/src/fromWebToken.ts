@@ -148,7 +148,7 @@ export const fromWebToken = (init: FromWebTokenInit): CredentialProvider => () =
 
   return roleAssumerWithWebIdentity({
     RoleArn: roleArn,
-    RoleSessionName: roleSessionName ?? "web-identity",
+    RoleSessionName: roleSessionName ?? `aws-sdk-js-session-${Date.now()}`,
     WebIdentityToken: webIdentityToken,
     ProviderId: providerId,
     PolicyArns: policyArns,
