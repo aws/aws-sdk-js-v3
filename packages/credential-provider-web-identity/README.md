@@ -15,7 +15,7 @@ API via `roleAssumerWithWebIdentity`.
 ### Supported configuration
 
 This configuration supports all the input parameters from
-[sts:AssumeWithWebIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/modules/assumerolewithwebidentityrequest.html)API. The following options are supported:
+[sts:AssumeWithWebIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/modules/assumerolewithwebidentityrequest.html) API. The following options are supported:
 
 - `roleArn` - The Amazon Resource Name (ARN) of the role that the caller is assuming.
 - `webIdentityToken` - The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider.
