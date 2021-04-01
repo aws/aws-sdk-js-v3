@@ -36,6 +36,7 @@
     "@aws-sdk/middleware-host-header": "3.10.0",
     "@aws-sdk/middleware-logger": "3.10.0",
     "@aws-sdk/middleware-retry": "3.10.0",
+    "@aws-sdk/middleware-sdk-sts": "3.0.0",
     "@aws-sdk/middleware-serde": "3.10.0",
     "@aws-sdk/middleware-signing": "3.10.0",
     "@aws-sdk/middleware-stack": "3.10.0",
@@ -88,5 +89,11 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "clients/client-sts"
+  },
+  "exports": {
+    "./defaultRoleAssumers": {
+      "import": "./dist/es/defaultRoleAssumers.js",
+      "require": "./dist/cjs/defaultRoleAssumers.js"
+    }
   }
 }
