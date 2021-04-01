@@ -7,6 +7,86 @@
 
 This module includes functions which get credentials by calling STS assumeRoleWithWebIdentity API.
 
+## fromWebToken
+
+The function `fromWebToken` returns `CredentialProvider` that get credentials calling sts:assumeRoleWithWebIdentity
+API via `roleAssumerWithWebIdentity`.
+
+### Supported configuration
+
+This configuration supports all the input parameters from
+[sts:AssumeWithWebIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/modules/assumerolewithwebidentityrequest.html) API. The following options are supported:
+
+- `roleArn` - The Amazon Resource Name (ARN) of the role that the caller is assuming.
+- `webIdentityToken` - The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity provider.
+- `roleSessionName` - An identifier for the assumed role session.
+- `providerId` - The fully qualified host component of the domain name of the identity provider. Do not specify this
+  value for OpenID Connect ID tokens.
+- `policyArns` - The Amazon Resource Names (ARNs) of the IAM managed policies that you want to use as managed session
+  policies.
+- `policy` - An IAM policy in JSON format that you want to use as an inline session policy.
+- `durationSeconds` - The duration, in seconds, of the role session. Default to 3600.
+- `roleAssumerWithWebIdentity` - A function that assumes a role with web identity
+  and returns a promise fulfilled with credentials for the assumed role. You may call
+  `sts:assumeRoleWithWebIdentity` API within this function.
+
+### Examples
+
+You can directly configure individual identity providers to access AWS resources using web identity federation. AWS
+currently supports authenticating users using web identity federation through several identity providers:
+
+- [Login with Amazon](https://login.amazon.com/)
+
+- [Facebook Login](https://developers.facebook.com/docs/facebook-login/web/)
+
+- [Google Sign-in](https://developers.google.com/identity/)
+
+You must first register your application with the providers that your application supports. Next, create an IAM role and
+set up permissions for it. The IAM role you create is then used to grant the permissions you configured for it through
+the respective identity provider. For example, you can set up a role that allows users who logged in through Facebook
+to have read access to a specific Amazon S3 bucket you control.
+
+After you have both an IAM role with configured privileges and an application registered with your chosen identity
+providers, you can set up the SDK to get credentials for the IAM role using helper code, as follows:
+
+```javascript
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts";
+import { fromWebToken } from "@aws-sdk/credential-provider-web-identity";
+
+const stsClient = new STSClient({});
+
+const roleAssumerWithWebIdentity = async (params) => {
+  const { Credentials } = await stsClient.send(
+    new AssumeRoleWithWebIdentityCommand(params)
+  );
+  if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
+    throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
+  }
+  return {
+    accessKeyId: Credentials.AccessKeyId,
+    secretAccessKey: Credentials.SecretAccessKey,
+    sessionToken: Credentials.SessionToken,
+    expiration: Credentials.Expiration,
+  };
+};
+
+const dynamodb = new DynamoDBClient({
+  region,
+  credentials: fromWebToken({
+    roleArn: 'arn:aws:iam::<AWS_ACCOUNT_ID>/:role/<WEB_IDENTITY_ROLE_NAME>',
+    providerId: 'graph.facebook.com|www.amazon.com', // this is null for Google
+    webIdentityToken: ACCESS_TOKEN // from OpenID token identity provider
+    roleAssumerWithWebIdentity,
+  })
+});
+
+```
+
+The value in the ProviderId parameter depends on the specified identity provider. The value in the WebIdentityToken
+parameter is the access token retrieved from a successful login with the identity provider. For more information on how
+to configure and retrieve access tokens for each identity provider, see the documentation for the identity provider.
+
 ## fromTokenFile
 
 The function `fromTokenFile` returns `CredentialProvider` that reads credentials as follows:
