@@ -35,13 +35,13 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
       1. [Configuration](#configuration)
       1. [Middleware Stack](#Middleware)
    1. [How to upgrade](#other-changes)
-1. [Install from Source](#install-from-Source)
-1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [High Level Concepts in V3](#high-level-concepts)
    1. [Generated Packages](#generated-code)
    1. [Paginators](#paginators)
    1. [Abort Controller](#abort-controller)
    1. [Middleware Stack](#middleware-stack)
+1. [Install from Source](#install-from-Source)
+1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 
 ## Getting Started
 
