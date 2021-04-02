@@ -223,7 +223,9 @@ Accompanying unit tests are appreciated. See [Contributing](CONTRIBUTING.md) for
 
 ## High Level Concepts
 
-This is an introduction to some of the high level concepts behind AWS JS SDK V3 which are shared between services and might make your life easier. Please consult the user guide and API reference for service specific details.
+This is an introduction to some of the high level concepts behind AWS SDK for JavaScript (v3)
+which are shared between services and might make your life easier. Please consult the user
+guide and API reference for service specific details.
 
 #### Terminology:
 
