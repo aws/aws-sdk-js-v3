@@ -30,6 +30,7 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "^1.0.0",
     "@aws-crypto/sha256-js": "^1.0.0",
+    "@aws-sdk/client-sts": "3.11.0",
     "@aws-sdk/config-resolver": "3.10.0",
     "@aws-sdk/credential-provider-node": "3.11.0",
     "@aws-sdk/eventstream-handler-node": "3.10.0",
