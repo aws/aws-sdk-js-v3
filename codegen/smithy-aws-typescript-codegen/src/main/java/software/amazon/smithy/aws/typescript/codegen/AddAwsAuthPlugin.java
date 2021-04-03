@@ -22,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -37,6 +38,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
@@ -45,6 +47,9 @@ import software.amazon.smithy.utils.SetUtils;
  * Configure clients with AWS auth configurations and plugin.
  */
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
+    static final String STS_CLIENT_PREFIX = "sts-client-";
+    static final String ROLE_ASSUMERS_FILE = "defaultRoleAssumers";
+    static final String STS_ROLE_ASSUMERS_FILE = "defaultStsRoleAssumers";
 
     @Override
     public void addConfigInterfaceFields(
@@ -66,7 +71,13 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
-                    .servicePredicate((m, s) -> !areAllOptionalAuthOperations(m, s))
+                    .servicePredicate((m, s) -> !areAllOptionalAuthOperations(m, s) && !testServiceId(s, "STS"))
+                    .build(),
+            RuntimeClientPlugin.builder()
+                    .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
+                            "StsAuth", HAS_CONFIG)
+                    .additionalResolveFunctionParameters("STSClient")
+                    .servicePredicate((m, s) -> testServiceId(s, "STS"))
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
@@ -104,15 +115,61 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             case NODE:
                 return MapUtils.of(
                     "credentialDefaultProvider", writer -> {
+                        if (!testServiceId(service, "STS")) {
+                            writer.addDependency(AwsDependency.STS_CLIENT);
+                            writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
+                                    AwsDependency.STS_CLIENT.packageName);
+                        } else {
+                            writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
+                                    "./" + STS_ROLE_ASSUMERS_FILE);
+                        }
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE.packageName);
-                        writer.write("credentialDefaultProvider,");
+                        writer.write("credentialDefaultProvider: decorateDefaultCredentialProvider("
+                                + "credentialDefaultProvider),");
                     }
                 );
             default:
                 return Collections.emptyMap();
         }
+    }
+
+    @Override
+    public void writeAdditionalFiles(
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        BiConsumer<String, Consumer<TypeScriptWriter>> writerFactory
+    ) {
+        ServiceShape service = settings.getService(model);
+        if (!testServiceId(service, "STS")) {
+            return;
+        }
+        writerFactory.accept("defaultRoleAssumers.ts", writer -> {
+            String source = IoUtils.readUtf8Resource(getClass(),
+                    String.format("%s%s.ts", STS_CLIENT_PREFIX, ROLE_ASSUMERS_FILE));
+            writer.write("$L", source);
+        });
+        writerFactory.accept("defaultStsRoleAssumers.ts", writer -> {
+            String source = IoUtils.readUtf8Resource(getClass(),
+                    String.format("%s%s.ts", STS_CLIENT_PREFIX, STS_ROLE_ASSUMERS_FILE));
+            writer.write("$L", source);
+        });
+    }
+
+    @Override
+    public void writeAdditionalExports(
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        TypeScriptWriter writer
+    ) {
+        ServiceShape service = settings.getService(model);
+        if (!testServiceId(service, "STS")) {
+            return;
+        }
+        writer.write("export * from $S", "./" + ROLE_ASSUMERS_FILE);
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
