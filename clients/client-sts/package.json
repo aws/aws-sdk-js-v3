@@ -89,11 +89,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "clients/client-sts"
-  },
-  "exports": {
-    "./defaultRoleAssumers": {
-      "import": "./dist/es/defaultRoleAssumers.js",
-      "require": "./dist/cjs/defaultRoleAssumers.js"
-    }
   }
 }

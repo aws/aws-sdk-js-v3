@@ -30,7 +30,6 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-// import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "@aws-sdk/middleware-signing";
 import { StsAuthInputConfig, StsAuthResolvedConfig, resolveStsAuthConfig } from "@aws-sdk/middleware-sdk-sts";
 import {
   UserAgentInputConfig,
@@ -181,7 +180,6 @@ export type STSClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  // AwsAuthInputConfig &
   StsAuthInputConfig &
   UserAgentInputConfig;
 
@@ -191,7 +189,6 @@ export type STSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  // AwsAuthResolvedConfig &
   StsAuthResolvedConfig &
   UserAgentResolvedConfig;
 
@@ -219,7 +216,6 @@ export class STSClient extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveHostHeaderConfig(_config_3);
-    // let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_5 = resolveStsAuthConfig(_config_4, STSClient);
     let _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
