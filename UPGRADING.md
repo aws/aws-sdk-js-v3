@@ -211,7 +211,7 @@ client in its constructor. Here's an brief example:
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // ES6 import
 // const { DynamoDBClient } = require("@aws-sdk/client-dynamodb"); // CommonJS import
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb"; // ES6 import
-// const { DynamoDBDocumentClient } = require("@aws-sdk/lib-dynamodb"); // CommonJS import
+// const { DynamoDBDocumentClient, PutCommand } = require("@aws-sdk/lib-dynamodb"); // CommonJS import
 
 // Bare-bones DynamoDB Client
 const client = new DynamoDBClient({});
