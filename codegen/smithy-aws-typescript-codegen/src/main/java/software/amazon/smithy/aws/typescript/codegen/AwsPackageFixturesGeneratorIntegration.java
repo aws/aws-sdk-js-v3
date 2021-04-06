@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
@@ -89,9 +91,5 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
 
             writer.write(resource);
         });
-    }
-
-    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
-        return settings.getService(model).hasTrait(ServiceTrait.class);
     }
 }

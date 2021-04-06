@@ -15,14 +15,14 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
-import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -99,13 +99,5 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
             default:
                 return Collections.emptyMap();
         }
-    }
-
-    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
-        return isAwsService(settings.getService(model));
-    }
-
-    private static boolean isAwsService(ServiceShape serviceShape) {
-        return serviceShape.hasTrait(ServiceTrait.class);
     }
 }

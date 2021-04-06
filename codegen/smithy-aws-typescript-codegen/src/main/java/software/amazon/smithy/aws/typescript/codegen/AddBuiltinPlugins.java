@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
@@ -44,7 +45,7 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
-                        .servicePredicate((m, s) -> testAwsService(s))
+                        .servicePredicate((m, s) -> isAwsService(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
@@ -130,9 +131,5 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
         return serviceShape.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse("").equals(expectedId);
-    }
-
-    private static boolean testAwsService(Shape serviceShape) {
-        return serviceShape.hasTrait(ServiceTrait.class);
     }
 }

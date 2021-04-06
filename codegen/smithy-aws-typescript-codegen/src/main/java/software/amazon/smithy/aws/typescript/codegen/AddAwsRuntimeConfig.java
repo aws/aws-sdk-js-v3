@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -175,9 +177,5 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             default:
                 return Collections.emptyMap();
         }
-    }
-
-    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
-        return settings.getService(model).hasTrait(ServiceTrait.class);
     }
 }

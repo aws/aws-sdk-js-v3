@@ -15,11 +15,12 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -85,9 +86,5 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             default:
                 return Collections.emptyMap();
         }
-    }
-
-    private static boolean isAwsService(TypeScriptSettings settings, Model model) {
-        return settings.getService(model).hasTrait(ServiceTrait.class);
     }
 }
