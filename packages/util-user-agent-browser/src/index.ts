@@ -11,7 +11,7 @@ export const defaultUserAgent = ({
   serviceId,
   clientVersion,
 }: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
-  const parsedUA = window?.navigator?.userAgent ? bowser.parse(window.navigator.userAgent) : undefined;
+  const parsedUA = (typeof window !== 'undefined' && window?.navigator?.userAgent) ? bowser.parse(window.navigator.userAgent) : undefined;
   const sections: UserAgent = [
     // sdk-metadata
     ["aws-sdk-js", clientVersion],
