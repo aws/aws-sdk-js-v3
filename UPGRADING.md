@@ -44,6 +44,8 @@ might not have the same name either.
 - [`endpointDiscoveryEnabled`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#endpointDiscoveryEnabled-property)
   - **v2**: Whether to call operations with endpoints given by service dynamically.
   - **v3**: Not available. Planned. This option configures endpoint discovery behavior, which is not yet available in v3.
+    Currently `TimeStreamQuery` and `TimeStreamWrite` client cannot fetch endpoints dynamically because they rely on
+    this behavior. [#2211](https://github.com/aws/aws-sdk-js-v3/issues/2211) is tracking this issue.
 - [`hostPrefixEnabled`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#hostPrefixEnabled-property)
   - **v2**: Whether to marshal request parameters to the prefix of hostname.
   - **v3**: **Deprecated**. SDK _always_ injects the hostname prefix when necessary.
@@ -195,8 +197,37 @@ In v3, [`@aws-sdk/s3-request-presigner` package](https://github.com/aws/aws-sdk-
 is available. You don't have to differentiate `getSignedUrl()` and `getSignedUrlPromise()` any more. We also have [a blog](https://aws.amazon.com/blogs/developer/generate-presigned-url-modular-aws-sdk-javascript/)
 discussing the details of this package.
 
-<!---
 ## DynamoDB Document Client
 
-TBD
--->
+In v2, you can use the [`AWS.DynamoDB.DocumentClient` class](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html)
+to call DynamoDB API with native JavaScript types like Buffer, Array, and Object. It thus simplifies working with items
+in Amazon DynamoDB by abstracting away the notion of attribute values.
+
+In v3, equivalent [`@aws-sdk/lib-dynamodb`](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_lib_dynamodb.html)
+is available. It's similar to normal service clients from v3 SDK, with the difference that it takes a basic DynamoDB
+client in its constructor. Here's an brief example:
+
+```javascript
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb"; // ES6 import
+// const { DynamoDBClient } = require("@aws-sdk/client-dynamodb"); // CommonJS import
+import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb"; // ES6 import
+// const { DynamoDBDocumentClient, PutCommand } = require("@aws-sdk/lib-dynamodb"); // CommonJS import
+
+// Bare-bones DynamoDB Client
+const client = new DynamoDBClient({});
+
+// Bare-bones document client
+const ddbDocClient = DynamoDBDocumentClient.from(client); // client is DynamoDB client
+
+await ddbDocClient.send(
+  new PutCommand({
+    TableName,
+    Item: {
+      id: "1",
+      content: "content from DynamoDBDocumentClient",
+    },
+  })
+);
+```
+
+More examples and configurations are available in the [package README](https://github.com/aws/aws-sdk-js-v3/blob/main/lib/lib-dynamodb/README.md).
