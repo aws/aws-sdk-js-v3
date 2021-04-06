@@ -4,6 +4,7 @@ use aws.protocols#restJson1
 
 @aws.api#service(sdkId: "Not Same")
 @restJson1
+@aws.auth#sigv4(name: "notsame")
 service OriginalName {
     version: "2019-10-15",
     operations: [GetFoo]
