@@ -53,13 +53,14 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        if (isAwsService(settings, model)) {
-            writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-            writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-            writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
-                    + "`x-amz-user-agent` header\n@internal");
-            writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");
+        if (!isAwsService(settings, model)) {
+            return;
         }
+        writer.addImport("Provider", "Provider", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.addImport("UserAgent", "__UserAgent", TypeScriptDependency.AWS_SDK_TYPES.packageName);
+        writer.writeDocs("The provider populating default tracking information to be sent with `user-agent`, "
+                + "`x-amz-user-agent` header\n@internal");
+        writer.write("defaultUserAgentProvider?: Provider<__UserAgent>;\n");
     }
 
     @Override
@@ -105,6 +106,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
     }
 
     private static boolean isAwsService(ServiceShape serviceShape) {
-        return serviceShape.getTrait(ServiceTrait.class).isPresent();
+        return serviceShape.hasTrait(ServiceTrait.class);
     }
 }

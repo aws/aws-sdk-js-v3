@@ -123,7 +123,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     }
 
     private static boolean isAwsService(Shape serviceShape) {
-        return serviceShape.getTrait(ServiceTrait.class).isPresent();
+        return serviceShape.hasTrait(ServiceTrait.class);
     }
 
     private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {

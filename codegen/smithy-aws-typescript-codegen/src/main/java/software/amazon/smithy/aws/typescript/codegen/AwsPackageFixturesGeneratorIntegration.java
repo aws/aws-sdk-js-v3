@@ -92,6 +92,6 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
     }
 
     private static boolean isAwsService(TypeScriptSettings settings, Model model) {
-        return settings.getService(model).getTrait(ServiceTrait.class).isPresent();
+        return settings.getService(model).hasTrait(ServiceTrait.class);
     }
 }

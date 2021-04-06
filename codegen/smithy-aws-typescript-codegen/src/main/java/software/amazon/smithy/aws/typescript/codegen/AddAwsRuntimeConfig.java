@@ -116,12 +116,14 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         + "trait was found on " + service.getId());
             }
         }
-        runtimeConfigs.putAll(getDefaultConfig(target, isAwsService(settings, model)));
+        runtimeConfigs.putAll(getDefaultConfig(target, settings, model));
         return runtimeConfigs;
     }
 
-    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target, boolean isAwsService) {
+    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target, TypeScriptSettings settings,
+                                                                     Model model) {
         Map<String, Consumer<TypeScriptWriter>> defaultConfigs = new HashMap();
+        boolean isAwsService = isAwsService(settings, model);
         switch (target) {
             case SHARED:
                 return MapUtils.of(
@@ -176,6 +178,6 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     }
 
     private static boolean isAwsService(TypeScriptSettings settings, Model model) {
-        return settings.getService(model).getTrait(ServiceTrait.class).isPresent();
+        return settings.getService(model).hasTrait(ServiceTrait.class);
     }
 }

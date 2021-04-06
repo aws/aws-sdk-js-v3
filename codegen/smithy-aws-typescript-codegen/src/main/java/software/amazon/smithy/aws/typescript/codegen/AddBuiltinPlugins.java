@@ -133,6 +133,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
     }
 
     private static boolean testAwsService(Shape serviceShape) {
-        return serviceShape.getTrait(ServiceTrait.class).isPresent();
+        return serviceShape.hasTrait(ServiceTrait.class);
     }
 }
