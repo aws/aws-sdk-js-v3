@@ -87,22 +87,21 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, OperationShape operation) {
-        super.writeDefaultHeaders(context, operation);
-        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
+    protected void writeDefaultHeaders(GenerationContext context, Shape operationOrError, boolean isInput) {
+        super.writeDefaultHeaders(context, operationOrError, isInput);
+        if (isInput && operationOrError.isOperationShape()) {
+            AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operationOrError.asOperationShape().get());
+        } else if (operationOrError.isStructureShape()) {
+            context.getWriter().write("'x-amzn-errortype': $S,", operationOrError.getId().getName());
+        }
     }
 
     @Override
-    protected void writeDefaultErrorHeaders(GenerationContext context, StructureShape error) {
-        super.writeDefaultErrorHeaders(context, error);
-        context.getWriter().write("'x-amzn-errortype': $S,", error.getId().getName());
-    }
-
-    @Override
-    public void serializeInputDocument(
+    public void serializeDocumentBody(
             GenerationContext context,
             OperationShape operation,
-            List<HttpBinding> documentBindings
+            List<HttpBinding> documentBindings,
+            boolean isInput
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
@@ -142,13 +141,14 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void serializeInputPayload(
+    protected void serializePayload(
             GenerationContext context,
             OperationShape operation,
-            HttpBinding payloadBinding
+            HttpBinding payloadBinding,
+            boolean isInput
     ) {
         // We want the standard serialization, but need to alter it to JSON.
-        super.serializeInputPayload(context, operation, payloadBinding);
+        super.serializePayload(context, operation, payloadBinding, isInput);
 
         TypeScriptWriter writer = context.getWriter();
         MemberShape payloadMember = payloadBinding.getMember();
@@ -181,10 +181,11 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void deserializeOutputDocument(
+    public void deserializeDocumentBody(
             GenerationContext context,
             Shape operationOrError,
-            List<HttpBinding> documentBindings
+            List<HttpBinding> documentBindings,
+            boolean isInput
     ) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
