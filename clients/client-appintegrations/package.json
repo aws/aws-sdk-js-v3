@@ -5,15 +5,14 @@
   "scripts": {
     "clean": "yarn remove-definitions && yarn remove-dist && yarn remove-documentation",
     "build-documentation": "yarn remove-documentation && typedoc ./",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "remove-definitions": "rimraf ./types",
     "remove-dist": "rimraf ./dist",
     "remove-documentation": "rimraf ./docs",
     "test": "yarn build && jest --coverage --passWithNoTests",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
-    "build": "yarn build:cjs && yarn build:es",
-    "postbuild": "downlevel-dts dist/types dist/types/ts3.4"
+    "build": "yarn build:cjs && yarn build:es"
   },
   "main": "./dist/cjs/index.js",
   "types": "./dist/types/index.d.ts",
