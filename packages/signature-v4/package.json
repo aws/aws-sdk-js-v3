@@ -9,8 +9,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
-    "postbuild": "downlevel-dts dist/types dist/types/ts3.4",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "pretest": "yarn build",
     "test": "jest --coverage"
   },
