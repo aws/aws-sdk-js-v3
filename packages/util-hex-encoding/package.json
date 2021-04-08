@@ -3,11 +3,10 @@
   "version": "3.10.0",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
-    "prepublishOnly": "yarn build:cjs && yarn build:es",
+    "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "yarn build:es && yarn build:cjs",
-    "postbuild": "downlevel-dts dist/types dist/types/ts3.4",
     "test": "jest"
   },
   "author": {
