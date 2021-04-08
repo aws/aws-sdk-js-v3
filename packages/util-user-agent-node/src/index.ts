@@ -46,7 +46,8 @@ export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentO
   let resolvedUserAgent: UserAgent | undefined = undefined;
   return async () => {
     if (!resolvedUserAgent) {
-      resolvedUserAgent = [...sections, [`app/${await appIdPromise}`]];
+      const appId = await appIdPromise;
+      resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
     }
     return resolvedUserAgent;
   };
