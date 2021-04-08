@@ -16,34 +16,33 @@ export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  * Creates a credential provider that will source credentials from the ECS
  * Container Metadata Service
  */
-export function fromContainerMetadata(init: RemoteProviderInit = {}): CredentialProvider {
+export const fromContainerMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
   const { timeout, maxRetries } = providerConfigFromInit(init);
-  return () => {
-    return getCmdsUri().then((url) =>
-      retry(async () => {
-        const credsResponse = JSON.parse(await requestFromEcsImds(timeout, url));
-        if (!isImdsCredentials(credsResponse)) {
-          throw new ProviderError("Invalid response received from instance metadata service.");
-        }
+  return () =>
+    retry(async () => {
+      const requestOptions = await getCmdsUri();
+      const credsResponse = JSON.parse(await requestFromEcsImds(timeout, requestOptions));
+      if (!isImdsCredentials(credsResponse)) {
+        throw new ProviderError("Invalid response received from instance metadata service.");
+      }
+      return fromImdsCredentials(credsResponse);
+    }, maxRetries);
+};
 
-        return fromImdsCredentials(credsResponse);
-      }, maxRetries)
-    );
-  };
-}
-
-function requestFromEcsImds(timeout: number, options: RequestOptions): Promise<string> {
+const requestFromEcsImds = async (timeout: number, options: RequestOptions): Promise<string> => {
   if (process.env[ENV_CMDS_AUTH_TOKEN]) {
-    const { headers = {} } = options;
-    headers.Authorization = process.env[ENV_CMDS_AUTH_TOKEN];
-    options.headers = headers;
+    options.headers = {
+      ...options.headers,
+      Authorization: process.env[ENV_CMDS_AUTH_TOKEN],
+    };
   }
 
-  return httpRequest({
+  const buffer = await httpRequest({
     ...options,
     timeout,
-  }).then((buffer) => buffer.toString());
-}
+  });
+  return buffer.toString();
+};
 
 const CMDS_IP = "169.254.170.2";
 const GREENGRASS_HOSTS = {
@@ -55,40 +54,34 @@ const GREENGRASS_PROTOCOLS = {
   "https:": true,
 };
 
-function getCmdsUri(): Promise<RequestOptions> {
+const getCmdsUri = async (): Promise<RequestOptions> => {
   if (process.env[ENV_CMDS_RELATIVE_URI]) {
-    return Promise.resolve({
+    return {
       hostname: CMDS_IP,
       path: process.env[ENV_CMDS_RELATIVE_URI],
-    });
+    };
   }
 
   if (process.env[ENV_CMDS_FULL_URI]) {
     const parsed = parse(process.env[ENV_CMDS_FULL_URI]!);
     if (!parsed.hostname || !(parsed.hostname in GREENGRASS_HOSTS)) {
-      return Promise.reject(
-        new ProviderError(`${parsed.hostname} is not a valid container metadata service hostname`, false)
-      );
+      throw new ProviderError(`${parsed.hostname} is not a valid container metadata service hostname`, false);
     }
 
     if (!parsed.protocol || !(parsed.protocol in GREENGRASS_PROTOCOLS)) {
-      return Promise.reject(
-        new ProviderError(`${parsed.protocol} is not a valid container metadata service protocol`, false)
-      );
+      throw new ProviderError(`${parsed.protocol} is not a valid container metadata service protocol`, false);
     }
 
-    return Promise.resolve({
+    return {
       ...parsed,
       port: parsed.port ? parseInt(parsed.port, 10) : undefined,
-    });
+    };
   }
 
-  return Promise.reject(
-    new ProviderError(
-      "The container metadata credential provider cannot be used unless" +
-        ` the ${ENV_CMDS_RELATIVE_URI} or ${ENV_CMDS_FULL_URI} environment` +
-        " variable is set",
-      false
-    )
+  throw new ProviderError(
+    "The container metadata credential provider cannot be used unless" +
+      ` the ${ENV_CMDS_RELATIVE_URI} or ${ENV_CMDS_FULL_URI} environment` +
+      " variable is set",
+    false
   );
-}
+};
