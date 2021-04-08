@@ -26,7 +26,7 @@ export interface PresignedPostOptions {
 
 export interface PresignedPost {
   url: string;
-  fields: {};
+  fields: Fields;
 }
 
 /**
