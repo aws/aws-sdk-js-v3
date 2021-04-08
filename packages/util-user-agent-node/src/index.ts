@@ -43,11 +43,11 @@ export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentO
     default: undefined,
   })();
 
+  let resolvedUserAgent: UserAgent | undefined = undefined;
   return async () => {
-    const appId = await appIdPromise;
-    if (appId) {
-      sections.push([`app/${appId}`]);
+    if (!resolvedUserAgent) {
+      resolvedUserAgent = [...sections, [`app/${await appIdPromise}`]];
     }
-    return sections;
+    return resolvedUserAgent;
   };
 };

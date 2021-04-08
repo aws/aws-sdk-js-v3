@@ -59,9 +59,8 @@ describe("defaultUserAgent", () => {
     mockAppIdLoader.mockClear();
     const appId = "appId12345";
     mockAppIdLoader.mockResolvedValue(appId);
-    const userAgnetProvider = defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" });
-    await userAgnetProvider();
-    await userAgnetProvider();
+    const userAgentProvider = defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" });
+    expect(await userAgentProvider()).toEqual(await userAgentProvider());
     expect(mockAppIdLoader).toBeCalledTimes(1);
   });
 });
