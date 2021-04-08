@@ -102,7 +102,7 @@ To run the tests for a specific package, you can run `yarn test` from within the
 
 ### Generating Service Clients
 
-Please refer [sdk-codegen](./codegen/sdk-codegen/README.md)
+Please refer [codegen](./codegen/README.md)
 
 [issues]: https://github.com/aws/aws-sdk-js-v3/issues
 [pr]: https://github.com/aws/aws-sdk-js-v3/pulls
