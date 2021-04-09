@@ -122,8 +122,11 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
         return runtimeConfigs;
     }
 
-    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(LanguageTarget target, TypeScriptSettings settings,
-                                                                     Model model) {
+    private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(
+            LanguageTarget target,
+            TypeScriptSettings settings,
+            Model model
+    ) {
         Map<String, Consumer<TypeScriptWriter>> defaultConfigs = new HashMap();
         boolean isAwsService = isAwsService(settings, model);
         switch (target) {
