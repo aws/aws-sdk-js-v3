@@ -51,25 +51,8 @@ providers, you can set up the SDK to get credentials for the IAM role using help
 
 ```javascript
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { fromWebToken } from "@aws-sdk/credential-provider-web-identity";
-
-const stsClient = new STSClient({});
-
-const roleAssumerWithWebIdentity = async (params) => {
-  const { Credentials } = await stsClient.send(
-    new AssumeRoleWithWebIdentityCommand(params)
-  );
-  if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
-    throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
-  }
-  return {
-    accessKeyId: Credentials.AccessKeyId,
-    secretAccessKey: Credentials.SecretAccessKey,
-    sessionToken: Credentials.SessionToken,
-    expiration: Credentials.Expiration,
-  };
-};
 
 const dynamodb = new DynamoDBClient({
   region,
@@ -77,7 +60,7 @@ const dynamodb = new DynamoDBClient({
     roleArn: 'arn:aws:iam::<AWS_ACCOUNT_ID>/:role/<WEB_IDENTITY_ROLE_NAME>',
     providerId: 'graph.facebook.com|www.amazon.com', // this is null for Google
     webIdentityToken: ACCESS_TOKEN // from OpenID token identity provider
-    roleAssumerWithWebIdentity,
+    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(),
   })
 });
 
@@ -117,29 +100,12 @@ The following options are supported:
 A basic example of using fromTokenFile:
 
 ```js
-import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-
-const stsClient = new STSClient({});
-
-const roleAssumerWithWebIdentity = async (params) => {
-  const { Credentials } = await stsClient.send(
-    new AssumeRoleWithWebIdentityCommand(params)
-  );
-  if (!Credentials || !Credentials.AccessKeyId || !Credentials.SecretAccessKey) {
-    throw new Error(`Invalid response from STS.assumeRole call with role ${params.RoleArn}`);
-  }
-  return {
-    accessKeyId: Credentials.AccessKeyId,
-    secretAccessKey: Credentials.SecretAccessKey,
-    sessionToken: Credentials.SessionToken,
-    expiration: Credentials.Expiration,
-  };
-};
 
 const client = new FooClient({
   credentials: fromTokenFile({
-    roleAssumerWithWebIdentity
+    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity()
   });
 });
 ```
@@ -167,7 +133,7 @@ const client = new FooClient({
   credentials: fromTokenFile({
     webIdentityTokenFile: "/temp/token",
     roleArn: "arn:aws:iam::123456789012:role/example-role-arn",
-    roleAssumerWithWebIdentity
+    roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity()
   });
 });
 ```

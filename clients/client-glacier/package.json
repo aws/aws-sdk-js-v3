@@ -29,6 +29,7 @@
     "@aws-crypto/sha256-js": "^1.0.0",
     "@aws-sdk/body-checksum-browser": "3.10.0",
     "@aws-sdk/body-checksum-node": "3.10.0",
+    "@aws-sdk/client-sts": "3.11.0",
     "@aws-sdk/config-resolver": "3.10.0",
     "@aws-sdk/credential-provider-node": "3.11.0",
     "@aws-sdk/fetch-http-handler": "3.10.0",

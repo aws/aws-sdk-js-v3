@@ -20,12 +20,17 @@ const getOverwritablePredicate = (packageName) => (pathName) => {
     "endpoints.ts",
     "README.md",
   ];
+  const additionalGeneratedFiles = {
+    "@aws-sdk/client-sts": ["defaultRoleAssumers.ts", "defaultStsRoleAssumers.ts"],
+  };
   return (
     pathName
       .toLowerCase()
       .startsWith(
         packageName.toLowerCase().replace("@aws-sdk/client-", "").replace("@aws-sdk/aws-", "").replace(/-/g, "")
-      ) || overwritablePathnames.indexOf(pathName) >= 0
+      ) ||
+    overwritablePathnames.indexOf(pathName) >= 0 ||
+    additionalGeneratedFiles[packageName.toLowerCase()]?.indexOf(pathName) >= 0
   );
 };
 

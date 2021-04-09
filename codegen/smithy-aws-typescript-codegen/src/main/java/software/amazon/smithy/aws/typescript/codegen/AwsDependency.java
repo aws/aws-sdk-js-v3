@@ -59,6 +59,8 @@ public enum AwsDependency implements SymbolDependencyContainer {
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node", "^1.0.0-rc.1"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming",
             "^1.0.0-rc.1"),
+    STS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sts", "3.11.0"),
+    STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts", "3.11.0"),
     RETRY_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/retry-config-provider", "^1.0.0-rc.1"),
     NODE_CONFIG_PROVIDER(NORMAL_DEPENDENCY, "@aws-sdk/node-config-provider", "^1.0.0-rc.1"),
     MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger", "^1.0.0-rc.1"),
