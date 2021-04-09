@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.11.0...v3.12.0) (2021-04-09)
+
+
+### Bug Fixes
+
+* **credential-provider-cognito-identity:** add identityId to return type of fromCognitoIdentity ([#2141](https://github.com/aws/aws-sdk-js-v3/issues/2141)) ([5ae46f6](https://github.com/aws/aws-sdk-js-v3/commit/5ae46f645327216f5f06c5cddc48523ff0d9e19e))
+* **deps:** request consumers to install react-native polyfills ([#2191](https://github.com/aws/aws-sdk-js-v3/issues/2191)) ([2d3a7f0](https://github.com/aws/aws-sdk-js-v3/commit/2d3a7f0b74e168b15711783c72f9bc301a48041e))
+* **s3-presigned-post:** type PresignedPost.fields ([#1709](https://github.com/aws/aws-sdk-js-v3/issues/1709)) ([020193b](https://github.com/aws/aws-sdk-js-v3/commit/020193bcf6a0601680df248e163c01d975d5f699))
+* **util-user-agent-browser:** `window` can be undefined ([#2214](https://github.com/aws/aws-sdk-js-v3/issues/2214)) ([98b65b9](https://github.com/aws/aws-sdk-js-v3/commit/98b65b9c14495e5c63bb0d77ac25ce32658c40af))
+* **util-user-agent-node:** should memoize app id ([#2223](https://github.com/aws/aws-sdk-js-v3/issues/2223)) ([fd40114](https://github.com/aws/aws-sdk-js-v3/commit/fd4011491fcd1f8968375d5d7e61c26c5db70152))
+* run downlevel-dts in prepublishOnly ([#2218](https://github.com/aws/aws-sdk-js-v3/issues/2218)) ([0745502](https://github.com/aws/aws-sdk-js-v3/commit/0745502dcf819460ee1d81362470859674c757a7))
+* **util-user-agent-browser:** react native metadata ([#2210](https://github.com/aws/aws-sdk-js-v3/issues/2210)) ([0e83313](https://github.com/aws/aws-sdk-js-v3/commit/0e83313d82176c880632d8bc5bda1d577f016fc6))
+
+
+### Features
+
+* support default role assumers ([#2221](https://github.com/aws/aws-sdk-js-v3/issues/2221)) ([ae17f4c](https://github.com/aws/aws-sdk-js-v3/commit/ae17f4c64f0390c9b879eb27390688ac156cac47))
+
+
+
+
+
 # [3.11.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.10.0...v3.11.0) (2021-04-01)
 
 

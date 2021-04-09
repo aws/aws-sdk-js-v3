@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-hex-encoding",
-  "version": "3.10.0",
+  "version": "3.12.0",
   "description": "Converts binary buffers to and from lowercase hexadecimal encoding",
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
