@@ -14,10 +14,7 @@ interface DefaultUserAgentOptions {
 /**
  * Collect metrics from runtime to put into user agent.
  */
-export const defaultUserAgent = ({
-  serviceId,
-  clientVersion,
-}: DefaultUserAgentOptions): Provider<UserAgent> => async () => {
+export const defaultUserAgent = ({ serviceId, clientVersion }: DefaultUserAgentOptions): Provider<UserAgent> => {
   const sections: UserAgent = [
     // sdk-metadata
     ["aws-sdk-js", clientVersion],
@@ -40,14 +37,18 @@ export const defaultUserAgent = ({
     sections.push([`exec-env/${env.AWS_EXECUTION_ENV}`]);
   }
 
-  const appId = await loadConfig<string | undefined>({
+  const appIdPromise = loadConfig<string | undefined>({
     environmentVariableSelector: (env) => env[UA_APP_ID_ENV_NAME],
     configFileSelector: (profile) => profile[UA_APP_ID_INI_NAME],
     default: undefined,
   })();
-  if (appId) {
-    sections.push([`app/${appId}`]);
-  }
 
-  return sections;
+  let resolvedUserAgent: UserAgent | undefined = undefined;
+  return async () => {
+    if (!resolvedUserAgent) {
+      const appId = await appIdPromise;
+      resolvedUserAgent = appId ? [...sections, [`app/${appId}`]] : [...sections];
+    }
+    return resolvedUserAgent;
+  };
 };

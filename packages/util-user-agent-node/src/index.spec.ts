@@ -16,7 +16,16 @@ jest.mock("@aws-sdk/node-config-provider", () => ({
   loadConfig: () => mockAppIdLoader,
 }));
 
+import { UserAgent } from "@aws-sdk/types";
+
 import { defaultUserAgent } from ".";
+
+const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
+  expect(userAgent.length).toBe(expected.length);
+  for (const pair of expected) {
+    expect(userAgent).toContainEqual(pair);
+  }
+};
 
 describe("defaultUserAgent", () => {
   beforeEach(() => {
@@ -27,24 +36,35 @@ describe("defaultUserAgent", () => {
     jest.clearAllMocks();
   });
 
+  const basicUserAgent: UserAgent = [
+    ["aws-sdk-js", "0.1.0"],
+    ["api/s3", "0.1.0"],
+    ["os/darwin", "19.6.0"],
+    ["lang/js"],
+    ["md/nodejs", "14.13.1"],
+  ];
+
   it("should response basic node default user agent", async () => {
     const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })();
-    expect(userAgent).toContainEqual(["aws-sdk-js", "0.1.0"]);
-    expect(userAgent).toContainEqual(["api/s3", "0.1.0"]);
-    expect(userAgent).toContainEqual(["os/darwin", "19.6.0"]);
-    expect(userAgent).toContainEqual(["lang/js"]);
+    validateUserAgent(userAgent, basicUserAgent);
   });
 
   it("should skip api version if service id is not supplied", async () => {
     const userAgent = await defaultUserAgent({ serviceId: undefined, clientVersion: "0.1.0" })();
-    expect(userAgent).not.toContainEqual(["api/s3", "0.1.0"]);
+    validateUserAgent(
+      userAgent,
+      basicUserAgent.filter((pair) => pair[0] !== "api/s3")
+    );
   });
 
   it("should add AWS_EXECUTION_ENV", async () => {
     //@ts-ignore mock environmental variables
     mockEnv.AWS_EXECUTION_ENV = "lambda";
     const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })();
-    expect(userAgent).toContainEqual(["exec-env/lambda"]);
+    const expectedUserAgent: UserAgent = [...basicUserAgent, ["exec-env/lambda"]];
+    validateUserAgent(userAgent, expectedUserAgent);
+    //@ts-ignore mock environmental variables
+    delete mockEnv.AWS_EXECUTION_ENV;
   });
 
   it("should load app id if available", async () => {
@@ -52,6 +72,18 @@ describe("defaultUserAgent", () => {
     const appId = "appId12345";
     mockAppIdLoader.mockResolvedValue(appId);
     const userAgent = await defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" })();
-    expect(userAgent).toContainEqual([`app/${appId}`]);
+    const expectedUserAgent: UserAgent = [...basicUserAgent, [`app/${appId}`]];
+    validateUserAgent(userAgent, expectedUserAgent);
+  });
+
+  it("should memoize app id", async () => {
+    mockAppIdLoader.mockClear();
+    const appId = "appId12345";
+    mockAppIdLoader.mockResolvedValue(appId);
+    const userAgentProvider = defaultUserAgent({ serviceId: "s3", clientVersion: "0.1.0" });
+    const expectedUserAgent: UserAgent = [...basicUserAgent, [`app/${appId}`]];
+    validateUserAgent(await userAgentProvider(), expectedUserAgent);
+    validateUserAgent(await userAgentProvider(), expectedUserAgent);
+    expect(mockAppIdLoader).toBeCalledTimes(1);
   });
 });
