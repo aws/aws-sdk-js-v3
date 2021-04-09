@@ -20,7 +20,6 @@
     "@aws-sdk/protocol-http": "3.10.0",
     "@aws-sdk/service-error-classification": "3.10.0",
     "@aws-sdk/types": "3.10.0",
-    "react-native-get-random-values": "^1.4.0",
     "tslib": "^1.8.0",
     "uuid": "^3.0.0"
   },

@@ -71,6 +71,18 @@ If you use tree shaking to reduce bundle size, using non-modular interface will 
 <!-- Uncomment when numbers are available for gamma clients
 In our workshop code, a lambda with DynamoDBClient and a command takes ~18kB while DynamoDB takes ~26 kB ([details](https://github.com/aws-samples/aws-sdk-js-v3-workshop/blob/dc3ad778b04dfe3f8f277dca67162da79c937eca/Exercise1/backend/README.md#reduce-bundle-size-by-just-importing-dynamodb)) -->
 
+If you are consuming modular AWS SDK for JavaScript on react-native environments, you will need
+to add and import following polyfills in your react-native application:
+
+- [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values)
+- [react-native-url-polyfill](https://www.npmjs.com/package/react-native-url-polyfill) <!-- Future support in #2138 --->
+
+```js
+import "react-native-get-random-values";
+import "react-native-url-polyfill/auto";
+import { DynamoDB } from "@aws-sdk/client-dynamodb";
+```
+
 ## New features
 
 ### Modularized packages

@@ -24,7 +24,6 @@
     "@aws-sdk/signature-v4": "3.10.0",
     "@aws-sdk/types": "3.10.0",
     "@aws-sdk/util-format-url": "3.10.0",
-    "react-native-get-random-values": "^1.4.0",
     "tslib": "^1.8.0",
     "uuid": "^3.0.0"
   },

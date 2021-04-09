@@ -8,6 +8,7 @@
  * @format
  */
 
+import "react-native-get-random-values";
 import React, { Fragment, useState } from "react";
 import { SafeAreaView, StyleSheet, ScrollView, StatusBar, Button, Text } from "react-native";
 import { S3 } from "@aws-sdk/client-s3";
