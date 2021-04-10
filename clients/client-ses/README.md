@@ -140,7 +140,7 @@ const client = new AWS.SES({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cloneReceiptRuleSet(params);
+  const data = await client.cloneReceiptRuleSet(params);
   // process data.
 } catch (error) {
   // error handling.
