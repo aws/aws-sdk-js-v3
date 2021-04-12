@@ -44,7 +44,6 @@
     "@aws-sdk/smithy-client": "3.12.0",
     "@aws-sdk/types": "3.12.0",
     "@aws-sdk/url-parser": "3.12.0",
-    "@aws-sdk/url-parser-native": "3.12.0",
     "@aws-sdk/util-base64-browser": "3.12.0",
     "@aws-sdk/util-base64-node": "3.12.0",
     "@aws-sdk/util-body-length-browser": "3.12.0",

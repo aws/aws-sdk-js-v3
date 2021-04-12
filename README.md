@@ -75,7 +75,7 @@ If you are consuming modular AWS SDK for JavaScript on react-native environments
 to add and import following polyfills in your react-native application:
 
 - [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values)
-- [react-native-url-polyfill](https://www.npmjs.com/package/react-native-url-polyfill) <!-- Future support in #2138 --->
+- [react-native-url-polyfill](https://www.npmjs.com/package/react-native-url-polyfill)
 
 ```js
 import "react-native-get-random-values";
