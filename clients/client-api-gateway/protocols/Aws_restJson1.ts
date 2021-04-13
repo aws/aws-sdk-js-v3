@@ -2308,7 +2308,6 @@ export const serializeAws_restJson1GetExportCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "application/json",
     ...(isSerializableHeaderValue(input.accepts) && { accept: input.accepts! }),
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}";
@@ -2339,13 +2338,14 @@ export const serializeAws_restJson1GetExportCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: exportType.");
   }
-  let body: any;
-  body = JSON.stringify({
+  const query: any = {
     ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1MapOfStringToString(input.parameters, context),
-      }),
-  });
+      Object.entries(input.parameters || {}).reduce(
+        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
+        {}
+      )),
+  };
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2354,6 +2354,7 @@ export const serializeAws_restJson1GetExportCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2943,9 +2944,7 @@ export const serializeAws_restJson1GetSdkCommand = async (
   input: GetSdkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}/sdks/{sdkType}";
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
@@ -2974,13 +2973,14 @@ export const serializeAws_restJson1GetSdkCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: sdkType.");
   }
-  let body: any;
-  body = JSON.stringify({
+  const query: any = {
     ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1MapOfStringToString(input.parameters, context),
-      }),
-  });
+      Object.entries(input.parameters || {}).reduce(
+        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
+        {}
+      )),
+  };
+  let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2989,6 +2989,7 @@ export const serializeAws_restJson1GetSdkCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -3363,7 +3364,9 @@ export const serializeAws_restJson1ImportApiKeysCommand = async (
   input: ImportApiKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/octet-stream",
+  };
   let resolvedPath = "/apikeys";
   const query: any = {
     mode: "import",
@@ -3371,6 +3374,9 @@ export const serializeAws_restJson1ImportApiKeysCommand = async (
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
   let body: any;
+  if (input.body !== undefined) {
+    body = input.body;
+  }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3388,7 +3394,9 @@ export const serializeAws_restJson1ImportDocumentationPartsCommand = async (
   input: ImportDocumentationPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/octet-stream",
+  };
   let resolvedPath = "/restapis/{restApiId}/documentation/parts";
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
@@ -3404,6 +3412,9 @@ export const serializeAws_restJson1ImportDocumentationPartsCommand = async (
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
   let body: any;
+  if (input.body !== undefined) {
+    body = input.body;
+  }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3422,20 +3433,22 @@ export const serializeAws_restJson1ImportRestApiCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "application/json",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/restapis";
   const query: any = {
     mode: "import",
+    ...(input.parameters !== undefined &&
+      Object.entries(input.parameters || {}).reduce(
+        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
+        {}
+      )),
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1MapOfStringToString(input.parameters, context),
-      }),
-  });
+  if (input.body !== undefined) {
+    body = input.body;
+  }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3793,7 +3806,7 @@ export const serializeAws_restJson1PutRestApiCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "content-type": "application/json",
+    "content-type": "application/octet-stream",
   };
   let resolvedPath = "/restapis/{restApiId}";
   if (input.restApiId !== undefined) {
@@ -3806,16 +3819,18 @@ export const serializeAws_restJson1PutRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   const query: any = {
+    ...(input.parameters !== undefined &&
+      Object.entries(input.parameters || {}).reduce(
+        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
+        {}
+      )),
     ...(input.mode !== undefined && { mode: input.mode }),
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.parameters !== undefined &&
-      input.parameters !== null && {
-        parameters: serializeAws_restJson1MapOfStringToString(input.parameters, context),
-      }),
-  });
+  if (input.body !== undefined) {
+    body = input.body;
+  }
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

@@ -2743,7 +2743,7 @@ export interface QuotaSettings {
   limit?: number;
 
   /**
-   * <p>The number of requests subtracted from the given limit in the initial time period.</p>
+   * <p>The day that a time period starts. For example, with a time period of <code>WEEK</code>, an offset of <code>0</code> starts on Sunday, and an offset of <code>1</code> starts on Monday.</p>
    */
   offset?: number;
 
@@ -5899,6 +5899,11 @@ export namespace VpcLinks {
  */
 export interface ImportApiKeysRequest {
   /**
+   * <p>The payload of the POST request to import API keys. For the payload format, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-key-file-format.html">API Key File Format</a>.</p>
+   */
+  body: Uint8Array | undefined;
+
+  /**
    * <p>A query parameter to specify the input format to imported API keys. Currently, only the <code>csv</code> format is supported.</p>
    */
   format: ApiKeysFormat | string | undefined;
@@ -5963,6 +5968,11 @@ export interface ImportDocumentationPartsRequest {
    * <p>A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
    */
   failOnWarnings?: boolean;
+
+  /**
+   * <p>[Required] Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.</p>
+   */
+  body: Uint8Array | undefined;
 }
 
 export namespace ImportDocumentationPartsRequest {
@@ -5992,6 +6002,11 @@ export interface ImportRestApiRequest {
    *         <pre><code>aws apigateway import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body 'file:///path/to/imported-api-body.json'</code></pre>
    */
   parameters?: { [key: string]: string };
+
+  /**
+   * <p>[Required] The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
+   */
+  body: Uint8Array | undefined;
 }
 
 export namespace ImportRestApiRequest {
@@ -6334,6 +6349,11 @@ export interface PutRestApiRequest {
    * <p>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a> from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
    */
   parameters?: { [key: string]: string };
+
+  /**
+   * <p>[Required] The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
+   */
+  body: Uint8Array | undefined;
 }
 
 export namespace PutRestApiRequest {
