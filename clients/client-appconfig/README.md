@@ -180,7 +180,7 @@ const client = new AWS.AppConfig({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createApplication(params);
+  const data = await client.createApplication(params);
   // process data.
 } catch (error) {
   // error handling.

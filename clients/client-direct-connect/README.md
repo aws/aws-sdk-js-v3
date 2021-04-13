@@ -142,7 +142,7 @@ const client = new AWS.DirectConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptDirectConnectGatewayAssociationProposal(params);
+  const data = await client.acceptDirectConnectGatewayAssociationProposal(params);
   // process data.
 } catch (error) {
   // error handling.

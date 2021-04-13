@@ -131,7 +131,7 @@ const client = new AWS.Organizations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptHandshake(params);
+  const data = await client.acceptHandshake(params);
   // process data.
 } catch (error) {
   // error handling.

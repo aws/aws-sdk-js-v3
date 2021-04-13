@@ -131,7 +131,7 @@ const client = new AWS.Kendra({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchDeleteDocument(params);
+  const data = await client.batchDeleteDocument(params);
   // process data.
 } catch (error) {
   // error handling.

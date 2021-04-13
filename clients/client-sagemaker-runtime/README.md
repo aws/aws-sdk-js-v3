@@ -131,7 +131,7 @@ const client = new AWS.SageMakerRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.invokeEndpoint(params);
+  const data = await client.invokeEndpoint(params);
   // process data.
 } catch (error) {
   // error handling.

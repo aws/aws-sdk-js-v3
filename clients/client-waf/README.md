@@ -141,7 +141,7 @@ const client = new AWS.WAF({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createByteMatchSet(params);
+  const data = await client.createByteMatchSet(params);
   // process data.
 } catch (error) {
   // error handling.

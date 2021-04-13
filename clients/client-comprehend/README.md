@@ -134,7 +134,7 @@ const client = new AWS.Comprehend({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchDetectDominantLanguage(params);
+  const data = await client.batchDetectDominantLanguage(params);
   // process data.
 } catch (error) {
   // error handling.

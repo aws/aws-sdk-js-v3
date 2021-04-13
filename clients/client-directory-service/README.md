@@ -137,7 +137,7 @@ const client = new AWS.DirectoryService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptSharedDirectory(params);
+  const data = await client.acceptSharedDirectory(params);
   // process data.
 } catch (error) {
   // error handling.

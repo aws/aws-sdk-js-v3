@@ -131,7 +131,7 @@ const client = new AWS.RoboMaker({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchDeleteWorlds(params);
+  const data = await client.batchDeleteWorlds(params);
   // process data.
 } catch (error) {
   // error handling.

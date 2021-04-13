@@ -153,7 +153,7 @@ const client = new AWS.Redshift({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptReservedNodeExchange(params);
+  const data = await client.acceptReservedNodeExchange(params);
   // process data.
 } catch (error) {
   // error handling.

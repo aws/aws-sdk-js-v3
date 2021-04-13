@@ -154,7 +154,7 @@ const client = new AWS.ConfigService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchGetAggregateResourceConfig(params);
+  const data = await client.batchGetAggregateResourceConfig(params);
   // process data.
 } catch (error) {
   // error handling.

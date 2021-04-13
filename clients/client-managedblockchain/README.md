@@ -132,7 +132,7 @@ const client = new AWS.ManagedBlockchain({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createMember(params);
+  const data = await client.createMember(params);
   // process data.
 } catch (error) {
   // error handling.

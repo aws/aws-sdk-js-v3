@@ -138,7 +138,7 @@ const client = new AWS.CloudSearch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.buildSuggesters(params);
+  const data = await client.buildSuggesters(params);
   // process data.
 } catch (error) {
   // error handling.

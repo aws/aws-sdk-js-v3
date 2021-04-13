@@ -134,7 +134,7 @@ const client = new AWS.DataBrew({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchDeleteRecipeVersion(params);
+  const data = await client.batchDeleteRecipeVersion(params);
   // process data.
 } catch (error) {
   // error handling.

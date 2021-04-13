@@ -131,7 +131,7 @@ const client = new AWS.Schemas({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createDiscoverer(params);
+  const data = await client.createDiscoverer(params);
   // process data.
 } catch (error) {
   // error handling.

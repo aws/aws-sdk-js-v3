@@ -133,7 +133,7 @@ const client = new AWS.ElasticTranscoder({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelJob(params);
+  const data = await client.cancelJob(params);
   // process data.
 } catch (error) {
   // error handling.

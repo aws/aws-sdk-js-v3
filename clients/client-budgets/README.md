@@ -173,7 +173,7 @@ const client = new AWS.Budgets({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createBudget(params);
+  const data = await client.createBudget(params);
   // process data.
 } catch (error) {
   // error handling.

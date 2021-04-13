@@ -131,7 +131,7 @@ const client = new AWS.EC2Protocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.emptyInputAndEmptyOutput(params);
+  const data = await client.emptyInputAndEmptyOutput(params);
   // process data.
 } catch (error) {
   // error handling.

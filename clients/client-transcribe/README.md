@@ -131,7 +131,7 @@ const client = new AWS.Transcribe({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createLanguageModel(params);
+  const data = await client.createLanguageModel(params);
   // process data.
 } catch (error) {
   // error handling.

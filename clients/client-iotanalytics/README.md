@@ -149,7 +149,7 @@ const client = new AWS.IoTAnalytics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchPutMessage(params);
+  const data = await client.batchPutMessage(params);
   // process data.
 } catch (error) {
   // error handling.

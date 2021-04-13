@@ -129,7 +129,7 @@ const client = new AWS.JsonProtocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.emptyOperation(params);
+  const data = await client.emptyOperation(params);
   // process data.
 } catch (error) {
   // error handling.

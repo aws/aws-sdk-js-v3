@@ -894,7 +894,7 @@ const client = new AWS.ResourceGroupsTaggingAPI({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeReportCreation(params);
+  const data = await client.describeReportCreation(params);
   // process data.
 } catch (error) {
   // error handling.

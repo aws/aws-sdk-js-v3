@@ -133,7 +133,7 @@ const client = new AWS.ElasticInference({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeAcceleratorOfferings(params);
+  const data = await client.describeAcceleratorOfferings(params);
   // process data.
 } catch (error) {
   // error handling.

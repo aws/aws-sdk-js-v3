@@ -134,7 +134,7 @@ const client = new AWS.S3Control({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createAccessPoint(params);
+  const data = await client.createAccessPoint(params);
   // process data.
 } catch (error) {
   // error handling.

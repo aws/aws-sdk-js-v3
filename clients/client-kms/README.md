@@ -220,7 +220,7 @@ const client = new AWS.KMS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelKeyDeletion(params);
+  const data = await client.cancelKeyDeletion(params);
   // process data.
 } catch (error) {
   // error handling.

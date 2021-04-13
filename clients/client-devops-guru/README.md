@@ -129,7 +129,7 @@ const client = new AWS.DevOpsGuru({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addNotificationChannel(params);
+  const data = await client.addNotificationChannel(params);
   // process data.
 } catch (error) {
   // error handling.

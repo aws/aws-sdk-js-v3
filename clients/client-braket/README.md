@@ -131,7 +131,7 @@ const client = new AWS.Braket({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelQuantumTask(params);
+  const data = await client.cancelQuantumTask(params);
   // process data.
 } catch (error) {
   // error handling.

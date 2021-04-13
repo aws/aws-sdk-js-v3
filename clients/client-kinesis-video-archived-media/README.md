@@ -131,7 +131,7 @@ const client = new AWS.KinesisVideoArchivedMedia({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getClip(params);
+  const data = await client.getClip(params);
   // process data.
 } catch (error) {
   // error handling.

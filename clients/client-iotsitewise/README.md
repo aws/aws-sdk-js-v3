@@ -132,7 +132,7 @@ const client = new AWS.IoTSiteWise({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateAssets(params);
+  const data = await client.associateAssets(params);
   // process data.
 } catch (error) {
   // error handling.

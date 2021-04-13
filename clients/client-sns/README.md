@@ -145,7 +145,7 @@ const client = new AWS.SNS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addPermission(params);
+  const data = await client.addPermission(params);
   // process data.
 } catch (error) {
   // error handling.

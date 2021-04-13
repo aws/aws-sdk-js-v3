@@ -133,7 +133,7 @@ const client = new AWS.IoTEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createDetectorModel(params);
+  const data = await client.createDetectorModel(params);
   // process data.
 } catch (error) {
   // error handling.

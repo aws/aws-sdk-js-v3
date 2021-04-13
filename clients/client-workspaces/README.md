@@ -134,7 +134,7 @@ const client = new AWS.WorkSpaces({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateConnectionAlias(params);
+  const data = await client.associateConnectionAlias(params);
   // process data.
 } catch (error) {
   // error handling.

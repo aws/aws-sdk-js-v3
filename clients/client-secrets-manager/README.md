@@ -187,7 +187,7 @@ const client = new AWS.SecretsManager({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelRotateSecret(params);
+  const data = await client.cancelRotateSecret(params);
   // process data.
 } catch (error) {
   // error handling.

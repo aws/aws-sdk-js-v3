@@ -151,7 +151,7 @@ const client = new AWS.ElasticLoadBalancing({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addTags(params);
+  const data = await client.addTags(params);
   // process data.
 } catch (error) {
   // error handling.

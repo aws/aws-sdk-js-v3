@@ -131,7 +131,7 @@ const client = new AWS.MediaLive({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptInputDeviceTransfer(params);
+  const data = await client.acceptInputDeviceTransfer(params);
   // process data.
 } catch (error) {
   // error handling.

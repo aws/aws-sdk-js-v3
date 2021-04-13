@@ -137,7 +137,7 @@ const client = new AWS.MarketplaceCommerceAnalytics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.generateDataSet(params);
+  const data = await client.generateDataSet(params);
   // process data.
 } catch (error) {
   // error handling.

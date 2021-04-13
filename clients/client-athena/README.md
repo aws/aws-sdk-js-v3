@@ -143,7 +143,7 @@ const client = new AWS.Athena({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchGetNamedQuery(params);
+  const data = await client.batchGetNamedQuery(params);
   // process data.
 } catch (error) {
   // error handling.

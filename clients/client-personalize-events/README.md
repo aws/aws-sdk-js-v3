@@ -132,7 +132,7 @@ const client = new AWS.PersonalizeEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.putEvents(params);
+  const data = await client.putEvents(params);
   // process data.
 } catch (error) {
   // error handling.

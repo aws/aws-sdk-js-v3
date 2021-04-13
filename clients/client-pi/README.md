@@ -144,7 +144,7 @@ const client = new AWS.PI({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeDimensionKeys(params);
+  const data = await client.describeDimensionKeys(params);
   // process data.
 } catch (error) {
   // error handling.

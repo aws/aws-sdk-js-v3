@@ -135,7 +135,7 @@ const client = new AWS.Honeycode({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchCreateTableRows(params);
+  const data = await client.batchCreateTableRows(params);
   // process data.
 } catch (error) {
   // error handling.

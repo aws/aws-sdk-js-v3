@@ -200,7 +200,7 @@ const client = new AWS.ApplicationAutoScaling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteScalingPolicy(params);
+  const data = await client.deleteScalingPolicy(params);
   // process data.
 } catch (error) {
   // error handling.

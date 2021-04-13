@@ -135,7 +135,7 @@ const client = new AWS.Inspector({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addAttributesToFindings(params);
+  const data = await client.addAttributesToFindings(params);
   // process data.
 } catch (error) {
   // error handling.

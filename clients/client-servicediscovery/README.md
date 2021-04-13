@@ -135,7 +135,7 @@ const client = new AWS.ServiceDiscovery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createHttpNamespace(params);
+  const data = await client.createHttpNamespace(params);
   // process data.
 } catch (error) {
   // error handling.

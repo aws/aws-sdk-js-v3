@@ -208,7 +208,7 @@ const client = new AWS.Support({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addAttachmentsToSet(params);
+  const data = await client.addAttachmentsToSet(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -160,7 +160,7 @@ const client = new AWS.SageMakerA2IRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteHumanLoop(params);
+  const data = await client.deleteHumanLoop(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -148,7 +148,7 @@ const client = new AWS.DynamoDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchExecuteStatement(params);
+  const data = await client.batchExecuteStatement(params);
   // process data.
 } catch (error) {
   // error handling.

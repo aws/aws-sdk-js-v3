@@ -136,7 +136,7 @@ const client = new AWS.DAX({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createCluster(params);
+  const data = await client.createCluster(params);
   // process data.
 } catch (error) {
   // error handling.

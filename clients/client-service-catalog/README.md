@@ -138,7 +138,7 @@ const client = new AWS.ServiceCatalog({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptPortfolioShare(params);
+  const data = await client.acceptPortfolioShare(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -134,7 +134,7 @@ const client = new AWS.EMR({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addInstanceFleet(params);
+  const data = await client.addInstanceFleet(params);
   // process data.
 } catch (error) {
   // error handling.

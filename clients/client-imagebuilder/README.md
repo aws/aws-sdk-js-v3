@@ -131,7 +131,7 @@ const client = new AWS.Imagebuilder({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelImageCreation(params);
+  const data = await client.cancelImageCreation(params);
   // process data.
 } catch (error) {
   // error handling.

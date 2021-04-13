@@ -131,7 +131,7 @@ const client = new AWS.RestJsonProtocol({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.allQueryStringTypes(params);
+  const data = await client.allQueryStringTypes(params);
   // process data.
 } catch (error) {
   // error handling.

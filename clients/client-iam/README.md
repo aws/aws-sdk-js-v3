@@ -136,7 +136,7 @@ const client = new AWS.IAM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addClientIDToOpenIDConnectProvider(params);
+  const data = await client.addClientIDToOpenIDConnectProvider(params);
   // process data.
 } catch (error) {
   // error handling.

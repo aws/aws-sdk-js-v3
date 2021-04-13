@@ -211,7 +211,7 @@ const client = new AWS.CodeStarConnections({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createConnection(params);
+  const data = await client.createConnection(params);
   // process data.
 } catch (error) {
   // error handling.

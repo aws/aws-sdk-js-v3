@@ -132,7 +132,7 @@ const client = new AWS.MediaStore({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createContainer(params);
+  const data = await client.createContainer(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -142,7 +142,7 @@ const client = new AWS.CloudHSM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addTagsToResource(params);
+  const data = await client.addTagsToResource(params);
   // process data.
 } catch (error) {
   // error handling.

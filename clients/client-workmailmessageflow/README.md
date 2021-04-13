@@ -135,7 +135,7 @@ const client = new AWS.WorkMailMessageFlow({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getRawMessageContent(params);
+  const data = await client.getRawMessageContent(params);
   // process data.
 } catch (error) {
   // error handling.

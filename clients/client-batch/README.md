@@ -140,7 +140,7 @@ const client = new AWS.Batch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelJob(params);
+  const data = await client.cancelJob(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -137,7 +137,7 @@ const client = new AWS.Route53Domains({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptDomainTransferFromAnotherAwsAccount(params);
+  const data = await client.acceptDomainTransferFromAnotherAwsAccount(params);
   // process data.
 } catch (error) {
   // error handling.

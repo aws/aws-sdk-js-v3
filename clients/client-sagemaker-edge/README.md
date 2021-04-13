@@ -131,7 +131,7 @@ const client = new AWS.SagemakerEdge({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.getDeviceRegistration(params);
+  const data = await client.getDeviceRegistration(params);
   // process data.
 } catch (error) {
   // error handling.

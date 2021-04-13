@@ -151,7 +151,7 @@ const client = new AWS.SESv2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createConfigurationSet(params);
+  const data = await client.createConfigurationSet(params);
   // process data.
 } catch (error) {
   // error handling.

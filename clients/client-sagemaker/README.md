@@ -146,7 +146,7 @@ const client = new AWS.SageMaker({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addAssociation(params);
+  const data = await client.addAssociation(params);
   // process data.
 } catch (error) {
   // error handling.

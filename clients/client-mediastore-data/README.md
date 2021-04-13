@@ -133,7 +133,7 @@ const client = new AWS.MediaStoreData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteObject(params);
+  const data = await client.deleteObject(params);
   // process data.
 } catch (error) {
   // error handling.

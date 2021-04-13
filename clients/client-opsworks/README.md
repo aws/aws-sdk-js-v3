@@ -246,7 +246,7 @@ const client = new AWS.OpsWorks({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.assignInstance(params);
+  const data = await client.assignInstance(params);
   // process data.
 } catch (error) {
   // error handling.

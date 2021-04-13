@@ -136,7 +136,7 @@ const client = new AWS.IoTThingsGraph({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateEntityToThing(params);
+  const data = await client.associateEntityToThing(params);
   // process data.
 } catch (error) {
   // error handling.

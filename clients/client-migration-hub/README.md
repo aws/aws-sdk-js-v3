@@ -136,7 +136,7 @@ const client = new AWS.MigrationHub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateCreatedArtifact(params);
+  const data = await client.associateCreatedArtifact(params);
   // process data.
 } catch (error) {
   // error handling.

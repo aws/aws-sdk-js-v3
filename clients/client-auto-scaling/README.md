@@ -137,7 +137,7 @@ const client = new AWS.AutoScaling({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.attachInstances(params);
+  const data = await client.attachInstances(params);
   // process data.
 } catch (error) {
   // error handling.

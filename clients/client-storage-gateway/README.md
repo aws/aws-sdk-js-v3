@@ -202,7 +202,7 @@ const client = new AWS.StorageGateway({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.activateGateway(params);
+  const data = await client.activateGateway(params);
   // process data.
 } catch (error) {
   // error handling.

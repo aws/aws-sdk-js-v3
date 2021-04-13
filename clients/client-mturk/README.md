@@ -131,7 +131,7 @@ const client = new AWS.MTurk({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptQualificationRequest(params);
+  const data = await client.acceptQualificationRequest(params);
   // process data.
 } catch (error) {
   // error handling.

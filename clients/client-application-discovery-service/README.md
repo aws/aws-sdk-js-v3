@@ -262,7 +262,7 @@ const client = new AWS.ApplicationDiscoveryService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateConfigurationItemsToApplication(params);
+  const data = await client.associateConfigurationItemsToApplication(params);
   // process data.
 } catch (error) {
   // error handling.

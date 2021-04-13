@@ -131,7 +131,7 @@ const client = new AWS.Greengrass({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateRoleToGroup(params);
+  const data = await client.associateRoleToGroup(params);
   // process data.
 } catch (error) {
   // error handling.

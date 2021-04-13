@@ -131,7 +131,7 @@ const client = new AWS.IoT1ClickProjects({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateDeviceWithPlacement(params);
+  const data = await client.associateDeviceWithPlacement(params);
   // process data.
 } catch (error) {
   // error handling.

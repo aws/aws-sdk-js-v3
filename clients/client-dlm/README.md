@@ -131,7 +131,7 @@ const client = new AWS.DLM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createLifecyclePolicy(params);
+  const data = await client.createLifecyclePolicy(params);
   // process data.
 } catch (error) {
   // error handling.

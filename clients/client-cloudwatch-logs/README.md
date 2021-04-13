@@ -164,7 +164,7 @@ const client = new AWS.CloudWatchLogs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateKmsKey(params);
+  const data = await client.associateKmsKey(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -134,7 +134,7 @@ const client = new AWS.CloudSearchDomain({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.search(params);
+  const data = await client.search(params);
   // process data.
 } catch (error) {
   // error handling.

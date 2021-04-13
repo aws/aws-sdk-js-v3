@@ -138,7 +138,7 @@ const client = new AWS.Lambda({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addLayerVersionPermission(params);
+  const data = await client.addLayerVersionPermission(params);
   // process data.
 } catch (error) {
   // error handling.

@@ -133,7 +133,7 @@ const client = new AWS.LakeFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchGrantPermissions(params);
+  const data = await client.batchGrantPermissions(params);
   // process data.
 } catch (error) {
   // error handling.

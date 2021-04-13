@@ -132,7 +132,7 @@ const client = new AWS.XRay({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchGetTraces(params);
+  const data = await client.batchGetTraces(params);
   // process data.
 } catch (error) {
   // error handling.

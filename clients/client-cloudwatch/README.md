@@ -145,7 +145,7 @@ const client = new AWS.CloudWatch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteAlarms(params);
+  const data = await client.deleteAlarms(params);
   // process data.
 } catch (error) {
   // error handling.

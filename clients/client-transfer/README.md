@@ -139,7 +139,7 @@ const client = new AWS.Transfer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createServer(params);
+  const data = await client.createServer(params);
   // process data.
 } catch (error) {
   // error handling.

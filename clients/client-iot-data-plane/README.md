@@ -142,7 +142,7 @@ const client = new AWS.IoTDataPlane({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deleteThingShadow(params);
+  const data = await client.deleteThingShadow(params);
   // process data.
 } catch (error) {
   // error handling.

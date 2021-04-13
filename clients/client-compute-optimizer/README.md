@@ -143,7 +143,7 @@ const client = new AWS.ComputeOptimizer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeRecommendationExportJobs(params);
+  const data = await client.describeRecommendationExportJobs(params);
   // process data.
 } catch (error) {
   // error handling.

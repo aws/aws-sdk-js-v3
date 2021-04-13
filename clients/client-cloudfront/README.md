@@ -134,7 +134,7 @@ const client = new AWS.CloudFront({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createCachePolicy(params);
+  const data = await client.createCachePolicy(params);
   // process data.
 } catch (error) {
   // error handling.

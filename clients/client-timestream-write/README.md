@@ -131,7 +131,7 @@ const client = new AWS.TimestreamWrite({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createDatabase(params);
+  const data = await client.createDatabase(params);
   // process data.
 } catch (error) {
   // error handling.

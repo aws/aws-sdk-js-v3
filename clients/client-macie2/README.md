@@ -131,7 +131,7 @@ const client = new AWS.Macie2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptInvitation(params);
+  const data = await client.acceptInvitation(params);
   // process data.
 } catch (error) {
   // error handling.

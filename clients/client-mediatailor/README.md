@@ -131,7 +131,7 @@ const client = new AWS.MediaTailor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.deletePlaybackConfiguration(params);
+  const data = await client.deletePlaybackConfiguration(params);
   // process data.
 } catch (error) {
   // error handling.

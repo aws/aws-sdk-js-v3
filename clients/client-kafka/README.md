@@ -131,7 +131,7 @@ const client = new AWS.Kafka({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchAssociateScramSecret(params);
+  const data = await client.batchAssociateScramSecret(params);
   // process data.
 } catch (error) {
   // error handling.

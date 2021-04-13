@@ -147,7 +147,7 @@ const client = new AWS.Synthetics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createCanary(params);
+  const data = await client.createCanary(params);
   // process data.
 } catch (error) {
   // error handling.

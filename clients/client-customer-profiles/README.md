@@ -141,7 +141,7 @@ const client = new AWS.CustomerProfiles({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addProfileKey(params);
+  const data = await client.addProfileKey(params);
   // process data.
 } catch (error) {
   // error handling.

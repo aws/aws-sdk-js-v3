@@ -147,7 +147,7 @@ const client = new AWS.Signer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addProfilePermission(params);
+  const data = await client.addProfilePermission(params);
   // process data.
 } catch (error) {
   // error handling.

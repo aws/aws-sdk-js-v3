@@ -188,7 +188,7 @@ const client = new AWS.MarketplaceMetering({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.batchMeterUsage(params);
+  const data = await client.batchMeterUsage(params);
   // process data.
 } catch (error) {
   // error handling.

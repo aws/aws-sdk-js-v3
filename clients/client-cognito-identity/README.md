@@ -145,7 +145,7 @@ const client = new AWS.CognitoIdentity({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createIdentityPool(params);
+  const data = await client.createIdentityPool(params);
   // process data.
 } catch (error) {
   // error handling.

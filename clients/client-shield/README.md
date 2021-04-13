@@ -135,7 +135,7 @@ const client = new AWS.Shield({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateDRTLogBucket(params);
+  const data = await client.associateDRTLogBucket(params);
   // process data.
 } catch (error) {
   // error handling.

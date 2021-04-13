@@ -189,7 +189,7 @@ const client = new AWS.Cloud9({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createEnvironmentEC2(params);
+  const data = await client.createEnvironmentEC2(params);
   // process data.
 } catch (error) {
   // error handling.

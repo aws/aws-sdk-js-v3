@@ -137,7 +137,7 @@ const client = new AWS.MarketplaceCatalog({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelChangeSet(params);
+  const data = await client.cancelChangeSet(params);
   // process data.
 } catch (error) {
   // error handling.

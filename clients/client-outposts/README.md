@@ -136,7 +136,7 @@ const client = new AWS.Outposts({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createOutpost(params);
+  const data = await client.createOutpost(params);
   // process data.
 } catch (error) {
   // error handling.

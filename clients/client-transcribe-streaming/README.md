@@ -137,7 +137,7 @@ const client = new AWS.TranscribeStreaming({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.startMedicalStreamTranscription(params);
+  const data = await client.startMedicalStreamTranscription(params);
   // process data.
 } catch (error) {
   // error handling.

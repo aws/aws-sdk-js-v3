@@ -165,7 +165,7 @@ const client = new AWS.WorkMail({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateDelegateToResource(params);
+  const data = await client.associateDelegateToResource(params);
   // process data.
 } catch (error) {
   // error handling.

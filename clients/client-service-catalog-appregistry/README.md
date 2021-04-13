@@ -137,7 +137,7 @@ const client = new AWS.ServiceCatalogAppRegistry({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateAttributeGroup(params);
+  const data = await client.associateAttributeGroup(params);
   // process data.
 } catch (error) {
   // error handling.

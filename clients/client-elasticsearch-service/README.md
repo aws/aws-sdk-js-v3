@@ -144,7 +144,7 @@ const client = new AWS.ElasticsearchService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.acceptInboundCrossClusterSearchConnection(params);
+  const data = await client.acceptInboundCrossClusterSearchConnection(params);
   // process data.
 } catch (error) {
   // error handling.

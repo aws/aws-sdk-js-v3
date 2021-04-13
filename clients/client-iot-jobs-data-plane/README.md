@@ -141,7 +141,7 @@ const client = new AWS.IoTJobsDataPlane({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeJobExecution(params);
+  const data = await client.describeJobExecution(params);
   // process data.
 } catch (error) {
   // error handling.

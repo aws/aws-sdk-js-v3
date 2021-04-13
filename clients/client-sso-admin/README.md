@@ -129,7 +129,7 @@ const client = new AWS.SSOAdmin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.attachManagedPolicyToPermissionSet(params);
+  const data = await client.attachManagedPolicyToPermissionSet(params);
   // process data.
 } catch (error) {
   // error handling.

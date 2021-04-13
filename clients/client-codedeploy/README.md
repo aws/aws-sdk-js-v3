@@ -231,7 +231,7 @@ const client = new AWS.CodeDeploy({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addTagsToOnPremisesInstances(params);
+  const data = await client.addTagsToOnPremisesInstances(params);
   // process data.
 } catch (error) {
   // error handling.

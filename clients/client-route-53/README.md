@@ -131,7 +131,7 @@ const client = new AWS.Route53({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateVPCWithHostedZone(params);
+  const data = await client.associateVPCWithHostedZone(params);
   // process data.
 } catch (error) {
   // error handling.

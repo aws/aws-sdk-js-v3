@@ -132,7 +132,7 @@ const client = new AWS.AppSync({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createApiCache(params);
+  const data = await client.createApiCache(params);
   // process data.
 } catch (error) {
   // error handling.

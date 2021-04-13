@@ -131,7 +131,7 @@ const client = new AWS.Rekognition({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.compareFaces(params);
+  const data = await client.compareFaces(params);
   // process data.
 } catch (error) {
   // error handling.

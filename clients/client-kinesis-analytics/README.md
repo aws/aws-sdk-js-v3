@@ -147,7 +147,7 @@ const client = new AWS.KinesisAnalytics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.addApplicationCloudWatchLoggingOption(params);
+  const data = await client.addApplicationCloudWatchLoggingOption(params);
   // process data.
 } catch (error) {
   // error handling.

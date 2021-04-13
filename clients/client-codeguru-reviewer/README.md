@@ -146,7 +146,7 @@ const client = new AWS.CodeGuruReviewer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateRepository(params);
+  const data = await client.associateRepository(params);
   // process data.
 } catch (error) {
   // error handling.

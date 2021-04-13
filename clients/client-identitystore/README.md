@@ -129,7 +129,7 @@ const client = new AWS.Identitystore({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeGroup(params);
+  const data = await client.describeGroup(params);
   // process data.
 } catch (error) {
   // error handling.

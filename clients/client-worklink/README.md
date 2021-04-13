@@ -137,7 +137,7 @@ const client = new AWS.WorkLink({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateDomain(params);
+  const data = await client.associateDomain(params);
   // process data.
 } catch (error) {
   // error handling.

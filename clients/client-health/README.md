@@ -168,7 +168,7 @@ const client = new AWS.Health({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.describeAffectedAccountsForOrganization(params);
+  const data = await client.describeAffectedAccountsForOrganization(params);
   // process data.
 } catch (error) {
   // error handling.

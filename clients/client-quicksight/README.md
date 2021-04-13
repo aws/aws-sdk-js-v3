@@ -136,7 +136,7 @@ const client = new AWS.QuickSight({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.cancelIngestion(params);
+  const data = await client.cancelIngestion(params);
   // process data.
 } catch (error) {
   // error handling.

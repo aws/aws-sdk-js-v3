@@ -139,7 +139,7 @@ const client = new AWS.FMS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.associateAdminAccount(params);
+  const data = await client.associateAdminAccount(params);
   // process data.
 } catch (error) {
   // error handling.

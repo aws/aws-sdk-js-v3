@@ -166,7 +166,7 @@ const client = new AWS.ResourceGroups({ region: "REGION" });
 
 // async/await.
 try {
-  const data = client.createGroup(params);
+  const data = await client.createGroup(params);
   // process data.
 } catch (error) {
   // error handling.
