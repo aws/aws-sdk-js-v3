@@ -1191,6 +1191,7 @@ export enum Runtime {
   nodejs = "nodejs",
   nodejs10x = "nodejs10.x",
   nodejs12x = "nodejs12.x",
+  nodejs14x = "nodejs14.x",
   nodejs43 = "nodejs4.3",
   nodejs43edge = "nodejs4.3-edge",
   nodejs610 = "nodejs6.10",
