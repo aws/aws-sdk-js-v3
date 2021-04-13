@@ -173,6 +173,11 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   const headers: any = {};
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
+    ...(input.queryParamsMapOfStrings !== undefined &&
+      Object.entries(input.queryParamsMapOfStrings || {}).reduce(
+        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
+        {}
+      )),
     ...(input.queryString !== undefined && { String: input.queryString }),
     ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
@@ -1148,6 +1153,11 @@ export const serializeAws_restXmlQueryParamsAsStringListMapCommand = async (
   const headers: any = {};
   let resolvedPath = "/StringListMap";
   const query: any = {
+    ...(input.foo !== undefined &&
+      Object.entries(input.foo || {}).reduce(
+        (acc: any, [key, value]: [string, string[]]) => ({ ...acc, [key]: (value || []).map((_entry) => _entry) }),
+        {}
+      )),
     ...(input.qux !== undefined && { corge: input.qux }),
   };
   let body: any;
@@ -1171,6 +1181,11 @@ export const serializeAws_restXmlQueryPrecedenceCommand = async (
   const headers: any = {};
   let resolvedPath = "/Precedence";
   const query: any = {
+    ...(input.baz !== undefined &&
+      Object.entries(input.baz || {}).reduce(
+        (acc: any, [key, value]: [string, string]) => ({ ...acc, [key]: value }),
+        {}
+      )),
     ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
