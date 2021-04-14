@@ -94,6 +94,11 @@ import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
+import {
+  QueryParamsAsStringListMapCommandInput,
+  QueryParamsAsStringListMapCommandOutput,
+} from "../commands/QueryParamsAsStringListMapCommand";
+import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "../commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "../commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommandInput,
@@ -168,6 +173,7 @@ export const serializeAws_restXmlAllQueryStringTypesCommand = async (
   const headers: any = {};
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
+    ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
     ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
@@ -1121,6 +1127,54 @@ export const serializeAws_restXmlQueryIdempotencyTokenAutoFillCommand = async (
   let resolvedPath = "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlQueryParamsAsStringListMapCommand = async (
+  input: QueryParamsAsStringListMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/StringListMap";
+  const query: any = {
+    ...(input.foo !== undefined && input.foo),
+    ...(input.qux !== undefined && { corge: input.qux }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlQueryPrecedenceCommand = async (
+  input: QueryPrecedenceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/Precedence";
+  const query: any = {
+    ...(input.baz !== undefined && input.baz),
+    ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3372,6 +3426,92 @@ const deserializeAws_restXmlQueryIdempotencyTokenAutoFillCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlQueryParamsAsStringListMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryParamsAsStringListMapCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlQueryParamsAsStringListMapCommandError(output, context);
+  }
+  const contents: QueryParamsAsStringListMapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlQueryParamsAsStringListMapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryParamsAsStringListMapCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlQueryPrecedenceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryPrecedenceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlQueryPrecedenceCommandError(output, context);
+  }
+  const contents: QueryPrecedenceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlQueryPrecedenceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryPrecedenceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),

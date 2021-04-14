@@ -145,6 +145,16 @@ import {
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
 import {
+  QueryParamsAsStringListMapCommand,
+  QueryParamsAsStringListMapCommandInput,
+  QueryParamsAsStringListMapCommandOutput,
+} from "./commands/QueryParamsAsStringListMapCommand";
+import {
+  QueryPrecedenceCommand,
+  QueryPrecedenceCommandInput,
+  QueryPrecedenceCommandOutput,
+} from "./commands/QueryPrecedenceCommand";
+import {
   RecursiveShapesCommand,
   RecursiveShapesCommandInput,
   RecursiveShapesCommandOutput,
@@ -1228,6 +1238,64 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: QueryIdempotencyTokenAutoFillCommandOutput) => void
   ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> | void {
     const command = new QueryIdempotencyTokenAutoFillCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public queryParamsAsStringListMap(
+    args: QueryParamsAsStringListMapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryParamsAsStringListMapCommandOutput>;
+  public queryParamsAsStringListMap(
+    args: QueryParamsAsStringListMapCommandInput,
+    cb: (err: any, data?: QueryParamsAsStringListMapCommandOutput) => void
+  ): void;
+  public queryParamsAsStringListMap(
+    args: QueryParamsAsStringListMapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QueryParamsAsStringListMapCommandOutput) => void
+  ): void;
+  public queryParamsAsStringListMap(
+    args: QueryParamsAsStringListMapCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryParamsAsStringListMapCommandOutput) => void),
+    cb?: (err: any, data?: QueryParamsAsStringListMapCommandOutput) => void
+  ): Promise<QueryParamsAsStringListMapCommandOutput> | void {
+    const command = new QueryParamsAsStringListMapCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public queryPrecedence(
+    args: QueryPrecedenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryPrecedenceCommandOutput>;
+  public queryPrecedence(
+    args: QueryPrecedenceCommandInput,
+    cb: (err: any, data?: QueryPrecedenceCommandOutput) => void
+  ): void;
+  public queryPrecedence(
+    args: QueryPrecedenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QueryPrecedenceCommandOutput) => void
+  ): void;
+  public queryPrecedence(
+    args: QueryPrecedenceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryPrecedenceCommandOutput) => void),
+    cb?: (err: any, data?: QueryPrecedenceCommandOutput) => void
+  ): Promise<QueryPrecedenceCommandOutput> | void {
+    const command = new QueryPrecedenceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

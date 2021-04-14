@@ -85,6 +85,11 @@ import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "./commands/QueryIdempotencyTokenAutoFillCommand";
+import {
+  QueryParamsAsStringListMapCommandInput,
+  QueryParamsAsStringListMapCommandOutput,
+} from "./commands/QueryParamsAsStringListMapCommand";
+import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "./commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "./commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommandInput,
@@ -188,6 +193,8 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
+  | QueryParamsAsStringListMapCommandInput
+  | QueryPrecedenceCommandInput
   | RecursiveShapesCommandInput
   | SimpleScalarPropertiesCommandInput
   | StreamingTraitsCommandInput
@@ -229,6 +236,8 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
+  | QueryParamsAsStringListMapCommandOutput
+  | QueryPrecedenceCommandOutput
   | RecursiveShapesCommandOutput
   | SimpleScalarPropertiesCommandOutput
   | StreamingTraitsCommandOutput

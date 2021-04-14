@@ -85,6 +85,11 @@ import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
 } from "../commands/QueryIdempotencyTokenAutoFillCommand";
+import {
+  QueryParamsAsStringListMapCommandInput,
+  QueryParamsAsStringListMapCommandOutput,
+} from "../commands/QueryParamsAsStringListMapCommand";
+import { QueryPrecedenceCommandInput, QueryPrecedenceCommandOutput } from "../commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommandInput, RecursiveShapesCommandOutput } from "../commands/RecursiveShapesCommand";
 import {
   SimpleScalarPropertiesCommandInput,
@@ -114,6 +119,7 @@ import {
   NestedPayload,
   RecursiveShapesInputOutputNested1,
   RecursiveShapesInputOutputNested2,
+  RenamedGreeting,
   StructureListMember,
 } from "../models/models_0";
 import {
@@ -144,6 +150,7 @@ export const serializeAws_restJson1AllQueryStringTypesCommand = async (
   const headers: any = {};
   let resolvedPath = "/AllQueryStringTypesInput";
   const query: any = {
+    ...(input.queryParamsMapOfStrings !== undefined && input.queryParamsMapOfStrings),
     ...(input.queryString !== undefined && { String: input.queryString }),
     ...(input.queryStringList !== undefined && { StringList: (input.queryStringList || []).map((_entry) => _entry) }),
     ...(input.queryStringSet !== undefined && {
@@ -1205,6 +1212,54 @@ export const serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand = async 
   let resolvedPath = "/QueryIdempotencyTokenAutoFill";
   const query: any = {
     ...(input.token !== undefined && { token: input.token }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1QueryParamsAsStringListMapCommand = async (
+  input: QueryParamsAsStringListMapCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/StringListMap";
+  const query: any = {
+    ...(input.foo !== undefined && input.foo),
+    ...(input.qux !== undefined && { corge: input.qux }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1QueryPrecedenceCommand = async (
+  input: QueryPrecedenceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/Precedence";
+  const query: any = {
+    ...(input.baz !== undefined && input.baz),
+    ...(input.foo !== undefined && { bar: input.foo }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -3114,6 +3169,92 @@ const deserializeAws_restJson1QueryIdempotencyTokenAutoFillCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1QueryParamsAsStringListMapCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryParamsAsStringListMapCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1QueryParamsAsStringListMapCommandError(output, context);
+  }
+  const contents: QueryParamsAsStringListMapCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1QueryParamsAsStringListMapCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryParamsAsStringListMapCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1QueryPrecedenceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryPrecedenceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1QueryPrecedenceCommandError(output, context);
+  }
+  const contents: QueryPrecedenceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1QueryPrecedenceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryPrecedenceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1RecursiveShapesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3580,6 +3721,9 @@ const serializeAws_restJson1MyUnion = (input: MyUnion, context: __SerdeContext):
     listValue: (value) => ({ listValue: serializeAws_restJson1StringList(value, context) }),
     mapValue: (value) => ({ mapValue: serializeAws_restJson1StringMap(value, context) }),
     numberValue: (value) => ({ numberValue: value }),
+    renamedStructureValue: (value) => ({
+      renamedStructureValue: serializeAws_restJson1RenamedGreeting(value, context),
+    }),
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: serializeAws_restJson1GreetingStruct(value, context) }),
     timestampValue: (value) => ({ timestampValue: Math.round(value.getTime() / 1000) }),
@@ -3674,6 +3818,12 @@ const serializeAws_restJson1StructureListMember = (input: StructureListMember, c
   return {
     ...(input.a !== undefined && input.a !== null && { value: input.a }),
     ...(input.b !== undefined && input.b !== null && { other: input.b }),
+  };
+};
+
+const serializeAws_restJson1RenamedGreeting = (input: RenamedGreeting, context: __SerdeContext): any => {
+  return {
+    ...(input.salutation !== undefined && input.salutation !== null && { salutation: input.salutation }),
   };
 };
 
@@ -3911,6 +4061,11 @@ const deserializeAws_restJson1MyUnion = (output: any, context: __SerdeContext): 
       numberValue: output.numberValue,
     };
   }
+  if (output.renamedStructureValue !== undefined && output.renamedStructureValue !== null) {
+    return {
+      renamedStructureValue: deserializeAws_restJson1RenamedGreeting(output.renamedStructureValue, context),
+    };
+  }
   if (output.stringValue !== undefined && output.stringValue !== null) {
     return {
       stringValue: output.stringValue,
@@ -4016,6 +4171,12 @@ const deserializeAws_restJson1StructureListMember = (output: any, context: __Ser
   return {
     a: output.value !== undefined && output.value !== null ? output.value : undefined,
     b: output.other !== undefined && output.other !== null ? output.other : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RenamedGreeting = (output: any, context: __SerdeContext): RenamedGreeting => {
+  return {
+    salutation: output.salutation !== undefined && output.salutation !== null ? output.salutation : undefined,
   } as any;
 };
 

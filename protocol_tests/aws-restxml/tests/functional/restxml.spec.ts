@@ -28,6 +28,8 @@ import { NoInputAndOutputCommand } from "../../commands/NoInputAndOutputCommand"
 import { NullAndEmptyHeadersClientCommand } from "../../commands/NullAndEmptyHeadersClientCommand";
 import { OmitsNullSerializesEmptyStringCommand } from "../../commands/OmitsNullSerializesEmptyStringCommand";
 import { QueryIdempotencyTokenAutoFillCommand } from "../../commands/QueryIdempotencyTokenAutoFillCommand";
+import { QueryParamsAsStringListMapCommand } from "../../commands/QueryParamsAsStringListMapCommand";
+import { QueryPrecedenceCommand } from "../../commands/QueryPrecedenceCommand";
 import { RecursiveShapesCommand } from "../../commands/RecursiveShapesCommand";
 import { SimpleScalarPropertiesCommand } from "../../commands/SimpleScalarPropertiesCommand";
 import { TimestampFormatHeadersCommand } from "../../commands/TimestampFormatHeadersCommand";
@@ -222,6 +224,12 @@ it("AllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
+
+    queryParamsMapOfStrings: {
+      QueryParamsStringKeyA: "Foo",
+
+      QueryParamsStringKeyB: "Bar",
+    } as any,
   } as any);
   try {
     await client.send(command);
@@ -271,6 +279,8 @@ it("AllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+    expect(queryString).toContain("QueryParamsStringKeyA=Foo");
+    expect(queryString).toContain("QueryParamsStringKeyB=Bar");
 
     expect(r.body).toBeFalsy();
   }
@@ -2407,9 +2417,9 @@ it("NullAndEmptyHeaders:Request", async () => {
 });
 
 /**
- * Serializes empty query strings but omits null
+ * Omits null query values
  */
-it("OmitsNullSerializesEmptyString:Request", async () => {
+it("RestXmlOmitsNullQuery:Request", async () => {
   const client = new RestXmlProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2417,7 +2427,34 @@ it("OmitsNullSerializesEmptyString:Request", async () => {
 
   const command = new OmitsNullSerializesEmptyStringCommand({
     nullValue: null,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/OmitsNullSerializesEmptyString");
 
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes empty query strings
+ */
+it("RestXmlSerializesEmptyString:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OmitsNullSerializesEmptyStringCommand({
     emptyString: "",
   } as any);
   try {
@@ -2499,6 +2536,83 @@ it("QueryIdempotencyTokenAutoFillIsSet:Request", async () => {
 
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("token=00000000-0000-4000-8000-000000000000");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serialize query params from map of list strings
+ */
+it("RestXmlQueryParamsStringListMap:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryParamsAsStringListMapCommand({
+    qux: "named",
+
+    foo: {
+      baz: ["bar", "qux"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StringListMap");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("corge=named");
+    expect(queryString).toContain("baz=bar");
+    expect(queryString).toContain("baz=qux");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Prefer named query parameters when serializing
+ */
+it("RestXmlQueryPrecedence:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new QueryPrecedenceCommand({
+    foo: "named",
+
+    baz: {
+      bar: "fromMap",
+
+      qux: "alsoFromMap",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/Precedence");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("bar=named");
+    expect(queryString).toContain("qux=alsoFromMap");
 
     expect(r.body).toBeFalsy();
   }
